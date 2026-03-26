@@ -20,11 +20,32 @@ objects:
     downstream:
       - REG-SOT-0001
       - SRC-SOT-0001
+      - DOC-SOT-0002
     tests: []
     interfaces: []
     exports: []
     provenance: []
     path: docs/ARCHITECTURE.md
+    placeholder: false
+  - id: DOC-SOT-0002
+    name: ciel_omega_demo_integration
+    layer: architecture
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+      - REG-SOT-0003
+    downstream:
+      - MAP-SOT-0001
+      - SRC-SOT-0002
+    tests:
+      - TST-SOT-0002
+    interfaces:
+      - IF-SOT-0001
+    exports: []
+    provenance: []
+    path: docs/CIEL_OMEGA_DEMO_INTEGRATION.md
     placeholder: false
   - id: ANL-SOT-0001
     name: relational_analogies
@@ -89,6 +110,7 @@ objects:
     downstream:
       - SRC-SOT-0001
       - SRC-SOT-0002
+      - MAP-SOT-0001
     tests:
       - TST-SOT-0001
     interfaces: []
@@ -126,6 +148,8 @@ objects:
       - DOC-SOT-0001
     downstream:
       - SRC-SOT-0002
+      - MAP-SOT-0001
+      - DOC-SOT-0002
     tests:
       - TST-SOT-0002
     interfaces:
@@ -133,6 +157,28 @@ objects:
     exports: []
     provenance: []
     path: integration/gh_upstreams.json
+    placeholder: false
+  - id: MAP-SOT-0001
+    name: ciel_omega_demo_shell_map
+    layer: registry
+    status: canonical
+    provenance_type: imported
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0002
+      - REG-SOT-0003
+    downstream:
+      - SRC-SOT-0002
+      - RPT-SOT-0002
+    tests:
+      - TST-SOT-0002
+    interfaces:
+      - IF-SOT-0001
+    exports:
+      - imported_shell_map
+    provenance:
+      - AdrianLipa90/ciel-omega-demo
+    path: integration/upstreams/ciel_omega_demo_shell_map.json
     placeholder: false
   - id: SRC-SOT-0001
     name: repo_phase_model
@@ -168,6 +214,7 @@ objects:
       - REG-SOT-0001
       - REG-SOT-0002
       - REG-SOT-0003
+      - MAP-SOT-0001
     downstream:
       - RPT-SOT-0002
     tests:
@@ -190,6 +237,7 @@ objects:
       - REG-SOT-0003
     downstream:
       - SRC-SOT-0002
+      - MAP-SOT-0001
     tests:
       - TST-SOT-0002
     interfaces: []
@@ -221,6 +269,7 @@ objects:
     owner_layer: tests
     upstream:
       - SRC-SOT-0002
+      - MAP-SOT-0001
     downstream: []
     tests: []
     interfaces: []
@@ -251,6 +300,7 @@ objects:
     owner_layer: integration
     upstream:
       - SRC-SOT-0002
+      - MAP-SOT-0001
     downstream: []
     tests: []
     interfaces: []

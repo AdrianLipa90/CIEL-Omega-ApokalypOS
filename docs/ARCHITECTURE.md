@@ -66,6 +66,36 @@ The synchronizer computes:
 - pairwise phase tensions,
 - simple convergence diagnostics.
 
+## Shell import binding
+
+The first explicit shell-level import binding now targets:
+
+- `AdrianLipa90/ciel-omega-demo`
+
+Within this architecture, that upstream repository is treated as:
+
+- shell,
+- cockpit,
+- UI surface,
+- educational and publication layer,
+- runtime presentation layer.
+
+It is not treated here as the engine.
+
+That distinction matters because the future engine-facing direction is reserved for the later `Informational Dynamics` binding.
+
+The current imported shell objects are documented in:
+
+- `docs/CIEL_OMEGA_DEMO_INTEGRATION.md`
+- `integration/upstreams/ciel_omega_demo_shell_map.json`
+
+This means the integration layer now distinguishes between:
+
+- **native SOT integration objects**, and
+- **imported demo shell objects**.
+
+That separation is required to avoid false canonical ownership and to keep shell-versus-engine architecture legible.
+
 ## Cross-reference rule
 
 Every conceptual file in `docs/` should appear in `integration/hyperspace_index.json`.
