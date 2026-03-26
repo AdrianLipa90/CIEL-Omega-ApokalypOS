@@ -69,13 +69,16 @@ Their job is to tell the integration layer:
 
 ---
 
-## Machine-readable companion
+## Machine-readable companions
 
-The machine-readable companion file is:
+The machine-readable companion files are:
 
 - `integration/upstreams/ciel_omega_demo_shell_map.json`
+- `integration/upstreams/ciel_omega_demo_inventory.json`
 
-That file is the authoritative first-pass mapping of imported demo shell objects inside this repository.
+The first file is the authoritative first-pass mapping of imported demo shell objects inside this repository.
+
+The second file is the pinned upstream inventory snapshot used to validate that imported `upstream_path` values still point to known shell-facing paths in `ciel-omega-demo`.
 
 ---
 
@@ -85,9 +88,10 @@ The correct next integration step is not random expansion.
 It is:
 
 1. keep the shell map current,
-2. preserve shell-versus-engine distinction,
-3. later identify which `Informational Dynamics` folder becomes the engine target,
-4. then bind shell objects to engine objects explicitly.
+2. keep the inventory snapshot current,
+3. preserve shell-versus-engine distinction,
+4. later identify which `Informational Dynamics` folder becomes the engine target,
+5. then bind shell objects to engine objects explicitly.
 
 ---
 
@@ -100,5 +104,6 @@ What is now established is simple and important:
 
 > `ciel-omega-demo` is already a tracked upstream shell.
 >
-> `CIEL-_SOT_Agent` now begins to index and bind that shell explicitly,
-> while keeping engine semantics separate.
+> `CIEL-_SOT_Agent` now indexes and binds that shell explicitly,
+> validates its imported paths against a pinned upstream inventory,
+> and keeps engine semantics separate.

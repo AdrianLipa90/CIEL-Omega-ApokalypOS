@@ -10,6 +10,8 @@ import yaml
 
 DEMO_SHELL_MAP_OBJECT_ID = 'MAP-SOT-0001'
 DEMO_SHELL_MAP_SCHEMA = 'ciel-sot-agent/demo-shell-map/v0.1'
+DEMO_SHELL_INVENTORY_SCHEMA = 'ciel-sot-agent/upstream-inventory/v0.1'
+DEMO_SHELL_INVENTORY_PATH = 'integration/upstreams/ciel_omega_demo_inventory.json'
 REQUIRED_DEMO_OBJECT_FIELDS = (
     'id',
     'name',
@@ -36,11 +38,51 @@ def load_json_file(path: str | Path) -> dict[str, Any]:
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
+def validate_demo_shell_inventory_data(
+    inventory: Mapping[str, Any],
+    *,
+    map_object_id: str = DEMO_SHELL_MAP_OBJECT_ID,
+    expected_upstream_repo: str | None = None,
+) -> tuple[list[ValidationIssue], set[str]]:
+    issues: list[ValidationIssue] = []
+
+    if str(inventory.get('schema', '')) != DEMO_SHELL_INVENTORY_SCHEMA:
+        issues.append(ValidationIssue('error', map_object_id, 'demo shell inventory schema mismatch'))
+
+    upstream_repo = str(inventory.get('upstream_repo', '')).strip()
+    if not upstream_repo:
+        issues.append(ValidationIssue('error', map_object_id, 'demo shell inventory has no upstream_repo'))
+    elif expected_upstream_repo and upstream_repo != expected_upstream_repo:
+        issues.append(ValidationIssue('error', map_object_id, 'demo shell inventory upstream_repo does not match shell map upstream_repo'))
+
+    if not str(inventory.get('ref', '')).strip():
+        issues.append(ValidationIssue('error', map_object_id, 'demo shell inventory has no ref'))
+
+    if not str(inventory.get('ref_sha', '')).strip():
+        issues.append(ValidationIssue('error', map_object_id, 'demo shell inventory has no ref_sha'))
+
+    raw_paths = inventory.get('paths')
+    if not isinstance(raw_paths, list) or not raw_paths:
+        issues.append(ValidationIssue('error', map_object_id, 'demo shell inventory has no paths list'))
+        return issues, set()
+
+    known_paths: set[str] = set()
+    for raw_path in raw_paths:
+        normalized = str(raw_path).strip()
+        if not normalized:
+            issues.append(ValidationIssue('error', map_object_id, 'demo shell inventory contains empty path'))
+            continue
+        known_paths.add(normalized)
+
+    return issues, known_paths
+
+
 def validate_demo_shell_map_data(
     shell_map: Mapping[str, Any],
     *,
     map_object: Mapping[str, Any],
     registry_ids: set[str],
+    known_upstream_paths: set[str] | None = None,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     map_object_id = str(map_object.get('id', DEMO_SHELL_MAP_OBJECT_ID))
@@ -100,6 +142,8 @@ def validate_demo_shell_map_data(
             if upstream_path in seen_paths:
                 issues.append(ValidationIssue('warning', map_object_id, f'duplicate upstream_path in demo shell map: {upstream_path}'))
             seen_paths.add(upstream_path)
+            if known_upstream_paths is not None and upstream_path not in known_upstream_paths:
+                issues.append(ValidationIssue('error', map_object_id, f'imported demo object {imported_id} references unknown upstream_path: {upstream_path}'))
 
         bindings = imported.get('sot_bindings', []) or []
         if not isinstance(bindings, list) or not bindings:
@@ -170,12 +214,41 @@ def validate_index_registry(root: str | Path) -> list[ValidationIssue]:
     map_object = object_map.get(DEMO_SHELL_MAP_OBJECT_ID)
     if map_object:
         map_path = root / str(map_object.get('path', ''))
+        known_upstream_paths: set[str] | None = None
+        upstream_repo = None
         try:
             shell_map = load_json_file(map_path)
-        except Exception as exc:  # pragma: no cover - exercised through failing repos, not unit fixture
+        except Exception as exc:  # pragma: no cover
             issues.append(ValidationIssue('error', DEMO_SHELL_MAP_OBJECT_ID, f'cannot parse demo shell map: {exc}'))
+            shell_map = None
         else:
-            issues.extend(validate_demo_shell_map_data(shell_map, map_object=map_object, registry_ids=ids))
+            upstream_repo = str(shell_map.get('upstream_repo', '')).strip() or None
+
+        inventory_path = root / DEMO_SHELL_INVENTORY_PATH
+        if not inventory_path.exists():
+            issues.append(ValidationIssue('error', DEMO_SHELL_MAP_OBJECT_ID, f'demo shell inventory missing: {DEMO_SHELL_INVENTORY_PATH}'))
+        else:
+            try:
+                inventory = load_json_file(inventory_path)
+            except Exception as exc:  # pragma: no cover
+                issues.append(ValidationIssue('error', DEMO_SHELL_MAP_OBJECT_ID, f'cannot parse demo shell inventory: {exc}'))
+            else:
+                inventory_issues, known_upstream_paths = validate_demo_shell_inventory_data(
+                    inventory,
+                    map_object_id=DEMO_SHELL_MAP_OBJECT_ID,
+                    expected_upstream_repo=upstream_repo,
+                )
+                issues.extend(inventory_issues)
+
+        if shell_map is not None:
+            issues.extend(
+                validate_demo_shell_map_data(
+                    shell_map,
+                    map_object=map_object,
+                    registry_ids=ids,
+                    known_upstream_paths=known_upstream_paths,
+                )
+            )
 
     return issues
 
