@@ -1,0 +1,53 @@
+{
+  "schema": "ciel-sot-agent/hyperspace-index-orbital/v0.1",
+  "documents": [
+    {
+      "key": "orbital_import_overview",
+      "path": "integration/Orbital/README.md",
+      "kind": "integration-import",
+      "crossrefs": ["integration/Orbital/IMPORT_MANIFEST_V2.md", "docs/ORBital_INTEGRATION_ADDENDUM.md"]
+    },
+    {
+      "key": "orbital_import_manifest_v2",
+      "path": "integration/Orbital/IMPORT_MANIFEST_V2.md",
+      "kind": "integration-manifest-addendum",
+      "crossrefs": ["integration/Orbital/README.md", "integration/Orbital/main/global_pass.py"]
+    },
+    {
+      "key": "orbital_package_scope",
+      "path": "integration/Orbital/main/AGENT1.md",
+      "kind": "scope",
+      "crossrefs": ["integration/Orbital/main/global_pass.py", "scripts/run_orbital_global_pass.py"]
+    },
+    {
+      "key": "orbital_global_pass",
+      "path": "integration/Orbital/main/global_pass.py",
+      "kind": "runner",
+      "crossrefs": ["integration/Orbital/main/dynamics.py", "integration/Orbital/main/metrics.py", "scripts/run_orbital_global_pass.py"]
+    },
+    {
+      "key": "orbital_dynamics",
+      "path": "integration/Orbital/main/dynamics.py",
+      "kind": "code",
+      "crossrefs": ["integration/Orbital/main/metrics.py", "integration/Orbital/main/registry.py"]
+    },
+    {
+      "key": "orbital_metrics",
+      "path": "integration/Orbital/main/metrics.py",
+      "kind": "code",
+      "crossrefs": ["integration/Orbital/main/model.py", "integration/Orbital/main/dynamics.py", "integration/Orbital/main/global_pass.py"]
+    },
+    {
+      "key": "orbital_geometry_extract",
+      "path": "integration/Orbital/main/extract_geometry.py",
+      "kind": "geometry-builder",
+      "crossrefs": ["integration/Orbital/main/global_pass.py", "integration/Orbital/main/manifests/sectors_global.json", "integration/Orbital/main/manifests/couplings_global.json"]
+    },
+    {
+      "key": "orbital_launcher",
+      "path": "scripts/run_orbital_global_pass.py",
+      "kind": "launcher",
+      "crossrefs": ["integration/Orbital/main/global_pass.py", "docs/ORBital_INTEGRATION_ADDENDUM.md"]
+    }
+  ]
+}
