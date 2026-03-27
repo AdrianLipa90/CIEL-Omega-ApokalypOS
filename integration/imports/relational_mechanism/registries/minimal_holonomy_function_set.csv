@@ -1,0 +1,4 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+1,ciel_omega/memory/holonomy.py,compute_holonomy,W_ij / holonomy core,computes the holonomy or transport quantity along the relevant path/state transition,direct carrier of the holonomy mechanism,confirmed-mechanism
+2,ciel_omega/memory/holonomy.py,holonomy_phase,gamma / phase from holonomy,extracts or represents the phase contribution associated with holonomy,holonomy is not useful operationally without its phase representation,confirmed-mechanism
+3,ciel_omega/memory/potential.py,V_holonomy,holonomy potential,maps holonomic state into a potential or energy-like term used by the mechanism,minimal potential-side completion for holonomy to affect dynamics,confirmed-mechanism
