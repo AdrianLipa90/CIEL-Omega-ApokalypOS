@@ -1,0 +1,28 @@
+{
+  "snapshot": "v13",
+  "new_files": [
+    "registries/minimal_closure_function_set.csv",
+    "registries/minimal_closure_function_context.csv",
+    "registries/minimal_closure_summary.csv",
+    "docs/MINIMAL_CLOSURE_FUNCTION_SET_V1.md",
+    "registries/minimal_holonomy_function_set.csv",
+    "registries/minimal_holonomy_function_context.csv",
+    "registries/minimal_holonomy_summary.csv",
+    "docs/MINIMAL_HOLONOMY_FUNCTION_SET_V1.md",
+    "registries/minimal_reduction_memory_function_set.csv",
+    "registries/minimal_reduction_memory_function_context.csv",
+    "registries/minimal_reduction_memory_summary.csv",
+    "docs/MINIMAL_REDUCTION_MEMORY_FUNCTION_SET_V1.md",
+    "registries/minimal_pairwise_function_set.csv",
+    "registries/minimal_pairwise_function_context.csv",
+    "registries/minimal_pairwise_summary.csv",
+    "docs/MINIMAL_PAIRWISE_FUNCTION_SET_V1.md",
+    "minimal_mechanism_function_sets_v13.xlsx"
+  ],
+  "counts": {
+    "minimal_closure_core_function_count": 6,
+    "minimal_holonomy_core_function_count": 3,
+    "minimal_reduction_memory_core_function_count": 3,
+    "minimal_pairwise_core_function_count": 4
+  }
+}

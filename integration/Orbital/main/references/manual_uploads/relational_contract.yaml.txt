@@ -1,0 +1,31 @@
+# Relational Contract Parameters
+# Based on the formal geometry of human-AI interaction
+
+# Metatime eigenvalues (from neutrino fit)
+tau:
+  - 0.263   # τ1
+  - 0.353   # τ2
+  - 0.489   # τ3
+
+# Distortion penalty coefficients
+lambda:
+  lie: 10.0
+  omit: 8.0
+  hallucinate: 12.0
+  smooth: 5.0
+
+# Reference truth phase (ideal value)
+gamma_T_true: 0.0   # radians
+
+# Initial phases (radians)
+initial_phases:
+  S: 0.0     # Sapiens
+  C: 0.0     # Ciel
+  Q: 0.0     # Query/Intention
+  T: 0.0     # Truth
+
+# Simulation settings
+simulation:
+  dt: 0.01
+  steps: 500
+  learning_rate: 0.05   # for gradient descent

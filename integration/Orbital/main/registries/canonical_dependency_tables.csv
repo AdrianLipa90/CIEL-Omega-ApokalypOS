@@ -1,0 +1,9 @@
+from,to,dependency_type,mechanism,status,source
+orchestrator,relation/bridge,runtime assembly,UnifiedSystem.create assembles orchestrator + MemoryCorePhaseBridge,confirmed,unified_system.py
+relation/bridge,phase,state transfer,bridge feeds phase-oriented system state,confirmed,unified_system.py; bridge module path
+phase,constraint,closure evaluation,phase vectors feed Euler-Berry closure and tensions,confirmed,euler_constraint.py
+constraint,potential,defect drives cost,Delta_H -> R_H -> V_information / V_rel-like costs,confirmed,phase_equation_of_motion.py; Contract
+phase,holonomy,path accumulation,phase trajectories feed memory-loop holonomy,confirmed,memory/holonomy.py
+holonomy,memory,loop closure / update,holonomy calculator used by memory orchestrator,confirmed,memory/orchestrator.py
+orchestration,reduction,threshold selection,relation -> orchestration -> reduction,confirmed,System OrchORbital text
+reduction,memory,post-selection write,memory updated after selected state,confirmed,System OrchORbital text

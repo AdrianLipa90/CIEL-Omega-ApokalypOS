@@ -1,0 +1,16 @@
+{
+  "snapshot_name": "SNAPSHOT_2026-03-26_v4",
+  "created_utc": "2026-03-26T23:44:54.447059Z",
+  "added_files": [
+    "registries/canonical_couplings.csv",
+    "registries/canonical_symbol_runtime_pipeline.csv",
+    "registries/canonical_dependency_tables.csv",
+    "docs/CANONICAL_TABLES_V1.md",
+    "canonical_tables_v1.xlsx"
+  ],
+  "notes": [
+    "Canonicalized tables focus on confirmed/candidate/unresolved separation.",
+    "Mechanism-first, no new metrics introduced.",
+    "A_ij retained as toy-model effective pair kernel notation."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "snapshot": "v8",
+  "new_or_updated": [
+    "registries/next_certainties.csv",
+    "registries/runtime_topology_metrics.csv",
+    "registries/runtime_bridge_files.csv",
+    "registries/runtime_mechanical_density.csv",
+    "docs/NEXT_CERTAINTIES_V1.md",
+    "next_certainties_v1.xlsx",
+    "registries/file_file_matrix_only_pewniaki.csv"
+  ],
+  "counts": {
+    "runtime_python_file_count": 246,
+    "runtime_import_edge_count": 97,
+    "runtime_orchestrator_root_count": 13,
+    "runtime_scc_count_size_gt_1": 1,
+    "runtime_bridge_like_file_count": 32,
+    "mechanically_active_file_count": 181
+  }
+}

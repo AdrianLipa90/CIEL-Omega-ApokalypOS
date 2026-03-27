@@ -1,0 +1,7 @@
+level,node,runtime_anchor,role,status,source
+0,orchestrator,ciel_omega/ciel_orchestrator.py; ciel_omega/unified_system.py,top-level control / assembly,confirmed,canonical_symbol_runtime_pipeline_only_pewniaki.csv
+1,relation/bridge,ciel_omega/bridge/memory_core_phase_bridge.py,bridge between orchestrator and phase-aware state,confirmed,canonical_dependency_tables_only_pewniaki.csv
+2,phase,ciel_omega/phase_equation_of_motion.py; ciel_omega/constraints/euler_constraint.py,"phase sectors, closure defect, Euler-Berry evaluation",confirmed,canonical_symbol_runtime_pipeline_only_pewniaki.csv
+3,potential,ciel_omega/phase_equation_of_motion.py; ciel_omega/fields/intention_field.py,defect-to-cost mapping and field projection,confirmed,canonical_symbol_runtime_pipeline_only_pewniaki.csv
+3,holonomy,ciel_omega/memory/holonomy.py,white-thread / memory-loop holonomy,confirmed,canonical_symbol_runtime_pipeline_only_pewniaki.csv
+4,memory,ciel_omega/memory/orchestrator.py,post-holonomy / post-reduction write and orchestration,confirmed,canonical_symbol_runtime_pipeline_only_pewniaki.csv

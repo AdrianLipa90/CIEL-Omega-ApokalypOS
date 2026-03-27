@@ -1,0 +1,10 @@
+metric,value
+assign_count,71
+call_count,116
+if_count,5
+loop_count,3
+return_count,12
+binop_count,72
+compare_count,6
+comprehension_count,3
+try_count,0

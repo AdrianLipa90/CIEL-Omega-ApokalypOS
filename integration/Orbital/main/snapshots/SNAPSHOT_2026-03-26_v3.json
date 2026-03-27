@@ -1,0 +1,15 @@
+{
+  "version": "v3",
+  "date": "2026-03-26",
+  "added_files": [
+    "docs/RUNTIME_TARGETS_V0.md",
+    "registries/runtime_symbol_targets.csv",
+    "registries/runtime_symbol_function_targets.csv",
+    "registries/runtime_file_symbol_hits.csv"
+  ],
+  "notes": [
+    "Expanded symbol-to-runtime targeting for current mechanism symbols.",
+    "Added raw per-file symbol hit table with orchestrator depth.",
+    "Added function-level candidate targets by naming evidence."
+  ]
+}

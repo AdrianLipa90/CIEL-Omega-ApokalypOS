@@ -1,0 +1,8 @@
+[project]
+name = "ciel-relational-mechanism"
+version = "0.1.0"
+description = "Canonical mapping repo for CIEL_OMEGA_COMPLETE_SYSTEM"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+package-dir = {"" = "src"}

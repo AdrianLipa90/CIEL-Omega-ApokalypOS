@@ -1,0 +1,19 @@
+{
+  "snapshot_name": "SNAPSHOT_2026-03-26_v2",
+  "file_count": 328,
+  "key_additions": [
+    "docs/FORMALISM_V0.md",
+    "docs/COUPLING_MATRIX.md",
+    "registries/coupling_matrix.csv",
+    "registries/emergent_values.csv",
+    "registries/toy_sim_history.csv",
+    "src/ciel_relational_mechanism/sim/phase_toy.py",
+    "scripts/run_toy_sim.py"
+  ],
+  "notes": [
+    "mechanism only",
+    "no metric closure",
+    "A_ij is working notation",
+    "D_f unresolved"
+  ]
+}

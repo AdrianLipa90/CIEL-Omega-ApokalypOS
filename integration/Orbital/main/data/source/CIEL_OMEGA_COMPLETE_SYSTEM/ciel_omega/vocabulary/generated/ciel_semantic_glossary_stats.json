@@ -1,0 +1,341 @@
+{
+  "generated_at": "2026-03-24",
+  "total_cards": 39,
+  "card_type_counts": {
+    "axiom": 5,
+    "constant": 4,
+    "space": 1,
+    "formalism": 5,
+    "constraint": 3,
+    "effect": 2,
+    "operator": 4,
+    "coupling": 2,
+    "observable": 2,
+    "seed": 3,
+    "attractor": 2,
+    "state": 3,
+    "memory": 1,
+    "topology": 2
+  },
+  "class_counts": {
+    "axiom": 5,
+    "constant": 4,
+    "space": 1,
+    "field": 2,
+    "formalism": 1,
+    "constraint": 3,
+    "observable": 4,
+    "operator": 4,
+    "channel": 1,
+    "functional": 1,
+    "seed": 3,
+    "attractor": 2,
+    "phase": 1,
+    "state": 3,
+    "memory": 1,
+    "topology": 2,
+    "trajectory": 1
+  },
+  "status_counts": {
+    "axiom": 5,
+    "hypothesis": 5,
+    "research_note": 5,
+    "measured": 2,
+    "working_definition": 1,
+    "canonical_record": 17,
+    "operational": 4
+  },
+  "runtime_binding_coverage": {
+    "runtime_bound_cards": 9,
+    "coverage_fraction": 0.23076923076923078
+  },
+  "relation_graph": {
+    "edge_count": 107,
+    "top_out_degree": [
+      [
+        "GLOSS-CONSTRAINT-EULER",
+        6
+      ],
+      [
+        "GLOSS-FUNCTIONAL-HOLONOMY-CLOSURE",
+        6
+      ],
+      [
+        "GLOSS-OPERATOR-INFORMATION-I0",
+        5
+      ],
+      [
+        "GLOSS-CHANNEL-HOLONOMY-WHITE-THREADS",
+        5
+      ],
+      [
+        "GLOSS-OBSERVABLE-TRANSPORT-SPECTRUM",
+        5
+      ],
+      [
+        "GLOSS-OBSERVABLE-CP-TRIANGLE-LOOP-PHASE",
+        5
+      ],
+      [
+        "GLOSS-FORMALISM-HOLONOMY-LAGRANGIAN",
+        4
+      ],
+      [
+        "GLOSS-OPERATOR-CLOSURE-CORE",
+        4
+      ],
+      [
+        "GLOSS-PHASE-SCALAR-BASE",
+        4
+      ],
+      [
+        "GLOSS-MEMORY-TRACE-BASE",
+        4
+      ]
+    ],
+    "top_in_degree_targets": [
+      [
+        "closure",
+        9
+      ],
+      [
+        "identity",
+        9
+      ],
+      [
+        "trajectory",
+        7
+      ],
+      [
+        "memory",
+        7
+      ],
+      [
+        "A_mu",
+        4
+      ],
+      [
+        "WhiteThreads",
+        4
+      ],
+      [
+        "winding",
+        4
+      ],
+      [
+        "F_munu",
+        3
+      ],
+      [
+        "loop",
+        3
+      ],
+      [
+        "CP^n",
+        2
+      ]
+    ]
+  },
+  "tag_counts_top20": [
+    [
+      "domain:foundations",
+      26
+    ],
+    [
+      "domain:omega",
+      25
+    ],
+    [
+      "bind:registry",
+      23
+    ],
+    [
+      "math:topology",
+      23
+    ],
+    [
+      "layer:runtime",
+      20
+    ],
+    [
+      "status:canonical_record",
+      17
+    ],
+    [
+      "layer:foundations",
+      14
+    ],
+    [
+      "domain:metatime",
+      11
+    ],
+    [
+      "role:closure",
+      9
+    ],
+    [
+      "bind:runtime",
+      9
+    ],
+    [
+      "math:spectrum",
+      8
+    ],
+    [
+      "bind:derived",
+      7
+    ],
+    [
+      "sector:neutrino",
+      6
+    ],
+    [
+      "type:formalism",
+      6
+    ],
+    [
+      "type:axiom",
+      5
+    ],
+    [
+      "status:axiom",
+      5
+    ],
+    [
+      "role:phase",
+      5
+    ],
+    [
+      "status:research_note",
+      5
+    ],
+    [
+      "role:holonomy",
+      5
+    ],
+    [
+      "math:connection",
+      5
+    ]
+  ],
+  "tag_correlations_top20": [
+    [
+      "domain:omega",
+      "layer:runtime",
+      20
+    ],
+    [
+      "domain:omega",
+      "math:topology",
+      17
+    ],
+    [
+      "domain:omega",
+      "status:canonical_record",
+      17
+    ],
+    [
+      "bind:registry",
+      "domain:omega",
+      16
+    ],
+    [
+      "bind:registry",
+      "domain:foundations",
+      15
+    ],
+    [
+      "domain:foundations",
+      "math:topology",
+      15
+    ],
+    [
+      "layer:runtime",
+      "math:topology",
+      15
+    ],
+    [
+      "domain:foundations",
+      "layer:foundations",
+      14
+    ],
+    [
+      "bind:registry",
+      "math:topology",
+      14
+    ],
+    [
+      "layer:runtime",
+      "status:canonical_record",
+      14
+    ],
+    [
+      "bind:registry",
+      "status:canonical_record",
+      13
+    ],
+    [
+      "domain:foundations",
+      "domain:omega",
+      12
+    ],
+    [
+      "bind:registry",
+      "layer:runtime",
+      11
+    ],
+    [
+      "math:topology",
+      "status:canonical_record",
+      10
+    ],
+    [
+      "bind:registry",
+      "layer:foundations",
+      9
+    ],
+    [
+      "domain:foundations",
+      "role:closure",
+      9
+    ],
+    [
+      "bind:runtime",
+      "domain:omega",
+      9
+    ],
+    [
+      "bind:runtime",
+      "layer:runtime",
+      9
+    ],
+    [
+      "math:topology",
+      "role:closure",
+      8
+    ],
+    [
+      "domain:foundations",
+      "domain:metatime",
+      8
+    ]
+  ],
+  "semantic_memory_ledgers": [
+    {
+      "path": "systems/CIEL_OMEGA_COMPLETE_SYSTEM/CIEL_MEMORY_SYSTEM/TSM/ledger/memory_ledger.db",
+      "rows": 0
+    },
+    {
+      "path": "systems/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/CIEL_MEMORY_SYSTEM/TSM/ledger/memory_ledger.db",
+      "rows": 0
+    }
+  ],
+  "semantic_glossary_db_tables": [
+    "cards",
+    "crossrefs",
+    "relations",
+    "runtime_bindings",
+    "source_paths",
+    "tags"
+  ]
+}

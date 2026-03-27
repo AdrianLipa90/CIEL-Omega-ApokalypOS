@@ -1,0 +1,21 @@
+{
+  "snapshot_id": "SNAPSHOT_2026-03-26_v5",
+  "created_utc": "2026-03-26T23:48:40Z",
+  "focus": "only-pewniaki canonical tables",
+  "added_files": [
+    "registries/canonical_couplings_only_pewniaki.csv",
+    "registries/canonical_symbol_runtime_pipeline_only_pewniaki.csv",
+    "registries/canonical_dependency_tables_only_pewniaki.csv",
+    "registries/formal_symbols_only_pewniaki.csv",
+    "registries/emergent_values_only_pewniaki.csv",
+    "canonical_tables_v2_only_pewniaki.xlsx",
+    "docs/CANONICAL_TABLES_V2_ONLY_PEWNIAKI.md"
+  ],
+  "counts": {
+    "couplings_only_pewniaki": 9,
+    "runtime_map_only_pewniaki": 11,
+    "dependencies_only_pewniaki": 8,
+    "formal_symbols_only_pewniaki": 11,
+    "emergent_values_only_pewniaki": 9
+  }
+}

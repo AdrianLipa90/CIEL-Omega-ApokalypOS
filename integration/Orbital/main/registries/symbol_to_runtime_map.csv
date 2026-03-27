@@ -1,0 +1,7 @@
+symbol,runtime_path,runtime_object,mapping_type,confidence,note
+Delta_H,ciel_omega/constraints/euler_constraint.py,module,direct-name/constraint,high,explicit canonical runtime target
+gamma_i,ciel_omega/fields/intention_field.py,module,phase-field candidate,medium,phase semantics likely distributed
+Sigma_i,ciel_omega/fields/sigma_series.py,module,name-level candidate,medium,name match only; inspect later
+R_H,ciel_omega/memory/holonomy.py,module,holonomy/coherence candidate,medium,needs manual confirmation
+tau_i,ciel_omega/time,package-candidate,conceptual,low,package may not exist yet; derive from runtime mapping later
+W_ij,ciel_omega/orbital/global_pass.py,module,orbital/holonomy candidate,low,manual confirmation required

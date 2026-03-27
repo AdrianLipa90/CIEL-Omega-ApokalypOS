@@ -1,0 +1,10 @@
+name,status,value,note
+Delta_H_start,confirmed,4,From initial phases S=C=Q=T=0
+R_H_start,confirmed,16,From |Delta_H|^2 with Delta_H=4
+four_phase_residual_dof,confirmed,1,Relative 4-phase closure leaves one real degree of freedom
+three_phase_closure_family,confirmed,"{chi, chi+2pi/3, chi+4pi/3}",Reduced 3-phase closure family
+Sigma_local_form,confirmed,"(tau_i, gamma_i, F_i)",Local fingerprint form
+beta_pair_candidate,candidate,31.62,"Calibration result from uploaded notes/results, not SoT"
+D_f_old_candidate,candidate,2.7,"Older PDF candidate only, supersedable"
+D_f_new_candidate,candidate,~2.5,"User-indicated newer-doc candidate, not yet frozen"
+D_f_status,unresolved,derived_not_fixed,Do not freeze until derived or newer source confirmed

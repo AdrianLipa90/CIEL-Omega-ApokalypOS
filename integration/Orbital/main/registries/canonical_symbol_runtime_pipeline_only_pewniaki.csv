@@ -1,0 +1,12 @@
+symbol,runtime_path,runtime_object,function_name,pipeline_layer,status,evidence,note,strictness
+orchestrator,ciel_omega/ciel_orchestrator.py,module/class,CIELOrchestrator,orchestrator,confirmed,direct module/class name,canonical top-level orchestrator,confirmed
+unified_system,ciel_omega/unified_system.py,module/class,UnifiedSystem.create; UnifiedSystem.run_text_cycle,orchestrator,confirmed,direct class name,primary assembly of orchestrator + bridge,confirmed
+Delta_H,ciel_omega/phase_equation_of_motion.py,function,delta_H,phase,confirmed,exact function name,direct closure sum implementation,confirmed
+R_H,ciel_omega/phase_equation_of_motion.py,function,R_H,phase,confirmed,exact function name,direct defect norm implementation,confirmed
+V_rel / V_information,ciel_omega/phase_equation_of_motion.py,function,V_information,potential,confirmed,exact function name + truth note,information potential over phase vector,confirmed
+EulerBerry,ciel_omega/constraints/euler_constraint.py,module/functions,evaluate_unified_euler_constraint; euler_constraint_violation; apply_active_euler_feedback,constraint,confirmed,module path + function names,canonical multi-sector closure/feedback layer,confirmed
+gamma_i / phase sectors,ciel_omega/constraints/euler_constraint.py,dataclass/module,EulerConstraintReport,phase,confirmed,phase vectors in dataclass,memory/core/vocabulary/affect/unified phase vectors,confirmed
+A / Intention field,ciel_omega/fields/intention_field.py,class,IntentionField.generate; IntentionField.project,field,confirmed,direct class name,field-like projection/generation layer,confirmed
+W_ij / holonomy,ciel_omega/memory/holonomy.py,classes,HolonomyCalculator.compute_dynamical_phase; MemoryLoop.is_closed,holonomy,confirmed,module/class docstrings,Euler-Berry-Aharonov-Bohm memory-loop holonomy,confirmed
+memory orchestrator,ciel_omega/memory/orchestrator.py,class,HolonomicMemoryOrchestrator,memory,confirmed,direct class name,runtime memory orchestrator with identity phase,confirmed
+memory-core phase bridge,ciel_omega/bridge/memory_core_phase_bridge.py,module,(inspect later),bridge,confirmed,module path,bridge between memory and core phase layer,confirmed

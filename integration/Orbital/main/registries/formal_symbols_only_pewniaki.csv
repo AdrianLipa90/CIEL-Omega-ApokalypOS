@@ -1,0 +1,12 @@
+symbol,meaning,status,source,note
+tau_i,family eigenvalue / topological index,confirmed,Sigma.pdf; relational_contract,appears in Sigma_i and contract tau start values
+gamma_i,phase / Berry phase per cycle,confirmed,Sigma.pdf; Metatime_with_Euler_extension,feeds Delta_H
+Delta_H,closure defect sum,confirmed,Contract _Sapiens-AI; relational_contract,sum of exp(i gamma_k)
+R_H,defect norm,confirmed,Contract _Sapiens-AI; phase_equation_of_motion,|Delta_H|^2
+V_rel,relational potential,confirmed,Contract _Sapiens-AI,kappa_H R_H + V_I + V_D
+Sigma_i,local topological fingerprint,confirmed,Sigma.pdf,"(tau_i, gamma_i, F_i)"
+W_ij,white-thread holonomy,confirmed,Sigma.pdf; Metatime_with_Euler_extension,path-ordered holonomy
+F_ij,pairwise correction,confirmed,Sigma.pdf,built from pair relation / holonomy
+epsilon,micro coupling,confirmed,Metatime_with_Euler_extension,linked to D by Euler-Berry
+D,macro amplitude / cosmological term,confirmed,Metatime_with_Euler_extension; Lambda_meta,linked to epsilon
+A_ij,effective pair kernel (toy notation),confirmed-mechanism,user rule + A/W_ij/F_ij machinery,kept as effective pair coupling notation

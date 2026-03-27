@@ -1,0 +1,12 @@
+symbol,runtime_path,function_name,pipeline_layer,orchestrator_depth,status,note
+orchestrator,ciel_omega/ciel_orchestrator.py,CIELOrchestrator,orchestrator,0,confirmed,canonical top-level orchestrator
+unified_system,ciel_omega/unified_system.py,UnifiedSystem.create; UnifiedSystem.run_text_cycle,orchestrator,,confirmed,primary assembly of orchestrator + bridge
+memory-core phase bridge,ciel_omega/bridge/memory_core_phase_bridge.py,(inspect later),bridge,,confirmed,bridge between memory and core phase layer
+gamma_i / phase sectors,ciel_omega/constraints/euler_constraint.py,EulerConstraintReport,phase,,confirmed,memory/core/vocabulary/affect/unified phase vectors
+Delta_H,ciel_omega/phase_equation_of_motion.py,delta_H,phase,,confirmed,direct closure sum implementation
+R_H,ciel_omega/phase_equation_of_motion.py,R_H,phase,,confirmed,direct defect norm implementation
+EulerBerry,ciel_omega/constraints/euler_constraint.py,evaluate_unified_euler_constraint; euler_constraint_violation; apply_active_euler_feedback,constraint,,confirmed,canonical multi-sector closure/feedback layer
+A / Intention field,ciel_omega/fields/intention_field.py,IntentionField.generate; IntentionField.project,field,,confirmed,field-like projection/generation layer
+W_ij / holonomy,ciel_omega/memory/holonomy.py,HolonomyCalculator.compute_dynamical_phase; MemoryLoop.is_closed,holonomy,1,confirmed,Euler-Berry-Aharonov-Bohm memory-loop holonomy
+V_rel / V_information,ciel_omega/phase_equation_of_motion.py,V_information,potential,,confirmed,information potential over phase vector
+memory orchestrator,ciel_omega/memory/orchestrator.py,HolonomicMemoryOrchestrator,memory,0,confirmed,runtime memory orchestrator with identity phase

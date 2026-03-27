@@ -1,0 +1,3 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+0,ciel_omega/orbital/global_pass.py,run_global_pass,orbital global pass,operational entrypoint that extracts geometry and computes pairwise coupling matrix,runtime entry context for pairwise layer,confirmed-context
+0,ciel_omega/orbital/dynamics.py,step,orbital dynamics,consumes pairwise matrix during system evolution,runtime dynamics context for A_ij usage,confirmed-context

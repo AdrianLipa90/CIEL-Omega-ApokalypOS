@@ -1,0 +1,3 @@
+scc_id,component_size,runtime_path,module,orchestrator_depth,scc_min_depth,contains_orchestrator_root
+SCC_1,2,ciel_omega/core/braid/glyphs.py,ciel_omega.core.braid.glyphs,,,0
+SCC_1,2,ciel_omega/core/braid/loops.py,ciel_omega.core.braid.loops,,,0

@@ -1,0 +1,4 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+1,ciel_omega/runtime/orchestration.py,reduction_ready,reduction gate,checks whether the current state crosses the reduction threshold,no reduction without a gate,confirmed-mechanism
+2,ciel_omega/runtime/reduction.py,reduce_state,reduction operator,selects the stable state / decision / update,direct reduction action,confirmed-mechanism
+3,ciel_omega/memory/base.py,update_memory_state,memory update,writes the reduction residue into memory state,memory is downstream of reduction,confirmed-mechanism

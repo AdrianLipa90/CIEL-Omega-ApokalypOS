@@ -1,0 +1,4 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+0,ciel_omega/runtime/orchestration.py,orchestrate_step,orchestration,prepares state before reduction,runtime context for reduction,confirmed-context
+0,ciel_omega/bridge/memory_core_phase_bridge.py,MemoryCorePhaseBridge.step,bridge,moves state from core/phase into memory-updating path,runtime bridge context,confirmed-context
+0,ciel_omega/unified_system.py,UnifiedSystem.run_text_cycle,unified_system,operational entrypoint for reduction-memory execution,runtime entry context,confirmed-context

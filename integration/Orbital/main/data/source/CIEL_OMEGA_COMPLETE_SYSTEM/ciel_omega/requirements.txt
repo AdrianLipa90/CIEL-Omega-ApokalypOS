@@ -1,0 +1,16 @@
+# CIEL/Ω Core Dependencies
+numpy>=1.24.0
+scipy>=1.10.0
+matplotlib>=3.7.0
+networkx>=3.0
+sympy>=1.12
+
+# Optional: LLM Integration
+# llama-cpp-python>=0.2.0  # Uncomment for GGUF support
+# transformers>=4.30.0     # Uncomment for HuggingFace support
+# torch>=2.0.0             # Uncomment for transformers backend
+
+# Optional: Advanced Features
+# h5py>=3.8.0              # HDF5 wave storage
+# streamlit>=1.25.0        # Dashboard
+# pandas>=2.0.0            # Data analysis

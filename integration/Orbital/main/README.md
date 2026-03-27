@@ -1,35 +1,61 @@
-# orbital
+# CIEL Relational Mechanism Repo
 
-Status: **active orbital coherence layer with runtime bridge**.
+Status: **canonical mechanism and registry repo** for the embedded `CIEL_OMEGA_COMPLETE_SYSTEM` snapshot contained in `data/source/CIEL_OMEGA_COMPLETE_SYSTEM/`.
 
-This subsystem is not just a passive chart renderer. In the current audited build it does four concrete jobs:
+## Scope
 
-1. **derive real repository geometry** from imports, README mesh, AGENT mesh, and structural manifests,
-2. **construct the orbital system** with sector states, Berry phases, Poincare distances, closure residuals, and zeta support,
-3. **evolve the system** under the relational Lagrangian / Euler-leak dynamics,
-4. **bridge the final state into runtime policy and memory metadata** through `ciel/orbital_memory_loop.py`.
+This repository is the **mechanism layer**, not the final physics closure and not a product-level orbital cockpit.
 
-So the right description is:
+Primary outputs in this repo:
+- runtime file inventory
+- runtime function inventory
+- orchestrator-down dependency graph
+- formal symbol registry from contract / PDF references
+- symbol-to-runtime mapping scaffolds
+- phase coupling / Euler-Berry mechanism tables
+- documentation audit notes and canonical documentation map
 
-> orbital is the coherence-and-control layer that reads real structure, computes global state, and feeds runtime restraint / depth policy.
+Primary registries:
+- `registries/runtime_files.csv`
+- `registries/runtime_functions.csv`
+- `registries/orchestrator_graph_edges.csv`
+- `registries/formal_symbols.csv`
+- `registries/symbol_to_runtime_map.csv`
+- `registries/phase_couplings.csv`
 
-It is still true that this layer is **read-only with respect to repository content** during the global pass itself. It writes reports/manifests, but it does not mutate source files or perform autonomous repo edits.
+## Out of scope
 
-## What the subsystem already computes
+Out of scope at this stage:
+- final derivations of `D_f`, `J(epsilon)`, or full metric closure
+- treating any single PDF as Source of Truth
+- presenting the embedded runtime as a fully integrated orbital product
+- claiming that the orbital subsystem already closes the runtime decision loop
 
-- sector geometry `(theta, phi, rho)`
-- pair couplings `A_ij(tau_i, tau_j, Omega_ij, d_ij)`
-- global coherence `R_H`
-- chord tension `T_glob`
-- global chirality `Lambda_glob`
-- closure penalty / residuals
-- zeta tetra defect and effective zeta coupling
-- spectral observables of the orbital adjacency / Laplacian
-- runtime control recommendation (`safe` / `standard` / `deep`)
-- RH policy overlay (`normal_operation` / `slow_execution_local_correction` / `freeze_and_rebuild_closure`)
+## Working rule
 
-## Current role in the full system
+1. inventory
+2. map
+3. graph
+4. only then derive
 
-`input -> orbital pass -> control recommendation -> runtime policy -> memory metadata / wave attrs`
+## Documentation canon
 
-That means the orbital subsystem is already participating in the live execution loop, even though it is not yet the sole global governor of every subsystem.
+Read these first:
+1. `docs/DOCUMENTATION_CANON.md`
+2. `docs/MECHANISM_SCOPE.md`
+3. `docs/FORMALISM_V0.md`
+4. `docs/MD_AUDIT_NOTES.md`
+5. `data/source/CIEL_OMEGA_COMPLETE_SYSTEM/README.md`
+
+## Current audit status
+
+Current local audit state on this workspace:
+- package import topology normalized
+- test suite passing
+- CLI smoke run passing
+- orbital subsystem functional as a diagnostic engine
+- orbital subsystem not yet proven to be the active runtime control law
+
+See:
+- `docs/AUDIT_REPORT_2026-03-27.md`
+- `docs/AUDIT_REPORT_2026-03-27_CONTINUATION.md`

@@ -1,0 +1,26 @@
+{
+  "snapshot": "v16",
+  "new_files": [
+    "registries/file_operation_inventory_v1.csv",
+    "registries/function_operation_inventory_v1.csv",
+    "registries/operation_graph_edges_v1.csv",
+    "registries/minimal_operation_kernel_v1.csv",
+    "registries/micro_next_certainties_v1.csv",
+    "docs/MICRO_OPERATION_INVENTORY_V1.md",
+    "micro_operation_inventory_v1.xlsx"
+  ],
+  "counts": {
+    "micro_target_file_count": 3,
+    "micro_target_function_count": 84,
+    "micro_critical_function_count": 10,
+    "assign_count": 71,
+    "call_count": 116,
+    "if_count": 5,
+    "loop_count": 3,
+    "return_count": 12,
+    "binop_count": 72,
+    "compare_count": 6,
+    "comprehension_count": 3,
+    "try_count": 0
+  }
+}
