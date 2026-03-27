@@ -1,0 +1,29 @@
+{
+  "schema": "ciel-sot-agent/sapiens-settings-defaults/v0.1",
+  "identity": {
+    "sapiens_id": "sapiens",
+    "relation_label": "human-model",
+    "preferred_mode": "guided",
+    "truth_axis": "truth",
+    "memory_policy": "session-first"
+  },
+  "interaction_policy": {
+    "packet_memory_excerpt_length": 6,
+    "bridge_auto_refresh": true,
+    "session_persistence": "local-report-layer",
+    "packet_mode": "packet-aware"
+  },
+  "orbital_runtime": {
+    "steps": 20,
+    "dt": 0.0205,
+    "tau_eta": 0.0085,
+    "tau_reg": 0.0024,
+    "auto_bootstrap_manifests": true
+  },
+  "ui": {
+    "system_language": "English",
+    "response_style": "guided",
+    "support_verbosity": "standard",
+    "show_raw_json": true
+  }
+}
