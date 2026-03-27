@@ -9,6 +9,7 @@ class PanelSettings:
     identity: dict[str, Any]
     interaction_policy: dict[str, Any]
     orbital_runtime: dict[str, Any]
+    reduction_policy: dict[str, Any]
     ui: dict[str, Any]
 
 

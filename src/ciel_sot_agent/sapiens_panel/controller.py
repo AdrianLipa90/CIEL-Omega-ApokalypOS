@@ -5,9 +5,10 @@ from pathlib import Path
 from typing import Any
 
 from ..orbital_bridge import build_orbital_bridge
-from ..sapiens_client import SapiensIdentity, SapiensSession, initialize_session, persist_session
+from ..sapiens_client import SapiensIdentity, initialize_session, persist_session
 from .communication import build_communication_view
 from .models import PanelSessionSummary, PanelState, PanelTabState
+from .reduction import build_reduction_state
 from .settings_store import load_panel_settings
 
 
@@ -16,7 +17,7 @@ def _load_manifest(root: Path) -> dict[str, Any]:
     return json.loads(manifest_path.read_text(encoding='utf-8'))
 
 
-def _session_summary(session: SapiensSession) -> PanelSessionSummary:
+def _session_summary(session) -> PanelSessionSummary:
     return PanelSessionSummary(
         sapiens_id=session.identity.sapiens_id,
         relation_label=session.identity.relation_label,
@@ -42,6 +43,12 @@ def build_panel_state(root: str | Path, user_text: str = 'Hello, model.', sapien
     )
     session = initialize_session(root, identity=identity)
     communication = build_communication_view(session, user_text)
+    reduction = build_reduction_state(
+        bridge_summary,
+        session,
+        communication['packet'],
+        settings={'reduction_policy': settings.reduction_policy},
+    )
     paths = persist_session(root, session, communication['packet'])
 
     control_tab = PanelTabState(
@@ -52,8 +59,10 @@ def build_panel_state(root: str | Path, user_text: str = 'Hello, model.', sapien
             'system_health': bridge_summary.get('health_manifest', {}).get('system_health', 0.0),
             'mode': bridge_summary.get('recommended_control', {}).get('mode', 'guided'),
             'recommended_action': bridge_summary.get('health_manifest', {}).get('recommended_action', 'guided interaction'),
+            'orchestration_state': reduction.get('orchestration_state', {}),
+            'reduction_state': reduction.get('reduction_state', {}),
         },
-        actions=['Run Orbital Pass', 'Run Bridge Update', 'Build Model Packet', 'Export Current State'],
+        actions=['Run Orbital Pass', 'Run Bridge Update', 'Evaluate Reduction Readiness', 'Commit Reduction / Identity Update', 'Export Current State'],
     )
 
     settings_tab = PanelTabState(
@@ -62,6 +71,7 @@ def build_panel_state(root: str | Path, user_text: str = 'Hello, model.', sapien
             'identity': settings.identity,
             'interaction_policy': settings.interaction_policy,
             'orbital_runtime': settings.orbital_runtime,
+            'reduction_policy': settings.reduction_policy,
             'ui': settings.ui,
         },
         actions=['Update Settings', 'Reset Defaults'],
@@ -69,7 +79,11 @@ def build_panel_state(root: str | Path, user_text: str = 'Hello, model.', sapien
 
     communication_tab = PanelTabState(
         title='Communication',
-        summary=communication,
+        summary={
+            **communication,
+            'reduction_state': reduction.get('reduction_state', {}),
+            'memory_residue': reduction.get('memory_residue', {}),
+        },
         actions=['Append User Turn', 'Persist Session', 'Export Transcript'],
     )
 
@@ -78,6 +92,8 @@ def build_panel_state(root: str | Path, user_text: str = 'Hello, model.', sapien
         summary={
             'health_manifest': bridge_summary.get('health_manifest', {}),
             'recommended_control': bridge_summary.get('recommended_control', {}),
+            'reduction_state': reduction.get('reduction_state', {}),
+            'memory_residue': reduction.get('memory_residue', {}),
             'artifact_paths': paths,
         },
         actions=['Rebuild Manifests', 'Regenerate Bridge Report', 'Reset Session', 'Export Bundle'],
@@ -102,7 +118,7 @@ def build_panel_state(root: str | Path, user_text: str = 'Hello, model.', sapien
 def run_sapiens_panel(root: str | Path, user_text: str = 'Hello, model.', sapiens_id: str = 'sapiens') -> dict[str, Any]:
     state = build_panel_state(root, user_text=user_text, sapiens_id=sapiens_id)
     return {
-        'schema': 'ciel-sot-agent/sapiens-panel-run/v0.1',
+        'schema': 'ciel-sot-agent/sapiens-panel-run/v0.2',
         'panel_state': {
             'control': state.control.summary,
             'settings': state.settings.summary,
