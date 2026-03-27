@@ -1,0 +1,14 @@
+{
+  "import_name": "orbital-main-sync",
+  "target_repo": "AdrianLipa90/CIEL-_SOT_Agent",
+  "target_path": "integration/Orbital/main",
+  "source_snapshot": "CIEL_RELATIONAL_MECHANISM_REPO_snapshot_no_gguf_post_holonomic_consolidation_2026-03-27_v2.zip",
+  "source_module_root": "CIEL_RELATIONAL_MECHANISM_REPO/data/source/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital",
+  "source_manifest_root": "CIEL_RELATIONAL_MECHANISM_REPO/manifests/orbital",
+  "branch": "integration-orbital-main-sync-20260327-1",
+  "notes": [
+    "Integration import only.",
+    "Does not alter the theory repository.",
+    "Imported from the audited no-GGUF snapshot."
+  ]
+}
