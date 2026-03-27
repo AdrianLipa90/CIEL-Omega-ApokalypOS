@@ -1,0 +1,486 @@
+schema: ciel-sot-agent/index-registry/v0.2
+meta:
+  authority: docs/INDEX_REFACTOR_V2.md
+  migration_mode: compatibility-preserving
+  layer_policy:
+    global_index: docs/INDEX_REFACTOR_V2.md
+    machine_registry: integration/registries/index_registry_v2.yaml
+    crossrefs: integration/indices/hyperspace_index_v2.json
+  notes:
+    - V2 registry points to the target repository geometry while legacy paths remain temporarily valid.
+    - The orbital sector remains a protected exception and is tracked by dedicated orbital indices.
+objects:
+  - id: GOV-SOT-0001
+    name: agent_protocol
+    layer: protocol
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: governance
+    upstream: []
+    downstream:
+      - GOV-SOT-0002
+      - DOC-SOT-0001
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: governance/AGENT.md
+    placeholder: false
+  - id: GOV-SOT-0002
+    name: agent_cross_info
+    layer: coordination
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: governance
+    upstream:
+      - GOV-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: governance/coordination/agentcrossinfo.md
+    placeholder: false
+  - id: DOC-SOT-0001
+    name: architecture
+    layer: architecture
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - GOV-SOT-0001
+    downstream:
+      - REG-SOT-0001
+      - DOC-SOT-0002
+      - DOC-SOT-0003
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/architecture/ARCHITECTURE.md
+    placeholder: false
+  - id: DOC-SOT-0002
+    name: repo_refactor_plan
+    layer: architecture
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+    downstream:
+      - DOC-SOT-0003
+      - REG-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/architecture/REPO_REFACTOR_PLAN.md
+    placeholder: false
+  - id: DOC-SOT-0003
+    name: integration_path_migration
+    layer: migration
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0002
+    downstream:
+      - REG-SOT-0004
+      - IDX-SOT-0001
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/architecture/INTEGRATION_PATH_MIGRATION.md
+    placeholder: false
+  - id: DOC-SOT-0004
+    name: ciel_omega_demo_integration
+    layer: integration
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+      - UP-SOT-0001
+    downstream:
+      - UP-SOT-0002
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/integration/CIEL_OMEGA_DEMO_INTEGRATION.md
+    placeholder: false
+  - id: DOC-SOT-0005
+    name: orbital_architecture_canon
+    layer: architecture
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: docs
+    upstream: []
+    downstream:
+      - ORB-SOT-0001
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/architecture/ORBITAL_ARCHITECTURE_CANON.md
+    placeholder: false
+  - id: DOC-SOT-0006
+    name: sapiens_surface_binding
+    layer: integration
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0005
+      - SRC-SOT-0003
+      - SRC-SOT-0004
+    downstream:
+      - GOV-SOT-0003
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/integration/SAPIENS_SURFACE_BINDING.md
+    placeholder: false
+  - id: GOV-SOT-0003
+    name: relational_formal_protocol
+    layer: protocol
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: governance
+    upstream:
+      - DOC-SOT-0006
+    downstream:
+      - GOV-SOT-0004
+      - SRC-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: governance/contracts/RELATIONAL_FORMAL_PROTOCOL.md
+    placeholder: false
+  - id: GOV-SOT-0004
+    name: sapiens_packet_protocol
+    layer: protocol
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: governance
+    upstream:
+      - GOV-SOT-0003
+      - DOC-SOT-0006
+    downstream:
+      - SRC-SOT-0004
+      - TST-SOT-0003
+      - TST-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: governance/contracts/SAPIENS_PACKET_PROTOCOL.md
+    placeholder: false
+  - id: REG-SOT-0001
+    name: repository_registry
+    layer: registry
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0001
+    downstream:
+      - REG-SOT-0002
+      - UP-SOT-0002
+      - SRC-SOT-0001
+    tests: []
+    interfaces: []
+    exports:
+      - live_registry
+    provenance: []
+    path: integration/registries/repository_registry.json
+    placeholder: false
+  - id: REG-SOT-0002
+    name: repository_couplings
+    layer: coupling
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - REG-SOT-0001
+    downstream:
+      - SRC-SOT-0001
+      - SRC-SOT-0002
+    tests: []
+    interfaces: []
+    exports:
+      - live_report
+    provenance: []
+    path: integration/couplings/repository_couplings.json
+    placeholder: false
+  - id: REG-SOT-0003
+    name: gh_coupling_state
+    layer: coupling-runtime
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - REG-SOT-0002
+      - UP-SOT-0004
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/couplings/gh_coupling_state.json
+    placeholder: false
+  - id: REG-SOT-0004
+    name: migration_index_v2
+    layer: migration
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0003
+    downstream:
+      - IDX-SOT-0001
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/MIGRATION_INDEX_V2.md
+    placeholder: false
+  - id: IDX-SOT-0001
+    name: hyperspace_index_v2
+    layer: index
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - REG-SOT-0004
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/indices/hyperspace_index_v2.json
+    placeholder: false
+  - id: UP-SOT-0001
+    name: gh_upstreams
+    layer: upstream
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream: []
+    downstream:
+      - UP-SOT-0002
+      - UP-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/upstreams/gh_upstreams.json
+    placeholder: false
+  - id: UP-SOT-0002
+    name: ciel_omega_demo_shell_map
+    layer: upstream-map
+    status: canonical-v2
+    provenance_type: imported
+    owner_layer: integration
+    upstream:
+      - UP-SOT-0001
+      - DOC-SOT-0004
+    downstream:
+      - UP-SOT-0003
+    tests: []
+    interfaces: []
+    exports:
+      - imported_shell_map
+    provenance:
+      - AdrianLipa90/ciel-omega-demo
+    path: integration/upstreams/ciel_omega_demo_shell_map.json
+    placeholder: false
+  - id: UP-SOT-0003
+    name: ciel_omega_demo_inventory
+    layer: upstream-inventory
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - UP-SOT-0002
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/upstreams/ciel_omega_demo_inventory.json
+    placeholder: false
+  - id: UP-SOT-0004
+    name: gh_live_registry
+    layer: upstream-runtime
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - UP-SOT-0001
+    downstream:
+      - REG-SOT-0003
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/upstreams/gh_live_registry.json
+    placeholder: false
+  - id: ORB-SOT-0001
+    name: orbital_index_registry
+    layer: orbital-index
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0005
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/registries/index_registry_orbital.yaml
+    placeholder: false
+  - id: SRC-SOT-0001
+    name: repo_phase_model
+    layer: code
+    status: legacy-canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - REG-SOT-0001
+      - REG-SOT-0002
+    downstream:
+      - SRC-SOT-0002
+    tests:
+      - TST-SOT-0001
+    interfaces: []
+    exports:
+      - closure_defect
+      - weighted_euler_vector
+      - pairwise_tension
+    provenance: []
+    path: src/ciel_sot_agent/repo_phase.py
+    placeholder: false
+  - id: SRC-SOT-0002
+    name: orbital_bridge
+    layer: code
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - REG-SOT-0002
+      - ORB-SOT-0001
+    downstream:
+      - SRC-SOT-0004
+    tests: []
+    interfaces: []
+    exports:
+      - orbital_bridge_report
+    provenance: []
+    path: src/ciel_sot_agent/orbital_bridge.py
+    placeholder: false
+  - id: SRC-SOT-0003
+    name: sapiens_surface_policy
+    layer: code
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - GOV-SOT-0003
+      - GOV-SOT-0004
+    downstream:
+      - SRC-SOT-0004
+      - TST-SOT-0003
+    tests:
+      - TST-SOT-0003
+    interfaces: []
+    exports:
+      - surface_policy
+    provenance: []
+    path: src/ciel_sot_agent/sapiens_surface_policy.py
+    placeholder: false
+  - id: SRC-SOT-0004
+    name: sapiens_client
+    layer: code
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - SRC-SOT-0002
+      - SRC-SOT-0003
+      - GOV-SOT-0004
+    downstream: []
+    tests:
+      - TST-SOT-0004
+      - TST-SOT-0005
+    interfaces: []
+    exports:
+      - sapiens_client_packet_v02
+    provenance: []
+    path: src/ciel_sot_agent/sapiens_client.py
+    placeholder: false
+  - id: TST-SOT-0001
+    name: repo_phase_tests
+    layer: test
+    status: legacy-canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_repo_phase.py
+    placeholder: false
+  - id: TST-SOT-0003
+    name: sapiens_surface_policy_tests
+    layer: test
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0003
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_sapiens_surface_policy.py
+    placeholder: false
+  - id: TST-SOT-0004
+    name: sapiens_client_packet_tests
+    layer: test
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0004
+      - GOV-SOT-0004
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_sapiens_client_packet.py
+    placeholder: false
+  - id: TST-SOT-0005
+    name: sapiens_persist_session_tests
+    layer: test
+    status: canonical-v2
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0004
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_sapiens_persist_session.py
+    placeholder: false

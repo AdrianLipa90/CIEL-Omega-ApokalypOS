@@ -1,0 +1,83 @@
+{
+  "schema": "ciel-sot-agent/hyperspace-index/v0.1",
+  "documents": [
+    {
+      "key": "agent_protocol",
+      "path": "AGENT.md",
+      "kind": "protocol",
+      "crossrefs": ["docs/INDEX.md", "agentcrossinfo.md"]
+    },
+    {
+      "key": "agent_cross_info",
+      "path": "agentcrossinfo.md",
+      "kind": "coordination",
+      "crossrefs": ["AGENT.md", "docs/INDEX.md"]
+    },
+    {
+      "key": "architecture",
+      "path": "docs/ARCHITECTURE.md",
+      "kind": "architecture",
+      "crossrefs": ["docs/INDEX.md", "integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py", "docs/CIEL_OMEGA_DEMO_INTEGRATION.md"]
+    },
+    {
+      "key": "ciel_omega_demo_integration",
+      "path": "docs/CIEL_OMEGA_DEMO_INTEGRATION.md",
+      "kind": "integration-note",
+      "crossrefs": ["docs/ARCHITECTURE.md", "integration/upstreams/ciel_omega_demo_shell_map.json", "integration/repository_registry.json"]
+    },
+    {
+      "key": "relational_analogies",
+      "path": "docs/analogies/RELATIONAL_ANALOGIES.md",
+      "kind": "analogy",
+      "crossrefs": ["docs/science/HYPOTHESES.md", "docs/science/DERIVATION_NOTES.md"]
+    },
+    {
+      "key": "hypotheses",
+      "path": "docs/science/HYPOTHESES.md",
+      "kind": "science-note",
+      "crossrefs": ["docs/analogies/RELATIONAL_ANALOGIES.md", "docs/science/DERIVATION_NOTES.md", "src/ciel_sot_agent/repo_phase.py"]
+    },
+    {
+      "key": "derivation_notes",
+      "path": "docs/science/DERIVATION_NOTES.md",
+      "kind": "derivation-note",
+      "crossrefs": ["docs/science/HYPOTHESES.md", "agentcrossinfo.md"]
+    },
+    {
+      "key": "repo_registry",
+      "path": "integration/repository_registry.json",
+      "kind": "registry",
+      "crossrefs": ["integration/couplings.json", "src/ciel_sot_agent/repo_phase.py", "integration/upstreams/ciel_omega_demo_shell_map.json"]
+    },
+    {
+      "key": "couplings",
+      "path": "integration/couplings.json",
+      "kind": "coupling-map",
+      "crossrefs": ["integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py"]
+    },
+    {
+      "key": "demo_shell_map",
+      "path": "integration/upstreams/ciel_omega_demo_shell_map.json",
+      "kind": "upstream-shell-map",
+      "crossrefs": ["docs/CIEL_OMEGA_DEMO_INTEGRATION.md", "integration/repository_registry.json", "integration/gh_upstreams.json"]
+    },
+    {
+      "key": "repo_phase_code",
+      "path": "src/ciel_sot_agent/repo_phase.py",
+      "kind": "code",
+      "crossrefs": ["src/ciel_sot_agent/synchronize.py", "tests/test_repo_phase.py"]
+    },
+    {
+      "key": "repo_phase_runner",
+      "path": "src/ciel_sot_agent/synchronize.py",
+      "kind": "runner",
+      "crossrefs": ["src/ciel_sot_agent/repo_phase.py", "tests/test_repo_phase.py"]
+    },
+    {
+      "key": "index_validator",
+      "path": "src/ciel_sot_agent/index_validator.py",
+      "kind": "validator",
+      "crossrefs": ["integration/index_registry.yaml", "tests/test_gh_coupling.py"]
+    }
+  ]
+}
