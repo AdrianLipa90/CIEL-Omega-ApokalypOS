@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath,amsfonts}
+\begin{document}
+\section*{Relational Seed--Orbit Solver v0}
+
+This document mirrors the canonical solver derivation placed in docs/science.
+
+\subsection*{Core mapping}
+\[
+f \to \vec{\sigma}_f \to (M_{EC}, M_{ZS}) \to M_{sem} \to A_n^{eff} \to T_f \to r_f \to \tau_f \to \Delta\phi_f \to w_f
+\]
+
+\subsection*{Seed norm}
+\[
+S_f = \sqrt{\sum_i q_i (\sigma_f^{(i)})^2}
+\]
+
+\subsection*{Semantic mass}
+\[
+M_{sem} = \alpha M_{EC} + \beta M_{ZS} + \chi C_{dep} + \delta C_{prov} + \epsilon C_{exec}
+\]
+
+\subsection*{Orbit}
+\[
+T_f^2 \propto \frac{a_f^3}{A_n^{eff}}, \quad r_f = (\kappa_T T_f^2 A_n^{eff})^{1/3}
+\]
+
+\subsection*{Phase dynamics}
+\[
+\omega_f' = -\partial_{\phi_f}V_{tot} - \eta \omega_f + \sum_j |W_{fj}|\sin(\phi_j - \phi_f)
+\]
+
+\subsection*{Winding}
+\[
+w_f = \frac{1}{2\pi}\sum_k \Delta\phi_f(k) \frac{\Delta t}{\Delta\tau_f(k)}
+\]
+
+\end{document}

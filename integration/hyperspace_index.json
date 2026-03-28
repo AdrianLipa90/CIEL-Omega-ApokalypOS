@@ -26,6 +26,24 @@
       "crossrefs": ["docs/ARCHITECTURE.md", "integration/upstreams/ciel_omega_demo_shell_map.json", "integration/repository_registry.json"]
     },
     {
+      "key": "orbital_integration_addendum",
+      "path": "docs/ORBital_INTEGRATION_ADDENDUM.md",
+      "kind": "integration-addendum",
+      "crossrefs": ["integration/Orbital/main/global_pass.py", "src/ciel_sot_agent/orbital_bridge.py", "docs/Orbitrary shifts.md"]
+    },
+    {
+      "key": "orbitalization_state",
+      "path": "docs/Orbitrary shifts.md",
+      "kind": "state-snapshot",
+      "crossrefs": ["docs/ORBital_INTEGRATION_ADDENDUM.md", "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md", "src/ciel_sot_agent/sapiens_panel/controller.py"]
+    },
+    {
+      "key": "sapiens_master_plan",
+      "path": "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md",
+      "kind": "implementation-plan",
+      "crossrefs": ["integration/sapiens/panel_manifest.json", "src/ciel_sot_agent/sapiens_panel/controller.py", "src/ciel_sot_agent/sapiens_panel/reduction.py"]
+    },
+    {
       "key": "relational_analogies",
       "path": "docs/analogies/RELATIONAL_ANALOGIES.md",
       "kind": "analogy",
@@ -72,6 +90,24 @@
       "path": "src/ciel_sot_agent/synchronize.py",
       "kind": "runner",
       "crossrefs": ["src/ciel_sot_agent/repo_phase.py", "tests/test_repo_phase.py"]
+    },
+    {
+      "key": "orbital_bridge",
+      "path": "src/ciel_sot_agent/orbital_bridge.py",
+      "kind": "bridge-runner",
+      "crossrefs": ["integration/reports/orbital_bridge/README.md", "integration/Orbital/main/global_pass.py", "docs/Orbitrary shifts.md"]
+    },
+    {
+      "key": "sapiens_panel_controller",
+      "path": "src/ciel_sot_agent/sapiens_panel/controller.py",
+      "kind": "controller",
+      "crossrefs": ["integration/sapiens/panel_manifest.json", "src/ciel_sot_agent/sapiens_panel/reduction.py", "tests/test_sapiens_panel.py"]
+    },
+    {
+      "key": "sapiens_panel_reduction",
+      "path": "src/ciel_sot_agent/sapiens_panel/reduction.py",
+      "kind": "semantics",
+      "crossrefs": ["src/ciel_sot_agent/sapiens_panel/controller.py", "integration/sapiens/settings_defaults.json", "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md"]
     },
     {
       "key": "index_validator",

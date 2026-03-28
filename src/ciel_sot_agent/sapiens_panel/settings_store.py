@@ -14,5 +14,6 @@ def load_panel_settings(root: str | Path) -> PanelSettings:
         identity=dict(data.get('identity', {})),
         interaction_policy=dict(data.get('interaction_policy', {})),
         orbital_runtime=dict(data.get('orbital_runtime', {})),
+        reduction_policy=dict(data.get('reduction_policy', {})),
         ui=dict(data.get('ui', {})),
     )

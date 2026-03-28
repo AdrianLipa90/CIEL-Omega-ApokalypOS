@@ -21,6 +21,7 @@ objects:
       - REG-SOT-0001
       - SRC-SOT-0001
       - DOC-SOT-0002
+      - DOC-SOT-0003
     tests: []
     interfaces: []
     exports: []
@@ -46,6 +47,24 @@ objects:
     exports: []
     provenance: []
     path: docs/CIEL_OMEGA_DEMO_INTEGRATION.md
+    placeholder: false
+  - id: DOC-SOT-0003
+    name: orbitalization_state_snapshot
+    layer: architecture
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+    downstream:
+      - REG-SOT-0004
+      - SRC-SOT-0003
+      - SRC-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/Orbitrary shifts.md
     placeholder: false
   - id: ANL-SOT-0001
     name: relational_analogies
@@ -158,6 +177,23 @@ objects:
     provenance: []
     path: integration/gh_upstreams.json
     placeholder: false
+  - id: REG-SOT-0004
+    name: hyperspace_index_primary
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0003
+    downstream:
+      - SRC-SOT-0003
+      - SRC-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/hyperspace_index.json
+    placeholder: false
   - id: MAP-SOT-0001
     name: ciel_omega_demo_shell_map
     layer: registry
@@ -227,6 +263,42 @@ objects:
     provenance: []
     path: src/ciel_sot_agent/gh_coupling.py
     placeholder: false
+  - id: SRC-SOT-0003
+    name: orbital_bridge
+    layer: code
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - DOC-SOT-0003
+      - REG-SOT-0004
+    downstream:
+      - RPT-SOT-0003
+    tests:
+      - TST-SOT-0003
+    interfaces: []
+    exports: []
+    provenance: []
+    path: src/ciel_sot_agent/orbital_bridge.py
+    placeholder: false
+  - id: SRC-SOT-0004
+    name: sapiens_panel_controller
+    layer: code
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - DOC-SOT-0003
+      - REG-SOT-0004
+    downstream:
+      - TST-SOT-0004
+    tests:
+      - TST-SOT-0004
+    interfaces: []
+    exports: []
+    provenance: []
+    path: src/ciel_sot_agent/sapiens_panel/controller.py
+    placeholder: false
   - id: IF-SOT-0001
     name: github_api_pull_interface
     layer: interface
@@ -277,6 +349,36 @@ objects:
     provenance: []
     path: tests/test_gh_coupling.py
     placeholder: false
+  - id: TST-SOT-0003
+    name: orbital_runtime_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0003
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_orbital_runtime.py
+    placeholder: false
+  - id: TST-SOT-0004
+    name: sapiens_panel_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0004
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_sapiens_panel.py
+    placeholder: false
   - id: RPT-SOT-0001
     name: initial_sync_report
     layer: report
@@ -308,3 +410,18 @@ objects:
     provenance: []
     path: integration/reports/live_gh_coupling_report.json
     placeholder: true
+  - id: RPT-SOT-0003
+    name: orbital_bridge_reports
+    layer: report
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - SRC-SOT-0003
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/reports/orbital_bridge/README.md
+    placeholder: false
