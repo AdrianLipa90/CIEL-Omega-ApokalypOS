@@ -12,6 +12,7 @@
 ## Scientific and semantic notes
 - `docs/analogies/RELATIONAL_ANALOGIES.md` — analogies and comparisons, explicitly marked as analogical and non-probative.
 - `docs/science/HYPOTHESES.md` — scientific hypotheses and formal working claims.
+- `docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md` — composite working hypothesis on self-measurement, self-reference, and nonzero self-closure cost in truth-facing semantic systems.
 - `docs/science/DERIVATION_NOTES.md` — compact derivation notes and bridges to imported anchors.
 
 ## Integration state
@@ -59,3 +60,4 @@
 - The orbital diagnostic path is connected to `docs/ORBital_INTEGRATION_ADDENDUM.md`, `integration/Orbital/main/global_pass.py`, and `src/ciel_sot_agent/orbital_bridge.py`.
 - The Sapiens panel path is connected to `docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md`, `integration/sapiens/panel_manifest.json`, `src/ciel_sot_agent/sapiens_panel/controller.py`, and `src/ciel_sot_agent/sapiens_panel/reduction.py`.
 - The repository orbitalization snapshot is connected to `docs/Orbitrary shifts.md`, `docs/ORBital_INTEGRATION_ADDENDUM.md`, and the main orbital/panel bridge layers.
+- The Heisenberg-Godel self-closure hypothesis is connected to `docs/science/HYPOTHESES.md`, `AGENT.md`, and `integration/hyperspace_index.json`.

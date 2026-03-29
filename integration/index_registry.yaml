@@ -91,6 +91,7 @@ objects:
     upstream:
       - ANL-SOT-0001
     downstream:
+      - HYP-SOT-0002
       - DER-SOT-0001
       - SRC-SOT-0001
     tests:
@@ -100,6 +101,21 @@ objects:
     exports: []
     provenance: []
     path: docs/science/HYPOTHESES.md
+    placeholder: false
+  - id: HYP-SOT-0002
+    name: heisenberg_godel_self_closure_hypothesis
+    layer: science
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - HYP-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md
     placeholder: false
   - id: DER-SOT-0001
     name: derivation_notes

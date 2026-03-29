@@ -53,7 +53,13 @@
       "key": "hypotheses",
       "path": "docs/science/HYPOTHESES.md",
       "kind": "science-note",
-      "crossrefs": ["docs/analogies/RELATIONAL_ANALOGIES.md", "docs/science/DERIVATION_NOTES.md", "src/ciel_sot_agent/repo_phase.py"]
+      "crossrefs": ["docs/analogies/RELATIONAL_ANALOGIES.md", "docs/science/DERIVATION_NOTES.md", "src/ciel_sot_agent/repo_phase.py", "docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md"]
+    },
+    {
+      "key": "heisenberg_godel_self_closure_hypothesis",
+      "path": "docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md",
+      "kind": "science-note",
+      "crossrefs": ["docs/science/HYPOTHESES.md", "AGENT.md", "docs/INDEX.md"]
     },
     {
       "key": "derivation_notes",
