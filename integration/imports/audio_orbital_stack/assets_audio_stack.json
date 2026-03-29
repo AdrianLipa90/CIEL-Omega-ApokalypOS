@@ -1,0 +1,81 @@
+{
+  "schema": "ciel/audio-orbital-stack-assets/v0.1",
+  "stack_identity": "audio-orbital-stack",
+  "drop_dir_candidates": [
+    "..",
+    "/mnt/data"
+  ],
+  "archives": {
+    "whisper_cpp": {
+      "display_name": "whisper.cpp",
+      "local_candidates": [
+        "whisper.cpp-master.zip"
+      ],
+      "source_url": "https://github.com/ggml-org/whisper.cpp/archive/refs/heads/master.zip",
+      "extract_to": "vendor/whisper.cpp",
+      "active_pipeline": true,
+      "semantic_role": "stt-engine"
+    },
+    "faster_whisper": {
+      "display_name": "faster-whisper",
+      "local_candidates": [
+        "faster-whisper-master.zip"
+      ],
+      "source_url": "https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.zip",
+      "extract_to": "vendor/faster-whisper",
+      "active_pipeline": false,
+      "semantic_role": "python-stt-alternative"
+    },
+    "silero_vad": {
+      "display_name": "silero-vad",
+      "local_candidates": [
+        "silero-vad-master.zip"
+      ],
+      "source_url": "https://github.com/snakers4/silero-vad/archive/refs/heads/master.zip",
+      "extract_to": "vendor/silero-vad",
+      "active_pipeline": true,
+      "semantic_role": "speech-gate"
+    },
+    "piper": {
+      "display_name": "piper",
+      "local_candidates": [
+        "piper-master.zip"
+      ],
+      "source_url": "https://github.com/rhasspy/piper/archive/refs/heads/master.zip",
+      "extract_to": "vendor/piper",
+      "active_pipeline": true,
+      "semantic_role": "tts-engine"
+    },
+    "piper_samples": {
+      "display_name": "piper-samples",
+      "local_candidates": [
+        "piper-samples-master.zip"
+      ],
+      "source_url": "https://github.com/rhasspy/piper-samples/archive/refs/heads/master.zip",
+      "extract_to": "vendor/piper-samples",
+      "extract_default": false,
+      "active_pipeline": false,
+      "semantic_role": "sample-audio-corpus"
+    }
+  },
+  "models": {
+    "whisper_model": {
+      "description": "Optional whisper.cpp model file such as ggml-base.bin",
+      "target_path": "models/whisper/ggml-base.bin",
+      "source_url": "",
+      "required": false
+    },
+    "piper_voice_model": {
+      "description": "Optional piper voice model .onnx",
+      "target_path": "models/piper/en_US-lessac-medium.onnx",
+      "source_url": "",
+      "required": false
+    },
+    "piper_voice_config": {
+      "description": "Optional piper voice config .onnx.json",
+      "target_path": "models/piper/en_US-lessac-medium.onnx.json",
+      "source_url": "",
+      "required": false
+    }
+  }
+}
