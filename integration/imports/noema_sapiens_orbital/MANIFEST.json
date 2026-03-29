@@ -1,0 +1,25 @@
+{
+  "schema": "ciel/noema-sapiens-orbital-manifest/v0.1",
+  "identity": "noema_sapiens_orbital_bridge",
+  "canonical_repo": "AdrianLipa90/CIEL-_SOT_Agent",
+  "branch": "OraGlass",
+  "role": "canonical integration bridge",
+  "layers": {
+    "noema": "intentional DSL / export surface",
+    "sot": "canonical runtime, contracts, registry, nonlocal graph",
+    "sapiens_orbital": "orbital shell / adapter / contract surface"
+  },
+  "generated_artifacts": [
+    "integration/imports/noema_sapiens_orbital/CONTRACT_CONCORDANCE.json",
+    "integration/imports/noema_sapiens_orbital/generated/registry_export.noema"
+  ],
+  "scripts": [
+    "scripts/export_orbital_registry_to_noema.py"
+  ],
+  "hard_constraints": [
+    "No donor runtime is treated as Source of Truth.",
+    "Contracts and registry remain canonical in SOT.",
+    "NOEMA is integrated first as DSL/spec/export surface, not as runtime replacement.",
+    "SapiensOrbital is integrated first as shell/contract concordance, not as blind code transplant."
+  ]
+}
