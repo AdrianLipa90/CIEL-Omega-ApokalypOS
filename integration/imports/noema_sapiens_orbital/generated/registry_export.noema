@@ -1,0 +1,72 @@
+# NOEMA export seed generated from canonical contract concordance
+
+object packet_schema
+  value = "ciel-sot-agent/sapiens-client-packet/v0.2"
+  role = "canonical-packet-envelope"
+end
+
+object identity
+  canonical = "SapiensIdentity"
+  shell_mapping = "session identity surface"
+  noema_projection = "object identity"
+end
+
+link packet_schema -> identity
+  relation = "projects"
+  weight = 0.61
+end
+
+object state_geometry
+  canonical = "session.state_geometry"
+  shell_mapping = "orbital state projection"
+  noema_projection = "object/link field geometry"
+end
+
+link packet_schema -> state_geometry
+  relation = "projects"
+  weight = 0.61
+end
+
+object control_profile
+  canonical = "session.control_profile"
+  shell_mapping = "orbital control surface"
+  noema_projection = "flow / mode annotation"
+end
+
+link packet_schema -> control_profile
+  relation = "projects"
+  weight = 0.61
+end
+
+object surface_policy
+  canonical = "packet.surface_policy"
+  shell_mapping = "UI truth-facing guard"
+  noema_projection = "assert / guard semantics"
+end
+
+link packet_schema -> surface_policy
+  relation = "projects"
+  weight = 0.61
+end
+
+object inference_contract
+  canonical = "packet.inference_contract"
+  shell_mapping = "shell-side contract discipline"
+  noema_projection = "intentional contract header"
+end
+
+link packet_schema -> inference_contract
+  relation = "projects"
+  weight = 0.61
+end
+
+object memory_excerpt
+  canonical = "packet.memory_excerpt"
+  shell_mapping = "conversation/session trace"
+  noema_projection = "object history excerpt"
+end
+
+link packet_schema -> memory_excerpt
+  relation = "projects"
+  weight = 0.61
+end
