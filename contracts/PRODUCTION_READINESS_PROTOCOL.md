@@ -32,11 +32,43 @@ May be used only if **all** of the following are true:
 
 If any item above is false or unknown, the only valid label is **not production ready**.
 
+## Scope-separated readiness rule
+
+For multi-repository systems, every readiness claim must state both:
+- the repository being assessed,
+- the execution mode being assessed.
+
+Examples of execution mode include:
+- `core_only`
+- `sot_agent_without_desktop`
+- `desktop_runtime`
+- `gguf`
+- `no_gguf`
+- `audio_in`
+- `audio_out`
+- `stt`
+- `tts`
+
+A downstream desktop runtime may not be described as tested, operational, or production ready from SoT-side bindings alone.
+If the runtime was not executed in the repository that owns it, the claim must stay scoped to binding, contract, or documentation status.
+
+## Evidence classes
+
+Every concrete claim in a readiness audit must be marked as one of:
+- `run_and_measured`
+- `inferred_from_code`
+- `documented_but_not_run`
+- `unverified`
+
 ## Mandatory response format for future audits
 
 Any readiness assessment must contain these fields:
+- `repository_scope`
+- `execution_mode`
 - `status_label`
 - `evidence`
+- `evidence_class`
+- `performance_evidence`
 - `blockers`
 - `unknowns`
 - `next_actions`
@@ -45,6 +77,7 @@ Any readiness assessment must contain these fields:
 
 The following are contract violations:
 - claiming production readiness from passing tests alone,
+- collapsing a binding declaration into a runtime certification,
 - hiding missing packaging, CI, or versioning,
 - collapsing unknowns into assumptions,
 - using vague phrases such as “should be fine” in place of evidence.
