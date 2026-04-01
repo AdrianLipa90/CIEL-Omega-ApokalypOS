@@ -10,8 +10,26 @@
   "role": "desktop-surface",
   "binding_target": "CIEL-_SOT_Agent",
   "binding_mode": "fixed-attribute",
+  "audit_boundary": {
+    "in_repo_auditable": [
+      "fixed-attribute declaration",
+      "downstream dependency direction",
+      "SoT-visible artifact contract"
+    ],
+    "requires_external_runtime_evidence": [
+      "desktop boot",
+      "GUI responsiveness",
+      "audio input",
+      "audio output",
+      "STT",
+      "TTS",
+      "GGUF runtime",
+      "no-GGUF fallback runtime"
+    ]
+  },
   "notes": [
     "Desktop is treated as a fixed attribute of the SOT_Agent integration manifold.",
-    "This declaration is canonical even before broader registry refactoring folds it into repository_registry.json."
+    "This declaration is canonical even before broader registry refactoring folds it into repository_registry.json.",
+    "The declaration binds Desktop contractually inside SOT_Agent, but it does not by itself certify Desktop runtime behavior."
   ]
 }

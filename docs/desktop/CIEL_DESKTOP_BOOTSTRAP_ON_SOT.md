@@ -55,6 +55,23 @@ A clean human reading of the ecosystem is:
 - `CIEL-_SOT_Agent` = integration kernel / bridge host / actionable truth source
 - `CIEL-Desktop` = operator shell / presentation / controlled execution surface
 
+## Audit implication
+
+This bootstrap is an SoT-side binding statement, not a substitute for a desktop runtime certification.
+
+Therefore an audit in this repository may certify:
+
+- that the desktop layer is named explicitly,
+- that dependency direction stays downstream,
+- that SoT-visible artifact binding is part of the architecture.
+
+It may not, without external runtime evidence, certify:
+
+- desktop boot success,
+- GUI responsiveness,
+- audio, STT, or TTS behavior,
+- GGUF or no-GGUF runtime behavior in the desktop surface.
+
 ## Merge implication
 
 Any future merge or review of desktop-layer work should be judged from this relation first:
