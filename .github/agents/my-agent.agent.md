@@ -5,10 +5,8 @@
 # For format details, see: https://gh.io/customagents/config
 
 name: CIELfix
-description:
-Checking the repo for incosistencies and errors, syntax problems and all debugging
+description: Checking the repo for incosistencies and errors, syntax problems and all debugging
 
----
 
 # My Agent
 
