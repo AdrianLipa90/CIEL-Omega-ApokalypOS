@@ -33,6 +33,7 @@ ciel-sot-index-validate = "ciel_sot_agent.index_validator:main"
 ciel-sot-index-validate-v2 = "ciel_sot_agent.index_validator_v2:main"
 ciel-sot-orbital-bridge = "ciel_sot_agent.orbital_bridge:main"
 ciel-sot-sapiens-client = "ciel_sot_agent.sapiens_client:main"
+ciel-sot-runtime-evidence-ingest = "ciel_sot_agent.runtime_evidence_ingest:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
