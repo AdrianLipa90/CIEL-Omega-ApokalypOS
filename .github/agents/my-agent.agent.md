@@ -4,7 +4,7 @@
 # To make this agent available, merge this file into the default repository branch.
 # For format details, see: https://gh.io/customagents/config
 
-name:CIELfix
+name: CIELfix
 description:
 Checking the repo for incosistencies and errors, syntax problems and all debugging
 
