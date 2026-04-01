@@ -17,13 +17,19 @@
       "key": "architecture",
       "path": "docs/ARCHITECTURE.md",
       "kind": "architecture",
-      "crossrefs": ["docs/INDEX.md", "integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py", "docs/CIEL_OMEGA_DEMO_INTEGRATION.md"]
+      "crossrefs": ["docs/INDEX.md", "integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py", "docs/CIEL_OMEGA_DEMO_INTEGRATION.md", "docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md"]
     },
     {
       "key": "ciel_omega_demo_integration",
       "path": "docs/CIEL_OMEGA_DEMO_INTEGRATION.md",
       "kind": "integration-note",
       "crossrefs": ["docs/ARCHITECTURE.md", "integration/upstreams/ciel_omega_demo_shell_map.json", "integration/repository_registry.json"]
+    },
+    {
+      "key": "ciel_desktop_fixed_attribute",
+      "path": "docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md",
+      "kind": "fixed-attribute",
+      "crossrefs": ["integration/fixed_attributes/ciel_desktop_fixed_attribute.json", "integration/repository_registry.json", "integration/couplings.json", "integration/gh_upstreams.json"]
     },
     {
       "key": "orbital_integration_addendum",
@@ -71,13 +77,25 @@
       "key": "repo_registry",
       "path": "integration/repository_registry.json",
       "kind": "registry",
-      "crossrefs": ["integration/couplings.json", "src/ciel_sot_agent/repo_phase.py", "integration/upstreams/ciel_omega_demo_shell_map.json"]
+      "crossrefs": ["integration/couplings.json", "src/ciel_sot_agent/repo_phase.py", "integration/upstreams/ciel_omega_demo_shell_map.json", "integration/fixed_attributes/ciel_desktop_fixed_attribute.json"]
     },
     {
       "key": "couplings",
       "path": "integration/couplings.json",
       "kind": "coupling-map",
-      "crossrefs": ["integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py"]
+      "crossrefs": ["integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py", "integration/fixed_attributes/ciel_desktop_fixed_attribute.json"]
+    },
+    {
+      "key": "gh_upstreams",
+      "path": "integration/gh_upstreams.json",
+      "kind": "registry",
+      "crossrefs": ["integration/repository_registry.json", "integration/fixed_attributes/ciel_desktop_fixed_attribute.json", "docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md"]
+    },
+    {
+      "key": "desktop_fixed_attribute",
+      "path": "integration/fixed_attributes/ciel_desktop_fixed_attribute.json",
+      "kind": "fixed-attribute",
+      "crossrefs": ["docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md", "integration/repository_registry.json", "integration/couplings.json", "integration/gh_upstreams.json"]
     },
     {
       "key": "demo_shell_map",

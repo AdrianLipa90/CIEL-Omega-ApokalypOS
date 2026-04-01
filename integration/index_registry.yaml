@@ -22,6 +22,7 @@ objects:
       - SRC-SOT-0001
       - DOC-SOT-0002
       - DOC-SOT-0003
+      - DOC-SOT-0004
     tests: []
     interfaces: []
     exports: []
@@ -65,6 +66,26 @@ objects:
     exports: []
     provenance: []
     path: docs/Orbitrary shifts.md
+    placeholder: false
+  - id: DOC-SOT-0004
+    name: ciel_desktop_fixed_attribute
+    layer: architecture
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+      - REG-SOT-0005
+    downstream:
+      - REG-SOT-0001
+      - REG-SOT-0002
+      - REG-SOT-0003
+      - REG-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md
     placeholder: false
   - id: ANL-SOT-0001
     name: relational_analogies
@@ -142,6 +163,7 @@ objects:
     owner_layer: integration
     upstream:
       - DOC-SOT-0001
+      - DOC-SOT-0004
     downstream:
       - SRC-SOT-0001
       - SRC-SOT-0002
@@ -162,6 +184,7 @@ objects:
     owner_layer: integration
     upstream:
       - DOC-SOT-0001
+      - DOC-SOT-0004
     downstream:
       - SRC-SOT-0001
       - SRC-SOT-0002
@@ -181,6 +204,7 @@ objects:
     owner_layer: integration
     upstream:
       - DOC-SOT-0001
+      - DOC-SOT-0004
     downstream:
       - SRC-SOT-0002
       - MAP-SOT-0001
@@ -201,6 +225,7 @@ objects:
     owner_layer: integration
     upstream:
       - DOC-SOT-0003
+      - DOC-SOT-0004
     downstream:
       - SRC-SOT-0003
       - SRC-SOT-0004
@@ -209,6 +234,26 @@ objects:
     exports: []
     provenance: []
     path: integration/hyperspace_index.json
+    placeholder: false
+  - id: REG-SOT-0005
+    name: desktop_fixed_attribute_manifest
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0004
+    downstream:
+      - REG-SOT-0001
+      - REG-SOT-0002
+      - REG-SOT-0003
+      - REG-SOT-0004
+    tests: []
+    interfaces: []
+    exports:
+      - fixed_attribute_manifest
+    provenance: []
+    path: integration/fixed_attributes/ciel_desktop_fixed_attribute.json
     placeholder: false
   - id: MAP-SOT-0001
     name: ciel_omega_demo_shell_map
