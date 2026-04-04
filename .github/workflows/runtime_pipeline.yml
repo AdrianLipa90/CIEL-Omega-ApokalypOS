@@ -1,0 +1,36 @@
+name: CIEL Runtime CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install build deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install build
+      - name: Editable install & smoke test
+        run: |
+          python -m pip install -e .
+          CIEL_SOT_ROOT=$PWD ciel-sot-sync
+          CIEL_SOT_ROOT=$PWD ciel-sot-orbital-bridge
+          CIEL_SOT_ROOT=$PWD ciel-sot-sapiens-client "ci smoke"
+      - name: Build wheel & test install
+        run: |
+          python -m build --wheel .
+          python -m pip install dist/*.whl --force-reinstall
+          ciel-sot-sync
+          ciel-sot-orbital-bridge
