@@ -12,7 +12,6 @@ POST /api/models/ensure  — Ensure the default model is installed (async-safe)
 from __future__ import annotations
 
 import json
-import traceback
 from pathlib import Path
 
 from flask import Flask, Response, current_app, jsonify, render_template
@@ -138,8 +137,8 @@ def register_routes(app: Flask) -> None:
                     "default_installed": mgr.is_installed(),
                 }
             )
-        except Exception as exc:
-            return jsonify({"error": str(exc), "models": []}), 500
+        except Exception:
+            return jsonify({"error": "model manager unavailable", "models": []}), 500
 
     @app.route("/api/models/ensure", methods=["POST"])
     def api_models_ensure() -> Response:
@@ -155,9 +154,9 @@ def register_routes(app: Flask) -> None:
             # In production a task queue (Celery / background thread) is preferred.
             path = mgr.ensure_model()
             return jsonify({"status": "installed", "path": str(path)})
-        except Exception as exc:
+        except Exception:
             return (
-                jsonify({"status": "error", "error": str(exc), "traceback": traceback.format_exc()}),
+                jsonify({"status": "error", "error": "model installation failed"}),
                 500,
             )
 
