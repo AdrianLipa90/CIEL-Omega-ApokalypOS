@@ -23,7 +23,7 @@ def test_ensure_orbital_report_dirs_creates_expected_paths(tmp_path: Path) -> No
 
 def test_run_global_pass_returns_minimal_result() -> None:
     result = run_global_pass(steps=2)
-    assert result['engine'] == 'global_orbital_coherence_pass_minimal'
+    assert result['engine'] == 'global_orbital_coherence_pass_v63_euler_df257'
     assert result['steps'] == 2
     assert 'initial' in result
     assert 'final' in result

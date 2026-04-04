@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+from pathlib import Path
 
 from .dynamics import step
 from .extract_geometry import build, repo_root_from_here
@@ -101,8 +102,16 @@ def run_global_pass(steps: int = 20, params: dict | None = None) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / 'real_geometry.json').write_text(json.dumps(payload, indent=2), encoding='utf-8')
 
-    sectors_path = repo_root / 'manifests' / 'sectors_global.json'
-    couplings_path = repo_root / 'manifests' / 'couplings_global.json'
+    config_dir = repo_root / 'manifests' / 'orbital'
+    config_dir.mkdir(parents=True, exist_ok=True)
+    sectors_path = config_dir / 'sectors_global.json'
+    couplings_path = config_dir / 'couplings_global.json'
+
+    if 'sectors' in payload:
+        sectors_path.write_text(json.dumps(payload['sectors'], indent=2), encoding='utf-8')
+    if 'couplings' in payload:
+        couplings_path.write_text(json.dumps(payload['couplings'], indent=2), encoding='utf-8')
+
     p = dict(DEFAULT_PARAMS)
     if params:
         p.update(params)
@@ -115,7 +124,7 @@ def run_global_pass(steps: int = 20, params: dict | None = None) -> dict:
         history.append(snapshot(system))
     final = history[-1]
     result = {
-        'engine': 'global_orbital_coherence_pass_minimal',
+        'engine': 'global_orbital_coherence_pass_v63_euler_df257',
         'steps': steps,
         'params': p,
         'initial': initial,
@@ -124,13 +133,15 @@ def run_global_pass(steps: int = 20, params: dict | None = None) -> dict:
     }
     (out_dir / 'summary.json').write_text(json.dumps(result, indent=2), encoding='utf-8')
 
-    md = ['# Global Orbital Coherence Pass', '', 'Read-only diagnostic pass over the imported orbital structure.', '', '## Initial']
+    md = ['# Global Orbital Coherence Pass', '', 'Read-only diagnostic pass over the canonical repository structure.', '', '## Initial']
     for k, v in initial.items():
         md.append(f'- {k}: {v}' if isinstance(v, bool) else f'- {k}: {v:.6f}')
     md += ['', '## Final']
     for k, v in final.items():
         md.append(f'- {k}: {v}' if isinstance(v, bool) else f'- {k}: {v:.6f}')
-    md += ['', '## Notes', '- Geometry is derived from orbital manifests when present.', '- This pass is diagnostic only and does not mutate non-orbital repo content.']
+    md += ['', '## Notes', '- Geometry derived from imports + README mesh + AGENT mesh + manifests.',
+           '- v6.3 uses Euler-rotated homology leak with D_f-dependent radial/angular split.',
+           '- This pass is diagnostic only; it does not mutate repo content.']
     (out_dir / 'summary.md').write_text('\n'.join(md), encoding='utf-8')
     return result
 

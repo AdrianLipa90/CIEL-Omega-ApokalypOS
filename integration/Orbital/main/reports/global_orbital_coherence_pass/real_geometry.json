@@ -1,6 +1,118 @@
 {
-  "repo_root": "/home/runner/work/CIEL-_SOT_Agent/CIEL-_SOT_Agent/integration/Orbital/main",
-  "geometry_source": "manifests",
+  "imports": {
+    "bridge|constraints": 1,
+    "bridge|memory": 1,
+    "bridge|vocabulary": 1,
+    "fields|vocabulary": 1,
+    "memory|runtime": 1
+  },
+  "readme_mesh": {
+    "bridge|constraints": 2.5,
+    "bridge|fields": 2.5,
+    "bridge|memory": 2.5,
+    "bridge|runtime": 2.5,
+    "bridge|vocabulary": 1.25,
+    "constraints|fields": 2.5,
+    "constraints|memory": 2.5,
+    "constraints|runtime": 2.5,
+    "constraints|vocabulary": 1.25,
+    "fields|runtime": 2.5,
+    "fields|vocabulary": 1.5,
+    "memory|runtime": 2.5,
+    "memory|vocabulary": 1.5
+  },
+  "agent_mesh": {
+    "bridge|constraints": 2.5,
+    "bridge|fields": 2.5,
+    "bridge|memory": 2.5,
+    "bridge|runtime": 2.5,
+    "bridge|vocabulary": 2.5,
+    "constraints|fields": 2.5,
+    "constraints|memory": 2.5,
+    "constraints|runtime": 2.5,
+    "constraints|vocabulary": 2.5,
+    "fields|runtime": 2.5,
+    "fields|vocabulary": 2.5,
+    "memory|runtime": 2.5,
+    "memory|vocabulary": 2.5,
+    "runtime|vocabulary": 0.25
+  },
+  "manifest_bonus": {
+    "bridge|constraints": 0.35,
+    "bridge|memory": 0.3,
+    "constraints|fields": 0.2,
+    "fields|vocabulary": 0.25,
+    "memory|runtime": 0.2
+  },
+  "pair_scores": {
+    "bridge|constraints": 16.5,
+    "bridge|fields": 13.75,
+    "bridge|memory": 16.25,
+    "bridge|runtime": 13.75,
+    "bridge|vocabulary": 11.625,
+    "constraints|fields": 14.75,
+    "constraints|memory": 13.75,
+    "constraints|runtime": 13.75,
+    "constraints|vocabulary": 10.625,
+    "fields|memory": 0.0,
+    "fields|runtime": 13.75,
+    "fields|vocabulary": 13.5,
+    "memory|runtime": 15.75,
+    "memory|vocabulary": 11.25,
+    "runtime|vocabulary": 0.75
+  },
+  "centrality": {
+    "constraints": 69.375,
+    "fields": 55.75,
+    "runtime": 57.75,
+    "memory": 57.0,
+    "bridge": 71.875,
+    "vocabulary": 47.75
+  },
+  "masses": {
+    "constraints": {
+      "py_files": 2,
+      "char_count": 14683,
+      "import_count": 13,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "fields": {
+      "py_files": 7,
+      "char_count": 9982,
+      "import_count": 50,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "runtime": {
+      "py_files": 11,
+      "char_count": 50144,
+      "import_count": 106,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "memory": {
+      "py_files": 37,
+      "char_count": 291980,
+      "import_count": 548,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "bridge": {
+      "py_files": 2,
+      "char_count": 9513,
+      "import_count": 24,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "vocabulary": {
+      "py_files": 10,
+      "char_count": 109191,
+      "import_count": 120,
+      "readme_count": 1,
+      "agent_count": 1
+    }
+  },
   "sectors": {
     "sectors": {
       "constraints": {
@@ -104,25 +216,25 @@
   "couplings": {
     "couplings": {
       "fields": {
-        "memory": 0.1,
         "vocabulary": 0.8818,
-        "runtime": 0.8917
+        "runtime": 0.8917,
+        "memory": 0.1
       },
       "constraints": {
-        "runtime": 0.8917,
-        "fields": 0.9311,
         "memory": 0.8917,
-        "vocabulary": 0.7686
-      },
-      "runtime": {
-        "vocabulary": 0.3795
+        "vocabulary": 0.7686,
+        "fields": 0.9311,
+        "runtime": 0.8917
       },
       "bridge": {
         "vocabulary": 0.808,
-        "memory": 0.9902,
-        "runtime": 0.8917,
         "fields": 0.8917,
-        "constraints": 1.0
+        "runtime": 0.8917,
+        "constraints": 1.0,
+        "memory": 0.9902
+      },
+      "runtime": {
+        "vocabulary": 0.3795
       },
       "memory": {
         "runtime": 0.9705,
