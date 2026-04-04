@@ -1,0 +1,14 @@
+#!/bin/sh
+# Post-installation script for ciel-sot-agent
+
+set -e
+
+echo "[ciel-sot-agent] Installing Python package..."
+pip3 install --quiet 'ciel-sot-agent[gui]' || true
+
+echo "[ciel-sot-agent] Reloading systemd daemon..."
+systemctl daemon-reload || true
+
+echo "[ciel-sot-agent] Installation complete."
+echo "  Start the GUI:    ciel-sot-gui"
+echo "  Enable service:   sudo systemctl enable --now ciel-sot-gui"

@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+
+{% block title %}Control — CIEL Quiet Orbital Control{% endblock %}
+
+{% block workspace %}
+
+<!-- ===================================================
+     SECTION: Control (default landing pane)
+     =================================================== -->
+<div id="section-control" class="ws-section">
+  <div class="section-header">
+    <span class="section-title">Control</span>
+    <span class="section-subtitle">Orbital bridge state and system observables</span>
+  </div>
+
+  <!-- Key metric cells -->
+  <div class="metric-grid">
+    <div class="metric-cell">
+      <div class="metric-label">Coherence Index</div>
+      <div id="metric-coherence" class="metric-value positive">{{ "%.2f" | format(coherence_index | default(0.0) | float) }}</div>
+      <div class="metric-sub">orbital field</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-label">System Health</div>
+      <div id="metric-health" class="metric-value positive">{{ "%.2f" | format(system_health | default(0.0) | float) }}</div>
+      <div class="metric-sub">bridge manifest</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-label">System Mode</div>
+      <div id="metric-mode" class="metric-value" style="font-size:16px">{{ system_mode | default('guided') }}</div>
+      <div class="metric-sub">current mode</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-label">Backend</div>
+      <div class="metric-value" style="font-size:16px; color: var(--col-{{ 'cyan' if backend_status == 'online' else 'red' }})">
+        {{ backend_status | default('offline') }}
+      </div>
+      <div class="metric-sub">runtime status</div>
+    </div>
+  </div>
+
+  <!-- Coherence bar -->
+  <div class="card">
+    <div class="card-title">
+      <span class="accent-bar"></span>
+      Orbital Observables
+    </div>
+    <div class="orbital-bar-wrap">
+      <div class="orbital-bar-label">
+        <span>Coherence</span>
+        <span>{{ "%.2f" | format(coherence_index | default(0.0) | float) }}</span>
+      </div>
+      <div class="orbital-bar-track">
+        <div class="orbital-bar-fill violet"
+             style="width: {{ (coherence_index | default(0.0) | float * 100) | round(1) }}%"></div>
+      </div>
+    </div>
+    <div class="orbital-bar-wrap">
+      <div class="orbital-bar-label">
+        <span>System Health</span>
+        <span>{{ "%.2f" | format(system_health | default(0.0) | float) }}</span>
+      </div>
+      <div class="orbital-bar-track">
+        <div class="orbital-bar-fill"
+             style="width: {{ (system_health | default(0.0) | float * 100) | round(1) }}%"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="card">
+    <div class="card-title">
+      <span class="accent-bar"></span>
+      Operator Actions
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <button class="btn btn-primary">Run Orbital Pass</button>
+      <button class="btn">Run Bridge Update</button>
+      <button class="btn">Evaluate Reduction</button>
+      <button class="btn">Export State Bundle</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Chat
+     =================================================== -->
+<div id="section-chat" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Chat</span>
+    <span class="section-subtitle">Grounded in backend state and packet preparation</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Session Transcript</div>
+    <div id="chat-transcript" class="code-block" style="max-height:320px; overflow-y:auto">
+      No active session. Start a turn via the API or CLI.
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Epistemic Status</div>
+    <p style="color:var(--col-text-muted); font-size:12px">
+      Packet preview and epistemic tagging are populated from
+      <code style="font-family:var(--font-mono)">integration/reports/sapiens_client/</code>.
+    </p>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Files
+     =================================================== -->
+<div id="section-files" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Files</span>
+    <span class="section-subtitle">Ingest, provenance, classification, routing</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Integration Reports</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Name</th><th>Path</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Orbital Bridge Report</td>
+          <td><code>integration/reports/orbital_bridge/</code></td>
+          <td><span class="badge badge-cyan">present</span></td>
+        </tr>
+        <tr>
+          <td>Sapiens Session</td>
+          <td><code>integration/reports/sapiens_client/session.json</code></td>
+          <td><span class="badge badge-muted">varies</span></td>
+        </tr>
+        <tr>
+          <td>Runtime Evidence</td>
+          <td><code>integration/reports/runtime_evidence/</code></td>
+          <td><span class="badge badge-muted">varies</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Metrics
+     =================================================== -->
+<div id="section-metrics" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Metrics</span>
+    <span class="section-subtitle">Orbital field observables and system indicators</span>
+  </div>
+  <div class="metric-grid">
+    <div class="metric-cell">
+      <div class="metric-label">Coherence Index</div>
+      <div id="metric-coherence-m" class="metric-value positive">—</div>
+      <div class="metric-sub">orbital field</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-label">System Health</div>
+      <div id="metric-health-m" class="metric-value positive">—</div>
+      <div class="metric-sub">bridge manifest</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-label">Closure Penalty</div>
+      <div id="metric-closure" class="metric-value">—</div>
+      <div class="metric-sub">health manifest</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Note</div>
+    <p style="color:var(--col-text-muted); font-size:12px">
+      Charts and sparklines are energy-aware and load on demand.
+      Heavy visualisations are never always-on.
+    </p>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Reports
+     =================================================== -->
+<div id="section-reports" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Reports</span>
+    <span class="section-subtitle">Manifests, health summaries, audit trail</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Latest Reports</div>
+    <p style="color:var(--col-text-muted); font-size:12px; margin-bottom:12px">
+      Reports are generated by backend runtime passes and stored in
+      <code>integration/reports/</code>.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <button class="btn" onclick="loadReport('orbital_bridge')">Orbital Bridge</button>
+      <button class="btn" onclick="loadReport('sapiens_client')">Sapiens Session</button>
+    </div>
+    <div id="report-output" class="code-block" style="margin-top:14px; max-height:400px; overflow:auto; display:none"></div>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Settings
+     =================================================== -->
+<div id="section-settings" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Settings</span>
+    <span class="section-subtitle">Backend selection, model, energy profile</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>GGUF Model Manager</div>
+    <div id="model-list">
+      <span style="color:var(--col-text-dim)">Loading…</span>
+    </div>
+    <div class="divider"></div>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <button class="btn btn-primary" id="btn-ensure-model">Ensure Default Model</button>
+      <span id="model-ensure-status" style="font-size:11px; color:var(--col-text-muted)"></span>
+    </div>
+    <p style="margin-top:10px; font-size:11px; color:var(--col-text-dim)">
+      Default: TinyLlama-1.1B-Chat Q4_K_M (~670 MB).
+      Stored in <code>~/.local/share/ciel/models/</code> or <code>$CIEL_MODELS_DIR</code>.
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>System Settings</div>
+    <p style="color:var(--col-text-muted); font-size:12px">
+      Panel settings are read from
+      <code>integration/sapiens/panel_settings.yaml</code>.
+      Edit that file and restart the server to apply changes.
+    </p>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Support
+     =================================================== -->
+<div id="section-support" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Support</span>
+    <span class="section-subtitle">Diagnostics, recovery tools, health summaries</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Diagnostics</div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <button class="btn">Rebuild Manifests</button>
+      <button class="btn">Regenerate Bridge Report</button>
+      <button class="btn">Reset Session</button>
+      <button class="btn">Export Bundle</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>About</div>
+    <table class="data-table">
+      <tbody>
+        <tr><td style="color:var(--col-text-muted)">System</td><td>CIEL SOT Agent</td></tr>
+        <tr><td style="color:var(--col-text-muted)">Identity</td><td>Quiet Orbital Control</td></tr>
+        <tr><td style="color:var(--col-text-muted)">Manifest</td><td>{{ manifest_version | default('—') }}</td></tr>
+        <tr><td style="color:var(--col-text-muted)">GUI Schema</td><td>ciel-gui-panel/v1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function loadReport(name) {
+  const out = document.getElementById("report-output");
+  out.style.display = "";
+  out.textContent = "loading…";
+  try {
+    const res = await fetch(`/api/panel`);
+    const data = await res.json();
+    const section = name === "orbital_bridge" ? data.support : data.communication;
+    out.textContent = JSON.stringify(section, null, 2);
+  } catch (e) {
+    out.textContent = "error: " + e;
+  }
+}
+</script>
+{% endblock %}

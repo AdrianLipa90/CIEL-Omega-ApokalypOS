@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launcher wrapper for the CIEL Quiet Orbital Control GUI
+# Installed to /usr/bin/ciel-sot-gui by the .deb package.
+exec python3 -m ciel_sot_agent.gui.app "$@"
