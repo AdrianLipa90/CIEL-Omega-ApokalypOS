@@ -1,3 +1,9 @@
+"""Sapiens client — packet-aware human-model interaction interface.
+
+Builds, validates, and persists interaction packets between human operators
+and the CIEL model layer.  Writes session transcripts and latest-packet
+snapshots to ``integration/reports/sapiens_client/``.
+"""
 from __future__ import annotations
 
 import json

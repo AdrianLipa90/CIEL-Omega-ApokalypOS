@@ -1,3 +1,9 @@
+"""Synchronise entry point (v1) — builds and emits a sync report to stdout.
+
+Reads the repository registry and coupling map from the ``integration/``
+directory, calls ``repo_phase.build_sync_report``, and prints the result
+as formatted JSON.  Invoked via the ``ciel-sot-sync`` console script.
+"""
 from __future__ import annotations
 
 import json

@@ -1,3 +1,10 @@
+"""Project root path resolution for the CIEL-SOT-Agent package.
+
+Provides ``resolve_project_root(anchor)`` which locates the repository root
+by checking the ``CIEL_SOT_ROOT`` environment variable first, then walking
+parent directories until one containing an ``integration/`` subdirectory is
+found.
+"""
 from __future__ import annotations
 
 import os

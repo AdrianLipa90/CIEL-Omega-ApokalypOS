@@ -1,3 +1,9 @@
+"""Synchronise entry point (v2) — extended sync with v2 schema support.
+
+Extends the v1 synchronizer with enriched coupling weights, pairwise
+tension vectors, and structured JSON report output written to the
+``integration/reports/`` directory.  Invoked via ``ciel-sot-sync-v2``.
+"""
 from __future__ import annotations
 
 import json

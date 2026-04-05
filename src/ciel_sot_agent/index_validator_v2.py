@@ -1,3 +1,9 @@
+"""Machine-readable index validator v2 for the CIEL integration layer.
+
+Extends the v1 validator with v2 schema support, coupling-aware validation,
+and enriched diagnostic output.  Produces a versioned report written to
+``integration/reports/index_validation_v2/``.
+"""
 from __future__ import annotations
 
 import json

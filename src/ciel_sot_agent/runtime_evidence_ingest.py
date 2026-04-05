@@ -1,3 +1,10 @@
+"""Runtime evidence ingest pipeline for CIEL-SOT-Agent.
+
+Reads structured evidence artefacts (schemas, reports, registry files) from
+the ``integration/`` directory, validates them against known schemas, and
+writes a consolidated ``runtime_evidence_ingest.json`` report consumed by
+the Sapiens interaction layer and CI tooling.
+"""
 from __future__ import annotations
 
 import json

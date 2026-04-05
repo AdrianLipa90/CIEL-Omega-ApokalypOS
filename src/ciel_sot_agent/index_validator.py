@@ -1,3 +1,9 @@
+"""Machine-readable index validator (v1) for the CIEL integration layer.
+
+Validates the canonical index JSON file against a known schema, checks that
+every referenced source file exists on disk, and emits a structured
+validation report consumed by the Sapiens panel and CI tooling.
+"""
 from __future__ import annotations
 
 import json
