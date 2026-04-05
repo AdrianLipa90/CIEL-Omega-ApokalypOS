@@ -215,27 +215,27 @@
   },
   "couplings": {
     "couplings": {
-      "constraints": {
-        "memory": 0.8917,
-        "runtime": 0.8917,
-        "vocabulary": 0.7686,
-        "fields": 0.9311
-      },
-      "memory": {
-        "runtime": 0.9705,
-        "vocabulary": 0.7932
-      },
       "bridge": {
-        "vocabulary": 0.808,
-        "constraints": 1.0,
         "fields": 0.8917,
         "memory": 0.9902,
-        "runtime": 0.8917
+        "runtime": 0.8917,
+        "constraints": 1.0,
+        "vocabulary": 0.808
+      },
+      "constraints": {
+        "vocabulary": 0.7686,
+        "fields": 0.9311,
+        "runtime": 0.8917,
+        "memory": 0.8917
       },
       "fields": {
         "vocabulary": 0.8818,
         "memory": 0.1,
         "runtime": 0.8917
+      },
+      "memory": {
+        "vocabulary": 0.7932,
+        "runtime": 0.9705
       },
       "runtime": {
         "vocabulary": 0.3795

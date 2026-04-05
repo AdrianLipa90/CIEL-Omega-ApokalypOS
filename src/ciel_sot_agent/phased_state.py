@@ -1,3 +1,9 @@
+"""Phased-state model for repository and file-level identity scoring.
+
+Computes a deterministic phase value for each file/node based on its
+content hash, size, and type weight (ALPHA/BETA/B0 constants).  Used by
+the holonomic normalizer and index-validation pipeline.
+"""
 import hashlib
 import math
 from dataclasses import dataclass

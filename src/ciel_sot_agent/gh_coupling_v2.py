@@ -1,3 +1,9 @@
+"""GitHub coupling subsystem (v2) — enhanced upstream coupling with v2 schema.
+
+Extends the v1 GitHub coupling with richer upstream metadata, rate-limit
+handling, and a structured v2 coupling report.  Invoked via
+``ciel-sot-gh-coupling-v2``.
+"""
 from __future__ import annotations
 
 import json

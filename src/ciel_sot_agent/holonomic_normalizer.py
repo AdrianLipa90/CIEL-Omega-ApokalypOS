@@ -1,3 +1,9 @@
+"""Holonomic phase normalizer for the CIEL integration kernel.
+
+Provides circular-arithmetic utilities (phase wrapping, circular barycenter,
+circular distance) and the HolonomicNormalizer class that applies weighted
+renormalization across a map of named phase-carrying nodes.
+"""
 from __future__ import annotations
 
 import math

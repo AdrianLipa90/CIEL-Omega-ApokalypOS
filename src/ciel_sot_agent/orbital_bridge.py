@@ -1,3 +1,10 @@
+"""Orbital bridge — runs the global orbital coherence pass and writes
+bridge state, health, and control-recommendation manifests.
+
+Connects the CIEL integration kernel to the Orbital diagnostic subsystem
+living under ``integration/Orbital/``, ensuring phase-coherence and
+resource health are reported at each synchronisation cycle.
+"""
 from __future__ import annotations
 
 import json

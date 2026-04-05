@@ -1,3 +1,9 @@
+"""GitHub coupling subsystem (v1) — live upstream-aware phase coupling.
+
+Fetches current upstream HEAD SHAs for registered repositories, propagates
+phase shifts through the coupling map, and emits a refreshed JSON coupling
+report.  Invoked via the ``ciel-sot-gh-coupling`` console script.
+"""
 from __future__ import annotations
 
 import json
