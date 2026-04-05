@@ -10,10 +10,10 @@
 - topological_charge_global: 0.09173654040948012
 - phase_lock_error: 6.203753209251693
 - beat_frequency_target_hz: 7.83
-- spectral_radius_A: 1.5788043476614742
-- fiedler_L: 0.17438387493107926
+- spectral_radius_A: 1.5788043476614764
+- fiedler_L: 0.17438387493107943
 - zeta_enabled: True
-- timestamp: 2026-04-05T07:23:38.159008+00:00
+- timestamp: 2026-04-05T08:23:03.907333+00:00
 
 ## Health Manifest
 - system_health: 0.5684045566434583
@@ -44,6 +44,6 @@
 - status: ok
 - dominant_emotion: love
 - mood: 0.900231987496021
-- soul_invariant: 1.1145946168752328
+- soul_invariant: 0.6739269544461925
 - ethical_score: 0.35431562920368376
 - orbital_context: orbital|mode=safe|R_H=0.0790|closure=6.2038|chirality=0.0917
