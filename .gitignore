@@ -22,3 +22,9 @@ ENV/
 # OS
 .DS_Store
 Thumbs.db
+
+# CIEL/Ω runtime-generated reports and memory state
+# (created by CielEngine during test runs / normal execution)
+integration/Orbital/main/reports/global_orbital_coherence_pass/orbital_*/
+integration/Orbital/main/data/source/CIEL_OMEGA_COMPLETE_SYSTEM/CIEL_MEMORY_SYSTEM/ORBITAL_MEMORY/sector_events.ndjson
+integration/Orbital/main/data/source/CIEL_OMEGA_COMPLETE_SYSTEM/CIEL_MEMORY_SYSTEM/TSM/ledger/memory_ledger.db
