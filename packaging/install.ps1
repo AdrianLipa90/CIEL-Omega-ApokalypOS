@@ -72,23 +72,41 @@ $PythonVer = & $Python -c "import sys; v=sys.version_info; print(f'{v.major}.{v.
 Write-Ok "Python $PythonVer found."
 
 # ---------------------------------------------------------------------------
+# Detect local vendor directory for offline installation
+# ---------------------------------------------------------------------------
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$RepoRoot  = Split-Path -Parent $ScriptDir
+$VendorDir = Join-Path $ScriptDir "vendor"
+
+$WheelCount = 0
+if (Test-Path $VendorDir) {
+    $WheelCount  = (Get-ChildItem -Path $VendorDir -Filter "*.whl"    -ErrorAction SilentlyContinue).Count
+    $WheelCount += (Get-ChildItem -Path $VendorDir -Filter "*.tar.gz" -ErrorAction SilentlyContinue).Count
+}
+
+if ($WheelCount -gt 0) {
+    Write-Ok "Offline mode — using $WheelCount pre-downloaded package(s) from: $VendorDir"
+    $PipSourceArgs = @("--no-index", "--find-links", $VendorDir)
+} else {
+    Write-Ok "Online mode — installing from PyPI (run packaging\vendor\download_wheels.ps1 to enable offline install)."
+    $PipSourceArgs = @()
+}
+
+# ---------------------------------------------------------------------------
 # Step 1 — Install ciel-sot-agent
 # ---------------------------------------------------------------------------
 Write-Step "Installing ciel-sot-agent[gui]"
 
-$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$RepoRoot  = Split-Path -Parent $ScriptDir
-
 $installed = $false
 try {
-    & $Python -m pip install --quiet --upgrade "ciel-sot-agent[gui]"
+    & $Python -m pip install --quiet --upgrade @PipSourceArgs "ciel-sot-agent[gui]"
     $installed = $true
 } catch { }
 
 if (-not $installed) {
     Write-Warn "PyPI install failed — trying editable install from repository root"
     if (Test-Path (Join-Path $RepoRoot "pyproject.toml")) {
-        & $Python -m pip install --quiet --upgrade "$RepoRoot[gui]"
+        & $Python -m pip install --quiet --upgrade @PipSourceArgs "$RepoRoot[gui]"
         $installed = $true
     }
 }
@@ -106,7 +124,7 @@ if (-not $SkipLlamaCpp) {
     Write-Step "Installing llama-cpp-python (llama.cpp binaries)"
     Write-Host "  This may take a few minutes on first install."
     try {
-        & $Python -m pip install --quiet "llama-cpp-python"
+        & $Python -m pip install --quiet @PipSourceArgs "llama-cpp-python"
         Write-Ok "llama-cpp-python installed."
     } catch {
         Write-Warn "llama-cpp-python installation failed (optional)."

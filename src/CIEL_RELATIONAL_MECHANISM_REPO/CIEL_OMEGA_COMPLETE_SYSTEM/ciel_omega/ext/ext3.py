@@ -111,19 +111,44 @@ class SimpleLoader:
 # ==============================================================
 # 5️⃣ Bootstrap – sanity check & auto-install (Ciel1)
 # ==============================================================
+def _find_vendor_dir():
+    """Return vendor wheel directory for offline installs, or None."""
+    from pathlib import Path
+    env_path = os.environ.get("CIEL_VENDOR_PATH", "").strip()
+    if env_path:
+        p = Path(env_path)
+        if p.is_dir():
+            return p
+    anchor = Path(__file__).resolve()
+    for parent in anchor.parents:
+        candidate = parent / "packaging" / "vendor"
+        if (parent / "pyproject.toml").is_file() and candidate.is_dir():
+            return candidate
+    return None
+
 class Bootstrap:
     """Light bootstrapper verifying dependencies and setup."""
     required = {"numpy": "numpy", "requests": "requests"}
     @staticmethod
     def ensure():
         print("🔍 Checking core dependencies...")
+        vendor_dir = _find_vendor_dir()
+        whl_count = 0
+        if vendor_dir is not None:
+            whl_count = sum(1 for f in vendor_dir.iterdir() if f.suffix == ".whl" or f.name.endswith(".tar.gz"))
+            if whl_count > 0:
+                print(f"  📦 Offline mode — using {whl_count} wheel(s) from: {vendor_dir}")
         for lib, pkg in Bootstrap.required.items():
             try:
                 __import__(lib)
                 print(f"✓ Found {lib}")
             except ImportError:
                 print(f"⚠ Missing {lib}, installing...")
-                subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+                cmd = [sys.executable, "-m", "pip", "install"]
+                if vendor_dir is not None and whl_count > 0:
+                    cmd += ["--no-index", "--find-links", str(vendor_dir)]
+                cmd.append(pkg)
+                subprocess.check_call(cmd)
         print("Environment verified ✓")
 
 # ==============================================================
