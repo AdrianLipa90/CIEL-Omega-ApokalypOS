@@ -3,8 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.egg-info/
-dist/
 build/
+# Exclude build artifacts in dist/ except committed release packages
+dist/*
+!dist/*.deb
+!dist/*.apk
 *.egg
 
 # Virtual environments

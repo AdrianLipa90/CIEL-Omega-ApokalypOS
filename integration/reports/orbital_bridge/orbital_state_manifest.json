@@ -3,8 +3,8 @@
   "topological_charge_global": 0.09173654040948012,
   "phase_lock_error": 6.203753209251693,
   "beat_frequency_target_hz": 7.83,
-  "spectral_radius_A": 1.5788043476614742,
-  "fiedler_L": 0.17438387493107926,
+  "spectral_radius_A": 1.5788043476614764,
+  "fiedler_L": 0.17438387493107943,
   "zeta_enabled": true,
-  "timestamp": "2026-04-05T07:23:38.159008+00:00"
+  "timestamp": "2026-04-05T08:24:46.958282+00:00"
 }

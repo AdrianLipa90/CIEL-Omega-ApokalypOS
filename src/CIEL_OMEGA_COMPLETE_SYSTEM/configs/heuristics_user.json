@@ -1,0 +1,16 @@
+{
+  "weights": {
+    "logic": 0.35,
+    "semantic": 0.25,
+    "context": 0.2,
+    "emotion": 0.2
+  },
+  "boosts": {
+    "novelty_hint": 0.15,
+    "trusted_source": 0.1
+  },
+  "penalties": {
+    "contradiction_flag": -0.25,
+    "ethics_warning": -0.5
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "weights": {
+    "logic": 0.3,
+    "semantic": 0.25,
+    "context": 0.25,
+    "emotion": 0.2
+  },
+  "boosts": {
+    "long_form": 0.1,
+    "associations_present": 0.05
+  },
+  "penalties": {
+    "too_short": -0.15
+  }
+}
