@@ -1,0 +1,16 @@
+Package: ciel-sot-agent
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Depends: python3 (>= 3.11), python3-pip
+Maintainer: Adrian Lipa <adrianlipa90@example.com>
+Homepage: https://github.com/AdrianLipa90/CIEL-_SOT_Agent
+Description: CIEL SOT Agent — Integration kernel and Quiet Orbital Control GUI
+ CIEL SOT Agent is an integration kernel, synchronisation runtime,
+ orbital bridge, and Sapiens interaction layer for the CIEL ecosystem.
+ .
+ Includes the Flask-based Quiet Orbital Control web interface and
+ a GGUF model manager for on-device language model inference.
+ .
+ Supports Linux Mint 21+ and Ubuntu 22.04+.
