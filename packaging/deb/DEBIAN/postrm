@@ -1,6 +1,7 @@
 #!/bin/sh
 # Post-removal script for ciel-sot-agent
-# Cleans up the virtual environment created by postinst.
+# Cleans up the virtual environment created by postinst and reloads systemd
+# after the unit file has been removed by dpkg.
 
 set -e
 
@@ -18,3 +19,9 @@ case "$1" in
         rmdir "${INSTALL_DIR}" 2>/dev/null || true
         ;;
 esac
+
+# Always reload systemd so the removed unit file is picked up, regardless
+# of whether this is a remove or a purge.
+if [ -d /run/systemd/system ]; then
+    systemctl daemon-reload || true
+fi

@@ -2,7 +2,7 @@ Package: ciel-sot-agent
 Version: 0.1.0
 Section: utils
 Priority: optional
-Architecture: all
+Architecture: _DEB_ARCH_
 Depends: python3 (>= 3.11), python3-venv
 Maintainer: Adrian Lipa <adrianlipa90@example.com>
 Homepage: https://github.com/AdrianLipa90/CIEL-_SOT_Agent
