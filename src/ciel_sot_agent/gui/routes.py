@@ -12,36 +12,40 @@ POST /api/models/ensure  — Ensure the default model is installed (async-safe)
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
+from typing import Any
 
 from flask import Flask, Response, current_app, jsonify, render_template
+
+_LOG = logging.getLogger(__name__)
 
 
 def _root() -> Path:
     return Path(current_app.config.get("CIEL_ROOT", Path.cwd()))
 
 
-def _load_orbital_bridge_report() -> dict:
+def _load_orbital_bridge_report() -> dict[str, Any]:
     """Load the latest orbital bridge report if available."""
     root = _root()
     report_path = root / "integration" / "reports" / "orbital_bridge" / "orbital_bridge_report.json"
     if report_path.exists():
         try:
             return json.loads(report_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
+        except (OSError, ValueError) as exc:
+            _LOG.warning("Could not read orbital bridge report at %s: %s", report_path, exc)
     return {}
 
 
-def _load_manifest() -> dict:
+def _load_manifest() -> dict[str, Any]:
     """Load panel manifest if available."""
     root = _root()
     manifest_path = root / "integration" / "sapiens" / "panel_manifest.json"
     if manifest_path.exists():
         try:
             return json.loads(manifest_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
+        except (OSError, ValueError) as exc:
+            _LOG.warning("Could not read panel manifest at %s: %s", manifest_path, exc)
     return {}
 
 
@@ -86,20 +90,20 @@ def register_routes(app: Flask) -> None:
         root = _root()
         bridge = _load_orbital_bridge_report()
         session_path = root / "integration" / "reports" / "sapiens_client" / "session.json"
-        session_data: dict = {}
+        session_data: dict[str, Any] = {}
         if session_path.exists():
             try:
                 session_data = json.loads(session_path.read_text(encoding="utf-8"))
-            except Exception:
-                pass
+            except (OSError, ValueError) as exc:
+                _LOG.warning("Could not read session file at %s: %s", session_path, exc)
 
         transcript_path = root / "integration" / "reports" / "sapiens_client" / "transcript.md"
         transcript = ""
         if transcript_path.exists():
             try:
                 transcript = transcript_path.read_text(encoding="utf-8")[:4096]
-            except Exception:
-                pass
+            except OSError as exc:
+                _LOG.warning("Could not read transcript at %s: %s", transcript_path, exc)
 
         payload = {
             "schema": "ciel-gui-panel/v1",

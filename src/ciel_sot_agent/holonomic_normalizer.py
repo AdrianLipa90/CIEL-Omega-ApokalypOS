@@ -6,9 +6,52 @@ renormalization across a map of named phase-carrying nodes.
 """
 from __future__ import annotations
 
+import logging
 import math
 from dataclasses import dataclass
 from typing import Any, Callable, Iterable, Mapping, MutableMapping
+
+_LOG = logging.getLogger(__name__)
+
+# ---------------------------------------------------------------------------
+# J-function (global cost functional) component weights
+# ---------------------------------------------------------------------------
+_W_D_REPO = 1.2       # closure-defect contribution
+_W_T_MEAN = 1.0       # mean pairwise tension
+_W_E_PHI = 1.1        # orbital closure penalty
+_W_D_AFFECT = 1.4     # affect-sector decoherence
+_W_D_MEMORY = 1.0     # memory-sector decoherence
+_W_B_SEAM = 1.3       # semantic-execution seam penalty
+_W_P_DIST = 1.5       # distortion penalty (weighted sum of lie/omit/hallucinate)
+_W_B_PLACEHOLDER = 0.7  # placeholder-object penalty
+_W_B_DEMO = 0.8       # demo-legacy penalty
+
+# Distortion sub-weights (lie/omit/hallucinate carry higher ethical cost)
+_W_LIE = 10.0
+_W_OMIT = 8.0
+_W_HALLUCINATE = 12.0
+_W_SMOOTH = 3.0        # soft / smoothing distortion
+
+# Sector-update rates
+_AFFECT_PHASE_RATE = 0.18    # rate at which affect phase tracks core phase
+_AFFECT_AMP_DECAY = 0.18     # amplitude decay coefficient per unit excess decoherence
+_AFFECT_DECOHERENCE_FLOOR = 0.18  # excess decoherence threshold
+_MEMORY_LOBE_RATE = 0.14     # rate at which memory lobes converge to their barycenter
+
+# Coupling renormalization damping
+_COUPLING_TENSION_DAMP = 0.6  # damping factor for tension-based coupling update
+
+# Mode-selection thresholds
+_SAFE_HARD_DIST_THRESH = 0.0   # any hard distortion triggers safe mode
+_SAFE_D_REPO_THRESH = 0.18     # repo closure defect threshold for safe mode
+_SAFE_E_PHI_THRESH = 6.10      # orbital closure penalty threshold for safe mode
+_SAFE_D_AFFECT_THRESH = 0.32   # affect decoherence threshold for safe mode
+_STD_D_REPO_THRESH = 0.08      # repo closure defect threshold for standard mode
+_STD_E_PHI_THRESH = 5.85       # orbital closure penalty threshold for standard mode
+
+# Convergence criteria
+_STABLE_D_AFFECT_MAX = 0.22    # affect decoherence must be below this to converge
+_STABLE_MEMORY_SPLIT_MAX = 0.10  # max circular distance between memory lobes to converge
 
 
 def wrap(angle: float) -> float:
@@ -113,6 +156,35 @@ def _sector(X: Any, name: str) -> Any:
     return sectors[name]
 
 
+def _select_control_mode(
+    hard_dist: float,
+    soft_dist: float,
+    D_repo: float,
+    E_phi: float,
+    d_affect: float,
+) -> tuple[str, bool]:
+    """Return ``(mode, allow_writeback)`` based on distortion and coherence levels.
+
+    Three modes are possible, in order of increasing system stability:
+
+    * ``"safe"``     — any hard distortion present, or closure/affect above critical thresholds.
+      Write-back is disabled to protect state integrity.
+    * ``"standard"`` — soft distortion present, or metrics above mild thresholds.
+      Write-back is allowed with increased caution.
+    * ``"deep"``     — system is fully coherent; unconstrained write-back allowed.
+    """
+    if (
+        hard_dist > _SAFE_HARD_DIST_THRESH
+        or D_repo > _SAFE_D_REPO_THRESH
+        or E_phi > _SAFE_E_PHI_THRESH
+        or d_affect > _SAFE_D_AFFECT_THRESH
+    ):
+        return "safe", False
+    if soft_dist > 0.0 or D_repo > _STD_D_REPO_THRESH or E_phi > _STD_E_PHI_THRESH:
+        return "standard", True
+    return "deep", True
+
+
 def holonomic_system_normalizer_v2(
     state: Any,
     callbacks: HolonomicCallbacks,
@@ -144,10 +216,10 @@ def holonomic_system_normalizer_v2(
         soft_dist = float(_get(distortion, "smooth", 0.0))
 
         P_dist = (
-            10.0 * float(_get(distortion, "lie", 0.0))
-            + 8.0 * float(_get(distortion, "omit", 0.0))
-            + 12.0 * float(_get(distortion, "hallucinate", 0.0))
-            + 3.0 * soft_dist
+            _W_LIE * float(_get(distortion, "lie", 0.0))
+            + _W_OMIT * float(_get(distortion, "omit", 0.0))
+            + _W_HALLUCINATE * float(_get(distortion, "hallucinate", 0.0))
+            + _W_SMOOTH * soft_dist
         )
 
         objects = list(_get(X, "objects", []))
@@ -157,32 +229,32 @@ def holonomic_system_normalizer_v2(
 
         J_prev = _get(X, "J", None)
         X.J = (
-            1.2 * D_repo
-            + 1.0 * T_mean
-            + 1.1 * E_phi
-            + 1.4 * d_affect
-            + 1.0 * d_memory
-            + 1.3 * B_seam
-            + 1.5 * P_dist
-            + 0.7 * B_placeholder
-            + 0.8 * B_demo
+            _W_D_REPO * D_repo
+            + _W_T_MEAN * T_mean
+            + _W_E_PHI * E_phi
+            + _W_D_AFFECT * d_affect
+            + _W_D_MEMORY * d_memory
+            + _W_B_SEAM * B_seam
+            + _W_P_DIST * P_dist
+            + _W_B_PLACEHOLDER * B_placeholder
+            + _W_B_DEMO * B_demo
         )
 
         phi_core = float(_get(core, "phi", 0.0))
         phi_aff = float(_get(affect, "phi", 0.0))
-        _set(affect, "phi", phi_aff - 0.18 * wrap(phi_aff - phi_core))
+        _set(affect, "phi", phi_aff - _AFFECT_PHASE_RATE * wrap(phi_aff - phi_core))
 
-        excess_affect = max(0.0, d_affect - 0.18)
+        excess_affect = max(0.0, d_affect - _AFFECT_DECOHERENCE_FLOOR)
         aff_amp = float(_get(affect, "amplitude", 1.0))
         aff_floor = float(_get(affect, "min_amplitude_floor", 0.05))
-        aff_amp *= (1.0 - 0.18 * excess_affect)
+        aff_amp *= (1.0 - _AFFECT_AMP_DECAY * excess_affect)
         _set(affect, "amplitude", max(aff_amp, aff_floor))
 
         lobes = list(_get(memory, "lobes", [0.0, 0.0]))
         weights = list(_get(memory, "lobe_weights", [0.5, 0.5]))
         phi_star = circular_barycenter(lobes, weights)
-        lobes[0] = lobes[0] - 0.14 * wrap(lobes[0] - phi_star)
-        lobes[1] = lobes[1] - 0.14 * wrap(lobes[1] - phi_star)
+        lobes[0] = lobes[0] - _MEMORY_LOBE_RATE * wrap(lobes[0] - phi_star)
+        lobes[1] = lobes[1] - _MEMORY_LOBE_RATE * wrap(lobes[1] - phi_star)
         _set(memory, "lobes", lobes)
 
         _set(vocabulary, "phi", 0.0)
@@ -198,22 +270,16 @@ def holonomic_system_normalizer_v2(
             qi = float(quality.get(i, 1.0)) if isinstance(quality, Mapping) else 1.0
             qj = float(quality.get(j, 1.0)) if isinstance(quality, Mapping) else 1.0
             Tij = float(callbacks.local_tension(X, i, j))
-            updated_couplings[(i, j)] *= (qi * qj) / (1.0 + 0.6 * Tij)
+            updated_couplings[(i, j)] *= (qi * qj) / (1.0 + _COUPLING_TENSION_DAMP * Tij)
 
         updated_couplings = symmetrize_couplings(updated_couplings)
         updated_couplings = clip_couplings(updated_couplings, lo=0.0, hi=float(_get(X, "max_coupling", 1.0)))
         updated_couplings = renormalize_couplings(updated_couplings, target_norm="l1")
         _set(X, "couplings", updated_couplings)
 
-        if hard_dist > 0.0 or D_repo > 0.18 or E_phi > 6.10 or d_affect > 0.32:
-            _set(X, "mode", "safe")
-            _set(X, "allow_writeback", False)
-        elif soft_dist > 0.0 or D_repo > 0.08 or E_phi > 5.85:
-            _set(X, "mode", "standard")
-            _set(X, "allow_writeback", True)
-        else:
-            _set(X, "mode", "deep")
-            _set(X, "allow_writeback", True)
+        mode, allow_writeback = _select_control_mode(hard_dist, soft_dist, D_repo, E_phi, d_affect)
+        _set(X, "mode", mode)
+        _set(X, "allow_writeback", allow_writeback)
 
         X = callbacks.recompute_manifests_and_bridge(X)
 
@@ -226,8 +292,8 @@ def holonomic_system_normalizer_v2(
         stable = (
             J_prev is not None
             and abs(float(X.J) - float(J_prev)) < eps
-            and float(_get(_sector(X, "affect"), "decoherence", 0.0)) < 0.22
-            and memory_split < 0.10
+            and float(_get(_sector(X, "affect"), "decoherence", 0.0)) < _STABLE_D_AFFECT_MAX
+            and memory_split < _STABLE_MEMORY_SPLIT_MAX
             and B_seam < seam_ok
             and _get(X, "mode") != "safe"
         )

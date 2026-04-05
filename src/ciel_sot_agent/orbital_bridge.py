@@ -13,6 +13,7 @@ report alongside the raw geometry.
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from typing import Any
 
@@ -20,6 +21,8 @@ from integration.Orbital.main.bootstrap import ensure_orbital_manifests, ensure_
 from integration.Orbital.main.global_pass import run_global_pass
 from integration.Orbital.main.phase_control import build_health_manifest, build_state_manifest, recommend_control
 from .paths import resolve_project_root
+
+_LOG = logging.getLogger(__name__)
 
 
 BRIDGE_DIR = Path('integration') / 'reports' / 'orbital_bridge'
@@ -103,7 +106,8 @@ def build_orbital_bridge(root: str | Path) -> dict[str, Any]:
             'ethical_score': ciel_result['ethical_score'],
             'orbital_context': ciel_result['orbital_context'],
         }
-    except Exception:
+    except Exception as exc:
+        _LOG.warning("CIEL/Ω pipeline unavailable: %s", exc)
         summary['ciel_pipeline'] = {'status': 'unavailable'}
 
     (bridge_dir / 'orbital_bridge_report.json').write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding='utf-8')

@@ -1,15 +1,18 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from typing import Any
 
 from ..orbital_bridge import build_orbital_bridge
-from ..sapiens_client import SapiensIdentity, initialize_session, persist_session
+from ..sapiens_client import SapiensIdentity, SapiensSession, initialize_session, persist_session
 from .communication import build_communication_view
 from .models import PanelSessionSummary, PanelState, PanelTabState
 from .reduction import build_reduction_state
 from .settings_store import load_panel_settings
+
+_LOG = logging.getLogger(__name__)
 
 
 def _load_manifest(root: Path) -> dict[str, Any]:
@@ -17,7 +20,7 @@ def _load_manifest(root: Path) -> dict[str, Any]:
     return json.loads(manifest_path.read_text(encoding='utf-8'))
 
 
-def _session_summary(session) -> PanelSessionSummary:
+def _session_summary(session: SapiensSession) -> PanelSessionSummary:
     return PanelSessionSummary(
         sapiens_id=session.identity.sapiens_id,
         relation_label=session.identity.relation_label,
