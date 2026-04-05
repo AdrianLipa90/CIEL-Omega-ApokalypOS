@@ -7,25 +7,18 @@ tension vectors, and structured JSON report output written to the
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 
-from .paths import resolve_project_root
+from .paths import resolve_existing_path, resolve_project_root
 from .repo_phase import build_sync_report
 
+_LOG = logging.getLogger(__name__)
 
 REGISTRY_V2_PATH = 'integration/registries/repository_registry.json'
 REGISTRY_LEGACY_PATH = 'integration/repository_registry.json'
 COUPLINGS_V2_PATH = 'integration/couplings/repository_couplings.json'
 COUPLINGS_LEGACY_PATH = 'integration/couplings.json'
-
-
-def resolve_existing_path(root: str | Path, *candidates: str) -> Path:
-    root = Path(root)
-    for candidate in candidates:
-        candidate_path = root / candidate
-        if candidate_path.exists():
-            return candidate_path
-    return root / candidates[0]
 
 
 def resolve_sync_paths(root: str | Path) -> dict[str, Path]:

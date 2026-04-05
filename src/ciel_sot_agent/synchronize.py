@@ -7,10 +7,13 @@ as formatted JSON.  Invoked via the ``ciel-sot-sync`` console script.
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 
 from .paths import resolve_project_root
 from .repo_phase import build_sync_report
+
+_LOG = logging.getLogger(__name__)
 
 
 def main() -> int:

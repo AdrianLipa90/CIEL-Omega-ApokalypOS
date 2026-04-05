@@ -4,6 +4,9 @@ Provides ``resolve_project_root(anchor)`` which locates the repository root
 by checking the ``CIEL_SOT_ROOT`` environment variable first, then walking
 parent directories until one containing an ``integration/`` subdirectory is
 found.
+
+Also provides ``resolve_existing_path`` which returns the first candidate
+relative path (under a given root) that already exists on disk.
 """
 from __future__ import annotations
 
@@ -29,3 +32,17 @@ def resolve_project_root(anchor: str | Path) -> Path:
             return parent
 
     return anchor_path.parents[2]
+
+
+def resolve_existing_path(root: str | Path, *candidates: str) -> Path:
+    """Return the first candidate path under *root* that exists on disk.
+
+    Falls back to ``root / candidates[0]`` when none of the candidates exist,
+    so callers can safely use the result without an existence check.
+    """
+    root = Path(root)
+    for candidate in candidates:
+        candidate_path = root / candidate
+        if candidate_path.exists():
+            return candidate_path
+    return root / candidates[0]

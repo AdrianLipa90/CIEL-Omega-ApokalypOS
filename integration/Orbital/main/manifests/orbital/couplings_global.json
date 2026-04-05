@@ -1,5 +1,11 @@
 {
   "couplings": {
+    "constraints": {
+      "fields": 0.9311,
+      "vocabulary": 0.7686,
+      "runtime": 0.8917,
+      "memory": 0.8917
+    },
     "bridge": {
       "runtime": 0.8917,
       "vocabulary": 0.808,
@@ -14,8 +20,8 @@
       "runtime": 0.8917
     },
     "memory": {
-      "vocabulary": 0.7932,
-      "runtime": 0.9705
+      "runtime": 0.9705,
+      "vocabulary": 0.7932
     },
     "fields": {
       "runtime": 0.8917,
