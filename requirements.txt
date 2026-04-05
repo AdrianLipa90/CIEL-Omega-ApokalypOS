@@ -1,0 +1,4 @@
+# Runtime dependencies for ciel-sot-agent
+# Install with: pip install -r requirements.txt
+PyYAML>=6.0
+numpy>=1.26
