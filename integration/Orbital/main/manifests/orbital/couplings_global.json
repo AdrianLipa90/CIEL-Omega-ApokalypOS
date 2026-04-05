@@ -1,29 +1,29 @@
 {
   "couplings": {
+    "constraints": {
+      "fields": 0.9311,
+      "vocabulary": 0.7686,
+      "runtime": 0.8917,
+      "memory": 0.8917
+    },
     "bridge": {
       "constraints": 1.0,
       "runtime": 0.8917,
-      "memory": 0.9902,
+      "vocabulary": 0.808,
       "fields": 0.8917,
-      "vocabulary": 0.808
+      "memory": 0.9902
     },
-    "constraints": {
+    "fields": {
+      "vocabulary": 0.8818,
       "runtime": 0.8917,
-      "fields": 0.9311,
-      "memory": 0.8917,
-      "vocabulary": 0.7686
+      "memory": 0.1
     },
     "memory": {
-      "runtime": 0.9705,
-      "vocabulary": 0.7932
+      "vocabulary": 0.7932,
+      "runtime": 0.9705
     },
     "runtime": {
       "vocabulary": 0.3795
-    },
-    "fields": {
-      "memory": 0.1,
-      "runtime": 0.8917,
-      "vocabulary": 0.8818
     }
   }
 }
