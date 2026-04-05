@@ -37,11 +37,23 @@ class TestDebianPackageStructure:
     def test_prerm_exists(self):
         assert (DEB_DIR / "DEBIAN" / "prerm").is_file()
 
+    def test_postrm_exists(self):
+        assert (DEB_DIR / "DEBIAN" / "postrm").is_file()
+
     def test_launcher_exists(self):
         assert (DEB_DIR / "usr" / "bin" / "ciel-sot-gui").is_file()
 
+    def test_model_installer_launcher_exists(self):
+        assert (DEB_DIR / "usr" / "bin" / "ciel-sot-install-model").is_file()
+
     def test_service_file_exists(self):
         assert (DEB_DIR / "usr" / "lib" / "systemd" / "system" / "ciel-sot-gui.service").is_file()
+
+    def test_wheels_dir_exists(self):
+        assert (DEB_DIR / "opt" / "ciel-sot-agent" / "wheels").is_dir()
+
+    def test_models_dir_exists(self):
+        assert (DEB_DIR / "var" / "lib" / "ciel" / "models").is_dir()
 
     def test_readme_exists(self):
         assert (DEB_DIR / "README.md").is_file()
@@ -74,6 +86,14 @@ class TestDebianControlFile:
         depends = self._field("Depends")
         assert "python3" in depends
 
+    def test_depends_python_venv(self):
+        depends = self._field("Depends")
+        assert "python3-venv" in depends
+
+    def test_does_not_depend_on_pip(self):
+        depends = self._field("Depends")
+        assert "python3-pip" not in depends
+
     def test_description_not_empty(self):
         assert len(self._field("Description")) > 10
 
@@ -83,9 +103,32 @@ class TestDebianScripts:
         content = (DEB_DIR / "DEBIAN" / "postinst").read_text()
         assert content.startswith("#!/bin/sh") or content.startswith("#!/usr/bin/env sh")
 
+    def test_postinst_creates_venv(self):
+        content = (DEB_DIR / "DEBIAN" / "postinst").read_text()
+        assert "python3 -m venv" in content
+
     def test_postinst_contains_pip_install(self):
         content = (DEB_DIR / "DEBIAN" / "postinst").read_text()
-        assert "pip3 install" in content or "pip install" in content
+        # pip is invoked via the venv path (e.g. "${VENV_DIR}/bin/pip" install)
+        # or as a global pip; accept either form
+        assert re.search(r'/pip["\']?\s+install|pip3?\s+install', content)
+
+    def test_postinst_installs_offline(self):
+        content = (DEB_DIR / "DEBIAN" / "postinst").read_text()
+        assert "--no-index" in content
+
+    def test_postinst_uses_bundled_wheels(self):
+        content = (DEB_DIR / "DEBIAN" / "postinst").read_text()
+        assert "--find-links" in content
+
+    def test_postinst_does_not_global_pip_install(self):
+        content = (DEB_DIR / "DEBIAN" / "postinst").read_text()
+        # A bare (global) pip install starts the line with pip3 or pip
+        assert not re.search(r"^\s*pip3?\s+install", content, re.MULTILINE)
+
+    def test_postinst_installs_into_opt_venv(self):
+        content = (DEB_DIR / "DEBIAN" / "postinst").read_text()
+        assert "/opt/ciel-sot-agent" in content
 
     def test_prerm_is_shell_script(self):
         content = (DEB_DIR / "DEBIAN" / "prerm").read_text()
@@ -98,6 +141,15 @@ class TestDebianScripts:
     def test_prerm_disables_service(self):
         content = (DEB_DIR / "DEBIAN" / "prerm").read_text()
         assert "systemctl disable" in content
+
+    def test_postrm_is_shell_script(self):
+        content = (DEB_DIR / "DEBIAN" / "postrm").read_text()
+        assert content.startswith("#!/bin/sh") or content.startswith("#!/usr/bin/env sh")
+
+    def test_postrm_cleans_up_venv(self):
+        content = (DEB_DIR / "DEBIAN" / "postrm").read_text()
+        assert "/opt/ciel-sot-agent" in content
+        assert "rm -rf" in content or "purge" in content
 
 
 class TestDebianServiceFile:
@@ -132,6 +184,18 @@ class TestDebianLauncher:
         content = (DEB_DIR / "usr" / "bin" / "ciel-sot-gui").read_text()
         assert "ciel_sot_agent.gui" in content or "ciel-sot-gui" in content
 
+    def test_launcher_uses_venv(self):
+        content = (DEB_DIR / "usr" / "bin" / "ciel-sot-gui").read_text()
+        assert "/opt/ciel-sot-agent/venv" in content
+
+    def test_model_installer_launcher_is_shell_script(self):
+        content = (DEB_DIR / "usr" / "bin" / "ciel-sot-install-model").read_text()
+        assert content.startswith("#!/bin/sh") or content.startswith("#!/usr/bin/env sh")
+
+    def test_model_installer_launcher_uses_venv(self):
+        content = (DEB_DIR / "usr" / "bin" / "ciel-sot-install-model").read_text()
+        assert "/opt/ciel-sot-agent/venv" in content
+
 
 class TestBuildScript:
     def test_build_script_is_bash(self):
@@ -145,6 +209,14 @@ class TestBuildScript:
     def test_build_script_references_version_file(self):
         content = (DEB_DIR / "build_deb.sh").read_text()
         assert "VERSION" in content
+
+    def test_build_script_bundles_wheels(self):
+        content = (DEB_DIR / "build_deb.sh").read_text()
+        assert "pip wheel" in content or "pip download" in content
+
+    def test_build_script_uses_staging_dir(self):
+        content = (DEB_DIR / "build_deb.sh").read_text()
+        assert "STAGING" in content or "mktemp" in content
 
 
 # ---------------------------------------------------------------------------

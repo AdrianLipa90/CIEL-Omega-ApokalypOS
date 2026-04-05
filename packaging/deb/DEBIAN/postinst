@@ -1,31 +1,31 @@
 #!/bin/sh
 # Post-installation script for ciel-sot-agent
+#
+# Creates an isolated virtual environment at /opt/ciel-sot-agent/venv and
+# installs the application from pre-bundled wheels — no internet access
+# required.
 
 set -e
 
-echo "[ciel-sot-agent] Installing Python package..."
-pip3 install --quiet 'ciel-sot-agent[gui]' || true
+INSTALL_DIR="/opt/ciel-sot-agent"
+WHEELS_DIR="${INSTALL_DIR}/wheels"
+VENV_DIR="${INSTALL_DIR}/venv"
 
-echo "[ciel-sot-agent] Installing llama-cpp-python (llama.cpp binaries)..."
-pip3 install --quiet 'llama-cpp-python' || true
+echo "[ciel-sot-agent] Creating virtual environment at ${VENV_DIR}..."
+python3 -m venv "${VENV_DIR}"
+
+echo "[ciel-sot-agent] Installing from bundled wheels (offline)..."
+"${VENV_DIR}/bin/pip" install \
+    --quiet \
+    --no-index \
+    --find-links "${WHEELS_DIR}" \
+    "ciel-sot-agent[gui]"
+
+echo "[ciel-sot-agent] Creating /var/lib/ciel/models directory..."
+mkdir -p /var/lib/ciel/models
 
 echo "[ciel-sot-agent] Reloading systemd daemon..."
 systemctl daemon-reload || true
-
-# Download the default GGUF model in the background so the package install
-# completes quickly.  Progress is written to /var/log/ciel-model-install.log.
-CIEL_MODEL="${CIEL_MODEL:-tinyllama-1.1b-chat-q4}"
-if [ "${CIEL_MODEL}" != "none" ]; then
-    echo "[ciel-sot-agent] Scheduling model download: ${CIEL_MODEL} (background)"
-    nohup sh -c "
-        echo '[ciel-model-install] Starting download: ${CIEL_MODEL}' >> /var/log/ciel-model-install.log 2>&1
-        ciel-sot-install-model --model '${CIEL_MODEL}' >> /var/log/ciel-model-install.log 2>&1 \
-            && echo '[ciel-model-install] Done.' >> /var/log/ciel-model-install.log \
-            || echo '[ciel-model-install] FAILED.' >> /var/log/ciel-model-install.log
-    " >/dev/null 2>&1 &
-    echo "[ciel-sot-agent] Model download started — follow progress with:"
-    echo "  tail -f /var/log/ciel-model-install.log"
-fi
 
 echo "[ciel-sot-agent] Installation complete."
 echo "  Start the GUI:    ciel-sot-gui"
