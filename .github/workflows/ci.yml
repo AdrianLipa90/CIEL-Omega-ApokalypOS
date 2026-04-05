@@ -17,11 +17,14 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements-dev.txt
 
       - name: Install package
         run: |
           python -m pip install --upgrade pip
-          pip install -e .[dev]
+          pip install -r requirements-dev.txt
+          pip install -e .[dev] --no-deps
 
       - name: Ruff
         run: ruff check src/ciel_sot_agent
