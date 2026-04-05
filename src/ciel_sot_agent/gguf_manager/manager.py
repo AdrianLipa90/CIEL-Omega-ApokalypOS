@@ -67,6 +67,26 @@ KNOWN_MODELS: dict[str, ModelSpec] = {
         description="Microsoft Phi-2 — Q4_K_M quantisation (~1.6 GB)",
         tags=["small", "chat", "q4"],
     ),
+    "qwen2.5-0.5b-q4": ModelSpec(
+        name="qwen2.5-0.5b-instruct-q4_k_m.gguf",
+        url=(
+            "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF"
+            "/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf"
+        ),
+        expected_size=397_508_608,
+        description="Qwen 2.5 0.5B Instruct — Q4_K_M quantisation (~397 MB)",
+        tags=["small", "chat", "q4", "qwen"],
+    ),
+    "qwen2.5-1.5b-q4": ModelSpec(
+        name="qwen2.5-1.5b-instruct-q4_k_m.gguf",
+        url=(
+            "https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct-GGUF"
+            "/resolve/main/qwen2.5-1.5b-instruct-q4_k_m.gguf"
+        ),
+        expected_size=986_447_872,
+        description="Qwen 2.5 1.5B Instruct — Q4_K_M quantisation (~986 MB)",
+        tags=["small", "chat", "q4", "qwen"],
+    ),
 }
 
 

@@ -43,7 +43,34 @@ sudo apt install -f
 
 The `postinst` script will:
 - install the Python package via `pip3`,
+- install `llama-cpp-python` (llama.cpp binaries),
+- start a background download of the default GGUF model (TinyLlama by default),
 - reload the systemd daemon.
+
+To choose a different model at install time, set the `CIEL_MODEL` environment variable:
+
+```bash
+# Install with Qwen2.5-0.5B instead of TinyLlama
+sudo CIEL_MODEL=qwen2.5-0.5b-q4 dpkg -i dist/ciel-sot-agent_*.deb
+
+# Skip model download altogether
+sudo CIEL_MODEL=none dpkg -i dist/ciel-sot-agent_*.deb
+```
+
+Follow the background model download with:
+
+```bash
+tail -f /var/log/ciel-model-install.log
+```
+
+Available model keys:
+
+| Key | Description | Size |
+|-----|-------------|------|
+| `tinyllama-1.1b-chat-q4` | TinyLlama 1.1B Chat Q4_K_M | ~670 MB |
+| `qwen2.5-0.5b-q4` | Qwen 2.5 0.5B Instruct Q4_K_M | ~397 MB |
+| `qwen2.5-1.5b-q4` | Qwen 2.5 1.5B Instruct Q4_K_M | ~986 MB |
+| `phi-2-q4` | Microsoft Phi-2 Q4_K_M | ~1.6 GB |
 
 ---
 

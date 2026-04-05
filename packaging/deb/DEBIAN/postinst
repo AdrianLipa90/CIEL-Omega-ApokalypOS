@@ -6,9 +6,29 @@ set -e
 echo "[ciel-sot-agent] Installing Python package..."
 pip3 install --quiet 'ciel-sot-agent[gui]' || true
 
+echo "[ciel-sot-agent] Installing llama-cpp-python (llama.cpp binaries)..."
+pip3 install --quiet 'llama-cpp-python' || true
+
 echo "[ciel-sot-agent] Reloading systemd daemon..."
 systemctl daemon-reload || true
+
+# Download the default GGUF model in the background so the package install
+# completes quickly.  Progress is written to /var/log/ciel-model-install.log.
+CIEL_MODEL="${CIEL_MODEL:-tinyllama-1.1b-chat-q4}"
+if [ "${CIEL_MODEL}" != "none" ]; then
+    echo "[ciel-sot-agent] Scheduling model download: ${CIEL_MODEL} (background)"
+    nohup sh -c "
+        echo '[ciel-model-install] Starting download: ${CIEL_MODEL}' >> /var/log/ciel-model-install.log 2>&1
+        ciel-sot-install-model --model '${CIEL_MODEL}' >> /var/log/ciel-model-install.log 2>&1 \
+            && echo '[ciel-model-install] Done.' >> /var/log/ciel-model-install.log \
+            || echo '[ciel-model-install] FAILED.' >> /var/log/ciel-model-install.log
+    " >/dev/null 2>&1 &
+    echo "[ciel-sot-agent] Model download started — follow progress with:"
+    echo "  tail -f /var/log/ciel-model-install.log"
+fi
 
 echo "[ciel-sot-agent] Installation complete."
 echo "  Start the GUI:    ciel-sot-gui"
 echo "  Enable service:   sudo systemctl enable --now ciel-sot-gui"
+echo "  List models:      ciel-sot-install-model --list"
+

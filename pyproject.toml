@@ -39,6 +39,7 @@ ciel-sot-orbital-bridge = "ciel_sot_agent.orbital_bridge:main"
 ciel-sot-sapiens-client = "ciel_sot_agent.sapiens_client:main"
 ciel-sot-runtime-evidence-ingest = "ciel_sot_agent.runtime_evidence_ingest:main"
 ciel-sot-gui = "ciel_sot_agent.gui.app:main"
+ciel-sot-install-model = "ciel_sot_agent.gguf_manager.cli:main"
 
 [tool.setuptools]
 include-package-data = true
