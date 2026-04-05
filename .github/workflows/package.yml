@@ -1,0 +1,89 @@
+name: package
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+env:
+  # Required for compatibility with newer GitHub-hosted runner environments.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────────────
+  # 1. Debian package (.deb)
+  # ─────────────────────────────────────────────────────────────────────────
+  build-deb:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build .deb
+        run: bash packaging/deb/build_deb.sh
+
+      - name: Upload .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ciel-sot-agent-deb
+          path: dist/*.deb
+          if-no-files-found: error
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # 2. Android APK (.apk) via Buildozer
+  # ─────────────────────────────────────────────────────────────────────────
+  build-apk:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            git zip unzip openjdk-17-jdk \
+            autoconf libtool pkg-config zlib1g-dev \
+            libncurses5-dev libncursesw5-dev libtinfo5 \
+            cmake libffi-dev libssl-dev
+
+      - name: Install Buildozer + Cython
+        run: pip install --upgrade buildozer cython
+
+      - name: Cache Buildozer global directory
+        uses: actions/cache@v4
+        with:
+          path: ~/.buildozer
+          key: buildozer-${{ runner.os }}-${{ hashFiles('packaging/android/buildozer.spec') }}
+          restore-keys: |
+            buildozer-${{ runner.os }}-
+
+      - name: Build APK
+        working-directory: packaging/android
+        run: |
+          # Use release build for version tags, debug otherwise
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            buildozer -v android release
+          else
+            buildozer -v android debug
+          fi
+
+      - name: Collect APK
+        run: |
+          mkdir -p dist
+          find packaging/android/bin -name "*.apk" -exec cp {} dist/ \;
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ciel-orbital-control-apk
+          path: dist/*.apk
+          if-no-files-found: error
