@@ -131,7 +131,22 @@ Primary anchors:
 - `ciel-sot-sapiens-client`
 - `integration/reports/sapiens_client/`
 
-### 6. Documentation and registry manifold
+### 6. GUI — Quiet Orbital Control web interface
+
+The Flask-based GUI provides an operator-facing web interface that reads prepared state, manifests, and reports from the backend layers rather than performing runtime computation itself.
+
+The interface exposes:
+- main dashboard with live system status (coherence index, health, mode),
+- JSON API endpoints for status, panel state, and GGUF model management,
+- GGUF model manager for first-startup model acquisition.
+
+Primary anchors:
+- `src/ciel_sot_agent/gui/app.py` — Flask application factory and `ciel-sot-gui` CLI entry-point.
+- `src/ciel_sot_agent/gui/routes.py` — route handlers and API endpoints.
+- `src/ciel_sot_agent/gguf_manager/manager.py` — lightweight model download and location manager.
+- `docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md` — canonical GUI identity and UX philosophy.
+
+### 7. Documentation and registry manifold
 
 The repository is not only code.
 It also contains a machine-readable and human-readable manifold that describes how all layers relate.
@@ -237,7 +252,7 @@ Machine-readable contracts, registries, mappings, couplings, reports, and orbita
 Imported-and-extended orbital runtime, manifests, diagnostics, and orbital report surface.
 
 ### `src/ciel_sot_agent/`
-Executable integration code: synchronization, GitHub coupling, orbital bridge, Sapiens client, validators, and future panel logic.
+Executable integration code: synchronization, GitHub coupling, orbital bridge, Sapiens client, validators, panel logic, Flask GUI shell, and GGUF model manager.
 
 ### `scripts/`
 Thin operational launchers.
@@ -260,7 +275,7 @@ The repository exposes thin launchers for the main execution paths:
 - `scripts/run_repo_sync_v2.py`
 - `scripts/run_sapiens_panel.py`
 
-In addition to these wrappers, `pyproject.toml` defines console entrypoints for the packaged runtime, including `ciel-sot-sapiens-client`.
+In addition to these wrappers, `pyproject.toml` defines console entrypoints for the packaged runtime, including `ciel-sot-sapiens-client` and `ciel-sot-gui` (Flask Quiet Orbital Control web interface).
 
 This is deliberate.
 Scripts remain thin wrappers while the actual logic stays in documented subsystems.
@@ -294,7 +309,9 @@ The repository contains a validation surface that checks multiple subsystems:
 - GitHub coupling tests,
 - v2 synchronization and index tests,
 - orbital runtime tests,
-- Sapiens client and panel tests.
+- Sapiens client and panel tests,
+- Flask GUI route and API tests,
+- GGUF model manager tests.
 
 Representative anchors:
 - `tests/test_repo_phase.py`
@@ -305,6 +322,8 @@ Representative anchors:
 - `tests/test_orbital_runtime.py`
 - `tests/test_sapiens_client_packet.py`
 - `tests/test_sapiens_panel.py`
+- `tests/test_gui.py`
+- `tests/test_gguf_manager.py`
 
 ---
 

@@ -138,6 +138,59 @@
       "path": "src/ciel_sot_agent/index_validator.py",
       "kind": "validator",
       "crossrefs": ["integration/index_registry.yaml", "tests/test_gh_coupling.py"]
+    },
+    {
+      "key": "gui_app",
+      "path": "src/ciel_sot_agent/gui/app.py",
+      "kind": "gui-entrypoint",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/routes.py",
+        "docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md",
+        "docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md",
+        "tests/test_gui.py"
+      ]
+    },
+    {
+      "key": "gui_routes",
+      "path": "src/ciel_sot_agent/gui/routes.py",
+      "kind": "gui-routes",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/app.py",
+        "src/ciel_sot_agent/gguf_manager/manager.py",
+        "integration/reports/orbital_bridge/orbital_bridge_report.json",
+        "integration/sapiens/panel_manifest.json",
+        "tests/test_gui.py"
+      ]
+    },
+    {
+      "key": "gguf_manager",
+      "path": "src/ciel_sot_agent/gguf_manager/manager.py",
+      "kind": "model-manager",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/routes.py",
+        "tests/test_gguf_manager.py"
+      ]
+    },
+    {
+      "key": "gui_identity_brief",
+      "path": "docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md",
+      "kind": "identity-brief",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/app.py",
+        "docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "key": "workflow_gui_energy_budget",
+      "path": "docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md",
+      "kind": "policy",
+      "crossrefs": [
+        "docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md",
+        "src/ciel_sot_agent/gui/app.py",
+        "docs/operations/V2_RUNTIME_ENTRYPOINTS.md",
+        "docs/INDEX.md"
+      ]
     }
   ]
 }
