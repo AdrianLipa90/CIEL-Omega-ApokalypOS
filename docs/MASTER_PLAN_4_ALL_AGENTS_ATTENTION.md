@@ -282,26 +282,31 @@ The controller is the authoritative state assembler.
 
 ## Immediate implementation phases
 
-## Phase 1 — panel foundation
+## Phase 1 — panel foundation ✓ COMPLETE
 
-Create:
+Created:
 - `src/ciel_sot_agent/sapiens_panel/models.py`
 - `src/ciel_sot_agent/sapiens_panel/controller.py`
 - `integration/sapiens/settings_defaults.json`
 - `integration/sapiens/panel_manifest.json`
 - `scripts/run_sapiens_panel.py`
 
-Goal:
-- create a machine-readable and controller-driven shell,
-- no visual richness required yet.
+Result:
+- machine-readable and controller-driven shell in place,
+- panel state aggregation (orbital, bridge, session, settings) verified by tests.
 
-## Phase 2 — communication-centered shell
+## Phase 2 — communication-centered shell (in progress)
 
-Add:
-- packet-aware session rendering,
-- transcript and session persistence,
-- support diagnostics,
-- state summaries for control and support tabs.
+Added:
+- Flask-based Quiet Orbital Control web interface (`src/ciel_sot_agent/gui/`),
+- GGUF model manager for first-startup model acquisition (`src/ciel_sot_agent/gguf_manager/`),
+- GUI identity and UX philosophy document (`docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md`),
+- energy budget and workflow policy (`docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md`).
+
+Still pending in this phase:
+- packet-aware session rendering in the GUI,
+- transcript and session persistence wired to the GUI communication tab,
+- support diagnostics tab connected to the health manifest.
 
 ## Phase 3 — cockpit/native convergence
 
