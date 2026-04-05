@@ -1,15 +1,15 @@
 {
   "schema": "ciel-sot-agent/sapiens-client-packet/v0.2",
   "identity": {
-    "sapiens_id": "tester",
+    "sapiens_id": "sapiens",
     "relation_label": "human-model",
     "preferred_mode": "guided",
     "truth_axis": "truth",
     "memory_policy": "session-first"
   },
   "session": {
-    "created_at": "2026-04-05T03:15:47.132795+00:00",
-    "updated_at": "2026-04-05T03:15:47.132818+00:00",
+    "created_at": "2026-04-05T03:46:27.109116+00:00",
+    "updated_at": "2026-04-05T03:46:27.109167+00:00",
     "turn_count": 1
   },
   "state_geometry": {
@@ -47,12 +47,12 @@
       "unknown"
     ]
   },
-  "latest_user_turn": "Hello panel",
+  "latest_user_turn": "ci smoke",
   "memory_excerpt": [
     {
       "role": "sapiens",
-      "content": "Hello panel",
-      "timestamp": "2026-04-05T03:15:47.132812+00:00",
+      "content": "ci smoke",
+      "timestamp": "2026-04-05T03:46:27.109156+00:00",
       "orbital_mode": "safe",
       "coherence_index": 0.9210287158864723,
       "closure_penalty": 6.203753209251693

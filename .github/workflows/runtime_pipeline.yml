@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build-test:
     runs-on: ubuntu-latest
@@ -13,9 +16,9 @@ jobs:
       matrix:
         python-version: ["3.11"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install build deps
@@ -32,5 +35,5 @@ jobs:
         run: |
           python -m build --wheel .
           python -m pip install dist/*.whl --force-reinstall
-          ciel-sot-sync
-          ciel-sot-orbital-bridge
+          CIEL_SOT_ROOT=$PWD ciel-sot-sync
+          CIEL_SOT_ROOT=$PWD ciel-sot-orbital-bridge
