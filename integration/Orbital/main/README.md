@@ -41,11 +41,12 @@ Out of scope at this stage:
 ## Documentation canon
 
 Read these first:
-1. `docs/DOCUMENTATION_CANON.md`
-2. `docs/MECHANISM_SCOPE.md`
-3. `docs/FORMALISM_V0.md`
-4. `docs/MD_AUDIT_NOTES.md`
-5. `data/source/CIEL_OMEGA_COMPLETE_SYSTEM/README.md`
+1. `docs/DOCUMENTATION_MERGED.md` — **single merged document** (all docs consolidated)
+2. `docs/DOCUMENTATION_CANON.md` — canonical doc map and hierarchy
+3. `docs/MECHANISM_SCOPE.md`
+4. `docs/FORMALISM_V0.md`
+5. `docs/MD_AUDIT_NOTES.md`
+6. `data/source/CIEL_OMEGA_COMPLETE_SYSTEM/README.md`
 
 ## Current audit status
 
