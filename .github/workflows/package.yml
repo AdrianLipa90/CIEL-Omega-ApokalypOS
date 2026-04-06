@@ -67,8 +67,14 @@ jobs:
           ls -la /usr/share/aclocal || true
           grep -R "LT_SYS_SYMBOL_USCORE" /usr/share/aclocal || true
 
-      - name: Install Buildozer + Cython
-        run: pip install --upgrade "buildozer==1.5.0" "python-for-android==2023.09.16" cython
+      - name: Install Buildozer + python-for-android + pinned Cython
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade \
+            "buildozer==1.5.0" \
+            "python-for-android==2023.09.16" \
+            "Cython==0.29.36"
+          cython --version
 
       - name: Cache Buildozer and Android SDK
         id: cache-buildozer
