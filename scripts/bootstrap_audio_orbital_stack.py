@@ -4,12 +4,30 @@ import argparse, json, os, shutil, urllib.request, zipfile, hashlib
 from pathlib import Path
 
 def repo_relative(repo_root: Path, path: Path) -> str:
+    """
+    Compute the path of `path` relative to `repo_root` using resolved absolute paths and POSIX-style separators.
+    
+    If the relative path cannot be determined, the function falls back to returning `str(path)`.
+    
+    Parameters:
+        repo_root (Path): Repository root to which the returned path should be made relative.
+        path (Path): Path to be converted to a repository-relative form.
+    
+    Returns:
+        A string containing the relative path from `repo_root` to `path` with forward slashes, or `str(path)` if relative computation fails.
+    """
     try:
         return str(path.resolve().relative_to(repo_root.resolve())).replace('\\', '/')
     except Exception:
         return str(path)
 
 def sha256_file(path: Path) -> str:
+    """
+    Compute the SHA-256 hexadecimal digest of a file's contents.
+    
+    Returns:
+        str: Hexadecimal SHA-256 digest of the file contents.
+    """
     h = hashlib.sha256()
     with path.open('rb') as fh:
         for chunk in iter(lambda: fh.read(1024 * 1024), b''):
@@ -50,6 +68,19 @@ def extract_zip(archive: Path, target: Path) -> None:
                 extracted.rename(target)
 
 def main() -> int:
+    """
+    Builds a bootstrap state describing archives and models from a JSON config, optionally downloading and extracting missing assets, then writes and prints the resulting state.
+    
+    Reads the configuration at integration/imports/audio_orbital_stack/assets_audio_stack.json (relative to `--repo-root`), inspects configured archives and models, and for each:
+    - records presence, computed repo-relative paths, and SHA-256 for found archives;
+    - optionally downloads missing archives/models from configured `source_url` when `--skip-download` is not set;
+    - optionally extracts archives when configured.
+    
+    The final state is written to integration/imports/audio_orbital_stack/state/audio_orbital_stack_state.json (under `--repo-root`) and also printed to stdout.
+    
+    Returns:
+        int: Exit code `0` on success.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--repo-root', default='.')
     ap.add_argument('--config', default='integration/imports/audio_orbital_stack/assets_audio_stack.json')

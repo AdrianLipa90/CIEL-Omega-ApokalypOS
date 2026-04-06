@@ -9,6 +9,16 @@ from pathlib import Path
 
 
 def repo_relative(repo_root: Path, path: Path) -> str:
+    """
+    Return a repository-relative POSIX-style string for a path when possible.
+    
+    Parameters:
+        repo_root (Path): Repository root used as the base for relativization.
+        path (Path): Path to convert to a repository-relative string.
+    
+    Returns:
+        str: The path relative to `repo_root` with forward slashes, or the original path string if relativization fails.
+    """
     try:
         return str(path.resolve().relative_to(repo_root.resolve())).replace('\\', '/')
     except Exception:
@@ -16,6 +26,22 @@ def repo_relative(repo_root: Path, path: Path) -> str:
 
 
 def run_step(repo_root: Path, script_name: str, extra_args: list[str] | None = None) -> dict:
+    """
+    Run a script from the repository's scripts directory and collect its execution results.
+    
+    Parameters:
+        repo_root (Path): Repository root used to locate the script at `scripts/<script_name>`.
+        script_name (str): Filename of the script to execute.
+        extra_args (list[str] | None): Additional command-line arguments to append to the script invocation.
+    
+    Returns:
+        dict: A mapping with the following keys:
+            - 'script' (str): The script name that was run.
+            - 'returncode' (int): The process exit code.
+            - 'stdout' (str): Captured standard output.
+            - 'stderr' (str): Captured standard error.
+            - 'ok' (bool): `true` if `returncode` is 0, `false` otherwise.
+    """
     script_path = repo_root / 'scripts' / script_name
     cmd = [sys.executable, str(script_path), '--repo-root', str(repo_root)]
     if extra_args:
@@ -31,6 +57,14 @@ def run_step(repo_root: Path, script_name: str, extra_args: list[str] | None = N
 
 
 def main() -> int:
+    """
+    Orchestrates a sequence of repository scripts to build and validate the audio-orbital definition catalog and writes a JSON summary report.
+    
+    Parses command-line arguments `--repo-root`, `--skip-download`, and `--roots`; runs a fixed sequence of helper scripts, aggregates their results and selected artifact paths (made repository-relative), writes the aggregated summary to integration/registries/definitions/audio_orbital_hook_report.json, and prints the same JSON to stdout.
+    
+    Returns:
+        int: `0` if all steps succeeded, `1` otherwise.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--repo-root', default='.')
     ap.add_argument('--skip-download', action='store_true')

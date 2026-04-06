@@ -10,6 +10,18 @@ from typing import Any
 
 
 def repo_relative(repo_root: Path, path: Path) -> str:
+    """
+    Return a repository-root-relative, forward-slash-normalized path string for the given path.
+    
+    Attempts to resolve both paths and compute path relative to repo_root; if that fails (for example, path is not under repo_root or resolution raises), returns the original path converted to a string.
+    
+    Parameters:
+        repo_root (Path): The repository root directory to which the returned path should be relative.
+        path (Path): The path to convert to a repository-relative string.
+    
+    Returns:
+        str: The repository-relative path using forward slashes (e.g., "dir/file.py"), or the original path string if a relative path cannot be produced.
+    """
     try:
         return str(path.resolve().relative_to(repo_root.resolve())).replace("\\", "/")
     except Exception:
@@ -156,6 +168,14 @@ def iter_generic_file(rel_path: str, suffix: str, source: str) -> list[dict[str,
 
 
 def main() -> int:
+    """
+    Scan repository subdirectories for files with configured suffixes, extract definition records, write a definition registry JSON and CSV to integration/registries/definitions/, and print a summary JSON to stdout.
+    
+    The function reads files under the configured roots, generates registry records (Python AST-derived for .py files when possible, otherwise a generic file record), writes the combined registry to definition_registry.json and definition_registry.csv in the repository, and prints a small JSON summary containing the count and the repository-relative paths of the generated files.
+    
+    Returns:
+        int: Exit code `0` on success.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo-root", default=".")
     ap.add_argument("--roots", nargs="*", default=DEFAULT_ROOTS)

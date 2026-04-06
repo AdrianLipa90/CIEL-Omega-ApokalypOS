@@ -8,6 +8,18 @@ from typing import Any
 
 
 def repo_relative(repo_root: Path, path: Path) -> str:
+    """
+    Compute a repository-relative POSIX-style path for a given filesystem path.
+    
+    If `path` can be made relative to `repo_root`, returns that relative path with forward slashes (`/`). If the relative computation fails for any reason (e.g., paths are unrelated), returns the absolute string form of `path`.
+    
+    Parameters:
+        repo_root (Path): Repository root used as the base for relativity.
+        path (Path): Path to convert to a repository-relative form.
+    
+    Returns:
+        str: Repository-relative path with forward slashes, or the absolute path string if relativity cannot be determined.
+    """
     try:
         return str(path.resolve().relative_to(repo_root.resolve())).replace("\\", "/")
     except Exception:
@@ -15,6 +27,18 @@ def repo_relative(repo_root: Path, path: Path) -> str:
 
 
 def edge(source: str, target: str, relation: str, weight: float) -> dict[str, Any]:
+    """
+    Constructs an edge dictionary representing a relationship between two nodes.
+    
+    Parameters:
+        source (str): ID of the source node.
+        target (str): ID of the target node.
+        relation (str): Relationship type between source and target (e.g., "contains", "imports").
+        weight (float): Numeric weight for the edge; will be rounded to three decimal places.
+    
+    Returns:
+        dict[str, Any]: Edge object with keys `"source"`, `"target"`, `"relation"`, and `"weight"` (rounded to 3 decimals).
+    """
     return {
         "source": source,
         "target": target,
@@ -24,6 +48,14 @@ def edge(source: str, target: str, relation: str, weight: float) -> dict[str, An
 
 
 def main() -> int:
+    """
+    CLI entrypoint that builds nonlocal definition edges from an Orbital definition registry and writes them to a JSON output file.
+    
+    Reads the registry JSON from integration/registries/definitions/orbital_definition_registry.json under the repository root, derives edges between records (contains, imports, calls, orbital_resonance), deduplicates them, writes the result to integration/registries/definitions/nonlocal_definition_edges.json, and prints a JSON summary with the written path and count.
+    
+    Returns:
+        int: Exit code; `0` on success.
+    """
     ap = argparse.ArgumentParser()
     ap.add_argument("--repo-root", default=".")
     args = ap.parse_args()
