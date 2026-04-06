@@ -53,8 +53,19 @@ jobs:
             git zip unzip openjdk-17-jdk \
             autoconf automake libtool libtool-bin pkg-config zlib1g-dev \
             libncurses-dev libtinfo6 \
-            cmake libffi-dev libssl-dev wget
+            cmake libffi-dev libssl-dev wget \
+            m4 gettext autoconf-archive libltdl-dev
           echo "ACLOCAL_PATH=/usr/share/aclocal" >> $GITHUB_ENV
+
+      - name: Validate autoconf/libtool environment
+        run: |
+          autoconf --version || true
+          automake --version || true
+          aclocal --version || true
+          libtool --version || true
+          libtoolize --version || true
+          ls -la /usr/share/aclocal || true
+          grep -R "LT_SYS_SYMBOL_USCORE" /usr/share/aclocal || true
 
       - name: Install Buildozer + Cython
         run: pip install --upgrade "buildozer==1.5.0" "python-for-android==2023.09.16" cython
