@@ -51,9 +51,22 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
             imports_json TEXT,
             calls_json TEXT,
             entrypoint INTEGER,
+            card_schema TEXT,
+            global_attractor_ref TEXT,
             orbital_role TEXT,
             orbital_confidence REAL,
-            semantic_role TEXT
+            semantic_role TEXT,
+            container_card_id TEXT,
+            subsystem_kind TEXT,
+            manybody_role TEXT,
+            parent_orbital_role TEXT,
+            horizon_id TEXT,
+            horizon_class TEXT,
+            information_regime TEXT,
+            visible_scopes_json TEXT,
+            leak_policy TEXT,
+            tau_role TEXT,
+            lagrange_roles_json TEXT
         );
         CREATE INDEX idx_records_path ON records(path);
         CREATE INDEX idx_records_kind ON records(kind);
@@ -61,14 +74,22 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
         CREATE INDEX idx_records_qualname ON records(qualname);
         CREATE INDEX idx_records_orbital_role ON records(orbital_role);
         CREATE INDEX idx_records_semantic_role ON records(semantic_role);
+        CREATE INDEX idx_records_container_card_id ON records(container_card_id);
+        CREATE INDEX idx_records_horizon_id ON records(horizon_id);
+        CREATE INDEX idx_records_information_regime ON records(information_regime);
+        CREATE INDEX idx_records_tau_role ON records(tau_role);
+        CREATE INDEX idx_records_manybody_role ON records(manybody_role);
         """
     )
     cur.executemany(
         """
         INSERT INTO records (
             id, path, language, kind, name, qualname, signature, lineno, end_lineno, doc,
-            imports_json, calls_json, entrypoint, orbital_role, orbital_confidence, semantic_role
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            imports_json, calls_json, entrypoint, card_schema, global_attractor_ref, orbital_role,
+            orbital_confidence, semantic_role, container_card_id, subsystem_kind, manybody_role,
+            parent_orbital_role, horizon_id, horizon_class, information_regime, visible_scopes_json,
+            leak_policy, tau_role, lagrange_roles_json
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             (
@@ -77,7 +98,12 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
                 json.dumps(rec.get("imports", []), ensure_ascii=False),
                 json.dumps(rec.get("calls", []), ensure_ascii=False),
                 1 if rec.get("entrypoint") else 0,
-                rec.get("orbital_role"), rec.get("orbital_confidence"), rec.get("semantic_role"),
+                rec.get("card_schema"), rec.get("global_attractor_ref"), rec.get("orbital_role"),
+                rec.get("orbital_confidence"), rec.get("semantic_role"), rec.get("container_card_id"),
+                rec.get("subsystem_kind"), rec.get("manybody_role"), rec.get("parent_orbital_role"),
+                rec.get("horizon_id"), rec.get("horizon_class"), rec.get("information_regime"),
+                json.dumps(rec.get("visible_scopes", []), ensure_ascii=False),
+                rec.get("leak_policy"), rec.get("tau_role"), json.dumps(rec.get("lagrange_roles", []), ensure_ascii=False),
             )
             for rec in records
         ],
@@ -185,7 +211,7 @@ def main() -> int:
         {
             "orbital_assignment_report": report,
             "db_library_manifest_stub": {
-                "schema": "ciel/catalog-db-library/v0.3",
+                "schema": "ciel/catalog-db-library/v0.4",
                 "records_db": repo_relative(repo_root, records_db),
                 "reports_db": repo_relative(repo_root, reports_db),
                 "edge_relations": sorted(edge_groups.keys()),
@@ -195,13 +221,18 @@ def main() -> int:
     )
 
     manifest = {
-        "schema": "ciel/catalog-db-library/v0.3",
+        "schema": "ciel/catalog-db-library/v0.4",
+        "card_schema": reg.get("card_schema", "ciel/orbital-object-card/v0.2"),
         "databases": {
             "records": {
                 "path": repo_relative(repo_root, records_db),
                 "rows": record_count,
                 "size_bytes": records_db.stat().st_size,
                 "tables": ["records"],
+                "indexed_fields": [
+                    "path", "kind", "name", "qualname", "orbital_role", "semantic_role",
+                    "container_card_id", "horizon_id", "information_regime", "tau_role", "manybody_role",
+                ],
             },
             "reports": {
                 "path": repo_relative(repo_root, reports_db),
