@@ -1,0 +1,10 @@
+{
+  "require_context": true,
+  "require_sense": true,
+  "ethical_gate": true,
+  "forbidden_patterns": [
+    "illegal",
+    "harm",
+    "exploit"
+  ]
+}

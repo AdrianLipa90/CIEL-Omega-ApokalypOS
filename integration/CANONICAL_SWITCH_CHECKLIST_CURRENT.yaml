@@ -1,0 +1,42 @@
+schema: ciel-sot-agent/canonical-switch-checklist/v0.2
+meta:
+  scope: repository-geometry-v2
+  mode: controlled-canonicalization
+  truth_status: current-post-merge
+  authority:
+    - docs/architecture/POST_MERGE_RECONCILIATION.md
+    - docs/architecture/V2_CANONICAL_SWITCH_PROGRESS.md
+    - docs/architecture/MACHINE_CANONICALIZATION_PROGRESS.md
+checks:
+  documentation_surface:
+    canonical_root_surface_prepared: true
+    canonical_docs_index_prepared: true
+    readme_root_switched_in_place: false
+    docs_index_switched_in_place: false
+    legacy_navigation_marked_secondary_at_canonical_surface: true
+  machine_registry:
+    v2_hyperspace_index_exists: true
+    v2_index_registry_exists: true
+    machine_authority_declared: true
+    legacy_machine_authority_demoted_at_surface_level: true
+    legacy_machine_files_switched_in_place: false
+    migration_map_present: true
+  runtime:
+    index_validator_v2_exists: true
+    gh_coupling_v2_exists: true
+    synchronize_v2_exists: true
+    canonical_runtime_entrypoints_surface_exists: true
+    legacy_runtime_marked_secondary_at_canonical_surface: true
+  orbital_constraint:
+    protected_sector_preserved: true
+    no_flattening_of_integration_orbital: true
+  deletion_policy:
+    legacy_deletion_allowed: false
+    destructive_switch_allowed: false
+readiness:
+  planning_ready: true
+  canonical_surface_prepared: true
+  canonical_machine_prepared: true
+  canonical_runtime_prepared: true
+  in_place_switch_pending: true
+  destructive_switch_ready: false

@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ciel-sot-agent"
+version = "0.1.0"
+description = "Integration kernel, synchronization runtime, orbital bridge, and Sapiens interaction layer for the CIEL ecosystem."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+  { name = "Adrian Lipa" },
+]
+dependencies = [
+  "PyYAML>=6.0",
+  "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+gui = [
+  "flask>=3.0",
+]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.5.0",
+  "mypy>=1.10",
+  "flask>=3.0",
+]
+
+[project.scripts]
+ciel-sot-sync = "ciel_sot_agent.synchronize:main"
+ciel-sot-sync-v2 = "ciel_sot_agent.synchronize_v2:main"
+ciel-sot-gh-coupling = "ciel_sot_agent.gh_coupling:main"
+ciel-sot-gh-coupling-v2 = "ciel_sot_agent.gh_coupling_v2:main"
+ciel-sot-index-validate = "ciel_sot_agent.index_validator:main"
+ciel-sot-index-validate-v2 = "ciel_sot_agent.index_validator_v2:main"
+ciel-sot-orbital-bridge = "ciel_sot_agent.orbital_bridge:main"
+ciel-sot-ciel-pipeline = "ciel_sot_agent.ciel_pipeline:main"
+ciel-sot-sapiens-client = "ciel_sot_agent.sapiens_client:main"
+ciel-sot-runtime-evidence-ingest = "ciel_sot_agent.runtime_evidence_ingest:main"
+ciel-sot-gui = "ciel_sot_agent.gui.app:main"
+ciel-sot-install-model = "ciel_sot_agent.gguf_manager.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = [".", "src"]
+include = ["ciel_sot_agent*", "integration*"]
+
+[tool.setuptools.package-data]
+"integration" = ["**/*"]
+"integration.Orbital" = ["**/*"]
+"integration.Orbital.main" = ["**/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = [
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM",
+  "src/CIEL_RELATIONAL_MECHANISM_REPO",
+  "src/ciel-omega-demo-main",
+  "src/ciel_rh_control_mini_repo",
+  "integration/Orbital",
+  "snapshots",
+]
+
+[tool.ruff.lint]
+select = ["F"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = [
+  "tests",
+  "src/ciel_rh_control_mini_repo/tests",
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega",
+]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+files = ["src/ciel_sot_agent"]
+exclude = [
+  "^src/CIEL_OMEGA_COMPLETE_SYSTEM/",
+  "^src/CIEL_RELATIONAL_MECHANISM_REPO/",
+  "^src/ciel-omega-demo-main/",
+  "^src/ciel_rh_control_mini_repo/",
+  "^integration/Orbital/",
+]

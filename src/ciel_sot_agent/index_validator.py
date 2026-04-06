@@ -1,3 +1,9 @@
+"""Machine-readable index validator (v1) for the CIEL integration layer.
+
+Validates the canonical index JSON file against a known schema, checks that
+every referenced source file exists on disk, and emits a structured
+validation report consumed by the Sapiens panel and CI tooling.
+"""
 from __future__ import annotations
 
 import json
@@ -6,6 +12,8 @@ from pathlib import Path
 from typing import Any, Mapping
 
 import yaml
+
+from .paths import resolve_project_root
 
 
 DEMO_SHELL_MAP_OBJECT_ID = 'MAP-SOT-0001'
@@ -254,7 +262,7 @@ def validate_index_registry(root: str | Path) -> list[ValidationIssue]:
 
 
 def main() -> int:
-    root = Path(__file__).resolve().parents[2]
+    root = resolve_project_root(Path(__file__))
     issues = validate_index_registry(root)
     for issue in issues:
         print(f'[{issue.level}] {issue.object_id}: {issue.message}')

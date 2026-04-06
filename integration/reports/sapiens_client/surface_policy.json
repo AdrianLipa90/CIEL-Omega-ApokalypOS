@@ -1,0 +1,11 @@
+{
+  "mode": "safe",
+  "truth_over_smoothing": true,
+  "explicit_uncertainty": true,
+  "epistemic_separation": [
+    "fact",
+    "inference",
+    "hypothesis",
+    "unknown"
+  ]
+}

@@ -25,24 +25,24 @@ Read-only diagnostic pass over the canonical repository structure.
 - euler_leak_angle: 0.895354
 
 ## Final
-- R_H: 0.393338
-- T_glob: 2.957985
-- Lambda_glob: 0.207672
-- closure_penalty: 6.301303
-- V_rel_total: 7.138339
-- radial_spread: 0.184297
-- mean_spin: 0.008746
-- spectral_radius_A: 1.482350
-- spectral_gap_A: 0.497392
-- fiedler_L: 0.336258
+- R_H: 0.078971
+- T_glob: 2.603929
+- Lambda_glob: 0.091737
+- closure_penalty: 6.203753
+- V_rel_total: 6.673314
+- radial_spread: 0.197860
+- mean_spin: 0.180893
+- spectral_radius_A: 1.578804
+- spectral_gap_A: 0.751082
+- fiedler_L: 0.174384
 - zeta_enabled: True
 - zeta_tetra_defect: 0.000000
 - zeta_effective_tau: 0.364500
-- zeta_effective_phase: -0.000133
-- zeta_coupling_norm: 0.006781
-- zeta_coupling_norm_raw: 0.853302
-- zeta_spin: 0.008746
-- zeta_rho: 0.449916
+- zeta_effective_phase: 0.004722
+- zeta_coupling_norm: 0.003467
+- zeta_coupling_norm_raw: 0.434465
+- zeta_spin: 0.180893
+- zeta_rho: 0.452986
 - D_f: 2.570000
 - euler_leak_angle: 0.895354
 

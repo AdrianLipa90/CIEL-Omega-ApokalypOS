@@ -1,0 +1,14 @@
+[Unit]
+Description=CIEL Quiet Orbital Control GUI
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ciel-sot-gui --host 127.0.0.1 --port 5050
+Restart=on-failure
+RestartSec=5
+Environment=CIEL_MODELS_DIR=/var/lib/ciel/models
+Environment=CIEL_SOT_CONFIG=/etc/ciel-sot-agent/config.yaml
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,21 @@
+{
+  "schema": "ciel-sot-agent/desktop-runtime-contract/v0.1",
+  "consumer_repo": "AdrianLipa90/CIEL-Desktop",
+  "accepted_modes": [
+    "desktop_runtime",
+    "gguf",
+    "no_gguf",
+    "audio_in",
+    "audio_out",
+    "stt",
+    "tts"
+  ],
+  "required_evidence": [
+    "boot_status",
+    "gui_status",
+    "latency",
+    "resource_usage",
+    "error_log"
+  ],
+  "evidence_schema": "integration/runtime_modes/runtime_evidence_schema.json"
+}

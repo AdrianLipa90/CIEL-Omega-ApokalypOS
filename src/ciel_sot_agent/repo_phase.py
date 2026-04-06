@@ -1,3 +1,10 @@
+"""Repository phase state and synchronisation report builder.
+
+Models each repository as a phase-carrying identity with a complex spin,
+mass, and role.  Exposes ``build_sync_report`` which loads the repository
+registry and coupling map, computes the weighted Euler vector and closure
+defect, and returns a machine-readable synchronisation report.
+"""
 from __future__ import annotations
 
 import cmath

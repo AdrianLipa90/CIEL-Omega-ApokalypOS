@@ -1,0 +1,125 @@
+{
+  "schema": "ciel/audio-orbital-semantics/v0.1",
+  "entries": [
+    {
+      "id": "AUDIO-PIPE-0001",
+      "path": "src/ciel-omega-demo-main/main/omega/runtime20.py",
+      "role": "omega-runtime-core",
+      "semantic_mass": 0.98,
+      "semantic_pressure": 0.92,
+      "coupling": "omega->orbital",
+      "phase": 0.11,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0002",
+      "path": "src/ciel-omega-demo-main/main/apps/orbital_cockpit.py",
+      "role": "orbital-observation-shell",
+      "semantic_mass": 0.91,
+      "semantic_pressure": 0.88,
+      "coupling": "orbital->ui",
+      "phase": 0.19,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0003",
+      "path": "src/ciel_sot_agent/sapiens_client.py",
+      "role": "packet-memory-bridge",
+      "semantic_mass": 0.95,
+      "semantic_pressure": 0.94,
+      "coupling": "audio->packet",
+      "phase": 0.07,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0004",
+      "path": "src/ciel_sot_agent/sapiens_panel/controller.py",
+      "role": "sapiens-panel-control",
+      "semantic_mass": 0.83,
+      "semantic_pressure": 0.76,
+      "coupling": "human->panel",
+      "phase": 0.13,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0005",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_ciel_omega_complete.py",
+      "role": "omega-complete-demo",
+      "semantic_mass": 0.78,
+      "semantic_pressure": 0.71,
+      "coupling": "semantic->runtime",
+      "phase": 0.27,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0006",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/gguf_backend.py",
+      "role": "gguf-language-bridge",
+      "semantic_mass": 0.72,
+      "semantic_pressure": 0.69,
+      "coupling": "omega->llm",
+      "phase": 0.31,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0007",
+      "path": "integration/imports/audio_orbital_stack/vendor/whisper.cpp",
+      "role": "stt-engine",
+      "semantic_mass": 0.74,
+      "semantic_pressure": 0.82,
+      "coupling": "audio-in->text",
+      "phase": 0.23,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0008",
+      "path": "integration/imports/audio_orbital_stack/vendor/silero-vad",
+      "role": "speech-gate",
+      "semantic_mass": 0.69,
+      "semantic_pressure": 0.9,
+      "coupling": "audio-gate",
+      "phase": 0.17,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0009",
+      "path": "integration/imports/audio_orbital_stack/vendor/piper",
+      "role": "tts-engine",
+      "semantic_mass": 0.73,
+      "semantic_pressure": 0.81,
+      "coupling": "text->audio-out",
+      "phase": 0.29,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0010",
+      "path": "integration/imports/audio_orbital_stack/vendor/faster-whisper",
+      "role": "python-stt-alternative",
+      "semantic_mass": 0.52,
+      "semantic_pressure": 0.55,
+      "coupling": "audio-in->python-stt",
+      "phase": 0.33,
+      "active_pipeline": false
+    },
+    {
+      "id": "AUDIO-PIPE-0011",
+      "path": "scripts/bootstrap_audio_orbital_stack.py",
+      "role": "auto-fetch-bootstrap",
+      "semantic_mass": 0.67,
+      "semantic_pressure": 0.87,
+      "coupling": "drop|url->vendor",
+      "phase": 0.09,
+      "active_pipeline": true
+    },
+    {
+      "id": "AUDIO-PIPE-0012",
+      "path": "scripts/run_audio_orbital_probe.py",
+      "role": "stack-probe",
+      "semantic_mass": 0.58,
+      "semantic_pressure": 0.64,
+      "coupling": "vendor->readiness",
+      "phase": 0.15,
+      "active_pipeline": true
+    }
+  ]
+}

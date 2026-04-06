@@ -1,0 +1,31 @@
+{
+  "schema": "ciel-sot-agent/sapiens-panel-manifest/v0.2",
+  "panel_name": "Sapiens Main Panel",
+  "panel_role": "orbital-holonomic control surface for human-model interaction",
+  "system_language": "English",
+  "controller_path": "src/ciel_sot_agent/sapiens_panel/controller.py",
+  "launcher_path": "scripts/run_sapiens_panel.py",
+  "state_sources": [
+    "orbital",
+    "bridge",
+    "session",
+    "settings"
+  ],
+  "semantic_axes": [
+    "orchestration",
+    "reduction",
+    "memory_residue"
+  ],
+  "tabs": [
+    "Control",
+    "Settings",
+    "Communication",
+    "Support"
+  ],
+  "dependencies": {
+    "orbital_bridge": "src/ciel_sot_agent/orbital_bridge.py",
+    "sapiens_client": "src/ciel_sot_agent/sapiens_client.py",
+    "reduction_semantics": "src/ciel_sot_agent/sapiens_panel/reduction.py",
+    "settings_defaults": "integration/sapiens/settings_defaults.json"
+  }
+}

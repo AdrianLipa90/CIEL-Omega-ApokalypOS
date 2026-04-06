@@ -20,6 +20,16 @@
       "upstream": "AdrianLipa90/ciel-omega-demo"
     },
     {
+      "key": "desktop",
+      "identity": "CIEL-Desktop",
+      "phi": 0.18,
+      "spin": 0.5,
+      "mass": 0.86,
+      "role": "desktop-fixed-attribute",
+      "fixed_attribute": true,
+      "upstream": "AdrianLipa90/CIEL-Desktop"
+    },
+    {
       "key": "metatime",
       "identity": "Metatime",
       "phi": 0.27,

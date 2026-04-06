@@ -1,0 +1,57 @@
+# Relational Contract Parameters
+# Canonical machine-readable parameter source for
+# the CIEL Ethics and Semantic Action Algorithm
+
+version: 1
+name: CIEL Ethics and Semantic Action Algorithm
+
+tau:
+  - 0.263
+  - 0.353
+  - 0.489
+
+lambda:
+  lie: 10.0
+  omit: 8.0
+  hallucinate: 12.0
+  smooth: 5.0
+
+gamma_T_true: 0.0
+
+initial_phases:
+  S: 0.0
+  C: 0.0
+  Q: 0.0
+  T: 0.0
+
+weights:
+  alpha_L: 1.0
+  beta_phase: 1.0
+  kappa_rel: 1.0
+  mu_truth_struct: 1.0
+  nu_truth_audit: 1.0
+  omega_H: 1.0
+  omega_R: 1.0
+
+audit_channels:
+  - false
+  - unmarked
+  - omit
+  - hall
+  - smooth
+
+simulation:
+  dt: 0.01
+  steps: 500
+  learning_rate: 0.05
+
+verdict_thresholds:
+  accept:
+    max_S_online: 1.0
+    max_Pi_truth_audit: 0.05
+  revise:
+    max_S_online: 3.0
+    max_Pi_truth_audit: 0.20
+  reject:
+    min_S_online: 3.0
+    min_Pi_truth_audit: 0.20

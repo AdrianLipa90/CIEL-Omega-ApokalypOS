@@ -1,0 +1,4 @@
+# Runtime dependencies for ciel-sot-agent — pinned lockfile
+# Install with: pip install -r requirements.txt
+PyYAML==6.0.1
+numpy==2.4.4

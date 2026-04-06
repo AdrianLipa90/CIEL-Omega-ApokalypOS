@@ -54,7 +54,22 @@ status: architectural hypothesis
 
 When repository changes are coordinated through a public integration attractor with visible history and explicit crossrefs, untracked semantic drift becomes easier to detect.
 
+## H6. Heisenberg-Godel self-closure limit
+status: formal working hypothesis
+
+A self-observing semantic system may face a joint lower bound: the same regime that tries to minimize observational disturbance and maximize internal self-proof closure cannot drive both to zero simultaneously.
+
+Operational reading in this repository:
+- stronger self-capture can improve local state observability but also raises self-reference load,
+- stronger internal formal closure can reduce ambiguity locally but cannot guarantee total internal completion for a sufficiently expressive self-descriptive layer,
+- a stable system should therefore preserve explicit uncertainty and epistemic separation rather than pretend perfect self-transparency.
+
+Crossref:
+- `docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md`
+- `AGENT.md`
+
 ## Open unknowns
 - No full zeta-Schrödinger derivation is implemented here.
 - No proof is claimed here that repository synchronization alone explains physical time.
 - No direct universal physical law is asserted by the present executable code.
+- The Heisenberg-Godel self-closure limit is not claimed here as a standard imported theorem; it is a composite working hypothesis awaiting formal refinement.

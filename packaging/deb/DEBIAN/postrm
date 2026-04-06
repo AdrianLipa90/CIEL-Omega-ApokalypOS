@@ -1,0 +1,27 @@
+#!/bin/sh
+# Post-removal script for ciel-sot-agent
+# Cleans up the virtual environment created by postinst and reloads systemd
+# after the unit file has been removed by dpkg.
+
+set -e
+
+INSTALL_DIR="/opt/ciel-sot-agent"
+
+case "$1" in
+    purge|remove)
+        if [ -d "${INSTALL_DIR}/venv" ]; then
+            echo "[ciel-sot-agent] Removing virtual environment..."
+            rm -rf "${INSTALL_DIR}/venv"
+        fi
+        # Remove the install dir if it is now empty (wheels are shipped in
+        # the package and removed by dpkg; only the venv was created at
+        # install time, so the directory should be empty after venv removal).
+        rmdir "${INSTALL_DIR}" 2>/dev/null || true
+        ;;
+esac
+
+# Always reload systemd so the removed unit file is picked up, regardless
+# of whether this is a remove or a purge.
+if [ -d /run/systemd/system ]; then
+    systemctl daemon-reload || true
+fi

@@ -17,13 +17,37 @@
       "key": "architecture",
       "path": "docs/ARCHITECTURE.md",
       "kind": "architecture",
-      "crossrefs": ["docs/INDEX.md", "integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py", "docs/CIEL_OMEGA_DEMO_INTEGRATION.md"]
+      "crossrefs": ["docs/INDEX.md", "integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py", "docs/CIEL_OMEGA_DEMO_INTEGRATION.md", "docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md"]
     },
     {
       "key": "ciel_omega_demo_integration",
       "path": "docs/CIEL_OMEGA_DEMO_INTEGRATION.md",
       "kind": "integration-note",
       "crossrefs": ["docs/ARCHITECTURE.md", "integration/upstreams/ciel_omega_demo_shell_map.json", "integration/repository_registry.json"]
+    },
+    {
+      "key": "ciel_desktop_fixed_attribute",
+      "path": "docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md",
+      "kind": "fixed-attribute",
+      "crossrefs": ["integration/fixed_attributes/ciel_desktop_fixed_attribute.json", "integration/repository_registry.json", "integration/couplings.json", "integration/gh_upstreams.json"]
+    },
+    {
+      "key": "orbital_integration_addendum",
+      "path": "docs/ORBital_INTEGRATION_ADDENDUM.md",
+      "kind": "integration-addendum",
+      "crossrefs": ["integration/Orbital/main/global_pass.py", "src/ciel_sot_agent/orbital_bridge.py", "docs/Orbitrary shifts.md"]
+    },
+    {
+      "key": "orbitalization_state",
+      "path": "docs/Orbitrary shifts.md",
+      "kind": "state-snapshot",
+      "crossrefs": ["docs/ORBital_INTEGRATION_ADDENDUM.md", "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md", "src/ciel_sot_agent/sapiens_panel/controller.py"]
+    },
+    {
+      "key": "sapiens_master_plan",
+      "path": "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md",
+      "kind": "implementation-plan",
+      "crossrefs": ["integration/sapiens/panel_manifest.json", "src/ciel_sot_agent/sapiens_panel/controller.py", "src/ciel_sot_agent/sapiens_panel/reduction.py"]
     },
     {
       "key": "relational_analogies",
@@ -35,7 +59,13 @@
       "key": "hypotheses",
       "path": "docs/science/HYPOTHESES.md",
       "kind": "science-note",
-      "crossrefs": ["docs/analogies/RELATIONAL_ANALOGIES.md", "docs/science/DERIVATION_NOTES.md", "src/ciel_sot_agent/repo_phase.py"]
+      "crossrefs": ["docs/analogies/RELATIONAL_ANALOGIES.md", "docs/science/DERIVATION_NOTES.md", "src/ciel_sot_agent/repo_phase.py", "docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md"]
+    },
+    {
+      "key": "heisenberg_godel_self_closure_hypothesis",
+      "path": "docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md",
+      "kind": "science-note",
+      "crossrefs": ["docs/science/HYPOTHESES.md", "AGENT.md", "docs/INDEX.md"]
     },
     {
       "key": "derivation_notes",
@@ -47,13 +77,25 @@
       "key": "repo_registry",
       "path": "integration/repository_registry.json",
       "kind": "registry",
-      "crossrefs": ["integration/couplings.json", "src/ciel_sot_agent/repo_phase.py", "integration/upstreams/ciel_omega_demo_shell_map.json"]
+      "crossrefs": ["integration/couplings.json", "src/ciel_sot_agent/repo_phase.py", "integration/upstreams/ciel_omega_demo_shell_map.json", "integration/fixed_attributes/ciel_desktop_fixed_attribute.json"]
     },
     {
       "key": "couplings",
       "path": "integration/couplings.json",
       "kind": "coupling-map",
-      "crossrefs": ["integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py"]
+      "crossrefs": ["integration/repository_registry.json", "src/ciel_sot_agent/repo_phase.py", "integration/fixed_attributes/ciel_desktop_fixed_attribute.json"]
+    },
+    {
+      "key": "gh_upstreams",
+      "path": "integration/gh_upstreams.json",
+      "kind": "registry",
+      "crossrefs": ["integration/repository_registry.json", "integration/fixed_attributes/ciel_desktop_fixed_attribute.json", "docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md"]
+    },
+    {
+      "key": "desktop_fixed_attribute",
+      "path": "integration/fixed_attributes/ciel_desktop_fixed_attribute.json",
+      "kind": "fixed-attribute",
+      "crossrefs": ["docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md", "integration/repository_registry.json", "integration/couplings.json", "integration/gh_upstreams.json"]
     },
     {
       "key": "demo_shell_map",
@@ -74,10 +116,81 @@
       "crossrefs": ["src/ciel_sot_agent/repo_phase.py", "tests/test_repo_phase.py"]
     },
     {
+      "key": "orbital_bridge",
+      "path": "src/ciel_sot_agent/orbital_bridge.py",
+      "kind": "bridge-runner",
+      "crossrefs": ["integration/reports/orbital_bridge/README.md", "integration/Orbital/main/global_pass.py", "docs/Orbitrary shifts.md"]
+    },
+    {
+      "key": "sapiens_panel_controller",
+      "path": "src/ciel_sot_agent/sapiens_panel/controller.py",
+      "kind": "controller",
+      "crossrefs": ["integration/sapiens/panel_manifest.json", "src/ciel_sot_agent/sapiens_panel/reduction.py", "tests/test_sapiens_panel.py"]
+    },
+    {
+      "key": "sapiens_panel_reduction",
+      "path": "src/ciel_sot_agent/sapiens_panel/reduction.py",
+      "kind": "semantics",
+      "crossrefs": ["src/ciel_sot_agent/sapiens_panel/controller.py", "integration/sapiens/settings_defaults.json", "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md"]
+    },
+    {
       "key": "index_validator",
       "path": "src/ciel_sot_agent/index_validator.py",
       "kind": "validator",
       "crossrefs": ["integration/index_registry.yaml", "tests/test_gh_coupling.py"]
+    },
+    {
+      "key": "gui_app",
+      "path": "src/ciel_sot_agent/gui/app.py",
+      "kind": "gui-entrypoint",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/routes.py",
+        "docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md",
+        "docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md",
+        "tests/test_gui.py"
+      ]
+    },
+    {
+      "key": "gui_routes",
+      "path": "src/ciel_sot_agent/gui/routes.py",
+      "kind": "gui-routes",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/app.py",
+        "src/ciel_sot_agent/gguf_manager/manager.py",
+        "integration/reports/orbital_bridge/orbital_bridge_report.json",
+        "integration/sapiens/panel_manifest.json",
+        "tests/test_gui.py"
+      ]
+    },
+    {
+      "key": "gguf_manager",
+      "path": "src/ciel_sot_agent/gguf_manager/manager.py",
+      "kind": "model-manager",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/routes.py",
+        "tests/test_gguf_manager.py"
+      ]
+    },
+    {
+      "key": "gui_identity_brief",
+      "path": "docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md",
+      "kind": "identity-brief",
+      "crossrefs": [
+        "src/ciel_sot_agent/gui/app.py",
+        "docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "key": "workflow_gui_energy_budget",
+      "path": "docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md",
+      "kind": "policy",
+      "crossrefs": [
+        "docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md",
+        "src/ciel_sot_agent/gui/app.py",
+        "docs/operations/V2_RUNTIME_ENTRYPOINTS.md",
+        "docs/INDEX.md"
+      ]
     }
   ]
 }

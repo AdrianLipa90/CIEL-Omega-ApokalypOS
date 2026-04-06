@@ -1,0 +1,93 @@
+{
+  "schema": "ciel-sot-agent/orbital-bridge-report/v0.1",
+  "source_report": "integration/Orbital/main/reports/global_orbital_coherence_pass/summary.json",
+  "source_paths": {
+    "reports_root": "/home/runner/work/CIEL-_SOT_Agent/CIEL-_SOT_Agent/integration/Orbital/main/reports/global_orbital_coherence_pass",
+    "summary_json": "/home/runner/work/CIEL-_SOT_Agent/CIEL-_SOT_Agent/integration/Orbital/main/reports/global_orbital_coherence_pass/summary.json",
+    "summary_md": "/home/runner/work/CIEL-_SOT_Agent/CIEL-_SOT_Agent/integration/Orbital/main/reports/global_orbital_coherence_pass/summary.md",
+    "real_geometry_json": "/home/runner/work/CIEL-_SOT_Agent/CIEL-_SOT_Agent/integration/Orbital/main/reports/global_orbital_coherence_pass/real_geometry.json"
+  },
+  "orbital_run": {
+    "engine": "global_orbital_coherence_pass_v63_euler_df257",
+    "steps": 20,
+    "params": {
+      "dt": 0.0205,
+      "tau_eta": 0.0085,
+      "tau_reg": 0.0024,
+      "sigma": 0.20992708860770198,
+      "beta": 0.8858849039288708,
+      "gamma": 0.3383621712598693,
+      "I0": 0.008114359738066937,
+      "mesh_boost": 0.9902072303068182,
+      "tension_weight": 0.24841695319131418,
+      "closure_weight": 0.08945494489662148,
+      "use_zeta_pole": true,
+      "zeta_coupling_scale": 0.35,
+      "zeta_tetra_weight": 0.5,
+      "zeta_amplitude": 0.35,
+      "zeta_relax": 0.08,
+      "zeta_global_rotation": 0.0,
+      "zeta_heisenberg_alpha": 8.0,
+      "zeta_i0_scale": 1.0,
+      "use_relational_lagrangian": true,
+      "kappa_H": 1.0,
+      "lambda_tension": 0.15,
+      "lambda_distortion": 1.0,
+      "lambda_zeta_tetra": 1.0,
+      "alpha_spin": 4.0,
+      "mu_phi": 0.18,
+      "mu_rho": 0.14,
+      "epsilon_hom": 0.22,
+      "spin_vorticity_gain": 0.2,
+      "relax_amp": 0.28,
+      "grad_eps": 0.001,
+      "use_euler_leak_rotation": true,
+      "D_f": 2.57,
+      "euler_angular_gain": 1.0,
+      "zeta_phase0": 0.0
+    }
+  },
+  "state_manifest": {
+    "coherence_index": 0.9210287158864723,
+    "topological_charge_global": 0.09173654040948012,
+    "phase_lock_error": 6.203753209251693,
+    "beat_frequency_target_hz": 7.83,
+    "spectral_radius_A": 1.5788043476614764,
+    "fiedler_L": 0.17438387493107943,
+    "zeta_enabled": true,
+    "timestamp": "2026-04-05T16:23:40.823131+00:00"
+  },
+  "health_manifest": {
+    "system_health": 0.5684045566434583,
+    "risk_level": "low",
+    "closure_penalty": 6.203753209251693,
+    "R_H": 0.07897128411352769,
+    "T_glob": 2.603929310583091,
+    "Lambda_glob": 0.09173654040948012,
+    "recommended_action": "deep diagnostics allowed"
+  },
+  "recommended_control": {
+    "mode": "safe",
+    "phase_lock_enable": true,
+    "target_phase_shift": -0.004721919065550805,
+    "dt_override": 0.018,
+    "zeta_coupling_scale": 0.3,
+    "mu_phi": 0.16,
+    "epsilon_hom": 0.18,
+    "notes": "Coherence is low or closure defect remains globally unsafe: use conservative execution."
+  },
+  "bridge_metrics": {
+    "orbital_R_H": 0.07897128411352769,
+    "orbital_closure_penalty": 6.203753209251693,
+    "integration_closure_defect_proxy": 0.9210287158864723,
+    "topological_charge_global": 0.09173654040948012
+  },
+  "ciel_pipeline": {
+    "status": "ok",
+    "dominant_emotion": "love",
+    "mood": 0.900231987496021,
+    "soul_invariant": 0.9104889055324701,
+    "ethical_score": 0.35431562920368376,
+    "orbital_context": "orbital|mode=safe|R_H=0.0790|closure=6.2038|chirality=0.0917"
+  }
+}

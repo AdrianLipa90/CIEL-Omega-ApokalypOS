@@ -1,0 +1,37 @@
+{
+  "schema": "ciel-sot-agent/gh-upstreams/v0.1",
+  "upstreams": [
+    {
+      "key": "agent",
+      "repo_full_name": "AdrianLipa90/CIEL-_SOT_Agent",
+      "branch": "main",
+      "enabled": true,
+      "source_weight": 1.0,
+      "notes": "Integration attractor repo itself"
+    },
+    {
+      "key": "demo",
+      "repo_full_name": "AdrianLipa90/ciel-omega-demo",
+      "branch": "main",
+      "enabled": true,
+      "source_weight": 0.9,
+      "notes": "Cockpit and UI surface"
+    },
+    {
+      "key": "canon",
+      "repo_full_name": null,
+      "branch": "main",
+      "enabled": false,
+      "source_weight": 1.0,
+      "notes": "GitHub mapping not yet declared in this integration layer"
+    },
+    {
+      "key": "metatime",
+      "repo_full_name": null,
+      "branch": "main",
+      "enabled": false,
+      "source_weight": 0.85,
+      "notes": "GitHub mapping not yet declared in this integration layer"
+    }
+  ]
+}

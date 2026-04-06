@@ -1,0 +1,13 @@
+#!/bin/sh
+# Pre-removal script for ciel-sot-agent
+# Stops and disables the systemd service before the package files are removed.
+
+set -e
+
+echo "[ciel-sot-agent] Stopping service (if running)..."
+systemctl stop ciel-sot-gui 2>/dev/null || true
+
+echo "[ciel-sot-agent] Disabling service (if enabled)..."
+systemctl disable ciel-sot-gui 2>/dev/null || true
+
+echo "[ciel-sot-agent] Pre-removal complete."

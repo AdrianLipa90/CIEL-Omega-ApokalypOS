@@ -92,9 +92,9 @@
       "agent_count": 1
     },
     "memory": {
-      "py_files": 36,
-      "char_count": 280387,
-      "import_count": 535,
+      "py_files": 37,
+      "char_count": 292225,
+      "import_count": 548,
       "readme_count": 1,
       "agent_count": 1
     },
@@ -124,7 +124,7 @@
         "rhythm_ratio": 1.0,
         "amplitude": 0.9913,
         "coherence_weight": 1.0878,
-        "info_mass": 1.0867,
+        "info_mass": 1.0852,
         "q_target": 1,
         "damping": 0.1,
         "preference": 0.1958,
@@ -140,7 +140,7 @@
         "rhythm_ratio": 1.0,
         "amplitude": 0.9439,
         "coherence_weight": 1.0215,
-        "info_mass": 1.0749,
+        "info_mass": 1.0739,
         "q_target": 1,
         "damping": 0.1,
         "preference": 0.1731,
@@ -156,7 +156,7 @@
         "rhythm_ratio": 2.0,
         "amplitude": 0.9509,
         "coherence_weight": 1.0312,
-        "info_mass": 1.1752,
+        "info_mass": 1.1701,
         "q_target": 4,
         "damping": 0.14,
         "preference": 0.1764,
@@ -188,7 +188,7 @@
         "rhythm_ratio": 2.0,
         "amplitude": 1.0,
         "coherence_weight": 1.1,
-        "info_mass": 1.0737,
+        "info_mass": 1.0728,
         "q_target": 4,
         "damping": 0.14,
         "preference": 0.2,
@@ -204,7 +204,7 @@
         "rhythm_ratio": 1.0,
         "amplitude": 0.9161,
         "coherence_weight": 0.9825,
-        "info_mass": 1.3226,
+        "info_mass": 1.3116,
         "q_target": 1,
         "damping": 0.1,
         "preference": 0.1597,
@@ -215,27 +215,27 @@
   },
   "couplings": {
     "couplings": {
+      "constraints": {
+        "vocabulary": 0.7686,
+        "fields": 0.9311,
+        "memory": 0.8917,
+        "runtime": 0.8917
+      },
+      "bridge": {
+        "runtime": 0.8917,
+        "vocabulary": 0.808,
+        "constraints": 1.0,
+        "fields": 0.8917,
+        "memory": 0.9902
+      },
+      "fields": {
+        "memory": 0.1,
+        "runtime": 0.8917,
+        "vocabulary": 0.8818
+      },
       "memory": {
         "runtime": 0.9705,
         "vocabulary": 0.7932
-      },
-      "fields": {
-        "runtime": 0.8917,
-        "vocabulary": 0.8818,
-        "memory": 0.1
-      },
-      "bridge": {
-        "vocabulary": 0.808,
-        "runtime": 0.8917,
-        "constraints": 1.0,
-        "memory": 0.9902,
-        "fields": 0.8917
-      },
-      "constraints": {
-        "memory": 0.8917,
-        "fields": 0.9311,
-        "vocabulary": 0.7686,
-        "runtime": 0.8917
       },
       "runtime": {
         "vocabulary": 0.3795

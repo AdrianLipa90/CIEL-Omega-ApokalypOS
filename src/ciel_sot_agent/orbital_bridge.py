@@ -64,7 +64,7 @@ def build_orbital_bridge(root: str | Path) -> dict[str, Any]:
     ensure_orbital_manifests(orbital_root)
     orbital_paths = ensure_orbital_report_dirs(orbital_root)
 
-    orbital_run = run_global_pass(repo_root=orbital_root)
+    orbital_run = run_global_pass()
     final = dict(orbital_run.get('final', {}))
     state_manifest = build_state_manifest(final)
     health_manifest = build_health_manifest(final)

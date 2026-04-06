@@ -1,0 +1,16 @@
+{
+  "schema": "ciel-sot-agent/couplings/v0.1",
+  "couplings": {
+    "canon": {"demo": 0.92, "metatime": 0.88, "agent": 0.97},
+    "demo": {"canon": 0.84, "metatime": 0.63, "agent": 0.79},
+    "metatime": {"canon": 0.81, "demo": 0.58, "agent": 0.76},
+    "agent": {"canon": 0.97, "demo": 0.79, "metatime": 0.76}
+  },
+  "relation_types": {
+    "canon-demo": "foundation-to-cockpit",
+    "canon-metatime": "foundation-to-historical-theory",
+    "canon-agent": "foundation-to-integration",
+    "demo-agent": "cockpit-to-integration",
+    "metatime-agent": "historical-to-integration"
+  }
+}

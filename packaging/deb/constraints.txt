@@ -1,0 +1,21 @@
+# constraints.txt — Pinned dependency versions for reproducible .deb builds.
+#
+# These pins are used by build_deb.sh when downloading wheels
+# (via --constraint) so that every build produces the same set of
+# artifacts regardless of upstream releases.
+#
+# To update: run "pip install ciel-sot-agent[gui]" in a clean venv,
+# then capture the resolved versions with "pip freeze".
+
+# --- core runtime ---
+PyYAML==6.0.1
+numpy==2.4.4
+
+# --- gui extras (flask and its dependency tree) ---
+flask==3.1.3
+Werkzeug==3.1.8
+Jinja2==3.1.2
+MarkupSafe==2.1.5
+click==8.1.6
+blinker==1.9.0
+itsdangerous==2.2.0

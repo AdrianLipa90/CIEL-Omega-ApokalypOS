@@ -21,6 +21,8 @@ objects:
       - REG-SOT-0001
       - SRC-SOT-0001
       - DOC-SOT-0002
+      - DOC-SOT-0003
+      - DOC-SOT-0004
     tests: []
     interfaces: []
     exports: []
@@ -47,6 +49,44 @@ objects:
     provenance: []
     path: docs/CIEL_OMEGA_DEMO_INTEGRATION.md
     placeholder: false
+  - id: DOC-SOT-0003
+    name: orbitalization_state_snapshot
+    layer: architecture
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+    downstream:
+      - REG-SOT-0004
+      - SRC-SOT-0003
+      - SRC-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/Orbitrary shifts.md
+    placeholder: false
+  - id: DOC-SOT-0004
+    name: ciel_desktop_fixed_attribute
+    layer: architecture
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+      - REG-SOT-0005
+    downstream:
+      - REG-SOT-0001
+      - REG-SOT-0002
+      - REG-SOT-0003
+      - REG-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md
+    placeholder: false
   - id: ANL-SOT-0001
     name: relational_analogies
     layer: analogy
@@ -72,6 +112,7 @@ objects:
     upstream:
       - ANL-SOT-0001
     downstream:
+      - HYP-SOT-0002
       - DER-SOT-0001
       - SRC-SOT-0001
     tests:
@@ -81,6 +122,21 @@ objects:
     exports: []
     provenance: []
     path: docs/science/HYPOTHESES.md
+    placeholder: false
+  - id: HYP-SOT-0002
+    name: heisenberg_godel_self_closure_hypothesis
+    layer: science
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - HYP-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md
     placeholder: false
   - id: DER-SOT-0001
     name: derivation_notes
@@ -107,6 +163,7 @@ objects:
     owner_layer: integration
     upstream:
       - DOC-SOT-0001
+      - DOC-SOT-0004
     downstream:
       - SRC-SOT-0001
       - SRC-SOT-0002
@@ -127,6 +184,7 @@ objects:
     owner_layer: integration
     upstream:
       - DOC-SOT-0001
+      - DOC-SOT-0004
     downstream:
       - SRC-SOT-0001
       - SRC-SOT-0002
@@ -146,6 +204,7 @@ objects:
     owner_layer: integration
     upstream:
       - DOC-SOT-0001
+      - DOC-SOT-0004
     downstream:
       - SRC-SOT-0002
       - MAP-SOT-0001
@@ -157,6 +216,44 @@ objects:
     exports: []
     provenance: []
     path: integration/gh_upstreams.json
+    placeholder: false
+  - id: REG-SOT-0004
+    name: hyperspace_index_primary
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0003
+      - DOC-SOT-0004
+    downstream:
+      - SRC-SOT-0003
+      - SRC-SOT-0004
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/hyperspace_index.json
+    placeholder: false
+  - id: REG-SOT-0005
+    name: desktop_fixed_attribute_manifest
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0004
+    downstream:
+      - REG-SOT-0001
+      - REG-SOT-0002
+      - REG-SOT-0003
+      - REG-SOT-0004
+    tests: []
+    interfaces: []
+    exports:
+      - fixed_attribute_manifest
+    provenance: []
+    path: integration/fixed_attributes/ciel_desktop_fixed_attribute.json
     placeholder: false
   - id: MAP-SOT-0001
     name: ciel_omega_demo_shell_map
@@ -227,6 +324,42 @@ objects:
     provenance: []
     path: src/ciel_sot_agent/gh_coupling.py
     placeholder: false
+  - id: SRC-SOT-0003
+    name: orbital_bridge
+    layer: code
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - DOC-SOT-0003
+      - REG-SOT-0004
+    downstream:
+      - RPT-SOT-0003
+    tests:
+      - TST-SOT-0003
+    interfaces: []
+    exports: []
+    provenance: []
+    path: src/ciel_sot_agent/orbital_bridge.py
+    placeholder: false
+  - id: SRC-SOT-0004
+    name: sapiens_panel_controller
+    layer: code
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - DOC-SOT-0003
+      - REG-SOT-0004
+    downstream:
+      - TST-SOT-0004
+    tests:
+      - TST-SOT-0004
+    interfaces: []
+    exports: []
+    provenance: []
+    path: src/ciel_sot_agent/sapiens_panel/controller.py
+    placeholder: false
   - id: IF-SOT-0001
     name: github_api_pull_interface
     layer: interface
@@ -277,6 +410,36 @@ objects:
     provenance: []
     path: tests/test_gh_coupling.py
     placeholder: false
+  - id: TST-SOT-0003
+    name: orbital_runtime_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0003
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_orbital_runtime.py
+    placeholder: false
+  - id: TST-SOT-0004
+    name: sapiens_panel_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0004
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_sapiens_panel.py
+    placeholder: false
   - id: RPT-SOT-0001
     name: initial_sync_report
     layer: report
@@ -308,3 +471,18 @@ objects:
     provenance: []
     path: integration/reports/live_gh_coupling_report.json
     placeholder: true
+  - id: RPT-SOT-0003
+    name: orbital_bridge_reports
+    layer: report
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - SRC-SOT-0003
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/reports/orbital_bridge/README.md
+    placeholder: false

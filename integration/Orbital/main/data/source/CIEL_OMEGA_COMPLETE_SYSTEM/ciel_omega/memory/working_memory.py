@@ -148,7 +148,10 @@ class WorkingMemory(BaseMemoryChannel):
             'confidence': confidence,
             'source_ids': source_ids,
         })
-        assert len(self.traces) == before + 1
+        # The traces deque is bounded (maxlen=TRACE_WINDOW).  When it is
+        # already at capacity, appending evicts the oldest element so the
+        # length stays at TRACE_WINDOW rather than growing to before + 1.
+        assert len(self.traces) == min(before + 1, self.TRACE_WINDOW)
         return self.traces[-1]
 
     def decay(self, current_time: float) -> None:
