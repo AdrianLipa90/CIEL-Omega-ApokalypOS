@@ -106,7 +106,7 @@ def run_global_pass(
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / 'real_geometry.json').write_text(json.dumps(payload, indent=2), encoding='utf-8')
 
-    config_dir = repo_root / 'manifests' / 'orbital'
+    config_dir = repo_root / 'manifests'
     config_dir.mkdir(parents=True, exist_ok=True)
     sectors_path = config_dir / 'sectors_global.json'
     couplings_path = config_dir / 'couplings_global.json'
