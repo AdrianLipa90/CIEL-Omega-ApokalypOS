@@ -7,6 +7,13 @@ from pathlib import Path
 from typing import Any
 
 
+def repo_relative(repo_root: Path, path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(repo_root.resolve())).replace("\\", "/")
+    except Exception:
+        return str(path)
+
+
 def edge(source: str, target: str, relation: str, weight: float) -> dict[str, Any]:
     return {
         "source": source,
@@ -77,7 +84,7 @@ def main() -> int:
         "edges": deduped,
     }
     out.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    print(json.dumps({"ok": True, "count": len(deduped), "path": str(out)}, indent=2))
+    print(json.dumps({"ok": True, "count": len(deduped), "path": repo_relative(repo_root, out)}, indent=2))
     return 0
 
 

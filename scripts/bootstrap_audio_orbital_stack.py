@@ -3,6 +3,12 @@ from __future__ import annotations
 import argparse, json, os, shutil, urllib.request, zipfile, hashlib
 from pathlib import Path
 
+def repo_relative(repo_root: Path, path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(repo_root.resolve())).replace('\\', '/')
+    except Exception:
+        return str(path)
+
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
     with path.open('rb') as fh:
@@ -68,13 +74,13 @@ def main() -> int:
             archive_state["downloaded"] = True
         if archive is not None and archive.exists():
             archive_state["found"] = True
-            archive_state["path"] = str(archive)
+            archive_state["path"] = repo_relative(repo_root, archive)
             archive_state["sha256"] = sha256_file(archive)
             should_extract = meta.get("extract_default", True)
             if should_extract:
                 extract_target = repo_root / 'integration' / 'imports' / 'audio_orbital_stack' / meta["extract_to"]
                 extract_zip(archive, extract_target)
-                archive_state["extract_target"] = str(extract_target)
+                archive_state["extract_target"] = repo_relative(repo_root, extract_target)
                 archive_state["extracted"] = extract_target.exists()
             else:
                 archive_state["extract_target"] = None
@@ -82,7 +88,7 @@ def main() -> int:
 
     for key, meta in cfg.get("models", {}).items():
         target = repo_root / 'integration' / 'imports' / 'audio_orbital_stack' / meta["target_path"]
-        model_state = {"description": meta["description"], "path": str(target), "present": target.exists(), "downloaded": False}
+        model_state = {"description": meta["description"], "path": repo_relative(repo_root, target), "present": target.exists(), "downloaded": False}
         if not target.exists() and meta.get("source_url") and not args.skip_download:
             target.parent.mkdir(parents=True, exist_ok=True)
             download(meta["source_url"], target)

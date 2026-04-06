@@ -1,0 +1,48 @@
+{
+  "schema": "ciel/audio-orbital-catalog-hook/v0.1",
+  "ok": true,
+  "steps": [
+    {
+      "script": "bootstrap_audio_orbital_stack.py",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": \"ciel/audio-orbital-stack-state/v0.1\",\n  \"archives\": {\n    \"whisper_cpp\": {\n      \"display_name\": \"whisper.cpp\",\n      \"found\": false,\n      \"downloaded\": false,\n      \"extracted\": false,\n      \"active_pipeline\": true\n    },\n    \"faster_whisper\": {\n      \"display_name\": \"faster-whisper\",\n      \"found\": false,\n      \"downloaded\": false,\n      \"extracted\": false,\n      \"active_pipeline\": false\n    },\n    \"silero_vad\": {\n      \"display_name\": \"silero-vad\",\n      \"found\": false,\n      \"downloaded\": false,\n      \"extracted\": false,\n      \"active_pipeline\": true\n    },\n    \"piper\": {\n      \"display_name\": \"piper\",\n      \"found\": false,\n      \"downloaded\": false,\n      \"extracted\": false,\n      \"active_pipeline\": true\n    },\n    \"piper_samples\": {\n      \"display_name\": \"piper-samples\",\n      \"found\": false,\n      \"downloaded\": false,\n      \"extracted\": false,\n      \"active_pipeline\": false\n    }\n  },\n  \"models\": {\n    \"whisper_model\": {\n      \"description\": \"Optional whisper.cpp model file such as ggml-base.bin\",\n      \"path\": \"integration/imports/audio_orbital_stack/models/whisper/ggml-base.bin\",\n      \"present\": false,\n      \"downloaded\": false\n    },\n    \"piper_voice_model\": {\n      \"description\": \"Optional piper voice model .onnx\",\n      \"path\": \"integration/imports/audio_orbital_stack/models/piper/en_US-lessac-medium.onnx\",\n      \"present\": false,\n      \"downloaded\": false\n    },\n    \"piper_voice_config\": {\n      \"description\": \"Optional piper voice config .onnx.json\",\n      \"path\": \"integration/imports/audio_orbital_stack/models/piper/en_US-lessac-medium.onnx.json\",\n      \"present\": false,\n      \"downloaded\": false\n    }\n  }\n}\n",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "script": "build_orbital_definition_registry.py",
+      "returncode": 0,
+      "stdout": "{\n  \"ok\": true,\n  \"count\": 10995,\n  \"json\": \"integration/registries/definitions/definition_registry.json\",\n  \"csv\": \"integration/registries/definitions/definition_registry.csv\"\n}\n",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "script": "resolve_orbital_semantics.py",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": \"ciel/orbital-assignment-report/v0.1\",\n  \"count\": 10995,\n  \"orbit_counts\": {\n    \"UNRESOLVED\": 462,\n    \"IDENTITY\": 9862,\n    \"CONSTITUTIVE\": 156,\n    \"BOUNDARY\": 52,\n    \"OBSERVATION\": 51,\n    \"DYNAMIC\": 351,\n    \"INTERACTION\": 61\n  },\n  \"unresolved\": 462\n}\n",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "script": "build_nonlocal_definition_edges.py",
+      "returncode": 0,
+      "stdout": "{\n  \"ok\": true,\n  \"count\": 74388,\n  \"path\": \"integration/registries/definitions/nonlocal_definition_edges.json\"\n}\n",
+      "stderr": "",
+      "ok": true
+    },
+    {
+      "script": "run_audio_orbital_probe.py",
+      "returncode": 0,
+      "stdout": "{\n  \"schema\": \"ciel/audio-orbital-probe/v0.1\",\n  \"ready\": false,\n  \"components\": {\n    \"vad\": false,\n    \"stt_primary\": false,\n    \"tts\": false,\n    \"stt_alt\": false,\n    \"whisper_model\": false,\n    \"piper_voice_model\": false,\n    \"piper_voice_config\": false\n  },\n  \"advice\": {\n    \"minimum\": \"silero_vad + whisper_cpp + piper extracted\",\n    \"full_voice\": \"add whisper_model + piper_voice_model + piper_voice_config\"\n  }\n}\n",
+      "stderr": "",
+      "ok": true
+    }
+  ],
+  "artifacts": {
+    "audio_state": "integration/imports/audio_orbital_stack/state/audio_orbital_stack_state.json",
+    "definition_registry": "integration/registries/definitions/definition_registry.json",
+    "orbital_registry": "integration/registries/definitions/orbital_definition_registry.json",
+    "orbital_report": "integration/registries/definitions/orbital_assignment_report.json",
+    "nonlocal_edges": "integration/registries/definitions/nonlocal_definition_edges.json"
+  }
+}

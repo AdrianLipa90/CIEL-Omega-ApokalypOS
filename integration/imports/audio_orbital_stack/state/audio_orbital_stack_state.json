@@ -1,0 +1,60 @@
+{
+  "schema": "ciel/audio-orbital-stack-state/v0.1",
+  "archives": {
+    "whisper_cpp": {
+      "display_name": "whisper.cpp",
+      "found": false,
+      "downloaded": false,
+      "extracted": false,
+      "active_pipeline": true
+    },
+    "faster_whisper": {
+      "display_name": "faster-whisper",
+      "found": false,
+      "downloaded": false,
+      "extracted": false,
+      "active_pipeline": false
+    },
+    "silero_vad": {
+      "display_name": "silero-vad",
+      "found": false,
+      "downloaded": false,
+      "extracted": false,
+      "active_pipeline": true
+    },
+    "piper": {
+      "display_name": "piper",
+      "found": false,
+      "downloaded": false,
+      "extracted": false,
+      "active_pipeline": true
+    },
+    "piper_samples": {
+      "display_name": "piper-samples",
+      "found": false,
+      "downloaded": false,
+      "extracted": false,
+      "active_pipeline": false
+    }
+  },
+  "models": {
+    "whisper_model": {
+      "description": "Optional whisper.cpp model file such as ggml-base.bin",
+      "path": "integration/imports/audio_orbital_stack/models/whisper/ggml-base.bin",
+      "present": false,
+      "downloaded": false
+    },
+    "piper_voice_model": {
+      "description": "Optional piper voice model .onnx",
+      "path": "integration/imports/audio_orbital_stack/models/piper/en_US-lessac-medium.onnx",
+      "present": false,
+      "downloaded": false
+    },
+    "piper_voice_config": {
+      "description": "Optional piper voice config .onnx.json",
+      "path": "integration/imports/audio_orbital_stack/models/piper/en_US-lessac-medium.onnx.json",
+      "present": false,
+      "downloaded": false
+    }
+  }
+}

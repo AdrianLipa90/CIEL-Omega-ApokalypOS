@@ -8,6 +8,13 @@ import sys
 from pathlib import Path
 
 
+def repo_relative(repo_root: Path, path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(repo_root.resolve())).replace('\\', '/')
+    except Exception:
+        return str(path)
+
+
 def run_step(repo_root: Path, script_name: str, extra_args: list[str] | None = None) -> dict:
     script_path = repo_root / 'scripts' / script_name
     cmd = [sys.executable, str(script_path), '--repo-root', str(repo_root)]
@@ -50,11 +57,11 @@ def main() -> int:
         'ok': ok,
         'steps': steps,
         'artifacts': {
-            'audio_state': str(repo_root / 'integration' / 'imports' / 'audio_orbital_stack' / 'state' / 'audio_orbital_stack_state.json'),
-            'definition_registry': str(repo_root / 'integration' / 'registries' / 'definitions' / 'definition_registry.json'),
-            'orbital_registry': str(repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_definition_registry.json'),
-            'orbital_report': str(repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_assignment_report.json'),
-            'nonlocal_edges': str(repo_root / 'integration' / 'registries' / 'definitions' / 'nonlocal_definition_edges.json'),
+            'audio_state': repo_relative(repo_root, repo_root / 'integration' / 'imports' / 'audio_orbital_stack' / 'state' / 'audio_orbital_stack_state.json'),
+            'definition_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'definition_registry.json'),
+            'orbital_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_definition_registry.json'),
+            'orbital_report': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_assignment_report.json'),
+            'nonlocal_edges': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'nonlocal_definition_edges.json'),
         },
     }
 
@@ -62,7 +69,7 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(summary, indent=2), encoding='utf-8')
     print(json.dumps(summary, indent=2))
-    return 0 if ok else 1
+    return 0 f ok else 1
 
 
 if __name__ == '__main__':

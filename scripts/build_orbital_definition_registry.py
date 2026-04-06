@@ -8,6 +8,13 @@ import json
 from pathlib import Path
 from typing import Any
 
+
+def repo_relative(repo_root: Path, path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(repo_root.resolve())).replace("\\", "/")
+    except Exception:
+        return str(path)
+
 DEFAULT_ROOTS = ["src", "scripts", "integration"]
 SCAN_SUFFIXES = {".py", ".sh", ".md", ".json", ".yaml", ".yml", ".toml"}
 
@@ -199,7 +206,7 @@ def main() -> int:
             row["calls"] = ";".join(rec.get("calls", []))
             writer.writerow(row)
 
-    print(json.dumps({"ok": True, "count": len(records), "json": str(json_path), "csv": str(csv_path)}, indent=2))
+    print(json.dumps({"ok": True, "count": len(records), "json": repo_relative(repo_root, json_path), "csv": repo_relative(repo_root, csv_path)}, indent=2))
     return 0
 
 

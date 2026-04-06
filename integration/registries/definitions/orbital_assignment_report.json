@@ -1,0 +1,14 @@
+{
+  "schema": "ciel/orbital-assignment-report/v0.1",
+  "count": 10995,
+  "orbit_counts": {
+    "UNRESOLVED": 462,
+    "IDENTITY": 9862,
+    "CONSTITUTIVE": 156,
+    "BOUNDARY": 52,
+    "OBSERVATION": 51,
+    "DYNAMIC": 351,
+    "INTERACTION": 61
+  },
+  "unresolved": 462
+}
