@@ -36,3 +36,9 @@ integration/Orbital/main/data/source/CIEL_OMEGA_COMPLETE_SYSTEM/CIEL_MEMORY_SYST
 packaging/vendor/*.whl
 packaging/vendor/*.tar.gz
 packaging/vendor/*.zip
+
+# Generated card/catalog database library (rebuild from scripts, do not commit binaries)
+integration/registries/definitions/db_library/*.sqlite
+integration/registries/definitions/db_library/*-journal
+integration/registries/definitions/db_library/*.sqlite-wal
+integration/registries/definitions/db_library/*.sqlite-shm

@@ -1,0 +1,70 @@
+{
+  "schema": "ciel/catalog-db-library/v0.3",
+  "databases": {
+    "records": {
+      "path": "integration/registries/definitions/db_library/records.sqlite",
+      "rows": 10998,
+      "size_bytes": 8732672,
+      "tables": [
+        "records"
+      ]
+    },
+    "reports": {
+      "path": "integration/registries/definitions/db_library/reports.sqlite",
+      "rows": 2,
+      "size_bytes": 20480,
+      "tables": [
+        "reports",
+        "orbit_counts"
+      ]
+    },
+    "edge_shards": {
+      "calls": {
+        "path": "integration/registries/definitions/db_library/edges_calls.sqlite",
+        "rows": 24317,
+        "size_bytes": 21114880,
+        "tables": [
+          "edges"
+        ],
+        "relation": "calls"
+      },
+      "contains": {
+        "path": "integration/registries/definitions/db_library/edges_contains.sqlite",
+        "rows": 9741,
+        "size_bytes": 7823360,
+        "tables": [
+          "edges"
+        ],
+        "relation": "contains"
+      },
+      "imports": {
+        "path": "integration/registries/definitions/db_library/edges_imports.sqlite",
+        "rows": 8920,
+        "size_bytes": 6254592,
+        "tables": [
+          "edges"
+        ],
+        "relation": "imports"
+      },
+      "orbital_resonance": {
+        "path": "integration/registries/definitions/db_library/edges_orbital_resonance.sqlite",
+        "rows": 31575,
+        "size_bytes": 29745152,
+        "tables": [
+          "edges"
+        ],
+        "relation": "orbital_resonance"
+      }
+    }
+  },
+  "totals": {
+    "records": 10998,
+    "edges": 74553,
+    "edge_relations": 4
+  },
+  "reports": {
+    "orbital_assignment_report": "integration/registries/definitions/orbital_assignment_report.json",
+    "orbital_registry": "integration/registries/definitions/orbital_definition_registry.json",
+    "edges": "integration/registries/definitions/nonlocal_definition_edges.json"
+  }
+}

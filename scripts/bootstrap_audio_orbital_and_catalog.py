@@ -10,7 +10,7 @@ from pathlib import Path
 
 def repo_relative(repo_root: Path, path: Path) -> str:
     try:
-        return str(path.resolve().relative_to(repo_root.resolve())).replace('\\', '/')
+        return str(path.resolve().relative_to(repo_root.resolve())).replace("\\", "/")
     except Exception:
         return str(path)
 
@@ -47,8 +47,10 @@ def main() -> int:
 
     roots_args = ['--roots', *args.roots] if args.roots else []
     steps.append(run_step(repo_root, 'build_orbital_definition_registry.py', roots_args))
+    steps.append(run_step(repo_root, 'normalize_definition_registry.py'))
     steps.append(run_step(repo_root, 'resolve_orbital_semantics.py'))
     steps.append(run_step(repo_root, 'build_nonlocal_definition_edges.py'))
+    steps.append(run_step(repo_root, 'build_definition_db_library.py'))
     steps.append(run_step(repo_root, 'run_audio_orbital_probe.py'))
 
     ok = all(step['ok'] for step in steps)
@@ -62,6 +64,7 @@ def main() -> int:
             'orbital_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_definition_registry.json'),
             'orbital_report': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_assignment_report.json'),
             'nonlocal_edges': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'nonlocal_definition_edges.json'),
+            'db_manifest': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'db_library' / 'manifest.json'),
         },
     }
 
@@ -69,7 +72,7 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(summary, indent=2), encoding='utf-8')
     print(json.dumps(summary, indent=2))
-    return 0 f ok else 1
+    return 0 if ok else 1
 
 
 if __name__ == '__main__':
