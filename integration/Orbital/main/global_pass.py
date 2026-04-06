@@ -95,8 +95,12 @@ def snapshot(system) -> dict:
     return snap
 
 
-def run_global_pass(steps: int = 20, params: dict | None = None) -> dict:
-    repo_root = repo_root_from_here()
+def run_global_pass(
+    steps: int = 20,
+    params: dict | None = None,
+    repo_root: str | Path | None = None,
+) -> dict:
+    repo_root = Path(repo_root) if repo_root is not None else repo_root_from_here()
     payload = build(repo_root)
     out_dir = repo_root / 'reports' / 'global_orbital_coherence_pass'
     out_dir.mkdir(parents=True, exist_ok=True)
