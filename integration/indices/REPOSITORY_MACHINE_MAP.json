@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "generated_on": "2026-04-07",
+  "repository": {
+    "name": "CIEL-_SOT_Agent",
+    "package_name": "ciel-sot-agent",
+    "purpose": "integration kernel, synchronization runtime, orbital bridge, and Sapiens interaction layer for the CIEL ecosystem"
+  },
+  "native_package": {
+    "root": "src/ciel_sot_agent",
+    "console_scripts": [
+      "ciel-sot-sync",
+      "ciel-sot-sync-v2",
+      "ciel-sot-gh-coupling",
+      "ciel-sot-gh-coupling-v2",
+      "ciel-sot-index-validate",
+      "ciel-sot-index-validate-v2",
+      "ciel-sot-orbital-bridge",
+      "ciel-sot-ciel-pipeline",
+      "ciel-sot-sapiens-client",
+      "ciel-sot-runtime-evidence-ingest",
+      "ciel-sot-gui",
+      "ciel-sot-install-model"
+    ]
+  },
+  "integration_state": {
+    "root": "integration",
+    "notes": [
+      "Stores registries, couplings, indices, manifests, reports, and migration-era state.",
+      "Legacy flat paths and target geometry paths coexist during migration."
+    ]
+  },
+  "operational_surfaces": {
+    "repo_local_wrappers_root": "scripts",
+    "core_only_tools_root": "tools/core_only",
+    "workflows_root": ".github/workflows",
+    "packaging_root": "packaging"
+  },
+  "embedded_or_imported_sectors": [
+    "src/CIEL_OMEGA_COMPLETE_SYSTEM",
+    "src/CIEL_RELATIONAL_MECHANISM_REPO",
+    "src/ciel-omega-demo-main",
+    "src/CIEL_Orbital_Foundation_Packk",
+    "src/ciel_rh_control_mini_repo",
+    "integration/Orbital/main"
+  ],
+  "known_documentation_gaps": [
+    "stale Sapiens client wrapper references",
+    "stale core-only tooling paths under scripts/",
+    "workflow coverage underdocumented",
+    "top-level repo geometry underdocumented"
+  ]
+}

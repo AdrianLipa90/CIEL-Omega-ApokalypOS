@@ -7,6 +7,11 @@ The package installs the application into an isolated Python virtual
 environment at `/opt/ciel-sot-agent/venv` using pre-bundled wheels.
 **No internet access is required during installation.**
 
+Important clarification:
+- the package installation is offline,
+- the package does **not** automatically download a GGUF model during `postinst`,
+- model download remains an explicit post-install step via `ciel-sot-install-model`.
+
 The `.deb` is architecture-specific (`amd64`, `arm64`, etc.) because
 it bundles binary wheels (e.g. numpy). Build the package on the same
 architecture as the target machine.
@@ -51,7 +56,6 @@ The script:
 Dependency versions are pinned in `constraints.txt`. To update the pins:
 
 ```bash
-# Create a fresh venv and install
 python3 -m venv /tmp/ciel-pin && /tmp/ciel-pin/bin/pip install 'ciel-sot-agent[gui]'
 /tmp/ciel-pin/bin/pip freeze > packaging/deb/constraints.txt
 rm -rf /tmp/ciel-pin
@@ -62,7 +66,7 @@ compiled during the build — every wheel must be pre-built.
 
 ---
 
-## Installing on Linux Mint
+## Installing on Linux Mint / Debian / Ubuntu
 
 ```bash
 # 1. Build the package
@@ -80,6 +84,8 @@ The `postinst` script will:
 - install the application from the pre-bundled wheels (offline, no pip download),
 - create `/var/lib/ciel/models/` for GGUF model storage,
 - reload the systemd daemon.
+
+It does **not** automatically download a GGUF model.
 
 ---
 
@@ -132,21 +138,18 @@ The GUI is served on `http://127.0.0.1:5050` by default.
 # List available models
 ciel-sot-install-model --list
 
-# Download a model
+# Download a model explicitly after install
 ciel-sot-install-model --model tinyllama-1.1b-chat-q4
 ```
 
-GGUF model files are stored in `/var/lib/ciel/models/`.
+GGUF model files are stored in `/var/lib/ciel/models/` by default.
 
 ---
 
 ## Uninstalling
 
 ```bash
-# Remove the package (keeps /var/lib/ciel/models/ and config intact)
 sudo dpkg -r ciel-sot-agent
-
-# Purge: also remove the virtual environment and config
 sudo dpkg -P ciel-sot-agent
 ```
 
@@ -158,7 +161,7 @@ and reloads systemd when the package is removed or purged.
 
 ## Package structure
 
-```
+```text
 packaging/deb/
 ├── build_deb.sh                              build helper script
 ├── constraints.txt                           pinned dependency versions
@@ -215,4 +218,3 @@ Then restart the service:
 ```bash
 sudo systemctl restart ciel-sot-gui
 ```
-
