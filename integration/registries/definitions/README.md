@@ -156,6 +156,21 @@ This means:
 - horizon policy determines which fields may be exported and how they may leak,
 - export cards carry only results, summaries, uncertainty, and leak-compatible projections.
 
+## Integral system layer registration
+The orbital card system is now treated as an **integral system layer** rather than a loose export bundle.
+
+The machine-readable integration anchor is:
+- `orbital_card_system_integration_manifest.json`
+
+This registration fixes the authoritative upload scope to:
+- export registry
+- internal subsystem cards
+- horizon policy matrix
+- subsystem sync registry/report
+- database library manifest and shards
+
+Runtime outputs such as bridge reports, `subsystem_sync_manifest.json`, `runtime_gating.json`, and Sapiens packets remain **derived runtime artifacts**, not source-of-truth registry objects.
+
 ## Runtime integration
 Phase 5 wires the registries into:
 - `src/ciel_sot_agent/orbital_bridge.py`

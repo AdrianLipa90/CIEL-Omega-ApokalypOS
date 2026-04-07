@@ -101,6 +101,7 @@ def main() -> int:
         'orbital_report': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_assignment_report.json'),
         'nonlocal_edges': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'nonlocal_definition_edges.json'),
         'db_manifest': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'db_library' / 'manifest.json'),
+        'orbital_card_system_manifest': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_card_system_integration_manifest.json'),
     }
     artifact_snapshots = {
         'audio_state': load_json_if_exists(repo_root, repo_root / artifacts['audio_state']),
@@ -111,9 +112,10 @@ def main() -> int:
         'subsystem_sync_report': load_json_if_exists(repo_root, repo_root / artifacts['subsystem_sync_report']),
         'verification_report': load_json_if_exists(repo_root, repo_root / artifacts['verification_report']),
         'db_manifest': load_json_if_exists(repo_root, repo_root / artifacts['db_manifest']),
+        'orbital_card_system_manifest': load_json_if_exists(repo_root, repo_root / artifacts['orbital_card_system_manifest']),
     }
     summary = {
-        'schema': 'ciel/audio-orbital-catalog-hook/v0.6',
+        'schema': 'ciel/audio-orbital-catalog-hook/v0.7',
         'ok': ok,
         'steps': steps,
         'artifacts': artifacts,

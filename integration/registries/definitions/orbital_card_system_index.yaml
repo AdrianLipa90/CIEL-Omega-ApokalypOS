@@ -1,0 +1,75 @@
+schema: ciel/orbital-card-system-index/v0.1
+meta:
+  authority: integration/registries/definitions/orbital_card_system_integration_manifest.json
+  notes:
+    - Dedicated discovery index for the integrated orbital card system layer.
+    - Runtime outputs are derived artifacts and are not authoritative registry sources.
+objects:
+  - id: OCS-SOT-0001
+    name: orbital_card_system_integration_manifest
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream: []
+    downstream:
+      - OCS-SOT-0002
+      - OCS-SOT-0003
+      - OCS-SOT-0004
+    tests: []
+    interfaces: []
+    exports:
+      - upload_scope
+      - authoritative_artifacts
+    provenance: []
+    path: integration/registries/definitions/orbital_card_system_integration_manifest.json
+    placeholder: false
+  - id: OCS-SOT-0002
+    name: orbital_card_system_registry_readme
+    layer: documentation
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - OCS-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/registries/definitions/README.md
+    placeholder: false
+  - id: OCS-SOT-0003
+    name: orbital_card_system_bootstrap_hook
+    layer: bootstrap
+    status: canonical
+    provenance_type: native
+    owner_layer: scripts
+    upstream:
+      - OCS-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports:
+      - audio_orbital_catalog_hook
+    provenance: []
+    path: scripts/bootstrap_audio_orbital_and_catalog.py
+    placeholder: false
+  - id: OCS-SOT-0004
+    name: orbital_card_system_runtime_consumers
+    layer: runtime
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - OCS-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports:
+      - subsystem_sync_manifest
+      - runtime_gating
+      - sapiens_packet_projection
+    provenance: []
+    path: src/ciel_sot_agent/orbital_bridge.py
+    placeholder: false
