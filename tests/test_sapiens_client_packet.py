@@ -42,7 +42,7 @@ def _session() -> SapiensSession:
 def test_build_model_packet_includes_surface_policy():
     session = _session()
     packet = build_model_packet(session, 'Test input')
-    assert packet['schema'] == 'ciel-sot-agent/sapiens-client-packet/v0.2'
+    assert packet['schema'] == 'ciel-sot-agent/sapiens-client-packet/v0.3'
     assert 'surface_policy' in packet
     assert packet['surface_policy']['truth_over_smoothing'] is True
     assert packet['surface_policy']['explicit_uncertainty'] is True
@@ -121,7 +121,6 @@ def test_append_turn_records_orbital_mode() -> None:
 def test_append_turn_updates_updated_at() -> None:
     session = _session()
     append_turn(session, 'user', 'ping')
-    # updated_at is a non-empty ISO timestamp string
     assert session.updated_at
     assert isinstance(session.updated_at, str)
 
@@ -169,10 +168,10 @@ def test_initialize_session_default_identity() -> None:
 # run_sapiens_client
 # ---------------------------------------------------------------------------
 
-def test_run_sapiens_client_returns_v2_schema() -> None:
+def test_run_sapiens_client_returns_v3_schema() -> None:
     root = Path(__file__).resolve().parents[1]
     result = run_sapiens_client(root, 'Hello, CIEL.')
-    assert result['schema'] == 'ciel-sot-agent/sapiens-client-run/v0.2'
+    assert result['schema'] == 'ciel-sot-agent/sapiens-client-run/v0.3'
 
 
 def test_run_sapiens_client_contains_packet_and_paths() -> None:

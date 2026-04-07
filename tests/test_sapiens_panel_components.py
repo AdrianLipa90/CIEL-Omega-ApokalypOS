@@ -21,13 +21,9 @@ from src.ciel_sot_agent.sapiens_panel.render_schema import to_render_dict
 from src.ciel_sot_agent.sapiens_panel.support import build_support_view
 
 
-# ---------------------------------------------------------------------------
-# Helpers
-# ---------------------------------------------------------------------------
-
 def _bridge_summary() -> dict:
     return {
-        'schema': 'ciel-sot-agent/orbital-bridge-report/v0.1',
+        'schema': 'ciel-sot-agent/orbital-bridge-report/v0.2',
         'state_manifest': {
             'coherence_index': 0.75,
             'phase_alignment': 'moderate',
@@ -74,10 +70,6 @@ def _session() -> SapiensSession:
     )
 
 
-# ---------------------------------------------------------------------------
-# build_support_view
-# ---------------------------------------------------------------------------
-
 def test_build_support_view_contains_health_manifest() -> None:
     view = build_support_view(_bridge_summary())
     assert 'health_manifest' in view
@@ -110,10 +102,6 @@ def test_build_support_view_includes_recommended_actions_list() -> None:
     assert isinstance(view['recommended_actions'], list)
     assert len(view['recommended_actions']) > 0
 
-
-# ---------------------------------------------------------------------------
-# to_render_dict
-# ---------------------------------------------------------------------------
 
 def _panel_state() -> PanelState:
     tab = PanelTabState(title='Control', summary={'key': 'value'}, actions=['Act'])
@@ -156,15 +144,11 @@ def test_to_render_dict_session_fields_present() -> None:
     assert result['session']['turn_count'] == 0
 
 
-# ---------------------------------------------------------------------------
-# build_communication_view
-# ---------------------------------------------------------------------------
-
 def test_build_communication_view_returns_packet() -> None:
     session = _session()
     view = build_communication_view(session, 'Hello from test')
     assert 'packet' in view
-    assert view['packet']['schema'] == 'ciel-sot-agent/sapiens-client-packet/v0.2'
+    assert view['packet']['schema'] == 'ciel-sot-agent/sapiens-client-packet/v0.3'
 
 
 def test_build_communication_view_latest_user_turn() -> None:
@@ -185,10 +169,6 @@ def test_build_communication_view_turn_count_is_positive() -> None:
     view = build_communication_view(session, 'A turn')
     assert view['turn_count'] >= 1
 
-
-# ---------------------------------------------------------------------------
-# build_reduction_state
-# ---------------------------------------------------------------------------
 
 def test_build_reduction_state_returns_schema() -> None:
     session = _session()
@@ -233,7 +213,6 @@ def test_build_reduction_state_uses_custom_threshold() -> None:
         _bridge_summary(), session, packet,
         settings={'reduction_policy': {'readiness_threshold': 0.99}},
     )
-    # With threshold 0.99 nothing should be ready (scores below 0.99 typically)
     assert result['reduction_state']['readiness_threshold'] == 0.99
 
 

@@ -47,7 +47,7 @@ def test_persist_session_writes_surface_policy_and_packet_artifacts(tmp_path: Pa
     persisted_policy = json.loads(policy_path.read_text(encoding='utf-8'))
     transcript = transcript_path.read_text(encoding='utf-8')
 
-    assert persisted_packet['schema'] == 'ciel-sot-agent/sapiens-client-packet/v0.2'
+    assert persisted_packet['schema'] == 'ciel-sot-agent/sapiens-client-packet/v0.3'
     assert persisted_packet['surface_policy']['truth_over_smoothing'] is True
     assert persisted_policy['explicit_uncertainty'] is True
     assert persisted_policy['epistemic_separation'] == ['fact', 'inference', 'hypothesis', 'unknown']

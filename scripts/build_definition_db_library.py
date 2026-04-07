@@ -20,6 +20,12 @@ def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def load_json_if_exists(path: Path, default: dict[str, Any]) -> dict[str, Any]:
+    if not path.exists():
+        return default
+    return load_json(path)
+
+
 def recreate(path: Path) -> sqlite3.Connection:
     for suffix in ("", "-wal", "-shm"):
         candidate = Path(f"{path}{suffix}") if suffix else path
@@ -101,19 +107,38 @@ def write_internal_cards_db(db_path: Path, records: list[dict[str, Any]]) -> int
             rec.get("export_card_id"), rec.get("privacy_constraint"), rec.get("horizon_transition_profile"), json.dumps(rec.get("exportable_fields", []), ensure_ascii=False), json.dumps(rec.get("sealed_fields", []), ensure_ascii=False), rec.get("policy_table_ref")
         ) for rec in records]
     )
-    conn.commit(); count = cur.execute("SELECT COUNT(*) FROM internal_cards").fetchone()[0]; conn.close(); return count
+    conn.commit()
+    count = cur.execute("SELECT COUNT(*) FROM internal_cards").fetchone()[0]
+    conn.close()
+    return count
 
 
 def write_policy_db(db_path: Path, policy_payload: dict[str, Any]) -> int:
-    conn = recreate(db_path); cur = conn.cursor()
+    conn = recreate(db_path)
+    cur = conn.cursor()
     cur.executescript("CREATE TABLE horizon_policies (horizon_class TEXT PRIMARY KEY, privacy_constraint TEXT, leak_channel_mode TEXT, leak_budget_class TEXT, allowed_visibility_transitions_json TEXT, exportable_fields_json TEXT, sealed_fields_json TEXT);")
     classes = policy_payload.get("classes", {})
-    cur.executemany("INSERT INTO horizon_policies VALUES (?, ?, ?, ?, ?, ?, ?)", [(h, p.get("privacy_constraint"), p.get("leak_channel_mode"), p.get("leak_budget_class"), json.dumps(p.get("allowed_visibility_transitions", []), ensure_ascii=False), json.dumps(p.get("exportable_fields", []), ensure_ascii=False), json.dumps(p.get("sealed_fields", []), ensure_ascii=False)) for h, p in classes.items()])
-    conn.commit(); count = cur.execute("SELECT COUNT(*) FROM horizon_policies").fetchone()[0]; conn.close(); return count
+    cur.executemany(
+        "INSERT INTO horizon_policies VALUES (?, ?, ?, ?, ?, ?, ?)",
+        [(
+            h,
+            p.get("privacy_constraint"),
+            p.get("leak_channel_mode"),
+            p.get("leak_budget_class"),
+            json.dumps(p.get("allowed_visibility_transitions", []), ensure_ascii=False),
+            json.dumps(p.get("exportable_fields", []), ensure_ascii=False),
+            json.dumps(p.get("sealed_fields", []), ensure_ascii=False),
+        ) for h, p in classes.items()]
+    )
+    conn.commit()
+    count = cur.execute("SELECT COUNT(*) FROM horizon_policies").fetchone()[0]
+    conn.close()
+    return count
 
 
 def write_subsystem_sync_db(db_path: Path, registry_payload: dict[str, Any], report_payload: dict[str, Any]) -> int:
-    conn = recreate(db_path); cur = conn.cursor()
+    conn = recreate(db_path)
+    cur = conn.cursor()
     cur.executescript("""
         CREATE TABLE subsystem_sync (
             board_card_id TEXT PRIMARY KEY, board_path TEXT, board_horizon_id TEXT, tau_orbit TEXT, tau_system TEXT,
@@ -136,56 +161,116 @@ def write_subsystem_sync_db(db_path: Path, registry_payload: dict[str, Any], rep
         ) for rec in registry_payload.get("records", [])]
     )
     cur.executemany("INSERT INTO subsystem_sync_report (key, value_json) VALUES (?, ?)", [(k, json.dumps(v, ensure_ascii=False)) for k, v in report_payload.items()])
-    conn.commit(); count = cur.execute("SELECT COUNT(*) FROM subsystem_sync").fetchone()[0]; conn.close(); return count
+    conn.commit()
+    count = cur.execute("SELECT COUNT(*) FROM subsystem_sync").fetchone()[0]
+    conn.close()
+    return count
 
 
 def write_edges_db(db_path: Path, edges: list[dict[str, Any]]) -> int:
-    conn = recreate(db_path); cur = conn.cursor(); cur.executescript("CREATE TABLE edges (source TEXT NOT NULL, target TEXT NOT NULL, relation TEXT NOT NULL, weight REAL, PRIMARY KEY (source, target, relation));")
+    conn = recreate(db_path)
+    cur = conn.cursor()
+    cur.executescript("CREATE TABLE edges (source TEXT NOT NULL, target TEXT NOT NULL, relation TEXT NOT NULL, weight REAL, PRIMARY KEY (source, target, relation));")
     cur.executemany("INSERT INTO edges (source, target, relation, weight) VALUES (?, ?, ?, ?)", [(e.get("source"), e.get("target"), e.get("relation"), e.get("weight")) for e in edges])
-    conn.commit(); count = cur.execute("SELECT COUNT(*) FROM edges").fetchone()[0]; conn.close(); return count
+    conn.commit()
+    count = cur.execute("SELECT COUNT(*) FROM edges").fetchone()[0]
+    conn.close()
+    return count
 
 
 def write_reports_db(db_path: Path, report_payloads: dict[str, Any], orbit_counts: dict[str, int]) -> int:
-    conn = recreate(db_path); cur = conn.cursor(); cur.executescript("CREATE TABLE reports (name TEXT PRIMARY KEY, payload_json TEXT NOT NULL); CREATE TABLE orbit_counts (orbital_role TEXT PRIMARY KEY, count INTEGER NOT NULL);")
+    conn = recreate(db_path)
+    cur = conn.cursor()
+    cur.executescript("CREATE TABLE reports (name TEXT PRIMARY KEY, payload_json TEXT NOT NULL); CREATE TABLE orbit_counts (orbital_role TEXT PRIMARY KEY, count INTEGER NOT NULL);")
     cur.executemany("INSERT INTO reports (name, payload_json) VALUES (?, ?)", [(name, json.dumps(payload, ensure_ascii=False)) for name, payload in report_payloads.items()])
     cur.executemany("INSERT INTO orbit_counts (orbital_role, count) VALUES (?, ?)", list(orbit_counts.items()))
-    conn.commit(); count = cur.execute("SELECT COUNT(*) FROM reports").fetchone()[0]; conn.close(); return count
+    conn.commit()
+    count = cur.execute("SELECT COUNT(*) FROM reports").fetchone()[0]
+    conn.close()
+    return count
+
+
+def derive_orbit_counts(records: list[dict[str, Any]], fallback: dict[str, int]) -> dict[str, int]:
+    if fallback:
+        return fallback
+    counts: dict[str, int] = {}
+    for rec in records:
+        role = str(rec.get("orbital_role") or "unknown")
+        counts[role] = counts.get(role, 0) + 1
+    return counts
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(); ap.add_argument("--repo-root", default="."); args = ap.parse_args()
-    repo_root = Path(args.repo_root).resolve(); base = repo_root / "integration" / "registries" / "definitions"; db_dir = base / "db_library"; db_dir.mkdir(parents=True, exist_ok=True)
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--repo-root", default=".")
+    args = ap.parse_args()
+
+    repo_root = Path(args.repo_root).resolve()
+    base = repo_root / "integration" / "registries" / "definitions"
+    db_dir = base / "db_library"
+    db_dir.mkdir(parents=True, exist_ok=True)
 
     reg = load_json(base / "orbital_definition_registry.json")
-    internal_reg = load_json(base / "internal_subsystem_cards.json")
-    policy_reg = load_json(base / "horizon_policy_matrix.json")
-    sync_reg = load_json(base / "subsystem_sync_registry.json")
-    sync_report = load_json(base / "subsystem_sync_report.json")
-    edges_payload = load_json(base / "nonlocal_definition_edges.json")
-    report = load_json(base / "orbital_assignment_report.json")
+    internal_reg = load_json_if_exists(base / "internal_subsystem_cards.json", {"schema": "ciel/internal-subsystem-card-registry/v0.3", "internal_card_schema": "ciel/internal-subsystem-card/v0.3", "internal_cards": []})
+    policy_reg = load_json_if_exists(base / "horizon_policy_matrix.json", {"schema": "ciel/horizon-policy-matrix/v0.1", "classes": {}})
+    sync_reg = load_json_if_exists(base / "subsystem_sync_registry.json", {"schema": "ciel/subsystem-sync-registry/v0.1", "count": 0, "records": []})
+    sync_report = load_json_if_exists(base / "subsystem_sync_report.json", {"schema": "ciel/subsystem-sync-report/v0.1", "board_count": 0, "avg_members_per_board": 0.0, "sync_scope_counts": {}, "sync_law_counts": {}, "condensation_operator_counts": {}, "tau_orbit_count": 0, "tau_system_count": 0})
+    edges_payload = load_json_if_exists(base / "nonlocal_definition_edges.json", {"schema": "ciel/nonlocal-definition-edges/v0.1", "count": 0, "edges": []})
+    report = load_json_if_exists(base / "orbital_assignment_report.json", {"schema": "ciel/orbital-assignment-report/v0.5", "orbit_counts": {}})
 
-    records_db = db_dir / "records.sqlite"; internal_cards_db = db_dir / "internal_cards.sqlite"; horizon_policies_db = db_dir / "horizon_policies.sqlite"; subsystem_sync_db = db_dir / "subsystem_sync.sqlite"; reports_db = db_dir / "reports.sqlite"
+    records_db = db_dir / "records.sqlite"
+    internal_cards_db = db_dir / "internal_cards.sqlite"
+    horizon_policies_db = db_dir / "horizon_policies.sqlite"
+    subsystem_sync_db = db_dir / "subsystem_sync.sqlite"
+    reports_db = db_dir / "reports.sqlite"
+
     edge_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for edge in edges_payload["edges"]: edge_groups[edge.get("relation", "unknown")].append(edge)
+    for edge in edges_payload.get("edges", []):
+        edge_groups[edge.get("relation", "unknown")].append(edge)
 
-    record_count = write_records_db(records_db, reg["records"])
-    internal_card_count = write_internal_cards_db(internal_cards_db, internal_reg["internal_cards"])
+    record_count = write_records_db(records_db, reg.get("records", []))
+    internal_card_count = write_internal_cards_db(internal_cards_db, internal_reg.get("internal_cards", []))
     policy_count = write_policy_db(horizon_policies_db, policy_reg)
     sync_count = write_subsystem_sync_db(subsystem_sync_db, sync_reg, sync_report)
-    edge_db_meta: dict[str, Any] = {}; total_edge_rows = 0
+
+    edge_db_meta: dict[str, Any] = {}
+    total_edge_rows = 0
     for relation, relation_edges in sorted(edge_groups.items()):
-        relation_db = db_dir / f"edges_{relation}.sqlite"; relation_count = write_edges_db(relation_db, relation_edges); total_edge_rows += relation_count
+        relation_db = db_dir / f"edges_{relation}.sqlite"
+        relation_count = write_edges_db(relation_db, relation_edges)
+        total_edge_rows += relation_count
         edge_db_meta[relation] = {"path": repo_relative(repo_root, relation_db), "rows": relation_count, "size_bytes": relation_db.stat().st_size, "tables": ["edges"], "relation": relation}
 
-    report_count = write_reports_db(reports_db, {"orbital_assignment_report": report, "subsystem_sync_report": sync_report, "db_library_manifest_stub": {"schema": "ciel/catalog-db-library/v0.7", "subsystem_sync_db": repo_relative(repo_root, subsystem_sync_db)}}, report.get("orbit_counts", {}))
+    orbit_counts = derive_orbit_counts(reg.get("records", []), report.get("orbit_counts", {}))
+    report_count = write_reports_db(
+        reports_db,
+        {
+            "orbital_assignment_report": report,
+            "subsystem_sync_report": sync_report,
+            "db_library_manifest_stub": {"schema": "ciel/catalog-db-library/v0.7", "subsystem_sync_db": repo_relative(repo_root, subsystem_sync_db)},
+        },
+        orbit_counts,
+    )
+
     manifest = {
-        "schema": "ciel/catalog-db-library/v0.7", "card_schema": reg.get("card_schema", "ciel/orbital-export-card/v0.5"), "internal_card_schema": internal_reg.get("internal_card_schema", "ciel/internal-subsystem-card/v0.3"), "sync_schema": sync_reg.get("schema", "ciel/subsystem-sync-registry/v0.1"),
-        "databases": {"records": {"path": repo_relative(repo_root, records_db), "rows": record_count}, "internal_cards": {"path": repo_relative(repo_root, internal_cards_db), "rows": internal_card_count}, "horizon_policies": {"path": repo_relative(repo_root, horizon_policies_db), "rows": policy_count}, "subsystem_sync": {"path": repo_relative(repo_root, subsystem_sync_db), "rows": sync_count}, "reports": {"path": repo_relative(repo_root, reports_db), "rows": report_count}, "edge_shards": edge_db_meta},
+        "schema": "ciel/catalog-db-library/v0.7",
+        "card_schema": reg.get("card_schema", "ciel/orbital-export-card/v0.5"),
+        "internal_card_schema": internal_reg.get("internal_card_schema", "ciel/internal-subsystem-card/v0.3"),
+        "sync_schema": sync_reg.get("schema", "ciel/subsystem-sync-registry/v0.1"),
+        "databases": {
+            "records": {"path": repo_relative(repo_root, records_db), "rows": record_count},
+            "internal_cards": {"path": repo_relative(repo_root, internal_cards_db), "rows": internal_card_count},
+            "horizon_policies": {"path": repo_relative(repo_root, horizon_policies_db), "rows": policy_count},
+            "subsystem_sync": {"path": repo_relative(repo_root, subsystem_sync_db), "rows": sync_count},
+            "reports": {"path": repo_relative(repo_root, reports_db), "rows": report_count},
+            "edge_shards": edge_db_meta,
+        },
         "totals": {"records": record_count, "internal_cards": internal_card_count, "horizon_policies": policy_count, "subsystem_sync": sync_count, "edges": total_edge_rows, "edge_relations": len(edge_db_meta)},
-        "reports": {"subsystem_sync_registry": repo_relative(repo_root, base / "subsystem_sync_registry.json"), "subsystem_sync_report": repo_relative(repo_root, base / "subsystem_sync_report.json")}
+        "reports": {"subsystem_sync_registry": repo_relative(repo_root, base / "subsystem_sync_registry.json"), "subsystem_sync_report": repo_relative(repo_root, base / "subsystem_sync_report.json")},
     }
     (db_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
-    print(json.dumps(manifest, indent=2)); return 0
+    print(json.dumps(manifest, indent=2))
+    return 0
 
 
 if __name__ == "__main__":

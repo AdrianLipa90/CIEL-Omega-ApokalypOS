@@ -55,7 +55,7 @@ def test_build_orbital_bridge_writes_bridge_outputs(tmp_path: Path) -> None:
     orbital_root = root / 'integration' / 'Orbital' / 'main'
     orbital_root.mkdir(parents=True, exist_ok=True)
     summary = build_orbital_bridge(root)
-    assert summary['schema'] == 'ciel-sot-agent/orbital-bridge-report/v0.1'
+    assert summary['schema'] == 'ciel-sot-agent/orbital-bridge-report/v0.2'
 
     bridge_dir = root / 'integration' / 'reports' / 'orbital_bridge'
     orbital_reports_root = orbital_root / 'reports' / 'global_orbital_coherence_pass'
@@ -64,6 +64,8 @@ def test_build_orbital_bridge_writes_bridge_outputs(tmp_path: Path) -> None:
     assert (bridge_dir / 'orbital_bridge_report.md').exists()
     assert (bridge_dir / 'orbital_state_manifest.json').exists()
     assert (bridge_dir / 'orbital_health_manifest.json').exists()
+    assert (bridge_dir / 'subsystem_sync_manifest.json').exists()
+    assert (bridge_dir / 'runtime_gating.json').exists()
     assert (orbital_reports_root / 'summary.json').exists()
     assert (orbital_reports_root / 'summary.md').exists()
     assert (orbital_reports_root / 'real_geometry.json').exists()
