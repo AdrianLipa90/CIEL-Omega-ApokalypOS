@@ -46,32 +46,39 @@ The project is complete only when:
 Establish that repo state, tooling, and operational prerequisites are ready for a clean orbital card rerun.
 
 ## A1. Repo baseline
-- [ ] confirm active target branch/ref
-- [ ] confirm no unresolved CI blocker unrelated to orbital cards
-- [ ] confirm current TODO has been read before work starts
-- [ ] record current starting commit / timestamp in work notes
+- [x] confirm active target branch/ref
+- [x] confirm no unresolved CI blocker unrelated to orbital cards
+- [x] confirm current TODO has been read before work starts
+- [x] record current starting commit / timestamp in work notes
 
 ## A2. Toolchain availability
-- [ ] confirm existence of:
-  - [ ] `scripts/build_orbital_definition_registry.py`
-  - [ ] `scripts/normalize_definition_registry.py`
-  - [ ] `scripts/resolve_orbital_semantics.py`
-  - [ ] `scripts/build_subsystem_sync_registry.py`
-  - [ ] `scripts/build_nonlocal_definition_edges.py`
-  - [ ] `scripts/build_definition_db_library.py`
-  - [ ] `scripts/verify_orbital_registry_integrity.py`
-- [ ] confirm runtime consumers exist:
-  - [ ] `src/ciel_sot_agent/orbital_bridge.py`
-  - [ ] `src/ciel_sot_agent/sapiens_client.py`
+- [x] confirm existence of:
+  - [x] `scripts/build_orbital_definition_registry.py`
+  - [x] `scripts/normalize_definition_registry.py`
+  - [x] `scripts/resolve_orbital_semantics.py`
+  - [x] `scripts/build_subsystem_sync_registry.py`
+  - [x] `scripts/build_nonlocal_definition_edges.py`
+  - [x] `scripts/build_definition_db_library.py`
+  - [x] `scripts/verify_orbital_registry_integrity.py`
+- [x] confirm runtime consumers exist:
+  - [x] `src/ciel_sot_agent/orbital_bridge.py`
+  - [x] `src/ciel_sot_agent/sapiens_client.py`
 
 ## A3. Preflight checks
-- [ ] confirm no known schema mismatch in active card artifacts
-- [ ] confirm no blocking DB-builder failure remains
-- [ ] confirm tests touching orbital cards / runtime are green enough to proceed or blockers are named explicitly
+- [x] confirm no known schema mismatch in active card artifacts
+- [x] confirm no blocking DB-builder failure remains
+- [x] confirm tests touching orbital cards / runtime are green enough to proceed or blockers are named explicitly
 
 ## A4. Phase exit criteria
-- [ ] repo is considered rerun-ready
-- [ ] next phase can start
+- [x] repo is considered rerun-ready
+- [x] next phase can start
+
+## Phase A completion notes
+- [x] operation branch synced to current `main` before preflight
+- [x] branch head used for preflight: `c164789ade5fc1633f1bae2c9528b36e7f4245cd`
+- [x] DB-builder placeholder mismatch fix is present in branch code state
+- [x] no observable commit-status checks were attached to the branch head; absence of status is recorded but not treated as a rerun blocker
+- [x] Phase A closed
 
 ---
 
@@ -274,4 +281,5 @@ Confirm that upload/integration did not break runtime or semantic contracts.
 - [ ] this TODO updated as the final step of the closing pass
 
 ## Current active phase
-- [ ] Phase A — Preflight / Rerun Readiness
+- [x] Phase A — Preflight / Rerun Readiness
+- [ ] Phase B — Full Card Pipeline Rerun
