@@ -1,5 +1,14 @@
 # Documentation Index
 
+## Document status taxonomy
+Use these labels explicitly when adding or revising documents:
+- `analogy` — explanatory bridge only; not an executable or physical proof
+- `science` — formal working hypothesis, derivation note, or reviewable spec
+- `architecture` — repository geometry, system roles, and structural binding notes
+- `operations` — active procedures, ledgers, runtime entrypoints, and maintenance surfaces
+- `report` — generated or audit-style evidence surfaces
+- `archive` — historical or retained context that is no longer the active operational source of truth
+
 ## Core architecture
 - `docs/ARCHITECTURE.md` — repository role, geometry, upstream bindings, and execution context.
 - `docs/OPERATIONS.md` — operational coupling chain, workflow control surface, and maintenance rules.
@@ -20,9 +29,11 @@
 
 ## Scientific and semantic notes
 - `docs/analogies/RELATIONAL_ANALOGIES.md` — analogies and comparisons, explicitly analogical.
+- `docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md` — Kepler/superfluid explanatory bridge for orbital dynamics language; analogy only.
 - `docs/science/HYPOTHESES.md` — scientific hypotheses and formal working claims.
-- `docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md` — Heisenberg/Gödel self-reference working hypothesis.
 - `docs/science/DERIVATION_NOTES.md` — compact derivation notes and imported-anchor bridges.
+- `docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md` — Heisenberg/Gödel self-reference working hypothesis.
+- `docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md` — formal working specification for the effective orbital-law target; not yet a claim of completed runtime implementation.
 
 ## Integration state
 - `integration/repository_registry.json` — upstream repositories and local identities.
@@ -90,7 +101,7 @@
 - The GH-as-attractor integration strategy is connected to `docs/ARCHITECTURE.md#github-as-operational-attractor`.
 - The primary synchronization path is connected to `docs/ARCHITECTURE.md#first-executable-component`, `src/ciel_sot_agent/repo_phase.py`, and `src/ciel_sot_agent/gh_coupling.py`.
 - The shell-level bridge to `ciel-omega-demo` is connected to `docs/CIEL_OMEGA_DEMO_INTEGRATION.md`, `integration/upstreams/ciel_omega_demo_shell_map.json`, and `integration/upstreams/ciel_omega_demo_inventory.json`.
-- The orbital diagnostic path is connected to `docs/ORBital_INTEGRATION_ADDENDUM.md`, `integration/Orbital/main/global_pass.py`, and `src/ciel_sot_agent/orbital_bridge.py`.
+- The orbital diagnostic path is connected to `docs/ORBital_INTEGRATION_ADDENDUM.md`, `integration/Orbital/main/global_pass.py`, `src/ciel_sot_agent/orbital_bridge.py`, `docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md`, and `docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md`.
 - The Sapiens panel path is connected to `docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md`, `integration/sapiens/panel_manifest.json`, `src/ciel_sot_agent/sapiens_panel/controller.py`, and `src/ciel_sot_agent/sapiens_panel/reduction.py`.
 - The GUI and operator-facing layer is connected to `docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md`, `src/ciel_sot_agent/gui/app.py`, `src/ciel_sot_agent/gui/routes.py`, and `docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md`.
 - The GGUF model-management layer is connected to `src/ciel_sot_agent/gguf_manager/manager.py` and the GUI model endpoints in `src/ciel_sot_agent/gui/routes.py`.

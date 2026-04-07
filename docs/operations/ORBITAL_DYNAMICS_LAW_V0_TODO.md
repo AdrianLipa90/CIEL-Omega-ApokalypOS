@@ -46,17 +46,20 @@ The operation is complete only when:
 ---
 
 ## Branch and baseline
-- planned operation branch: `operation/orbital-dynamics-law-v0-20260407`
-- branch start baseline from current `main`: `b3ec634c24999545f66106b5f2eef70a639ace5a`
+- original planned operation branch recorded in the first draft: `operation/orbital-dynamics-law-v0-20260407`
+- active Phase A branch after post-merge rebase on current main: `operation/orbital-dynamics-law-v0-phase-a-20260407`
+- current Phase A baseline from `main`: `af5f11d2f141f1d445e1f914a11621f496180770`
 
 ## Current rationale
 Current `main` already contains:
 - orbital runtime structures with `rho`, `phi`, `tau`, `spin`, `info_mass`, `q_target`,
 - relacyjny step dynamics with potential gradients, leak and vorticity,
 - documentation sectors for analogies and science,
-- but still lacks a clean separation between identity phase and selection relevance,
-- still lacks explicit orbital law state (`mu_eff`, winding, phase-slip readiness, period law),
-- and still carries non-explicit phased-state domain contracts.
+- but still lacked a clean separation between identity phase and selection relevance,
+- still lacked explicit orbital law state (`mu_eff`, winding, phase-slip readiness, period law),
+- and still carried non-explicit phased-state domain contracts.
+
+Phase A patchset now establishes the first missing semantic boundary surfaces on a dedicated branch.
 
 ---
 
@@ -71,14 +74,28 @@ Make the boundary between analogy, science, architecture, operations, and execut
 - updated documentation classification / cross-reference layer
 
 ## Checklist
-- [ ] confirm document status taxonomy: `analogy`, `science`, `architecture`, `operations`, `report`, `archive`
-- [ ] update docs indices/matrix to reflect taxonomy
-- [ ] add formal orbital dynamics spec stub in `docs/science/`
-- [ ] add Kepler/superfluid analogies note in `docs/analogies/`
-- [ ] ensure analogy documents are not referenced as executable claims
+- [x] confirm document status taxonomy: `analogy`, `science`, `architecture`, `operations`, `report`, `archive`
+- [x] update surviving docs index / navigation layer to reflect taxonomy
+- [x] add formal orbital dynamics spec stub in `docs/science/`
+- [x] add Kepler/superfluid analogies note in `docs/analogies/`
+- [x] ensure analogy documents are not referenced as executable claims
 
 ## Exit criteria
 - [ ] analogy and formal spec are no longer confusable in repo navigation or validation
+
+## Phase A progress entry — 2026-04-07
+Completed on branch:
+- `docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md`
+- `docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md`
+- `docs/INDEX.md`
+
+Resolved in this patchset:
+- the formal orbital-law target now exists as a separate science document,
+- the Kepler/superfluid explanatory layer now exists as an explicit analogy document,
+- docs navigation now carries an explicit taxonomy instead of leaving status implicit.
+
+Remaining blocker before closing Phase A:
+- no validation or automated classification hook yet checks that future docs preserve this boundary.
 
 ---
 
@@ -125,16 +142,16 @@ Separate identity phase from selection relevance.
 Write the formal orbital law before changing runtime behavior.
 
 ## Minimal formal state targets
-- [ ] `mu_eff`
-- [ ] `winding`
-- [ ] `tau_orbit`
-- [ ] `phase_slip_ready`
-- [ ] `rho <-> q_target` relation
-- [ ] effective Kepler-type law `T^2 ~ rho^3 / mu_eff`
-- [ ] threshold/phase-slip transition rule
+- [x] `mu_eff`
+- [x] `winding`
+- [x] `tau_orbit`
+- [x] `phase_slip_ready`
+- [x] `rho <-> q_target` relation
+- [x] effective Kepler-type law `T^2 ~ rho^3 / mu_eff`
+- [x] threshold/phase-slip transition rule
 
 ## Exit criteria
-- [ ] a short, reviewable orbital dynamics law v0 exists as formal spec
+- [x] a short, reviewable orbital dynamics law v0 exists as formal spec
 
 ---
 
@@ -208,10 +225,11 @@ Refactor package geometry only after semantics and runtime law stabilize.
 ---
 
 ## Current active phase
-- [ ] Phase A — Semantic Boundary Hardening
+- [x] Phase A — Semantic Boundary Hardening is materially advanced on branch
+- [ ] Phase B — Phased State Contracts is the next implementation phase after Phase A review
 
 ## Immediate next action
-- [ ] open Patchset A on the branch and land the semantic boundary hardening/doc-classification layer first
+- [ ] review and merge Phase A docs patchset, then move directly into `phased_state.py` contract hardening
 
 ## Successor rule
 If this operation is later split into sub-operations, every successor must link back here and record which patchset boundary it inherits.
