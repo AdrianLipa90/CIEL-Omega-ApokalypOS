@@ -48,18 +48,19 @@ The operation is complete only when:
 ## Branch and baseline
 - original planned operation branch recorded in the first draft: `operation/orbital-dynamics-law-v0-20260407`
 - active Phase A branch after post-merge rebase on current main: `operation/orbital-dynamics-law-v0-phase-a-20260407`
-- current Phase A baseline from `main`: `af5f11d2f141f1d445e1f914a11621f496180770`
+- active Phase B branch from current `main`: `operation/orbital-dynamics-law-v0-phase-b-20260407`
+- current Phase B baseline from `main`: `4e8b8629df7aa6a62bfe3acbb7cfd0a2a517cbb2`
 
 ## Current rationale
 Current `main` already contains:
 - orbital runtime structures with `rho`, `phi`, `tau`, `spin`, `info_mass`, `q_target`,
 - relacyjny step dynamics with potential gradients, leak and vorticity,
 - documentation sectors for analogies and science,
-- but still lacked a clean separation between identity phase and selection relevance,
-- still lacked explicit orbital law state (`mu_eff`, winding, phase-slip readiness, period law),
-- and still carried non-explicit phased-state domain contracts.
+- Phase A semantic boundary docs,
+- but still lacked explicit phased-state domain contracts,
+- and still lacked dedicated boundary tests for the phased-state entry functions.
 
-Phase A patchset now establishes the first missing semantic boundary surfaces on a dedicated branch.
+Phase B patchset resolves those phased-state entry-contract gaps on a dedicated branch.
 
 ---
 
@@ -108,14 +109,33 @@ Make the input/domain contracts of `phased_state.py` explicit.
 Prefer a **strict contract model** unless implementation review proves permissive wrapping is required.
 
 ## Checklist
-- [ ] decide strict vs permissive contract for `compute_phase(h)`
-- [ ] decide strict vs permissive contract for `f_conn(r)`
-- [ ] implement explicit validation in `src/ciel_sot_agent/phased_state.py`
-- [ ] add boundary tests in `tests/test_phased_state.py`
-- [ ] document the chosen domain contract
+- [x] decide strict contract for `compute_phase(h)`
+- [x] decide strict contract for `f_conn(r)`
+- [x] implement explicit validation in `src/ciel_sot_agent/phased_state.py`
+- [x] add boundary tests in `tests/test_phased_state.py`
+- [x] document the chosen domain contract
 
 ## Exit criteria
-- [ ] there are no silent or ambiguous domain assumptions in phased-state entry functions
+- [x] there are no silent or ambiguous domain assumptions in phased-state entry functions
+
+## Phase B progress entry — 2026-04-07
+Chosen contract:
+- `compute_phase(h)` accepts only a finite real hash fraction in `[0.0, 1.0)`.
+- `f_conn(r)` accepts only a non-negative integer connection count.
+- permissive wrapping and silent coercion were explicitly rejected.
+
+Changed files:
+- `src/ciel_sot_agent/phased_state.py`
+- `tests/test_phased_state.py`
+- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`
+
+Resolved in this patchset:
+- phased-state entry functions now fail explicitly on invalid domain values,
+- the contract is documented in the module docstring and this ledger,
+- a dedicated boundary-test layer now exists for the module.
+
+Known limitation:
+- full repo test execution was not performed inside this GitHub patchset flow; only the contract logic itself was checked during patch construction.
 
 ---
 
@@ -225,11 +245,11 @@ Refactor package geometry only after semantics and runtime law stabilize.
 ---
 
 ## Current active phase
-- [x] Phase A — Semantic Boundary Hardening is materially advanced on branch
-- [ ] Phase B — Phased State Contracts is the next implementation phase after Phase A review
+- [x] Phase B — Phased State Contracts advanced on branch
+- [ ] Phase C — Relational Seed Separation is the next implementation phase
 
 ## Immediate next action
-- [ ] review and merge Phase A docs patchset, then move directly into `phased_state.py` contract hardening
+- [ ] audit where raw identity phase leaks into selection logic, then define `selection_weight` / `relational_relevance`
 
 ## Successor rule
 If this operation is later split into sub-operations, every successor must link back here and record which patchset boundary it inherits.
