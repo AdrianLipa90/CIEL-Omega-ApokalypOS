@@ -41,6 +41,12 @@ Separate clearly between:
 - implementation status,
 - unknown / not yet verified.
 
+## Session continuity rule
+The default repository workstyle and session handoff memory is recorded in:
+- `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md`
+
+That file should be treated as the standing operational handoff note for future repo sessions.
+
 ## Operation ledger rule
 Every major repository operation must keep its own active TODO ledger as a separate file under:
 - `docs/operations/`

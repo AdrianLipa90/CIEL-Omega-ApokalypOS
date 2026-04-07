@@ -9,6 +9,12 @@ Use these labels explicitly when adding or revising documents:
 - `report` — generated or audit-style evidence surfaces
 - `archive` — historical or retained context that is no longer the active operational source of truth
 
+## Immediate orientation
+- `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md` — session handoff workstyle, repo operation discipline, blocker handling, and branching/patchset rules.
+- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md` — active orbital operation ledger and current phase state.
+- `docs/OPERATIONS.md` — operational control surface and documentation coupling rule.
+- `AGENT.md` — standing agent-level rules for repo work.
+
 ## Core architecture
 - `docs/ARCHITECTURE.md` — repository role, geometry, upstream bindings, and execution context.
 - `docs/OPERATIONS.md` — operational coupling chain, workflow control surface, and maintenance rules.
@@ -102,6 +108,7 @@ Use these labels explicitly when adding or revising documents:
 - The primary synchronization path is connected to `docs/ARCHITECTURE.md#first-executable-component`, `src/ciel_sot_agent/repo_phase.py`, and `src/ciel_sot_agent/gh_coupling.py`.
 - The shell-level bridge to `ciel-omega-demo` is connected to `docs/CIEL_OMEGA_DEMO_INTEGRATION.md`, `integration/upstreams/ciel_omega_demo_shell_map.json`, and `integration/upstreams/ciel_omega_demo_inventory.json`.
 - The orbital diagnostic path is connected to `docs/ORBital_INTEGRATION_ADDENDUM.md`, `integration/Orbital/main/global_pass.py`, `src/ciel_sot_agent/orbital_bridge.py`, `docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md`, and `docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md`.
+- The active repo workstyle and operation-memory layer is connected to `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md`, `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`, `docs/OPERATIONS.md`, and `AGENT.md`.
 - The Sapiens panel path is connected to `docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md`, `integration/sapiens/panel_manifest.json`, `src/ciel_sot_agent/sapiens_panel/controller.py`, and `src/ciel_sot_agent/sapiens_panel/reduction.py`.
 - The GUI and operator-facing layer is connected to `docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md`, `src/ciel_sot_agent/gui/app.py`, `src/ciel_sot_agent/gui/routes.py`, and `docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md`.
 - The GGUF model-management layer is connected to `src/ciel_sot_agent/gguf_manager/manager.py` and the GUI model endpoints in `src/ciel_sot_agent/gui/routes.py`.

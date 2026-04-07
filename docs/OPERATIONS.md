@@ -5,6 +5,14 @@
 This document makes the repository's operational layer explicit.
 It focuses on the documented control surface that refreshes live integration state and keeps local folder documentation synchronized with executable behavior.
 
+## Immediate orientation
+
+Start with these files when resuming work or handing a session off:
+- `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md` — working method, blocker discipline, branch hygiene, and handoff logic.
+- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md` — active operation ledger and current orbital phase state.
+- `docs/INDEX.md` — global documentation navigation and status taxonomy.
+- `AGENT.md` — standing agent rules for repository work.
+
 ## Coupling chain
 
 The current documented operational chain is:
@@ -23,7 +31,7 @@ This file only describes the stable control surface that must remain explicit an
 ## Documentation rule
 
 Whenever the operational chain changes, update the documentation in the local folder docs that expose that surface.
-At minimum, keep this file, `.github/workflows/README.md`, and any affected local folder documentation synchronized.
+At minimum, keep this file, `.github/workflows/README.md`, the active operation ledger, and any affected local folder documentation synchronized.
 
 ## Execution surfaces
 
@@ -41,4 +49,4 @@ The currently documented workflow is:
 ## Why this layer matters
 
 The goal is to keep the coupling chain inspectable from workflow trigger to written integration output.
-That means the workflow, the launcher, the Python module, and the resulting `integration/` artifacts must remain readable as one auditable path.
+That means the workflow, the launcher, the Python module, the resulting `integration/` artifacts, and the active operation memory must remain readable as one auditable path.

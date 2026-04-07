@@ -1,8 +1,14 @@
 """Phased-state model for repository and file-level identity scoring.
 
 Computes a deterministic phase value for each file/node based on its
-content hash, size, and type weight (ALPHA/BETA/B0 constants).  Used by
+content hash, size, and type weight (ALPHA/BETA/B0 constants). Used by
 the holonomic normalizer and index-validation pipeline.
+
+Domain contracts:
+- ``compute_phase(h)`` expects a finite real hash fraction in ``[0.0, 1.0)``.
+- ``f_conn(r)`` expects a non-negative integer connection count.
+These contracts are intentionally strict so invalid upstream state is
+rejected explicitly instead of being normalized silently.
 """
 import hashlib
 import math
@@ -65,8 +71,33 @@ def f_size(B: int) -> float:
     return 1.0 + ALPHA * math.log(1.0 + B / B0)
 
 
+def _require_finite_real(name: str, value) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise TypeError(f"{name} must be a finite real number")
+    value = float(value)
+    if not math.isfinite(value):
+        raise ValueError(f"{name} must be a finite real number")
+    return value
+
+
+def _require_hash_fraction(h: float) -> float:
+    value = _require_finite_real("h", h)
+    if not 0.0 <= value < 1.0:
+        raise ValueError("h must be in [0.0, 1.0)")
+    return value
+
+
+def _require_connection_count(r: int) -> int:
+    if isinstance(r, bool) or not isinstance(r, int):
+        raise TypeError("r must be a non-negative integer")
+    if r < 0:
+        raise ValueError("r must be a non-negative integer")
+    return r
+
+
 def f_conn(r: int) -> float:
-    return 1.0 + BETA * math.log(1.0 + r)
+    connection_count = _require_connection_count(r)
+    return 1.0 + BETA * math.log(1.0 + connection_count)
 
 
 def f_seed(h: float) -> float:
@@ -115,7 +146,8 @@ def normalize(states):
 
 
 def compute_phase(h: float) -> float:
-    return 2 * math.pi * h
+    hash_fraction = _require_hash_fraction(h)
+    return 2 * math.pi * hash_fraction
 
 
 def build_states(file_entries):
