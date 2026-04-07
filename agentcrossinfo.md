@@ -15,6 +15,7 @@ Purpose: coordination layer for multiple agents working on the same repository a
 - Repository state: active multi-agent mode
 - Canonical coordination file: `agentcrossinfo.md`
 - Conflict policy: newest change is not canonical unless reviewed against prior entry here
+- Active planning successor: `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`
 
 ## Lock table
 
@@ -22,8 +23,15 @@ Purpose: coordination layer for multiple agents working on the same repository a
 |---|---|---|---|---|---|---|
 | Agent-1 | foundations / glossary / derivations | `systems/CIEL_FOUNDATIONS/**` | active | 2026-03-25T16:00:00Z | 2026-03-25T16:00:00Z | Maintains glossary, symbol normalization, tau-A_ij coupling |
 | Agent-2 | repo-wide integration / external imports | `docs/**`, `TODO/**`, import staging | unknown | 2026-03-25T16:00:00Z | 2026-03-25T16:00:00Z | Must declare exact touched files before overwrite |
+| Agent-3 | orbital dynamics law v0 planning / operation ledgers | `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`, `docs/operations/DOCUMENTATION_CONSISTENCY_AND_COVERAGE_TODO.md`, `AGENT.md`, `agentcrossinfo.md` | active | 2026-04-07T16:35:00Z | 2026-04-07T16:35:00Z | Establishes successor operation planning and cross-ledger handoff |
 
 ## Handoff log
+
+### 2026-04-07T16:35:00Z
+- Added successor planning handoff from documentation operation to orbital dynamics operation.
+- Established new active planning file: `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`.
+- Updated `AGENT.md` to require per-operation ledgers with predecessor/successor links.
+- Reserved planning scope for orbital dynamics law v0 so implementation can start from explicit phases and patchsets.
 
 ### 2026-03-25T16:00:00Z
 - Added cross-agent coordination protocol.
@@ -65,3 +73,4 @@ The following items must not be changed implicitly:
 2. Keep `tau_i <-> A_ij` coupling explicit in glossary, derivations, and code.
 3. Separate canonical derivations from heuristic branches.
 4. Record any disappearing files or inconsistent copies immediately.
+5. Use per-operation ledgers with explicit predecessor/successor links for major repo changes.

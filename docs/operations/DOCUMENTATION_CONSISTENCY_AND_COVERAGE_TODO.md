@@ -31,6 +31,18 @@ The operation is complete only when:
 
 ---
 
+## Operational handoff
+This operation is treated as operationally closed for planning continuity, with a small manual tail accepted outside the model-driven patch flow.
+
+Direct successor operation:
+- [`ORBITAL_DYNAMICS_LAW_V0_TODO.md`](./ORBITAL_DYNAMICS_LAW_V0_TODO.md)
+
+Handoff intent:
+- documentation cleanup established the repo geometry and execution surfaces,
+- the next operation now shifts from repo truth-alignment into orbital-law implementation planning.
+
+---
+
 ## Active input package
 Primary audit seed for this operation:
 - `/mnt/data/FULL_REPO_REVIEW_2026-04-07.zip`

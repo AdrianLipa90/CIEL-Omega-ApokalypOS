@@ -41,6 +41,29 @@ Separate clearly between:
 - implementation status,
 - unknown / not yet verified.
 
+## Operation ledger rule
+Every major repository operation must keep its own active TODO ledger as a separate file under:
+- `docs/operations/`
+
+The ledger must:
+- record baseline commit/ref,
+- define phases and exit criteria,
+- name the active branch when known,
+- be updated as the final step of every finished phase,
+- and link explicitly to predecessor or successor ledgers when the work is handed off.
+
+Current successor planning link:
+- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`
+
+## Current implementation track
+The current implementation track after documentation cleanup is:
+1. harden semantic boundaries between analogy / science / runtime,
+2. make `phased_state.py` contracts explicit,
+3. separate identity phase from selection relevance,
+4. specify Orbital Dynamics Law v0 formally,
+5. implement the runtime law path,
+6. repair runtime bottlenecks after semantics are stable.
+
 ## Initial integration targets
 This repository is expected to coordinate at least the following upstream identities:
 - canon / Seed of the Worlds,
