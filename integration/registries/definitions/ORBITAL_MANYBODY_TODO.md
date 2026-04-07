@@ -1,77 +1,30 @@
 # Orbital Many-Body TODO Ledger
 
 ## Phase 1 — Card schema v0.2 ✅
-- [x] Add plan and TODO docs to repo.
-- [x] Extend resolver with deterministic hierarchy fields.
-  - [x] derive `container_card_id`
-  - [x] derive `manybody_role`
-  - [x] derive `subsystem_kind`
-  - [x] derive `parent_orbital_role`
-  - [x] derive `horizon_id`
-  - [x] derive `horizon_class`
-  - [x] derive `information_regime`
-  - [x] derive `visible_scopes`
-  - [x] derive `leak_policy`
-  - [x] derive `tau_role`
-  - [x] derive `lagrange_roles`
-- [x] Extend resolver report counts.
-  - [x] `information_regime_counts`
-  - [x] `horizon_class_counts`
-  - [x] `tau_role_counts`
-  - [x] `manybody_role_counts`
-  - [x] `lagrange_role_counts`
-- [x] Extend DB schema and persistence.
-  - [x] records table columns
-  - [x] indexes
-  - [x] manifest schema bump
-- [x] Update README for the card system sector.
-- [x] Add/refresh tests for the new card semantics.
+## Phase 2 — Systemic privacy and internal cards ✅
+## Phase 3 — Horizon/leak policy formalization ✅
+## Phase 4 — Synchronization scaffolding ✅
+- [x] define board/subsystem aggregation object
+- [x] define `tau_local`, `tau_orbit`, `tau_system`
+- [x] connect cards to synchronization metadata
+- [x] define how internal subsystem state condenses into exportable half-conclusions
+- [x] define first subsystem synchronization law (board / metronome style)
 
-## Phase 2 — Systemic privacy and internal cards
-- [ ] Define internal/private subsystem card schema.
-  - [ ] `internal_card_schema`
-  - [ ] `internal_card_id`
-  - [ ] `internal_visibility = PRIVATE_SUBSYSTEM_ONLY`
-  - [ ] `internal_candidate_states`
-  - [ ] `internal_conflict_state`
-  - [ ] `internal_superposition_state`
-  - [ ] `internal_resolution_trace`
-  - [ ] `internal_tau_local`
-  - [ ] `internal_memory_mode`
-- [ ] Define export/public subsystem card fields.
-  - [ ] `export_state`
-  - [ ] `export_result`
-  - [ ] `export_confidence`
-  - [ ] `residual_uncertainty`
-- [ ] Define horizon projection rule.
-  - [ ] `K_int -> Π_H -> K_ext`
-  - [ ] exportable vs internal-only field table
-  - [ ] leak-derived vs directly visible fields
-- [ ] Extend DB schema / manifest for internal-vs-export distinction.
-- [ ] Extend report layer with internal/export counts.
+## Phase 5 — Runtime integration ✅
+- [x] feed richer cards into orbital runtime bridge
+- [x] feed richer cards into bridge reports
+- [x] feed privacy constraints into export boundaries
+- [x] project runtime gating into sapiens packets
+- [x] add runtime integration regression tests
 
-## Phase 3 — Horizon/leak policy formalization
-- [ ] Define allowed visibility transition table.
-- [ ] Encode first leak policy ruleset.
-- [ ] Distinguish sealed vs porous vs transmissive vs observational horizon classes.
-- [ ] Attach privacy constraints to each horizon class.
-
-## Phase 4 — Synchronization scaffolding
-- [ ] define board/subsystem aggregation object
-- [ ] define local/orbit/system tau slots
-- [ ] connect cards to synchronization metadata
-- [ ] define how internal subsystem state condenses into exportable half-conclusions
-
-## Phase 5 — Runtime integration
-- [ ] feed richer cards into orbital runtime
-- [ ] feed richer cards into bridge reports
-- [ ] feed privacy constraints into export boundaries
-- [ ] audit downstream compatibility
-
-## Phase 6 — Verification
-- [ ] rerun catalog hook
-- [ ] rerun DB library build
+## Phase 6 — Verification ⏳
+- [x] add dedicated verification script
+- [x] wire verification into catalog hook chain
+- [ ] rerun catalog hook end-to-end on branch
+- [ ] rerun DB library build end-to-end on branch
 - [ ] verify no recursion reintroduced
 - [ ] verify deterministic rerun stability
 - [ ] verify internal cards are not exported directly
 - [ ] verify horizon projection only exports allowed fields
+- [ ] verify runtime gating artifacts are emitted on rerun
+- [ ] finalize docs / audit summary
