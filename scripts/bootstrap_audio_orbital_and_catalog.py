@@ -10,16 +10,6 @@ from typing import Any
 
 
 def repo_relative(repo_root: Path, path: Path) -> str:
-    """
-    Return a repository-relative POSIX-style string for a path when possible.
-
-    Parameters:
-        repo_root (Path): Repository root used as the base for relativization.
-        path (Path): Path to convert to a repository-relative string.
-
-    Returns:
-        str: The path relative to `repo_root` with forward slashes, or the original path string if relativization fails.
-    """
     try:
         return str(path.resolve().relative_to(repo_root.resolve())).replace("\\", "/")
     except Exception:
@@ -27,12 +17,6 @@ def repo_relative(repo_root: Path, path: Path) -> str:
 
 
 def relativize_json_paths(repo_root: Path, value: Any) -> Any:
-    """
-    Recursively normalize path-like strings in a JSON-compatible object to repository-relative form.
-
-    Strings that resolve under ``repo_root`` are converted to repo-relative POSIX paths.
-    Non-path strings and values outside the repository are preserved unchanged.
-    """
     if isinstance(value, dict):
         return {k: relativize_json_paths(repo_root, v) for k, v in value.items()}
     if isinstance(value, list):
@@ -111,6 +95,7 @@ def main() -> int:
         'definition_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'definition_registry.json'),
         'orbital_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_definition_registry.json'),
         'internal_card_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'internal_subsystem_cards.json'),
+        'horizon_policy_matrix': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'horizon_policy_matrix.json'),
         'orbital_report': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_assignment_report.json'),
         'nonlocal_edges': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'nonlocal_definition_edges.json'),
         'db_manifest': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'db_library' / 'manifest.json'),
@@ -120,11 +105,12 @@ def main() -> int:
         'audio_state': load_json_if_exists(repo_root, repo_root / artifacts['audio_state']),
         'orbital_report': load_json_if_exists(repo_root, repo_root / artifacts['orbital_report']),
         'internal_card_registry': load_json_if_exists(repo_root, repo_root / artifacts['internal_card_registry']),
+        'horizon_policy_matrix': load_json_if_exists(repo_root, repo_root / artifacts['horizon_policy_matrix']),
         'db_manifest': load_json_if_exists(repo_root, repo_root / artifacts['db_manifest']),
     }
 
     summary = {
-        'schema': 'ciel/audio-orbital-catalog-hook/v0.3',
+        'schema': 'ciel/audio-orbital-catalog-hook/v0.4',
         'ok': ok,
         'steps': steps,
         'artifacts': artifacts,

@@ -16,8 +16,9 @@ ORBIT_RULES = [
     ("EDUCATION", ["learn", "education", "tutorial", "curriculum", "teacher", "training"]),
 ]
 
-EXPORT_CARD_SCHEMA = "ciel/orbital-export-card/v0.3"
-INTERNAL_CARD_SCHEMA = "ciel/internal-subsystem-card/v0.1"
+EXPORT_CARD_SCHEMA = "ciel/orbital-export-card/v0.4"
+INTERNAL_CARD_SCHEMA = "ciel/internal-subsystem-card/v0.2"
+HORIZON_POLICY_SCHEMA = "ciel/horizon-policy-matrix/v0.1"
 GLOBAL_ATTRACTOR_REF = "GLOBAL_ATTRACTOR:PRIMARY_INFORMATION_SOURCE"
 
 PARENT_ORBIT_ROLE = {
@@ -69,6 +70,123 @@ MEMORY_MODE = {
     "BOUNDARY": "POLICY_CACHE",
     "EDUCATION": "CURRICULUM_SNAPSHOT",
     "UNRESOLVED": "TRANSIENT_RUNTIME",
+}
+
+HORIZON_POLICY_MATRIX = {
+    "SEALED": {
+        "privacy_constraint": "STRICT_NONDISCLOSURE",
+        "leak_channel_mode": "NO_DIRECT_LEAK",
+        "leak_budget_class": "ZERO_LEAK_BUDGET",
+        "allowed_visibility_transitions": [
+            "self->local-orbit",
+            "local-orbit->sealed-export",
+        ],
+        "exportable_fields": [
+            "export_state",
+            "export_result",
+            "export_confidence",
+            "residual_uncertainty",
+            "horizon_class",
+            "privacy_constraint",
+            "leak_policy",
+            "projection_operator",
+        ],
+        "sealed_fields": [
+            "internal_candidate_states",
+            "internal_conflict_state",
+            "internal_superposition_state",
+            "internal_resolution_trace",
+            "internal_tau_local",
+            "internal_memory_mode",
+        ],
+    },
+    "POROUS": {
+        "privacy_constraint": "GRADIENT_LIMITED_DISCLOSURE",
+        "leak_channel_mode": "HAWKING_EULER_DIFFUSIVE",
+        "leak_budget_class": "MICRO_LEAK_BUDGET",
+        "allowed_visibility_transitions": [
+            "self->container",
+            "container->local-orbit",
+            "local-orbit->horizon-leak",
+        ],
+        "exportable_fields": [
+            "export_state",
+            "export_result",
+            "export_confidence",
+            "residual_uncertainty",
+            "horizon_class",
+            "privacy_constraint",
+            "leak_policy",
+            "projection_operator",
+            "visible_scopes",
+        ],
+        "sealed_fields": [
+            "internal_candidate_states",
+            "internal_conflict_state",
+            "internal_superposition_state",
+            "internal_resolution_trace",
+        ],
+    },
+    "TRANSMISSIVE": {
+        "privacy_constraint": "BROKER_GATED_DISCLOSURE",
+        "leak_channel_mode": "HAWKING_EULER_BROKERED",
+        "leak_budget_class": "BROKERED_LEAK_BUDGET",
+        "allowed_visibility_transitions": [
+            "self->container",
+            "container->local-orbit",
+            "local-orbit->adjacent-horizon",
+            "adjacent-horizon->broker-leak",
+        ],
+        "exportable_fields": [
+            "export_state",
+            "export_result",
+            "export_confidence",
+            "residual_uncertainty",
+            "horizon_class",
+            "privacy_constraint",
+            "leak_policy",
+            "projection_operator",
+            "visible_scopes",
+            "manybody_role",
+        ],
+        "sealed_fields": [
+            "internal_candidate_states",
+            "internal_conflict_state",
+            "internal_superposition_state",
+            "internal_resolution_trace",
+        ],
+    },
+    "OBSERVATIONAL": {
+        "privacy_constraint": "SNAPSHOT_SANITIZED_DISCLOSURE",
+        "leak_channel_mode": "SNAPSHOT_PROJECTION",
+        "leak_budget_class": "SNAPSHOT_LEAK_BUDGET",
+        "allowed_visibility_transitions": [
+            "self->container",
+            "container->local-orbit",
+            "local-orbit->orbit-snapshot",
+            "orbit-snapshot->global-snapshot",
+        ],
+        "exportable_fields": [
+            "export_state",
+            "export_result",
+            "export_confidence",
+            "residual_uncertainty",
+            "horizon_class",
+            "privacy_constraint",
+            "leak_policy",
+            "projection_operator",
+            "visible_scopes",
+            "manybody_role",
+            "tau_role",
+        ],
+        "sealed_fields": [
+            "internal_candidate_states",
+            "internal_conflict_state",
+            "internal_superposition_state",
+            "internal_resolution_trace",
+            "internal_tau_local",
+        ],
+    },
 }
 
 
@@ -201,7 +319,7 @@ def derive_export_confidence(orbital_confidence: float, leak_policy: str) -> flo
     penalty = {
         "SEALED": 0.08,
         "HAWKING_EULER": 0.12,
-        "HAWKING_EULER_BROKERED": 0.1,
+        "HAWKING_EULER_BROKERED": 0.10,
         "SNAPSHOT_ONLY": 0.15,
     }.get(leak_policy, 0.12)
     return round(max(0.05, min(0.99, orbital_confidence - penalty)), 3)
@@ -297,6 +415,7 @@ def main() -> int:
         export_confidence = derive_export_confidence(round(confidence, 3), leak_policy)
         internal_id = derive_internal_card_id(rec["id"])
         projection_operator = derive_projection_operator(horizon_class, leak_policy)
+        policy = HORIZON_POLICY_MATRIX[horizon_class]
 
         export_card = rec | {
             "card_schema": EXPORT_CARD_SCHEMA,
@@ -317,10 +436,15 @@ def main() -> int:
             "lagrange_roles": lagrange,
             "internal_card_id": internal_id,
             "projection_operator": projection_operator,
+            "privacy_constraint": policy["privacy_constraint"],
+            "leak_channel_mode": policy["leak_channel_mode"],
+            "leak_budget_class": policy["leak_budget_class"],
+            "allowed_visibility_transitions": policy["allowed_visibility_transitions"],
             "export_state": derive_export_state(manybody, horizon_class),
             "export_result": derive_export_result(rec, manybody, orbit),
             "export_confidence": export_confidence,
             "residual_uncertainty": round(max(0.0, 1.0 - export_confidence), 3),
+            "policy_table_ref": f"horizon-policy:{horizon_class}",
         }
         export_cards.append(export_card)
 
@@ -341,6 +465,11 @@ def main() -> int:
             "internal_memory_mode": MEMORY_MODE.get(orbit, "TRANSIENT_RUNTIME"),
             "projection_operator": projection_operator,
             "export_card_id": rec["id"],
+            "privacy_constraint": policy["privacy_constraint"],
+            "horizon_transition_profile": horizon_class,
+            "exportable_fields": policy["exportable_fields"],
+            "sealed_fields": policy["sealed_fields"],
+            "policy_table_ref": f"horizon-policy:{horizon_class}",
         }
         internal_cards.append(internal_card)
         orbit_counts[orbit] = orbit_counts.get(orbit, 0) + 1
@@ -349,24 +478,28 @@ def main() -> int:
     reg_path = out_dir / "orbital_definition_registry.json"
     internal_path = out_dir / "internal_subsystem_cards.json"
     report_path = out_dir / "orbital_assignment_report.json"
+    policy_path = out_dir / "horizon_policy_matrix.json"
     reg_payload = {
-        "schema": "ciel/orbital-definition-registry-enriched/v0.3",
+        "schema": "ciel/orbital-definition-registry-enriched/v0.4",
         "card_schema": EXPORT_CARD_SCHEMA,
         "internal_card_schema": INTERNAL_CARD_SCHEMA,
+        "horizon_policy_schema": HORIZON_POLICY_SCHEMA,
         "global_attractor_ref": GLOBAL_ATTRACTOR_REF,
         "count": len(export_cards),
         "records": export_cards,
     }
     internal_payload = {
-        "schema": "ciel/internal-subsystem-card-registry/v0.1",
+        "schema": "ciel/internal-subsystem-card-registry/v0.2",
         "internal_card_schema": INTERNAL_CARD_SCHEMA,
+        "horizon_policy_schema": HORIZON_POLICY_SCHEMA,
         "count": len(internal_cards),
         "internal_cards": internal_cards,
     }
     report_payload = {
-        "schema": "ciel/orbital-assignment-report/v0.3",
+        "schema": "ciel/orbital-assignment-report/v0.4",
         "card_schema": EXPORT_CARD_SCHEMA,
         "internal_card_schema": INTERNAL_CARD_SCHEMA,
+        "horizon_policy_schema": HORIZON_POLICY_SCHEMA,
         "count": len(export_cards),
         "export_card_count": len(export_cards),
         "internal_card_count": len(internal_cards),
@@ -378,14 +511,23 @@ def main() -> int:
         "manybody_role_counts": count_values(export_cards, "manybody_role"),
         "lagrange_role_counts": count_list_values(export_cards, "lagrange_roles"),
         "projection_operator_counts": count_values(export_cards, "projection_operator"),
+        "privacy_constraint_counts": count_values(export_cards, "privacy_constraint"),
+        "leak_channel_mode_counts": count_values(export_cards, "leak_channel_mode"),
+        "leak_budget_class_counts": count_values(export_cards, "leak_budget_class"),
         "export_state_counts": count_values(export_cards, "export_state"),
+        "transition_profile_counts": count_values(internal_cards, "horizon_transition_profile"),
         "internal_memory_mode_counts": count_values(internal_cards, "internal_memory_mode"),
         "internal_conflict_state_counts": count_values(internal_cards, "internal_conflict_state"),
         "internal_visibility_counts": count_values(internal_cards, "internal_visibility"),
     }
+    policy_payload = {
+        "schema": HORIZON_POLICY_SCHEMA,
+        "classes": HORIZON_POLICY_MATRIX,
+    }
     reg_path.write_text(json.dumps(reg_payload, indent=2), encoding="utf-8")
     internal_path.write_text(json.dumps(internal_payload, indent=2), encoding="utf-8")
     report_path.write_text(json.dumps(report_payload, indent=2), encoding="utf-8")
+    policy_path.write_text(json.dumps(policy_payload, indent=2), encoding="utf-8")
     print(json.dumps(report_payload, indent=2))
     return 0
 

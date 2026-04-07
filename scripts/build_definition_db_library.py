@@ -69,10 +69,15 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
             lagrange_roles_json TEXT,
             internal_card_id TEXT,
             projection_operator TEXT,
+            privacy_constraint TEXT,
+            leak_channel_mode TEXT,
+            leak_budget_class TEXT,
+            allowed_visibility_transitions_json TEXT,
             export_state TEXT,
             export_result TEXT,
             export_confidence REAL,
-            residual_uncertainty REAL
+            residual_uncertainty REAL,
+            policy_table_ref TEXT
         );
         CREATE INDEX idx_records_path ON records(path);
         CREATE INDEX idx_records_kind ON records(kind);
@@ -88,6 +93,10 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
         CREATE INDEX idx_records_internal_card_id ON records(internal_card_id);
         CREATE INDEX idx_records_projection_operator ON records(projection_operator);
         CREATE INDEX idx_records_export_state ON records(export_state);
+        CREATE INDEX idx_records_privacy_constraint ON records(privacy_constraint);
+        CREATE INDEX idx_records_leak_channel_mode ON records(leak_channel_mode);
+        CREATE INDEX idx_records_leak_budget_class ON records(leak_budget_class);
+        CREATE INDEX idx_records_policy_table_ref ON records(policy_table_ref);
         """
     )
     cur.executemany(
@@ -98,8 +107,9 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
             orbital_confidence, semantic_role, container_card_id, subsystem_kind, manybody_role,
             parent_orbital_role, horizon_id, horizon_class, information_regime, visible_scopes_json,
             leak_policy, tau_role, lagrange_roles_json, internal_card_id, projection_operator,
-            export_state, export_result, export_confidence, residual_uncertainty
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            privacy_constraint, leak_channel_mode, leak_budget_class, allowed_visibility_transitions_json,
+            export_state, export_result, export_confidence, residual_uncertainty, policy_table_ref
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             (
@@ -114,8 +124,11 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
                 rec.get("horizon_id"), rec.get("horizon_class"), rec.get("information_regime"),
                 json.dumps(rec.get("visible_scopes", []), ensure_ascii=False),
                 rec.get("leak_policy"), rec.get("tau_role"), json.dumps(rec.get("lagrange_roles", []), ensure_ascii=False),
-                rec.get("internal_card_id"), rec.get("projection_operator"), rec.get("export_state"),
-                rec.get("export_result"), rec.get("export_confidence"), rec.get("residual_uncertainty"),
+                rec.get("internal_card_id"), rec.get("projection_operator"), rec.get("privacy_constraint"),
+                rec.get("leak_channel_mode"), rec.get("leak_budget_class"),
+                json.dumps(rec.get("allowed_visibility_transitions", []), ensure_ascii=False),
+                rec.get("export_state"), rec.get("export_result"), rec.get("export_confidence"),
+                rec.get("residual_uncertainty"), rec.get("policy_table_ref"),
             )
             for rec in records
         ],
@@ -147,7 +160,12 @@ def write_internal_cards_db(db_path: Path, records: list[dict[str, Any]]) -> int
             internal_tau_local TEXT,
             internal_memory_mode TEXT,
             projection_operator TEXT,
-            export_card_id TEXT
+            export_card_id TEXT,
+            privacy_constraint TEXT,
+            horizon_transition_profile TEXT,
+            exportable_fields_json TEXT,
+            sealed_fields_json TEXT,
+            policy_table_ref TEXT
         );
         CREATE INDEX idx_internal_owner_card_id ON internal_cards(owner_card_id);
         CREATE INDEX idx_internal_container_card_id ON internal_cards(container_card_id);
@@ -155,6 +173,9 @@ def write_internal_cards_db(db_path: Path, records: list[dict[str, Any]]) -> int
         CREATE INDEX idx_internal_memory_mode ON internal_cards(internal_memory_mode);
         CREATE INDEX idx_internal_conflict_state ON internal_cards(internal_conflict_state);
         CREATE INDEX idx_internal_projection_operator ON internal_cards(projection_operator);
+        CREATE INDEX idx_internal_privacy_constraint ON internal_cards(privacy_constraint);
+        CREATE INDEX idx_internal_transition_profile ON internal_cards(horizon_transition_profile);
+        CREATE INDEX idx_internal_policy_table_ref ON internal_cards(policy_table_ref);
         """
     )
     cur.executemany(
@@ -163,8 +184,10 @@ def write_internal_cards_db(db_path: Path, records: list[dict[str, Any]]) -> int
             internal_card_id, internal_card_schema, owner_card_id, owner_horizon_id, container_card_id,
             subsystem_kind, manybody_role, internal_visibility, internal_candidate_states_json,
             internal_conflict_state, internal_superposition_state, internal_resolution_trace_json,
-            internal_tau_local, internal_memory_mode, projection_operator, export_card_id
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            internal_tau_local, internal_memory_mode, projection_operator, export_card_id,
+            privacy_constraint, horizon_transition_profile, exportable_fields_json, sealed_fields_json,
+            policy_table_ref
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
         [
             (
@@ -175,13 +198,61 @@ def write_internal_cards_db(db_path: Path, records: list[dict[str, Any]]) -> int
                 rec.get("internal_conflict_state"), rec.get("internal_superposition_state"),
                 json.dumps(rec.get("internal_resolution_trace", []), ensure_ascii=False),
                 rec.get("internal_tau_local"), rec.get("internal_memory_mode"),
-                rec.get("projection_operator"), rec.get("export_card_id"),
+                rec.get("projection_operator"), rec.get("export_card_id"), rec.get("privacy_constraint"),
+                rec.get("horizon_transition_profile"), json.dumps(rec.get("exportable_fields", []), ensure_ascii=False),
+                json.dumps(rec.get("sealed_fields", []), ensure_ascii=False), rec.get("policy_table_ref"),
             )
             for rec in records
         ],
     )
     conn.commit()
     count = cur.execute("SELECT COUNT(*) FROM internal_cards").fetchone()[0]
+    conn.close()
+    return count
+
+
+def write_policy_db(db_path: Path, policy_payload: dict[str, Any]) -> int:
+    conn = recreate(db_path)
+    cur = conn.cursor()
+    cur.executescript(
+        """
+        CREATE TABLE horizon_policies (
+            horizon_class TEXT PRIMARY KEY,
+            privacy_constraint TEXT,
+            leak_channel_mode TEXT,
+            leak_budget_class TEXT,
+            allowed_visibility_transitions_json TEXT,
+            exportable_fields_json TEXT,
+            sealed_fields_json TEXT
+        );
+        CREATE INDEX idx_policies_privacy_constraint ON horizon_policies(privacy_constraint);
+        CREATE INDEX idx_policies_leak_channel_mode ON horizon_policies(leak_channel_mode);
+        CREATE INDEX idx_policies_leak_budget_class ON horizon_policies(leak_budget_class);
+        """
+    )
+    classes = policy_payload.get("classes", {})
+    cur.executemany(
+        """
+        INSERT INTO horizon_policies (
+            horizon_class, privacy_constraint, leak_channel_mode, leak_budget_class,
+            allowed_visibility_transitions_json, exportable_fields_json, sealed_fields_json
+        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+        """,
+        [
+            (
+                horizon_class,
+                payload.get("privacy_constraint"),
+                payload.get("leak_channel_mode"),
+                payload.get("leak_budget_class"),
+                json.dumps(payload.get("allowed_visibility_transitions", []), ensure_ascii=False),
+                json.dumps(payload.get("exportable_fields", []), ensure_ascii=False),
+                json.dumps(payload.get("sealed_fields", []), ensure_ascii=False),
+            )
+            for horizon_class, payload in classes.items()
+        ],
+    )
+    conn.commit()
+    count = cur.execute("SELECT COUNT(*) FROM horizon_policies").fetchone()[0]
     conn.close()
     return count
 
@@ -254,12 +325,14 @@ def main() -> int:
 
     reg = load_json(base / "orbital_definition_registry.json")
     internal_reg = load_json(base / "internal_subsystem_cards.json")
+    policy_reg = load_json(base / "horizon_policy_matrix.json")
     edges_payload = load_json(base / "nonlocal_definition_edges.json")
     report = load_json(base / "orbital_assignment_report.json")
     edges = edges_payload["edges"]
 
     records_db = db_dir / "records.sqlite"
     internal_cards_db = db_dir / "internal_cards.sqlite"
+    horizon_policies_db = db_dir / "horizon_policies.sqlite"
     reports_db = db_dir / "reports.sqlite"
     edge_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for edge in edges:
@@ -267,6 +340,7 @@ def main() -> int:
 
     record_count = write_records_db(records_db, reg["records"])
     internal_card_count = write_internal_cards_db(internal_cards_db, internal_reg["internal_cards"])
+    policy_count = write_policy_db(horizon_policies_db, policy_reg)
     edge_db_meta: dict[str, Any] = {}
     total_edge_rows = 0
     for relation, relation_edges in sorted(edge_groups.items()):
@@ -286,9 +360,10 @@ def main() -> int:
         {
             "orbital_assignment_report": report,
             "db_library_manifest_stub": {
-                "schema": "ciel/catalog-db-library/v0.5",
+                "schema": "ciel/catalog-db-library/v0.6",
                 "records_db": repo_relative(repo_root, records_db),
                 "internal_cards_db": repo_relative(repo_root, internal_cards_db),
+                "horizon_policies_db": repo_relative(repo_root, horizon_policies_db),
                 "reports_db": repo_relative(repo_root, reports_db),
                 "edge_relations": sorted(edge_groups.keys()),
             },
@@ -297,9 +372,10 @@ def main() -> int:
     )
 
     manifest = {
-        "schema": "ciel/catalog-db-library/v0.5",
-        "card_schema": reg.get("card_schema", "ciel/orbital-export-card/v0.3"),
-        "internal_card_schema": internal_reg.get("internal_card_schema", "ciel/internal-subsystem-card/v0.1"),
+        "schema": "ciel/catalog-db-library/v0.6",
+        "card_schema": reg.get("card_schema", "ciel/orbital-export-card/v0.4"),
+        "internal_card_schema": internal_reg.get("internal_card_schema", "ciel/internal-subsystem-card/v0.2"),
+        "horizon_policy_schema": policy_reg.get("schema", "ciel/horizon-policy-matrix/v0.1"),
         "databases": {
             "records": {
                 "path": repo_relative(repo_root, records_db),
@@ -309,7 +385,8 @@ def main() -> int:
                 "indexed_fields": [
                     "path", "kind", "name", "qualname", "orbital_role", "semantic_role",
                     "container_card_id", "horizon_id", "information_regime", "tau_role", "manybody_role",
-                    "internal_card_id", "projection_operator", "export_state",
+                    "internal_card_id", "projection_operator", "privacy_constraint", "leak_channel_mode",
+                    "leak_budget_class", "export_state", "policy_table_ref",
                 ],
             },
             "internal_cards": {
@@ -318,9 +395,17 @@ def main() -> int:
                 "size_bytes": internal_cards_db.stat().st_size,
                 "tables": ["internal_cards"],
                 "indexed_fields": [
-                    "owner_card_id", "container_card_id", "internal_visibility",
-                    "internal_memory_mode", "internal_conflict_state", "projection_operator",
+                    "owner_card_id", "container_card_id", "internal_visibility", "internal_memory_mode",
+                    "internal_conflict_state", "projection_operator", "privacy_constraint",
+                    "horizon_transition_profile", "policy_table_ref",
                 ],
+            },
+            "horizon_policies": {
+                "path": repo_relative(repo_root, horizon_policies_db),
+                "rows": policy_count,
+                "size_bytes": horizon_policies_db.stat().st_size,
+                "tables": ["horizon_policies"],
+                "indexed_fields": ["privacy_constraint", "leak_channel_mode", "leak_budget_class"],
             },
             "reports": {
                 "path": repo_relative(repo_root, reports_db),
@@ -333,6 +418,7 @@ def main() -> int:
         "totals": {
             "records": record_count,
             "internal_cards": internal_card_count,
+            "horizon_policies": policy_count,
             "edges": total_edge_rows,
             "edge_relations": len(edge_db_meta),
         },
@@ -340,6 +426,7 @@ def main() -> int:
             "orbital_assignment_report": repo_relative(repo_root, base / "orbital_assignment_report.json"),
             "orbital_registry": repo_relative(repo_root, base / "orbital_definition_registry.json"),
             "internal_card_registry": repo_relative(repo_root, base / "internal_subsystem_cards.json"),
+            "horizon_policy_matrix": repo_relative(repo_root, base / "horizon_policy_matrix.json"),
             "edges": repo_relative(repo_root, base / "nonlocal_definition_edges.json"),
         },
     }
