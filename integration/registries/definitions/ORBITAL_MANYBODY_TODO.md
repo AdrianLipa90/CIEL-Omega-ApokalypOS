@@ -36,12 +36,13 @@ The project is complete only when:
 - [x] bridge/runtime hooks exist
 - [x] fresh operational rerun completed under the new project protocol
 - [x] runtime behavior checked against freshly regenerated artifacts
-- [ ] orbital card system uploaded/integrated as an explicit system layer
+- [x] orbital card system uploaded/integrated as an explicit system layer
 
 ## Current execution basis
 - [x] active repo branch: `operation/orbital-card-system-20260407`
 - [x] local execution snapshot: `/mnt/data/CIEL-_SOT_Agent-main (11).zip`
 - [x] local execution root: `/mnt/data/orbital_card_system_run/CIEL-_SOT_Agent-main`
+- [x] integration branch head after upload/integration: `9aa6bd63c6d7df4d0ccd4fb34f130f01e9b52b57`
 
 ---
 
@@ -247,14 +248,16 @@ Decide whether the orbital card system is allowed to become an integral system l
 - [x] Phase E passed
 
 ## F2. Blockers
-- [ ] if any condition is red, upload is blocked and blocker must be recorded explicitly
+- [x] if any condition is red, upload is blocked and blocker must be recorded explicitly
 
 ## F3. Phase exit criteria
-- [ ] explicit READY / BLOCKED decision recorded
+- [x] explicit READY / BLOCKED decision recorded
 
-## Phase F active notes
-- [ ] upload scope decision still pending
-- [ ] integration target / artifact scope not yet fixed
+## Phase F completion notes
+- [x] READY_FOR_UPLOAD recorded
+- [x] approved upload scope: export registry, internal cards, horizon policy matrix, subsystem sync layer, DB library
+- [x] runtime outputs remain derived artifacts rather than source-of-truth registries
+- [x] Phase F closed
 
 ---
 
@@ -264,19 +267,28 @@ Decide whether the orbital card system is allowed to become an integral system l
 Upload / register the orbital card system as an integral system component only after all gates are green.
 
 ## G1. Upload scope decision
-- [ ] confirm whether upload includes only export layer
-- [ ] confirm whether upload includes internal cards
-- [ ] confirm whether upload includes horizon policy matrix
-- [ ] confirm whether upload includes subsystem sync registry
-- [ ] confirm whether upload includes DB library
+- [x] confirm whether upload includes only export layer
+- [x] confirm whether upload includes internal cards
+- [x] confirm whether upload includes horizon policy matrix
+- [x] confirm whether upload includes subsystem sync registry
+- [x] confirm whether upload includes DB library
 
 ## G2. Integration action
-- [ ] perform upload / bootstrap / registration step
-- [ ] record exact commit / ref / timestamp of uploaded card state
-- [ ] record whether uploaded state is immutable snapshot or living layer
+- [x] perform upload / bootstrap / registration step
+- [x] record exact commit / ref / timestamp of uploaded card state
+- [x] record whether uploaded state is immutable snapshot or living layer
 
 ## G3. Phase exit criteria
-- [ ] orbital card system is officially integrated as a system component
+- [x] orbital card system is officially integrated as a system component
+
+## Phase G completion notes
+- [x] machine-readable integration anchor added: `orbital_card_system_integration_manifest.json`
+- [x] bootstrap hook updated to expose the integration manifest
+- [x] dedicated `orbital_card_system_index.yaml` added as conservative discovery layer
+- [x] sector README updated to declare integral-system registration and authoritative upload scope
+- [x] integration mode recorded as `living-layer`
+- [x] integration branch commit: `9aa6bd63c6d7df4d0ccd4fb34f130f01e9b52b57`
+- [x] Phase G closed
 
 ---
 
@@ -286,32 +298,37 @@ Upload / register the orbital card system as an integral system component only a
 Confirm that upload/integration did not break runtime or semantic contracts.
 
 ## H1. Runtime re-check
-- [ ] bridge still works after upload
-- [ ] packet still respects projection constraints
-- [ ] runtime gating still enforces privacy
-- [ ] no silent schema drift introduced by upload step
+- [x] bridge still works after upload
+- [x] packet still respects projection constraints
+- [x] runtime gating still enforces privacy
+- [x] no silent schema drift introduced by upload step
 
 ## H2. System re-check
-- [ ] integrated card layer matches uploaded artifact set
-- [ ] no post-upload regression in DB / manifest / sync layer
+- [x] integrated card layer matches uploaded artifact set
+- [x] no post-upload regression in DB / manifest / sync layer
 
 ## H3. Phase exit criteria
-- [ ] uploaded orbital card system is stable in practice
+- [x] uploaded orbital card system is stable in practice
+
+## Phase H completion notes
+- [x] upload integration touched registry/bootstrap/docs only; runtime-consumer contract remained stable
+- [x] derived runtime outputs remain projected artifacts, not registry SoT
+- [x] Phase H closed
 
 ---
 
 # FINAL PROJECT CLOSURE
 
 ## Closure conditions
-- [ ] all phases A–H completed or explicitly blocked
-- [ ] final status recorded as one of:
+- [x] all phases A–H completed or explicitly blocked
+- [x] final status recorded as one of:
   - [ ] `READY_FOR_UPLOAD`
-  - [ ] `UPLOADED_AND_STABLE`
+  - [x] `UPLOADED_AND_STABLE`
   - [ ] `BLOCKED_BY_GENERATION`
   - [ ] `BLOCKED_BY_VALIDATION`
   - [ ] `BLOCKED_BY_RUNTIME`
   - [ ] `BLOCKED_BY_UPLOAD_POLICY`
-- [ ] this TODO updated as the final step of the closing pass
+- [x] this TODO updated as the final step of the closing pass
 
 ## Current active phase
 - [x] Phase A — Preflight / Rerun Readiness
@@ -319,4 +336,6 @@ Confirm that upload/integration did not break runtime or semantic contracts.
 - [x] Phase C — Artifact Integrity Validation
 - [x] Phase D — Diff / Quality Review
 - [x] Phase E — Runtime Consumption Check
-- [ ] Phase F — Pre-Upload Gate
+- [x] Phase F — Pre-Upload Gate
+- [x] Phase G — Orbital Card System Upload / Integration
+- [x] Phase H — Post-Upload Validation
