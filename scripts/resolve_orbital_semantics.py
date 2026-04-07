@@ -16,7 +16,8 @@ ORBIT_RULES = [
     ("EDUCATION", ["learn", "education", "tutorial", "curriculum", "teacher", "training"]),
 ]
 
-CARD_SCHEMA = "ciel/orbital-object-card/v0.2"
+EXPORT_CARD_SCHEMA = "ciel/orbital-export-card/v0.3"
+INTERNAL_CARD_SCHEMA = "ciel/internal-subsystem-card/v0.1"
 GLOBAL_ATTRACTOR_REF = "GLOBAL_ATTRACTOR:PRIMARY_INFORMATION_SOURCE"
 
 PARENT_ORBIT_ROLE = {
@@ -57,6 +58,17 @@ TAU_ROLE = {
     "BOUNDARY": "TAU_BOUNDARY",
     "EDUCATION": "TAU_OBSERVER",
     "UNRESOLVED": "TAU_LOCAL",
+}
+
+MEMORY_MODE = {
+    "IDENTITY": "PERSISTENT_IDENTITY",
+    "CONSTITUTIVE": "PERSISTENT_MEMORY",
+    "DYNAMIC": "TRANSIENT_RUNTIME",
+    "INTERACTION": "TRANSIENT_INTERFACE",
+    "OBSERVATION": "SNAPSHOT_OBSERVER",
+    "BOUNDARY": "POLICY_CACHE",
+    "EDUCATION": "CURRICULUM_SNAPSHOT",
+    "UNRESOLVED": "TRANSIENT_RUNTIME",
 }
 
 
@@ -153,6 +165,85 @@ def derive_leak_policy(regime: str) -> str:
     }.get(regime, "SEALED")
 
 
+def derive_projection_operator(horizon_class: str, leak_policy: str) -> str:
+    return f"Π_H[{horizon_class}|{leak_policy}]"
+
+
+def derive_export_state(manybody_role: str, horizon_class: str) -> str:
+    if manybody_role == "SUBSYSTEM_BOARD":
+        return "SUBSYSTEM_SUMMARY"
+    if manybody_role == "TRANSFER_NODE":
+        return "BROKERED_INTERFACE"
+    if manybody_role == "BOUNDARY_GATE":
+        return "POLICY_GATED_EXPORT"
+    if manybody_role == "OBSERVER":
+        return "OBSERVATION_SNAPSHOT"
+    return "LOCAL_HALF_CONCLUSION" if horizon_class != "SEALED" else "SEALED_EXPORT"
+
+
+def derive_export_result(rec: dict[str, Any], manybody_role: str, orbit: str) -> str:
+    if manybody_role == "SUBSYSTEM_BOARD":
+        return f"BOARD<{orbit}>"
+    if manybody_role == "TRANSFER_NODE":
+        return "BROKERED_TRANSFER_RESULT"
+    if manybody_role == "BOUNDARY_GATE":
+        return "BOUNDARY_FILTER_RESULT"
+    if manybody_role == "OBSERVER":
+        return "OBSERVATION_RESULT"
+    if orbit == "IDENTITY":
+        return "IDENTITY_SUMMARY"
+    if orbit == "CONSTITUTIVE":
+        return "MEMORY_SUMMARY"
+    return "LOCAL_RESULT"
+
+
+def derive_export_confidence(orbital_confidence: float, leak_policy: str) -> float:
+    penalty = {
+        "SEALED": 0.08,
+        "HAWKING_EULER": 0.12,
+        "HAWKING_EULER_BROKERED": 0.1,
+        "SNAPSHOT_ONLY": 0.15,
+    }.get(leak_policy, 0.12)
+    return round(max(0.05, min(0.99, orbital_confidence - penalty)), 3)
+
+
+def derive_internal_card_id(export_card_id: str) -> str:
+    return f"internal:{export_card_id}"
+
+
+def derive_internal_candidate_states(rec: dict[str, Any], manybody_role: str, orbit: str) -> list[str]:
+    base = [f"{orbit}_LOCAL_CANDIDATE", f"{manybody_role}_CANDIDATE"]
+    if manybody_role == "TRANSFER_NODE":
+        base.append("BROKER_NEGOTIATION_PENDING")
+    elif manybody_role == "BOUNDARY_GATE":
+        base.append("POLICY_REVIEW_PENDING")
+    elif manybody_role == "OBSERVER":
+        base.append("SNAPSHOT_SELECTION_PENDING")
+    else:
+        base.append("LOCAL_REDUCTION_PENDING")
+    return base
+
+
+def derive_internal_conflict_state(horizon_class: str, manybody_role: str) -> str:
+    if manybody_role in {"TRANSFER_NODE", "BOUNDARY_GATE"}:
+        return "HIGH"
+    if horizon_class in {"TRANSMISSIVE", "POROUS"}:
+        return "MEDIUM"
+    return "LOW"
+
+
+def derive_internal_superposition_state(rec: dict[str, Any]) -> str:
+    return "BOARD_AGGREGATION_ACTIVE" if rec.get("kind") == "file" else "LOCAL_SUPERPOSITION_ACTIVE"
+
+
+def derive_internal_resolution_trace(manybody_role: str, leak_policy: str) -> list[str]:
+    trace = ["LOCAL_ACCUMULATION", "LOCAL_SELECTION"]
+    if manybody_role == "SUBSYSTEM_BOARD":
+        trace.append("SUBSYSTEM_AGGREGATION")
+    trace.append(f"HORIZON_PROJECTION<{leak_policy}>")
+    return trace
+
+
 def count_values(records: list[dict[str, Any]], key: str) -> dict[str, int]:
     counts: dict[str, int] = {}
     for rec in records:
@@ -181,7 +272,8 @@ def main() -> int:
     raw = json.loads(in_path.read_text(encoding="utf-8"))
     records = raw["records"]
 
-    enriched = []
+    export_cards: list[dict[str, Any]] = []
+    internal_cards: list[dict[str, Any]] = []
     orbit_counts: dict[str, int] = {}
     for rec in records:
         text = " ".join([
@@ -193,51 +285,106 @@ def main() -> int:
         ])
         orbit, confidence = score_orbit(text)
         regime = INFORMATION_REGIME.get(orbit, "LOCAL_ONLY")
-        lagrange = derive_lagrange_roles(rec | {"semantic_role": semantic_role(rec, orbit)})
-        rec2 = rec | {
-            "card_schema": CARD_SCHEMA,
+        semantic = semantic_role(rec, orbit)
+        lagrange = derive_lagrange_roles(rec | {"semantic_role": semantic})
+        manybody = derive_manybody_role(rec, orbit, lagrange)
+        subsystem_kind = derive_subsystem_kind(rec)
+        horizon_id = derive_horizon_id(rec)
+        horizon_class = HORIZON_CLASS.get(regime, "SEALED")
+        leak_policy = derive_leak_policy(regime)
+        visible_scopes = derive_visible_scopes(regime, rec)
+        tau_role = TAU_ROLE.get(orbit, "TAU_LOCAL")
+        export_confidence = derive_export_confidence(round(confidence, 3), leak_policy)
+        internal_id = derive_internal_card_id(rec["id"])
+        projection_operator = derive_projection_operator(horizon_class, leak_policy)
+
+        export_card = rec | {
+            "card_schema": EXPORT_CARD_SCHEMA,
             "global_attractor_ref": GLOBAL_ATTRACTOR_REF,
             "orbital_role": orbit,
             "orbital_confidence": round(confidence, 3),
-            "semantic_role": semantic_role(rec, orbit),
+            "semantic_role": semantic,
             "container_card_id": container_card_id(rec),
-            "subsystem_kind": derive_subsystem_kind(rec),
-            "manybody_role": derive_manybody_role(rec, orbit, lagrange),
+            "subsystem_kind": subsystem_kind,
+            "manybody_role": manybody,
             "parent_orbital_role": PARENT_ORBIT_ROLE.get(orbit, "IDENTITY"),
-            "horizon_id": derive_horizon_id(rec),
-            "horizon_class": HORIZON_CLASS.get(regime, "SEALED"),
+            "horizon_id": horizon_id,
+            "horizon_class": horizon_class,
             "information_regime": regime,
-            "visible_scopes": derive_visible_scopes(regime, rec),
-            "leak_policy": derive_leak_policy(regime),
-            "tau_role": TAU_ROLE.get(orbit, "TAU_LOCAL"),
+            "visible_scopes": visible_scopes,
+            "leak_policy": leak_policy,
+            "tau_role": tau_role,
             "lagrange_roles": lagrange,
+            "internal_card_id": internal_id,
+            "projection_operator": projection_operator,
+            "export_state": derive_export_state(manybody, horizon_class),
+            "export_result": derive_export_result(rec, manybody, orbit),
+            "export_confidence": export_confidence,
+            "residual_uncertainty": round(max(0.0, 1.0 - export_confidence), 3),
         }
-        enriched.append(rec2)
+        export_cards.append(export_card)
+
+        internal_card = {
+            "internal_card_schema": INTERNAL_CARD_SCHEMA,
+            "internal_card_id": internal_id,
+            "owner_card_id": rec["id"],
+            "owner_horizon_id": horizon_id,
+            "container_card_id": export_card["container_card_id"],
+            "subsystem_kind": subsystem_kind,
+            "manybody_role": manybody,
+            "internal_visibility": "PRIVATE_SUBSYSTEM_ONLY",
+            "internal_candidate_states": derive_internal_candidate_states(rec, manybody, orbit),
+            "internal_conflict_state": derive_internal_conflict_state(horizon_class, manybody),
+            "internal_superposition_state": derive_internal_superposition_state(rec),
+            "internal_resolution_trace": derive_internal_resolution_trace(manybody, leak_policy),
+            "internal_tau_local": f"tau-local:{rec['id']}",
+            "internal_memory_mode": MEMORY_MODE.get(orbit, "TRANSIENT_RUNTIME"),
+            "projection_operator": projection_operator,
+            "export_card_id": rec["id"],
+        }
+        internal_cards.append(internal_card)
         orbit_counts[orbit] = orbit_counts.get(orbit, 0) + 1
 
     out_dir = repo_root / "integration" / "registries" / "definitions"
     reg_path = out_dir / "orbital_definition_registry.json"
+    internal_path = out_dir / "internal_subsystem_cards.json"
     report_path = out_dir / "orbital_assignment_report.json"
     reg_payload = {
-        "schema": "ciel/orbital-definition-registry-enriched/v0.2",
-        "card_schema": CARD_SCHEMA,
+        "schema": "ciel/orbital-definition-registry-enriched/v0.3",
+        "card_schema": EXPORT_CARD_SCHEMA,
+        "internal_card_schema": INTERNAL_CARD_SCHEMA,
         "global_attractor_ref": GLOBAL_ATTRACTOR_REF,
-        "count": len(enriched),
-        "records": enriched,
+        "count": len(export_cards),
+        "records": export_cards,
+    }
+    internal_payload = {
+        "schema": "ciel/internal-subsystem-card-registry/v0.1",
+        "internal_card_schema": INTERNAL_CARD_SCHEMA,
+        "count": len(internal_cards),
+        "internal_cards": internal_cards,
     }
     report_payload = {
-        "schema": "ciel/orbital-assignment-report/v0.2",
-        "card_schema": CARD_SCHEMA,
-        "count": len(enriched),
+        "schema": "ciel/orbital-assignment-report/v0.3",
+        "card_schema": EXPORT_CARD_SCHEMA,
+        "internal_card_schema": INTERNAL_CARD_SCHEMA,
+        "count": len(export_cards),
+        "export_card_count": len(export_cards),
+        "internal_card_count": len(internal_cards),
         "orbit_counts": orbit_counts,
         "unresolved": orbit_counts.get("UNRESOLVED", 0),
-        "information_regime_counts": count_values(enriched, "information_regime"),
-        "horizon_class_counts": count_values(enriched, "horizon_class"),
-        "tau_role_counts": count_values(enriched, "tau_role"),
-        "manybody_role_counts": count_values(enriched, "manybody_role"),
-        "lagrange_role_counts": count_list_values(enriched, "lagrange_roles"),
+        "information_regime_counts": count_values(export_cards, "information_regime"),
+        "horizon_class_counts": count_values(export_cards, "horizon_class"),
+        "tau_role_counts": count_values(export_cards, "tau_role"),
+        "manybody_role_counts": count_values(export_cards, "manybody_role"),
+        "lagrange_role_counts": count_list_values(export_cards, "lagrange_roles"),
+        "projection_operator_counts": count_values(export_cards, "projection_operator"),
+        "export_state_counts": count_values(export_cards, "export_state"),
+        "internal_memory_mode_counts": count_values(internal_cards, "internal_memory_mode"),
+        "internal_conflict_state_counts": count_values(internal_cards, "internal_conflict_state"),
+        "internal_visibility_counts": count_values(internal_cards, "internal_visibility"),
     }
     reg_path.write_text(json.dumps(reg_payload, indent=2), encoding="utf-8")
+    internal_path.write_text(json.dumps(internal_payload, indent=2), encoding="utf-8")
     report_path.write_text(json.dumps(report_payload, indent=2), encoding="utf-8")
     print(json.dumps(report_payload, indent=2))
     return 0

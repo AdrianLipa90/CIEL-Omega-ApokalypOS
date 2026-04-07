@@ -48,12 +48,6 @@ def relativize_json_paths(repo_root: Path, value: Any) -> Any:
 
 
 def maybe_parse_json(repo_root: Path, text: str) -> dict[str, Any] | list[Any] | None:
-    """
-    Try to parse a stdout/stderr text blob as JSON.
-
-    Returns parsed JSON on success; otherwise returns ``None``.
-    Parsed payloads are normalized so path-like strings become repository-relative when possible.
-    """
     if not text or not text.strip():
         return None
     try:
@@ -63,12 +57,6 @@ def maybe_parse_json(repo_root: Path, text: str) -> dict[str, Any] | list[Any] |
 
 
 def load_json_if_exists(repo_root: Path, path: Path) -> dict[str, Any] | list[Any] | None:
-    """
-    Load a JSON artifact from disk when present.
-
-    Returns ``None`` when the file does not exist or the payload is not valid JSON.
-    Loaded payloads are normalized so path-like strings become repository-relative when possible.
-    """
     if not path.exists():
         return None
     try:
@@ -78,23 +66,6 @@ def load_json_if_exists(repo_root: Path, path: Path) -> dict[str, Any] | list[An
 
 
 def run_step(repo_root: Path, script_name: str, extra_args: list[str] | None = None) -> dict:
-    """
-    Run a script from the repository's scripts directory and collect its execution results.
-
-    Parameters:
-        repo_root (Path): Repository root used to locate the script at `scripts/<script_name>`.
-        script_name (str): Filename of the script to execute.
-        extra_args (list[str] | None): Additional command-line arguments to append to the script invocation.
-
-    Returns:
-        dict: A mapping with the following keys:
-            - 'script' (str): The script name that was run.
-            - 'returncode' (int): The process exit code.
-            - 'stdout' (str): Captured standard output.
-            - 'stderr' (str): Captured standard error.
-            - 'summary_json' (dict | list | None): Parsed JSON payload from stdout when available.
-            - 'ok' (bool): `true` if `returncode` is 0, `false` otherwise.
-    """
     script_path = repo_root / 'scripts' / script_name
     cmd = [sys.executable, str(script_path), '--repo-root', str(repo_root)]
     if extra_args:
@@ -111,14 +82,6 @@ def run_step(repo_root: Path, script_name: str, extra_args: list[str] | None = N
 
 
 def main() -> int:
-    """
-    Orchestrates a sequence of repository scripts to build and validate the audio-orbital definition catalog and writes a JSON summary report.
-
-    Parses command-line arguments `--repo-root`, `--skip-download`, and `--roots`; runs a fixed sequence of helper scripts, aggregates their results and selected artifact paths (made repository-relative), writes the aggregated summary to integration/registries/definitions/audio_orbital_hook_report.json, and prints the same JSON to stdout.
-
-    Returns:
-        int: `0` if all steps succeeded, `1` otherwise.
-    """
     ap = argparse.ArgumentParser()
     ap.add_argument('--repo-root', default='.')
     ap.add_argument('--skip-download', action='store_true')
@@ -147,6 +110,7 @@ def main() -> int:
         'audio_state': repo_relative(repo_root, repo_root / 'integration' / 'imports' / 'audio_orbital_stack' / 'state' / 'audio_orbital_stack_state.json'),
         'definition_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'definition_registry.json'),
         'orbital_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_definition_registry.json'),
+        'internal_card_registry': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'internal_subsystem_cards.json'),
         'orbital_report': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'orbital_assignment_report.json'),
         'nonlocal_edges': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'nonlocal_definition_edges.json'),
         'db_manifest': repo_relative(repo_root, repo_root / 'integration' / 'registries' / 'definitions' / 'db_library' / 'manifest.json'),
@@ -155,11 +119,12 @@ def main() -> int:
     artifact_snapshots = {
         'audio_state': load_json_if_exists(repo_root, repo_root / artifacts['audio_state']),
         'orbital_report': load_json_if_exists(repo_root, repo_root / artifacts['orbital_report']),
+        'internal_card_registry': load_json_if_exists(repo_root, repo_root / artifacts['internal_card_registry']),
         'db_manifest': load_json_if_exists(repo_root, repo_root / artifacts['db_manifest']),
     }
 
     summary = {
-        'schema': 'ciel/audio-orbital-catalog-hook/v0.2',
+        'schema': 'ciel/audio-orbital-catalog-hook/v0.3',
         'ok': ok,
         'steps': steps,
         'artifacts': artifacts,
