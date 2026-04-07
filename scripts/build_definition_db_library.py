@@ -61,18 +61,18 @@ def write_records_db(db_path: Path, records: list[dict[str, Any]]) -> int:
         CREATE INDEX idx_records_sync_scope ON records(sync_scope);
         CREATE INDEX idx_records_sync_law_ref ON records(sync_law_ref);
     """)
-    cur.executemany(
-        "INSERT INTO records VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-        [(
-            rec.get("id"), rec.get("path"), rec.get("language"), rec.get("kind"), rec.get("name"), rec.get("qualname"), rec.get("signature"), rec.get("lineno"), rec.get("end_lineno"), rec.get("doc"),
-            json.dumps(rec.get("imports", []), ensure_ascii=False), json.dumps(rec.get("calls", []), ensure_ascii=False), 1 if rec.get("entrypoint") else 0,
-            rec.get("card_schema"), rec.get("sync_schema"), rec.get("global_attractor_ref"), rec.get("orbital_role"), rec.get("orbital_confidence"), rec.get("semantic_role"), rec.get("board_card_id"), rec.get("container_card_id"),
-            rec.get("subsystem_kind"), rec.get("manybody_role"), rec.get("parent_orbital_role"), rec.get("horizon_id"), rec.get("horizon_class"), rec.get("information_regime"), json.dumps(rec.get("visible_scopes", []), ensure_ascii=False),
-            rec.get("leak_policy"), rec.get("tau_role"), rec.get("tau_local"), rec.get("tau_orbit"), rec.get("tau_system"), rec.get("sync_scope"), rec.get("sync_law_ref"), rec.get("condensation_operator"), json.dumps(rec.get("lagrange_roles", []), ensure_ascii=False),
-            rec.get("internal_card_id"), rec.get("projection_operator"), rec.get("privacy_constraint"), rec.get("leak_channel_mode"), rec.get("leak_budget_class"), json.dumps(rec.get("allowed_visibility_transitions", []), ensure_ascii=False),
-            rec.get("export_state"), rec.get("export_result"), rec.get("export_confidence"), rec.get("residual_uncertainty"), rec.get("policy_table_ref")
-        ) for rec in records]
-    )
+    rows = [(
+        rec.get("id"), rec.get("path"), rec.get("language"), rec.get("kind"), rec.get("name"), rec.get("qualname"), rec.get("signature"), rec.get("lineno"), rec.get("end_lineno"), rec.get("doc"),
+        json.dumps(rec.get("imports", []), ensure_ascii=False), json.dumps(rec.get("calls", []), ensure_ascii=False), 1 if rec.get("entrypoint") else 0,
+        rec.get("card_schema"), rec.get("sync_schema"), rec.get("global_attractor_ref"), rec.get("orbital_role"), rec.get("orbital_confidence"), rec.get("semantic_role"), rec.get("board_card_id"), rec.get("container_card_id"),
+        rec.get("subsystem_kind"), rec.get("manybody_role"), rec.get("parent_orbital_role"), rec.get("horizon_id"), rec.get("horizon_class"), rec.get("information_regime"), json.dumps(rec.get("visible_scopes", []), ensure_ascii=False),
+        rec.get("leak_policy"), rec.get("tau_role"), rec.get("tau_local"), rec.get("tau_orbit"), rec.get("tau_system"), rec.get("sync_scope"), rec.get("sync_law_ref"), rec.get("condensation_operator"), json.dumps(rec.get("lagrange_roles", []), ensure_ascii=False),
+        rec.get("internal_card_id"), rec.get("projection_operator"), rec.get("privacy_constraint"), rec.get("leak_channel_mode"), rec.get("leak_budget_class"), json.dumps(rec.get("allowed_visibility_transitions", []), ensure_ascii=False),
+        rec.get("export_state"), rec.get("export_result"), rec.get("export_confidence"), rec.get("residual_uncertainty"), rec.get("policy_table_ref")
+    ) for rec in records]
+    placeholder_count = len(rows[0]) if rows else 48
+    placeholders = ", ".join(["?"] * placeholder_count)
+    cur.executemany(f"INSERT INTO records VALUES ({placeholders})", rows)
     conn.commit()
     count = cur.execute("SELECT COUNT(*) FROM records").fetchone()[0]
     conn.close()
