@@ -3,7 +3,9 @@ from __future__ import annotations
 from pathlib import Path
 
 from integration.Orbital.main.bootstrap import ensure_orbital_manifests, ensure_orbital_report_dirs
+from integration.Orbital.main.dynamics import step
 from integration.Orbital.main.global_pass import run_global_pass
+from integration.Orbital.main.registry import load_system
 from src.ciel_sot_agent.orbital_bridge import build_orbital_bridge
 
 
@@ -70,3 +72,33 @@ def test_build_orbital_bridge_writes_bridge_outputs(tmp_path: Path) -> None:
     assert (orbital_reports_root / 'summary.md').exists()
     assert (orbital_reports_root / 'real_geometry.json').exists()
     assert summary['source_paths']['reports_root'] == str(orbital_reports_root)
+
+
+def test_step_with_orbital_law_v0_updates_sector_fields(tmp_path: Path) -> None:
+    orbital_root = tmp_path / 'integration' / 'Orbital' / 'main'
+    orbital_root.mkdir(parents=True, exist_ok=True)
+    info = ensure_orbital_manifests(orbital_root)
+    system = load_system(
+        info['sectors_path'],
+        info['couplings_path'],
+        params={'use_orbital_law_v0': True},
+    )
+
+    nxt = step(system, dt=0.01)
+    sector = next(iter(nxt.sectors.values()))
+
+    assert sector.mu_eff > 0.0
+    assert sector.tau_orbit > 0.0
+    assert isinstance(sector.phase_slip_ready, bool)
+    assert isinstance(sector.winding, int)
+    assert 0.0 < sector.orbit_stability <= 1.0
+
+
+def test_run_global_pass_with_orbital_law_v0_exposes_orbital_metrics() -> None:
+    result = run_global_pass(steps=2, params={'use_orbital_law_v0': True})
+
+    assert result['params']['use_orbital_law_v0'] is True
+    assert result['final']['orbital_law_v0_enabled'] is True
+    assert 'orbital_mu_eff_mean' in result['final']
+    assert 'orbital_tau_orbit_mean' in result['final']
+    assert 'orbital_phase_slip_ready_count' in result['final']
