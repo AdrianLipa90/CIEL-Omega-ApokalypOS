@@ -1,0 +1,54 @@
+schema: ciel-sot-agent/offline-dependency-bundle/v1
+status: scaffold_only
+bundle_root: vendor
+wheelhouses:
+  runtime:
+    path: vendor/wheels/runtime
+    packages:
+      - name: numpy
+        version_spec: ">=1.26"
+        recommended_version: "2.4.3"
+        required: true
+        present: false
+      - name: PyYAML
+        version_spec: ">=6.0"
+        recommended_version: "6.0.3"
+        required: true
+        present: false
+      - name: flask
+        version_spec: ">=3.0"
+        recommended_version: "3.1.3"
+        required: false
+        present: false
+        extra: gui
+  dev:
+    path: vendor/wheels/dev
+    packages:
+      - name: pytest
+        version_spec: ">=8.0"
+        required: true
+        present: false
+        extra: dev
+      - name: ruff
+        version_spec: ">=0.5.0"
+        required: true
+        present: false
+        extra: dev
+      - name: mypy
+        version_spec: ">=1.10"
+        required: true
+        present: false
+        extra: dev
+      - name: flask
+        version_spec: ">=3.0"
+        recommended_version: "3.1.3"
+        required: false
+        present: false
+        extra: gui
+bootstrap_scripts:
+  - tools/bootstrap/bootstrap_offline_runtime.sh
+  - tools/bootstrap/bootstrap_offline_dev.sh
+notes:
+  - This manifest describes the intended offline wheel bundle surface.
+  - The current commit scaffolds the bundle and documentation but does not embed third-party wheel binaries.
+  - Populate the wheelhouses before treating the bundle as fully offline-capable.

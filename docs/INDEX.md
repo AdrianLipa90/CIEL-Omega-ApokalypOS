@@ -12,6 +12,7 @@ Use these labels explicitly when adding or revising documents:
 ## Immediate orientation
 - `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md` — session handoff workstyle, repo operation discipline, blocker handling, and branching/patchset rules.
 - `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md` — active orbital operation ledger and current phase state.
+- `docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md` — offline dependency bundle structure, bootstrap scripts, validity rules, and next population step.
 - `docs/OPERATIONS.md` — operational control surface and documentation coupling rule.
 - `AGENT.md` — standing agent-level rules for repo work.
 
@@ -64,6 +65,14 @@ Use these labels explicitly when adding or revising documents:
 - `src/ciel_sot_agent/index_validator.py` — machine registry validator.
 - `src/ciel_sot_agent/phased_state.py` — identity-phase and relational-selection weighting model.
 
+## Offline dependency bundle
+- `vendor/README.md` — offline dependency bundle overview.
+- `vendor/manifests/offline_dependency_bundle_v1.yaml` — machine-readable bundle manifest.
+- `vendor/wheels/runtime/README.md` — runtime wheelhouse placeholder and required package family.
+- `vendor/wheels/dev/README.md` — dev wheelhouse placeholder and required package family.
+- `tools/bootstrap/bootstrap_offline_runtime.sh` — runtime-only offline install path.
+- `tools/bootstrap/bootstrap_offline_dev.sh` — dev/test offline install path.
+
 ## GGUF model manager
 - `src/ciel_sot_agent/gguf_manager/manager.py` — stdlib-only GGUF model manager.
 
@@ -112,7 +121,8 @@ Use these labels explicitly when adding or revising documents:
 - The primary synchronization path is connected to `docs/ARCHITECTURE.md#first-executable-component`, `src/ciel_sot_agent/repo_phase.py`, and `src/ciel_sot_agent/gh_coupling.py`.
 - The shell-level bridge to `ciel-omega-demo` is connected to `docs/CIEL_OMEGA_DEMO_INTEGRATION.md`, `integration/upstreams/ciel_omega_demo_shell_map.json`, and `integration/upstreams/ciel_omega_demo_inventory.json`.
 - The orbital diagnostic path is connected to `docs/ORBital_INTEGRATION_ADDENDUM.md`, `integration/Orbital/main/global_pass.py`, `src/ciel_sot_agent/orbital_bridge.py`, `docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md`, and `docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md`.
-- The active repo workstyle and operation-memory layer is connected to `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md`, `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`, `docs/OPERATIONS.md`, and `AGENT.md`.
+- The active repo workstyle and operation-memory layer is connected to `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md`, `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`, `docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md`, `docs/OPERATIONS.md`, and `AGENT.md`.
+- The offline dependency surface is connected to `vendor/manifests/offline_dependency_bundle_v1.yaml`, `vendor/wheels/runtime/README.md`, `vendor/wheels/dev/README.md`, `tools/bootstrap/bootstrap_offline_runtime.sh`, and `tools/bootstrap/bootstrap_offline_dev.sh`.
 - The Sapiens panel path is connected to `docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md`, `integration/sapiens/panel_manifest.json`, `src/ciel_sot_agent/sapiens_panel/controller.py`, and `src/ciel_sot_agent/sapiens_panel/reduction.py`.
 - The GUI and operator-facing layer is connected to `docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md`, `src/ciel_sot_agent/gui/app.py`, `src/ciel_sot_agent/gui/routes.py`, and `docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md`.
 - The GGUF model-management layer is connected to `src/ciel_sot_agent/gguf_manager/manager.py` and the GUI model endpoints in `src/ciel_sot_agent/gui/routes.py`.
