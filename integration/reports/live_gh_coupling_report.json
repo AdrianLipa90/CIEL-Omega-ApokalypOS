@@ -1,10 +1,171 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": null,
-  "changed_keys": [],
-  "upstream_checks": [],
-  "phase_events": [],
-  "closure_defect_before": null,
-  "closure_defect_after": null,
-  "weighted_euler_vector_after": null
+  "generated_at": "2026-04-08T22:46:23.788525+00:00",
+  "changed_keys": [
+    "agent",
+    "demo",
+    "desktop"
+  ],
+  "upstream_checks": [
+    {
+      "key": "agent",
+      "enabled": true,
+      "repo_full_name": "AdrianLipa90/CIEL-_SOT_Agent",
+      "branch": "main",
+      "changed": true,
+      "old_sha": null,
+      "new_sha": "4685366608486aaeb57c76ee17a4b93db7382adf",
+      "timestamp": "2026-04-08T22:18:47Z",
+      "message": "fix gh repo coupling launcher import path",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-_SOT_Agent/commit/4685366608486aaeb57c76ee17a4b93db7382adf"
+    },
+    {
+      "key": "demo",
+      "enabled": true,
+      "repo_full_name": "AdrianLipa90/ciel-omega-demo",
+      "branch": "main",
+      "changed": true,
+      "old_sha": null,
+      "new_sha": "00bb9b060fada69891fa82ce4f7d799610b56693",
+      "timestamp": "2026-03-29T22:33:33Z",
+      "message": "contracts(core): add semantic action reference card",
+      "html_url": "https://github.com/AdrianLipa90/ciel-omega-demo/commit/00bb9b060fada69891fa82ce4f7d799610b56693"
+    },
+    {
+      "key": "desktop",
+      "enabled": true,
+      "repo_full_name": "AdrianLipa90/CIEL-Desktop",
+      "branch": "main",
+      "changed": true,
+      "old_sha": null,
+      "new_sha": "5289bc2d02ae454b77d674bf2fc39d89f30c0292",
+      "timestamp": "2026-04-01T15:35:56Z",
+      "message": "Merge pull request #7 from AdrianLipa90/copilot/model-relacji-adrain-ciel\n\nNormalize PanelState payload to dict in SoT adapter path",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Desktop/commit/5289bc2d02ae454b77d674bf2fc39d89f30c0292"
+    },
+    {
+      "key": "canon",
+      "enabled": false,
+      "repo_full_name": null,
+      "branch": "main",
+      "changed": false,
+      "notes": "GitHub mapping not yet declared in this integration layer"
+    },
+    {
+      "key": "metatime",
+      "enabled": false,
+      "repo_full_name": null,
+      "branch": "main",
+      "changed": false,
+      "notes": "GitHub mapping not yet declared in this integration layer"
+    }
+  ],
+  "phase_events": [
+    {
+      "kind": "intrinsic",
+      "repo": "agent",
+      "delta_phi": 0.2
+    },
+    {
+      "kind": "intrinsic",
+      "repo": "demo",
+      "delta_phi": 0.18000000000000002
+    },
+    {
+      "kind": "intrinsic",
+      "repo": "desktop",
+      "delta_phi": 0.19
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "canon",
+      "coupling": 0.97,
+      "delta_phi": 0.0440107914193864
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "demo",
+      "coupling": 0.79,
+      "delta_phi": -0.06572477620710271
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "desktop",
+      "coupling": 0.95,
+      "delta_phi": -0.039804308923565686
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "metatime",
+      "coupling": 0.76,
+      "delta_phi": -0.005319645340426603
+    },
+    {
+      "kind": "coupled",
+      "source": "demo",
+      "target": "canon",
+      "coupling": 0.84,
+      "delta_phi": 0.07565680978283576
+    },
+    {
+      "kind": "coupled",
+      "source": "demo",
+      "target": "desktop",
+      "coupling": 0.91,
+      "delta_phi": 0.029920148552493635
+    },
+    {
+      "kind": "coupled",
+      "source": "demo",
+      "target": "metatime",
+      "coupling": 0.63,
+      "delta_phi": 0.03504147132591499
+    },
+    {
+      "kind": "coupled",
+      "source": "demo",
+      "target": "agent",
+      "coupling": 0.79,
+      "delta_phi": 0.0479435476075147
+    },
+    {
+      "kind": "coupled",
+      "source": "desktop",
+      "target": "canon",
+      "coupling": 0.74,
+      "delta_phi": 0.03112071744926511
+    },
+    {
+      "kind": "coupled",
+      "source": "desktop",
+      "target": "demo",
+      "coupling": 0.91,
+      "delta_phi": -0.020420747040658528
+    },
+    {
+      "kind": "coupled",
+      "source": "desktop",
+      "target": "metatime",
+      "coupling": 0.52,
+      "delta_phi": 0.010985029773223453
+    },
+    {
+      "kind": "coupled",
+      "source": "desktop",
+      "target": "agent",
+      "coupling": 0.95,
+      "delta_phi": 0.020658971915410735
+    }
+  ],
+  "closure_defect_before": 0.004428351138122455,
+  "closure_defect_after": 0.001010561134255683,
+  "weighted_euler_vector_after": {
+    "real": 4.263257514626389,
+    "imag": 1.457273586848269,
+    "abs": 4.505442369284507
+  }
 }

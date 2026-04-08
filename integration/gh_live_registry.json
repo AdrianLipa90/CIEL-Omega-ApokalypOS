@@ -1,5 +1,51 @@
 {
   "schema": "ciel-sot-agent/gh-live-registry/v0.1",
-  "generated_at": null,
-  "repositories": []
+  "generated_at": "2026-04-08T22:46:23.788499+00:00",
+  "repositories": [
+    {
+      "key": "canon",
+      "identity": "SeedOfTheWorlds",
+      "phi": 0.2707883186514873,
+      "spin": 0.5,
+      "mass": 1.0,
+      "role": "canonical-foundations",
+      "upstream": "local-canonical-snapshot"
+    },
+    {
+      "key": "demo",
+      "identity": "ciel-omega-demo",
+      "phi": 0.40385447675223873,
+      "spin": 0.5,
+      "mass": 0.8,
+      "role": "cockpit-ui-education",
+      "upstream": "AdrianLipa90/ciel-omega-demo"
+    },
+    {
+      "key": "desktop",
+      "identity": "CIEL-Desktop",
+      "phi": 0.36011583962892796,
+      "spin": 0.5,
+      "mass": 0.86,
+      "role": "desktop-fixed-attribute",
+      "upstream": "AdrianLipa90/CIEL-Desktop"
+    },
+    {
+      "key": "metatime",
+      "identity": "Metatime",
+      "phi": 0.3107068557587119,
+      "spin": -0.5,
+      "mass": 0.95,
+      "role": "historical-theory-simulations",
+      "upstream": "local-metatime-snapshot"
+    },
+    {
+      "key": "agent",
+      "identity": "CIEL-_SOT_Agent",
+      "phi": 0.3186025195229254,
+      "spin": 0.5,
+      "mass": 0.9,
+      "role": "integration-attractor",
+      "upstream": "AdrianLipa90/CIEL-_SOT_Agent"
+    }
+  ]
 }
