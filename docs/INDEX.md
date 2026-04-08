@@ -100,10 +100,12 @@ Use these labels explicitly when adding or revising documents:
 - `tests/test_gh_coupling.py` — coupling and GitHub-upstream validation.
 - `tests/test_index_validator.py` — shell-map and inventory validation tests.
 - `tests/test_orbital_runtime.py` — orbital runtime and bridge tests.
+- `tests/test_orbital_semantics.py` — orbital-law semantic evidence fixtures, threshold-jump checks, period monotonicity, and winding semantics.
 - `tests/test_sapiens_panel.py` — Sapiens panel foundation and reduction-state tests.
 - `tests/test_gui.py` — Flask GUI route and API endpoint tests.
 - `tests/test_gguf_manager.py` — GGUF model manager unit tests.
 - `tests/test_phased_state.py` — phased-state contract and selection-separation tests.
+- `tests/fixtures/orbital_selection_relevance.json` — precision/recall-style relevance fixture for selection semantics.
 
 ## Cross-reference anchors
 - The GH-as-attractor integration strategy is connected to `docs/ARCHITECTURE.md#github-as-operational-attractor`.

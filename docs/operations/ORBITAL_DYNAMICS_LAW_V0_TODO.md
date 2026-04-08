@@ -55,28 +55,23 @@ Historical merged branches:
 - `operation/orbital-dynamics-law-v0-phase-c-20260407`
 - `fix/post-merge-normalization-20260408`
 - `operation/orbital-dynamics-law-v0-phase-e-20260408`
-
-Active Phase F branch:
 - `operation/orbital-dynamics-law-v0-phase-f-20260408`
 
-Current Phase F baseline from `main`:
-- `3de5a7f44e4400d88ee9b904d7c2cb19da038f67`
+Phase G direct-repair commit target:
+- `main`
+
+Current direct-repair baseline from `main`:
+- `594d9cd9a613d86ea48849098dfa35a1fdbbf2a7`
 
 ## Current rationale
-Current `main` already contains:
-- Phase A semantic boundary hardening,
-- Phase B phased-state contracts,
-- Phase C identity-phase versus selection-relevance separation,
-- post-merge normalization of repo-memory surfaces,
-- and Phase E runtime wiring for Orbital Law v0.
+History on `main` shows merge commit `#219`, but the semantic evidence files were not actually present in the repository state afterwards.
+That means Phase G became a repo-state inconsistency rather than a purely logical next phase.
 
-The next bottleneck is now performance, not missing semantics.
-The clearest runtime hotspot remains the gradient-estimation path in `_relational_step()`:
-- `_perturbed_potential()` was cloning the whole `OrbitalSystem` for every sector perturbation,
-- `_relational_step()` invokes that perturbation path four times per sector,
-- and `zeta_tetra_defect(system)` was being recomputed inside every sector defect update despite being system-global for the step.
-
-Phase F patchset addresses those avoidable costs first.
+This direct repair exists to restore the missing evidence layer on `main` itself:
+- relevance fixture,
+- semantic evidence tests,
+- index visibility,
+- and the correct ledger state.
 
 ---
 
@@ -232,20 +227,9 @@ Repair the real bottleneck in `step_dynamics` after semantics are fixed.
 ## Exit criteria
 - [ ] performance gains come from mathematical/runtime cleanup, not from hiding the cost behind concurrency
 
-## Phase F progress entry — 2026-04-08
-Resolved in this patchset:
-- `_perturbed_potential()` no longer clones the full `OrbitalSystem`; it now copies only the perturbed sector into a shallow system shell,
-- `_relational_step()` now computes `zeta_tetra_defect(system)` once per step instead of once per sector,
-- runtime tests now verify that the perturbation helper does not mutate the source system.
-
-Changed files:
-- `integration/Orbital/main/dynamics.py`
-- `tests/test_orbital_runtime.py`
-- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`
-
-Known limitation:
-- numerical gradient estimation still exists and is still the dominant algorithmic cost,
-- this patch removes avoidable cloning/recomputation overhead but is not yet the analytical-gradient rewrite.
+## Status on `main`
+- Merged.
+- Limitation still open: analytical/cached gradient rewrite and benchmark pass are not yet done.
 
 ---
 
@@ -255,13 +239,29 @@ Known limitation:
 Produce evidence that orbital law v0 improves runtime semantics or at least does not regress them.
 
 ## Checklist
-- [ ] add orbital selection benchmarks
-- [ ] add precision/recall style relevance fixtures
-- [ ] add stability tests for orbit/period/threshold-jump behavior
-- [ ] add tests for winding update semantics
+- [x] add orbital selection benchmarks
+- [x] add precision/recall style relevance fixtures
+- [x] add stability tests for orbit/period/threshold-jump behavior
+- [x] add tests for winding update semantics
 
 ## Exit criteria
-- [ ] semantic/runtime evidence exists for the new law
+- [x] semantic/runtime evidence exists for the new law
+
+## Phase G direct-repair entry — 2026-04-08
+Resolved in this repair:
+- added `tests/fixtures/orbital_selection_relevance.json` as a precision/recall-style relevance fixture,
+- added `tests/test_orbital_semantics.py` covering relevance ranking, orbital period monotonicity, explicit phase-slip threshold behavior, and winding updates across a `2π` boundary,
+- updated `docs/INDEX.md` so the new semantic evidence surfaces are visible in repo navigation,
+- corrected this ledger so Phase G is represented as actually present on `main`, not only in merge history.
+
+Changed files:
+- `tests/fixtures/orbital_selection_relevance.json`
+- `tests/test_orbital_semantics.py`
+- `docs/INDEX.md`
+- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`
+
+Known limitation:
+- this is still test/fixture evidence, not a performance benchmark harness or empirical certification suite.
 
 ---
 
@@ -281,11 +281,12 @@ Refactor package geometry only after semantics and runtime law stabilize.
 ---
 
 ## Current active phase
-- [ ] Phase F — Dynamics Performance Repair advanced on branch
-- [ ] Phase G — Semantic Test & Bench Suite remains the next evidence phase
+- [ ] No mandatory orbital-law phase is blocked on semantics now.
+- [ ] Optional next engineering phase: deeper Phase F follow-up (analytical/cached gradients).
+- [ ] Optional next structural phase: Phase H package geometry refactor later.
 
 ## Immediate next action
-- [ ] decide whether the next patch should target analytical/cached gradients first or add the benchmark harness before deeper runtime surgery
+- [ ] decide whether the next patch should target analytical/cached gradients or shift to package-geometry cleanup after the semantic evidence layer is restored on `main`.
 
 ## Successor rule
 If this operation is later split into sub-operations, every successor must link back here and record which patchset boundary it inherits.
