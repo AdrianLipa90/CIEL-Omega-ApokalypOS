@@ -54,20 +54,28 @@ Historical branch provenance:
 - `operation/orbital-dynamics-law-v0-phase-b-20260407`
 - `operation/orbital-dynamics-law-v0-phase-c-20260407`
 
-Current normalization branch:
+Normalization branch still open during this work:
 - `fix/post-merge-normalization-20260408`
 
-Current `main` baseline for this normalization pass:
-- `496a9e186a27693aa7454da8f5455897448b4ee5`
+Active Phase E branch stacked on normalization head:
+- `operation/orbital-dynamics-law-v0-phase-e-20260408`
+
+Current Phase E baseline from normalization branch head:
+- `b92bba8b65664107ac24d073d08474edc0d559dd`
 
 ## Current rationale
-Current `main` already contains:
-- Phase A semantic boundary hardening,
-- Phase B phased-state domain contracts,
-- Phase C identity-phase versus selection-relevance separation,
-- and the session handoff workstyle layer.
+Current runtime already had:
+- relational/orbital dynamics with `rho`, `phi`, `tau`, `spin`, `info_mass`, `q_target`,
+- Phase A/B/C semantic groundwork,
+- but still lacked an explicit Orbital Law v0 runtime path.
 
-This normalization pass exists because several repo-memory surfaces still reflected branch-local state after those phases had already landed on `main`.
+The concrete gap before this patchset was:
+- `Sector` had no orbital-law state fields,
+- metrics had no `mu_eff` / `tau_orbit` / `phase_slip_ready` helper layer,
+- `step()` had no optional `use_orbital_law_v0` path,
+- global-pass summaries could not expose orbital-law v0 state even when enabled.
+
+Phase E patchset addresses that runtime gap directly.
 
 ---
 
@@ -157,21 +165,9 @@ Normalize repo-memory surfaces after Phase A/B/C landed on `main`.
 ## Exit criteria
 - [x] operational memory surfaces match the actual merged state of `main`
 
-## Normalization entry — 2026-04-08
-Resolved in this patchset:
-- `agentcrossinfo.md` now reflects the current audit/normalization pass instead of stale branch-era orbital planning state,
-- `docs/INDEX.md` now exposes `tests/test_phased_state.py` and the active phased-state layer,
-- `src/ciel_sot_agent/phased_state.py` no longer contains the unused `f_seed(h)` helper and now describes its current semantics accurately,
-- this ledger now records Phase A/B/C as merged-on-main state rather than as active branch-local work.
-
-Changed files:
-- `src/ciel_sot_agent/phased_state.py`
-- `docs/INDEX.md`
-- `agentcrossinfo.md`
-- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`
-
-Known limitation:
-- no full suite or CI certification is recorded here for the new `main` head from within this patch flow.
+## Status
+- Implemented on `fix/post-merge-normalization-20260408`.
+- Not yet merged at the moment this stacked Phase E branch was created.
 
 ---
 
@@ -203,16 +199,38 @@ Introduce the effective orbital law into the existing orbital runtime without de
 - `integration/Orbital/main/model.py`
 - `integration/Orbital/main/metrics.py`
 - `integration/Orbital/main/dynamics.py`
+- `integration/Orbital/main/global_pass.py`
+- `tests/test_orbital_runtime.py`
 
 ## Checklist
-- [ ] extend `Sector` with orbital-law fields
-- [ ] add effective attractor strength and period helpers
-- [ ] add phase-slip readiness computation
-- [ ] add optional `use_orbital_law_v0` path
-- [ ] keep compatibility with current relational dynamics path
+- [x] extend `Sector` with orbital-law fields
+- [x] add effective attractor strength and period helpers
+- [x] add phase-slip readiness computation
+- [x] add optional `use_orbital_law_v0` path
+- [x] keep compatibility with current relational dynamics path
 
 ## Exit criteria
-- [ ] runtime contains an effective discrete orbital law path v0
+- [x] runtime contains an effective discrete orbital law path v0
+
+## Phase E progress entry — 2026-04-08
+Resolved in this patchset:
+- `Sector` now carries `mu_eff`, `winding`, `tau_orbit`, `phase_slip_ready`, and `orbit_stability`,
+- `metrics.py` now computes target orbit radius, effective attractor strength, orbital period estimate, stability score, and phase-slip readiness,
+- `step()` now supports an explicit optional `use_orbital_law_v0` path layered on top of the existing relational or legacy step,
+- global-pass snapshots now expose aggregate orbital-law metrics when the path is enabled,
+- runtime tests now verify that enabling the path updates sector fields and reports orbital-law metrics.
+
+Changed files:
+- `integration/Orbital/main/model.py`
+- `integration/Orbital/main/metrics.py`
+- `integration/Orbital/main/dynamics.py`
+- `integration/Orbital/main/global_pass.py`
+- `tests/test_orbital_runtime.py`
+- `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`
+
+Known limitation:
+- this patchset implements the optional runtime path and minimal evidence surface, but it is not yet a full benchmark/certification pass.
+- post-merge normalization is still stacked underneath this branch until PR #213 lands.
 
 ---
 
@@ -264,11 +282,11 @@ Refactor package geometry only after semantics and runtime law stabilize.
 ---
 
 ## Current active phase
-- [ ] Phase E — Orbital Law Runtime V0 is the next implementation phase
-- [ ] Broader selector audit outside `phased_state.py` remains an optional pre-runtime verification pass
+- [ ] Phase F — Dynamics Performance Repair is the next implementation phase
+- [ ] Phase G — Semantic Test & Bench Suite remains the next evidence phase
 
 ## Immediate next action
-- [ ] decide whether to enter runtime-law wiring directly or run one more repo-wide selector audit before Phase E
+- [ ] profile `_perturbed_potential()` / `_relational_step()` under both baseline and orbital-law-v0 mode before attempting optimization
 
 ## Successor rule
 If this operation is later split into sub-operations, every successor must link back here and record which patchset boundary it inherits.

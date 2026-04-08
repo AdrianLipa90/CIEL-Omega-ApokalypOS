@@ -2,6 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 
+
 @dataclass
 class Sector:
     name: str
@@ -22,6 +23,12 @@ class Sector:
     tau: float = 0.353
     rho: float = 0.5
     spin: float = 0.0
+    mu_eff: float = 1.0
+    winding: int = 0
+    tau_orbit: float = 1.0
+    phase_slip_ready: bool = False
+    orbit_stability: float = 1.0
+
 
 @dataclass
 class ZetaVertex:
@@ -31,12 +38,14 @@ class ZetaVertex:
     tau: float
     weight: float = 0.25
 
+
 @dataclass
 class ZetaPole:
     vertices: List[ZetaVertex]
     kappa_tetra: float = 1.0
     spin: float = 0.0
     rho: float = 0.45
+
 
 @dataclass
 class OrbitalSystem:

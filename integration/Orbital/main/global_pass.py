@@ -13,6 +13,7 @@ from .metrics import (
     effective_tau_zeta,
     global_chirality,
     global_coherence,
+    orbital_law_state,
     radial_spread,
     spectral_observables,
     total_relational_potential,
@@ -43,6 +44,7 @@ DEFAULT_PARAMS = {
     'zeta_heisenberg_alpha': 8.0,
     'zeta_i0_scale': 1.0,
     'use_relational_lagrangian': True,
+    'use_orbital_law_v0': False,
     'kappa_H': 1.0,
     'lambda_tension': 0.15,
     'lambda_distortion': 1.0,
@@ -58,6 +60,12 @@ DEFAULT_PARAMS = {
     'D_f': 2.57,
     'euler_angular_gain': 1.0,
     'zeta_phase0': 0.0,
+    'orbital_rho_gain': 0.18,
+    'orbital_phi_gain': 0.08,
+    'orbital_amp_gain': 0.12,
+    'phase_slip_stability_threshold': 0.52,
+    'phase_slip_radius_threshold': 0.08,
+    'phase_slip_amp_penalty': 0.08,
 }
 
 
@@ -79,6 +87,7 @@ def snapshot(system) -> dict:
         'spectral_gap_A': spec['spectral_gap_A'],
         'fiedler_L': spec['fiedler_L'],
         'zeta_enabled': bool(system.zeta_pole is not None),
+        'orbital_law_v0_enabled': bool(system.params.get('use_orbital_law_v0', False)),
     }
     if system.zeta_pole is not None:
         snap.update({
@@ -91,6 +100,20 @@ def snapshot(system) -> dict:
             'zeta_rho': system.zeta_pole.rho,
             'D_f': _param(system, 'D_f', 2.57),
             'euler_leak_angle': 0.5 * math.pi * (_param(system, 'D_f', 2.57) - 2.0),
+        })
+    if snap['orbital_law_v0_enabled']:
+        law_state = orbital_law_state(system)
+        mu_vals = [state['mu_eff'] for state in law_state.values()]
+        tau_vals = [state['tau_orbit'] for state in law_state.values()]
+        stability_vals = [state['orbit_stability'] for state in law_state.values()]
+        mismatch_vals = [abs(state['delta_r']) for state in law_state.values()]
+        snap.update({
+            'orbital_mu_eff_mean': sum(mu_vals) / max(1, len(mu_vals)),
+            'orbital_tau_orbit_mean': sum(tau_vals) / max(1, len(tau_vals)),
+            'orbital_stability_mean': sum(stability_vals) / max(1, len(stability_vals)),
+            'orbital_phase_slip_ready_count': sum(1 for state in law_state.values() if state['phase_slip_ready']),
+            'orbital_winding_total': sum(state['winding'] for state in law_state.values()),
+            'orbital_radius_mismatch_mean': sum(mismatch_vals) / max(1, len(mismatch_vals)),
         })
     return snap
 
@@ -145,6 +168,7 @@ def run_global_pass(
         md.append(f'- {k}: {v}' if isinstance(v, bool) else f'- {k}: {v:.6f}')
     md += ['', '## Notes', '- Geometry derived from imports + README mesh + AGENT mesh + manifests.',
            '- v6.3 uses Euler-rotated homology leak with D_f-dependent radial/angular split.',
+           '- When enabled, Orbital Law v0 adds effective attractor strength, orbital period, winding, and phase-slip tracking.',
            '- This pass is diagnostic only; it does not mutate repo content.']
     (out_dir / 'summary.md').write_text('\n'.join(md), encoding='utf-8')
     return result
