@@ -1,220 +1,98 @@
-# CIEL SOT Agent — Linux Mint / Debian package
+# CIEL SOT Agent Debian Package
 
-This directory contains the Debian package structure for installing
-**CIEL SOT Agent** on Linux Mint 21+ and Ubuntu 22.04+.
-
-The package installs the application into an isolated Python virtual
-environment at `/opt/ciel-sot-agent/venv` using pre-bundled wheels.
-**No internet access is required during installation.**
-
-Important clarification:
-- the package installation is offline,
-- the package does **not** automatically download a GGUF model during `postinst`,
-- model download remains an explicit post-install step via `ciel-sot-install-model`.
-
-The `.deb` is architecture-specific (`amd64`, `arm64`, etc.) because
-it bundles binary wheels (e.g. numpy). Build the package on the same
-architecture as the target machine.
-
----
+This package is designed for offline installation after the `.deb` has been built.
+No internet access is required to install the package itself; model download is a separate step handled by `ciel-sot-install-model`.
 
 ## Prerequisites
 
-### Build machine (where you run `build_deb.sh`)
+- Debian, Ubuntu, or Linux Mint with `dpkg` and `apt`
+- systemd available for the GUI service
+- enough disk space for the venv and optional models under `/var/lib/ciel/models`
 
-| Tool | Install |
-|------|---------|
-| `dpkg-deb` | pre-installed on all Debian/Ubuntu/Mint systems |
-| `python3` ≥ 3.11 | `sudo apt install python3` |
-| `pip` | `python3 -m ensurepip --upgrade` |
+## Building
 
-### Target machine (where you install the `.deb`)
-
-| Tool | Install |
-|------|---------|
-| `python3` ≥ 3.11 | `sudo apt install python3` |
-| `python3-venv` | `sudo apt install python3-venv` |
-
----
-
-## Building the `.deb` package
+Build the package from this repository with:
 
 ```bash
-# from the repository root
-bash packaging/deb/build_deb.sh
+cd packaging/deb
+bash build_deb.sh
 ```
 
-The script:
-1. Detects the host architecture via `dpkg --print-architecture`.
-2. Builds the `ciel-sot-agent` wheel from source.
-3. Downloads all runtime + GUI dependency wheels (binary-only, pinned via
-   `constraints.txt`) into the staging area.
-4. Produces `dist/ciel-sot-agent_<version>_<arch>.deb`.
-
-### Reproducible builds
-
-Dependency versions are pinned in `constraints.txt`. To update the pins:
+## Installing on Linux Mint
 
 ```bash
-python3 -m venv /tmp/ciel-pin && /tmp/ciel-pin/bin/pip install 'ciel-sot-agent[gui]'
-/tmp/ciel-pin/bin/pip freeze > packaging/deb/constraints.txt
-rm -rf /tmp/ciel-pin
-```
-
-The build enforces `--only-binary :all:` so no source packages are
-compiled during the build — every wheel must be pre-built.
-
----
-
-## Installing on Linux Mint / Debian / Ubuntu
-
-```bash
-# 1. Build the package
-bash packaging/deb/build_deb.sh
-
-# 2. Install
-sudo dpkg -i dist/ciel-sot-agent_*.deb
-
-# 3. Fix any missing system dependencies (if needed)
+sudo dpkg -i ciel-sot-agent_*.deb
 sudo apt install -f
 ```
 
-The `postinst` script will:
-- create `/opt/ciel-sot-agent/venv` (isolated Python virtual environment),
-- install the application from the pre-bundled wheels (offline, no pip download),
-- create `/var/lib/ciel/models/` for GGUF model storage,
-- reload the systemd daemon.
-
-It does **not** automatically download a GGUF model.
-
----
+The `apt install -f` step resolves any missing system dependencies after the package is unpacked.
+The package `postinst` script creates the runtime environment and installs the bundled wheels.
 
 ## Configuration
 
-The default configuration lives at `/etc/ciel-sot-agent/config.yaml` and is
-registered as a Debian **conffile** — `dpkg` will preserve your edits across
-upgrades and prompt if the upstream default changes.
+The main configuration file is:
 
-```yaml
-gui:
-  host: "127.0.0.1"
-  port: 5050
-
-models:
-  dir: "/var/lib/ciel/models"
-
-logging:
-  level: "INFO"
+```text
+/etc/ciel-sot-agent/config.yaml
 ```
 
-The systemd unit exports `CIEL_SOT_CONFIG=/etc/ciel-sot-agent/config.yaml`
-so the application can locate it at runtime.
+The default GUI port is `5050`.
+The runtime model directory is:
 
----
+```text
+/var/lib/ciel/models
+```
 
 ## Running the GUI
 
-```bash
-# Launch the Flask Quiet Orbital Control web interface directly:
-ciel-sot-gui
-
-# Or enable and start the systemd service (auto-start on boot):
-sudo systemctl enable --now ciel-sot-gui
-
-# Check service status:
-systemctl status ciel-sot-gui
-
-# View logs:
-journalctl -u ciel-sot-gui -f
-```
-
-The GUI is served on `http://127.0.0.1:5050` by default.
-
----
-
-## Managing GGUF models
+After installation, start or restart the systemd service:
 
 ```bash
-# List available models
-ciel-sot-install-model --list
-
-# Download a model explicitly after install
-ciel-sot-install-model --model tinyllama-1.1b-chat-q4
+sudo systemctl restart ciel-sot-gui.service
+sudo systemctl status ciel-sot-gui.service
 ```
 
-GGUF model files are stored in `/var/lib/ciel/models/` by default.
-
----
-
-## Uninstalling
+You can install a model later with:
 
 ```bash
-sudo dpkg -r ciel-sot-agent
-sudo dpkg -P ciel-sot-agent
+ciel-sot-install-model
 ```
-
-The `prerm` script stops and disables the systemd service before removal.
-The `postrm` script removes the virtual environment (`/opt/ciel-sot-agent/venv`)
-and reloads systemd when the package is removed or purged.
-
----
 
 ## Package structure
 
 ```text
 packaging/deb/
-├── build_deb.sh                              build helper script
-├── constraints.txt                           pinned dependency versions
 ├── DEBIAN/
-│   ├── conffiles                             dpkg conffile registry
-│   ├── control                               package metadata (arch template)
-│   ├── postinst                              post-install: create venv, install wheels
-│   ├── prerm                                 pre-remove: stop + disable service
-│   └── postrm                                post-remove: clean venv, daemon-reload
+│   ├── control
+│   ├── postinst
+│   ├── prerm
+│   └── postrm
 ├── etc/
 │   └── ciel-sot-agent/
-│       └── config.yaml                       default configuration (conffile)
+│       └── config.yaml
 ├── opt/
 │   └── ciel-sot-agent/
-│       └── wheels/                           bundled wheels (populated by build_deb.sh)
+│       └── wheels/
 ├── usr/
 │   ├── bin/
-│   │   ├── ciel-sot-gui                      GUI launcher (wraps venv binary)
-│   │   └── ciel-sot-install-model            model installer CLI (wraps venv binary)
+│   │   ├── ciel-sot-gui
+│   │   └── ciel-sot-install-model
 │   └── lib/systemd/system/
-│       └── ciel-sot-gui.service              systemd unit file
+│       └── ciel-sot-gui.service
 └── var/
-    └── lib/
-        └── ciel/
-            └── models/                       runtime GGUF model storage directory
+    └── lib/ciel/models/
 ```
 
-### Installation layout on the target system
+## Uninstalling
 
-| Path | Contents |
-|------|----------|
-| `/etc/ciel-sot-agent/config.yaml` | Configuration (conffile, survives upgrades) |
-| `/opt/ciel-sot-agent/wheels/` | Pre-bundled Python wheels (read-only) |
-| `/opt/ciel-sot-agent/venv/` | Isolated venv created by `postinst` |
-| `/usr/bin/ciel-sot-gui` | Shell wrapper → venv binary |
-| `/usr/bin/ciel-sot-install-model` | Shell wrapper → venv binary |
-| `/usr/lib/systemd/system/ciel-sot-gui.service` | systemd unit |
-| `/var/lib/ciel/models/` | GGUF model storage (preserved on remove) |
-
----
-
-## Changing the default port or host
-
-Edit `/etc/ciel-sot-agent/config.yaml`:
-
-```yaml
-gui:
-  host: "0.0.0.0"
-  port: 8080
-```
-
-Then restart the service:
+Remove the package but keep configuration data:
 
 ```bash
-sudo systemctl restart ciel-sot-gui
+sudo dpkg -r ciel-sot-agent
+```
+
+Purge package and configuration files:
+
+```bash
+sudo dpkg -P ciel-sot-agent
 ```

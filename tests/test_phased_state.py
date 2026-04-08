@@ -1,284 +1,156 @@
-"""Tests for src/ciel_sot_agent/phased_state.py.
-
-Covers every public function and the FileState dataclass,
-including numeric bounds, edge-cases, and multi-file normalization.
-"""
-from __future__ import annotations
-
 import math
 
 import pytest
 
 from src.ciel_sot_agent.phased_state import (
-    ALPHA,
-    B0,
+    ANCHOR_BETA,
     BETA,
-    TYPE_WEIGHTS,
-    LAYER_WEIGHTS,
+    FLOW_BETA,
     FileState,
     build_states,
     compute_phase,
-    compute_raw_energy,
+    f_anchor,
     f_conn,
-    f_seed,
-    f_size,
-    frac64,
-    normalize,
-    sha256_seed,
-    weight_layer,
-    weight_type,
+    f_flow,
+    relational_relevance,
 )
 
 
-# ---------------------------------------------------------------------------
-# sha256_seed / frac64
-# ---------------------------------------------------------------------------
-
-def test_sha256_seed_produces_32_bytes() -> None:
-    seed = sha256_seed("some/path.py", 1024, b"content")
-    assert isinstance(seed, bytes)
-    assert len(seed) == 32
+def test_compute_phase_accepts_hash_fraction_in_unit_interval():
+    assert math.isclose(compute_phase(0.0), 0.0)
+    assert math.isclose(compute_phase(0.25), math.pi / 2)
+    assert math.isclose(compute_phase(0.5), math.pi)
 
 
-def test_sha256_seed_is_deterministic() -> None:
-    a = sha256_seed("path.py", 100, b"data")
-    b = sha256_seed("path.py", 100, b"data")
-    assert a == b
+def test_compute_phase_rejects_out_of_range_hash_fraction():
+    with pytest.raises(ValueError):
+        compute_phase(-0.01)
+
+    with pytest.raises(ValueError):
+        compute_phase(1.0)
 
 
-def test_sha256_seed_differs_on_different_inputs() -> None:
-    a = sha256_seed("a.py", 1, b"x")
-    b = sha256_seed("b.py", 1, b"x")
-    c = sha256_seed("a.py", 2, b"x")
-    d = sha256_seed("a.py", 1, b"y")
-    assert len({a, b, c, d}) == 4
+def test_compute_phase_rejects_non_finite_or_non_numeric_values():
+    for value in (float("nan"), float("inf"), -float("inf")):
+        with pytest.raises(ValueError):
+            compute_phase(value)
+
+    for value in ("0.25", True, None):
+        with pytest.raises(TypeError):
+            compute_phase(value)
 
 
-def test_frac64_returns_value_in_unit_interval() -> None:
-    seed = sha256_seed("test.py", 512, b"hello")
-    h = frac64(seed)
-    assert 0.0 <= h < 1.0
+def test_f_conn_accepts_non_negative_integer_connection_count():
+    assert math.isclose(f_conn(0), 1.0)
+    assert math.isclose(f_conn(3), 1.0 + BETA * math.log(4.0))
 
 
-def test_frac64_is_deterministic() -> None:
-    seed = sha256_seed("x.py", 10, b"z")
-    assert frac64(seed) == frac64(seed)
+def test_f_conn_rejects_negative_connection_count():
+    with pytest.raises(ValueError):
+        f_conn(-1)
 
 
-# ---------------------------------------------------------------------------
-# Component functions f_size, f_conn, f_seed
-# ---------------------------------------------------------------------------
-
-def test_f_size_at_zero_is_one() -> None:
-    assert f_size(0) == pytest.approx(1.0)
+def test_f_conn_rejects_non_integer_connection_count():
+    for value in (1.5, "2", True, None):
+        with pytest.raises(TypeError):
+            f_conn(value)
 
 
-def test_f_size_increases_monotonically() -> None:
-    assert f_size(0) < f_size(100) < f_size(10_000)
-
-
-def test_f_size_uses_alpha_and_b0() -> None:
-    expected = 1.0 + ALPHA * math.log(1.0 + 1024 / B0)
-    assert f_size(1024) == pytest.approx(expected)
-
-
-def test_f_conn_at_zero_is_one() -> None:
-    assert f_conn(0) == pytest.approx(1.0)
-
-
-def test_f_conn_increases_monotonically() -> None:
-    assert f_conn(0) < f_conn(1) < f_conn(100)
-
-
-def test_f_conn_uses_beta() -> None:
-    expected = 1.0 + BETA * math.log(1.0 + 5)
-    assert f_conn(5) == pytest.approx(expected)
-
-
-def test_f_seed_at_zero() -> None:
-    assert f_seed(0.0) == pytest.approx(0.95)
-
-
-def test_f_seed_at_one() -> None:
-    assert f_seed(1.0) == pytest.approx(1.05)
-
-
-def test_f_seed_midpoint() -> None:
-    assert f_seed(0.5) == pytest.approx(1.0)
-
-
-# ---------------------------------------------------------------------------
-# weight_type / weight_layer
-# ---------------------------------------------------------------------------
-
-def test_weight_type_returns_known_extension() -> None:
-    assert weight_type("py") == TYPE_WEIGHTS["py"]
-    assert weight_type("json") == TYPE_WEIGHTS["json"]
-
-
-def test_weight_type_is_case_insensitive() -> None:
-    assert weight_type("PY") == weight_type("py")
-    assert weight_type("MD") == weight_type("md")
-
-
-def test_weight_type_unknown_extension_returns_default() -> None:
-    # Unknown extension should return the default fallback (0.75)
-    result = weight_type("xyz_unknown_ext")
-    assert result == 0.75
-
-
-def test_weight_layer_returns_known_layer() -> None:
-    assert weight_layer("contracts") == LAYER_WEIGHTS["contracts"]
-    assert weight_layer("tests") == LAYER_WEIGHTS["tests"]
-
-
-def test_weight_layer_unknown_layer_returns_default() -> None:
-    result = weight_layer("completely_unknown_layer")
-    assert result == 0.90
-
-
-# ---------------------------------------------------------------------------
-# compute_raw_energy
-# ---------------------------------------------------------------------------
-
-def test_compute_raw_energy_is_positive() -> None:
-    state = FileState(
-        path="src/core/foo.py",
-        size=2048,
+def test_relational_relevance_uses_relational_features_not_hash_fraction():
+    state_a = FileState(
+        path="same.py",
+        size=128,
         ext="py",
         layer="src/core",
         r=3,
-        h=0.5,
+        h=0.11,
+        provenance_weight=1.2,
+        anchor_count=2,
+        upstream_count=1,
+        downstream_count=4,
+        sector_role_weight=1.1,
     )
-    energy = compute_raw_energy(state)
-    assert energy > 0.0
+    state_b = FileState(
+        path="same.py",
+        size=128,
+        ext="py",
+        layer="src/core",
+        r=3,
+        h=0.91,
+        provenance_weight=1.2,
+        anchor_count=2,
+        upstream_count=1,
+        downstream_count=4,
+        sector_role_weight=1.1,
+    )
+
+    assert math.isclose(relational_relevance(state_a), relational_relevance(state_b))
 
 
-def test_compute_raw_energy_increases_with_size() -> None:
-    def make(size: int) -> FileState:
-        return FileState(path="x.py", size=size, ext="py", layer="src/core", r=0, h=0.5)
+def test_relational_relevance_increases_with_anchor_and_flow_metadata():
+    base = FileState(path="a.py", size=128, ext="py", layer="src/core", r=1, h=0.2)
+    richer = FileState(
+        path="a.py",
+        size=128,
+        ext="py",
+        layer="src/core",
+        r=1,
+        h=0.2,
+        anchor_count=3,
+        upstream_count=2,
+        downstream_count=1,
+    )
 
-    assert compute_raw_energy(make(100)) < compute_raw_energy(make(10_000))
+    assert math.isclose(f_anchor(0), 1.0)
+    assert math.isclose(f_anchor(3), 1.0 + ANCHOR_BETA * math.log(4.0))
+    assert math.isclose(f_flow(2, 1), 1.0 + FLOW_BETA * math.log(4.0))
+    assert relational_relevance(richer) > relational_relevance(base)
 
 
-def test_compute_raw_energy_increases_with_connections() -> None:
-    def make(r: int) -> FileState:
-        return FileState(path="x.py", size=1000, ext="py", layer="src/core", r=r, h=0.5)
+def test_relational_relevance_rejects_invalid_metadata():
+    bad_anchor = FileState(path="a.py", size=128, ext="py", layer="src/core", r=1, h=0.2, anchor_count=-1)
+    with pytest.raises(ValueError):
+        relational_relevance(bad_anchor)
 
-    assert compute_raw_energy(make(0)) < compute_raw_energy(make(10))
+    bad_weight = FileState(path="a.py", size=128, ext="py", layer="src/core", r=1, h=0.2, provenance_weight=0.0)
+    with pytest.raises(ValueError):
+        relational_relevance(bad_weight)
 
 
-# ---------------------------------------------------------------------------
-# normalize
-# ---------------------------------------------------------------------------
-
-def test_normalize_sets_e_norm_that_sums_to_one() -> None:
-    states = [
-        FileState(path=f"f{i}.py", size=100 * (i + 1), ext="py", layer="src/core", r=0, h=0.5)
-        for i in range(4)
+def test_build_states_separates_identity_phase_from_selection_weight():
+    entries = [
+        {
+            "path": "same.py",
+            "size": 3,
+            "content": b"abc",
+            "ext": "py",
+            "layer": "src/core",
+            "r": 2,
+            "anchor_count": 1,
+            "upstream_count": 1,
+            "downstream_count": 1,
+            "provenance_weight": 1.1,
+            "sector_role_weight": 1.0,
+        },
+        {
+            "path": "same.py",
+            "size": 3,
+            "content": b"xyz",
+            "ext": "py",
+            "layer": "src/core",
+            "r": 2,
+            "anchor_count": 1,
+            "upstream_count": 1,
+            "downstream_count": 1,
+            "provenance_weight": 1.1,
+            "sector_role_weight": 1.0,
+        },
     ]
-    for s in states:
-        s.E_raw = float(s.size)
 
-    normalize(states)
-
-    total = sum(s.E_norm for s in states)
-    assert total == pytest.approx(1.0)
-
-
-def test_normalize_sets_amplitude_as_sqrt_of_e_norm() -> None:
-    states = [
-        FileState(path="a.py", size=100, ext="py", layer="src/core", r=0, h=0.5),
-        FileState(path="b.py", size=300, ext="py", layer="src/core", r=0, h=0.5),
-    ]
-    states[0].E_raw = 1.0
-    states[1].E_raw = 3.0
-
-    normalize(states)
-
-    for s in states:
-        assert s.a == pytest.approx(math.sqrt(s.E_norm))
-
-
-def test_normalize_no_op_when_total_is_zero() -> None:
-    states = [
-        FileState(path="z.py", size=0, ext="py", layer="src/core", r=0, h=0.0)
-    ]
-    states[0].E_raw = 0.0
-    normalize(states)
-    # Should not raise; E_norm remains 0
-    assert states[0].E_norm == 0.0
-
-
-# ---------------------------------------------------------------------------
-# compute_phase
-# ---------------------------------------------------------------------------
-
-def test_compute_phase_maps_zero_to_zero() -> None:
-    assert compute_phase(0.0) == 0.0
-
-
-def test_compute_phase_maps_one_to_two_pi() -> None:
-    assert compute_phase(1.0) == pytest.approx(2 * math.pi)
-
-
-def test_compute_phase_output_within_0_to_2pi() -> None:
-    for h in [0.0, 0.25, 0.5, 0.75, 1.0]:
-        phi = compute_phase(h)
-        assert 0.0 <= phi <= 2 * math.pi + 1e-12
-
-
-# ---------------------------------------------------------------------------
-# build_states — integration of the full pipeline
-# ---------------------------------------------------------------------------
-
-def _make_entry(path: str, size: int = 500, ext: str = "py", layer: str = "src/core", r: int = 2) -> dict:
-    return {"path": path, "size": size, "ext": ext, "layer": layer, "r": r, "content": path.encode()}
-
-
-def test_build_states_returns_correct_count() -> None:
-    entries = [_make_entry(f"file{i}.py", size=100 * (i + 1)) for i in range(5)]
     states = build_states(entries)
-    assert len(states) == 5
 
-
-def test_build_states_e_norm_sums_to_one() -> None:
-    entries = [_make_entry(f"f{i}.py") for i in range(3)]
-    states = build_states(entries)
-    total = sum(s.E_norm for s in states)
-    assert total == pytest.approx(1.0)
-
-
-def test_build_states_phases_within_0_to_2pi() -> None:
-    entries = [_make_entry(f"f{i}.py") for i in range(4)]
-    states = build_states(entries)
-    for s in states:
-        assert 0.0 <= s.phi <= 2 * math.pi + 1e-12
-
-
-def test_build_states_amplitude_is_sqrt_of_e_norm() -> None:
-    entries = [_make_entry(f"f{i}.py") for i in range(3)]
-    states = build_states(entries)
-    for s in states:
-        assert s.a == pytest.approx(math.sqrt(s.E_norm))
-
-
-def test_build_states_single_entry_has_full_norm() -> None:
-    states = build_states([_make_entry("only.py")])
-    assert states[0].E_norm == pytest.approx(1.0)
-    assert states[0].a == pytest.approx(1.0)
-
-
-def test_build_states_uses_r_default_zero() -> None:
-    entry = {"path": "x.py", "size": 100, "ext": "py", "layer": "src/core", "content": b"x"}
-    # No 'r' key — should default to 0
-    states = build_states([entry])
-    assert states[0].r == 0
-
-
-def test_build_states_paths_are_preserved() -> None:
-    entries = [_make_entry("alpha/beta.json", ext="json", layer="contracts")]
-    states = build_states(entries)
-    assert states[0].path == "alpha/beta.json"
-    assert states[0].ext == "json"
-    assert states[0].layer == "contracts"
+    assert len(states) == 2
+    assert states[0].phi != states[1].phi
+    assert math.isclose(states[0].selection_weight, states[1].selection_weight)
+    assert math.isclose(states[0].E_raw, states[1].E_raw)
+    assert math.isclose(states[0].a, states[1].a)
