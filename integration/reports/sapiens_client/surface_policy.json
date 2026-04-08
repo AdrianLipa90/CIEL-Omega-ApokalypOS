@@ -7,5 +7,8 @@
     "inference",
     "hypothesis",
     "unknown"
-  ]
+  ],
+  "export_boundary_mode": "PROJECTED_ONLY",
+  "private_state_export_allowed": false,
+  "requires_projection_operator": true
 }

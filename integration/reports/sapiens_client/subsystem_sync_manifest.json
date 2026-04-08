@@ -1,0 +1,16 @@
+{
+  "schema": "ciel-sot-agent/subsystem-sync-manifest/v0.1",
+  "sync_registry_present": false,
+  "sync_report_present": false,
+  "board_count": 0,
+  "avg_members_per_board": 0.0,
+  "tau_orbit_count": 0,
+  "tau_system_count": 0,
+  "sync_law_counts": {},
+  "condensation_operator_counts": {},
+  "sync_scope_counts": {},
+  "privacy_constraint_counts": {},
+  "horizon_class_counts": {},
+  "export_boundary_policy": {},
+  "board_preview": []
+}

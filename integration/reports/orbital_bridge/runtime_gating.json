@@ -1,0 +1,10 @@
+{
+  "schema": "ciel-sot-agent/runtime-gating/v0.1",
+  "dominant_privacy_constraint": "UNKNOWN",
+  "dominant_horizon_class": "UNKNOWN",
+  "export_boundary_mode": "PROJECTED_ONLY",
+  "private_state_export_allowed": false,
+  "board_sync_ready": false,
+  "system_tau_coherent": true,
+  "requires_projection_operator": true
+}

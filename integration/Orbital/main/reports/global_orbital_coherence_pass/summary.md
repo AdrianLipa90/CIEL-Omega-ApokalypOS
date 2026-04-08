@@ -14,6 +14,7 @@ Read-only diagnostic pass over the canonical repository structure.
 - spectral_gap_A: 0.784893
 - fiedler_L: 0.303882
 - zeta_enabled: True
+- orbital_law_v0_enabled: False
 - zeta_tetra_defect: 0.000000
 - zeta_effective_tau: 0.364500
 - zeta_effective_phase: 0.000000
@@ -36,6 +37,7 @@ Read-only diagnostic pass over the canonical repository structure.
 - spectral_gap_A: 0.751082
 - fiedler_L: 0.174384
 - zeta_enabled: True
+- orbital_law_v0_enabled: False
 - zeta_tetra_defect: 0.000000
 - zeta_effective_tau: 0.364500
 - zeta_effective_phase: 0.004722
@@ -49,4 +51,5 @@ Read-only diagnostic pass over the canonical repository structure.
 ## Notes
 - Geometry derived from imports + README mesh + AGENT mesh + manifests.
 - v6.3 uses Euler-rotated homology leak with D_f-dependent radial/angular split.
+- When enabled, Orbital Law v0 adds effective attractor strength, orbital period, winding, and phase-slip tracking.
 - This pass is diagnostic only; it does not mutate repo content.
