@@ -67,9 +67,13 @@ objects:
       - ORB-SOT-0005
       - ORB-SOT-0006
       - ORB-SOT-0007
+      - ORB-SOT-0010
+      - ORB-SOT-0011
     downstream:
       - ORB-SOT-0008
       - ORB-SOT-0009
+      - ORB-SOT-0013
+      - ORB-SOT-0014
     tests: []
     interfaces: []
     exports:
@@ -86,8 +90,12 @@ objects:
     upstream:
       - ORB-SOT-0006
       - ORB-SOT-0007
+      - ORB-SOT-0010
+      - ORB-SOT-0011
     downstream:
       - ORB-SOT-0004
+      - ORB-SOT-0013
+      - ORB-SOT-0014
     tests: []
     interfaces: []
     exports:
@@ -103,9 +111,11 @@ objects:
     owner_layer: integration
     upstream:
       - ORB-SOT-0007
+      - ORB-SOT-0011
     downstream:
       - ORB-SOT-0004
       - ORB-SOT-0005
+      - ORB-SOT-0014
     tests: []
     interfaces: []
     exports:
@@ -164,3 +174,88 @@ objects:
     provenance: []
     path: integration/Orbital/main/reports/global_orbital_coherence_pass/summary.json
     placeholder: true
+  - id: ORB-SOT-0010
+    name: orbital_law_ledger
+    layer: operations
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream: []
+    downstream:
+      - ORB-SOT-0011
+      - ORB-SOT-0014
+    tests:
+      - ORB-SOT-0014
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md
+    placeholder: false
+  - id: ORB-SOT-0011
+    name: relational_orbital_dynamics_spec_v0
+    layer: science
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - ORB-SOT-0012
+      - ORB-SOT-0010
+    downstream:
+      - ORB-SOT-0014
+    tests:
+      - ORB-SOT-0014
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md
+    placeholder: false
+  - id: ORB-SOT-0012
+    name: kepler_superfluid_analogies
+    layer: analogy
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream: []
+    downstream:
+      - ORB-SOT-0011
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md
+    placeholder: false
+  - id: ORB-SOT-0013
+    name: orbital_runtime_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - ORB-SOT-0004
+      - ORB-SOT-0005
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_orbital_runtime.py
+    placeholder: false
+  - id: ORB-SOT-0014
+    name: orbital_semantics_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - ORB-SOT-0004
+      - ORB-SOT-0005
+      - ORB-SOT-0006
+      - ORB-SOT-0010
+      - ORB-SOT-0011
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_orbital_semantics.py
+    placeholder: false

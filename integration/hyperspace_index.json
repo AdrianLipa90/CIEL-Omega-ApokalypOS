@@ -191,6 +191,128 @@
         "docs/operations/V2_RUNTIME_ENTRYPOINTS.md",
         "docs/INDEX.md"
       ]
+    },
+    {
+      "key": "repo_workstyle_session_handoff",
+      "path": "docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md",
+      "kind": "operations-handoff",
+      "crossrefs": [
+        "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md",
+        "docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md",
+        "AGENT.md",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "key": "orbital_dynamics_law_v0_todo",
+      "path": "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md",
+      "kind": "operation-ledger",
+      "crossrefs": [
+        "docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md",
+        "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+        "tests/test_orbital_semantics.py",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "key": "offline_dependency_bundle_v1",
+      "path": "docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md",
+      "kind": "operations-bundle",
+      "crossrefs": [
+        "vendor/manifests/offline_dependency_bundle_v1.yaml",
+        "tools/bootstrap/bootstrap_offline_runtime.sh",
+        "tools/bootstrap/bootstrap_offline_dev.sh",
+        "docs/INDEX.md"
+      ]
+    },
+    {
+      "key": "kepler_superfluid_analogies",
+      "path": "docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md",
+      "kind": "analogy",
+      "crossrefs": [
+        "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+        "docs/ORBital_INTEGRATION_ADDENDUM.md",
+        "integration/Orbital/main/global_pass.py"
+      ]
+    },
+    {
+      "key": "relational_orbital_dynamics_spec_v0",
+      "path": "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+      "kind": "science-spec",
+      "crossrefs": [
+        "docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md",
+        "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md",
+        "integration/Orbital/main/dynamics.py",
+        "tests/test_orbital_semantics.py"
+      ]
+    },
+    {
+      "key": "phased_state_code",
+      "path": "src/ciel_sot_agent/phased_state.py",
+      "kind": "code",
+      "crossrefs": [
+        "tests/test_phased_state.py",
+        "tests/fixtures/orbital_selection_relevance.json",
+        "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md"
+      ]
+    },
+    {
+      "key": "phased_state_tests",
+      "path": "tests/test_phased_state.py",
+      "kind": "test",
+      "crossrefs": [
+        "src/ciel_sot_agent/phased_state.py",
+        "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md"
+      ]
+    },
+    {
+      "key": "orbital_semantics_tests",
+      "path": "tests/test_orbital_semantics.py",
+      "kind": "test",
+      "crossrefs": [
+        "tests/fixtures/orbital_selection_relevance.json",
+        "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+        "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md"
+      ]
+    },
+    {
+      "key": "orbital_selection_relevance_fixture",
+      "path": "tests/fixtures/orbital_selection_relevance.json",
+      "kind": "fixture",
+      "crossrefs": [
+        "tests/test_orbital_semantics.py",
+        "src/ciel_sot_agent/phased_state.py"
+      ]
+    },
+    {
+      "key": "offline_dependency_manifest",
+      "path": "vendor/manifests/offline_dependency_bundle_v1.yaml",
+      "kind": "manifest",
+      "crossrefs": [
+        "docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md",
+        "tools/bootstrap/bootstrap_offline_runtime.sh",
+        "tools/bootstrap/bootstrap_offline_dev.sh"
+      ]
+    },
+    {
+      "key": "offline_runtime_bootstrap",
+      "path": "tools/bootstrap/bootstrap_offline_runtime.sh",
+      "kind": "bootstrap-script",
+      "crossrefs": [
+        "vendor/manifests/offline_dependency_bundle_v1.yaml",
+        "vendor/wheels/runtime/README.md",
+        "docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md"
+      ]
+    },
+    {
+      "key": "offline_dev_bootstrap",
+      "path": "tools/bootstrap/bootstrap_offline_dev.sh",
+      "kind": "bootstrap-script",
+      "crossrefs": [
+        "vendor/manifests/offline_dependency_bundle_v1.yaml",
+        "vendor/wheels/dev/README.md",
+        "docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md"
+      ]
     }
   ]
 }

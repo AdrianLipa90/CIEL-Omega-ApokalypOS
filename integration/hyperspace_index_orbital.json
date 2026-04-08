@@ -48,6 +48,36 @@
       "path": "scripts/run_orbital_global_pass.py",
       "kind": "launcher",
       "crossrefs": ["integration/Orbital/main/global_pass.py", "docs/ORBital_INTEGRATION_ADDENDUM.md"]
+    },
+    {
+      "key": "orbital_law_ledger",
+      "path": "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md",
+      "kind": "operation-ledger",
+      "crossrefs": ["docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md", "tests/test_orbital_semantics.py", "integration/Orbital/main/dynamics.py"]
+    },
+    {
+      "key": "orbital_law_spec_v0",
+      "path": "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+      "kind": "science-spec",
+      "crossrefs": ["docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md", "integration/Orbital/main/dynamics.py", "integration/Orbital/main/metrics.py", "tests/test_orbital_semantics.py"]
+    },
+    {
+      "key": "kepler_superfluid_analogies",
+      "path": "docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md",
+      "kind": "analogy",
+      "crossrefs": ["docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md", "docs/ORBital_INTEGRATION_ADDENDUM.md"]
+    },
+    {
+      "key": "orbital_runtime_tests",
+      "path": "tests/test_orbital_runtime.py",
+      "kind": "test",
+      "crossrefs": ["integration/Orbital/main/dynamics.py", "integration/Orbital/main/global_pass.py"]
+    },
+    {
+      "key": "orbital_semantics_tests",
+      "path": "tests/test_orbital_semantics.py",
+      "kind": "test",
+      "crossrefs": ["tests/fixtures/orbital_selection_relevance.json", "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md", "integration/Orbital/main/dynamics.py"]
     }
   ]
 }
