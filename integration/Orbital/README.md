@@ -16,4 +16,4 @@ Imported into a separate branch for integration review only.
 - `integration/Orbital/main/manifests/` — imported orbital global manifests
 - `integration/Orbital/IMPORT_MANIFEST.json` — machine-readable import note
 
-This import does not modify the theory repository and is intended as a standalone integration layer inside `CIEL-_SOT_Agent`.
+This import does not modify the theory repository and is intended as a standalone integration layer inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`.

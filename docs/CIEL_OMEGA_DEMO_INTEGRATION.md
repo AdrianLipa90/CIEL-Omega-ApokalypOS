@@ -54,7 +54,7 @@ These were chosen because together they define:
 
 ## Integration meaning
 
-Inside `CIEL-_SOT_Agent`, these imported objects should be read as:
+Inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`, these imported objects should be read as:
 
 - upstream shell-facing surfaces,
 - not canonical theory,
@@ -104,6 +104,6 @@ What is now established is simple and important:
 
 > `ciel-omega-demo` is already a tracked upstream shell.
 >
-> `CIEL-_SOT_Agent` now indexes and binds that shell explicitly,
+> `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` now indexes and binds that shell explicitly,
 > validates its imported paths against a pinned upstream inventory,
 > and keeps engine semantics separate.

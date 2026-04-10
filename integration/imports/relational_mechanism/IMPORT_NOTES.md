@@ -1,6 +1,6 @@
 # Import notes
 
-This import packages the consolidated relational mechanism work into `CIEL-_SOT_Agent` in a reviewable way.
+This import packages the consolidated relational mechanism work into `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` in a reviewable way.
 
 ## Imported scope
 
@@ -23,7 +23,7 @@ They are the most compact text-first subset that preserves the currently confirm
 - holonomy: 3 core functions
 - reduction -> memory: 3 core functions
 
-## Immediate use inside CIEL-_SOT_Agent
+## Immediate use inside CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold
 
 This bundle can now be:
 1. indexed,

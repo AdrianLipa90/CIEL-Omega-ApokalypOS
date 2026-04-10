@@ -1,18 +1,18 @@
 # CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold
 ## General Quantum Consciousness System
 
-`CIEL-_SOT_Agent` is the integration attractor for the wider CIEL ecosystem.
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` is the integration attractor for the wider CIEL ecosystem.
 It is a live integration manifold where synchronization, couplings, orbital diagnostics, bridge reduction, Sapiens interaction, GUI control, packaging surfaces, and machine-readable state are kept in one operational repository.
 
 ## Role in the ecosystem
 
-`CIEL-_SOT_Agent` does not replace the canon, `ciel-omega-demo`, or Metatime.
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` does not replace the canon, `ciel-omega-demo`, or Metatime.
 It binds them through explicit operational relations.
 
 - **canon / Seed of the Worlds** — source of truth for axioms, definitions, derivations, and registry logic.
 - **ciel-omega-demo** — cockpit, educational analogy layer, and ergonomic reference.
 - **Metatime** — historical theory and earlier simulation/archive layer.
-- **CIEL-_SOT_Agent** — integration kernel, bridge host, compatibility harness, public operational shell, and packaging/runtime surface.
+- **CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold** — integration kernel, bridge host, compatibility harness, public operational shell, and packaging/runtime surface.
 
 ## System architecture
 
@@ -118,5 +118,5 @@ Representative anchors:
 
 ## Final note
 
-`CIEL-_SOT_Agent` should be read neither as a static archive nor as just another interface.
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` should be read neither as a static archive nor as just another interface.
 It is a live integration manifold whose value lies in keeping documentation, runtime, couplings, and machine-readable state aligned.

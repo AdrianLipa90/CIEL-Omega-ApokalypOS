@@ -2,7 +2,7 @@
 
 ## Folder role
 
-`integration/Orbital/` stores the imported orbital subsystem and its integration metadata inside `CIEL-_SOT_Agent`.
+`integration/Orbital/` stores the imported orbital subsystem and its integration metadata inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`.
 
 This folder is an integration-layer snapshot, not a claim that the orbital subsystem is already the full engine of the repository.
 

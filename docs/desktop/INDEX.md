@@ -1,6 +1,6 @@
 # Desktop Layer Index
 
-This index introduces the `CIEL-Desktop` repository from the perspective of `CIEL-_SOT_Agent`.
+This index introduces the `CIEL-Desktop` repository from the perspective of `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`.
 
 ## Why this folder exists
 
@@ -20,7 +20,7 @@ This folder provides that binding.
 
 ## Short semantic summary
 
-- `CIEL-_SOT_Agent` remains the canonical source of truth
+- `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` remains the canonical source of truth
 - `CIEL-Desktop` remains the operator-facing desktop surface
 - the desktop repo is downstream, not competitive
 - desktop actions remain explicit and bind back into SoT-visible artifacts

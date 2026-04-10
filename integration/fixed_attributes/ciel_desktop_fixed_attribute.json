@@ -8,7 +8,7 @@
   "status": "canonical-fixed-attribute",
   "fixed": true,
   "role": "desktop-surface",
-  "binding_target": "CIEL-_SOT_Agent",
+  "binding_target": "CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold",
   "binding_mode": "fixed-attribute",
   "audit_boundary": {
     "in_repo_auditable": [
@@ -28,8 +28,8 @@
     ]
   },
   "notes": [
-    "Desktop is treated as a fixed attribute of the SOT_Agent integration manifold.",
+    "Desktop is treated as a fixed attribute of the integration attractor and operational manifold.",
     "This declaration is canonical even before broader registry refactoring folds it into repository_registry.json.",
-    "The declaration binds Desktop contractually inside SOT_Agent, but it does not by itself certify Desktop runtime behavior."
+    "The declaration binds Desktop contractually inside the integration manifold, but it does not by itself certify Desktop runtime behavior."
   ]
 }

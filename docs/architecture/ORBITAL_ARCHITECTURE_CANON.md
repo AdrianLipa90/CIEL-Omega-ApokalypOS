@@ -102,7 +102,7 @@ So the correct operational reading is:
 
 ## Binding to SOT
 
-Inside `CIEL-_SOT_Agent`, the correct relation is:
+Inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`, the correct relation is:
 
 - `src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/` = full source orbital architecture
 - `integration/Orbital/main/` = imported integration-facing runtime snapshot

@@ -2,7 +2,7 @@
   "schema_version": "1.0",
   "generated_on": "2026-04-07",
   "repository": {
-    "name": "CIEL-_SOT_Agent",
+    "name": "CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold",
     "package_name": "ciel-sot-agent",
     "purpose": "integration kernel, synchronization runtime, orbital bridge, and Sapiens interaction layer for the CIEL ecosystem"
   },

@@ -8,7 +8,7 @@ It exists so that repository-wide refactor work does not accidentally flatten or
 
 ## What the orbital layer is
 
-The orbital layer in `CIEL-_SOT_Agent` is:
+The orbital layer in `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` is:
 - an imported orbital subsystem,
 - an integration-facing runtime snapshot,
 - a diagnostic layer,

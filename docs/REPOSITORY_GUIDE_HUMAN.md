@@ -1,8 +1,8 @@
-# CIEL-_SOT_Agent — Human Repository Guide
+# CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold — Human Repository Guide
 
 ## What this repository actually is
 
-`CIEL-_SOT_Agent` is not one single app and it is not only one Python package.
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` is not one single app and it is not only one Python package.
 
 It is a mixed repository that contains:
 1. native integration code under `src/ciel_sot_agent/`,

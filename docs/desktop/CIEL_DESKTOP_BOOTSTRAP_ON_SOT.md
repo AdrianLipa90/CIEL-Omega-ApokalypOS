@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document bootstraps the desktop-layer work into `CIEL-_SOT_Agent` without turning the desktop repository into a second engine.
+This document bootstraps the desktop-layer work into `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` without turning the desktop repository into a second engine.
 
 The goal is architectural clarity:
 
@@ -20,11 +20,11 @@ The desktop repository currently contains:
 - a canonical native GUI entrypoint
 - launcher policy and reviewer-facing documentation
 - runtime/test guidance
-- an explicit adapter bridge into the local `CIEL-_SOT_Agent` checkout
+- an explicit adapter bridge into the local `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` checkout
 
 ## What is not being bootstrapped
 
-This is not a migration of GUI code into `CIEL-_SOT_Agent`.
+This is not a migration of GUI code into `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`.
 That would be architecturally worse.
 
 The desktop code remains in `CIEL-Desktop`.
@@ -44,7 +44,7 @@ The Source-of-Truth side must explicitly name:
 
 ## Intended relation
 
-`CIEL-_SOT_Agent` -> truth, reports, bridge state, packets, validation -> `CIEL-Desktop`
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` -> truth, reports, bridge state, packets, validation -> `CIEL-Desktop`
 
 not the reverse.
 
@@ -52,7 +52,7 @@ not the reverse.
 
 A clean human reading of the ecosystem is:
 
-- `CIEL-_SOT_Agent` = integration kernel / bridge host / actionable truth source
+- `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` = integration kernel / bridge host / actionable truth source
 - `CIEL-Desktop` = operator shell / presentation / controlled execution surface
 
 ## Audit implication

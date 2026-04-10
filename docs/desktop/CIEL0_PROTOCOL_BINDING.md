@@ -11,7 +11,7 @@ This note states how the desktop layer fits that protocol reading.
 
 Within the CIEL/0 protocol reading:
 
-- `CIEL-_SOT_Agent` acts as the authoritative host of upstream truth anchors, report layers, validation surfaces, and bridge reductions
+- `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` acts as the authoritative host of upstream truth anchors, report layers, validation surfaces, and bridge reductions
 - `CIEL-Desktop` acts as a downstream knowledge/operation surface that must preserve provenance, explicit epistemic status, and reference integrity
 
 ## Protocol-level obligations of the desktop layer

@@ -1,7 +1,7 @@
 # AGENT
 
 ## Mission
-`CIEL-_SOT_Agent` is the integration attractor for the CIEL ecosystem.
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` is the integration attractor for the CIEL ecosystem.
 It does not replace canonical theory repositories or the cockpit demo. It binds them through:
 - identity,
 - phase,

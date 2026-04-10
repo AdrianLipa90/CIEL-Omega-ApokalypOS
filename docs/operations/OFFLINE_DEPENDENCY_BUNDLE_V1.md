@@ -1,7 +1,7 @@
 # OFFLINE DEPENDENCY BUNDLE V1
 
 ## Purpose
-Provide a deterministic offline dependency surface for `CIEL-_SOT_Agent` so the repository can be bootstrapped and tested without relying on live network access.
+Provide a deterministic offline dependency surface for `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` so the repository can be bootstrapped and tested without relying on live network access.
 
 This operation introduces:
 - a wheelhouse scaffold under `vendor/wheels/`,

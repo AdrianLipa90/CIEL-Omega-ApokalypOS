@@ -1,4 +1,4 @@
-# CIEL-_SOT_Agent — Refactor V2 Surface
+# CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold — Refactor V2 Surface
 
 Integration attractor for the CIEL ecosystem.
 
@@ -12,7 +12,7 @@ It does not yet replace the legacy `README.md`, which remains valid during trans
 - **canon / Seed of the Worlds** — source of truth for axioms, definitions, derivations, manifests, and nonlocal repository hyperspace
 - **ciel-omega-demo** — cockpit, UI surface, educational analogies, and shell publication layer
 - **Metatime** — historical theory, simulations, and earlier archive layer
-- **CIEL-_SOT_Agent** — integration kernel, machine-readable registry layer, orbital bridge host, Sapiens interaction seed, and public operational attractor
+- **CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold** — integration kernel, machine-readable registry layer, orbital bridge host, Sapiens interaction seed, and public operational attractor
 
 ## Target geometry
 

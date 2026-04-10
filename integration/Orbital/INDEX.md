@@ -1,6 +1,6 @@
 # Orbital Index
 
-Local navigation and protection rules for the orbital sector inside `CIEL-_SOT_Agent`.
+Local navigation and protection rules for the orbital sector inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`.
 
 ## Sector identity
 

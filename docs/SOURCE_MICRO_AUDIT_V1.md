@@ -1,6 +1,6 @@
 # Source Micro Audit V1
 
-This audit covers the executable core of `CIEL-_SOT_Agent` after local consolidation.
+This audit covers the executable core of `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` after local consolidation.
 
 ## Scope
 - `src/ciel_sot_agent/repo_phase.py`

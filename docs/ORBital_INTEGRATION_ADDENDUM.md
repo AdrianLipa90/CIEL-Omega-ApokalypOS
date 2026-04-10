@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This file brings the imported and extended orbital subsystem into the human-readable navigation layer of `CIEL-_SOT_Agent`.
+This file brings the imported and extended orbital subsystem into the human-readable navigation layer of `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`.
 
 It does not replace `docs/INDEX.md`.
 It acts as an addendum until direct in-place update of the main index is available.

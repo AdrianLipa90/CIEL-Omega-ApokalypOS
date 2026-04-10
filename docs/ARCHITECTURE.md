@@ -2,7 +2,7 @@
 
 ## Role
 
-`CIEL-_SOT_Agent` is the integration attractor for a multi-repository ecosystem.
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` is the integration attractor for a multi-repository ecosystem.
 It is not the canonical source of every theory file. It is the place where repository identities,
 links, cross-references, and executable integration logic are made explicit.
 
@@ -31,7 +31,7 @@ Primary source for:
 - phenomenological notes,
 - older solver and documentation branches.
 
-### CIEL-_SOT_Agent
+### CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold
 Primary source for:
 - repository registry,
 - machine-readable hyperspace index,

@@ -14,7 +14,7 @@ This import contains:
 
 ## Why this import exists
 
-The goal is to preserve the consolidated mechanism work inside `CIEL-_SOT_Agent` without splitting it into ad hoc partial packs.
+The goal is to preserve the consolidated mechanism work inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` without splitting it into ad hoc partial packs.
 
 The imported material captures the current confirmed mechanism spine:
 

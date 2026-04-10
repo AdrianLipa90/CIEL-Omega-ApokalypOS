@@ -1,7 +1,7 @@
-# Audit Appendix — CIEL-_SOT_Agent
+# Audit Appendix — CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold
 
 ## Repository
-CIEL-_SOT_Agent
+CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold
 
 ## Purpose
 This appendix binds the immutable CIEL ethics core to the integration-attractor repository that hosts registries, orbital bridge logic, Sapiens interaction seed, and machine-readable audit surfaces.

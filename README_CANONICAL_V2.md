@@ -1,4 +1,4 @@
-# CIEL-_SOT_Agent
+# CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold
 
 Integration attractor for the CIEL ecosystem.
 
@@ -17,7 +17,7 @@ Until the final in-place switch is executed:
 - **canon / Seed of the Worlds** — source of truth for axioms, derivations, manifests, and repository hyperspace
 - **ciel-omega-demo** — cockpit, UI surface, educational shell, and public-facing interaction layer
 - **Metatime** — historical theory and simulation archive layer
-- **CIEL-_SOT_Agent** — integration kernel, machine-readable registry layer, orbital bridge host, Sapiens interaction seed, and operational attractor
+- **CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold** — integration kernel, machine-readable registry layer, orbital bridge host, Sapiens interaction seed, and operational attractor
 
 ## Canonical repository geometry
 

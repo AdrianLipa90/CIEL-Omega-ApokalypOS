@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install.sh — Production installer for CIEL SOT Agent
+# install.sh — Production installer for CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold
 #
 # One-liner usage:
 #   bash <(curl -fsSL https://raw.githubusercontent.com/AdrianLipa90/CIEL-_SOT_Agent/main/packaging/install.sh)

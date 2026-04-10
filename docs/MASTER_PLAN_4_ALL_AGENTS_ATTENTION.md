@@ -4,7 +4,7 @@
 
 This file defines the shared implementation direction for the **Main Control / Settings / Communication / Support Panel for Sapiens**.
 
-It is written to align all agent work with the current shape of `CIEL-_SOT_Agent` and to prevent parallel, semantically conflicting UI or control surfaces.
+It is written to align all agent work with the current shape of `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` and to prevent parallel, semantically conflicting UI or control surfaces.
 
 ---
 
@@ -33,283 +33,113 @@ At the time of writing, the repository already contains four relevant layers:
 
 4. **Sapiens interaction seed layer**
    - implemented in `src/ciel_sot_agent/sapiens_client.py`,
-   - builds a human-model interaction packet from session state plus orbital/bridge state.
+   - builds a human-model interaction packet,
+   - consumes bridge-aware state,
+   - stores session-facing artifacts.
 
-This means the correct next move is **not** to create an isolated chat UI.
-The correct next move is to build a **panel-orchestrator shell** above these layers.
-
----
-
-## Primary design law
-
-The Sapiens panel must remain consistent with the orbital-holonomic reading of the project.
-
-### Dependency order
-
-relation -> state -> control -> memory -> surface
-
-Operationally this means:
-
-1. **orbital state** is computed first,
-2. **bridge control state** is derived from orbital state,
-3. **Sapiens session and packet state** are derived from bridge state,
-4. **panel surface** renders and controls these states.
-
-The panel must therefore be **state-driven**, not widget-driven.
+This means the panel must not be invented from nothing.
+It must be built as the **human-facing operational manifold** of those existing layers.
 
 ---
 
-## Main panel definition
+## Required panel structure
 
-The project should implement a single main panel shell with four primary tabs:
+The panel must use the following main tabs:
 
-- **Control**
-- **Settings**
-- **Communication**
-- **Support**
+1. **Control**
+2. **Settings**
+3. **Communication**
+4. **Support**
 
-All system-facing labels, messages, and artifacts must remain in **English**.
+These tabs are mandatory because they reflect real operational distinctions:
 
----
-
-## Tab 1 — Control
-
-### Purpose
-Operational control of model-facing system state.
-
-### Required sections
-
-- **System Status**
-  - Coherence Index
-  - Closure Penalty
-  - System Health
-  - Risk Level
-  - Recommended Action
-  - Current Orbital Mode
-  - Truth Axis
-  - Attractor State
-
-- **Execution Controls**
-  - Run Orbital Pass
-  - Run Bridge Update
-  - Start or Refresh Sapiens Session
-  - Build Model Packet
-  - Export Current State
-
-- **Stability Controls**
-  - Read-only mode
-  - Guided mode
-  - Standard mode
-  - Deep mode
-
-### Implementation source anchors
-
-- `integration/Orbital/main/global_pass.py`
-- `src/ciel_sot_agent/orbital_bridge.py`
-- `integration/Orbital/main/phase_control.py`
+- **Control** = direct action and system state interaction,
+- **Settings** = persistent preferences and runtime mode selection,
+- **Communication** = explicit interaction channel between Sapiens and the model,
+- **Support** = diagnostics, logs, health indicators, and operational help.
 
 ---
 
-## Tab 2 — Settings
+## Meaning of each tab
 
-### Purpose
-Persistent configuration of the interaction regime.
+### 1. Control
+Must expose:
+- start / stop / reset style orchestration hooks,
+- orbital pass execution or bridge refresh triggers,
+- mode selection where operationally justified,
+- visible current system state summary.
 
-### Required sections
+This tab is action-oriented.
+It must not be overloaded with transcript history or static documentation.
 
-- **Identity**
-  - Sapiens ID
-  - Relation Label
-  - Preferred Mode
-  - Memory Policy
+### 2. Settings
+Must expose:
+- model / runtime preferences,
+- persistence-related settings,
+- optional toggles that affect bridge or packet production,
+- user-facing preference management.
 
-- **Interaction Policy**
-  - Truth Axis
-  - Packet depth / memory excerpt length
-  - Bridge auto-refresh
-  - Session persistence policy
+This tab is configuration-oriented.
+It must be distinct from direct execution control.
 
-- **Orbital Runtime Settings**
-  - Steps
-  - dt
-  - tau eta / tau reg
-  - auto-bootstrap manifests
+### 3. Communication
+Must expose:
+- the direct human-model communication channel,
+- transcript or message history,
+- session-aware exchange surface,
+- later packet-aware interaction if the deeper runtime is connected.
 
-- **Language and UI**
-  - system language: English
-  - response style presets
-  - support verbosity
-  - raw JSON visibility
+This tab is the actual **Sapiens ⇄ model relation surface**.
+It must be treated as central, not cosmetic.
 
-### Implementation rule
+### 4. Support
+Must expose:
+- diagnostics,
+- health / warnings,
+- logs,
+- guidance / support materials,
+- bridge and runtime readiness indicators.
 
-Settings must persist into a machine-readable file under `integration/sapiens/`.
-They must not live only in UI-local state.
-
----
-
-## Tab 3 — Communication
-
-### Purpose
-Direct Sapiens-to-model interaction.
-
-### Required sections
-
-- **Conversation Panel**
-  - user input,
-  - model output,
-  - turn history.
-
-- **Packet View**
-  - latest model packet,
-  - relation state,
-  - state geometry,
-  - control profile.
-
-- **Session Memory**
-  - transcript,
-  - recent turns,
-  - timestamps,
-  - persisted session JSON.
-
-### Implementation source anchors
-
-- `src/ciel_sot_agent/sapiens_client.py`
-- `integration/reports/sapiens_client/`
-
-### Critical rule
-
-Communication must not be implemented as a generic flat chat box.
-It must expose the **interaction packet as a first-class object**.
+This tab is not a junk drawer.
+It is the explicit operational support surface.
 
 ---
 
-## Tab 4 — Support
+## Current implementation directive
 
-### Purpose
-Assist the operator in stabilization, diagnosis, recovery, and guided usage.
+The panel should be implemented around the already existing:
 
-### Required sections
-
-- **Health and Diagnostics**
-  - health manifest,
-  - closure warnings,
-  - risk level,
-  - recommended action.
-
-- **Recovery Tools**
-  - rebuild manifests,
-  - regenerate bridge report,
-  - reset session,
-  - export current bundle.
-
-- **Guides**
-  - what the modes mean,
-  - what orbital pass does,
-  - how bridge state changes communication behavior.
-
-- **Traceability**
-  - latest generated artifacts,
-  - report timestamps,
-  - transcript path,
-  - packet path,
-  - session path.
-
----
-
-## Recommended repository layout
-
-The first implementation should use the following layout:
-
-```text
-src/ciel_sot_agent/sapiens_panel/
-    __init__.py
-    models.py
-    controller.py
-    settings_store.py
-    communication.py
-    support.py
-    render_schema.py
-
-integration/sapiens/
-    README.md
-    AGENT1.md
-    panel_manifest.json
-    settings_defaults.json
-
-integration/reports/sapiens_client/
-    README.md
-
-scripts/
-    run_sapiens_panel.py
-```
-
-### Reason
-
-This layout respects the current repository geometry:
-- `src/` for executable logic,
-- `integration/` for machine-readable contracts,
-- `integration/reports/` for artifacts,
-- `scripts/` for thin launchers.
-
----
-
-## Controller model
-
-The panel controller must aggregate four state sources:
-
-- `orbital`
-- `bridge`
-- `session`
-- `settings`
-
-### Target structure
-
-```text
-PanelState
-  orbital
-  bridge
-  session
-  settings
-```
-
-### Required rule
-
-No panel tab may construct truth independently of the controller.
-The controller is the authoritative state assembler.
-
----
-
-## Immediate implementation phases
-
-## Phase 1 — panel foundation ✓ COMPLETE
-
-Created:
-- `src/ciel_sot_agent/sapiens_panel/models.py`
 - `src/ciel_sot_agent/sapiens_panel/controller.py`
-- `integration/sapiens/settings_defaults.json`
-- `integration/sapiens/panel_manifest.json`
-- `scripts/run_sapiens_panel.py`
+- `src/ciel_sot_agent/sapiens_panel/reduction.py`
+- `src/ciel_sot_agent/sapiens_client.py`
+- orbital bridge artifacts under `integration/reports/orbital_bridge/`
+- Sapiens manifests under `integration/sapiens/`
 
-Result:
-- machine-readable and controller-driven shell in place,
-- panel state aggregation (orbital, bridge, session, settings) verified by tests.
+This means:
 
-## Phase 2 — communication-centered shell (in progress)
+### The panel is not an isolated UI toy.
+It is a controller-facing and state-reduced view over real manifests and packets.
 
-Added:
-- Flask-based Quiet Orbital Control web interface (`src/ciel_sot_agent/gui/`),
-- GGUF model manager for first-startup model acquisition (`src/ciel_sot_agent/gguf_manager/`),
-- GUI identity and UX philosophy document (`docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md`),
-- energy budget and workflow policy (`docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md`).
+---
 
-Still pending in this phase:
-- packet-aware session rendering in the GUI,
-- transcript and session persistence wired to the GUI communication tab,
-- support diagnostics tab connected to the health manifest.
+## Required implementation philosophy
 
-## Phase 3 — cockpit/native convergence
+### Phase 1 — correct skeleton
+Build or refactor the panel so that:
+- the top-level structure is exactly Control / Settings / Communication / Support,
+- state is managed centrally,
+- tabs are semantically distinct,
+- English system-facing language is used,
+- the panel is prepared to consume bridge and packet state.
 
+### Phase 2 — state coupling
+Then connect:
+- Control -> orbital bridge + recommended actions,
+- Settings -> persistent defaults and model/runtime options,
+- Communication -> session/transcript and later packet exchange,
+- Support -> health manifest, diagnostics, warnings, logs.
+
+### Phase 3 — cockpit/native convergence
 Only after the above is stable:
 - connect the Sapiens panel to the cockpit/native surface if that layer is confirmed and stable,
 - unify replay/session loading with the Sapiens session system,

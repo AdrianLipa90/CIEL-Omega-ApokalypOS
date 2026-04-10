@@ -2,7 +2,7 @@
 
 ## Status
 
-`CIEL-Desktop` is declared as a **fixed attribute** of `CIEL-_SOT_Agent`.
+`CIEL-Desktop` is declared as a **fixed attribute** of `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`.
 
 ## Meaning
 
@@ -36,12 +36,12 @@ Until then, this file and its paired JSON declaration are the canonical statemen
 
 ## Audit boundary
 
-Inside `CIEL-_SOT_Agent`, the desktop layer is auditable as:
+Inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`, the desktop layer is auditable as:
 - fixed-attribute declaration,
 - downstream dependency direction,
 - SoT-visible artifact contract.
 
-Inside `CIEL-_SOT_Agent`, the desktop layer is **not** automatically auditable as:
+Inside `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold`, the desktop layer is **not** automatically auditable as:
 - proven desktop boot,
 - proven GUI responsiveness,
 - proven audio I/O,

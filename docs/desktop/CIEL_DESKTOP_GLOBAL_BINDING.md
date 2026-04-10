@@ -2,13 +2,13 @@
 
 ## Binding statement
 
-`CIEL-Desktop` is a downstream operator-facing desktop layer bound to `CIEL-_SOT_Agent` as upstream Source of Truth.
+`CIEL-Desktop` is a downstream operator-facing desktop layer bound to `CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` as upstream Source of Truth.
 
 ## Dependency order
 
 The intended dependency order is:
 
-`CIEL-_SOT_Agent` -> repository truth / bridge reduction / packet state / validation outputs -> `CIEL-Desktop`
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` -> repository truth / bridge reduction / packet state / validation outputs -> `CIEL-Desktop`
 
 The reverse dependency must not become structurally dominant.
 

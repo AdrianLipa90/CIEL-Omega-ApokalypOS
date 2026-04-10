@@ -4,7 +4,7 @@ This sector is the stable home for repository governance and coordination artifa
 
 ## Purpose
 
-`CIEL-_SOT_Agent` is an integration repository. Governance files should not stay indefinitely scattered across the root.
+`CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold` is an integration repository. Governance files should not stay indefinitely scattered across the root.
 
 This directory begins the migration toward a clearer separation between:
 - governance,

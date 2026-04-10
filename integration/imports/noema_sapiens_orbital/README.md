@@ -2,7 +2,7 @@
 
 This sector defines the **canonical bridge** between:
 - **NOEMA** as a minimal intentional DSL/spec layer,
-- **CIEL-_SOT_Agent** as the canonical Source-of-Truth integration core,
+- **CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold** as the canonical Source-of-Truth integration core,
 - **SapiensOrbital** as the orbital client/shell and contract surface.
 
 ## Canonical rule
