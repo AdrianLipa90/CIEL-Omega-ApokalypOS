@@ -1,0 +1,14 @@
+# Gradle
+.gradle/
+build/
+
+# Local configuration
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+captures/
+
+# OS
+.DS_Store
