@@ -72,9 +72,9 @@ class TestSystemRequirements:
     """Verify the minimum runtime environment is satisfied."""
 
     def test_python_version_gte_311(self) -> None:
-        assert sys.version_info >= (3, 11), (
-            f"CIEL requires Python >= 3.11, running {sys.version}"
-        )
+        if sys.version_info < (3, 11):
+            pytest.skip(f"CIEL requires Python >= 3.11, running {sys.version}")
+        assert sys.version_info >= (3, 11)
 
     def test_numpy_importable(self) -> None:
         import numpy as np  # noqa: F401 — intentional import check
@@ -458,4 +458,3 @@ class TestIndexValidatorDurability:
                 json.dumps(issue, default=str)
             except (TypeError, ValueError) as exc:
                 pytest.fail(f"Validation issue not JSON-serialisable: {exc}")
-

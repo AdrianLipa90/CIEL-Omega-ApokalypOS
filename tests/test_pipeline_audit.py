@@ -100,6 +100,9 @@ EXPECTED_MODULES: dict[str, str] = {
     "runtime_evidence_ingest.py": "runtime evidence ingest pipeline",
     "sapiens_client.py": "Sapiens client packet interface",
     "sapiens_surface_policy.py": "Sapiens surface policy engine",
+    "integration_mirror.py": "integration mirror sync runner",
+    "pipeline_maintenance.py": "maintenance pipeline orchestrator",
+    "control_panel_app.py": "standalone control panel application",
 }
 
 

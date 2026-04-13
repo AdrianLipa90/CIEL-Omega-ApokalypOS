@@ -7,7 +7,10 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from flask import Flask, Response, current_app, jsonify, render_template, request
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:  # pragma: no cover
+    from flask import Flask, Response
 
 _LOG = logging.getLogger(__name__)
 
@@ -15,6 +18,8 @@ RUNTIME_SETTINGS_PATH = Path("integration") / "sapiens" / "gui_runtime_settings.
 
 
 def _root() -> Path:
+    from flask import current_app
+
     return Path(current_app.config.get("CIEL_ROOT", Path.cwd()))
 
 
@@ -83,7 +88,9 @@ def _save_runtime_settings(payload: dict[str, Any]) -> Path:
     return path
 
 
-def register_routes(app: Flask) -> None:
+def register_routes(app: "Flask") -> None:
+    from flask import jsonify, render_template, request
+
     @app.route("/")
     def index() -> str:
         bridge = _load_orbital_bridge_report()
@@ -100,7 +107,7 @@ def register_routes(app: Flask) -> None:
         return render_template("index.html", **context)
 
     @app.route("/api/status")
-    def api_status() -> Response:
+    def api_status() -> "Response":
         bridge = _load_orbital_bridge_report()
         manifest = _load_manifest()
         runtime = _load_runtime_settings()
@@ -119,7 +126,7 @@ def register_routes(app: Flask) -> None:
         return jsonify(payload)
 
     @app.route("/api/panel")
-    def api_panel() -> Response:
+    def api_panel() -> "Response":
         root = _root()
         bridge = _load_orbital_bridge_report()
         runtime = _load_runtime_settings()
@@ -151,7 +158,7 @@ def register_routes(app: Flask) -> None:
         return jsonify(payload)
 
     @app.route("/api/control/options")
-    def api_control_options() -> Response:
+    def api_control_options() -> "Response":
         bridge = _load_orbital_bridge_report()
         runtime = _load_runtime_settings()
         return jsonify(
@@ -165,7 +172,7 @@ def register_routes(app: Flask) -> None:
         )
 
     @app.route("/api/settings", methods=["GET", "POST"])
-    def api_settings() -> Response:
+    def api_settings() -> "Response":
         if request.method == "GET":
             return jsonify(_load_runtime_settings())
 
@@ -178,7 +185,7 @@ def register_routes(app: Flask) -> None:
         return jsonify({"status": "saved", "path": str(path), "settings": current})
 
     @app.route("/api/preferences", methods=["GET", "POST"])
-    def api_preferences() -> Response:
+    def api_preferences() -> "Response":
         current = _load_runtime_settings()
         if request.method == "GET":
             return jsonify({"schema": "ciel-gui-preferences/v1", "preferences": current.get("preferences", {})})
@@ -191,7 +198,7 @@ def register_routes(app: Flask) -> None:
         return jsonify({"status": "saved", "path": str(path), "preferences": current["preferences"]})
 
     @app.route("/api/models")
-    def api_models() -> Response:
+    def api_models() -> "Response":
         try:
             from ..gguf_manager import GGUFManager
 
@@ -210,7 +217,7 @@ def register_routes(app: Flask) -> None:
             return jsonify({"error": "model manager unavailable", "models": []}), 500
 
     @app.route("/api/models/select", methods=["POST"])
-    def api_models_select() -> Response:
+    def api_models_select() -> "Response":
         payload = request.get_json(silent=True) or {}
         model_name = payload.get("name")
         settings = _load_runtime_settings()
@@ -219,7 +226,7 @@ def register_routes(app: Flask) -> None:
         return jsonify({"status": "selected", "selected": model_name, "path": str(path)})
 
     @app.route("/api/models/ensure", methods=["POST"])
-    def api_models_ensure() -> Response:
+    def api_models_ensure() -> "Response":
         try:
             from ..gguf_manager import GGUFManager
 
@@ -233,9 +240,9 @@ def register_routes(app: Flask) -> None:
             return jsonify({"status": "error", "error": "model installation failed"}), 500
 
     @app.errorhandler(404)
-    def not_found(_err) -> tuple[Response, int]:
+    def not_found(_err) -> tuple["Response", int]:
         return jsonify({"error": "not found"}), 404
 
     @app.errorhandler(500)
-    def server_error(_err) -> tuple[Response, int]:
+    def server_error(_err) -> tuple["Response", int]:
         return jsonify({"error": "internal server error"}), 500

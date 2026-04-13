@@ -15,18 +15,12 @@ import argparse
 import sys
 from pathlib import Path
 
-try:
-    from flask import Flask
-except ImportError as exc:  # pragma: no cover
-    raise ImportError(
-        "Flask is required to run the CIEL GUI.  "
-        "Install it with: pip install 'ciel-sot-agent[gui]'"
-    ) from exc
+from typing import Any
 
 from .routes import register_routes
 
 
-def create_app(root: str | Path | None = None, debug: bool = False) -> Flask:
+def create_app(root: str | Path | None = None, debug: bool = False) -> Any:
     """Create and configure the Flask application.
 
     Parameters
@@ -36,6 +30,14 @@ def create_app(root: str | Path | None = None, debug: bool = False) -> Flask:
     debug:
         Enable Flask debug mode (development only).
     """
+    try:
+        from flask import Flask
+    except ImportError as exc:  # pragma: no cover
+        raise ImportError(
+            "Flask is required to run the CIEL GUI.  "
+            "Install it with: pip install 'ciel-sot-agent[gui]'"
+        ) from exc
+
     app = Flask(
         __name__,
         template_folder="templates",

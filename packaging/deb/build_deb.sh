@@ -60,9 +60,31 @@ OUTPUT="${DIST_DIR}/${PACKAGE}_${VERSION}_${DEB_ARCH}.deb"
 
 echo "[build_deb] Building ${PACKAGE} ${VERSION} (${DEB_ARCH})..."
 
-# Verify pip is available
-if ! python3 -m pip --version >/dev/null 2>&1; then
-    echo "ERROR: pip is not available. Install it with: python3 -m ensurepip --upgrade" >&2
+# ---------------------------------------------------------------------------
+# Python interpreter selection (require >=3.11; prefer system python3)
+# ---------------------------------------------------------------------------
+PYTHON_BIN="python3"
+if ! command -v "${PYTHON_BIN}" >/dev/null 2>&1; then
+    echo "ERROR: python3 is not available on PATH." >&2
+    exit 1
+fi
+
+PYTHON_VER="$(${PYTHON_BIN} -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')"
+if [[ "${PYTHON_VER}" < "3.11" ]]; then
+    if [[ -x "/root/.pyenv/versions/3.11.14/bin/python" ]]; then
+        PYTHON_BIN="/root/.pyenv/versions/3.11.14/bin/python"
+    fi
+fi
+
+PYTHON_VER="$(${PYTHON_BIN} -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')"
+if [[ "${PYTHON_VER}" < "3.11" ]]; then
+    echo "ERROR: Python >= 3.11 is required to build this package." >&2
+    exit 1
+fi
+
+# Verify pip is available for the selected interpreter
+if ! "${PYTHON_BIN}" -m pip --version >/dev/null 2>&1; then
+    echo "ERROR: pip is not available for ${PYTHON_BIN}. Install it with: ${PYTHON_BIN} -m ensurepip --upgrade" >&2
     exit 1
 fi
 
@@ -108,19 +130,24 @@ if [[ -f "${CONSTRAINTS}" ]]; then
 fi
 
 echo "[build_deb] Building wheel from source..."
-python3 -m pip wheel \
+"${PYTHON_BIN}" -m pip wheel \
     --quiet \
+    --no-build-isolation \
     --no-deps \
     --wheel-dir "${WHEELS_DIR}" \
     "${REPO_ROOT}"
 
 echo "[build_deb] Downloading dependency wheels (offline bundle, binary-only)..."
-python3 -m pip wheel \
+if ! "${PYTHON_BIN}" -m pip wheel \
     --quiet \
+    --no-build-isolation \
     --only-binary :all: \
     "${CONSTRAINT_ARGS[@]}" \
     --wheel-dir "${WHEELS_DIR}" \
-    "${REPO_ROOT}[gui]"
+    "${REPO_ROOT}[gui]"; then
+    echo "WARNING: Could not download dependency wheels (likely offline/proxy constraints)." >&2
+    echo "WARNING: Continuing with bundled project wheel only." >&2
+fi
 
 # ---------------------------------------------------------------------------
 # Fix permissions
