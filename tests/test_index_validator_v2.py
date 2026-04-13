@@ -99,6 +99,17 @@ def test_resolve_index_registry_path_prefers_v2(tmp_path: Path) -> None:
     assert resolve_index_registry_path(tmp_path) == v2
 
 
+def test_resolve_index_registry_path_uses_compat_copy_when_v2_missing(tmp_path: Path) -> None:
+    (tmp_path / 'integration' / 'registries').mkdir(parents=True)
+    (tmp_path / 'integration').mkdir(exist_ok=True)
+    compat = tmp_path / 'integration' / 'registries' / 'index_registry.yaml'
+    legacy = tmp_path / 'integration' / 'index_registry.yaml'
+    compat.write_text('schema: test-compat\n', encoding='utf-8')
+    legacy.write_text('schema: test-legacy\n', encoding='utf-8')
+
+    assert resolve_index_registry_path(tmp_path) == compat
+
+
 def test_demo_shell_inventory_validation_accepts_valid_inventory() -> None:
     issues, paths = validate_demo_shell_inventory_data(
         _valid_inventory(),

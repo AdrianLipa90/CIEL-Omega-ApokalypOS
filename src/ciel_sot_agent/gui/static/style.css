@@ -548,3 +548,13 @@ html, body {
   .metric-grid { grid-template-columns: repeat(2, 1fr); }
   #workspace { padding: 16px; }
 }
+
+
+.input-like {
+  background: var(--col-panel);
+  color: var(--col-text);
+  border: 1px solid var(--col-border-light);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+}

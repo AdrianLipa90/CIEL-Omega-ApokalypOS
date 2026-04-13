@@ -80,6 +80,23 @@
       <button class="btn">Export State Bundle</button>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="accent-bar"></span>
+      Live Vitals
+    </div>
+    <div id="live-vitals-summary" class="metric-sub">No telemetry yet.</div>
+    <pre id="live-vitals-chart" class="code-block" style="margin-top:10px; max-height:180px; overflow:auto"></pre>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="accent-bar"></span>
+      EEG CIEL State
+    </div>
+    <pre id="eeg-state-block" class="code-block" style="max-height:220px; overflow:auto"></pre>
+  </div>
 </div>
 
 
@@ -207,33 +224,46 @@
 <div id="section-settings" class="ws-section" style="display:none">
   <div class="section-header">
     <span class="section-title">Settings</span>
-    <span class="section-subtitle">Backend selection, model, energy profile</span>
+    <span class="section-subtitle">Main client control panel: models, preferences, orchestration, memory</span>
   </div>
   <div class="card">
-    <div class="card-title"><span class="accent-bar"></span>GGUF Model Manager</div>
-    <div id="model-list">
-      <span style="color:var(--col-text-dim)">Loading…</span>
-    </div>
+    <div class="card-title"><span class="accent-bar"></span>Model Selection</div>
+    <div id="model-list"><span style="color:var(--col-text-dim)">Loading…</span></div>
     <div class="divider"></div>
-    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+    <label class="metric-sub" for="model-select">Active model</label>
+    <select id="model-select" class="input-like" style="width:100%; margin-top:6px;"></select>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:12px;">
       <button class="btn btn-primary" id="btn-ensure-model">Ensure Default Model</button>
       <span id="model-ensure-status" style="font-size:11px; color:var(--col-text-muted)"></span>
     </div>
-    <p style="margin-top:10px; font-size:11px; color:var(--col-text-dim)">
-      Default: TinyLlama-1.1B-Chat Q4_K_M (~670 MB).
-      Stored in <code>~/.local/share/ciel/models/</code> or <code>$CIEL_MODELS_DIR</code>.
-    </p>
   </div>
+
   <div class="card">
-    <div class="card-title"><span class="accent-bar"></span>System Settings</div>
-    <p style="color:var(--col-text-muted); font-size:12px">
-      Panel settings are read from
-      <code>integration/sapiens/panel_settings.yaml</code>.
-      Edit that file and restart the server to apply changes.
-    </p>
+    <div class="card-title"><span class="accent-bar"></span>Preferences</div>
+    <div class="metric-grid">
+      <div>
+        <div class="metric-label">Preferred mode</div>
+        <select id="pref-mode" class="input-like" style="width:100%; margin-top:6px;"></select>
+      </div>
+      <div>
+        <div class="metric-label">Orchestration</div>
+        <select id="pref-orchestration" class="input-like" style="width:100%; margin-top:6px;"></select>
+      </div>
+      <div>
+        <div class="metric-label">Memory retention</div>
+        <select id="pref-memory" class="input-like" style="width:100%; margin-top:6px;"></select>
+      </div>
+    </div>
+    <label style="display:flex; align-items:center; gap:8px; margin-top:12px; color:var(--col-text-muted)">
+      <input type="checkbox" id="pref-live-vitals" />
+      Enable live vitals streaming
+    </label>
+    <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+      <button class="btn btn-primary" id="btn-save-preferences">Save Preferences</button>
+      <span id="pref-save-status" class="metric-sub"></span>
+    </div>
   </div>
 </div>
-
 
 <!-- ===================================================
      SECTION: Support

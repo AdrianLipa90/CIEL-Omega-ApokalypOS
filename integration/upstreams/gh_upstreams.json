@@ -1,5 +1,4 @@
 {
-  "schema": "ciel-sot-agent/gh-upstreams/v0.1",
   "upstreams": [
     {
       "key": "agent",
@@ -18,6 +17,14 @@
       "notes": "Cockpit and UI surface"
     },
     {
+      "key": "desktop",
+      "repo_full_name": "AdrianLipa90/CIEL-Desktop",
+      "branch": "main",
+      "enabled": true,
+      "source_weight": 0.95,
+      "notes": "Desktop fixed attribute bound to the integration manifold"
+    },
+    {
       "key": "canon",
       "repo_full_name": null,
       "branch": "main",
@@ -33,5 +40,6 @@
       "source_weight": 0.85,
       "notes": "GitHub mapping not yet declared in this integration layer"
     }
-  ]
+  ],
+  "schema": "ciel-sot-agent/gh-upstreams/v0.1"
 }

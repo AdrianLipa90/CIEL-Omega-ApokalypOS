@@ -124,7 +124,7 @@ class TestApiPanel:
     def test_panel_schema(self, client):
         resp = client.get("/api/panel")
         data = resp.get_json()
-        assert data["schema"] == "ciel-gui-panel/v1"
+        assert data["schema"] == "ciel-gui-panel/v2"
 
     def test_panel_has_control_section(self, client):
         resp = client.get("/api/panel")
@@ -187,6 +187,37 @@ class TestErrorHandlers:
         assert "error" in data
 
 
+
+
+class TestPreferencesApi:
+    def test_preferences_get_returns_defaults(self, client):
+        resp = client.get('/api/preferences')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['schema'] == 'ciel-gui-preferences/v1'
+
+    def test_preferences_post_saves_payload(self, client):
+        resp = client.post('/api/preferences', json={
+            'preferred_mode': 'safe',
+            'orchestration_level': 'balanced',
+            'memory_retention': 'persistent',
+            'live_vitals_enabled': True,
+            'selected_model': 'TinyLlama.gguf',
+        })
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['status'] == 'saved'
+        assert data['preferences']['preferred_mode'] == 'safe'
+
+
+class TestControlOptionsApi:
+    def test_control_options_returns_modes(self, client):
+        resp = client.get('/api/control/options')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['schema'] == 'ciel-gui-control-options/v1'
+        assert 'guided' in data['modes']
+
 # -------------------------------------------------------------------
 # App factory
 # -------------------------------------------------------------------
@@ -209,3 +240,5 @@ class TestAppFactory:
         assert "/api/panel" in rules
         assert "/api/models" in rules
         assert "/api/models/ensure" in rules
+        assert "/api/preferences" in rules
+        assert "/api/control/options" in rules

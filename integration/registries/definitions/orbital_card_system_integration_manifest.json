@@ -31,7 +31,9 @@
   "runtime_consumers": {
     "orbital_bridge": "src/ciel_sot_agent/orbital_bridge.py",
     "sapiens_client": "src/ciel_sot_agent/sapiens_client.py",
-    "bootstrap_audio_orbital_and_catalog": "scripts/bootstrap_audio_orbital_and_catalog.py"
+    "bootstrap_audio_orbital_and_catalog": "scripts/bootstrap_audio_orbital_and_catalog.py",
+    "integration_mirror_sync_runtime": "src/ciel_sot_agent/integration_mirror.py",
+    "integration_mirror_sync_launcher": "scripts/run_integration_mirror_sync.py"
   },
   "derived_runtime_outputs": {
     "subsystem_sync_manifest": "integration/reports/orbital_bridge/subsystem_sync_manifest.json",

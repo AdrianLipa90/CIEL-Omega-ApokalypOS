@@ -7,6 +7,8 @@ GET  /api/status     — System status JSON (top status bar data)
 GET  /api/panel      — Full panel state JSON
 GET  /api/models     — Installed GGUF models JSON
 POST /api/models/ensure  — Ensure the default model is installed (async-safe)
+GET  /api/control/options — Control and orchestration options
+GET/POST /api/preferences — GUI preferences read/write
 """
 
 from __future__ import annotations
@@ -16,7 +18,7 @@ import logging
 from pathlib import Path
 from typing import Any
 
-from flask import Flask, Response, current_app, jsonify, render_template
+from flask import Flask, Response, current_app, jsonify, render_template, request
 
 _LOG = logging.getLogger(__name__)
 
@@ -48,6 +50,57 @@ def _load_manifest() -> dict[str, Any]:
             _LOG.warning("Could not read panel manifest at %s: %s", manifest_path, exc)
     return {}
 
+
+
+
+def _settings_path() -> Path:
+    return _root() / "integration" / "sapiens" / "settings_defaults.json"
+
+
+def _preferences_path() -> Path:
+    return _root() / "integration" / "reports" / "sapiens_client" / "gui_preferences.json"
+
+
+def _load_settings_defaults() -> dict[str, Any]:
+    path = _settings_path()
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            _LOG.warning("Could not read settings defaults at %s: %s", path, exc)
+    return {}
+
+
+def _load_preferences() -> dict[str, Any]:
+    path = _preferences_path()
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError) as exc:
+            _LOG.warning("Could not read GUI preferences at %s: %s", path, exc)
+    return {
+        "schema": "ciel-gui-preferences/v1",
+        "selected_model": None,
+        "preferred_mode": "guided",
+        "orchestration_level": "balanced",
+        "live_vitals_enabled": True,
+        "memory_retention": "session-first",
+    }
+
+
+def _persist_preferences(payload: dict[str, Any]) -> dict[str, Any]:
+    path = _preferences_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    cleaned = {
+        "schema": "ciel-gui-preferences/v1",
+        "selected_model": payload.get("selected_model"),
+        "preferred_mode": payload.get("preferred_mode", "guided"),
+        "orchestration_level": payload.get("orchestration_level", "balanced"),
+        "live_vitals_enabled": bool(payload.get("live_vitals_enabled", True)),
+        "memory_retention": payload.get("memory_retention", "session-first"),
+    }
+    path.write_text(json.dumps(cleaned, ensure_ascii=False, indent=2), encoding="utf-8")
+    return cleaned
 
 def register_routes(app: Flask) -> None:
     """Register all routes onto *app*."""
@@ -105,8 +158,19 @@ def register_routes(app: Flask) -> None:
             except OSError as exc:
                 _LOG.warning("Could not read transcript at %s: %s", transcript_path, exc)
 
+        packet_path = root / "integration" / "reports" / "sapiens_client" / "latest_packet.json"
+        packet: dict[str, Any] = {}
+        if packet_path.exists():
+            try:
+                packet = json.loads(packet_path.read_text(encoding="utf-8"))
+            except (OSError, ValueError) as exc:
+                _LOG.warning("Could not read latest packet at %s: %s", packet_path, exc)
+
+        settings_defaults = _load_settings_defaults()
+        preferences = _load_preferences()
+
         payload = {
-            "schema": "ciel-gui-panel/v1",
+            "schema": "ciel-gui-panel/v2",
             "control": {
                 "coherence_index": bridge.get("state_manifest", {}).get("coherence_index", 0.0),
                 "system_health": bridge.get("health_manifest", {}).get("system_health", 0.0),
@@ -114,11 +178,18 @@ def register_routes(app: Flask) -> None:
                 "recommended_action": bridge.get("health_manifest", {}).get(
                     "recommended_action", "guided interaction"
                 ),
+                "eeg_state": packet.get("eeg_state", {}),
+                "live_vitals": packet.get("live_vitals", {}),
+                "orchestration_layer": packet.get("orchestration_layer", {}),
             },
             "communication": {
                 "session": session_data,
                 "transcript_preview": transcript[:512] if transcript else "",
+                "communication_layer": packet.get("communication_layer", {}),
+                "memory_store": packet.get("memory_store", {}),
             },
+            "settings": settings_defaults,
+            "preferences": preferences,
             "support": {
                 "health_manifest": bridge.get("health_manifest", {}),
                 "recommended_control": bridge.get("recommended_control", {}),
@@ -163,6 +234,26 @@ def register_routes(app: Flask) -> None:
                 jsonify({"status": "error", "error": "model installation failed"}),
                 500,
             )
+
+
+
+    @app.route("/api/control/options")
+    def api_control_options() -> Response:
+        return jsonify({
+            "schema": "ciel-gui-control-options/v1",
+            "modes": ["safe", "guided", "standard", "diagnostic"],
+            "orchestration_levels": ["conservative", "balanced", "aggressive"],
+            "memory_policies": ["session-first", "hybrid", "persistent"],
+        })
+
+    @app.route("/api/preferences", methods=["GET", "POST"])
+    def api_preferences() -> Response:
+        if request.method == "GET":
+            return jsonify(_load_preferences())
+
+        payload = request.get_json(silent=True) or {}
+        saved = _persist_preferences(payload)
+        return jsonify({"status": "saved", "preferences": saved})
 
     @app.errorhandler(404)
     def not_found(_err) -> tuple[Response, int]:

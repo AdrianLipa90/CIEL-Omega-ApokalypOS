@@ -16,6 +16,8 @@ objects:
       - OCS-SOT-0002
       - OCS-SOT-0003
       - OCS-SOT-0004
+      - OCS-SOT-0005
+      - OCS-SOT-0006
     tests: []
     interfaces: []
     exports:
@@ -72,4 +74,40 @@ objects:
       - sapiens_packet_projection
     provenance: []
     path: src/ciel_sot_agent/orbital_bridge.py
+    placeholder: false
+  - id: OCS-SOT-0005
+    name: orbital_card_system_mirror_sync_runtime
+    layer: runtime
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - OCS-SOT-0001
+    downstream:
+      - OCS-SOT-0006
+    tests:
+      - TST-SOT-OCS-0001
+    interfaces: []
+    exports:
+      - mirror_sync_report
+      - merged_pair_registry
+    provenance: []
+    path: src/ciel_sot_agent/integration_mirror.py
+    placeholder: false
+  - id: OCS-SOT-0006
+    name: orbital_card_system_mirror_sync_launcher
+    layer: scripts
+    status: canonical
+    provenance_type: native
+    owner_layer: scripts
+    upstream:
+      - OCS-SOT-0005
+    downstream: []
+    tests:
+      - TST-SOT-OCS-0001
+    interfaces: []
+    exports:
+      - mirror_sync_cli
+    provenance: []
+    path: scripts/run_integration_mirror_sync.py
     placeholder: false

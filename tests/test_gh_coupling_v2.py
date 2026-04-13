@@ -2,7 +2,9 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from src.ciel_sot_agent.gh_coupling_v2 import resolve_runtime_paths, propagate_phase_changes
+import json
+
+from src.ciel_sot_agent.gh_coupling_v2 import _write_json_with_mirror, propagate_phase_changes, resolve_runtime_paths
 from src.ciel_sot_agent.repo_phase import RepositoryState
 
 
@@ -54,3 +56,16 @@ def test_propagate_phase_changes_preserves_existing_behavior() -> None:
     assert new_states['b'].phi != states['b'].phi
     assert any(e['kind'] == 'intrinsic' for e in events)
     assert any(e['kind'] == 'coupled' for e in events)
+
+
+def test_write_json_with_mirror_keeps_legacy_and_v2_in_sync(tmp_path: Path) -> None:
+    payload = {'schema': 'test', 'value': 1}
+    primary = tmp_path / 'integration' / 'upstreams' / 'gh_live_registry.json'
+    mirror = tmp_path / 'integration' / 'gh_live_registry.json'
+    primary.parent.mkdir(parents=True)
+    mirror.parent.mkdir(parents=True, exist_ok=True)
+
+    _write_json_with_mirror(primary, payload, mirror_path=mirror)
+
+    assert json.loads(primary.read_text(encoding='utf-8')) == payload
+    assert json.loads(mirror.read_text(encoding='utf-8')) == payload
