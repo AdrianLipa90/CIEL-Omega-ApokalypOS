@@ -56,3 +56,21 @@ I dopiero potem uruchom build:
 ```bash
 JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 gradle :app:assembleDebug
 ```
+
+
+## Instalacja na telefonie (adb)
+
+Użyj gotowego skryptu, który buduje i instaluje debug APK oraz obsługuje najczęstsze błędy instalacji:
+
+```bash
+cd src/android_app
+./scripts/install_debug.sh
+```
+
+Skrypt automatycznie:
+- sprawdza dostępność `adb` i `gradle`,
+- konfiguruje `local.properties` (jeśli go nie ma),
+- sprawdza podłączone urządzenie i API (min 21),
+- buduje `:app:assembleDebug`,
+- próbuje `adb install -r`,
+- przy `INSTALL_FAILED_UPDATE_INCOMPATIBLE` / `INSTALL_FAILED_VERSION_DOWNGRADE` odinstalowuje starą wersję i instaluje ponownie.

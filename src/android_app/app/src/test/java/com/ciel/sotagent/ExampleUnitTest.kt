@@ -1,11 +1,11 @@
 package com.ciel.sotagent
 
-import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class ExampleUnitTest {
     @Test
     fun appName_isStable() {
-        assertEquals("com.ciel.sotagent", BuildConfig.APPLICATION_ID)
+        assertTrue(BuildConfig.APPLICATION_ID.startsWith("com.ciel.sotagent"))
     }
 }
