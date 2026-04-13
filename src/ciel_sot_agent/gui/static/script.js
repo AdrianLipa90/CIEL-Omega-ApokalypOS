@@ -126,6 +126,105 @@ async function ensureDefaultModel() {
   }
 }
 
+
+
+/* -------------------------------------------------------
+   Preferences and control options
+   ------------------------------------------------------- */
+function populateSelect(id, values, selectedValue) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const options = (values || []).map(v => `<option value="${escHtml(v)}" ${String(v) === String(selectedValue) ? "selected" : ""}>${escHtml(v)}</option>`);
+  el.innerHTML = options.join("");
+}
+
+async function refreshControlOptions() {
+  try {
+    const [optRes, prefRes] = await Promise.all([fetch('/api/control/options'), fetch('/api/preferences')]);
+    if (!optRes.ok || !prefRes.ok) return;
+    const options = await optRes.json();
+    const prefs = await prefRes.json();
+
+    populateSelect('pref-communication-mode', options.communication_modes || [], prefs.communication_mode);
+    populateSelect('pref-orchestration-mode', options.orchestration_modes || [], prefs.orchestration_mode);
+    populateSelect('pref-memory-policy', options.memory_policies || [], prefs.memory_policy);
+    populateSelect('pref-refresh-ms', (options.refresh_presets_ms || []).map(v => String(v)), String(prefs.live_refresh_ms));
+
+    const modelSelect = document.getElementById('selected-model');
+    if (modelSelect) {
+      modelSelect.innerHTML = (options.model_options || []).map(m =>
+        `<option value="${escHtml(m.key)}" ${String(m.key) === String(prefs.selected_model_key) ? "selected" : ""}>${escHtml(m.key)} — ${escHtml(m.description || m.name || "model")}</option>`
+      ).join('');
+    }
+
+    const cbVitals = document.getElementById('pref-show-vitals');
+    const cbEeg = document.getElementById('pref-show-eeg');
+    if (cbVitals) cbVitals.checked = !!prefs.show_live_vitals;
+    if (cbEeg) cbEeg.checked = !!prefs.show_eeg_overlay;
+  } catch (_) {}
+}
+
+async function savePreferences() {
+  const status = document.getElementById('preferences-status');
+  const payload = {
+    communication_mode: document.getElementById('pref-communication-mode')?.value || 'guided',
+    orchestration_mode: document.getElementById('pref-orchestration-mode')?.value || 'safe',
+    memory_policy: document.getElementById('pref-memory-policy')?.value || 'session-first',
+    live_refresh_ms: Number(document.getElementById('pref-refresh-ms')?.value || POLL_INTERVAL_MS),
+    show_live_vitals: !!document.getElementById('pref-show-vitals')?.checked,
+    show_eeg_overlay: !!document.getElementById('pref-show-eeg')?.checked,
+    selected_model_key: document.getElementById('selected-model')?.value || 'tinyllama-1.1b-chat-q4',
+  };
+
+  try {
+    const res = await fetch('/api/preferences', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (!res.ok || data.status !== 'saved') throw new Error(data.error || 'save failed');
+    if (status) status.textContent = 'Preferences saved';
+  } catch (err) {
+    if (status) status.textContent = `Error: ${String(err)}`;
+  }
+}
+
+async function applySelectedModel() {
+  const status = document.getElementById('model-ensure-status');
+  const modelKey = document.getElementById('selected-model')?.value;
+  if (!modelKey) return;
+  try {
+    const res = await fetch('/api/models/select', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model_key: modelKey }),
+    });
+    const data = await res.json();
+    if (!res.ok || data.status !== 'selected') throw new Error(data.error || 'select failed');
+    if (status) status.textContent = `Selected model: ${modelKey}`;
+  } catch (err) {
+    if (status) status.textContent = `Error: ${String(err)}`;
+  }
+}
+
+async function runOrchestration(action) {
+  const status = document.getElementById('orchestrate-status');
+  if (status) status.textContent = `Running: ${action}...`;
+  try {
+    const res = await fetch('/api/orchestrate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'orchestration error');
+    if (status) status.textContent = `${data.status}: ${data.action}`;
+  } catch (err) {
+    if (status) status.textContent = `Error: ${String(err)}`;
+  }
+}
+
 /* -------------------------------------------------------
    Navigation
    ------------------------------------------------------- */
@@ -189,10 +288,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnEnsure = document.getElementById("btn-ensure-model");
   if (btnEnsure) btnEnsure.addEventListener("click", ensureDefaultModel);
 
+  const btnSavePrefs = document.getElementById('btn-save-preferences');
+  if (btnSavePrefs) btnSavePrefs.addEventListener('click', savePreferences);
+
+  const btnSelectModel = document.getElementById('btn-select-model');
+  if (btnSelectModel) btnSelectModel.addEventListener('click', applySelectedModel);
+
+  document.querySelectorAll('[data-orch-action]').forEach(btn => {
+    btn.addEventListener('click', () => runOrchestration(btn.dataset.orchAction));
+  });
+
   // Initial data load
   refreshStatus();
   refreshPanel();
   refreshModels();
+  refreshControlOptions();
 
   // Periodic refresh
   setInterval(refreshStatus, POLL_INTERVAL_MS);

@@ -124,7 +124,7 @@ class TestApiPanel:
     def test_panel_schema(self, client):
         resp = client.get("/api/panel")
         data = resp.get_json()
-        assert data["schema"] == "ciel-gui-panel/v1"
+        assert data["schema"] == "ciel-gui-panel/v2"
 
     def test_panel_has_control_section(self, client):
         resp = client.get("/api/panel")
@@ -209,3 +209,46 @@ class TestAppFactory:
         assert "/api/panel" in rules
         assert "/api/models" in rules
         assert "/api/models/ensure" in rules
+        assert "/api/control/options" in rules
+        assert "/api/preferences" in rules
+        assert "/api/models/select" in rules
+        assert "/api/orchestrate" in rules
+
+
+class TestApiPreferencesAndOptions:
+    def test_control_options_returns_200(self, client):
+        resp = client.get('/api/control/options')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['schema'] == 'ciel-gui-control-options/v1'
+        assert 'model_options' in data
+
+    def test_preferences_get_returns_defaults(self, client):
+        resp = client.get('/api/preferences')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['schema'] == 'ciel-gui-preferences/v1'
+        assert 'selected_model_key' in data
+
+    def test_preferences_post_saves_values(self, client):
+        resp = client.post('/api/preferences', json={'communication_mode': 'analysis', 'show_eeg_overlay': False})
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['status'] == 'saved'
+        assert data['preferences']['communication_mode'] == 'analysis'
+        assert data['preferences']['show_eeg_overlay'] is False
+
+    def test_models_select_requires_key(self, client):
+        resp = client.post('/api/models/select', json={})
+        assert resp.status_code == 400
+
+    def test_orchestrate_requires_action(self, client):
+        resp = client.post('/api/orchestrate', json={})
+        assert resp.status_code == 400
+
+    def test_orchestrate_accepts_action(self, client):
+        resp = client.post('/api/orchestrate', json={'action': 'run_bridge_update'})
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['status'] == 'queued'
+        assert data['action'] == 'run_bridge_update'

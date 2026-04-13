@@ -548,3 +548,21 @@ html, body {
   .metric-grid { grid-template-columns: repeat(2, 1fr); }
   #workspace { padding: 16px; }
 }
+
+/* Settings controls */
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.input-select {
+  width: 100%;
+  margin-top: 4px;
+  background: var(--col-bg-elev);
+  color: var(--col-text);
+  border: 1px solid var(--col-border);
+  border-radius: 6px;
+  padding: 7px 8px;
+  font-size: 12px;
+}

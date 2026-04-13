@@ -74,10 +74,11 @@
       Operator Actions
     </div>
     <div style="display:flex; flex-wrap:wrap; gap:8px;">
-      <button class="btn btn-primary">Run Orbital Pass</button>
-      <button class="btn">Run Bridge Update</button>
-      <button class="btn">Evaluate Reduction</button>
-      <button class="btn">Export State Bundle</button>
+      <button class="btn btn-primary" data-orch-action="run_orbital_pass">Run Orbital Pass</button>
+      <button class="btn" data-orch-action="run_bridge_update">Run Bridge Update</button>
+      <button class="btn" data-orch-action="evaluate_reduction">Evaluate Reduction</button>
+      <button class="btn" data-orch-action="export_state_bundle">Export State Bundle</button>
+      <span id="orchestrate-status" style="font-size:11px; color:var(--col-text-muted)"></span>
     </div>
   </div>
 </div>
@@ -215,22 +216,36 @@
       <span style="color:var(--col-text-dim)">Loading…</span>
     </div>
     <div class="divider"></div>
-    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-      <button class="btn btn-primary" id="btn-ensure-model">Ensure Default Model</button>
-      <span id="model-ensure-status" style="font-size:11px; color:var(--col-text-muted)"></span>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px;">
+      <label for="selected-model" style="font-size:12px; color:var(--col-text-muted)">Selected model:</label>
+      <select id="selected-model" class="input-select"></select>
+      <button class="btn" id="btn-select-model">Apply model</button>
+      <button class="btn btn-primary" id="btn-ensure-model">Ensure selected model</button>
     </div>
-    <p style="margin-top:10px; font-size:11px; color:var(--col-text-dim)">
-      Default: TinyLlama-1.1B-Chat Q4_K_M (~670 MB).
-      Stored in <code>~/.local/share/ciel/models/</code> or <code>$CIEL_MODELS_DIR</code>.
-    </p>
+    <span id="model-ensure-status" style="font-size:11px; color:var(--col-text-muted)"></span>
   </div>
   <div class="card">
-    <div class="card-title"><span class="accent-bar"></span>System Settings</div>
-    <p style="color:var(--col-text-muted); font-size:12px">
-      Panel settings are read from
-      <code>integration/sapiens/panel_settings.yaml</code>.
-      Edit that file and restart the server to apply changes.
-    </p>
+    <div class="card-title"><span class="accent-bar"></span>Control Panel Settings</div>
+    <div class="settings-grid">
+      <label>Communication mode
+        <select id="pref-communication-mode" class="input-select"></select>
+      </label>
+      <label>Orchestration mode
+        <select id="pref-orchestration-mode" class="input-select"></select>
+      </label>
+      <label>Memory policy
+        <select id="pref-memory-policy" class="input-select"></select>
+      </label>
+      <label>Live refresh
+        <select id="pref-refresh-ms" class="input-select"></select>
+      </label>
+      <label><input type="checkbox" id="pref-show-vitals" checked /> Show live vitals</label>
+      <label><input type="checkbox" id="pref-show-eeg" checked /> Show EEG overlay</label>
+    </div>
+    <div style="display:flex; gap:10px; align-items:center; margin-top:10px;">
+      <button class="btn btn-primary" id="btn-save-preferences">Save preferences</button>
+      <span id="preferences-status" style="font-size:11px; color:var(--col-text-muted)"></span>
+    </div>
   </div>
 </div>
 
