@@ -71,7 +71,7 @@ Skrypt automatycznie:
 - szuka `adb` najpierw w `PATH`, a potem automatycznie w `sdk.dir/platform-tools/adb`,
 - używa `./gradlew` jeśli jest dostępny, w przeciwnym razie systemowego `gradle`,
 - konfiguruje `local.properties` (jeśli go nie ma),
-- sprawdza podłączone urządzenie i API (min 21),
+- sprawdza podłączone urządzenie i API (min 29 — Android 10),
 - buduje `:app:assembleDebug`,
 - próbuje `adb install -r`,
 - przy `INSTALL_FAILED_UPDATE_INCOMPATIBLE` / `INSTALL_FAILED_VERSION_DOWNGRADE` odinstalowuje starą wersję i instaluje ponownie.

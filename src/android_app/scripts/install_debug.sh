@@ -53,8 +53,8 @@ if [[ "$ADB_DEVICE_COUNT" -lt 1 ]]; then
 fi
 
 DEVICE_API=$($ADB_BIN shell getprop ro.build.version.sdk | tr -d '\r')
-if [[ -n "$DEVICE_API" && "$DEVICE_API" -lt 21 ]]; then
-  echo "[ERROR] Urządzenie ma API $DEVICE_API, a aplikacja wymaga minSdk 21."
+if [[ -n "$DEVICE_API" && "$DEVICE_API" -lt 29 ]]; then
+  echo "[ERROR] Urządzenie ma API $DEVICE_API, a aplikacja wymaga minSdk 29."
   exit 1
 fi
 
