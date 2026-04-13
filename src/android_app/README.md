@@ -68,7 +68,8 @@ cd src/android_app
 ```
 
 Skrypt automatycznie:
-- sprawdza dostępność `adb` i `gradle`,
+- szuka `adb` najpierw w `PATH`, a potem automatycznie w `sdk.dir/platform-tools/adb`,
+- używa `./gradlew` jeśli jest dostępny, w przeciwnym razie systemowego `gradle`,
 - konfiguruje `local.properties` (jeśli go nie ma),
 - sprawdza podłączone urządzenie i API (min 21),
 - buduje `:app:assembleDebug`,
