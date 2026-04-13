@@ -28,3 +28,31 @@ Ten katalog zawiera szablon aplikacji Android (Kotlin + XML) dla CIEL SOT Agent.
 2. Włącz i zweryfikuj shrink/obfuscation (`minifyEnabled true`) dla wydania release.
 3. Skonfiguruj pipeline CI z `test`, `lint`, oraz budową `assembleRelease`.
 4. Przed publikacją zwiększ `versionCode` i `versionName`.
+
+
+## Rozwiązywanie problemu "SDK location not found"
+
+Jeżeli widzisz błąd:
+
+`SDK location not found` lub `sdk.dir ... Directory does not exist`,
+to znaczy, że `local.properties` wskazuje złą ścieżkę.
+
+Użyj skryptu:
+
+```bash
+cd src/android_app
+./scripts/configure_local_sdk.sh
+```
+
+Następnie zweryfikuj:
+
+```bash
+cat local.properties
+ls -la "$(cut -d= -f2 local.properties)"
+```
+
+I dopiero potem uruchom build:
+
+```bash
+JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 gradle :app:assembleDebug
+```
