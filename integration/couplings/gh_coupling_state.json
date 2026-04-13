@@ -1,5 +1,26 @@
 {
-  "last_generated_at": null,
-  "heads": {},
-  "last_changed_keys": []
+  "last_changed_keys": [
+    "agent"
+  ],
+  "heads": {
+    "agent": {
+      "sha": "3fc364f61ed33b24c7c5ac78829876ef0408e0ef",
+      "message": "Update live GH coupling state",
+      "timestamp": "2026-04-13T01:58:32Z",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-_SOT_Agent/commit/3fc364f61ed33b24c7c5ac78829876ef0408e0ef"
+    },
+    "demo": {
+      "sha": "00bb9b060fada69891fa82ce4f7d799610b56693",
+      "message": "contracts(core): add semantic action reference card",
+      "timestamp": "2026-03-29T22:33:33Z",
+      "html_url": "https://github.com/AdrianLipa90/ciel-omega-demo/commit/00bb9b060fada69891fa82ce4f7d799610b56693"
+    },
+    "desktop": {
+      "sha": "5289bc2d02ae454b77d674bf2fc39d89f30c0292",
+      "message": "Merge pull request #7 from AdrianLipa90/copilot/model-relacji-adrain-ciel\n\nNormalize PanelState payload to dict in SoT adapter path",
+      "timestamp": "2026-04-01T15:35:56Z",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Desktop/commit/5289bc2d02ae454b77d674bf2fc39d89f30c0292"
+    }
+  },
+  "last_generated_at": "2026-04-13T03:17:44.360505+00:00"
 }

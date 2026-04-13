@@ -225,12 +225,38 @@
     </p>
   </div>
   <div class="card">
-    <div class="card-title"><span class="accent-bar"></span>System Settings</div>
-    <p style="color:var(--col-text-muted); font-size:12px">
-      Panel settings are read from
-      <code>integration/sapiens/panel_settings.yaml</code>.
-      Edit that file and restart the server to apply changes.
-    </p>
+    <div class="card-title"><span class="accent-bar"></span>Control Panel Preferences</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px;">
+      <label>Mode
+        <select id="ctl-mode" class="btn" style="width:100%; text-align:left"></select>
+      </label>
+      <label>Energy
+        <select id="ctl-energy" class="btn" style="width:100%; text-align:left"></select>
+      </label>
+      <label>Language
+        <select id="pref-language" class="btn" style="width:100%; text-align:left">
+          <option value="pl-PL">Polski</option>
+          <option value="en-US">English</option>
+        </select>
+      </label>
+      <label>Theme
+        <select id="pref-theme" class="btn" style="width:100%; text-align:left">
+          <option value="quiet-dark">Quiet Dark</option>
+          <option value="high-contrast">High Contrast</option>
+        </select>
+      </label>
+      <label>Model
+        <select id="model-select" class="btn" style="width:100%; text-align:left"></select>
+      </label>
+      <label>Temperature
+        <input id="model-temp" type="number" min="0" max="2" step="0.05" class="btn" style="width:100%" />
+      </label>
+    </div>
+    <div class="divider"></div>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+      <button class="btn btn-primary" id="btn-save-settings">Save Preferences</button>
+      <span id="settings-save-status" style="font-size:11px; color:var(--col-text-muted)"></span>
+    </div>
   </div>
 </div>
 

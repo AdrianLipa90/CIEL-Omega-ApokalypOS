@@ -82,6 +82,7 @@ async function refreshModels() {
       return;
     }
 
+    const selected = data.selected_model || '';
     container.innerHTML = data.models.map(m =>
       `<div class="model-row">
          <div class="model-icon">
@@ -97,6 +98,12 @@ async function refreshModels() {
          <div class="model-size">${fmtBytes(m.size_bytes)}</div>
        </div>`
     ).join("");
+
+    const modelSelect = document.getElementById('model-select');
+    if (modelSelect) {
+      modelSelect.innerHTML = data.models.map(m => `<option value="${escHtml(m.name)}">${escHtml(m.name)}</option>`).join('');
+      if (selected) modelSelect.value = selected;
+    }
   } catch (_) {
     container.textContent = "error loading models";
   }
@@ -123,6 +130,81 @@ async function ensureDefaultModel() {
     status.innerHTML = `<span class="badge badge-red">error</span> ${escHtml(String(err))}`;
   } finally {
     btn.disabled = false;
+  }
+}
+
+
+
+/* -------------------------------------------------------
+   Settings / preferences / control options
+   ------------------------------------------------------- */
+async function refreshSettings() {
+  try {
+    const [sRes, cRes] = await Promise.all([fetch('/api/settings'), fetch('/api/control/options')]);
+    if (!sRes.ok || !cRes.ok) return;
+    const settings = await sRes.json();
+    const control = await cRes.json();
+
+    const mode = document.getElementById('ctl-mode');
+    const energy = document.getElementById('ctl-energy');
+    if (mode) {
+      mode.innerHTML = (control.available_modes || []).map(m => `<option value="${escHtml(m)}">${escHtml(m)}</option>`).join('');
+      mode.value = settings.control?.mode || control.recommended_mode || 'guided';
+    }
+    if (energy) {
+      energy.innerHTML = (control.energy_budgets || []).map(e => `<option value="${escHtml(e)}">${escHtml(e)}</option>`).join('');
+      energy.value = settings.control?.energy_budget || 'warm';
+    }
+
+    const lang = document.getElementById('pref-language');
+    const theme = document.getElementById('pref-theme');
+    const temp = document.getElementById('model-temp');
+    if (lang) lang.value = settings.preferences?.language || 'pl-PL';
+    if (theme) theme.value = settings.preferences?.theme || 'quiet-dark';
+    if (temp) temp.value = settings.model?.temperature ?? 0.2;
+  } catch (_) {
+    // silent
+  }
+}
+
+async function saveSettings() {
+  const status = document.getElementById('settings-save-status');
+  const payload = {
+    preferences: {
+      language: document.getElementById('pref-language')?.value || 'pl-PL',
+      theme: document.getElementById('pref-theme')?.value || 'quiet-dark',
+    },
+    control: {
+      mode: document.getElementById('ctl-mode')?.value || 'guided',
+      energy_budget: document.getElementById('ctl-energy')?.value || 'warm',
+    },
+    model: {
+      temperature: Number(document.getElementById('model-temp')?.value || 0.2),
+    },
+  };
+
+  const modelName = document.getElementById('model-select')?.value;
+  if (modelName) {
+    try {
+      await fetch('/api/models/select', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name: modelName}),
+      });
+    } catch (_) {}
+  }
+
+  try {
+    const res = await fetch('/api/settings', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json();
+    if (status) status.innerHTML = `<span class="badge badge-cyan">saved</span> ${escHtml(data.path || '')}`;
+    refreshStatus();
+  } catch (err) {
+    if (status) status.innerHTML = `<span class="badge badge-red">error</span> ${escHtml(String(err))}`;
   }
 }
 
@@ -188,11 +270,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Bind model button
   const btnEnsure = document.getElementById("btn-ensure-model");
   if (btnEnsure) btnEnsure.addEventListener("click", ensureDefaultModel);
+  const btnSave = document.getElementById('btn-save-settings');
+  if (btnSave) btnSave.addEventListener('click', saveSettings);
 
   // Initial data load
   refreshStatus();
   refreshPanel();
   refreshModels();
+  refreshSettings();
 
   // Periodic refresh
   setInterval(refreshStatus, POLL_INTERVAL_MS);

@@ -124,7 +124,7 @@ class TestApiPanel:
     def test_panel_schema(self, client):
         resp = client.get("/api/panel")
         data = resp.get_json()
-        assert data["schema"] == "ciel-gui-panel/v1"
+        assert data["schema"] == "ciel-gui-panel/v2"
 
     def test_panel_has_control_section(self, client):
         resp = client.get("/api/panel")
@@ -187,6 +187,53 @@ class TestErrorHandlers:
         assert "error" in data
 
 
+
+
+# -------------------------------------------------------------------
+# /api/settings, /api/preferences, /api/control/options, /api/models/select
+# -------------------------------------------------------------------
+
+class TestGuiSettingsAndControl:
+    def test_control_options_returns_200(self, client):
+        resp = client.get('/api/control/options')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['schema'] == 'ciel-gui-control-options/v1'
+        assert 'available_modes' in data
+
+    def test_settings_get_returns_runtime_schema(self, client):
+        resp = client.get('/api/settings')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['schema'] == 'ciel-gui-runtime-settings/v1'
+        assert 'preferences' in data
+        assert 'control' in data
+        assert 'model' in data
+
+    def test_settings_post_persists_payload(self, client):
+        payload = {'control': {'mode': 'safe'}, 'preferences': {'language': 'pl-PL'}}
+        resp = client.post('/api/settings', data=json.dumps(payload), content_type='application/json')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['status'] == 'saved'
+        assert data['settings']['control']['mode'] == 'safe'
+
+    def test_preferences_roundtrip(self, client):
+        payload = {'preferences': {'theme': 'high-contrast'}}
+        post = client.post('/api/preferences', data=json.dumps(payload), content_type='application/json')
+        assert post.status_code == 200
+        get_resp = client.get('/api/preferences')
+        assert get_resp.status_code == 200
+        data = get_resp.get_json()
+        assert data['preferences']['theme'] == 'high-contrast'
+
+    def test_model_select_accepts_name(self, client):
+        resp = client.post('/api/models/select', data=json.dumps({'name': 'demo-model.gguf'}), content_type='application/json')
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert data['status'] == 'selected'
+        assert data['selected'] == 'demo-model.gguf'
+
 # -------------------------------------------------------------------
 # App factory
 # -------------------------------------------------------------------
@@ -209,3 +256,7 @@ class TestAppFactory:
         assert "/api/panel" in rules
         assert "/api/models" in rules
         assert "/api/models/ensure" in rules
+        assert "/api/control/options" in rules
+        assert "/api/settings" in rules
+        assert "/api/preferences" in rules
+        assert "/api/models/select" in rules

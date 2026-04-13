@@ -1,5 +1,4 @@
 {
-  "schema": "ciel-sot-agent/repository-registry/v0.1",
   "repositories": [
     {
       "key": "canon",
@@ -47,5 +46,6 @@
       "role": "integration-attractor",
       "upstream": "AdrianLipa90/CIEL-_SOT_Agent"
     }
-  ]
+  ],
+  "schema": "ciel-sot-agent/repository-registry/v0.1"
 }

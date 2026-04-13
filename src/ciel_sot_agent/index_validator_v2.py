@@ -13,7 +13,7 @@ from typing import Any, Mapping
 
 import yaml
 
-from .paths import resolve_project_root
+from .paths import resolve_existing_path, resolve_project_root
 
 
 DEMO_SHELL_MAP_OBJECT_ID = 'MAP-SOT-0001'
@@ -23,6 +23,7 @@ DEMO_SHELL_MAP_SCHEMA = 'ciel-sot-agent/demo-shell-map/v0.1'
 DEMO_SHELL_INVENTORY_SCHEMA = 'ciel-sot-agent/upstream-inventory/v0.1'
 DEMO_SHELL_INVENTORY_PATH = 'integration/upstreams/ciel_omega_demo_inventory.json'
 INDEX_REGISTRY_V2_PATH = 'integration/registries/index_registry_v2.yaml'
+INDEX_REGISTRY_COMPAT_PATH = 'integration/registries/index_registry.yaml'
 INDEX_REGISTRY_LEGACY_PATH = 'integration/index_registry.yaml'
 REQUIRED_DEMO_OBJECT_FIELDS = (
     'id',
@@ -51,17 +52,8 @@ def load_json_file(path: str | Path) -> dict[str, Any]:
     return json.loads(Path(path).read_text(encoding='utf-8'))
 
 
-def resolve_existing_path(root: str | Path, *candidates: str) -> Path:
-    root = Path(root)
-    for candidate in candidates:
-        candidate_path = root / candidate
-        if candidate_path.exists():
-            return candidate_path
-    return root / candidates[0]
-
-
 def resolve_index_registry_path(root: str | Path) -> Path:
-    return resolve_existing_path(root, INDEX_REGISTRY_V2_PATH, INDEX_REGISTRY_LEGACY_PATH)
+    return resolve_existing_path(root, INDEX_REGISTRY_V2_PATH, INDEX_REGISTRY_COMPAT_PATH, INDEX_REGISTRY_LEGACY_PATH)
 
 
 def find_demo_shell_map_object(object_map: Mapping[str, Mapping[str, Any]]) -> Mapping[str, Any] | None:

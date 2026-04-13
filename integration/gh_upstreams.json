@@ -1,5 +1,4 @@
 {
-  "schema": "ciel-sot-agent/gh-upstreams/v0.1",
   "upstreams": [
     {
       "key": "agent",
@@ -41,5 +40,6 @@
       "source_weight": 0.85,
       "notes": "GitHub mapping not yet declared in this integration layer"
     }
-  ]
+  ],
+  "schema": "ciel-sot-agent/gh-upstreams/v0.1"
 }

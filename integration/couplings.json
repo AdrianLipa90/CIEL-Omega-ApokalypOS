@@ -1,21 +1,46 @@
 {
-  "schema": "ciel-sot-agent/couplings/v0.1",
-  "couplings": {
-    "canon": {"demo": 0.92, "desktop": 0.74, "metatime": 0.88, "agent": 0.97},
-    "demo": {"canon": 0.84, "desktop": 0.91, "metatime": 0.63, "agent": 0.79},
-    "desktop": {"canon": 0.74, "demo": 0.91, "metatime": 0.52, "agent": 0.95},
-    "metatime": {"canon": 0.81, "demo": 0.58, "desktop": 0.52, "agent": 0.76},
-    "agent": {"canon": 0.97, "demo": 0.79, "desktop": 0.95, "metatime": 0.76}
-  },
   "relation_types": {
+    "metatime-desktop": "historical-to-desktop-surface",
+    "metatime-agent": "historical-to-integration",
     "canon-demo": "foundation-to-cockpit",
     "canon-desktop": "foundation-to-desktop-surface",
-    "canon-metatime": "foundation-to-historical-theory",
     "canon-agent": "foundation-to-integration",
-    "demo-desktop": "cockpit-to-desktop-surface",
+    "canon-metatime": "foundation-to-historical-theory",
     "demo-agent": "cockpit-to-integration",
-    "desktop-agent": "desktop-to-integration",
-    "metatime-desktop": "historical-to-desktop-surface",
-    "metatime-agent": "historical-to-integration"
-  }
+    "demo-desktop": "cockpit-to-desktop-surface",
+    "desktop-agent": "desktop-to-integration"
+  },
+  "couplings": {
+    "demo": {
+      "canon": 0.84,
+      "desktop": 0.91,
+      "agent": 0.79,
+      "metatime": 0.63
+    },
+    "desktop": {
+      "canon": 0.74,
+      "demo": 0.91,
+      "metatime": 0.52,
+      "agent": 0.95
+    },
+    "agent": {
+      "demo": 0.79,
+      "canon": 0.97,
+      "desktop": 0.95,
+      "metatime": 0.76
+    },
+    "metatime": {
+      "demo": 0.58,
+      "canon": 0.81,
+      "desktop": 0.52,
+      "agent": 0.76
+    },
+    "canon": {
+      "demo": 0.92,
+      "desktop": 0.74,
+      "agent": 0.97,
+      "metatime": 0.88
+    }
+  },
+  "schema": "ciel-sot-agent/couplings/v0.1"
 }
