@@ -1,166 +1,261 @@
-schema: ciel-sot-agent/index-registry-orbital/v0.1
 meta:
   authority: docs/ORBital_INTEGRATION_ADDENDUM.md
   notes:
-    - Orbital addendum registry until main index_registry.yaml can be updated in place.
+  - Orbital addendum registry until main index_registry.yaml can be updated in place.
 objects:
-  - id: ORB-SOT-0001
-    name: orbital_import_overview
-    layer: architecture
-    status: canonical
-    provenance_type: imported
-    owner_layer: integration
-    upstream: []
-    downstream:
-      - ORB-SOT-0002
-      - ORB-SOT-0004
-    tests: []
-    interfaces: []
-    exports: []
-    provenance:
-      - CIEL_RELATIONAL_MECHANISM_REPO_snapshot_no_gguf_post_holonomic_consolidation_2026-03-27_v2.zip
-    path: integration/Orbital/README.md
-    placeholder: false
-  - id: ORB-SOT-0002
-    name: orbital_import_manifest_v2
-    layer: protocol
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - ORB-SOT-0001
-    downstream:
-      - ORB-SOT-0004
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: integration/Orbital/IMPORT_MANIFEST_V2.md
-    placeholder: false
-  - id: ORB-SOT-0003
-    name: orbital_scope_main
-    layer: protocol
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - ORB-SOT-0001
-    downstream:
-      - ORB-SOT-0004
-      - ORB-SOT-0005
-      - ORB-SOT-0006
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: integration/Orbital/main/AGENT1.md
-    placeholder: false
-  - id: ORB-SOT-0004
-    name: orbital_global_pass
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - ORB-SOT-0002
-      - ORB-SOT-0003
-      - ORB-SOT-0005
-      - ORB-SOT-0006
-      - ORB-SOT-0007
-    downstream:
-      - ORB-SOT-0008
-      - ORB-SOT-0009
-    tests: []
-    interfaces: []
-    exports:
-      - global_orbital_coherence_pass
-    provenance: []
-    path: integration/Orbital/main/global_pass.py
-    placeholder: false
-  - id: ORB-SOT-0005
-    name: orbital_dynamics
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - ORB-SOT-0006
-      - ORB-SOT-0007
-    downstream:
-      - ORB-SOT-0004
-    tests: []
-    interfaces: []
-    exports:
-      - step
-    provenance: []
-    path: integration/Orbital/main/dynamics.py
-    placeholder: false
-  - id: ORB-SOT-0006
-    name: orbital_metrics
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - ORB-SOT-0007
-    downstream:
-      - ORB-SOT-0004
-      - ORB-SOT-0005
-    tests: []
-    interfaces: []
-    exports:
-      - global_coherence
-      - closure_penalty
-      - spectral_observables
-    provenance: []
-    path: integration/Orbital/main/metrics.py
-    placeholder: false
-  - id: ORB-SOT-0007
-    name: orbital_geometry_extract
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - ORB-SOT-0001
-    downstream:
-      - ORB-SOT-0004
-      - ORB-SOT-0006
-    tests: []
-    interfaces: []
-    exports:
-      - build
-    provenance: []
-    path: integration/Orbital/main/extract_geometry.py
-    placeholder: false
-  - id: ORB-SOT-0008
-    name: orbital_launcher
-    layer: interface
-    status: canonical
-    provenance_type: native
-    owner_layer: scripts
-    upstream:
-      - ORB-SOT-0004
-    downstream: []
-    tests: []
-    interfaces: []
-    exports:
-      - run_orbital_global_pass
-    provenance: []
-    path: scripts/run_orbital_global_pass.py
-    placeholder: false
-  - id: ORB-SOT-0009
-    name: orbital_report_root
-    layer: report
-    status: placeholder
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - ORB-SOT-0004
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: integration/Orbital/main/reports/global_orbital_coherence_pass/summary.json
-    placeholder: true
+- provenance:
+  - CIEL_RELATIONAL_MECHANISM_REPO_snapshot_no_gguf_post_holonomic_consolidation_2026-03-27_v2.zip
+  tests: []
+  layer: architecture
+  provenance_type: imported
+  name: orbital_import_overview
+  upstream: []
+  owner_layer: integration
+  path: integration/Orbital/README.md
+  downstream:
+  - ORB-SOT-0002
+  - ORB-SOT-0004
+  status: canonical
+  id: ORB-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: protocol
+  provenance_type: native
+  name: orbital_import_manifest_v2
+  upstream:
+  - ORB-SOT-0001
+  owner_layer: integration
+  path: integration/Orbital/IMPORT_MANIFEST_V2.md
+  downstream:
+  - ORB-SOT-0004
+  status: canonical
+  id: ORB-SOT-0002
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: protocol
+  provenance_type: native
+  name: orbital_scope_main
+  upstream:
+  - ORB-SOT-0001
+  owner_layer: integration
+  path: integration/Orbital/main/AGENT1.md
+  downstream:
+  - ORB-SOT-0004
+  - ORB-SOT-0005
+  - ORB-SOT-0006
+  status: canonical
+  id: ORB-SOT-0003
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: code
+  provenance_type: native
+  name: orbital_global_pass
+  upstream:
+  - ORB-SOT-0002
+  - ORB-SOT-0003
+  - ORB-SOT-0005
+  - ORB-SOT-0006
+  - ORB-SOT-0007
+  - ORB-SOT-0010
+  - ORB-SOT-0011
+  owner_layer: integration
+  path: integration/Orbital/main/global_pass.py
+  downstream:
+  - ORB-SOT-0008
+  - ORB-SOT-0009
+  - ORB-SOT-0013
+  - ORB-SOT-0014
+  status: canonical
+  id: ORB-SOT-0004
+  interfaces: []
+  placeholder: false
+  exports:
+  - global_orbital_coherence_pass
+- provenance: []
+  tests: []
+  layer: code
+  provenance_type: native
+  name: orbital_dynamics
+  upstream:
+  - ORB-SOT-0006
+  - ORB-SOT-0007
+  - ORB-SOT-0010
+  - ORB-SOT-0011
+  owner_layer: integration
+  path: integration/Orbital/main/dynamics.py
+  downstream:
+  - ORB-SOT-0004
+  - ORB-SOT-0013
+  - ORB-SOT-0014
+  status: canonical
+  id: ORB-SOT-0005
+  interfaces: []
+  placeholder: false
+  exports:
+  - step
+- provenance: []
+  tests: []
+  layer: code
+  provenance_type: native
+  name: orbital_metrics
+  upstream:
+  - ORB-SOT-0007
+  - ORB-SOT-0011
+  owner_layer: integration
+  path: integration/Orbital/main/metrics.py
+  downstream:
+  - ORB-SOT-0004
+  - ORB-SOT-0005
+  - ORB-SOT-0014
+  status: canonical
+  id: ORB-SOT-0006
+  interfaces: []
+  placeholder: false
+  exports:
+  - global_coherence
+  - closure_penalty
+  - spectral_observables
+- provenance: []
+  tests: []
+  layer: code
+  provenance_type: native
+  name: orbital_geometry_extract
+  upstream:
+  - ORB-SOT-0001
+  owner_layer: integration
+  path: integration/Orbital/main/extract_geometry.py
+  downstream:
+  - ORB-SOT-0004
+  - ORB-SOT-0006
+  status: canonical
+  id: ORB-SOT-0007
+  interfaces: []
+  placeholder: false
+  exports:
+  - build
+- provenance: []
+  tests: []
+  layer: interface
+  provenance_type: native
+  name: orbital_launcher
+  upstream:
+  - ORB-SOT-0004
+  owner_layer: scripts
+  path: scripts/run_orbital_global_pass.py
+  downstream: []
+  status: canonical
+  id: ORB-SOT-0008
+  interfaces: []
+  placeholder: false
+  exports:
+  - run_orbital_global_pass
+- provenance: []
+  tests: []
+  layer: report
+  provenance_type: native
+  name: orbital_report_root
+  upstream:
+  - ORB-SOT-0004
+  owner_layer: integration
+  path: integration/Orbital/main/reports/global_orbital_coherence_pass/summary.json
+  downstream: []
+  status: placeholder
+  id: ORB-SOT-0009
+  interfaces: []
+  placeholder: true
+  exports: []
+- provenance: []
+  tests:
+  - ORB-SOT-0014
+  layer: operations
+  provenance_type: native
+  name: orbital_law_ledger
+  upstream: []
+  owner_layer: docs
+  path: docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md
+  downstream:
+  - ORB-SOT-0011
+  - ORB-SOT-0014
+  status: canonical
+  id: ORB-SOT-0010
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - ORB-SOT-0014
+  layer: science
+  provenance_type: native
+  name: relational_orbital_dynamics_spec_v0
+  upstream:
+  - ORB-SOT-0012
+  - ORB-SOT-0010
+  owner_layer: docs
+  path: docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md
+  downstream:
+  - ORB-SOT-0014
+  status: canonical
+  id: ORB-SOT-0011
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: analogy
+  provenance_type: native
+  name: kepler_superfluid_analogies
+  upstream: []
+  owner_layer: docs
+  path: docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md
+  downstream:
+  - ORB-SOT-0011
+  status: canonical
+  id: ORB-SOT-0012
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: orbital_runtime_tests
+  upstream:
+  - ORB-SOT-0004
+  - ORB-SOT-0005
+  owner_layer: tests
+  path: tests/test_orbital_runtime.py
+  downstream: []
+  status: canonical
+  id: ORB-SOT-0013
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: orbital_semantics_tests
+  upstream:
+  - ORB-SOT-0004
+  - ORB-SOT-0005
+  - ORB-SOT-0006
+  - ORB-SOT-0010
+  - ORB-SOT-0011
+  owner_layer: tests
+  path: tests/test_orbital_semantics.py
+  downstream: []
+  status: canonical
+  id: ORB-SOT-0014
+  interfaces: []
+  placeholder: false
+  exports: []
+schema: ciel-sot-agent/index-registry-orbital/v0.1

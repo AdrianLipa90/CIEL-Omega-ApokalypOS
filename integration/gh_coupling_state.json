@@ -1,5 +1,7 @@
 {
-  "last_generated_at": "2026-04-13T03:17:44.360505+00:00",
+  "last_changed_keys": [
+    "agent"
+  ],
   "heads": {
     "agent": {
       "sha": "3fc364f61ed33b24c7c5ac78829876ef0408e0ef",
@@ -20,7 +22,5 @@
       "html_url": "https://github.com/AdrianLipa90/CIEL-Desktop/commit/5289bc2d02ae454b77d674bf2fc39d89f30c0292"
     }
   },
-  "last_changed_keys": [
-    "agent"
-  ]
+  "last_generated_at": "2026-04-13T03:17:44.360505+00:00"
 }

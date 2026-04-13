@@ -1,5 +1,51 @@
 {
-  "schema": "ciel-sot-agent/gh-live-registry/v0.1",
-  "generated_at": null,
-  "repositories": []
+  "generated_at": "2026-04-13T03:17:44.360474+00:00",
+  "repositories": [
+    {
+      "key": "canon",
+      "identity": "SeedOfTheWorlds",
+      "phi": 0.1640107914193864,
+      "spin": 0.5,
+      "mass": 1.0,
+      "role": "canonical-foundations",
+      "upstream": "local-canonical-snapshot"
+    },
+    {
+      "key": "demo",
+      "identity": "ciel-omega-demo",
+      "phi": 0.2934199522084336,
+      "spin": 0.5,
+      "mass": 0.8,
+      "role": "cockpit-ui-education",
+      "upstream": "AdrianLipa90/ciel-omega-demo"
+    },
+    {
+      "key": "desktop",
+      "identity": "CIEL-Desktop",
+      "phi": 0.20325599673972963,
+      "spin": 0.5,
+      "mass": 0.86,
+      "role": "desktop-fixed-attribute",
+      "upstream": "AdrianLipa90/CIEL-Desktop"
+    },
+    {
+      "key": "metatime",
+      "identity": "Metatime",
+      "phi": 0.2646803546595734,
+      "spin": -0.5,
+      "mass": 0.95,
+      "role": "historical-theory-simulations",
+      "upstream": "local-metatime-snapshot"
+    },
+    {
+      "key": "agent",
+      "identity": "CIEL/Ω — ἀποκάλυψOS Integration Attractor and Operational Manifold",
+      "phi": 0.25,
+      "spin": 0.5,
+      "mass": 0.9,
+      "role": "integration-attractor",
+      "upstream": "AdrianLipa90/CIEL-_SOT_Agent"
+    }
+  ],
+  "schema": "ciel-sot-agent/gh-live-registry/v0.1"
 }

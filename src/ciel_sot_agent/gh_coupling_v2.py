@@ -39,6 +39,19 @@ LIVE_REGISTRY_LEGACY_PATH = 'integration/gh_live_registry.json'
 REPORT_PATH = 'integration/reports/live_gh_coupling_report.json'
 
 
+def _write_json_with_mirror(
+    primary_path: Path,
+    payload: dict[str, Any],
+    *,
+    mirror_path: Path | None = None,
+) -> None:
+    serialized = json.dumps(payload, ensure_ascii=False, indent=2)
+    primary_path.write_text(serialized, encoding='utf-8')
+    if mirror_path is not None and mirror_path != primary_path:
+        mirror_path.parent.mkdir(parents=True, exist_ok=True)
+        mirror_path.write_text(serialized, encoding='utf-8')
+
+
 def resolve_runtime_paths(root: str | Path) -> dict[str, Path]:
     root = Path(root)
     return {
@@ -168,8 +181,19 @@ def build_live_coupling(root: str | Path) -> dict[str, Any]:
         'last_changed_keys': changed_keys,
     }
 
-    paths['runtime_state'].write_text(json.dumps(runtime_state_out, ensure_ascii=False, indent=2), encoding='utf-8')
-    paths['live_registry'].write_text(json.dumps(live_registry, ensure_ascii=False, indent=2), encoding='utf-8')
+    runtime_state_mirror = root / (
+        RUNTIME_STATE_LEGACY_PATH
+        if paths['runtime_state'] == root / RUNTIME_STATE_V2_PATH
+        else RUNTIME_STATE_V2_PATH
+    )
+    live_registry_mirror = root / (
+        LIVE_REGISTRY_LEGACY_PATH
+        if paths['live_registry'] == root / LIVE_REGISTRY_V2_PATH
+        else LIVE_REGISTRY_V2_PATH
+    )
+
+    _write_json_with_mirror(paths['runtime_state'], runtime_state_out, mirror_path=runtime_state_mirror)
+    _write_json_with_mirror(paths['live_registry'], live_registry, mirror_path=live_registry_mirror)
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     return report
 

@@ -1,644 +1,644 @@
-schema: ciel-sot-agent/index-registry/v0.1
 meta:
   authority: docs/INDEX.md
   layer_policy:
-    global_index: docs/INDEX.md
-    machine_registry: integration/index_registry.yaml
     crossrefs: integration/hyperspace_index.json
+    machine_registry: integration/index_registry.yaml
+    global_index: docs/INDEX.md
   notes:
-    - Global index is authoritative for navigation.
-    - Machine registry is authoritative for object metadata validation.
-    - Imported and canonical objects must be explicitly distinguished.
+  - Global index is authoritative for navigation.
+  - Machine registry is authoritative for object metadata validation.
+  - Imported and canonical objects must be explicitly distinguished.
 objects:
-  - id: DOC-SOT-0001
-    name: architecture
-    layer: architecture
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream: []
-    downstream:
-      - REG-SOT-0001
-      - SRC-SOT-0001
-      - DOC-SOT-0002
-      - DOC-SOT-0003
-      - DOC-SOT-0004
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/ARCHITECTURE.md
-    placeholder: false
-  - id: DOC-SOT-0002
-    name: ciel_omega_demo_integration
-    layer: architecture
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - DOC-SOT-0001
-      - REG-SOT-0003
-    downstream:
-      - MAP-SOT-0001
-      - SRC-SOT-0002
-    tests:
-      - TST-SOT-0002
-    interfaces:
-      - IF-SOT-0001
-    exports: []
-    provenance: []
-    path: docs/CIEL_OMEGA_DEMO_INTEGRATION.md
-    placeholder: false
-  - id: DOC-SOT-0003
-    name: orbitalization_state_snapshot
-    layer: architecture
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - DOC-SOT-0001
-    downstream:
-      - REG-SOT-0004
-      - SRC-SOT-0003
-      - SRC-SOT-0004
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/Orbitrary shifts.md
-    placeholder: false
-  - id: DOC-SOT-0004
-    name: ciel_desktop_fixed_attribute
-    layer: architecture
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - DOC-SOT-0001
-      - REG-SOT-0005
-    downstream:
-      - REG-SOT-0001
-      - REG-SOT-0002
-      - REG-SOT-0003
-      - REG-SOT-0004
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md
-    placeholder: false
-  - id: ANL-SOT-0001
-    name: relational_analogies
-    layer: analogy
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream: []
-    downstream:
-      - HYP-SOT-0001
-      - DER-SOT-0001
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/analogies/RELATIONAL_ANALOGIES.md
-    placeholder: false
-  - id: HYP-SOT-0001
-    name: scientific_hypotheses
-    layer: science
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - ANL-SOT-0001
-    downstream:
-      - HYP-SOT-0002
-      - DER-SOT-0001
-      - SRC-SOT-0001
-    tests:
-      - TST-SOT-0001
-      - TST-SOT-0002
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/science/HYPOTHESES.md
-    placeholder: false
-  - id: HYP-SOT-0002
-    name: heisenberg_godel_self_closure_hypothesis
-    layer: science
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - HYP-SOT-0001
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md
-    placeholder: false
-  - id: DER-SOT-0001
-    name: derivation_notes
-    layer: derivation
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - HYP-SOT-0001
-    downstream:
-      - SRC-SOT-0001
-    tests:
-      - TST-SOT-0001
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/science/DERIVATION_NOTES.md
-    placeholder: false
-  - id: REG-SOT-0001
-    name: repository_registry
-    layer: registry
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - DOC-SOT-0001
-      - DOC-SOT-0004
-    downstream:
-      - SRC-SOT-0001
-      - SRC-SOT-0002
-      - MAP-SOT-0001
-    tests:
-      - TST-SOT-0001
-    interfaces: []
-    exports:
-      - live_registry
-    provenance: []
-    path: integration/repository_registry.json
-    placeholder: false
-  - id: REG-SOT-0002
-    name: repository_couplings
-    layer: registry
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - DOC-SOT-0001
-      - DOC-SOT-0004
-    downstream:
-      - SRC-SOT-0001
-      - SRC-SOT-0002
-    tests:
-      - TST-SOT-0001
-    interfaces: []
-    exports:
-      - live_report
-    provenance: []
-    path: integration/couplings.json
-    placeholder: false
-  - id: REG-SOT-0003
-    name: gh_upstreams
-    layer: registry
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - DOC-SOT-0001
-      - DOC-SOT-0004
-    downstream:
-      - SRC-SOT-0002
-      - MAP-SOT-0001
-      - DOC-SOT-0002
-    tests:
-      - TST-SOT-0002
-    interfaces:
-      - IF-SOT-0001
-    exports: []
-    provenance: []
-    path: integration/gh_upstreams.json
-    placeholder: false
-  - id: REG-SOT-0004
-    name: hyperspace_index_primary
-    layer: registry
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - DOC-SOT-0003
-      - DOC-SOT-0004
-    downstream:
-      - SRC-SOT-0003
-      - SRC-SOT-0004
-      - DOC-SOT-0005
-      - DOC-SOT-0006
-      - DOC-SOT-0007
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: integration/hyperspace_index.json
-    placeholder: false
-  - id: REG-SOT-0005
-    name: desktop_fixed_attribute_manifest
-    layer: registry
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - DOC-SOT-0004
-    downstream:
-      - REG-SOT-0001
-      - REG-SOT-0002
-      - REG-SOT-0003
-      - REG-SOT-0004
-    tests: []
-    interfaces: []
-    exports:
-      - fixed_attribute_manifest
-    provenance: []
-    path: integration/fixed_attributes/ciel_desktop_fixed_attribute.json
-    placeholder: false
-  - id: MAP-SOT-0001
-    name: ciel_omega_demo_shell_map
-    layer: registry
-    status: canonical
-    provenance_type: imported
-    owner_layer: integration
-    upstream:
-      - DOC-SOT-0002
-      - REG-SOT-0003
-    downstream:
-      - SRC-SOT-0002
-      - RPT-SOT-0002
-    tests:
-      - TST-SOT-0002
-    interfaces:
-      - IF-SOT-0001
-    exports:
-      - imported_shell_map
-    provenance:
-      - AdrianLipa90/ciel-omega-demo
-    path: integration/upstreams/ciel_omega_demo_shell_map.json
-    placeholder: false
-  - id: SRC-SOT-0001
-    name: repo_phase_model
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: src
-    upstream:
-      - DER-SOT-0001
-      - REG-SOT-0001
-      - REG-SOT-0002
-    downstream:
-      - SRC-SOT-0002
-      - RPT-SOT-0001
-    tests:
-      - TST-SOT-0001
-    interfaces: []
-    exports:
-      - closure_defect
-      - weighted_euler_vector
-      - pairwise_tension
-    provenance: []
-    path: src/ciel_sot_agent/repo_phase.py
-    placeholder: false
-  - id: SRC-SOT-0002
-    name: gh_live_coupling
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: src
-    upstream:
-      - SRC-SOT-0001
-      - REG-SOT-0001
-      - REG-SOT-0002
-      - REG-SOT-0003
-      - MAP-SOT-0001
-    downstream:
-      - RPT-SOT-0002
-    tests:
-      - TST-SOT-0002
-    interfaces:
-      - IF-SOT-0001
-    exports:
-      - gh_live_registry
-      - live_gh_coupling_report
-    provenance: []
-    path: src/ciel_sot_agent/gh_coupling.py
-    placeholder: false
-  - id: SRC-SOT-0003
-    name: orbital_bridge
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: src
-    upstream:
-      - DOC-SOT-0003
-      - REG-SOT-0004
-    downstream:
-      - RPT-SOT-0003
-    tests:
-      - TST-SOT-0003
-    interfaces: []
-    exports: []
-    provenance: []
-    path: src/ciel_sot_agent/orbital_bridge.py
-    placeholder: false
-  - id: SRC-SOT-0004
-    name: sapiens_panel_controller
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: src
-    upstream:
-      - DOC-SOT-0003
-      - REG-SOT-0004
-    downstream:
-      - TST-SOT-0004
-    tests:
-      - TST-SOT-0004
-    interfaces: []
-    exports: []
-    provenance: []
-    path: src/ciel_sot_agent/sapiens_panel/controller.py
-    placeholder: false
-  - id: IF-SOT-0001
-    name: github_api_pull_interface
-    layer: interface
-    status: canonical
-    provenance_type: imported
-    owner_layer: integration
-    upstream:
-      - REG-SOT-0003
-    downstream:
-      - SRC-SOT-0002
-      - MAP-SOT-0001
-    tests:
-      - TST-SOT-0002
-    interfaces: []
-    exports: []
-    provenance:
-      - GitHub REST commits endpoint
-    path: integration/gh_upstreams.json
-    placeholder: false
-  - id: TST-SOT-0001
-    name: repo_phase_tests
-    layer: test
-    status: canonical
-    provenance_type: native
-    owner_layer: tests
-    upstream:
-      - SRC-SOT-0001
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: tests/test_repo_phase.py
-    placeholder: false
-  - id: TST-SOT-0002
-    name: gh_coupling_tests
-    layer: test
-    status: canonical
-    provenance_type: native
-    owner_layer: tests
-    upstream:
-      - SRC-SOT-0002
-      - MAP-SOT-0001
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: tests/test_gh_coupling.py
-    placeholder: false
-  - id: TST-SOT-0003
-    name: orbital_runtime_tests
-    layer: test
-    status: canonical
-    provenance_type: native
-    owner_layer: tests
-    upstream:
-      - SRC-SOT-0003
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: tests/test_orbital_runtime.py
-    placeholder: false
-  - id: TST-SOT-0004
-    name: sapiens_panel_tests
-    layer: test
-    status: canonical
-    provenance_type: native
-    owner_layer: tests
-    upstream:
-      - SRC-SOT-0004
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: tests/test_sapiens_panel.py
-    placeholder: false
-  - id: RPT-SOT-0001
-    name: initial_sync_report
-    layer: report
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - SRC-SOT-0001
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: integration/reports/initial_sync_report.json
-    placeholder: false
-  - id: RPT-SOT-0002
-    name: live_gh_coupling_report
-    layer: report
-    status: placeholder
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - SRC-SOT-0002
-      - MAP-SOT-0001
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: integration/reports/live_gh_coupling_report.json
-    placeholder: true
-  - id: RPT-SOT-0003
-    name: orbital_bridge_reports
-    layer: report
-    status: canonical
-    provenance_type: native
-    owner_layer: integration
-    upstream:
-      - SRC-SOT-0003
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: integration/reports/orbital_bridge/README.md
-    placeholder: false
-  - id: DOC-SOT-0005
-    name: repo_workstyle_session_handoff
-    layer: operations
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - DOC-SOT-0001
-    downstream:
-      - DOC-SOT-0006
-      - DOC-SOT-0007
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md
-    placeholder: false
-  - id: DOC-SOT-0006
-    name: orbital_dynamics_law_v0_todo
-    layer: operations
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - DOC-SOT-0005
-      - HYP-SOT-0003
-    downstream:
-      - TST-SOT-0006
-    tests:
-      - TST-SOT-0006
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md
-    placeholder: false
-  - id: DOC-SOT-0007
-    name: offline_dependency_bundle_v1
-    layer: operations
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - DOC-SOT-0005
-    downstream:
-      - REG-SOT-0006
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md
-    placeholder: false
-  - id: ANL-SOT-0002
-    name: kepler_superfluid_analogies
-    layer: analogy
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream: []
-    downstream:
-      - HYP-SOT-0003
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md
-    placeholder: false
-  - id: HYP-SOT-0003
-    name: relational_orbital_dynamics_spec_v0
-    layer: science
-    status: canonical
-    provenance_type: native
-    owner_layer: docs
-    upstream:
-      - ANL-SOT-0002
-    downstream:
-      - TST-SOT-0006
-    tests:
-      - TST-SOT-0006
-    interfaces: []
-    exports: []
-    provenance: []
-    path: docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md
-    placeholder: false
-  - id: REG-SOT-0006
-    name: offline_dependency_bundle_manifest
-    layer: registry
-    status: canonical
-    provenance_type: native
-    owner_layer: vendor
-    upstream:
-      - DOC-SOT-0007
-    downstream: []
-    tests: []
-    interfaces: []
-    exports:
-      - offline_bundle_manifest
-    provenance: []
-    path: vendor/manifests/offline_dependency_bundle_v1.yaml
-    placeholder: false
-  - id: SRC-SOT-0005
-    name: phased_state_model
-    layer: code
-    status: canonical
-    provenance_type: native
-    owner_layer: src
-    upstream:
-      - DOC-SOT-0006
-    downstream:
-      - TST-SOT-0005
-      - TST-SOT-0006
-    tests:
-      - TST-SOT-0005
-      - TST-SOT-0006
-    interfaces: []
-    exports:
-      - build_states
-      - compute_phase
-      - f_conn
-    provenance: []
-    path: src/ciel_sot_agent/phased_state.py
-    placeholder: false
-  - id: TST-SOT-0005
-    name: phased_state_tests
-    layer: test
-    status: canonical
-    provenance_type: native
-    owner_layer: tests
-    upstream:
-      - SRC-SOT-0005
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: tests/test_phased_state.py
-    placeholder: false
-  - id: TST-SOT-0006
-    name: orbital_semantics_tests
-    layer: test
-    status: canonical
-    provenance_type: native
-    owner_layer: tests
-    upstream:
-      - SRC-SOT-0005
-      - HYP-SOT-0003
-      - DOC-SOT-0006
-    downstream: []
-    tests: []
-    interfaces: []
-    exports: []
-    provenance: []
-    path: tests/test_orbital_semantics.py
-    placeholder: false
+- provenance: []
+  tests: []
+  layer: architecture
+  provenance_type: native
+  name: architecture
+  upstream: []
+  owner_layer: integration
+  path: docs/ARCHITECTURE.md
+  downstream:
+  - REG-SOT-0001
+  - SRC-SOT-0001
+  - DOC-SOT-0002
+  - DOC-SOT-0003
+  - DOC-SOT-0004
+  status: canonical
+  id: DOC-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - TST-SOT-0002
+  layer: architecture
+  provenance_type: native
+  name: ciel_omega_demo_integration
+  upstream:
+  - DOC-SOT-0001
+  - REG-SOT-0003
+  owner_layer: docs
+  path: docs/CIEL_OMEGA_DEMO_INTEGRATION.md
+  downstream:
+  - MAP-SOT-0001
+  - SRC-SOT-0002
+  status: canonical
+  id: DOC-SOT-0002
+  interfaces:
+  - IF-SOT-0001
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: architecture
+  provenance_type: native
+  name: orbitalization_state_snapshot
+  upstream:
+  - DOC-SOT-0001
+  owner_layer: docs
+  path: docs/Orbitrary shifts.md
+  downstream:
+  - REG-SOT-0004
+  - SRC-SOT-0003
+  - SRC-SOT-0004
+  status: canonical
+  id: DOC-SOT-0003
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: architecture
+  provenance_type: native
+  name: ciel_desktop_fixed_attribute
+  upstream:
+  - DOC-SOT-0001
+  - REG-SOT-0005
+  owner_layer: docs
+  path: docs/CIEL_DESKTOP_FIXED_ATTRIBUTE.md
+  downstream:
+  - REG-SOT-0001
+  - REG-SOT-0002
+  - REG-SOT-0003
+  - REG-SOT-0004
+  status: canonical
+  id: DOC-SOT-0004
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: analogy
+  provenance_type: native
+  name: relational_analogies
+  upstream: []
+  owner_layer: docs
+  path: docs/analogies/RELATIONAL_ANALOGIES.md
+  downstream:
+  - HYP-SOT-0001
+  - DER-SOT-0001
+  status: canonical
+  id: ANL-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - TST-SOT-0001
+  - TST-SOT-0002
+  layer: science
+  provenance_type: native
+  name: scientific_hypotheses
+  upstream:
+  - ANL-SOT-0001
+  owner_layer: docs
+  path: docs/science/HYPOTHESES.md
+  downstream:
+  - HYP-SOT-0002
+  - DER-SOT-0001
+  - SRC-SOT-0001
+  status: canonical
+  id: HYP-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: science
+  provenance_type: native
+  name: heisenberg_godel_self_closure_hypothesis
+  upstream:
+  - HYP-SOT-0001
+  owner_layer: docs
+  path: docs/science/HEISENBERG_GODEL_SELF_CLOSURE_HYPOTHESIS.md
+  downstream: []
+  status: canonical
+  id: HYP-SOT-0002
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - TST-SOT-0001
+  layer: derivation
+  provenance_type: native
+  name: derivation_notes
+  upstream:
+  - HYP-SOT-0001
+  owner_layer: docs
+  path: docs/science/DERIVATION_NOTES.md
+  downstream:
+  - SRC-SOT-0001
+  status: canonical
+  id: DER-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - TST-SOT-0001
+  layer: registry
+  provenance_type: native
+  name: repository_registry
+  upstream:
+  - DOC-SOT-0001
+  - DOC-SOT-0004
+  owner_layer: integration
+  path: integration/repository_registry.json
+  downstream:
+  - SRC-SOT-0001
+  - SRC-SOT-0002
+  - MAP-SOT-0001
+  status: canonical
+  id: REG-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports:
+  - live_registry
+- provenance: []
+  tests:
+  - TST-SOT-0001
+  layer: registry
+  provenance_type: native
+  name: repository_couplings
+  upstream:
+  - DOC-SOT-0001
+  - DOC-SOT-0004
+  owner_layer: integration
+  path: integration/couplings.json
+  downstream:
+  - SRC-SOT-0001
+  - SRC-SOT-0002
+  status: canonical
+  id: REG-SOT-0002
+  interfaces: []
+  placeholder: false
+  exports:
+  - live_report
+- provenance: []
+  tests:
+  - TST-SOT-0002
+  layer: registry
+  provenance_type: native
+  name: gh_upstreams
+  upstream:
+  - DOC-SOT-0001
+  - DOC-SOT-0004
+  owner_layer: integration
+  path: integration/gh_upstreams.json
+  downstream:
+  - SRC-SOT-0002
+  - MAP-SOT-0001
+  - DOC-SOT-0002
+  status: canonical
+  id: REG-SOT-0003
+  interfaces:
+  - IF-SOT-0001
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: registry
+  provenance_type: native
+  name: hyperspace_index_primary
+  upstream:
+  - DOC-SOT-0003
+  - DOC-SOT-0004
+  owner_layer: integration
+  path: integration/hyperspace_index.json
+  downstream:
+  - SRC-SOT-0003
+  - SRC-SOT-0004
+  - DOC-SOT-0005
+  - DOC-SOT-0006
+  - DOC-SOT-0007
+  status: canonical
+  id: REG-SOT-0004
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: registry
+  provenance_type: native
+  name: desktop_fixed_attribute_manifest
+  upstream:
+  - DOC-SOT-0004
+  owner_layer: integration
+  path: integration/fixed_attributes/ciel_desktop_fixed_attribute.json
+  downstream:
+  - REG-SOT-0001
+  - REG-SOT-0002
+  - REG-SOT-0003
+  - REG-SOT-0004
+  status: canonical
+  id: REG-SOT-0005
+  interfaces: []
+  placeholder: false
+  exports:
+  - fixed_attribute_manifest
+- provenance:
+  - AdrianLipa90/ciel-omega-demo
+  tests:
+  - TST-SOT-0002
+  layer: registry
+  provenance_type: imported
+  name: ciel_omega_demo_shell_map
+  upstream:
+  - DOC-SOT-0002
+  - REG-SOT-0003
+  owner_layer: integration
+  path: integration/upstreams/ciel_omega_demo_shell_map.json
+  downstream:
+  - SRC-SOT-0002
+  - RPT-SOT-0002
+  status: canonical
+  id: MAP-SOT-0001
+  interfaces:
+  - IF-SOT-0001
+  placeholder: false
+  exports:
+  - imported_shell_map
+- provenance: []
+  tests:
+  - TST-SOT-0001
+  layer: code
+  provenance_type: native
+  name: repo_phase_model
+  upstream:
+  - DER-SOT-0001
+  - REG-SOT-0001
+  - REG-SOT-0002
+  owner_layer: src
+  path: src/ciel_sot_agent/repo_phase.py
+  downstream:
+  - SRC-SOT-0002
+  - RPT-SOT-0001
+  status: canonical
+  id: SRC-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports:
+  - closure_defect
+  - weighted_euler_vector
+  - pairwise_tension
+- provenance: []
+  tests:
+  - TST-SOT-0002
+  layer: code
+  provenance_type: native
+  name: gh_live_coupling
+  upstream:
+  - SRC-SOT-0001
+  - REG-SOT-0001
+  - REG-SOT-0002
+  - REG-SOT-0003
+  - MAP-SOT-0001
+  owner_layer: src
+  path: src/ciel_sot_agent/gh_coupling.py
+  downstream:
+  - RPT-SOT-0002
+  status: canonical
+  id: SRC-SOT-0002
+  interfaces:
+  - IF-SOT-0001
+  placeholder: false
+  exports:
+  - gh_live_registry
+  - live_gh_coupling_report
+- provenance: []
+  tests:
+  - TST-SOT-0003
+  layer: code
+  provenance_type: native
+  name: orbital_bridge
+  upstream:
+  - DOC-SOT-0003
+  - REG-SOT-0004
+  owner_layer: src
+  path: src/ciel_sot_agent/orbital_bridge.py
+  downstream:
+  - RPT-SOT-0003
+  status: canonical
+  id: SRC-SOT-0003
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - TST-SOT-0004
+  layer: code
+  provenance_type: native
+  name: sapiens_panel_controller
+  upstream:
+  - DOC-SOT-0003
+  - REG-SOT-0004
+  owner_layer: src
+  path: src/ciel_sot_agent/sapiens_panel/controller.py
+  downstream:
+  - TST-SOT-0004
+  status: canonical
+  id: SRC-SOT-0004
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance:
+  - GitHub REST commits endpoint
+  tests:
+  - TST-SOT-0002
+  layer: interface
+  provenance_type: imported
+  name: github_api_pull_interface
+  upstream:
+  - REG-SOT-0003
+  owner_layer: integration
+  path: integration/gh_upstreams.json
+  downstream:
+  - SRC-SOT-0002
+  - MAP-SOT-0001
+  status: canonical
+  id: IF-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: repo_phase_tests
+  upstream:
+  - SRC-SOT-0001
+  owner_layer: tests
+  path: tests/test_repo_phase.py
+  downstream: []
+  status: canonical
+  id: TST-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: gh_coupling_tests
+  upstream:
+  - SRC-SOT-0002
+  - MAP-SOT-0001
+  owner_layer: tests
+  path: tests/test_gh_coupling.py
+  downstream: []
+  status: canonical
+  id: TST-SOT-0002
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: orbital_runtime_tests
+  upstream:
+  - SRC-SOT-0003
+  owner_layer: tests
+  path: tests/test_orbital_runtime.py
+  downstream: []
+  status: canonical
+  id: TST-SOT-0003
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: sapiens_panel_tests
+  upstream:
+  - SRC-SOT-0004
+  owner_layer: tests
+  path: tests/test_sapiens_panel.py
+  downstream: []
+  status: canonical
+  id: TST-SOT-0004
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: report
+  provenance_type: native
+  name: initial_sync_report
+  upstream:
+  - SRC-SOT-0001
+  owner_layer: integration
+  path: integration/reports/initial_sync_report.json
+  downstream: []
+  status: canonical
+  id: RPT-SOT-0001
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: report
+  provenance_type: native
+  name: live_gh_coupling_report
+  upstream:
+  - SRC-SOT-0002
+  - MAP-SOT-0001
+  owner_layer: integration
+  path: integration/reports/live_gh_coupling_report.json
+  downstream: []
+  status: placeholder
+  id: RPT-SOT-0002
+  interfaces: []
+  placeholder: true
+  exports: []
+- provenance: []
+  tests: []
+  layer: report
+  provenance_type: native
+  name: orbital_bridge_reports
+  upstream:
+  - SRC-SOT-0003
+  owner_layer: integration
+  path: integration/reports/orbital_bridge/README.md
+  downstream: []
+  status: canonical
+  id: RPT-SOT-0003
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: operations
+  provenance_type: native
+  name: repo_workstyle_session_handoff
+  upstream:
+  - DOC-SOT-0001
+  owner_layer: docs
+  path: docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md
+  downstream:
+  - DOC-SOT-0006
+  - DOC-SOT-0007
+  status: canonical
+  id: DOC-SOT-0005
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - TST-SOT-0006
+  layer: operations
+  provenance_type: native
+  name: orbital_dynamics_law_v0_todo
+  upstream:
+  - DOC-SOT-0005
+  - HYP-SOT-0003
+  owner_layer: docs
+  path: docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md
+  downstream:
+  - TST-SOT-0006
+  status: canonical
+  id: DOC-SOT-0006
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: operations
+  provenance_type: native
+  name: offline_dependency_bundle_v1
+  upstream:
+  - DOC-SOT-0005
+  owner_layer: docs
+  path: docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md
+  downstream:
+  - REG-SOT-0006
+  status: canonical
+  id: DOC-SOT-0007
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: analogy
+  provenance_type: native
+  name: kepler_superfluid_analogies
+  upstream: []
+  owner_layer: docs
+  path: docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md
+  downstream:
+  - HYP-SOT-0003
+  status: canonical
+  id: ANL-SOT-0002
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests:
+  - TST-SOT-0006
+  layer: science
+  provenance_type: native
+  name: relational_orbital_dynamics_spec_v0
+  upstream:
+  - ANL-SOT-0002
+  owner_layer: docs
+  path: docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md
+  downstream:
+  - TST-SOT-0006
+  status: canonical
+  id: HYP-SOT-0003
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: registry
+  provenance_type: native
+  name: offline_dependency_bundle_manifest
+  upstream:
+  - DOC-SOT-0007
+  owner_layer: vendor
+  path: vendor/manifests/offline_dependency_bundle_v1.yaml
+  downstream: []
+  status: canonical
+  id: REG-SOT-0006
+  interfaces: []
+  placeholder: false
+  exports:
+  - offline_bundle_manifest
+- provenance: []
+  tests:
+  - TST-SOT-0005
+  - TST-SOT-0006
+  layer: code
+  provenance_type: native
+  name: phased_state_model
+  upstream:
+  - DOC-SOT-0006
+  owner_layer: src
+  path: src/ciel_sot_agent/phased_state.py
+  downstream:
+  - TST-SOT-0005
+  - TST-SOT-0006
+  status: canonical
+  id: SRC-SOT-0005
+  interfaces: []
+  placeholder: false
+  exports:
+  - build_states
+  - compute_phase
+  - f_conn
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: phased_state_tests
+  upstream:
+  - SRC-SOT-0005
+  owner_layer: tests
+  path: tests/test_phased_state.py
+  downstream: []
+  status: canonical
+  id: TST-SOT-0005
+  interfaces: []
+  placeholder: false
+  exports: []
+- provenance: []
+  tests: []
+  layer: test
+  provenance_type: native
+  name: orbital_semantics_tests
+  upstream:
+  - SRC-SOT-0005
+  - HYP-SOT-0003
+  - DOC-SOT-0006
+  owner_layer: tests
+  path: tests/test_orbital_semantics.py
+  downstream: []
+  status: canonical
+  id: TST-SOT-0006
+  interfaces: []
+  placeholder: false
+  exports: []
+schema: ciel-sot-agent/index-registry/v0.1

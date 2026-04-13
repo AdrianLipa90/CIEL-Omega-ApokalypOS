@@ -22,8 +22,8 @@ It is the first controlled navigation switch for the integration split.
 | `integration/hyperspace_index.json` | `integration/indices/hyperspace_index.json` | legacy-canonical + compat-copy-present + target-candidate | Current content still points to legacy paths |
 | `integration/index_registry.yaml` | `integration/registries/index_registry.yaml` | legacy-canonical + compat-copy-present + target-candidate | Current content still points to legacy paths |
 | `integration/gh_upstreams.json` | `integration/upstreams/gh_upstreams.json` | legacy-canonical + compat-copy-present + target-candidate | Safe candidate for later switch |
-| `integration/gh_live_registry.json` | `integration/upstreams/gh_live_registry.json` | legacy-canonical + compat-copy-present + target-candidate | Currently low-risk placeholder content |
-| `integration/gh_coupling_state.json` | `integration/couplings/gh_coupling_state.json` | legacy-canonical + compat-copy-present + target-candidate | Currently low-risk placeholder content |
+| `integration/gh_live_registry.json` | `integration/upstreams/gh_live_registry.json` | legacy-canonical + compat-copy-present + target-candidate | Content synchronized by mirror-merge workflow |
+| `integration/gh_coupling_state.json` | `integration/couplings/gh_coupling_state.json` | legacy-canonical + compat-copy-present + target-candidate | Content synchronized by mirror-merge workflow |
 | `integration/hyperspace_index_orbital.json` | `integration/indices/hyperspace_index_orbital.json` | legacy-canonical + compat-copy-present + target-candidate | Still points to legacy orbital addendum paths |
 | `integration/index_registry_orbital.yaml` | `integration/registries/index_registry_orbital.yaml` | legacy-canonical + compat-copy-present + target-candidate | Still anchored to orbital addendum legacy path |
 | `integration/upstreams/ciel_omega_demo_shell_map.json` | `integration/upstreams/ciel_omega_demo_shell_map.json` | legacy-canonical | Already lives in target upstream sector |
@@ -43,6 +43,10 @@ The following target-sector copies are already present:
 - `integration/indices/hyperspace_index_orbital.json`
 - `integration/upstreams/gh_upstreams.json`
 - `integration/upstreams/gh_live_registry.json`
+
+Mirror synchronization workflow:
+- `scripts/run_integration_mirror_sync.py`
+- `src/ciel_sot_agent/integration_mirror.py`
 
 ## What is not switched yet
 

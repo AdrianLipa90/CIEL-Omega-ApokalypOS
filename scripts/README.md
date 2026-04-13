@@ -18,6 +18,7 @@ They should delegate real logic to `src/ciel_sot_agent/`.
 - `run_orbital_global_pass.py` — runs the orbital diagnostic pass from `integration/Orbital/main/global_pass.py`.
 - `run_repo_phase_sync.py` — launches the repository phase synchronizer implemented in `src/ciel_sot_agent/synchronize.py`.
 - `run_repo_sync_v2.py` — launches the v2 repository synchronizer implemented in `src/ciel_sot_agent/synchronize_v2.py`.
+- `run_integration_mirror_sync.py` — synchronizes legacy and v2 integration mirror files via `src/ciel_sot_agent/integration_mirror.py`.
 - `run_sapiens_panel.py` — launches the Sapiens panel foundation shell from `src/ciel_sot_agent/sapiens_panel/controller.py`.
 
 ### Bootstrap and import helpers
