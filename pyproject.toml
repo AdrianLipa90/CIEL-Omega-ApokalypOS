@@ -42,6 +42,7 @@ ciel-sot-runtime-evidence-ingest = "ciel_sot_agent.runtime_evidence_ingest:main"
 ciel-sot-gui = "ciel_sot_agent.gui.app:main"
 ciel-sot-install-model = "ciel_sot_agent.gguf_manager.cli:main"
 ciel-sot-integration-mirror-sync = "ciel_sot_agent.integration_mirror:main"
+ciel-sot-pipeline-maintenance = "ciel_sot_agent.pipeline_maintenance:main"
 
 [tool.setuptools]
 include-package-data = true

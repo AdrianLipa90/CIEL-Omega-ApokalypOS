@@ -19,6 +19,7 @@ They should delegate real logic to `src/ciel_sot_agent/`.
 - `run_repo_phase_sync.py` — launches the repository phase synchronizer implemented in `src/ciel_sot_agent/synchronize.py`.
 - `run_repo_sync_v2.py` — launches the v2 repository synchronizer implemented in `src/ciel_sot_agent/synchronize_v2.py`.
 - `run_integration_mirror_sync.py` — synchronizes legacy and v2 integration mirror files via `src/ciel_sot_agent/integration_mirror.py`.
+- `run_pipeline_maintenance.py` — runs the connected maintenance pipeline (mirror sync -> sync v2 -> index validators) via `src/ciel_sot_agent/pipeline_maintenance.py`.
 - `run_sapiens_panel.py` — launches the Sapiens panel foundation shell from `src/ciel_sot_agent/sapiens_panel/controller.py`.
 
 ### Bootstrap and import helpers
