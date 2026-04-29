@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-04-29T03:12:38.442750+00:00",
+  "generated_at": "2026-04-29T04:28:18.034700+00:00",
   "changed_keys": [
     "agent"
   ],
@@ -11,11 +11,11 @@
       "repo_full_name": "AdrianLipa90/CIEL-_SOT_Agent",
       "branch": "main",
       "changed": true,
-      "old_sha": "c56e325dd648af5a7b8e71f71a816ccc223eefd2",
-      "new_sha": "f5eb885ba08b751cb49c2a3d7a63ac9dae665cc4",
-      "timestamp": "2026-04-29T01:56:10Z",
+      "old_sha": "f5eb885ba08b751cb49c2a3d7a63ac9dae665cc4",
+      "new_sha": "e7119eb366e8b56d7096f9bce99aa3098eaccff8",
+      "timestamp": "2026-04-29T03:12:39Z",
       "message": "Update live GH coupling state",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/f5eb885ba08b751cb49c2a3d7a63ac9dae665cc4"
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/e7119eb366e8b56d7096f9bce99aa3098eaccff8"
     },
     {
       "key": "demo",
