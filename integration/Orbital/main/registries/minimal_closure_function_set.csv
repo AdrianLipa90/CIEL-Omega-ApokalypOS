@@ -1,0 +1,7 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+1,ciel_omega/constraints/euler_constraint.py,_build_core_phase_vector,gamma_i / phase sectors,builds canonical phase vector used by closure evaluation,without a phase vector there is no Delta_H or unified Euler evaluation,confirmed-mechanism
+2,ciel_omega/phase_equation_of_motion.py,delta_H,Delta_H,computes closure sum from current phase vector,direct implementation of closure amplitude,confirmed-mechanism
+3,ciel_omega/phase_equation_of_motion.py,R_H,R_H,computes defect norm from Delta_H,direct defect scalar needed for V_rel-like control,confirmed-mechanism
+4,ciel_omega/constraints/euler_constraint.py,evaluate_unified_euler_constraint,EulerBerry,canonical multi-sector closure evaluation,joins sectors and reports unified closure state,confirmed-mechanism
+5,ciel_omega/constraints/euler_constraint.py,apply_active_euler_feedback,EulerBerry feedback,applies phase correction after constraint evaluation,"closure mechanism needs feedback/control, not only measurement",confirmed-mechanism
+6,ciel_omega/phase_equation_of_motion.py,V_information,V_rel / V_information,maps defect/phase state into information potential,minimal potential-side completion of Delta_H -> R_H -> V path,confirmed-mechanism

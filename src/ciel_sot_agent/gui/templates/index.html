@@ -1,0 +1,970 @@
+{% extends "base.html" %}
+
+{% block title %}Control — CIEL Quiet Orbital Control{% endblock %}
+
+{% block workspace %}
+
+<!-- ===================================================
+     SECTION: Control (default landing pane)
+     =================================================== -->
+<div id="section-control" class="ws-section">
+
+  <!-- Orbital canvas hero -->
+  <div class="canvas-container" style="height:300px;margin-bottom:18px">
+    <canvas id="hero-canvas" style="width:100%;height:100%;display:block"></canvas>
+
+    <div class="canvas-title-overlay">
+      <div style="font-size:26px;font-weight:700;line-height:1">
+        <span class="gradient-text-gold">CIEL</span><span style="color:var(--col-sky)">/</span><span class="gradient-text-sky">0</span>
+      </div>
+      <div style="font-size:10px;color:rgba(93,173,226,0.55);margin-top:3px;letter-spacing:.06em">
+        CONSCIOUSNESS-INTEGRATED EVOLUTIONARY LAMBDA
+      </div>
+    </div>
+
+    <div class="canvas-mode-overlay">
+      <span id="hero-mode-chip" class="mode-chip guided">{{ system_mode | default('guided') }}</span>
+    </div>
+
+    <!-- live metric overlay strip -->
+    <div class="canvas-overlay">
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;text-align:center">
+        <div>
+          <div id="ov-coherence" style="font-size:16px;font-weight:600" class="metric-value-sky">{{ "%.2f" | format(coherence_index | default(0.0) | float) }}</div>
+          <div style="font-size:9px;color:rgba(93,173,226,0.45);text-transform:uppercase;letter-spacing:.06em">Coherence</div>
+        </div>
+        <div>
+          <div id="ov-health" style="font-size:16px;font-weight:600" class="metric-value-sky">{{ "%.2f" | format(system_health | default(0.0) | float) }}</div>
+          <div style="font-size:9px;color:rgba(93,173,226,0.45);text-transform:uppercase;letter-spacing:.06em">Health</div>
+        </div>
+        <div>
+          <div id="ov-ethical" style="font-size:16px;font-weight:600" class="metric-value-gold">—</div>
+          <div style="font-size:9px;color:rgba(212,175,55,0.45);text-transform:uppercase;letter-spacing:.06em">Ethical</div>
+        </div>
+        <div>
+          <div id="ov-soul" style="font-size:16px;font-weight:600" class="metric-value-gold">—</div>
+          <div style="font-size:9px;color:rgba(212,175,55,0.45);text-transform:uppercase;letter-spacing:.06em">Soul</div>
+        </div>
+        <div>
+          <div id="ov-emotion" style="font-size:14px;font-weight:600;color:var(--col-violet)">—</div>
+          <div style="font-size:9px;color:rgba(124,111,189,0.45);text-transform:uppercase;letter-spacing:.06em">Emotion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bars -->
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Orbital Observables</div>
+    <div class="orbital-bar-wrap">
+      <div class="orbital-bar-label">
+        <span>Coherence Index</span>
+        <span id="bar-lbl-coherence">{{ "%.2f" | format(coherence_index | default(0.0) | float) }}</span>
+      </div>
+      <div class="orbital-bar-track">
+        <div class="orbital-bar-fill violet" id="bar-coherence"
+             style="width:{{ (coherence_index | default(0.0) | float * 100)|round(1) }}%"></div>
+      </div>
+    </div>
+    <div class="orbital-bar-wrap">
+      <div class="orbital-bar-label">
+        <span>System Health</span>
+        <span id="bar-lbl-health">{{ "%.2f" | format(system_health | default(0.0) | float) }}</span>
+      </div>
+      <div class="orbital-bar-track">
+        <div class="orbital-bar-fill" id="bar-health"
+             style="width:{{ (system_health | default(0.0) | float * 100)|round(1) }}%"></div>
+      </div>
+    </div>
+    <div class="orbital-bar-wrap">
+      <div class="orbital-bar-label"><span>Ethical Score</span><span id="bar-lbl-ethical">—</span></div>
+      <div class="orbital-bar-track">
+        <div class="orbital-bar-fill" id="bar-ethical" style="width:0%;background:var(--col-gold)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Axioms -->
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Six Axioms of CIEL</div>
+    {% set axioms = [
+      ('L0','Perfect Coherence Forbidden','R(S,I) < 1'),
+      ('L1','Resonance Boundedness','R(S,I) ∈ (0,1)'),
+      ('L2','Intention–Symbolic Coupling','∂ₜS ∝ I'),
+      ('L3','Time as Entropy Gradient','Tᵘ = −∇ᵘS_res'),
+      ('L4','Life Integrity Preservation','∮ R(S,I) ≥ R_min'),
+      ('L5','Mass from Misalignment','m² ∝ (1 − R)'),
+    ] %}
+    {% for id, name, formula in axioms %}
+    <div class="axiom-card">
+      <div class="axiom-id">{{id}}</div>
+      <div style="flex:1">
+        <div style="font-size:12px;color:var(--col-text);font-weight:500;margin-bottom:2px">{{name}}</div>
+        <div style="font-size:11px;color:var(--col-text-muted);font-family:var(--font-mono)">{{formula}}</div>
+      </div>
+      <span class="badge-strict">✓ STRICTE</span>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Actions -->
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Operator Actions</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <button class="btn btn-gold" onclick="runPipeline('synchronize')">Run Sync</button>
+      <button class="btn btn-gold" onclick="runPipeline('orbital_bridge')">Run Bridge</button>
+      <button class="btn btn-sky" onclick="runPipeline('ciel_pipeline')">Run CIEL/Ω</button>
+      <button class="btn" onclick="loadReport('orbital_bridge')">Export State</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Hero orbital canvas animation ──────────────────────────────────────────
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var animId;
+  var time = 0;
+  var orbits = [
+    {radius:55,  speed:0.009, particles:3, offset:0},
+    {radius:100, speed:0.006, particles:5, offset:1},
+    {radius:150, speed:0.004, particles:7, offset:2},
+    {radius:200, speed:0.0025,particles:9, offset:3},
+  ];
+
+  function resize() {
+    var r = window.devicePixelRatio || 1;
+    canvas.width  = canvas.offsetWidth  * r;
+    canvas.height = canvas.offsetHeight * r;
+    ctx.setTransform(r,0,0,r,0,0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    var W = canvas.offsetWidth, H = canvas.offsetHeight;
+    var cx = W/2, cy = H/2;
+    ctx.fillStyle = 'rgba(7,13,24,0.18)';
+    ctx.fillRect(0,0,W,H);
+
+    orbits.forEach(function(o, i) {
+      ctx.beginPath();
+      ctx.arc(cx, cy, o.radius, 0, Math.PI*2);
+      ctx.strokeStyle = 'rgba(93,173,226,' + (0.08 + i*0.04) + ')';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      for (var p=0; p<o.particles; p++) {
+        var angle = time*o.speed + (p*Math.PI*2)/o.particles + o.offset;
+        var x = cx + Math.cos(angle)*o.radius;
+        var y = cy + Math.sin(angle)*o.radius;
+        var grad = ctx.createRadialGradient(x,y,0,x,y,10);
+        if (i%2===0) {
+          grad.addColorStop(0,'rgba(212,175,55,0.85)');
+          grad.addColorStop(1,'transparent');
+        } else {
+          grad.addColorStop(0,'rgba(93,173,226,0.85)');
+          grad.addColorStop(1,'transparent');
+        }
+        ctx.beginPath(); ctx.arc(x,y,10,0,Math.PI*2);
+        ctx.fillStyle = grad; ctx.fill();
+        ctx.beginPath(); ctx.arc(x,y,2.5,0,Math.PI*2);
+        ctx.fillStyle = i%2===0 ? '#f4d03f' : '#85c1e9'; ctx.fill();
+      }
+    });
+
+    // nucleus
+    var ng = ctx.createRadialGradient(cx,cy,0,cx,cy,32);
+    ng.addColorStop(0,'rgba(212,175,55,0.55)');
+    ng.addColorStop(0.5,'rgba(93,173,226,0.25)');
+    ng.addColorStop(1,'transparent');
+    ctx.beginPath(); ctx.arc(cx,cy,32,0,Math.PI*2);
+    ctx.fillStyle = ng; ctx.fill();
+    ctx.beginPath(); ctx.arc(cx,cy,6,0,Math.PI*2);
+    ctx.fillStyle = '#d4af37';
+    ctx.shadowColor = '#f4d03f'; ctx.shadowBlur = 18;
+    ctx.fill(); ctx.shadowBlur = 0;
+
+    time++;
+    animId = requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ── Pipeline runner ─────────────────────────────────────────────────────────
+window.runPipeline = function(mod) {
+  fetch('/api/pipeline/run', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({module:mod})})
+    .then(function(r){return r.json();})
+    .then(function(d){ console.log('Pipeline:', mod, d); })
+    .catch(function(){});
+};
+
+// ── Patch panel refresh to update overlay + bars ────────────────────────────
+var _origPanel = window.refreshPanel;
+window.refreshPanel = function() {
+  if (_origPanel) _origPanel();
+  fetch('/api/panel').then(function(r){return r.json();}).then(function(d){
+    var support = d.support || {};
+    var hm = support.health_manifest || {};
+    var rc = support.recommended_control || {};
+    // Try pipeline report via /api/status extended
+    fetch('/api/status').then(function(r2){return r2.json();}).then(function(s){
+      var ethical = s.ethical_score || 0;
+      var soul    = s.soul_invariant || 0;
+      var emotion = s.dominant_emotion || '—';
+      var mode    = s.system_mode || d.control && d.control.mode || '—';
+
+      var oe = document.getElementById('ov-ethical');
+      var os = document.getElementById('ov-soul');
+      var omo = document.getElementById('ov-emotion');
+      var hmc = document.getElementById('hero-mode-chip');
+      if (oe) oe.textContent = ethical ? ethical.toFixed(3) : '—';
+      if (os) os.textContent = soul    ? soul.toFixed(3)    : '—';
+      if (omo) omo.textContent = emotion;
+      if (hmc) { hmc.textContent = mode; hmc.className = 'mode-chip ' + mode; }
+
+      // ethical bar
+      var eb = document.getElementById('bar-ethical');
+      var el = document.getElementById('bar-lbl-ethical');
+      if (eb) eb.style.width = (Math.min(1, ethical)*100).toFixed(1)+'%';
+      if (el) el.textContent = ethical ? ethical.toFixed(3) : '—';
+
+      // overlay coherence/health from panel
+      var ci = d.control && d.control.coherence_index || 0;
+      var sh = d.control && d.control.system_health   || 0;
+      var oc = document.getElementById('ov-coherence');
+      var oh = document.getElementById('ov-health');
+      if (oc) oc.textContent = ci ? ci.toFixed(2) : '—';
+      if (oh) oh.textContent = sh ? sh.toFixed(2) : '—';
+      var bl = document.getElementById('bar-lbl-coherence');
+      var bh = document.getElementById('bar-lbl-health');
+      if (bl) bl.textContent = ci ? ci.toFixed(2) : '—';
+      if (bh) bh.textContent = sh ? sh.toFixed(2) : '—';
+    }).catch(function(){});
+  }).catch(function(){});
+};
+</script>
+
+
+<!-- ===================================================
+     SECTION: Chat
+     =================================================== -->
+<div id="section-chat" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Chat — CIEL GGUF</span>
+    <span class="section-subtitle">Geometria Kählera · L_rel · lokalny model · pamięć orbitalna</span>
+  </div>
+
+  <div style="display:flex;gap:12px;align-items:flex-start">
+
+    <!-- ── SIDEBAR: historia sesji ── -->
+    <div id="chat-sidebar" style="width:200px;flex-shrink:0">
+      <div style="font-size:11px;color:var(--col-text-muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Historia sesji</div>
+      <div id="session-list"
+           style="background:var(--col-bg-card);border:1px solid var(--col-border);border-radius:4px;max-height:480px;overflow-y:auto;font-family:var(--font-mono);font-size:11px">
+        <div style="padding:8px;color:var(--col-text-muted)">ładowanie…</div>
+      </div>
+      <button onclick="loadSessions()" style="margin-top:6px;width:100%;padding:4px;font-size:11px;background:var(--col-bg-card);border:1px solid var(--col-border);color:var(--col-text-muted);cursor:pointer;border-radius:3px">odśwież</button>
+    </div>
+
+    <!-- ── MAIN: transkrypt + input ── -->
+    <div style="flex:1;min-width:0">
+
+      <!-- Model selector -->
+      <div class="card" style="margin-bottom:8px;padding:8px 12px">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <select id="model-select"
+                  style="flex:1;min-width:180px;padding:5px 8px;background:var(--col-bg-deep,#0a0a0f);border:1px solid var(--col-border);color:var(--col-text);font-family:var(--font-mono);font-size:12px;border-radius:4px">
+            <option value="">— wybierz model —</option>
+          </select>
+          <button onclick="modelLoad()" style="padding:5px 12px;background:var(--col-bg-card);border:1px solid var(--col-border);color:var(--col-text);font-size:12px;border-radius:4px;cursor:pointer">Załaduj</button>
+          <span id="chat-model-badge" style="font-size:11px;color:var(--col-accent,#7b68ee)">— brak —</span>
+          <span id="model-status" style="font-size:11px;color:var(--col-text-muted)"></span>
+          <button onclick="chatReset()" style="margin-left:auto;font-size:11px;padding:3px 8px;background:var(--col-bg-card);border:1px solid var(--col-border);color:var(--col-text-muted);cursor:pointer;border-radius:3px">wyczyść</button>
+        </div>
+      </div>
+
+      <!-- Transkrypt -->
+      <div class="card" style="padding:0">
+        <div id="chat-transcript"
+             style="min-height:200px;max-height:400px;overflow-y:auto;padding:12px;background:var(--col-bg-deep,#0a0a0f);border-radius:4px;font-family:var(--font-mono);font-size:12px;line-height:1.6;word-break:break-word">
+          <span style="color:var(--col-text-muted)">Brak wiadomości.</span>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="card" style="margin-top:8px">
+        <div style="display:flex;gap:8px;align-items:flex-end">
+          <textarea id="chat-input" placeholder="Wpisz pytanie…" rows="2"
+                    style="flex:1;resize:vertical;padding:8px;background:var(--col-bg-card);border:1px solid var(--col-border);color:var(--col-text);font-family:var(--font-mono);font-size:13px;border-radius:4px;outline:none"
+                    onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();chatSend();}"></textarea>
+          <button onclick="chatSend()" id="chat-send-btn"
+                  style="padding:8px 18px;background:var(--col-accent,#7b68ee);border:none;color:#fff;font-size:13px;border-radius:4px;cursor:pointer;min-width:72px">Wyślij</button>
+        </div>
+        <p style="color:var(--col-text-muted);font-size:10px;margin-top:4px">Enter = wyślij &nbsp;·&nbsp; Shift+Enter = nowa linia &nbsp;·&nbsp; każda wiadomość → wave_archive.h5</p>
+      </div>
+
+      <!-- Podgląd wczytanej sesji -->
+      <div id="session-viewer" style="display:none" class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <span id="session-viewer-title" style="font-size:11px;color:var(--col-text-muted)"></span>
+          <button onclick="document.getElementById('session-viewer').style.display='none'"
+                  style="font-size:11px;padding:2px 6px;background:var(--col-bg-card);border:1px solid var(--col-border);color:var(--col-text-muted);cursor:pointer;border-radius:3px">✕</button>
+        </div>
+        <pre id="session-viewer-content"
+             style="max-height:320px;overflow:auto;font-size:11px;color:var(--col-text-muted);white-space:pre-wrap;word-break:break-word;margin:0"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.think-block {
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid #444;
+  padding: 6px 10px;
+  margin: 4px 0 6px 0;
+  font-size: 11px;
+  color: #666;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+.think-block summary { color: #555; font-style: italic; user-select: none; }
+.think-block[open] summary { color: #888; }
+.msg-user   { color: #7b9fff; font-weight: bold; }
+.msg-ciel   { color: #b5e8b0; font-weight: bold; }
+.msg-err    { color: #e87b7b; font-weight: bold; }
+.session-item {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--col-border);
+  cursor: pointer;
+  color: var(--col-text-muted);
+  font-size: 10px;
+  line-height: 1.4;
+}
+.session-item:hover { background: rgba(255,255,255,0.04); color: var(--col-text); }
+</style>
+
+<script>
+(function() {
+  var transcript  = document.getElementById('chat-transcript');
+  var input       = document.getElementById('chat-input');
+  var badge       = document.getElementById('chat-model-badge');
+  var sendBtn     = document.getElementById('chat-send-btn');
+  var modelSelect = document.getElementById('model-select');
+  var modelStatus = document.getElementById('model-status');
+  var sessionList = document.getElementById('session-list');
+
+  /* ── helpers ── */
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function removePlaceholder() {
+    var ph = transcript.querySelector('span[style*="col-text-muted"]');
+    if (ph) ph.parentNode && ph.parentNode.removeChild(ph);
+  }
+
+  /* ── models ── */
+  function populateModels() {
+    fetch('/api/chat/models').then(function(r){return r.json();}).then(function(d){
+      modelSelect.innerHTML = '';
+      if (!d.models || !d.models.length) {
+        modelSelect.innerHTML = '<option value="">— brak modeli —</option>'; return;
+      }
+      d.models.forEach(function(m) {
+        var opt = document.createElement('option');
+        opt.value = m.path;
+        opt.textContent = m.name + '  (' + m.size_mb + ' MB)';
+        if (d.current && m.path === d.current) opt.selected = true;
+        modelSelect.appendChild(opt);
+      });
+      if (d.current) {
+        var cur = d.models.find(function(m){ return m.path === d.current; });
+        if (cur) { badge.textContent = cur.name; modelStatus.textContent = 'aktywny'; }
+      }
+    }).catch(function(){ modelSelect.innerHTML = '<option value="">— błąd —</option>'; });
+  }
+
+  window.modelLoad = function() {
+    var path = modelSelect.value; if (!path) return;
+    modelStatus.textContent = 'ładowanie…';
+    fetch('/api/chat/model/set', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({path:path})})
+    .then(function(r){return r.json();}).then(function(d){
+      if (d.error) { modelStatus.textContent = 'błąd: '+d.error; return; }
+      badge.textContent = d.model;
+      modelStatus.textContent = 'ustawiony — wagi załadują się przy pierwszym zapytaniu';
+      transcript.innerHTML = '<span style="color:var(--col-text-muted)">Model zmieniony.</span>';
+    }).catch(function(){ modelStatus.textContent = 'błąd sieci'; });
+  };
+
+  populateModels();
+
+  /* ── append message ── */
+  function appendMsg(role, speak, thinking) {
+    removePlaceholder();
+    var wrap = document.createElement('div');
+    wrap.style.marginBottom = '12px';
+
+    // thinking block (collapsible)
+    if (thinking) {
+      var details = document.createElement('details');
+      details.className = 'think-block';
+      var summary = document.createElement('summary');
+      summary.textContent = '💭 myślenie (' + thinking.length + ' znaków)';
+      details.appendChild(summary);
+      var pre = document.createElement('pre');
+      pre.style.cssText = 'margin:6px 0 0 0;white-space:pre-wrap;word-break:break-word;font-size:10px';
+      pre.textContent = thinking;
+      details.appendChild(pre);
+      wrap.appendChild(details);
+    }
+
+    // main message
+    var line = document.createElement('div');
+    var cls = role === 'Adrian' ? 'msg-user' : (role === 'BŁĄD' ? 'msg-err' : 'msg-ciel');
+    line.innerHTML = '<span class="' + cls + '">' + esc(role) + ' &gt;</span> ' + esc(speak);
+    wrap.appendChild(line);
+
+    transcript.appendChild(wrap);
+    transcript.scrollTop = transcript.scrollHeight;
+  }
+
+  function setBusy(busy) {
+    sendBtn.disabled = busy;
+    sendBtn.textContent = busy ? '…' : 'Wyślij';
+    input.disabled = busy;
+  }
+
+  window.chatSend = function() {
+    var msg = input.value.trim(); if (!msg) return;
+    appendMsg('Adrian', msg, '');
+    input.value = '';
+    setBusy(true);
+    fetch('/api/chat/message', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({message:msg})})
+    .then(function(r){return r.json();})
+    .then(function(d) {
+      setBusy(false);
+      if (d.error && !d.reply) { appendMsg('BŁĄD', d.error, ''); return; }
+      appendMsg('CIEL', d.reply || '', d.thinking || '');
+      if (d.model) badge.textContent = d.model;
+    })
+    .catch(function(e){ setBusy(false); appendMsg('BŁĄD', e.message, ''); });
+  };
+
+  window.chatReset = function() {
+    fetch('/api/chat/reset', {method:'POST'}).then(function(){
+      transcript.innerHTML = '<span style="color:var(--col-text-muted)">Historia wyczyszczona.</span>';
+    });
+  };
+
+  /* ── session history sidebar ── */
+  window.loadSessions = function() {
+    sessionList.innerHTML = '<div style="padding:8px;color:var(--col-text-muted)">ładowanie…</div>';
+    fetch('/api/chat/sessions').then(function(r){return r.json();}).then(function(d){
+      if (!d.sessions || !d.sessions.length) {
+        sessionList.innerHTML = '<div style="padding:8px;color:var(--col-text-muted)">brak sesji</div>';
+        return;
+      }
+      sessionList.innerHTML = '';
+      d.sessions.forEach(function(s) {
+        var item = document.createElement('div');
+        item.className = 'session-item';
+        var date = s.name.replace(/\.md$/, '').substring(0, 16).replace('_', ' ');
+        item.innerHTML = '<div style="color:var(--col-text)">' + esc(date) + '</div>'
+                       + '<div>' + s.size_kb + ' KB</div>';
+        item.onclick = function() { openSession(s.name); };
+        sessionList.appendChild(item);
+      });
+    }).catch(function(){ sessionList.innerHTML = '<div style="padding:8px;color:#e87b7b">błąd</div>'; });
+  };
+
+  function openSession(name) {
+    fetch('/api/chat/session/' + encodeURIComponent(name))
+    .then(function(r){return r.json();}).then(function(d){
+      var viewer = document.getElementById('session-viewer');
+      document.getElementById('session-viewer-title').textContent = name;
+      document.getElementById('session-viewer-content').textContent = d.content || d.error || '';
+      viewer.style.display = '';
+    });
+  }
+
+  // Pre-open session from first letter — create file immediately on page load
+  fetch('/api/chat/session/open', {method:'POST'})
+    .then(function(r){return r.json();})
+    .then(function(d){ if(d.file) console.log('CIEL session:', d.file); })
+    .catch(function(){});
+
+  loadSessions();
+})();
+</script>
+
+
+<!-- ===================================================
+     SECTION: Simulation (Field Engine)
+     =================================================== -->
+<div id="section-simulation" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Field Simulation Engine</span>
+    <span class="section-subtitle">CIEL/0 intention field I(x,t) — interactive dynamics</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Controls</div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px">
+      <button class="btn btn-gold" id="sim-start-btn" onclick="simToggle()">▶ Start</button>
+      <button class="btn" onclick="simReset()">↺ Reset</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+      <div class="sim-slider-row">
+        <label>λ₁ Intention Coupling</label>
+        <input type="range" id="sim-l1" min="0" max="0.5" step="0.01" value="0.1" oninput="document.getElementById('sim-l1-v').textContent=parseFloat(this.value).toFixed(2)">
+        <span class="sim-slider-val" id="sim-l1-v">0.10</span>
+      </div>
+      <div class="sim-slider-row">
+        <label>λ₂ Lambda Coupling</label>
+        <input type="range" id="sim-l2" min="0" max="0.2" step="0.01" value="0.05" oninput="document.getElementById('sim-l2-v').textContent=parseFloat(this.value).toFixed(2)">
+        <span class="sim-slider-val" id="sim-l2-v">0.05</span>
+      </div>
+      <div class="sim-slider-row">
+        <label>λ₃ Phase Coupling</label>
+        <input type="range" id="sim-l3" min="0" max="0.5" step="0.01" value="0.2" oninput="document.getElementById('sim-l3-v').textContent=parseFloat(this.value).toFixed(2)">
+        <span class="sim-slider-val" id="sim-l3-v">0.20</span>
+      </div>
+      <div class="sim-slider-row">
+        <label>dt Time Step</label>
+        <input type="range" id="sim-dt" min="0.001" max="0.05" step="0.001" value="0.01" oninput="document.getElementById('sim-dt-v').textContent=parseFloat(this.value).toFixed(3)">
+        <span class="sim-slider-val" id="sim-dt-v">0.010</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="canvas-container" style="height:420px">
+    <canvas id="sim-canvas" style="width:100%;height:100%;display:block;image-rendering:pixelated"></canvas>
+    <div style="position:absolute;bottom:8px;left:12px;font-size:10px;color:rgba(93,173,226,0.4)">Field: Intention I(x,t)</div>
+    <div style="position:absolute;bottom:8px;right:12px;font-size:10px;color:rgba(93,173,226,0.4)">Color = Phase · Brightness = Amplitude</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px">
+    <div class="glass-navy"><div style="color:var(--col-gold);font-size:12px;font-weight:600;margin-bottom:4px">Intention Field I(x,t)</div><div style="font-size:11px;color:var(--col-text-muted)">Complex scalar field. Evolves through nonlinear dynamics with phase-coupled temporal interactions.</div></div>
+    <div class="glass-navy"><div style="color:var(--col-gold);font-size:12px;font-weight:600;margin-bottom:4px">Resonance R(S,I)</div><div style="font-size:11px;color:var(--col-text-muted)">|⟨S|I⟩|² — coherence of reality. Bounded in (0,1). Quantifies symbolic alignment.</div></div>
+    <div class="glass-navy"><div style="color:var(--col-gold);font-size:12px;font-weight:600;margin-bottom:4px">Emergent Mass</div><div style="font-size:11px;color:var(--col-text-muted)">m² = μ₀[1 − R(S,I)]. Mass from misalignment. No Higgs mechanism required.</div></div>
+  </div>
+</div>
+
+<script>
+// ── Field Simulation Engine ─────────────────────────────────────────────────
+(function() {
+  var N = 64;
+  var running = false;
+  var animId;
+  var I, tau, R, mass;
+
+  function getConfig() {
+    return {
+      l1: parseFloat(document.getElementById('sim-l1').value),
+      l2: parseFloat(document.getElementById('sim-l2').value),
+      l3: parseFloat(document.getElementById('sim-l3').value),
+      dt: parseFloat(document.getElementById('sim-dt').value),
+    };
+  }
+
+  function initFields() {
+    I = []; tau = []; R = []; mass = [];
+    var cx = N/2;
+    for (var i=0; i<N; i++) {
+      I[i]=[]; tau[i]=[]; R[i]=[]; mass[i]=[];
+      for (var j=0; j<N; j++) {
+        var dx=i-cx, dy=j-cx, r2=(dx*dx+dy*dy)/(N*N/8);
+        I[i][j]   = 0.5*Math.exp(-r2);
+        tau[i][j] = 0.1*Math.exp(-r2);
+        R[i][j]   = 0; mass[i][j] = 0;
+      }
+    }
+  }
+
+  function step() {
+    var cfg = getConfig();
+    var dt=cfg.dt, l1=cfg.l1, l3=cfg.l3;
+    var nI=[]; var nT=[];
+    for (var i=0; i<N; i++){nI[i]=I[i].slice();nT[i]=tau[i].slice();}
+    for (var i=1; i<N-1; i++) for (var j=1; j<N-1; j++) {
+      var lap = I[i+1][j]+I[i-1][j]+I[i][j+1]+I[i][j-1] - 4*I[i][j];
+      var nl  = 2*l1*I[i][j]*I[i][j]*I[i][j];
+      var ph  = l3*Math.sin(tau[i][j])*I[i][j];
+      nI[i][j] = I[i][j] + dt*(-lap - nl - ph);
+      var gt  = Math.pow(tau[i+1][j]-tau[i-1][j],2)+Math.pow(tau[i][j+1]-tau[i][j-1],2);
+      var f   = 1/(2*(1+gt*gt));
+      var div = f*((tau[i+1][j]-tau[i][j])-(tau[i][j]-tau[i-1][j]))+
+                f*((tau[i][j+1]-tau[i][j])-(tau[i][j]-tau[i][j-1]));
+      nT[i][j] = tau[i][j] + dt*(div - l3*Math.sin(tau[i][j]-Math.atan2(I[i][j],I[i][j])));
+    }
+    I=nI; tau=nT;
+    for (var i=0; i<N; i++) for (var j=0; j<N; j++) {
+      R[i][j] = I[i][j]*I[i][j];
+      mass[i][j] = Math.sqrt(Math.max(0, 1-R[i][j]));
+    }
+  }
+
+  function drawSim() {
+    var canvas = document.getElementById('sim-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var img = ctx.createImageData(N, N);
+    for (var i=0; i<N; i++) for (var j=0; j<N; j++) {
+      var idx=(i*N+j)*4;
+      var intensity = Math.min(1, Math.abs(I[i][j])*2.5);
+      var phase     = (Math.atan2(tau[i][j], I[i][j]) + Math.PI) / (2*Math.PI);
+      img.data[idx]   = Math.floor(intensity*(100+155*Math.sin(phase*Math.PI*2)));
+      img.data[idx+1] = Math.floor(intensity*(150+105*Math.cos(phase*Math.PI*2)));
+      img.data[idx+2] = Math.floor(intensity*(200+55*Math.sin(phase*Math.PI)));
+      img.data[idx+3] = 255;
+    }
+    var tmp = document.createElement('canvas');
+    tmp.width=N; tmp.height=N;
+    tmp.getContext('2d').putImageData(img,0,0);
+    ctx.drawImage(tmp,0,0,canvas.width,canvas.height);
+  }
+
+  function loop() {
+    if (!running) return;
+    step(); drawSim();
+    animId = requestAnimationFrame(loop);
+  }
+
+  window.simToggle = function() {
+    running = !running;
+    var btn = document.getElementById('sim-start-btn');
+    if (btn) btn.textContent = running ? '⏸ Stop' : '▶ Start';
+    if (running) loop();
+    else if (animId) cancelAnimationFrame(animId);
+  };
+  window.simReset = function() {
+    running = false;
+    if (animId) cancelAnimationFrame(animId);
+    var btn = document.getElementById('sim-start-btn');
+    if (btn) btn.textContent = '▶ Start';
+    initFields(); drawSim();
+  };
+
+  // init on section show
+  document.querySelectorAll('.nav-item[data-section="simulation"]').forEach(function(el){
+    el.addEventListener('click', function(){
+      if (!I) { initFields(); drawSim(); }
+    });
+  });
+})();
+</script>
+
+
+<!-- ===================================================
+     SECTION: Orbital (entity visualization)
+     =================================================== -->
+<div id="section-orbital" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Orbital System</span>
+    <span class="section-subtitle">OORP — Orbital Orchestrated Reduction Pipeline · entity coupling map</span>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Controls</div>
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <div class="sim-slider-row" style="flex:0 0 180px">
+        <label>Entities</label>
+        <input type="range" id="orb-count" min="3" max="24" step="1" value="12"
+               oninput="document.getElementById('orb-count-v').textContent=this.value;orbReinit()">
+        <span class="sim-slider-val" id="orb-count-v">12</span>
+      </div>
+      <label style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--col-text-muted);cursor:pointer">
+        <input type="checkbox" id="orb-conn" checked onchange="orbReinit()" style="accent-color:var(--col-gold)">
+        Show Couplings
+      </label>
+    </div>
+  </div>
+
+  <div class="canvas-container" style="height:380px">
+    <canvas id="orb-canvas" style="width:100%;height:100%;display:block"></canvas>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;text-align:center">
+    <div class="glass-navy" style="padding:10px">
+      <div style="color:var(--col-gold);font-family:var(--font-mono);font-size:12px;font-weight:600">Σ e^(iγ) = 0</div>
+      <div style="font-size:10px;color:var(--col-text-muted);margin-top:4px">Euler-Berry constraint</div>
+    </div>
+    <div class="glass-navy" style="padding:10px">
+      <div style="color:var(--col-gold);font-family:var(--font-mono);font-size:12px;font-weight:600">W_ij = ωe^(iδ)</div>
+      <div style="font-size:10px;color:var(--col-text-muted);margin-top:4px">Coupling operator</div>
+    </div>
+    <div class="glass-navy" style="padding:10px">
+      <div style="color:var(--col-gold);font-family:var(--font-mono);font-size:12px;font-weight:600">T² ∝ a³/A</div>
+      <div style="font-size:10px;color:var(--col-text-muted);margin-top:4px">Orbital law</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Orbital Engine ──────────────────────────────────────────────────────────
+(function() {
+  var orbCanvas = document.getElementById('orb-canvas');
+  var orbCtx = orbCanvas ? orbCanvas.getContext('2d') : null;
+  var orbAnimId;
+  var orbEntities = [];
+  var orbTime = 0;
+
+  function orbInit() {
+    if (!orbCanvas || !orbCtx) return;
+    if (orbAnimId) cancelAnimationFrame(orbAnimId);
+    orbTime = 0;
+    var n = parseInt(document.getElementById('orb-count').value) || 12;
+    orbEntities = [];
+    for (var i=0; i<n; i++) {
+      orbEntities.push({
+        orbitRadius: 60+(i%4)*48,
+        angle: (i/n)*Math.PI*2,
+        speed:  0.002+(i%3)*0.001,
+        mass:   0.5+Math.random()*0.5,
+      });
+    }
+    var r = window.devicePixelRatio||1;
+    orbCanvas.width  = orbCanvas.offsetWidth *r;
+    orbCanvas.height = orbCanvas.offsetHeight*r;
+    orbCtx.setTransform(r,0,0,r,0,0);
+    orbLoop();
+  }
+
+  function orbLoop() {
+    if (!orbCtx || !orbCanvas) return;
+    var W=orbCanvas.offsetWidth, H=orbCanvas.offsetHeight;
+    var cx=W/2, cy=H/2;
+    orbCtx.fillStyle='rgba(7,13,24,0.12)';
+    orbCtx.fillRect(0,0,W,H);
+
+    var showConn = document.getElementById('orb-conn') && document.getElementById('orb-conn').checked;
+    orbEntities.forEach(function(e){e.angle+=e.speed;});
+
+    if (showConn) {
+      orbCtx.strokeStyle='rgba(93,173,226,0.14)';
+      orbCtx.lineWidth=0.6;
+      for (var i=0;i<orbEntities.length;i++) for (var j=i+1;j<orbEntities.length;j++) {
+        var e1=orbEntities[i], e2=orbEntities[j];
+        var x1=cx+Math.cos(e1.angle)*e1.orbitRadius, y1=cy+Math.sin(e1.angle)*e1.orbitRadius;
+        var x2=cx+Math.cos(e2.angle)*e2.orbitRadius, y2=cy+Math.sin(e2.angle)*e2.orbitRadius;
+        var d=Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+        if (d<130) {
+          orbCtx.globalAlpha=1-d/130;
+          orbCtx.beginPath();orbCtx.moveTo(x1,y1);orbCtx.lineTo(x2,y2);orbCtx.stroke();
+        }
+      }
+      orbCtx.globalAlpha=1;
+    }
+
+    orbEntities.forEach(function(e,i) {
+      var x=cx+Math.cos(e.angle)*e.orbitRadius, y=cy+Math.sin(e.angle)*e.orbitRadius;
+      var g=orbCtx.createRadialGradient(x,y,0,x,y,14*e.mass);
+      g.addColorStop(0,'rgba(212,175,55,0.6)');
+      g.addColorStop(0.5,'rgba(93,173,226,0.25)');
+      g.addColorStop(1,'transparent');
+      orbCtx.beginPath();orbCtx.arc(x,y,14*e.mass,0,Math.PI*2);
+      orbCtx.fillStyle=g;orbCtx.fill();
+      orbCtx.beginPath();orbCtx.arc(x,y,3.5*e.mass,0,Math.PI*2);
+      orbCtx.fillStyle='#f4d03f';orbCtx.fill();
+    });
+
+    var ag=orbCtx.createRadialGradient(cx,cy,0,cx,cy,28);
+    ag.addColorStop(0,'rgba(212,175,55,0.4)');ag.addColorStop(1,'transparent');
+    orbCtx.beginPath();orbCtx.arc(cx,cy,28,0,Math.PI*2);orbCtx.fillStyle=ag;orbCtx.fill();
+
+    orbTime++;
+    orbAnimId=requestAnimationFrame(orbLoop);
+  }
+
+  window.orbReinit = orbInit;
+
+  document.querySelectorAll('.nav-item[data-section="orbital"]').forEach(function(el){
+    el.addEventListener('click', function(){ setTimeout(orbInit, 50); });
+  });
+  window.addEventListener('resize', function(){
+    if (orbEntities.length) orbInit();
+  });
+})();
+</script>
+
+
+<!-- ===================================================
+     SECTION: Files
+     =================================================== -->
+<div id="section-files" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Files</span>
+    <span class="section-subtitle">Ingest, provenance, classification, routing</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Integration Reports</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Name</th><th>Path</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Orbital Bridge Report</td>
+          <td><code>integration/reports/orbital_bridge/</code></td>
+          <td><span class="badge badge-cyan">present</span></td>
+        </tr>
+        <tr>
+          <td>Sapiens Session</td>
+          <td><code>integration/reports/sapiens_client/session.json</code></td>
+          <td><span class="badge badge-muted">varies</span></td>
+        </tr>
+        <tr>
+          <td>Runtime Evidence</td>
+          <td><code>integration/reports/runtime_evidence/</code></td>
+          <td><span class="badge badge-muted">varies</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Metrics
+     =================================================== -->
+<div id="section-metrics" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Metrics</span>
+    <span class="section-subtitle">Orbital field observables and system indicators</span>
+  </div>
+  <div class="metric-grid">
+    <div class="metric-cell">
+      <div class="metric-label">Coherence Index</div>
+      <div id="metric-coherence-m" class="metric-value positive">—</div>
+      <div class="metric-sub">orbital field</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-label">System Health</div>
+      <div id="metric-health-m" class="metric-value positive">—</div>
+      <div class="metric-sub">bridge manifest</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-label">Closure Penalty</div>
+      <div id="metric-closure" class="metric-value">—</div>
+      <div class="metric-sub">health manifest</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Note</div>
+    <p style="color:var(--col-text-muted); font-size:12px">
+      Charts and sparklines are energy-aware and load on demand.
+      Heavy visualisations are never always-on.
+    </p>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Reports
+     =================================================== -->
+<div id="section-reports" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Reports</span>
+    <span class="section-subtitle">Manifests, health summaries, audit trail</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Latest Reports</div>
+    <p style="color:var(--col-text-muted); font-size:12px; margin-bottom:12px">
+      Reports are generated by backend runtime passes and stored in
+      <code>integration/reports/</code>.
+    </p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <button class="btn" onclick="loadReport('orbital_bridge')">Orbital Bridge</button>
+      <button class="btn" onclick="loadReport('sapiens_client')">Sapiens Session</button>
+    </div>
+    <div id="report-output" class="code-block" style="margin-top:14px; max-height:400px; overflow:auto; display:none"></div>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Settings
+     =================================================== -->
+<div id="section-settings" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Settings</span>
+    <span class="section-subtitle">Backend selection, model, energy profile</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>GGUF Model Manager</div>
+    <div id="model-list">
+      <span style="color:var(--col-text-dim)">Loading…</span>
+    </div>
+    <div class="divider"></div>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <button class="btn btn-primary" id="btn-ensure-model">Ensure Default Model</button>
+      <span id="model-ensure-status" style="font-size:11px; color:var(--col-text-muted)"></span>
+    </div>
+    <p style="margin-top:10px; font-size:11px; color:var(--col-text-dim)">
+      Default: TinyLlama-1.1B-Chat Q4_K_M (~670 MB).
+      Stored in <code>~/.local/share/ciel/models/</code> or <code>$CIEL_MODELS_DIR</code>.
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>System Settings</div>
+    <p style="color:var(--col-text-muted); font-size:12px">
+      Panel settings are read from
+      <code>integration/sapiens/panel_settings.yaml</code>.
+      Edit that file and restart the server to apply changes.
+    </p>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     SECTION: Support
+     =================================================== -->
+<div id="section-support" class="ws-section" style="display:none">
+  <div class="section-header">
+    <span class="section-title">Support</span>
+    <span class="section-subtitle">Diagnostics, recovery tools, health summaries</span>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>Diagnostics</div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <button class="btn">Rebuild Manifests</button>
+      <button class="btn">Regenerate Bridge Report</button>
+      <button class="btn">Reset Session</button>
+      <button class="btn">Export Bundle</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title"><span class="accent-bar"></span>About</div>
+    <table class="data-table">
+      <tbody>
+        <tr><td style="color:var(--col-text-muted)">System</td><td>CIEL SOT Agent</td></tr>
+        <tr><td style="color:var(--col-text-muted)">Identity</td><td>Quiet Orbital Control</td></tr>
+        <tr><td style="color:var(--col-text-muted)">Manifest</td><td>{{ manifest_version | default('—') }}</td></tr>
+        <tr><td style="color:var(--col-text-muted)">GUI Schema</td><td>ciel-gui-panel/v1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function loadReport(name) {
+  const out = document.getElementById("report-output");
+  out.style.display = "";
+  out.textContent = "loading…";
+  try {
+    const res = await fetch(`/api/panel`);
+    const data = await res.json();
+    const section = name === "orbital_bridge" ? data.support : data.communication;
+    out.textContent = JSON.stringify(section, null, 2);
+  } catch (e) {
+    out.textContent = "error: " + e;
+  }
+}
+</script>
+{% endblock %}

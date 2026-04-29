@@ -1,0 +1,8 @@
+object,role,depends_on,feeds_into,status,note
+tau_i,cycle label / eigenvalue,seed / generator,"Sigma_i, F_ij, runtime state tables",confirmed,from contract+pdf layer
+gamma_i,Berry phase,cycle on sphere + connection,"Delta_H, Sigma_i, W_ij",confirmed,phase coupling primitive
+Delta_H,closure defect,gamma_i,"R_H, reduction conditions, phase diagnostics",confirmed,Euler-Berry mechanism
+R_H,coherence scalar,Delta_H,"V_rel, monitoring",confirmed,contract layer
+Sigma_i,local fingerprint,"tau_i, gamma_i, F_i",pairwise mapping and runtime symbolism,confirmed,do not confuse with possible Sigma_global
+W_ij,pairwise holonomy,"path, phases, connection","F_ij, relation/orchestration",confirmed,white-thread
+F_ij,pairwise correction,"W_ij, tau_i, tau_j",splitting / relation strength / hadron candidates,confirmed,not final SoT values

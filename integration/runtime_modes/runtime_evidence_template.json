@@ -1,0 +1,17 @@
+{
+  "repository_scope": "AdrianLipa90/CIEL-Desktop",
+  "execution_mode": "core_only",
+  "status_label": "operational_preview",
+  "evidence_class": "documented_but_not_run",
+  "evidence": {
+    "boot_status": null,
+    "gui_status": null,
+    "latency": null,
+    "resource_usage": null,
+    "error_log": null
+  },
+  "performance_evidence": {},
+  "blockers": [],
+  "unknowns": [],
+  "next_actions": []
+}

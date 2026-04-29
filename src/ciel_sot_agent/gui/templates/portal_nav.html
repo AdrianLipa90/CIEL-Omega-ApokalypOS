@@ -1,0 +1,42 @@
+{% macro portal_navbar(active='') %}
+<nav class="portal-navbar glass-navy">
+  <a href="/" class="pnav-item pnav-gui {% if active == 'gui' %}pnav-active{% endif %}" title="GUI Control Panel">
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+    GUI
+  </a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal" class="pnav-item {% if active == 'hub' %}pnav-active{% endif %}">⊙ Hub</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/dashboard" class="pnav-item {% if active == 'dashboard' %}pnav-active{% endif %}" style="{% if active != 'dashboard' %}color:#ff9f43{% endif %}" title="Unified Dashboard">◈ Dashboard</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/archive" class="pnav-item {% if active == 'archive' %}pnav-active{% endif %}">📂 Archiwum</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/memory" class="pnav-item {% if active == 'memory' %}pnav-active{% endif %}">🗺 Pamięć</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/advisor" class="pnav-item {% if active == 'advisor' %}pnav-active{% endif %}">🧠 Doradca</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/plans" class="pnav-item {% if active == 'plans' %}pnav-active{% endif %}">📋 Plany</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/hunches" class="pnav-item {% if active == 'hunches' %}pnav-active{% endif %}">💡 Hunchy</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/projects" class="pnav-item {% if active == 'projects' %}pnav-active{% endif %}" style="{% if active != 'projects' %}color:var(--col-gold){% endif %}">✦ Projekty</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/routines" class="pnav-item {% if active == 'routines' %}pnav-active{% endif %}">⟳ Rutyny</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal#chat" class="pnav-item {% if active == 'chat' %}pnav-active{% endif %}" style="{% if active != 'chat' %}color:var(--col-sky){% endif %}">💬 Chat</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/ciel" class="pnav-item {% if active == 'ciel' %}pnav-active{% endif %}" style="{% if active != 'ciel' %}color:var(--col-gold){% endif %}">✦ Między wierszami</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/cockpit" class="pnav-item {% if active == 'cockpit' %}pnav-active{% endif %}" title="Orbital Cockpit">🛸 Cockpit</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/orbital" class="pnav-item {% if active == 'orbital' %}pnav-active{% endif %}" style="{% if active != 'orbital' %}color:var(--col-sky){% endif %}" title="Orbital Entity Cards">⬡ Orbital</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/intentions" class="pnav-item {% if active == 'intentions' %}pnav-active{% endif %}" style="{% if active != 'intentions' %}color:#f5c518{% endif %}">📌 Intencje</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/metrics" class="pnav-item {% if active == 'metrics' %}pnav-active{% endif %}" style="{% if active != 'metrics' %}color:#00e678{% endif %}">📈 Metryki</a>
+  <span class="pnav-sep">|</span>
+  <a href="/portal/consolidator" class="pnav-item {% if active == 'consolidator' %}pnav-active{% endif %}" style="{% if active != 'consolidator' %}color:#b088f9{% endif %}">⟁ Konsolidator</a>
+  <span class="pnav-sep">|</span>
+  <a href="http://localhost:7481" target="_blank" class="pnav-item" style="opacity:.5;font-size:.75rem;" title="Prywatny portal CIEL">⇗ :7481</a>
+</nav>
+{% endmacro %}

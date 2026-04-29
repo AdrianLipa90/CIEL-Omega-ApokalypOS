@@ -1,0 +1,592 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Geometria Pamięci{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('memory') }}
+
+  <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:14px;">
+    <span class="gradient-text-gold" style="font-size:1.3rem; font-weight:700;">Geometria Pamięci</span>
+    <span id="rec-count" style="color:var(--col-text-dim); font-size:.78rem;">ładowanie…</span>
+  </div>
+
+  <!-- GŁÓWNY LAYOUT: sfera + panel -->
+  <div style="display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;">
+
+    <!-- SFERA BLOCHA -->
+    <div style="flex:0 0 auto; position:relative;">
+      <canvas id="bloch-canvas" width="520" height="520"
+        style="border-radius:16px; display:block; cursor:grab;"></canvas>
+      <!-- Tooltip -->
+      <div id="bloch-tooltip" style="
+        display:none; position:fixed; z-index:100;
+        background:rgba(10,14,26,.95); border:1px solid rgba(93,173,226,.3);
+        border-radius:6px; padding:7px 12px; font-size:.74rem; color:var(--col-text);
+        pointer-events:none; max-width:240px; line-height:1.5;
+      "></div>
+    </div>
+
+    <!-- PANEL WARSTW M0-M8 -->
+    <div style="flex:1; min-width:260px;">
+      <div style="color:var(--col-text-dim); font-size:.7rem; font-weight:600;
+                  text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">
+        Warstwy Pamięci
+      </div>
+
+      <!-- M0 -->
+      <div class="mlayer-row">
+        <div class="mlayer-label"><span class="mlayer-num">M0</span> Quantum Identity</div>
+        <div class="mlayer-bar-wrap">
+          <div class="mlayer-bar" id="m0-bar" style="width:0%; background:linear-gradient(90deg,#b088f9,#7c5cbf);"></div>
+        </div>
+        <div class="mlayer-val" id="m0-val">—</div>
+      </div>
+
+      <!-- M1 -->
+      <div class="mlayer-row">
+        <div class="mlayer-label"><span class="mlayer-num">M1</span> Affective</div>
+        <div style="flex:1;">
+          <span id="m1-affect" class="ptag" style="background:rgba(231,76,60,.15); color:#e74c3c; margin-right:6px;">—</span>
+          <span id="m1-monitor" style="color:var(--col-text-dim); font-size:.72rem;">E=—</span>
+        </div>
+      </div>
+
+      <!-- M2 -->
+      <div class="mlayer-row">
+        <div class="mlayer-label"><span class="mlayer-num">M2</span> Episodic</div>
+        <div class="mlayer-bar-wrap">
+          <div class="mlayer-bar" id="m2-bar" style="width:0%; background:linear-gradient(90deg,#5dade2,#2e86c1);"></div>
+        </div>
+        <div class="mlayer-val" id="m2-val">—</div>
+      </div>
+
+      <!-- M3 -->
+      <div class="mlayer-row">
+        <div class="mlayer-label"><span class="mlayer-num">M3</span> Semantic</div>
+        <div class="mlayer-bar-wrap">
+          <div class="mlayer-bar" id="m3-bar" style="width:0%; background:linear-gradient(90deg,#f5c518,#c9a200);"></div>
+        </div>
+        <div class="mlayer-val" id="m3-val">—</div>
+      </div>
+
+      <!-- M5 -->
+      <div class="mlayer-row">
+        <div class="mlayer-label"><span class="mlayer-num">M5</span> Health</div>
+        <div class="mlayer-bar-wrap">
+          <div class="mlayer-bar" id="m5-bar" style="width:0%; background:linear-gradient(90deg,#00e678,#009147);"></div>
+        </div>
+        <div class="mlayer-val" id="m5-val">—</div>
+      </div>
+
+      <!-- M6 -->
+      <div class="mlayer-row" style="align-items:flex-start;">
+        <div class="mlayer-label"><span class="mlayer-num">M6</span> Affective Key</div>
+        <div id="m6-val" style="flex:1; font-size:.75rem; color:var(--col-sky); font-style:italic;
+             word-break:break-word; padding-top:1px;">—</div>
+      </div>
+
+      <!-- M7 -->
+      <div class="mlayer-row" style="align-items:flex-start;">
+        <div class="mlayer-label"><span class="mlayer-num">M7</span> Semantic Key</div>
+        <div id="m7-val" style="flex:1; font-size:.75rem; color:var(--col-text-dim); font-style:italic;
+             word-break:break-word; padding-top:1px;">—</div>
+      </div>
+
+      <!-- M8 -->
+      <div class="mlayer-row">
+        <div class="mlayer-label"><span class="mlayer-num">M8</span> Audit Trail</div>
+        <div style="flex:1; font-size:.8rem; color:var(--col-text);" id="m8-val">—</div>
+      </div>
+
+      <!-- LEGENDA -->
+      <div style="margin-top:20px; padding-top:14px; border-top:1px solid rgba(255,255,255,.06);">
+        <div style="color:var(--col-text-dim); font-size:.68rem; font-weight:600;
+                    text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Legenda</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="role-dot" style="--rc:#5dade2">EPISODIC</span>
+          <span class="role-dot" style="--rc:#f5c518">SEMANTIC</span>
+          <span class="role-dot" style="--rc:#b088f9">IDENTITY</span>
+          <span class="role-dot" style="--rc:#e74c3c">AFFECTIVE</span>
+          <span class="role-dot" style="--rc:#2ecc71">RELATIONAL</span>
+          <span class="role-dot" style="--rc:#777">LOG</span>
+          <span class="role-dot" style="--rc:#444">OTHER</span>
+        </div>
+      </div>
+
+      <!-- STATYSTYKI ROZKŁADU -->
+      <div id="role-stats" style="margin-top:14px; font-size:.72rem; color:var(--col-text-dim); line-height:1.8;"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ORBITAL = {{ orbital_json | safe }};
+</script>
+
+<style>
+.mlayer-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  min-height: 26px;
+}
+.mlayer-label {
+  width: 145px;
+  font-size: .74rem;
+  color: var(--col-text-dim);
+  flex-shrink: 0;
+}
+.mlayer-num {
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--col-sky);
+  margin-right: 4px;
+  font-family: var(--font-mono);
+}
+.mlayer-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.mlayer-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width .6s ease;
+}
+.mlayer-val {
+  width: 52px;
+  text-align: right;
+  font-size: .74rem;
+  color: var(--col-text);
+  font-family: var(--font-mono);
+}
+.role-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .71rem;
+  color: var(--col-text-dim);
+}
+.role-dot::before {
+  content: '';
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--rc);
+}
+</style>
+
+<script>
+// ── Kolory wg roli ──────────────────────────────────────────────
+const ROLE_COLORS = {
+  EPISODIC:   '#5dade2',
+  SEMANTIC:   '#f5c518',
+  IDENTITY:   '#b088f9',
+  AFFECTIVE:  '#e74c3c',
+  RELATIONAL: '#2ecc71',
+  LOG:        '#7f8c9a',
+  BOUNDARY:   '#ff8c00',
+  UNRESOLVED: '#4a4a5a',
+};
+function roleColor(role) { return ROLE_COLORS[role] || '#5a5a7a'; }
+
+// hex → [r,g,b]
+function hexRGB(hex) {
+  const h = hex.replace('#','');
+  return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)];
+}
+
+// ── Canvas ──────────────────────────────────────────────────────
+const canvas  = document.getElementById('bloch-canvas');
+const ctx     = canvas.getContext('2d');
+const tooltip = document.getElementById('bloch-tooltip');
+
+const W = canvas.width, H = canvas.height;
+const CX = W / 2, CY = H / 2;
+const R  = Math.min(W, H) * 0.38;
+
+let rotX = 0.3, rotY = 0.0;
+let drag = false, lastMX = 0, lastMY = 0;
+let autoRotate = true;
+let _t = 0; // global animation time
+
+function hashStr(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;
+  return (h >>> 0) / 4294967296;
+}
+
+function recordToAngles(rec) {
+  const ph   = hashStr(rec.path || rec.name || '');
+  const role = rec.orbital_role;
+  const roleTheta = {
+    IDENTITY:   0.15 + ph * 0.25,
+    SEMANTIC:   0.3  + ph * 0.4,
+    RELATIONAL: 0.4  + ph * 0.5,
+    EPISODIC:   0.9  + ph * 0.8,
+    AFFECTIVE:  1.4  + ph * 0.4,
+    LOG:        2.0  + ph * 0.6,
+    BOUNDARY:   2.4  + ph * 0.4,
+    UNRESOLVED: 1.5  + ph * 1.0,
+  };
+  const theta = Math.min(Math.PI - 0.05, Math.max(0.05, roleTheta[role] || Math.PI / 2));
+  const phi   = ph * 2 * Math.PI;
+  const r     = 0.88 + (rec.orbital_confidence || 0.5) * 0.12;
+  return { theta, phi, r };
+}
+
+function project3D(x3, y3, z3) {
+  const y1 = y3 * Math.cos(rotX) - z3 * Math.sin(rotX);
+  const z1 = y3 * Math.sin(rotX) + z3 * Math.cos(rotX);
+  const x2 = x3 * Math.cos(rotY) + z1 * Math.sin(rotY);
+  const z2 = -x3 * Math.sin(rotY) + z1 * Math.cos(rotY);
+  const fov = 2.5;
+  const scale = fov / (fov + z2 * 0.6);
+  return { x: CX + x2 * R * scale, y: CY - y1 * R * scale, z: z2, scale };
+}
+
+function sphereXYZ(theta, phi, r) {
+  return {
+    x: r * Math.sin(theta) * Math.cos(phi),
+    y: r * Math.cos(theta),
+    z: r * Math.sin(theta) * Math.sin(phi),
+  };
+}
+
+const records = ORBITAL.records || [];
+const points  = records.map(rec => {
+  const { theta, phi, r } = recordToAngles(rec);
+  const xyz = sphereXYZ(theta, phi, r);
+  return { ...rec, ...xyz, _phi: phi };
+});
+document.getElementById('rec-count').textContent = `${records.length} wpisów orbitalnych`;
+
+// Precompute connection pairs (same role, phase proximity < 30°)
+const MAX_LINES = 60;
+const connections = [];
+for (let i = 0; i < points.length && connections.length < MAX_LINES; i++) {
+  for (let j = i + 1; j < points.length && connections.length < MAX_LINES; j++) {
+    const a = points[i], b = points[j];
+    if (a.orbital_role !== b.orbital_role) continue;
+    let dphi = Math.abs(a._phi - b._phi);
+    if (dphi > Math.PI) dphi = 2 * Math.PI - dphi;
+    if (dphi < Math.PI / 6) { // 30°
+      const affinity = Math.cos(dphi); // 1 at 0°, ~0.866 at 30°
+      connections.push({ a, b, w: affinity, col: roleColor(a.orbital_role) });
+    }
+  }
+}
+
+function drawSphere() {
+  _t++;
+  ctx.clearRect(0, 0, W, H);
+
+  // ── Background: deep indigo radial gradient ──────────────────
+  const bg = ctx.createRadialGradient(CX, CY, R * 0.1, CX, CY, R * 1.45);
+  bg.addColorStop(0,   'rgba(16, 12, 42, 1)');
+  bg.addColorStop(0.5, 'rgba(8,  8, 22, 1)');
+  bg.addColorStop(1,   'rgba(4,  4, 12, 1)');
+  ctx.fillStyle = bg;
+  ctx.beginPath();
+  ctx.arc(CX, CY, R * 1.45, 0, 2 * Math.PI);
+  ctx.fill();
+
+  // ── Cluster atmosphere: role-colored glow under dense regions ─
+  const roleCenters = {};
+  points.forEach(pt => {
+    const p = project3D(pt.x, pt.y, pt.z);
+    if (p.z < -0.1) return;
+    if (!roleCenters[pt.orbital_role]) roleCenters[pt.orbital_role] = { sx:0, sy:0, n:0 };
+    roleCenters[pt.orbital_role].sx += p.x;
+    roleCenters[pt.orbital_role].sy += p.y;
+    roleCenters[pt.orbital_role].n++;
+  });
+  Object.entries(roleCenters).forEach(([role, c]) => {
+    if (c.n < 2) return;
+    const cx = c.sx / c.n, cy = c.sy / c.n;
+    const [r,g,b] = hexRGB(roleColor(role));
+    const atm = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.55);
+    atm.addColorStop(0,   `rgba(${r},${g},${b},0.06)`);
+    atm.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+    ctx.fillStyle = atm;
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 0.55, 0, 2 * Math.PI);
+    ctx.fill();
+  });
+
+  // ── Grid: luminous meridians + parallels ──────────────────────
+  ctx.save();
+  // Meridians — cyan tint
+  for (let phi = 0; phi < 2 * Math.PI; phi += Math.PI / 6) {
+    ctx.beginPath();
+    let started = false;
+    for (let t = 0; t <= Math.PI; t += 0.05) {
+      const xyz = sphereXYZ(t, phi, 1);
+      const p   = project3D(xyz.x, xyz.y, xyz.z);
+      if (p.z < -0.05) { started = false; continue; }
+      started ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+      started = true;
+    }
+    ctx.strokeStyle = 'rgba(100,200,255,0.18)';
+    ctx.lineWidth   = 0.6;
+    ctx.shadowColor = 'rgba(80,180,255,0.3)';
+    ctx.shadowBlur  = 3;
+    ctx.stroke();
+  }
+  // Parallels — gold tint
+  for (let theta = Math.PI / 6; theta < Math.PI; theta += Math.PI / 6) {
+    ctx.beginPath();
+    let started = false;
+    for (let phi = 0; phi <= 2 * Math.PI; phi += 0.05) {
+      const xyz = sphereXYZ(theta, phi, 1);
+      const p   = project3D(xyz.x, xyz.y, xyz.z);
+      if (p.z < -0.05) { started = false; continue; }
+      started ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+      started = true;
+    }
+    ctx.strokeStyle = 'rgba(220,180,80,0.13)';
+    ctx.lineWidth   = 0.5;
+    ctx.shadowColor = 'rgba(220,180,80,0.2)';
+    ctx.shadowBlur  = 2;
+    ctx.stroke();
+  }
+  ctx.shadowBlur = 0;
+  ctx.restore();
+
+  // ── Axes ──────────────────────────────────────────────────────
+  ctx.save();
+  ctx.setLineDash([3, 5]);
+  const axes = [
+    { v: [0, 1, 0], label: '|↑⟩ IDENTITY', col: '#b088f9' },
+    { v: [0,-1, 0], label: '|↓⟩ LOG',      col: '#7f8c9a' },
+    { v: [1, 0, 0], label: 'EPISODIC',      col: '#5dade2' },
+    { v: [0, 0, 1], label: 'SEMANTIC',      col: '#f5c518' },
+  ];
+  const p0 = project3D(0, 0, 0);
+  axes.forEach(a => {
+    const p1 = project3D(a.v[0]*1.2, a.v[1]*1.2, a.v[2]*1.2);
+    if (p1.z < -0.6) return;
+    const vis = Math.max(0, (p1.z + 0.6) / 1.2);
+    ctx.strokeStyle = a.col + Math.floor(vis * 120).toString(16).padStart(2,'0');
+    ctx.lineWidth   = 1;
+    ctx.beginPath(); ctx.moveTo(p0.x, p0.y); ctx.lineTo(p1.x, p1.y); ctx.stroke();
+    ctx.shadowColor = a.col;
+    ctx.shadowBlur  = 6;
+    ctx.fillStyle   = a.col + Math.floor(vis * 200).toString(16).padStart(2,'0');
+    ctx.font        = '11px "JetBrains Mono", "Fira Mono", monospace';
+    ctx.fillText(a.label, p1.x + 5, p1.y + 3);
+    ctx.shadowBlur  = 0;
+  });
+  ctx.setLineDash([]);
+  ctx.restore();
+
+  // ── Connection lines ──────────────────────────────────────────
+  ctx.save();
+  connections.forEach(({ a, b, w, col }) => {
+    const pa = project3D(a.x, a.y, a.z);
+    const pb = project3D(b.x, b.y, b.z);
+    if (pa.z < -0.2 || pb.z < -0.2) return;
+    const [r,g,bl] = hexRGB(col);
+    // Pulse: slight opacity oscillation per connection
+    const pulse = 0.5 + 0.5 * Math.sin(_t * 0.018 + w * 8);
+    const alpha = w * 0.18 * pulse;
+    ctx.beginPath();
+    ctx.moveTo(pa.x, pa.y);
+    ctx.lineTo(pb.x, pb.y);
+    ctx.strokeStyle = `rgba(${r},${g},${bl},${alpha.toFixed(3)})`;
+    ctx.lineWidth   = w * 1.2;
+    ctx.shadowColor = `rgba(${r},${g},${bl},0.3)`;
+    ctx.shadowBlur  = 4;
+    ctx.stroke();
+  });
+  ctx.shadowBlur = 0;
+  ctx.restore();
+
+  // ── Points: glowing orbs ─────────────────────────────────────
+  ctx.save();
+  const projected = points.map(pt => {
+    const p = project3D(pt.x, pt.y, pt.z);
+    return { ...pt, px: p.x, py: p.y, pz: p.z, psc: p.scale };
+  }).sort((a, b) => a.pz - b.pz);
+
+  projected.forEach(pt => {
+    if (pt.pz < -0.55) return;
+    const depth   = Math.max(0, (pt.pz + 0.55) / 1.55); // 0 back → 1 front
+    const alpha   = Math.max(0.35, 0.5 + depth * 0.5);
+    const conf    = pt.orbital_confidence || 0.5;
+    const size    = Math.max(2.5, conf * 5.5 * pt.psc);
+    const col     = roleColor(pt.orbital_role);
+    const [r,g,b] = hexRGB(col);
+
+    // Outer glow halo
+    ctx.beginPath();
+    ctx.arc(pt.px, pt.py, size * 2.8, 0, 2 * Math.PI);
+    const halo = ctx.createRadialGradient(pt.px, pt.py, 0, pt.px, pt.py, size * 2.8);
+    halo.addColorStop(0,   `rgba(${r},${g},${b},${(alpha * 0.35).toFixed(3)})`);
+    halo.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+    ctx.fillStyle   = halo;
+    ctx.shadowColor = col;
+    ctx.shadowBlur  = 14;
+    ctx.fill();
+    ctx.shadowBlur  = 0;
+
+    // Inner bright core
+    ctx.beginPath();
+    ctx.arc(pt.px, pt.py, size, 0, 2 * Math.PI);
+    const core = ctx.createRadialGradient(pt.px - size*0.3, pt.py - size*0.3, 0, pt.px, pt.py, size);
+    core.addColorStop(0, `rgba(255,255,255,${(alpha * 0.9).toFixed(3)})`);
+    core.addColorStop(0.4, `rgba(${r},${g},${b},${alpha.toFixed(3)})`);
+    core.addColorStop(1,   `rgba(${Math.max(0,r-40)},${Math.max(0,g-40)},${Math.max(0,b-40)},${(alpha*0.7).toFixed(3)})`);
+    ctx.fillStyle   = core;
+    ctx.shadowColor = col;
+    ctx.shadowBlur  = 12;
+    ctx.fill();
+    ctx.shadowBlur  = 0;
+  });
+  ctx.restore();
+
+  // ── Identity point: pulsing corona ────────────────────────────
+  const metrics = ORBITAL.metrics || {};
+  const iph     = metrics.identity_phase || 0;
+  const iphi    = iph * 2 * Math.PI * 20;
+  const tip     = sphereXYZ(0.08, iphi, 1.04);
+  const tipP    = project3D(tip.x, tip.y, tip.z);
+  if (tipP.z > -0.2) {
+    ctx.save();
+    // Expanding pulse rings
+    for (let ring = 0; ring < 3; ring++) {
+      const phase   = (_t * 0.025 + ring * 0.33) % 1.0;
+      const ringR   = 5 + phase * 22;
+      const ringA   = (1 - phase) * 0.5;
+      ctx.beginPath();
+      ctx.arc(tipP.x, tipP.y, ringR, 0, 2 * Math.PI);
+      ctx.strokeStyle = `rgba(176, 136, 249, ${ringA.toFixed(3)})`;
+      ctx.lineWidth   = 1.5 * (1 - phase);
+      ctx.shadowColor = '#b088f9';
+      ctx.shadowBlur  = 8;
+      ctx.stroke();
+    }
+    // Core dot
+    ctx.beginPath();
+    ctx.arc(tipP.x, tipP.y, 5.5, 0, 2 * Math.PI);
+    const coreG = ctx.createRadialGradient(tipP.x - 1.5, tipP.y - 1.5, 0, tipP.x, tipP.y, 5.5);
+    coreG.addColorStop(0, 'rgba(255,255,255,0.95)');
+    coreG.addColorStop(0.4, 'rgba(200,160,255,0.9)');
+    coreG.addColorStop(1, 'rgba(120,60,200,0.6)');
+    ctx.fillStyle   = coreG;
+    ctx.shadowColor = '#c8a0ff';
+    ctx.shadowBlur  = 20;
+    ctx.fill();
+    ctx.shadowBlur  = 0;
+    ctx.restore();
+  }
+}
+
+function tick() {
+  if (autoRotate) rotY += 0.003;
+  drawSphere();
+  requestAnimationFrame(tick);
+}
+tick();
+
+// Drag
+canvas.addEventListener('mousedown', e => {
+  drag = true; lastMX = e.clientX; lastMY = e.clientY;
+  canvas.style.cursor = 'grabbing'; autoRotate = false;
+});
+window.addEventListener('mouseup', () => {
+  drag = false; canvas.style.cursor = 'grab';
+  setTimeout(() => { autoRotate = true; }, 3000);
+});
+window.addEventListener('mousemove', e => {
+  if (!drag) return;
+  rotY += (e.clientX - lastMX) * 0.007;
+  rotX += (e.clientY - lastMY) * 0.007;
+  lastMX = e.clientX; lastMY = e.clientY;
+});
+
+// Tooltip hover
+canvas.addEventListener('mousemove', e => {
+  if (drag) return;
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+  let found = null, bestD = 14;
+  points.forEach(pt => {
+    const p = project3D(pt.x, pt.y, pt.z);
+    if (p.z < -0.3) return;
+    const d = Math.hypot(p.x - mx, p.y - my);
+    if (d < bestD) { bestD = d; found = { ...pt, px: p.x, py: p.y }; }
+  });
+  if (found) {
+    tooltip.style.display = 'block';
+    tooltip.style.left    = (e.clientX + 14) + 'px';
+    tooltip.style.top     = (e.clientY - 10) + 'px';
+    const col = roleColor(found.orbital_role);
+    tooltip.innerHTML =
+      `<b style="color:${col};text-shadow:0 0 8px ${col}88">${found.orbital_role}</b><br>` +
+      `<span style="color:var(--col-text)">${found.name}</span><br>` +
+      `<span style="color:var(--col-text-dim)">conf: ${(found.orbital_confidence||0).toFixed(2)}</span>`;
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+canvas.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+
+// ── Panel M0-M8 ──────────────────────────────────────────────────
+function pct(v, max) { return Math.min(100, (v / max) * 100).toFixed(1) + '%'; }
+
+function updatePanel(metrics) {
+  if (!metrics) return;
+  const iph = metrics.identity_phase || 0;
+  document.getElementById('m0-bar').style.width = pct(iph, 0.08);
+  document.getElementById('m0-val').textContent = iph.toFixed(4);
+
+  const affect = metrics.sub_affect || metrics.dominant_emotion || '—';
+  document.getElementById('m1-affect').textContent = affect;
+  document.getElementById('m1-monitor').textContent = `E=${(metrics.E_monitor||0).toFixed(3)}`;
+
+  const eps = metrics.m2_episodes || 0;
+  document.getElementById('m2-bar').style.width = pct(eps, 2000);
+  document.getElementById('m2-val').textContent = eps.toLocaleString();
+
+  const sem = metrics.m3_items || 0;
+  document.getElementById('m3-bar').style.width = pct(sem, 1000);
+  document.getElementById('m3-val').textContent = sem.toLocaleString();
+
+  const h = metrics.system_health || 0;
+  document.getElementById('m5-bar').style.width = (h * 100).toFixed(1) + '%';
+  document.getElementById('m5-val').textContent = h.toFixed(3);
+
+  const akey = metrics.affective_key || '—';
+  document.getElementById('m6-val').textContent = akey.length > 80 ? akey.slice(0,80)+'…' : akey;
+  const skey = metrics.semantic_key || '—';
+  document.getElementById('m7-val').textContent = skey.length > 80 ? skey.slice(0,80)+'…' : skey;
+  document.getElementById('m8-val').textContent = (metrics.m8_entries||0).toLocaleString() + ' wpisów';
+}
+
+updatePanel(ORBITAL.metrics);
+
+// Statystyki rozkładu
+const counts  = ORBITAL.counts_by_role || {};
+const statsEl = document.getElementById('role-stats');
+if (Object.keys(counts).length) {
+  const total = Object.values(counts).reduce((a,b) => a+b, 0);
+  statsEl.innerHTML = Object.entries(counts)
+    .sort((a,b) => b[1]-a[1])
+    .map(([role, n]) =>
+      `<span style="color:${roleColor(role)}">${role}</span> ` +
+      `<span style="color:var(--col-text)">${n}</span> ` +
+      `<span style="color:var(--col-text-dim)">(${((n/total)*100).toFixed(0)}%)</span>&nbsp;&nbsp;`
+    ).join('');
+}
+
+// Refresh metryk co 60s
+setInterval(() => {
+  fetch('/api/memory/orbital').then(r=>r.json()).then(d=>updatePanel(d.metrics)).catch(()=>{});
+}, 60000);
+</script>
+{% endblock %}

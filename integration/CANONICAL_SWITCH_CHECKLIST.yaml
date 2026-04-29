@@ -1,0 +1,35 @@
+schema: ciel-sot-agent/canonical-switch-checklist/v0.1
+meta:
+  scope: repository-geometry-v2
+  mode: controlled-canonicalization
+  authority:
+    - docs/architecture/V2_CANONICAL_SWITCH_PLAN.md
+    - docs/architecture/V2_CANONICAL_SWITCH_READINESS.md
+checks:
+  documentation_surface:
+    readme_root_points_to_v2_first: false
+    docs_index_points_to_v2_first: false
+    legacy_navigation_marked_secondary: false
+  machine_registry:
+    v2_hyperspace_index_exists: true
+    v2_index_registry_exists: true
+    legacy_machine_authority_demoted: false
+    migration_map_present: true
+  runtime:
+    index_validator_v2_exists: true
+    gh_coupling_v2_exists: true
+    synchronize_v2_exists: true
+    v2_runtime_entrypoints_documented_complete: false
+    legacy_runtime_marked_secondary: false
+  orbital_constraint:
+    protected_sector_preserved: true
+    no_flattening_of_integration_orbital: true
+  deletion_policy:
+    legacy_deletion_allowed: false
+    destructive_switch_allowed: false
+readiness:
+  planning_ready: true
+  canonical_surface_ready: false
+  canonical_machine_ready: false
+  canonical_runtime_ready: false
+  destructive_switch_ready: false

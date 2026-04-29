@@ -1,0 +1,30 @@
+{
+  "couplings": {
+    "constraints": {
+      "runtime": 0.08107132447965304,
+      "fields": 1.0,
+      "vocabulary": 1.0,
+      "memory": 0.01
+    },
+    "bridge": {
+      "fields": 0.01,
+      "memory": 0.01,
+      "vocabulary": 0.3074254884200051,
+      "constraints": 0.8382508107888368,
+      "runtime": 0.6407935569286282
+    },
+    "fields": {
+      "vocabulary": 0.34989006352583035,
+      "memory": 0.01,
+      "runtime": 0.01
+    },
+    "memory": {
+      "vocabulary": 0.01,
+      "runtime": 0.01
+    },
+    "runtime": {
+      "vocabulary": 0.01
+    }
+  },
+  "_wij_override_applied": true
+}

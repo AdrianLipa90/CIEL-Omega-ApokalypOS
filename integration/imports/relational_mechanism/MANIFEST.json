@@ -1,0 +1,27 @@
+{
+  "schema": "ciel-sot-agent/relational-mechanism-import/v1",
+  "source": "local consolidated CIEL relational mechanism workspace",
+  "import_branch": "agent-relational-mechanism-import",
+  "contents": {
+    "translation": "integration/imports/relational_mechanism/HOW_AI_WORKS_WITH_CIEL.en.md",
+    "note": "integration/imports/relational_mechanism/IMPORT_NOTES.md",
+    "registries": [
+      "integration/imports/relational_mechanism/registries/next_certainties.csv",
+      "integration/imports/relational_mechanism/registries/minimal_closure_function_set.csv",
+      "integration/imports/relational_mechanism/registries/minimal_holonomy_function_set.csv",
+      "integration/imports/relational_mechanism/registries/minimal_reduction_memory_function_set.csv",
+      "integration/imports/relational_mechanism/registries/minimal_pairwise_function_set.csv"
+    ]
+  },
+  "confirmed_minimal_counts": {
+    "closure_core_functions": 6,
+    "holonomy_core_functions": 3,
+    "reduction_memory_core_functions": 3,
+    "pairwise_core_functions": 4
+  },
+  "notes": [
+    "This import is text-first and reviewable.",
+    "It avoids uploading an opaque partial-pack dump.",
+    "It preserves the current confirmed mechanism spine inside CIEL-_SOT_Agent."
+  ]
+}

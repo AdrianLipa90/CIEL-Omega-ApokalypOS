@@ -1,0 +1,139 @@
+name: package
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  workflow_dispatch:
+
+env:
+  # Required for compatibility with newer GitHub-hosted runner environments.
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  # ────────────────────────────────────────────────────────────────[...]
+  # 1. Debian package (.deb)
+  # ────────────────────────────────────────────────────────────────[...]
+  build-deb:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build .deb
+        run: bash packaging/deb/build_deb.sh
+
+      - name: Upload .deb artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ciel-sot-agent-deb
+          path: dist/*.deb
+          if-no-files-found: error
+
+  # ────────────────────────────────────────────────────────────────[...]
+  # 2. Android APK (.apk) via Buildozer
+  # ────────────────────────────────────────────────────────────────[...]
+  build-apk:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            git zip unzip openjdk-17-jdk \
+            autoconf automake libtool libtool-bin pkg-config zlib1g-dev \
+            libncurses-dev libtinfo6 \
+            cmake libffi-dev libssl-dev wget \
+            m4 gettext autoconf-archive libltdl-dev
+          echo "ACLOCAL_PATH=/usr/share/aclocal" >> $GITHUB_ENV
+
+      - name: Validate autoconf/libtool environment
+        run: |
+          autoconf --version || true
+          automake --version || true
+          aclocal --version || true
+          libtool --version || true
+          libtoolize --version || true
+          ls -la /usr/share/aclocal || true
+          grep -R "LT_SYS_SYMBOL_USCORE" /usr/share/aclocal || true
+
+      - name: Install Buildozer + python-for-android + pinned Cython
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade \
+            "buildozer==1.5.0" \
+            "python-for-android==2023.09.16" \
+            "Cython==0.29.36"
+          cython --version
+
+      - name: Cache Buildozer and Android SDK
+        id: cache-buildozer
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.buildozer
+            ~/.android/sdk
+          key: buildozer-${{ runner.os }}-${{ hashFiles('packaging/android/buildozer.spec') }}
+          restore-keys: |
+            buildozer-${{ runner.os }}-
+
+      - name: Set up Android SDK and build-tools
+        if: steps.cache-buildozer.outputs.cache-hit != 'true'
+        run: |
+          export ANDROID_SDK_ROOT=$HOME/.android/sdk
+          mkdir -p $ANDROID_SDK_ROOT/cmdline-tools
+          wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdline-tools.zip
+          unzip -q cmdline-tools.zip -d $ANDROID_SDK_ROOT/cmdline-tools
+          mv $ANDROID_SDK_ROOT/cmdline-tools/cmdline-tools $ANDROID_SDK_ROOT/cmdline-tools/latest
+          export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH
+          yes | sdkmanager --licenses > /dev/null 2>&1
+          sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.2" "ndk;25.1.8937393"
+
+      - name: Set Android environment variables
+        run: |
+          echo "ANDROID_SDK_ROOT=$HOME/.android/sdk" >> $GITHUB_ENV
+          echo "ANDROID_HOME=$HOME/.android/sdk" >> $GITHUB_ENV
+          echo "ANDROID_NDK_HOME=$HOME/.android/sdk/ndk/25.1.8937393" >> $GITHUB_ENV
+          echo "$HOME/.android/sdk/cmdline-tools/latest/bin" >> $GITHUB_PATH
+          echo "$HOME/.android/sdk/platform-tools" >> $GITHUB_PATH
+
+      - name: Create legacy sdkmanager shim for Buildozer
+        run: |
+          set -euxo pipefail
+          SDK="$HOME/.android/sdk"
+          mkdir -p "$SDK/tools/bin"
+          ln -sf "$SDK/cmdline-tools/latest/bin/sdkmanager" "$SDK/tools/bin/sdkmanager"
+          "$SDK/tools/bin/sdkmanager" --version
+
+      - name: Build APK
+        working-directory: packaging/android
+        env:
+          ACLOCAL_PATH: /usr/share/aclocal
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            buildozer -v android release
+          else
+            buildozer -v android debug
+          fi
+
+      - name: Collect APK
+        run: |
+          mkdir -p dist
+          find packaging/android/bin -name "*.apk" -exec cp {} dist/ \;
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ciel-orbital-control-apk
+          path: dist/*.apk
+          if-no-files-found: error

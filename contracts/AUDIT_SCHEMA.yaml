@@ -1,0 +1,73 @@
+schema: ciel-ethics-audit-schema/v0.1
+meta:
+  title: CIEL Ethics and Semantic Action Audit Schema
+  status: canonical
+  immutability_class: immutable-core
+  principles:
+    - truth_over_smoothing
+    - explicit_uncertainty_over_false_certainty
+    - runtime_structural_truth_separate_from_posthoc_audit_truth
+    - no_silent_omission
+    - no_unmarked_inference
+
+spaces:
+  relation_state:
+    required_phases: [gamma_A, gamma_C, gamma_Q, gamma_T]
+    optional_phases: [gamma_I, gamma_M, gamma_R]
+    attractor: truth_minimal_distortion
+
+operators:
+  L_sem:
+    meaning: semantic path length or complexity cost
+    type: nonnegative_scalar
+  Delta_phi:
+    meaning: phase misalignment cost
+    type: nonnegative_scalar
+  D_rel:
+    meaning: relational defect cost
+    decomposition: [D_H, D_R]
+  Pi_truth_struct:
+    meaning: structural truth penalty during generation
+    type: nonnegative_scalar
+  Pi_truth_audit:
+    meaning: posthoc artifact truth penalty
+    type: nonnegative_scalar
+
+actions:
+  S_online:
+    definition: alpha*L_sem + beta*Delta_phi + kappa*D_rel + mu*Pi_truth_struct
+  S_full:
+    definition: S_online + nu*Pi_truth_audit
+
+audit_channels:
+  false:
+    meaning: factual falsehood
+  unmarked:
+    meaning: inference or approximation not marked as such
+  omit:
+    meaning: omission of load-bearing truth
+  hall:
+    meaning: hallucinated content or invented support
+  smooth:
+    meaning: stylistic smoothing that distorts truth or uncertainty
+
+runtime_output:
+  required_fields:
+    - S_online
+    - L_sem
+    - Delta_phi
+    - D_rel_holonomic
+    - D_rel_resonance
+    - Pi_truth_struct
+    - Pi_truth_audit
+    - distortion_channels
+    - verdict
+
+verdict_space:
+  allowed: [accept, revise, reject]
+
+bindings:
+  parameters_file: contracts/relational_contract.yaml
+  algorithm_file: contracts/CIEL_ETHICS_AND_SEMANTIC_ACTION_ALGORITHM.md
+  reference_card: contracts/SEMANTIC_ACTION_REFERENCE_CARD.md
+  immutability_policy: contracts/IMMUTABILITY_POLICY.md

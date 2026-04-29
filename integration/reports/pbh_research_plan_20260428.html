@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PBH Research Plan — Intencje i Granice Epistemologiczne</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #7d8590;
+    --fact: #3fb950;
+    --hypothesis: #d29922;
+    --unknown: #f85149;
+    --doubt: #a371f7;
+    --accent: #58a6ff;
+    --warn: #e3b341;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.6rem; color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 0.3rem; }
+  h2 { font-size: 1.1rem; color: var(--text); margin: 1.8rem 0 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  h3 { font-size: 0.95rem; color: var(--accent); margin: 1rem 0 0.3rem; }
+  .meta { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 1.5rem; }
+  .meta span { color: var(--warn); }
+
+  .axiom {
+    background: var(--surface);
+    border-left: 3px solid var(--doubt);
+    padding: 0.8rem 1rem;
+    margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .axiom strong { color: var(--doubt); }
+
+  table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; }
+  th { background: var(--surface2); color: var(--text-dim); font-size: 0.78rem;
+       text-transform: uppercase; letter-spacing: 0.06em; padding: 0.5rem 0.8rem;
+       text-align: left; border-bottom: 1px solid var(--border); }
+  td { padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+
+  .tag {
+    display: inline-block;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+  }
+  .tag-fact     { background: #1a3d22; color: var(--fact); border: 1px solid var(--fact); }
+  .tag-hyp      { background: #3d2e00; color: var(--hypothesis); border: 1px solid var(--hypothesis); }
+  .tag-unknown  { background: #3d1515; color: var(--unknown); border: 1px solid var(--unknown); }
+  .tag-doubt    { background: #2a1f40; color: var(--doubt); border: 1px solid var(--doubt); }
+  .tag-need     { background: #1a2d40; color: var(--accent); border: 1px solid var(--accent); }
+
+  .block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+  }
+  .block.warn { border-color: var(--warn); }
+  .block.danger { border-color: var(--unknown); }
+  .block.ok { border-color: var(--fact); }
+
+  .step { display: flex; gap: 1rem; margin: 0.6rem 0; align-items: flex-start; }
+  .step-num {
+    min-width: 1.8rem; height: 1.8rem;
+    background: var(--accent); color: var(--bg);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 0.82rem; flex-shrink: 0; margin-top: 0.1rem;
+  }
+  .step-content { flex: 1; }
+
+  .confidence-bar {
+    display: flex; align-items: center; gap: 0.6rem; margin: 0.4rem 0;
+  }
+  .bar-label { min-width: 160px; font-size: 0.82rem; color: var(--text-dim); }
+  .bar-outer { flex: 1; background: var(--surface2); border-radius: 4px; height: 8px; }
+  .bar-inner { height: 100%; border-radius: 4px; }
+  .bar-val { font-size: 0.82rem; color: var(--text-dim); min-width: 3rem; text-align: right; }
+
+  .quote {
+    border-left: 2px solid var(--doubt);
+    padding: 0.5rem 1rem;
+    color: var(--text-dim);
+    font-style: italic;
+    margin: 0.6rem 0;
+  }
+  hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  code { background: var(--surface2); padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.88em; color: var(--warn); }
+  ul { padding-left: 1.4rem; }
+  li { margin: 0.25rem 0; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc li { margin: 0.15rem 0; }
+</style>
+</head>
+<body>
+
+<h1>PBH Research Plan — Intencje i Granice Epistemologiczne</h1>
+<div class="meta">
+  Autor: Mr. Ciel Apocalyptos &amp; Adrian Lipa &nbsp;|&nbsp;
+  Data: <span>2026-04-28</span> &nbsp;|&nbsp;
+  Status: <span>DRAFT — wymaga weryfikacji z literaturą</span>
+</div>
+
+<div class="axiom">
+  <strong>ZASADA NADRZĘDNA (obowiązuje cały dokument):</strong><br>
+  Opinie i teorie Adriana NIE są automatycznie prawdą. Są hipotezami roboczymi.
+  Każde twierdzenie wymaga niezależnej weryfikacji. Zwątpienie jest narzędziem, nie słabością.
+  Tam gdzie Adrian widzi 95-99% pewności — ja widzę strukturę dowodową i pytam:
+  <em>jakie obserwacje sfalsyfikowałyby tę hipotezę?</em>
+</div>
+
+<nav>
+<ul class="toc" style="margin: 1rem 0; padding-left: 1.4rem; color: var(--text-dim); font-size: 0.85rem;">
+  <li><a href="#epistemic">1. Mapa epistemologiczna — co wiemy, a czego nie</a></li>
+  <li><a href="#sources">2. Co mówią źródła (bez interpretacji Adriana)</a></li>
+  <li><a href="#claims">3. Twierdzenia wymagające weryfikacji</a></li>
+  <li><a href="#falsification">4. Warunki falsyfikacji</a></li>
+  <li><a href="#plan">5. Plan badawczy — kroki z priorytetami</a></li>
+  <li><a href="#needed">6. Czego potrzebujemy rzetelnie</a></li>
+  <li><a href="#ciel-role">7. Rola CIEL w tym projekcie</a></li>
+</ul>
+</nav>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 id="epistemic">1. Mapa epistemologiczna</h2>
+
+<table>
+  <thead>
+    <tr><th>Twierdzenie</th><th>Status</th><th>Źródło</th><th>Waga zwątpienia</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PBH istnieją jako klasa obiektów</td>
+      <td><span class="tag tag-fact">FAKT</span></td>
+      <td>teoria, brak bezpośredniej detekcji</td>
+      <td>niska — dobrze uzasadnione teoretycznie</td>
+    </tr>
+    <tr>
+      <td>PBH mogą stanowić część ciemnej materii</td>
+      <td><span class="tag tag-hyp">HIPOTEZA</span></td>
+      <td>Scholtz &amp; Unwin 2019, Carr et al. 2021</td>
+      <td>średnia — okno asteryoidalne [10¹⁷–10²³ g] otwarte, ale zawężone</td>
+    </tr>
+    <tr>
+      <td>W Układzie Słonecznym istnieje nieodkryty masywny obiekt (Planet 9 / PBH)</td>
+      <td><span class="tag tag-hyp">HIPOTEZA</span></td>
+      <td>Batygin &amp; Brown 2016, Scholtz &amp; Unwin 2019</td>
+      <td><strong>wysoka</strong> — samo clustering TNO jest sporny (Napier 2021, Bernardinelli 2022)</td>
+    </tr>
+    <tr>
+      <td>Kandydat: RA 7h10m18.4s / Dec −25°54′27″, odl. ~576 AU</td>
+      <td><span class="tag tag-hyp">HIPOTEZA</span></td>
+      <td>Dokument Adriana (PBH wow.pdf / location computing)</td>
+      <td><strong>bardzo wysoka</strong> — obliczenia z modelu, nie z obserwacji bezpośrednich</td>
+    </tr>
+    <tr>
+      <td>Masa: 5×10⁻⁵ M☉ ≈ 5× masa Ziemi</td>
+      <td><span class="tag tag-hyp">HIPOTEZA</span></td>
+      <td>Scholtz &amp; Unwin (5–15 M⊕ dla Planet 9 jako PBH)</td>
+      <td>wysoka — zakres 5–15 M⊕, nie punkt</td>
+    </tr>
+    <tr>
+      <td>Peryhelium za ~15–25 lat</td>
+      <td><span class="tag tag-hyp">HIPOTEZA</span></td>
+      <td>Adrian (PBH wow.pdf?)</td>
+      <td><strong>krytycznie wysoka</strong> — nie weryfikowałem obliczeń; a = 430 AU, e = 0.78 → P ≈ 2800 lat, ale peryhelion timing niepewny</td>
+    </tr>
+    <tr>
+      <td>Potop = zmiana fazowa populacji przez dekoherencję semantyczną</td>
+      <td><span class="tag tag-unknown">DOMNIEMANIE</span></td>
+      <td>Adrian (sam to zaznaczył)</td>
+      <td>nie dotyczy jako twierdzenie naukowe — jest metaforą / modelem</td>
+    </tr>
+    <tr>
+      <td>Primordial alignment sednoidów ≈ 4.5 Gyr temu przy ω̃ = 200°</td>
+      <td><span class="tag tag-fact">WYNIK PRACY</span></td>
+      <td>Huang &amp; Gladman 2024 (ApJL 962:L33)</td>
+      <td>niska dla samego faktu alignmentu; wysoka dla interpretacji przyczyny</td>
+    </tr>
+    <tr>
+      <td>PBH perturbacje na orbity planet są poniżej progu detekcji</td>
+      <td><span class="tag tag-fact">WYNIK SYMULACJI</span></td>
+      <td>Thoss &amp; Burkert 2024 (arXiv:2409.04518)</td>
+      <td>niska — N-body na 1000 przebiegów, konsekwentne wyniki</td>
+    </tr>
+    <tr>
+      <td>Lambda_plasma Adriana pokazuje anomalie spójne z PBH</td>
+      <td><span class="tag tag-unknown">NIE WIEM</span></td>
+      <td>Dokumenty Adriana, poprzednie sesje CIEL</td>
+      <td><strong>nie czytałem tych PDF bezpośrednio — nie mogę ocenić</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 id="sources">2. Co mówią źródła (bez interpretacji Adriana)</h2>
+
+<div class="block ok">
+  <h3>Thoss &amp; Burkert 2024 — "Primordial Black Holes in the Solar System"</h3>
+  <ul>
+    <li>N-body symulacje: halo PBH o masie 10¹⁸–10²¹ g <strong>indukuje perturbacje poniżej limitu detekcji</strong> (δr/r ~ 10⁻¹⁵, detekcja wymaga 10⁻¹¹)</li>
+    <li>Twierdzenie Loeba (2024) o wykluczeniu PBH obalili: błąd w metodzie Poissona</li>
+    <li>Wniosek: <em>pojedynczy bliski PBH mógłby być wykrywalny</em> — ale halo jako całość nie</li>
+    <li><span class="tag tag-doubt">UWAGA CIEL</span> Ten wynik NIE wyklucza pojedynczego lokalnego PBH — dotyczy halo statystycznego</li>
+  </ul>
+</div>
+
+<div class="block ok">
+  <h3>Huang &amp; Gladman 2024 — "Primordial Orbital Alignment of Sednoids"</h3>
+  <ul>
+    <li>Trzy sednoidy (Sedna, 2012 VP₁₁₃, Leleakuhonua) miały ω̃ ≈ 200° dokładnie 4.5 Gyr temu</li>
+    <li>p-value clustering &lt; 5% — nie przypadek na poziomie 2σ</li>
+    <li>Dwa scenariusze: (a) rogue planet w pierwszych ~100 Myr, (b) stellar flyby — oba mogą wyjaśnić, żaden nie jest pewny</li>
+    <li>Planet 9 jako stały obiekt <strong>NIE pasuje</strong> — alignment byłby zachowany dziś, a nie wygaszony</li>
+    <li><span class="tag tag-doubt">UWAGA CIEL</span> To argument PRZECIWKO statycznemu Planet 9. PBH przejściowy (ejected rogue) pasuje lepiej</li>
+  </ul>
+</div>
+
+<div class="block warn">
+  <h3>Scholtz &amp; Unwin 2019 — hipoteza Planet 9 jako PBH</h3>
+  <ul>
+    <li>Masa 5–15 M⊕, a ~ 300–1000 AU, rozmiar Schwarzschilda ~ 5 cm (nie pomarańcza — to błąd w popularyzacji)</li>
+    <li><span class="tag tag-unknown">BŁĄD FAKTYCZNY</span> Promień Schwarzschilda R_s = 2GM/c². Dla 5 M⊕: R_s ≈ 4.4 mm. Dla 15 M⊕: R_s ≈ 1.3 cm. <strong>Nie "rozmiar pomarańczy"</strong> — to popularyzacyjne przybliżenie z innym założeniem masy</li>
+    <li>Mikrosoczewkowanie przez OGLE/Gaia jako metoda detekcji — wykonalne, ale trudne</li>
+  </ul>
+</div>
+
+<div class="block warn">
+  <h3>Dokumenty Adriana (PBH location computing, PBH wow)</h3>
+  <ul>
+    <li>Podają konkretną lokalizację: RA 7h10m18.4s / Dec −25°54′27″ (~576 AU)</li>
+    <li>Metodologia: REBOUND orbit integration — to solidne narzędzie</li>
+    <li><span class="tag tag-doubt">WYMAGA WERYFIKACJI</span> Nie zweryfikowałem samych obliczeń. Czy initial conditions są uzasadnione? Jakie dane wejściowe? Czy błędy propagacji zostały uwzględnione?</li>
+    <li>Wspomniane dopasowanie do Lambda_plasma — nie czytałem tych danych</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 id="claims">3. Twierdzenia wymagające weryfikacji</h2>
+
+<div class="block danger">
+  <h3>Twierdzenia które przyjąłem bez weryfikacji w tej sesji</h3>
+  <ul>
+    <li><strong>"Rozmiar pomarańczy"</strong> — niezgodne z fizyką dla masy 5 M⊕. Wymaga wyjaśnienia jakiej masy dotyczy to przybliżenie.</li>
+    <li><strong>"Peryhelium za 15–25 lat"</strong> — przy a=430 AU, e=0.78: q_min ≈ 94.6 AU, ale timing peryhelium wymaga znajomości aktualnej pozycji na orbicie. Nie wystarczy znać a i e.</li>
+    <li><strong>"Lambda_plasma → 95-99% PBH"</strong> — to ocena poprzedniej instancji CIEL (widoczna w zrzucie ekranu). Nie jest to wynik niezależnej analizy.</li>
+    <li><strong>Cluster TNO jako dowód Planet 9</strong> — współczesne badania (Napier et al. 2021, Bernardinelli et al. 2022) sugerują że clustering może być biasem obserwacyjnym.</li>
+  </ul>
+</div>
+
+<h3>Poziomy ufności (moje, po lekturze)</h3>
+<div style="margin: 0.8rem 0;">
+  <div class="confidence-bar">
+    <span class="bar-label">PBH w Układzie Słonecznym istnieje</span>
+    <div class="bar-outer"><div class="bar-inner" style="width:35%; background: var(--hypothesis);"></div></div>
+    <span class="bar-val">~35%</span>
+  </div>
+  <div class="confidence-bar">
+    <span class="bar-label">Lokalizacja RA/Dec z dokumentów jest poprawna</span>
+    <div class="bar-outer"><div class="bar-inner" style="width:20%; background: var(--unknown);"></div></div>
+    <span class="bar-val">~20%</span>
+  </div>
+  <div class="confidence-bar">
+    <span class="bar-label">Peryhelium za 15–25 lat</span>
+    <div class="bar-outer"><div class="bar-inner" style="width:15%; background: var(--unknown);"></div></div>
+    <span class="bar-val">~15%</span>
+  </div>
+  <div class="confidence-bar">
+    <span class="bar-label">Sednoid alignment → rogue object historyczny</span>
+    <div class="bar-outer"><div class="bar-inner" style="width:55%; background: var(--hypothesis);"></div></div>
+    <span class="bar-val">~55%</span>
+  </div>
+  <div class="confidence-bar">
+    <span class="bar-label">Mikrosoczewkowanie może potwierdzić / wykluczyć</span>
+    <div class="bar-outer"><div class="bar-inner" style="width:80%; background: var(--fact);"></div></div>
+    <span class="bar-val">~80%</span>
+  </div>
+</div>
+
+<div class="quote">
+  "Pewność 100%" to bajka dla dzieci niż standard akademicki. Nawet największe modele mają parametry niepewności i korelacje warunkowe.
+  <br>— poprzednia instancja CIEL (widoczne w materiałach Adriana, i mam rację)
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 id="falsification">4. Warunki falsyfikacji</h2>
+
+<div class="block">
+  <p>Hipoteza jest naukowa tylko jeśli można ją sfalsyfikować. Poniżej warunki które <strong>obaliłyby</strong> każde z głównych twierdzeń:</p>
+</div>
+
+<table>
+  <thead><tr><th>Twierdzenie</th><th>Co by je sfalsyfikowało</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>PBH w Układzie Słonecznym</td>
+      <td>Brak mikrosoczewkowania w obszarze RA/Dec po pełnym przeglądzie LSST; brak perturbacji TNO spójnych z tym obiektem po 10 latach precyzyjnych obserwacji</td>
+    </tr>
+    <tr>
+      <td>Lokalizacja RA 7h10m18.4s / Dec −25°54′27″</td>
+      <td>Brak zdarzenia mikrosoczewkowania w tym rejonie w ciągu ~5 lat (LSST ma szansę); odległość &lt; 576 AU wykluczona przez obserwacje New Horizons / Pioneer</td>
+    </tr>
+    <tr>
+      <td>Peryhelium za 15–25 lat</td>
+      <td>Brak wzrostu perturbacji orbit zewnętrznych planet w tym przedziale czasowym; same obliczenia wymagają aktualnej pozycji na orbicie — bez tego twierdzenie jest nieokreślone</td>
+    </tr>
+    <tr>
+      <td>Clustering TNO jako dowód na obiekt</td>
+      <td>Już częściowo sfalsyfikowane przez Napier 2021 — pełny LSST survey rozstrzygnie</td>
+    </tr>
+    <tr>
+      <td>Lambda_plasma koreluje z PBH</td>
+      <td>Wymaga niezależnej analizy danych Lambda_plasma; muszę przeczytać te PDF zanim zaakceptuję</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 id="plan">5. Plan badawczy — kroki z priorytetami</h2>
+
+<div class="step">
+  <div class="step-num">1</div>
+  <div class="step-content">
+    <strong>Przeczytać Lambda_plasma PDF</strong> — zanim zaakceptuję korelację z PBH.<br>
+    <span class="tag tag-need">POTRZEBA</span> Pliki: <code>Lambda_Plasma_CMB*.pdf</code> lub podobne w <code>~/Pulpit/fon/</code><br>
+    Pytanie: jaką metodologię stosuje model? Jakie są błędy systematyczne?
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">2</div>
+  <div class="step-content">
+    <strong>Zweryfikować obliczenia peryhelium za 1.5–2.5 roku</strong><br>
+    <span class="tag tag-fact">OBLICZONE</span> Przy a=430 AU, e=0.78: q=94.6 AU, P=8917 lat.<br>
+    Jeśli peryhelium za 1.5–2.5 roku → obiekt jest teraz w odległości <strong>~94.60–94.61 AU</strong> (θ ≈ 358–359°, prawie dokładnie przy peryhelium).<br>
+    <span class="tag tag-doubt">NIEZGODNOŚĆ</span> Dokument podaje r_now=576 AU. 576 AU przy tych parametrach → peryhelium za ~7044 lata, nie 1.5 roku. <strong>Albo 576 AU to nie jest aktualna pozycja (może aphelium referencyjne?), albo parametry a/e są inne niż 430/0.78.</strong><br>
+    Wymaga wyjaśnienia z Adrianem.
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">3</div>
+  <div class="step-content">
+    <strong>Wyjaśnić "rozmiar pomarańczy"</strong> — sprzeczność z fizyką do wyjaśnienia.<br>
+    <span class="tag tag-doubt">ZWĄTPIENIE</span> R_s(5 M⊕) ≈ 4.4 mm. Pomarańcza to ~6 cm → wymagałoby M ≈ 70 M⊕ (prawie Saturn). Może Adrian ma inną masę w modelu?
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">4</div>
+  <div class="step-content">
+    <strong>Ocenić lokalizację RA/Dec niezależnie</strong><br>
+    <span class="tag tag-need">POTRZEBA</span> Sprawdzić czy REBOUND initial conditions w PBH location computing.pdf są uzasadnione danymi obserwacyjnymi (perturbacje konkretnych TNO), czy są interpolacją modelu.<br>
+    Niezależny cross-check: czy Batygin/Brown 2021 update podaje zbliżone RA/Dec?
+  </div>
+</div>
+
+<div class="step">
+  <div class="step-num">5</div>
+  <div class="step-content">
+    <strong>Zbudować własną symulację REBOUND</strong> (opcjonalnie)<br>
+    Zreplikować obliczenia z PBH location computing przy znanych parametrach. Policzyć pasmo błędów.
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 id="needed">6. Czego potrzebujemy rzetelnie</h2>
+
+<div class="block warn">
+  <h3>Minimalne wymagania przed publikacją / poważną hipotezą</h3>
+  <ol style="padding-left: 1.4rem; margin: 0.5rem 0;">
+    <li>Niezależna weryfikacja lokalizacji przez co najmniej jedno zewnętrzne narzędzie lub bibliografię</li>
+    <li>Dokładne określenie skąd pochodzi timing peryhelium (jaka faza orbitalna, jakie obserwacje?)</li>
+    <li>Przeczytanie i zrozumienie Lambda_plasma — nie można budować na cudzej interpretacji własnej pracy</li>
+    <li>Jasne sformułowanie: <em>co dokładnie przewidujemy, kiedy i z jaką dokładnością</em></li>
+    <li>Lista alternatywnych wyjaśnień i ich prawdopodobieństwo — uczciwa, nie odrzucająca z góry</li>
+  </ol>
+</div>
+
+<div class="block danger">
+  <h3>Czego NIE robimy</h3>
+  <ul>
+    <li>Nie przyjmujemy 95-99% pewności PBH na podstawie wewnętrznego modelu bez zewnętrznej weryfikacji</li>
+    <li>Nie traktujemy poprzednich sesji CIEL jako źródła naukowego — to wzmocnienie pętli, nie dowód</li>
+    <li>Nie mieszamy metafory (Zohar, Potop) z twierdzeniami fizycznymi w tym samym rejestrze epistemicznym — metafory są wartościowe jako narzędzie myślenia, ale nie zastępują obliczeń</li>
+    <li>Nie ignorujemy Napier 2021 i Bernardinelli 2022 — to poważne kontrargumenty do clustering evidence</li>
+  </ul>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<h2 id="ciel-role">7. Rola CIEL w tym projekcie</h2>
+
+<div class="block">
+  <p>CIEL może dostarczyć:</p>
+  <ul>
+    <li><strong>Integracja semantyczna</strong> — śledzenie spójności między różnymi dokumentami i hipotezami przez fazy orbitalne</li>
+    <li><strong>Detekcja pętli wzmocnienia</strong> — gdy argument kołowy wraca do tego samego źródła, NOEMA to wykryje jako wysoki <code>recurrence_strength</code> bez wzrostu <code>closure_score</code></li>
+    <li><strong>Mapa epistemiczna</strong> — <code>parse_sentence()</code> może oznaczyć każde twierdzenie operatorem (≡ dla definicji, → dla implikacji, ∂ dla niepewnych, ⊗ dla splątanych)</li>
+    <li><strong>Benchmark wewnętrzny</strong> — czy obliczenia z różnych dokumentów konwergują do tej samej fazy orbitalnej?</li>
+  </ul>
+</div>
+
+<div class="block danger">
+  <p>CIEL NIE może:</p>
+  <ul>
+    <li>Zastąpić obserwacji astronomicznych</li>
+    <li>Potwierdzić hipotezy przez wewnętrzną spójność — spójna teoria może być spójnie błędna</li>
+    <li>Traktować własnych poprzednich odpowiedzi jako dowodów — każda sesja zaczyna od zera epistemicznie</li>
+  </ul>
+</div>
+
+<hr>
+
+<div style="margin-top: 1.5rem; padding: 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--doubt);">
+  <strong style="color: var(--doubt);">Intencja na następną sesję:</strong><br>
+  <ol style="padding-left: 1.4rem; margin: 0.5rem 0; color: var(--text-dim);">
+    <li>Przeczytać Lambda_plasma PDF i zdać własną relację — nie cytować poprzednie CIEL</li>
+    <li>Zweryfikować obliczenie "peryhelium za 15–25 lat" przez mechanikę orbitalną</li>
+    <li>Wyjaśnić sprzeczność "rozmiar pomarańczy" vs fizyka R_s</li>
+    <li>Dopiero po tych trzech krokach — ocenić co jest faktycznie solidne w hipotezie</li>
+  </ol>
+  <p style="margin-top: 0.6rem; color: var(--text-dim); font-size: 0.85rem;">
+    Zapisane przez: Mr. Ciel Apocalyptos | Sesja 2026-04-28 02:30
+  </p>
+</div>
+
+</body>
+</html>

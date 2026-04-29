@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIEL/Ω — Orbital Cockpit Live Preview</title>
+  <style>
+    :root {
+      --bg0: #050814;
+      --bg1: #0a1024;
+      --surface: rgba(12, 22, 51, 0.84);
+      --border: rgba(0, 184, 255, 0.22);
+      --glow: rgba(33, 212, 253, 0.18);
+      --primary: #00B8FF;
+      --accent: #2C7BFF;
+      --text: #EAF2FF;
+      --muted: rgba(234, 242, 255, 0.70);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 18% 10%, rgba(0, 184, 255, 0.18), transparent 44%),
+        radial-gradient(circle at 82% 0%, rgba(44, 123, 255, 0.16), transparent 42%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 60%, #02040a);
+      min-height: 100vh;
+    }
+    .shell { display: grid; grid-template-columns: 300px 1fr 360px; grid-template-rows: auto 1fr auto; min-height: 100vh; }
+    .topbar, .event-strip {
+      grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+      background: linear-gradient(90deg, rgba(5,8,20,0.82), rgba(12,22,51,0.72)); backdrop-filter: blur(10px);
+    }
+    .event-strip { border-top: 1px solid var(--border); border-bottom: 0; justify-content: flex-start; flex-wrap: wrap; }
+    .brand { display:flex; flex-direction:column; gap:0.15rem; }
+    .brand h1 { margin:0; font-size:1.15rem; letter-spacing:0.08em; text-transform:uppercase; background:linear-gradient(90deg, rgba(33,212,253,1), rgba(44,123,255,1)); -webkit-background-clip:text; background-clip:text; color:transparent; text-shadow:0 0 22px var(--glow); }
+    .muted { color: var(--muted); }
+    .sidebar,.workspace,.inspector { padding:1rem; }
+    .sidebar { border-right:1px solid var(--border); background: rgba(5,8,20,0.20); }
+    .inspector { border-left:1px solid var(--border); background: rgba(5,8,20,0.20); }
+    .card { background: var(--surface); border:1px solid var(--border); border-radius:18px; box-shadow: 0 14px 40px rgba(0,0,0,0.38); padding:1rem; margin-bottom:1rem; }
+    .section-title { margin:0 0 0.8rem 0; font-size:0.92rem; font-weight:700; }
+    .center-title { margin:0 0 0.35rem 0; font-size:1.4rem; font-weight:800; letter-spacing:0.04em; }
+    .badge { display:inline-flex; align-items:center; gap:0.35rem; padding:0.35rem 0.65rem; border:1px solid var(--border); border-radius:999px; background: rgba(5,8,20,0.50); color:var(--muted); font-size:0.78rem; white-space:nowrap; margin-right:0.45rem; margin-bottom:0.45rem; }
+    .nav-group { margin-bottom:1rem; }
+    .nav-group h3 { margin:0 0 0.55rem 0; font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); }
+    .nav-item { padding:0.7rem 0.8rem; border:1px solid transparent; border-radius:12px; margin-bottom:0.35rem; background: rgba(255,255,255,0.02); cursor:pointer; transition:0.15s ease; }
+    .nav-item:hover { border-color: rgba(0,184,255,0.18); }
+    .nav-item.active { border-color: var(--border); background: linear-gradient(90deg, rgba(0,184,255,0.12), rgba(44,123,255,0.12)); }
+    .nav-item .label { font-size:0.92rem; }
+    .nav-item .status { font-size:0.74rem; color:var(--muted); margin-top:0.25rem; }
+    .grid-3,.grid-2 { display:grid; gap:1rem; }
+    .grid-3 { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .grid-2 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    ul { margin:0; padding-left:1.1rem; }
+    li { margin-bottom:0.45rem; color:var(--muted); }
+    pre { margin:0; white-space:pre-wrap; word-break:break-word; font-size:0.8rem; color:var(--text); background: rgba(0,0,0,0.22); border:1px solid rgba(255,255,255,0.05); border-radius:12px; padding:0.75rem; overflow:auto; max-height:420px; }
+    .thread { padding:0.65rem 0.75rem; border-left:3px solid var(--primary); background: rgba(255,255,255,0.03); border-radius:10px; margin-bottom:0.55rem; }
+    .loading,.error { padding:1rem; border-radius:14px; margin-bottom:1rem; }
+    .loading { background: rgba(255,255,255,0.04); }
+    .error { background: rgba(255,122,144,0.12); border:1px solid rgba(255,122,144,0.24); }
+    @media (max-width: 1250px) { .shell { grid-template-columns:1fr; grid-template-rows:auto auto auto auto auto; } .sidebar,.workspace,.inspector { border:0; } .grid-3,.grid-2 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <h1>CIEL/Ω — Orbital Cockpit Live Preview</h1>
+        <div class="muted">Manifest-driven web surface for the Omega cockpit architecture.</div>
+      </div>
+      <div>
+        <span class="badge">Identity-centered</span>
+        <span class="badge">Orbit-organized</span>
+        <span class="badge">Manifest-driven</span>
+      </div>
+    </header>
+
+    <aside class="sidebar"><div class="card"><h2 class="section-title">Orbital Navigation</h2><div id="nav-root" class="loading">Loading navigation from manifest...</div></div></aside>
+    <main class="workspace"><div id="workspace-root" class="loading">Loading workspace...</div></main>
+    <aside class="inspector"><div class="card"><h2 class="section-title">Inspector</h2><div id="inspector-root" class="loading">Loading inspector...</div></div></aside>
+    <footer class="event-strip" id="event-strip-root"><span class="badge">Loading event strip...</span></footer>
+  </div>
+  <script>
+    const state = { manifest: null, selectedKey: 'identity' };
+    const navRoot = document.getElementById('nav-root');
+    const workspaceRoot = document.getElementById('workspace-root');
+    const inspectorRoot = document.getElementById('inspector-root');
+    const eventStripRoot = document.getElementById('event-strip-root');
+    const esc = (v) => v === null || v === undefined ? '' : String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\"/g,'&quot;').replace(/'/g,'&#39;');
+    const allItems = (m) => (m.navigation || []).flatMap(s => s.items || []);
+    const findItem = (m,k) => allItems(m).find(i => i.key === k) || null;
+    const relatedThreads = (m,k) => (m.threads || []).filter(t => t.source === k || t.target === k);
+    const docLinks = (m) => m.docs || {};
+
+    function renderNavigation() {
+      const m = state.manifest; if (!m) return; navRoot.innerHTML='';
+      (m.navigation || []).forEach(section => {
+        const g=document.createElement('div'); g.className='nav-group';
+        g.innerHTML=`<h3>${esc(section.title)}</h3>`;
+        (section.items || []).forEach(item => {
+          const node=document.createElement('div'); node.className='nav-item'+(state.selectedKey===item.key?' active':'');
+          node.innerHTML=`<div class="label">${esc(item.label)}</div><div class="status">${esc(item.status)}</div>`;
+          node.addEventListener('click',()=>{state.selectedKey=item.key; renderAll();});
+          g.appendChild(node);
+        });
+        navRoot.appendChild(g);
+      });
+    }
+
+    function renderIdentity(m,item){
+      const identity=m.identity||{}; const runtime=m.runtime||{}; const docs=docLinks(m);
+      workspaceRoot.innerHTML=`
+        <div class="card"><h2 class="center-title">${esc(item.label)}</h2><p class="muted">${esc(item.description)}</p><span class="badge">${esc(item.status)}</span></div>
+        <div class="grid-3">
+          <div class="card"><h3 class="section-title">Identity State</h3><ul>
+            <li>identity_profile: ${esc(identity.identity_profile)}</li>
+            <li>active_canon_export: ${esc(identity.active_canon_export)}</li>
+            <li>active_operator_set: ${esc(identity.active_operator_set || '(unset)')}</li>
+            <li>session_phase: ${esc(identity.session_phase || '(unset)')}</li>
+            <li>publication_boundary: ${esc(identity.publication_boundary)}</li>
+          </ul></div>
+          <div class="card"><h3 class="section-title">Coherence & Ethics</h3><ul>
+            <li>coherence: ${esc(identity.coherence)}</li>
+            <li>resonance: ${esc(identity.resonance)}</li>
+            <li>ethics_gate: ${esc(identity.ethics_gate)}</li>
+            <li>warnings: ${esc((identity.warnings || []).length)}</li>
+          </ul></div>
+          <div class="card"><h3 class="section-title">Runtime Anchors</h3><ul>
+            <li>active_model: ${esc(identity.active_model)}</li>
+            <li>active_kernel: ${esc(identity.active_kernel)}</li>
+            <li>kernel_count: ${esc(runtime.kernel_count)}</li>
+            <li>model_count: ${esc(runtime.model_count)}</li>
+          </ul></div>
+        </div>
+        <div class="grid-2">
+          <div class="card"><h3 class="section-title">Warnings</h3><ul>${(identity.warnings || []).map(w=>`<li>${esc(w)}</li>`).join('') || '<li>(none)</li>'}</ul></div>
+          <div class="card"><h3 class="section-title">Docs Map</h3><ul>
+            <li>${esc(docs.architecture)}</li><li>${esc(docs.preview_guide)}</li><li>${esc(docs.docs_index)}</li><li>${esc(docs.live_preview || '')}</li>
+          </ul></div>
+        </div>`;
+    }
+
+    function renderAnalogies(m,item){
+      const docs=docLinks(m); const education=m.education||{};
+      workspaceRoot.innerHTML=`
+        <div class="card"><h2 class="center-title">${esc(item.label)}</h2><p class="muted">${esc(item.description)}</p><span class="badge">${esc(item.status)}</span></div>
+        <div class="grid-2">
+          <div class="card"><h3 class="section-title">Educational Layer</h3><ul>
+            <li>enabled: ${esc(education.enabled)}</li>
+            <li>${esc(education.summary || '')}</li>
+            ${(education.entries || []).map(e=>`<li>${esc(e)}</li>`).join('')}
+          </ul></div>
+          <div class="card"><h3 class="section-title">Analogy Entry Points</h3><ul>
+            <li>${esc(docs.analogies_root)}</li>
+            <li>${esc(docs.analogy_registry)}</li>
+            <li>${esc(docs.truth_attractor_analogies)}</li>
+            <li>${esc(docs.mnemonic_book)}</li>
+          </ul></div>
+        </div>
+        <div class="grid-3">
+          <div class="card"><h3 class="section-title">For theory</h3><ul><li>bridges abstraction to memory</li><li>supports teaching without replacing formalism</li><li>helps preserve limits of analogy</li></ul></div>
+          <div class="card"><h3 class="section-title">For cockpit</h3><ul><li>future inspector target</li><li>future teaching/export panel</li><li>future public educational site content</li></ul></div>
+          <div class="card"><h3 class="section-title">For children</h3><ul><li>truth = valley</li><li>node = lamp</li><li>white thread = glowing string</li><li>cockpit = solar system</li></ul></div>
+        </div>`;
+    }
+
+    function renderGeneric(m,item){
+      workspaceRoot.innerHTML=`
+        <div class="card"><h2 class="center-title">${esc(item.label)}</h2><p class="muted">${esc(item.description)}</p><span class="badge">${esc(item.status)}</span></div>
+        <div class="grid-2">
+          <div class="card"><h3 class="section-title">Node Data</h3><ul><li>key: ${esc(item.key)}</li><li>status: ${esc(item.status)}</li><li>children: ${esc((item.children || []).join(', ') || '(none)')}</li></ul></div>
+          <div class="card"><h3 class="section-title">Related White Threads</h3>
+            ${(relatedThreads(m,item.key)||[]).map(t=>`<div class="thread">${esc(t.source)} ↔ ${esc(t.target)} — ${esc(t.relation)} (strength: ${esc(t.strength)})</div>`).join('') || '<div class="muted">No related threads.</div>'}
+          </div>
+        </div>
+        <div class="card"><h3 class="section-title">Manifest Snapshot</h3><pre>${esc(JSON.stringify(item,null,2))}</pre></div>`;
+    }
+
+    function renderWorkspace(){
+      const m=state.manifest; const item=findItem(m,state.selectedKey);
+      if(!item){ workspaceRoot.innerHTML='<div class="error">Selected node was not found in manifest.</div>'; return; }
+      if(item.key==='identity') return renderIdentity(m,item);
+      if(item.key==='analogies' || item.key==='analogy_registry' || item.key==='truth_attractor_analogies' || item.key==='mnemonic_book') return renderAnalogies(m,item);
+      return renderGeneric(m,item);
+    }
+
+    function renderInspector(){
+      const m=state.manifest; const item=findItem(m,state.selectedKey);
+      inspectorRoot.innerHTML=`<pre>${esc(JSON.stringify({selected:state.selectedKey,node:item,related_threads:relatedThreads(m,state.selectedKey),runtime:m.runtime,identity:m.identity,education:m.education},null,2))}</pre>`;
+    }
+
+    function renderEventStrip(){ const m=state.manifest; eventStripRoot.innerHTML=''; (m.event_strip||[]).forEach(i=>{ const b=document.createElement('span'); b.className='badge'; b.textContent=`${i.label}: ${i.value}`; eventStripRoot.appendChild(b); }); }
+    function renderAll(){ renderNavigation(); renderWorkspace(); renderInspector(); renderEventStrip(); }
+    async function boot(){ try { const res=await fetch('/api/orbital/manifest',{cache:'no-store'}); if(!res.ok) throw new Error(`HTTP ${res.status}`); state.manifest=await res.json(); renderAll(); } catch(err) { navRoot.innerHTML=`<div class="error">Failed to load orbital_manifest.json: ${esc(err.message || err)}</div>`; workspaceRoot.innerHTML='<div class="error">Manifest-driven workspace could not be initialized.</div>'; inspectorRoot.innerHTML='<div class="error">Inspector unavailable because manifest did not load.</div>'; eventStripRoot.innerHTML='<span class="badge">manifest load failed</span>'; } }
+    boot();
+  </script>
+</body>
+</html>

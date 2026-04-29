@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}CIEL Quiet Orbital Control{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+<!-- =====================================================
+     TOP STATUS BAR
+     ===================================================== -->
+<header id="topbar">
+  <span class="topbar-brand-ciel">
+    <span class="gradient-text-gold">CIEL</span><span style="color:var(--col-sky)">/</span><span class="gradient-text-sky">0</span>
+  </span>
+  <div class="topbar-sep"></div>
+
+  <div class="topbar-item">
+    <span id="sb-dot" class="dot {{ 'online' if backend_status == 'online' else 'offline' }}"></span>
+    <span class="label">Mode</span>
+    <span id="sb-mode" class="value">{{ system_mode | default('guided') }}</span>
+  </div>
+
+  <div class="topbar-sep"></div>
+
+  <div class="topbar-item">
+    <span class="label">Backend</span>
+    <span id="sb-backend" class="value {{ 'online' if backend_status == 'online' else 'offline' }}">
+      {{ backend_status | default('offline') }}
+    </span>
+  </div>
+
+  <div class="topbar-sep"></div>
+
+  <div class="topbar-item">
+    <span class="label">Coherence</span>
+    <span id="sb-coherence" class="value">{{ "%.2f" | format(coherence_index | default(0.0) | float) }}</span>
+  </div>
+
+  <div class="topbar-sep"></div>
+
+  <div class="topbar-item">
+    <span class="label">Health</span>
+    <span id="sb-health" class="value">{{ "%.2f" | format(system_health | default(0.0) | float) }}</span>
+  </div>
+
+  <div class="topbar-sep"></div>
+
+  <div class="topbar-item">
+    <span class="label">Manifest</span>
+    <span class="value" style="font-size:10px; color: var(--col-text-muted)">{{ manifest_version | default('—') }}</span>
+  </div>
+
+  <div class="topbar-spacer"></div>
+
+  <div class="topbar-item">
+    <span class="label">Energy</span>
+    <span id="sb-energy" class="value">warm</span>
+  </div>
+</header>
+
+<!-- =====================================================
+     LEFT NAVIGATION RAIL
+     ===================================================== -->
+<nav id="nav">
+  <!-- Control -->
+  <a class="nav-item active" data-section="control" href="#control" title="Control">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9 2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9 2.12-2.12"/></svg>
+    <span class="nav-label">Control</span>
+  </a>
+
+  <!-- Chat -->
+  <a class="nav-item" data-section="chat" href="#chat" title="Chat">
+    <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="nav-label">Chat</span>
+  </a>
+
+  <!-- Files -->
+  <a class="nav-item" data-section="files" href="#files" title="Files">
+    <svg viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+    <span class="nav-label">Files</span>
+  </a>
+
+  <!-- Metrics -->
+  <a class="nav-item" data-section="metrics" href="#metrics" title="Metrics">
+    <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+    <span class="nav-label">Metrics</span>
+  </a>
+
+  <!-- Reports -->
+  <a class="nav-item" data-section="reports" href="#reports" title="Reports">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    <span class="nav-label">Reports</span>
+  </a>
+
+  <!-- Simulation -->
+  <a class="nav-item" data-section="simulation" href="#simulation" title="Simulation">
+    <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/><path d="M2 12a10 10 0 0 0 20 0"/><line x1="12" y1="12" x2="12" y2="22"/></svg>
+    <span class="nav-label">Sim</span>
+  </a>
+
+  <!-- Orbital -->
+  <a class="nav-item" data-section="orbital" href="#orbital" title="Orbital">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(45 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-45 12 12)"/></svg>
+    <span class="nav-label">Orbital</span>
+  </a>
+
+  <!-- CIELweb -->
+  <a class="nav-item" href="/portal" title="CIELweb" target="_self" style="margin-top:4px;">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M4.93 4.93l14.14 14.14"/></svg>
+    <span class="nav-label" style="color:var(--col-gold)">CIELweb</span>
+  </a>
+
+  <div class="nav-spacer"></div>
+
+  <!-- Settings -->
+  <a class="nav-item" data-section="settings" href="#settings" title="Settings">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    <span class="nav-label">Settings</span>
+  </a>
+
+  <!-- Support -->
+  <a class="nav-item" data-section="support" href="#support" title="Support">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <span class="nav-label">Support</span>
+  </a>
+</nav>
+
+<!-- =====================================================
+     MAIN LAYOUT
+     ===================================================== -->
+<div id="layout">
+
+  <!-- Workspace -->
+  <main id="workspace">
+    {% block workspace %}{% endblock %}
+  </main>
+
+  <!-- Right context drawer -->
+  <aside id="drawer">
+    {% block drawer %}
+    <div class="drawer-section">
+      <div class="drawer-section-title">Orbital State</div>
+      <div class="orbital-bar-wrap">
+        <div class="orbital-bar-label">
+          <span>Coherence</span>
+          <span id="sb-coherence-draw">—</span>
+        </div>
+        <div class="orbital-bar-track">
+          <div class="orbital-bar-fill violet" id="bar-coherence" style="width:0%"></div>
+        </div>
+      </div>
+      <div class="orbital-bar-wrap">
+        <div class="orbital-bar-label">
+          <span>System Health</span>
+          <span id="sb-health-draw">—</span>
+        </div>
+        <div class="orbital-bar-track">
+          <div class="orbital-bar-fill" id="bar-health" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="drawer-section">
+      <div class="drawer-section-title">Active Mode</div>
+      <span id="mode-chip-draw" class="mode-chip guided">guided</span>
+    </div>
+
+    <div class="drawer-section">
+      <div class="drawer-section-title">Identity</div>
+      <p style="font-size:11px; color:var(--col-text-muted)">
+        CIEL SOT Agent<br>
+        <span style="color:var(--col-text-dim)">Quiet Orbital Control</span>
+      </p>
+    </div>
+    {% endblock %}
+  </aside>
+
+</div><!-- /#layout -->
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

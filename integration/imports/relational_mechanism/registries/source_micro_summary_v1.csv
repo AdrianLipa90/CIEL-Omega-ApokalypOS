@@ -1,0 +1,13 @@
+name,value,status,notes
+analyzed_file_count,6,confirmed-derived,source files plus script entrypoints
+analyzed_function_count,23,confirmed-derived,all top-level functions
+critical_function_count,8,confirmed-derived,functions carrying sync/coupling/validation core
+total_assign_count,136,confirmed-derived,sum across analyzed functions
+total_call_count,378,confirmed-derived,sum across analyzed functions
+total_if_count,61,confirmed-derived,sum across analyzed functions
+total_loop_count,21,confirmed-derived,sum across analyzed functions
+total_return_count,29,confirmed-derived,sum across analyzed functions
+total_binop_count,55,confirmed-derived,sum across analyzed functions
+total_compare_count,38,confirmed-derived,sum across analyzed functions
+total_try_count,4,confirmed-derived,sum across analyzed functions
+total_comprehension_count,9,confirmed-derived,sum across analyzed functions

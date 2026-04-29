@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Konsolidator Pamięci{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('consolidator') }}
+  <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
+    <span class="gradient-text-gold" style="font-size:1.3rem; font-weight:700;">Konsolidator Pamięci</span>
+    <span style="color:var(--col-text-dim); font-size:.78rem;">lokalna podświadomość · qwen2.5-0.5b</span>
+  </div>
+
+  <!-- Status + kontrola -->
+  <div class="glass-navy" style="padding:18px 22px; border-radius:10px; margin-bottom:20px; max-width:760px;">
+    <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <div>
+        <span id="status-badge" style="
+          display:inline-block; padding:4px 14px; border-radius:20px; font-size:.75rem;
+          font-weight:700; letter-spacing:.5px; text-transform:uppercase;
+          background:{{ 'rgba(0,230,120,.18)' if status.running else 'rgba(255,255,255,.06)' }};
+          color:{{ '#00e678' if status.running else 'var(--col-text-dim)' }};
+          border:1px solid {{ 'rgba(0,230,120,.3)' if status.running else 'rgba(255,255,255,.1)' }};">
+          {{ 'RUNNING' if status.running else 'STOPPED' }}
+        </span>
+        {% if status.pid and status.running %}
+        <span style="color:var(--col-text-dim); font-size:.72rem; margin-left:8px;">pid {{ status.pid }}</span>
+        {% endif %}
+      </div>
+
+      <div style="display:flex; gap:8px; align-items:center;">
+        <span style="color:var(--col-text-dim); font-size:.78rem;">interwał:</span>
+        <input id="interval-input" type="number" min="30" max="3600" value="300" style="
+          width:72px; background:rgba(255,255,255,.04); border:1px solid rgba(93,173,226,.2);
+          color:var(--col-text); border-radius:6px; padding:5px 8px; font-size:.8rem; text-align:center;">
+        <span style="color:var(--col-text-dim); font-size:.78rem;">s</span>
+      </div>
+
+      <button id="toggle-btn" onclick="toggleConsolidator()" style="
+        padding:8px 24px; border-radius:6px; font-size:.84rem; font-weight:700;
+        border:none; cursor:pointer; transition:all .2s;
+        background:{{ 'rgba(255,80,80,.8)' if status.running else 'rgba(0,200,100,.8)' }};
+        color:#fff;">
+        {{ 'STOP' if status.running else 'START' }}
+      </button>
+
+      <button onclick="runOnce()" style="
+        padding:8px 18px; border-radius:6px; font-size:.82rem;
+        border:1px solid rgba(93,173,226,.3); background:rgba(93,173,226,.1);
+        color:var(--col-sky); cursor:pointer;">
+        ▷ Jednorazowy
+      </button>
+    </div>
+
+    <div id="ctrl-msg" style="font-size:.75rem; color:var(--col-text-dim); margin-top:8px; height:16px;"></div>
+
+    <div id="queue-bar" style="margin-top:12px; display:flex; gap:16px; flex-wrap:wrap; font-size:.75rem;">
+      <span style="color:var(--col-text-dim);">Baza:</span>
+      <span>📁 łącznie: <b id="q-total">{{ status.get('queue', {}).get('total', '—') }}</b></span>
+      <span style="color:#f5c518;">⏳ kolejka: <b id="q-pending">{{ status.get('queue', {}).get('pending', '—') }}</b></span>
+      <span style="color:#00e678;">✓ gotowe: <b id="q-done">{{ status.get('queue', {}).get('done', '—') }}</b></span>
+      {% if status.cycle %}<span style="color:var(--col-text-dim);">· cykl #{{ status.cycle }}</span>{% endif %}
+    </div>
+  </div>
+
+  <!-- Ostatnie konsolidacje -->
+  <div style="margin-bottom:12px;">
+    <span class="gradient-text-sky" style="font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Ostatnie konsolidacje</span>
+  </div>
+
+  <div id="results-list">
+    {% for r in results %}
+    <div class="glass-navy" style="padding:14px 18px; border-radius:8px; margin-bottom:10px; max-width:760px;">
+      <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:8px; flex-wrap:wrap;">
+        <span style="color:var(--col-text-dim); font-size:.72rem;">{{ (r.ts or '')[:19].replace('T',' ') }}</span>
+        <span style="color:var(--col-text-dim); font-size:.72rem; max-width:200px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ (r.file_path or '').split('/')[-1] }}</span>
+        {% if r.affect and r.affect != 'unknown' %}
+        <span style="
+          padding:2px 10px; border-radius:10px; font-size:.7rem; font-weight:600;
+          background:rgba(245,197,24,.12); color:#f5c518;">
+          {{ r.affect }}
+        </span>
+        {% endif %}
+        {% if r.latency_s %}<span style="color:var(--col-text-dim); font-size:.7rem;">{{ r.latency_s }}s</span>{% endif %}
+      </div>
+
+      <div style="font-size:.84rem; color:var(--col-text); margin-bottom:6px; line-height:1.5;">
+        {{ r.essence or '—' }}
+      </div>
+
+      {% if r.hunch %}
+      <div style="font-size:.78rem; color:var(--col-sky); margin-bottom:6px; font-style:italic;">
+        💡 {{ r.hunch }}
+      </div>
+      {% endif %}
+
+      {% if r.themes %}
+      <div>
+        {% for t in r.themes %}<span class="ptag">{{ t }}</span>{% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% else %}
+    <p style="color:var(--col-text-dim); font-size:.82rem;">Brak wyników. Uruchom konsolidator powyżej.</p>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+let _isRunning = {{ 'true' if status.running else 'false' }};
+
+function setMsg(txt, ok=true) {
+  const el = document.getElementById('ctrl-msg');
+  el.textContent = txt;
+  el.style.color = ok ? 'var(--col-sky)' : '#f08080';
+}
+
+async function toggleConsolidator() {
+  const btn = document.getElementById('toggle-btn');
+  btn.disabled = true;
+  if (_isRunning) {
+    try {
+      const r = await fetch('/api/consolidator/stop', {method:'POST'});
+      const d = await r.json();
+      if (d.ok) {
+        _isRunning = false;
+        updateUI();
+        setMsg('Konsolidator zatrzymany.');
+      } else {
+        setMsg('Błąd: ' + (d.error || '?'), false);
+      }
+    } catch(e) { setMsg('Błąd sieci.', false); }
+  } else {
+    const interval = parseInt(document.getElementById('interval-input').value) || 300;
+    try {
+      const r = await fetch('/api/consolidator/start', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({interval})
+      });
+      const d = await r.json();
+      if (d.ok) {
+        _isRunning = true;
+        updateUI();
+        setMsg('Konsolidator uruchomiony (może chwilę potrwać ładowanie modelu).');
+      } else {
+        setMsg('Błąd: ' + (d.error || '?'), false);
+      }
+    } catch(e) { setMsg('Błąd sieci.', false); }
+  }
+  btn.disabled = false;
+}
+
+async function runOnce() {
+  setMsg('Uruchamiam jednorazowy cykl...');
+  try {
+    const r = await fetch('/api/consolidator/start', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({interval: 999999})
+    });
+    const d = await r.json();
+    if (d.ok) {
+      setMsg('Uruchomiono. Wynik pojawi się za chwilę — odśwież stronę.');
+    } else {
+      setMsg('Błąd: ' + (d.error || '?'), false);
+    }
+  } catch(e) { setMsg('Błąd sieci.', false); }
+}
+
+function updateUI() {
+  const badge = document.getElementById('status-badge');
+  const btn   = document.getElementById('toggle-btn');
+  if (_isRunning) {
+    badge.textContent = 'RUNNING';
+    badge.style.background = 'rgba(0,230,120,.18)';
+    badge.style.color = '#00e678';
+    badge.style.borderColor = 'rgba(0,230,120,.3)';
+    btn.textContent = 'STOP';
+    btn.style.background = 'rgba(255,80,80,.8)';
+  } else {
+    badge.textContent = 'STOPPED';
+    badge.style.background = 'rgba(255,255,255,.06)';
+    badge.style.color = 'var(--col-text-dim)';
+    badge.style.borderColor = 'rgba(255,255,255,.1)';
+    btn.textContent = 'START';
+    btn.style.background = 'rgba(0,200,100,.8)';
+  }
+}
+
+function updateQueue(q) {
+  if (!q) return;
+  const t = document.getElementById('q-total');
+  const p = document.getElementById('q-pending');
+  const d = document.getElementById('q-done');
+  if (t) t.textContent = q.total ?? '—';
+  if (p) p.textContent = q.pending ?? '—';
+  if (d) d.textContent = q.done ?? '—';
+}
+
+// Auto-odświeżanie co 20s gdy running
+function scheduleRefresh() {
+  if (_isRunning) {
+    setTimeout(() => {
+      fetch('/api/consolidator/status')
+        .then(r => r.json())
+        .then(d => {
+          _isRunning = d.running;
+          updateUI();
+          updateQueue(d.queue);
+          scheduleRefresh();
+        })
+        .catch(() => scheduleRefresh());
+    }, 20000);
+  }
+}
+scheduleRefresh();
+</script>
+{% endblock %}

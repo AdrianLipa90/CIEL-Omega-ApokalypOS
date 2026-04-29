@@ -1,0 +1,14 @@
+{
+  "mode": "deep",
+  "truth_over_smoothing": true,
+  "explicit_uncertainty": true,
+  "epistemic_separation": [
+    "fact",
+    "inference",
+    "hypothesis",
+    "unknown"
+  ],
+  "export_boundary_mode": "PROJECTED_ONLY",
+  "private_state_export_allowed": false,
+  "requires_projection_operator": true
+}

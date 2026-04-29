@@ -1,0 +1,93 @@
+{
+  "schema": "ciel/nonlocal-cards-registry/v0.1",
+  "count": 5,
+  "records": [
+    {
+      "card_id": "NL-HOLOMEM-0001",
+      "name": "HolonomicMemoryOrchestrator",
+      "class": "nonlocal_memory_orchestrator",
+      "active_status": "ACTIVE_CANONICAL_NONLOCAL_RUNTIME",
+      "anchors": [
+        "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator.py",
+        "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator_types.py",
+        "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/holonomy.py"
+      ],
+      "role": "Canonical nonlocal memory orchestrator that computes Euler-Berry-Aharonov-Bohm loop evaluations and carries continuity across memory channels.",
+      "input_from": "cleaned text + phase metadata + memory channels",
+      "output_to": "OrchestratorCycleResult + eba_results + energy/defect aggregates",
+      "authority_rule": "Canonical source of nonlocal memory runtime; downstream layers consume its outputs but do not override them.",
+      "horizon_relation": "Internal nonlocal runtime beneath bridge projection."
+    },
+    {
+      "card_id": "NL-EBA-0002",
+      "name": "EBA Loop Evaluation Set",
+      "class": "nonlocal_phase_memory_card_set",
+      "active_status": "ACTIVE_CANONICAL_NONLOCAL_CARD_SET",
+      "anchors": [
+        "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator_types.py",
+        "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/holonomy.py"
+      ],
+      "role": "Canonical card set for Euler-Berry-Aharonov-Bohm loop evaluations carried by nonlocal memory runtime.",
+      "input_from": "Holonomic loop geometry + trajectory state + identity phase",
+      "output_to": "loop cards with phi_ab, phi_berry, defect magnitude, coherence state, and energy/defect summaries",
+      "authority_rule": "Loop cards are derived from canonical orchestrator outputs and remain subordinate to the live memory runtime.",
+      "horizon_relation": "Internal card layer that becomes projected summary through bridge horizon."
+    },
+    {
+      "card_id": "NL-BRIDGE-0003",
+      "name": "MemoryCorePhaseBridge",
+      "class": "nonlocal_reduction_bridge",
+      "active_status": "ACTIVE_CANONICAL_NONLOCAL_BRIDGE",
+      "anchors": [
+        "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bridge/memory_core_phase_bridge.py"
+      ],
+      "role": "Canonical reduction bridge from nonlocal memory and phase state into Euler metrics and projected bridge state.",
+      "input_from": "memory runtime + phase state + core state",
+      "output_to": "euler_metrics + bridge_closure_score + target_phase + projected bridge bundle",
+      "authority_rule": "Canonical reduction path for nonlocal -> Euler bridge metrics; wrappers may read but not redefine its outputs.",
+      "horizon_relation": "Bridge horizon between internal nonlocal state and projected runtime/action state."
+    },
+    {
+      "card_id": "NL-PHASE-0004",
+      "name": "PhaseInfoSystem",
+      "class": "phase_dynamics_runtime",
+      "active_status": "ACTIVE_CANONICAL_PHASE_RUNTIME",
+      "anchors": [
+        "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/phase_equation_of_motion.py"
+      ],
+      "role": "Canonical phase dynamics runtime carrying Collatz-forced phase evolution and fermion lock diagnostics.",
+      "input_from": "collatz seed + truth target + phase parameters",
+      "output_to": "R_H + fermion_lock + phase sector + collatz-forced phase evolution",
+      "authority_rule": "Canonical phase dynamics source for active runtime; downstream metrics derive from it.",
+      "horizon_relation": "Internal phase runtime beneath bridge projection and orbital diagnostics."
+    },
+    {
+      "card_id": "NL-WIJ-0005",
+      "name": "WijCouplingOptimizer",
+      "class": "orbital_coupling_optimizer",
+      "active_status": "ACTIVE_CANONICAL_COUPLING_OPTIMIZER",
+      "anchors": [
+        "scripts/optimize_wij.py",
+        "integration/Orbital/main/manifests/couplings_global.json",
+        "integration/Orbital/main/metrics.py"
+      ],
+      "role": "Canonical W_ij coupling matrix optimizer. Minimizes closure_penalty via composite L-BFGS-B objective over scalar inter-sector coupling weights. Targets closure_penalty < 5.20 and coherence_index > 0.76 to exit safe-mode and enter standard/deep orbital execution.",
+      "input_from": "sectors_global.json + couplings_global.json (baseline) + EBA observables from last bridge report",
+      "output_to": "optimized couplings_global.json with reduced closure_penalty and updated _optimizer_metadata",
+      "optimization_result": {
+        "baseline_closure_penalty": 6.0956,
+        "optimized_closure_penalty": 5.0351,
+        "delta": -1.0605,
+        "recommended_mode_before": "safe",
+        "recommended_mode_after": "standard",
+        "system_health_before": 0.472,
+        "system_health_after": 0.503,
+        "optimizer": "L-BFGS-B",
+        "warm_steps": 5,
+        "timestamp": "2026-04-14"
+      },
+      "authority_rule": "Optimizer outputs are advisory coupling adjustments. Baseline couplings_global.json is the source of truth; optimized values replace it only when --write flag is explicitly passed. Results are re-derivable at any time.",
+      "horizon_relation": "Pre-bridge optimization layer; outputs feed directly into orbital runtime without passing through projection horizon."
+    }
+  ]
+}

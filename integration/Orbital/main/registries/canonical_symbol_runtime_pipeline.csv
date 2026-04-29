@@ -1,0 +1,17 @@
+symbol,runtime_path,runtime_object,function_name,pipeline_layer,status,evidence,note
+orchestrator,ciel_omega/ciel_orchestrator.py,module/class,CIELOrchestrator,orchestrator,confirmed,direct module/class name,canonical top-level orchestrator
+unified_system,ciel_omega/unified_system.py,module/class,UnifiedSystem.create; UnifiedSystem.run_text_cycle,orchestrator,confirmed,direct class name,primary assembly of orchestrator + bridge
+Delta_H,ciel_omega/phase_equation_of_motion.py,function,delta_H,phase,confirmed,exact function name,direct closure sum implementation
+R_H,ciel_omega/phase_equation_of_motion.py,function,R_H,phase,confirmed,exact function name,direct defect norm implementation
+V_rel / V_information,ciel_omega/phase_equation_of_motion.py,function,V_information,potential,confirmed,exact function name + truth note,information potential over phase vector
+EulerBerry,ciel_omega/constraints/euler_constraint.py,module/functions,evaluate_unified_euler_constraint; euler_constraint_violation; apply_active_euler_feedback,constraint,confirmed,module path + function names,canonical multi-sector closure/feedback layer
+gamma_i / phase sectors,ciel_omega/constraints/euler_constraint.py,dataclass/module,EulerConstraintReport,phase,confirmed,phase vectors in dataclass,memory/core/vocabulary/affect/unified phase vectors
+A / Intention field,ciel_omega/fields/intention_field.py,class,IntentionField.generate; IntentionField.project,field,confirmed,direct class name,field-like projection/generation layer
+Sigma_i,ciel_omega/fields/sigma_series.py,class,SigmaSeries.run; SigmaSeries.apply_to_field,state,candidate,name-level match,retain as candidate until semantic inspection deeper than name match
+W_ij / holonomy,ciel_omega/memory/holonomy.py,classes,HolonomyCalculator.compute_dynamical_phase; MemoryLoop.is_closed,holonomy,confirmed,module/class docstrings,Euler-Berry-Aharonov-Bohm memory-loop holonomy
+memory orchestrator,ciel_omega/memory/orchestrator.py,class,HolonomicMemoryOrchestrator,memory,confirmed,direct class name,runtime memory orchestrator with identity phase
+memory-core phase bridge,ciel_omega/bridge/memory_core_phase_bridge.py,module,(inspect later),bridge,confirmed,module path,bridge between memory and core phase layer
+tetrahedral_frame,(not yet in runtime),formal-only,,geometry,unresolved,not found in runtime canonical code,keep in formal registry only for now
+tau_i,(distributed / not yet canonical target),formal-only,,state,unresolved,not explicit in current runtime search,"present in PDFs and contracts, not yet clearly materialized in single canonical runtime object"
+epsilon,(distributed / not yet canonical target),formal-only,,phase,unresolved,"present in PDFs, not explicit runtime target yet",cross-scale coupling not yet localized to one canonical runtime object
+D,(distributed / not yet canonical target),formal-only,,phase,unresolved,"present in PDFs, not explicit runtime target yet","paired with epsilon in PDFs, not yet runtime-localized"

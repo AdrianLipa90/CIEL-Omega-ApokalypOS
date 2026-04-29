@@ -1,0 +1,10 @@
+quantity,value,status,source,note
+gamma_S start,0.0,confirmed,relational_contract,initial phase
+gamma_C start,0.0,confirmed,relational_contract,initial phase
+gamma_Q start,0.0,confirmed,relational_contract,initial phase
+gamma_T start,0.0,confirmed,relational_contract,initial phase
+Delta_H(start),4.0,confirmed,derived from relational_contract,1+1+1+1
+R_H(start),16.0,confirmed,derived from relational_contract,|4|^2
+tau_1 start,0.263,confirmed,relational_contract,contract value
+tau_2 start,0.353,confirmed,relational_contract,contract value
+tau_3 start,0.489,confirmed,relational_contract,contract value

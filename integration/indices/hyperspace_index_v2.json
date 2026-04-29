@@ -1,0 +1,210 @@
+{
+  "schema": "ciel-sot-agent/hyperspace-index/v0.2",
+  "meta": {
+    "migration_mode": "compatibility-preserving",
+    "legacy_index": "integration/hyperspace_index.json",
+    "target_geometry": {
+      "governance": "governance/",
+      "docs_architecture": "docs/architecture/",
+      "docs_operations": "docs/operations/",
+      "docs_integration": "docs/integration/",
+      "integration_registries": "integration/registries/",
+      "integration_couplings": "integration/couplings/",
+      "integration_indices": "integration/indices/",
+      "integration_upstreams": "integration/upstreams/"
+    },
+    "notes": [
+      "This v2 index points to the target repository geometry while legacy paths remain temporarily valid.",
+      "The protected orbital sector remains outside the generic integration split.",
+      "This file is the machine-readable companion to integration/MIGRATION_INDEX_V2.md."
+    ]
+  },
+  "documents": [
+    {
+      "key": "agent_protocol",
+      "path": "governance/AGENT.md",
+      "kind": "protocol",
+      "crossrefs": ["docs/INDEX_REFACTOR_V2.md", "governance/coordination/agentcrossinfo.md"]
+    },
+    {
+      "key": "agent_cross_info",
+      "path": "governance/coordination/agentcrossinfo.md",
+      "kind": "coordination",
+      "crossrefs": ["governance/AGENT.md", "docs/INDEX_REFACTOR_V2.md"]
+    },
+    {
+      "key": "architecture",
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "kind": "architecture",
+      "crossrefs": [
+        "docs/INDEX_REFACTOR_V2.md",
+        "integration/registries/repository_registry.json",
+        "docs/architecture/REPO_REFACTOR_PLAN.md",
+        "docs/integration/CIEL_OMEGA_DEMO_INTEGRATION.md"
+      ]
+    },
+    {
+      "key": "repo_refactor_plan",
+      "path": "docs/architecture/REPO_REFACTOR_PLAN.md",
+      "kind": "architecture-plan",
+      "crossrefs": [
+        "docs/architecture/ARCHITECTURE.md",
+        "docs/architecture/INTEGRATION_PATH_MIGRATION.md",
+        "integration/MIGRATION_INDEX_V2.md"
+      ]
+    },
+    {
+      "key": "integration_path_migration",
+      "path": "docs/architecture/INTEGRATION_PATH_MIGRATION.md",
+      "kind": "migration-note",
+      "crossrefs": [
+        "integration/MIGRATION_INDEX_V2.md",
+        "integration/indices/hyperspace_index_v2.json",
+        "integration/registries/index_registry_v2.yaml"
+      ]
+    },
+    {
+      "key": "ciel_omega_demo_integration",
+      "path": "docs/integration/CIEL_OMEGA_DEMO_INTEGRATION.md",
+      "kind": "integration-note",
+      "crossrefs": [
+        "docs/architecture/ARCHITECTURE.md",
+        "integration/upstreams/ciel_omega_demo_shell_map.json",
+        "integration/registries/repository_registry.json"
+      ]
+    },
+    {
+      "key": "orbital_architecture_canon",
+      "path": "docs/architecture/ORBITAL_ARCHITECTURE_CANON.md",
+      "kind": "architecture",
+      "crossrefs": [
+        "integration/Orbital/ARCHITECTURE_BINDING.md",
+        "integration/indices/hyperspace_index_orbital.json",
+        "docs/integration/ORBITAL_INFRASTRUCTURE_RULES.md"
+      ]
+    },
+    {
+      "key": "sapiens_surface_binding",
+      "path": "docs/integration/SAPIENS_SURFACE_BINDING.md",
+      "kind": "integration-note",
+      "crossrefs": [
+        "governance/contracts/SAPIENS_PACKET_PROTOCOL.md",
+        "src/ciel_sot_agent/sapiens_client.py",
+        "src/ciel_sot_agent/orbital_bridge.py"
+      ]
+    },
+    {
+      "key": "relational_formal_protocol",
+      "path": "governance/contracts/RELATIONAL_FORMAL_PROTOCOL.md",
+      "kind": "protocol",
+      "crossrefs": [
+        "governance/contracts/SAPIENS_PACKET_PROTOCOL.md",
+        "docs/integration/SAPIENS_SURFACE_BINDING.md"
+      ]
+    },
+    {
+      "key": "repo_registry",
+      "path": "integration/registries/repository_registry.json",
+      "kind": "registry",
+      "crossrefs": [
+        "integration/couplings/repository_couplings.json",
+        "integration/upstreams/ciel_omega_demo_shell_map.json",
+        "integration/upstreams/gh_upstreams.json"
+      ]
+    },
+    {
+      "key": "couplings",
+      "path": "integration/couplings/repository_couplings.json",
+      "kind": "coupling-map",
+      "crossrefs": [
+        "integration/registries/repository_registry.json",
+        "integration/couplings/gh_coupling_state.json"
+      ]
+    },
+    {
+      "key": "main_index_registry",
+      "path": "integration/registries/index_registry_v2.yaml",
+      "kind": "registry",
+      "crossrefs": [
+        "integration/indices/hyperspace_index_v2.json",
+        "integration/MIGRATION_INDEX_V2.md"
+      ]
+    },
+    {
+      "key": "gh_upstreams",
+      "path": "integration/upstreams/gh_upstreams.json",
+      "kind": "upstream-registry",
+      "crossrefs": [
+        "integration/upstreams/gh_live_registry.json",
+        "integration/upstreams/ciel_omega_demo_shell_map.json"
+      ]
+    },
+    {
+      "key": "gh_live_registry",
+      "path": "integration/upstreams/gh_live_registry.json",
+      "kind": "upstream-runtime-state",
+      "crossrefs": [
+        "integration/upstreams/gh_upstreams.json",
+        "integration/couplings/gh_coupling_state.json"
+      ]
+    },
+    {
+      "key": "gh_coupling_state",
+      "path": "integration/couplings/gh_coupling_state.json",
+      "kind": "coupling-runtime-state",
+      "crossrefs": [
+        "integration/upstreams/gh_live_registry.json",
+        "integration/couplings/repository_couplings.json"
+      ]
+    },
+    {
+      "key": "demo_shell_map",
+      "path": "integration/upstreams/ciel_omega_demo_shell_map.json",
+      "kind": "upstream-shell-map",
+      "crossrefs": [
+        "docs/integration/CIEL_OMEGA_DEMO_INTEGRATION.md",
+        "integration/upstreams/ciel_omega_demo_inventory.json",
+        "integration/upstreams/gh_upstreams.json"
+      ]
+    },
+    {
+      "key": "demo_inventory",
+      "path": "integration/upstreams/ciel_omega_demo_inventory.json",
+      "kind": "upstream-inventory",
+      "crossrefs": [
+        "integration/upstreams/ciel_omega_demo_shell_map.json"
+      ]
+    },
+    {
+      "key": "orbital_index",
+      "path": "integration/indices/hyperspace_index_orbital.json",
+      "kind": "orbital-index",
+      "crossrefs": [
+        "integration/registries/index_registry_orbital.yaml",
+        "integration/Orbital/INDEX.md"
+      ]
+    },
+    {
+      "key": "repo_phase_code",
+      "path": "src/ciel_sot_agent/repo_phase.py",
+      "kind": "code",
+      "crossrefs": ["src/ciel_sot_agent/synchronize.py", "tests/test_repo_phase.py"]
+    },
+    {
+      "key": "orbital_bridge_code",
+      "path": "src/ciel_sot_agent/orbital_bridge.py",
+      "kind": "code",
+      "crossrefs": ["src/ciel_sot_agent/sapiens_client.py", "docs/integration/SAPIENS_SURFACE_BINDING.md"]
+    },
+    {
+      "key": "sapiens_client_code",
+      "path": "src/ciel_sot_agent/sapiens_client.py",
+      "kind": "code",
+      "crossrefs": [
+        "src/ciel_sot_agent/sapiens_surface_policy.py",
+        "governance/contracts/SAPIENS_PACKET_PROTOCOL.md",
+        "tests/test_sapiens_client_packet.py"
+      ]
+    }
+  ]
+}

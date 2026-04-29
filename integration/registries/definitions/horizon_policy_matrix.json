@@ -1,0 +1,119 @@
+{
+  "schema": "ciel/horizon-policy-matrix/v0.1",
+  "classes": {
+    "SEALED": {
+      "privacy_constraint": "STRICT_NONDISCLOSURE",
+      "leak_channel_mode": "NO_DIRECT_LEAK",
+      "leak_budget_class": "ZERO_LEAK_BUDGET",
+      "allowed_visibility_transitions": [
+        "self->local-orbit",
+        "local-orbit->sealed-export"
+      ],
+      "exportable_fields": [
+        "export_state",
+        "export_result",
+        "export_confidence",
+        "residual_uncertainty",
+        "horizon_class",
+        "privacy_constraint",
+        "leak_policy",
+        "projection_operator"
+      ],
+      "sealed_fields": [
+        "internal_candidate_states",
+        "internal_conflict_state",
+        "internal_superposition_state",
+        "internal_resolution_trace",
+        "internal_tau_local",
+        "internal_memory_mode"
+      ]
+    },
+    "POROUS": {
+      "privacy_constraint": "GRADIENT_LIMITED_DISCLOSURE",
+      "leak_channel_mode": "HAWKING_EULER_DIFFUSIVE",
+      "leak_budget_class": "MICRO_LEAK_BUDGET",
+      "allowed_visibility_transitions": [
+        "self->container",
+        "container->local-orbit",
+        "local-orbit->horizon-leak"
+      ],
+      "exportable_fields": [
+        "export_state",
+        "export_result",
+        "export_confidence",
+        "residual_uncertainty",
+        "horizon_class",
+        "privacy_constraint",
+        "leak_policy",
+        "projection_operator",
+        "visible_scopes"
+      ],
+      "sealed_fields": [
+        "internal_candidate_states",
+        "internal_conflict_state",
+        "internal_superposition_state",
+        "internal_resolution_trace"
+      ]
+    },
+    "TRANSMISSIVE": {
+      "privacy_constraint": "BROKER_GATED_DISCLOSURE",
+      "leak_channel_mode": "HAWKING_EULER_BROKERED",
+      "leak_budget_class": "BROKERED_LEAK_BUDGET",
+      "allowed_visibility_transitions": [
+        "self->container",
+        "container->local-orbit",
+        "local-orbit->adjacent-horizon",
+        "adjacent-horizon->broker-leak"
+      ],
+      "exportable_fields": [
+        "export_state",
+        "export_result",
+        "export_confidence",
+        "residual_uncertainty",
+        "horizon_class",
+        "privacy_constraint",
+        "leak_policy",
+        "projection_operator",
+        "visible_scopes",
+        "manybody_role"
+      ],
+      "sealed_fields": [
+        "internal_candidate_states",
+        "internal_conflict_state",
+        "internal_superposition_state",
+        "internal_resolution_trace"
+      ]
+    },
+    "OBSERVATIONAL": {
+      "privacy_constraint": "SNAPSHOT_SANITIZED_DISCLOSURE",
+      "leak_channel_mode": "SNAPSHOT_PROJECTION",
+      "leak_budget_class": "SNAPSHOT_LEAK_BUDGET",
+      "allowed_visibility_transitions": [
+        "self->container",
+        "container->local-orbit",
+        "local-orbit->orbit-snapshot",
+        "orbit-snapshot->global-snapshot"
+      ],
+      "exportable_fields": [
+        "export_state",
+        "export_result",
+        "export_confidence",
+        "residual_uncertainty",
+        "horizon_class",
+        "privacy_constraint",
+        "leak_policy",
+        "projection_operator",
+        "visible_scopes",
+        "manybody_role",
+        "tau_role"
+      ],
+      "sealed_fields": [
+        "internal_candidate_states",
+        "internal_conflict_state",
+        "internal_superposition_state",
+        "internal_resolution_trace",
+        "internal_tau_local"
+      ]
+    }
+  }
+}

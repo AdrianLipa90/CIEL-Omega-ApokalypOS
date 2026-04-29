@@ -1,0 +1,62 @@
+{
+  "schema": "ciel/orbital-card-system-integration-manifest/v0.1",
+  "status": "integral-system-layer",
+  "integration_mode": "living-layer",
+  "activation_state": "ready-for-upload",
+  "source_ref": {
+    "branch": "operation/orbital-card-system-20260407",
+    "local_execution_snapshot": "/mnt/data/CIEL-_SOT_Agent-main (11).zip"
+  },
+  "authoritative_root": "integration/registries/definitions",
+  "authoritative_artifacts": {
+    "export_registry": "integration/registries/definitions/orbital_definition_registry.json",
+    "internal_registry": "integration/registries/definitions/internal_subsystem_cards.json",
+    "horizon_policy_matrix": "integration/registries/definitions/horizon_policy_matrix.json",
+    "subsystem_sync_registry": "integration/registries/definitions/subsystem_sync_registry.json",
+    "subsystem_sync_report": "integration/registries/definitions/subsystem_sync_report.json",
+    "assignment_report": "integration/registries/definitions/orbital_assignment_report.json",
+    "verification_report": "integration/registries/definitions/verification_report.json",
+    "nonlocal_edges": "integration/registries/definitions/nonlocal_definition_edges.json",
+    "db_library_manifest": "integration/registries/definitions/db_library/manifest.json",
+    "db_library_root": "integration/registries/definitions/db_library"
+  },
+  "upload_scope": {
+    "export_layer": true,
+    "internal_cards": true,
+    "horizon_policy_matrix": true,
+    "subsystem_sync_layer": true,
+    "db_library": true,
+    "runtime_outputs_as_source_of_truth": false
+  },
+  "runtime_consumers": {
+    "orbital_bridge": "src/ciel_sot_agent/orbital_bridge.py",
+    "sapiens_client": "src/ciel_sot_agent/sapiens_client.py",
+    "bootstrap_audio_orbital_and_catalog": "scripts/bootstrap_audio_orbital_and_catalog.py",
+    "wij_coupling_optimizer": "scripts/optimize_wij.py"
+  },
+  "derived_runtime_outputs": {
+    "subsystem_sync_manifest": "integration/reports/orbital_bridge/subsystem_sync_manifest.json",
+    "runtime_gating": "integration/reports/orbital_bridge/runtime_gating.json",
+    "latest_packet": "integration/reports/sapiens_client/latest_packet.json"
+  },
+  "phase_gate_status": {
+    "phase_a": "passed",
+    "phase_b": "passed",
+    "phase_c": "passed",
+    "phase_d": "passed",
+    "phase_e": "passed",
+    "phase_f": "ready-for-upload"
+  },
+  "observed_counts": {
+    "export_cards": 11062,
+    "internal_cards": 11062,
+    "boards": 1259,
+    "edges": 74843,
+    "tau_system_count": 1
+  },
+  "system_law": {
+    "private_state_export_allowed": false,
+    "projection_required": true,
+    "runtime_outputs_are_derived": true
+  }
+}

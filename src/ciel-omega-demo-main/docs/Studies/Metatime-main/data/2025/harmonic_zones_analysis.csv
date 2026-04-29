@@ -1,0 +1,4 @@
+zone,l_range,avg_change,physical_meaning
+Intentional,< 30,4.7523875232423665,Dynamic Topology
+Structural,30-200,0.99262217015989,Galaxy-scale Coherence
+Acoustic,> 200,0.0021122885813870543,Preserved Recombination Structure

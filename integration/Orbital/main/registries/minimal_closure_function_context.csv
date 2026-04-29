@@ -1,0 +1,3 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+0,ciel_omega/unified_system.py,UnifiedSystem.run_text_cycle,unified_system,operational entrypoint that drives bridge -> constraint/potential flow,"runtime entry context, not mathematical core",confirmed-context
+0,ciel_omega/bridge/memory_core_phase_bridge.py,MemoryCorePhaseBridge.step,memory-core phase bridge,feeds memory/core state into closure-bearing phase layer,bridge context for runtime execution,confirmed-context

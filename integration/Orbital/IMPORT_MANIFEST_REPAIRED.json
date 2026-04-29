@@ -1,0 +1,55 @@
+{
+  "import_name": "orbital-main-sync",
+  "import_type": "orbital_module_snapshot",
+  "target_repo": "AdrianLipa90/CIEL-_SOT_Agent",
+  "target_root": "integration/Orbital/main/",
+  "target_path": "integration/Orbital/main",
+  "source_snapshot": "CIEL_RELATIONAL_MECHANISM_REPO_snapshot_no_gguf_post_holonomic_consolidation_2026-03-27_v2.zip",
+  "source_module_root": "CIEL_RELATIONAL_MECHANISM_REPO/data/source/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital",
+  "source_manifest_root": "CIEL_RELATIONAL_MECHANISM_REPO/manifests/orbital",
+  "source_manifests": [
+    "manifests/orbital/sectors_global.json",
+    "manifests/orbital/couplings_global.json"
+  ],
+  "branch": "integration-orbital-main-sync-20260327-1",
+  "status": "partial_import",
+  "notes": [
+    "Integration import only.",
+    "Does not alter the theory repository.",
+    "Imported from the audited no-GGUF snapshot.",
+    "This file repairs the broken legacy IMPORT_MANIFEST.json without rewriting it in place during refactor."
+  ],
+  "imported_files": [
+    "README.md",
+    "__init__.py",
+    "model.py",
+    "phase_control.py",
+    "rh_control.py",
+    "registry.py",
+    "manifests/sectors_global.json",
+    "manifests/couplings_global.json"
+  ],
+  "confirmed_executable_files": [
+    "__init__.py",
+    "model.py",
+    "registry.py",
+    "phase_control.py",
+    "rh_control.py",
+    "metrics.py",
+    "dynamics.py",
+    "extract_geometry.py",
+    "global_pass.py"
+  ],
+  "not_yet_imported_at_initial_partial_stage": [
+    "global_pass.py",
+    "metrics.py",
+    "dynamics.py",
+    "extract_geometry.py"
+  ],
+  "architecture_binding": {
+    "source_architecture_path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/",
+    "integration_binding_doc": "integration/Orbital/ARCHITECTURE_BINDING.md",
+    "canonical_architecture_doc": "docs/architecture/ORBITAL_ARCHITECTURE_CANON.md",
+    "protected_sector": true
+  }
+}

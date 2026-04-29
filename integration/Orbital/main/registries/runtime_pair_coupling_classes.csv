@@ -1,0 +1,4 @@
+runtime_class,symbol_proxy,runtime_path,status,note
+connection_A,A,(PDF-level connection; no unique runtime file fixed yet),confirmed-mechanism,Berry connection generates gamma[C] and underlies W_ij
+white_thread_holonomy,W_ij,ciel_omega/memory/holonomy.py,confirmed,confirmed runtime holonomy carrier
+effective_pair_kernel,A_ij,ciel_omega/memory/holonomy.py ; ciel_omega/fields/intention_field.py,confirmed-mechanism,toy-model A_ij retained as effective pair kernel backed by A/W_ij/F_ij machinery

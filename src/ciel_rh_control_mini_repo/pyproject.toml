@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ciel-rh-control"
+version = "0.1.0"
+description = "Mini repo for R_H-driven operational control"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+packages = ["ciel_rh_control"]

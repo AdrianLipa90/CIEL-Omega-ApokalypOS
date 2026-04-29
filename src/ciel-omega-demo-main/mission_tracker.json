@@ -1,0 +1,52 @@
+{
+  "global_progress": 0.2875,
+  "tasks": {
+    "T001": {
+      "id": "T001",
+      "name": "Adam Core Extensions Implementation",
+      "description": "Implement Batch 21 core modules",
+      "deadline": "2025-10-26",
+      "dependencies": [],
+      "progress": 0.85,
+      "status": "in_progress",
+      "assigned_to": "Adam"
+    },
+    "T002": {
+      "id": "T002",
+      "name": "Replicate Watanabe EEG-Quantum Experiment",
+      "description": "Setup 3 labs and execute protocol",
+      "deadline": "2026-Q2",
+      "dependencies": [
+        "T003"
+      ],
+      "progress": 0.0,
+      "status": "pending",
+      "assigned_to": "Team"
+    },
+    "T003": {
+      "id": "T003",
+      "name": "Secure Initial Funding",
+      "description": "Obtain $500k MVP budget",
+      "deadline": "2025-Q4",
+      "dependencies": [
+        "T004"
+      ],
+      "progress": 0.0,
+      "status": "pending",
+      "assigned_to": "Adrian"
+    },
+    "T004": {
+      "id": "T004",
+      "name": "Publish CIEL/0 Preprint",
+      "description": "Write and submit preprint",
+      "deadline": "2025-11-30",
+      "dependencies": [
+        "T001"
+      ],
+      "progress": 0.3,
+      "status": "in_progress",
+      "assigned_to": "Adrian+Adam"
+    }
+  },
+  "last_update": "2025-12-14T23:07:09.777550"
+}

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launcher wrapper for the CIEL GGUF model installer CLI
+# Installed to /usr/bin/ciel-sot-install-model by the .deb package.
+exec /opt/ciel-sot-agent/venv/bin/ciel-sot-install-model "$@"

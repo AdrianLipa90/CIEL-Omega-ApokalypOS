@@ -1,0 +1,3 @@
+name,value,status,notes
+minimal_closure_core_function_count,6,confirmed-derived,strict core for phase-vector -> Delta_H -> R_H -> evaluate -> feedback -> potential
+minimal_closure_context_function_count,2,confirmed-derived,operational context around the strict core

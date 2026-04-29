@@ -1,0 +1,1076 @@
+schema_version: '1.0'
+ontology_name: CIEL_Omega_Canonical_Vocabulary
+description: 'First canonical vocabulary schema for CIEL/0 + CQCL integration. This is ontology-first: symbols, classes, operators, relations, and runtime bindings. It is designed to feed a resolver layer before CQCL AST compilation.
+
+  '
+classes:
+- attractor
+- channel
+- constraint
+- functional
+- memory
+- observable
+- operator
+- phase
+- seed
+- state
+- topology
+- trajectory
+subclasses:
+  attractor:
+  - core
+  - identity
+  channel:
+  - holonomy
+  constraint:
+  - euler
+  - spinor
+  functional:
+  - closure_holonomy
+  memory:
+  - memory_trace
+  observable:
+  - loop_phase
+  - spectrum
+  operator:
+  - closure
+  - information
+  - lambda
+  - resonance
+  phase:
+  - holonomy
+  seed:
+  - collatz
+  - midpoint
+  - zeta
+  state:
+  - coherence
+  - holonomy
+  - memory_trace
+  topology:
+  - loop
+  - winding
+  trajectory:
+  - collatz
+relations:
+- generates
+- stabilizes
+- destabilizes
+- transports
+- closes
+- seeds
+- projects_to
+- binds_to
+- resonates_with
+- constrains
+- remembers
+- leaks_to
+- measures
+- compiles_to
+- couples_to
+records:
+- symbol: I0
+  canonical_id: operator.information.i0
+  class: operator
+  subclass: information
+  aliases:
+  - I0
+  - Operator Informacji
+  - Information Operator
+  - Ea
+  semantics:
+    role: minimal information coupling
+    invariant: I0 = ln(2)/(24*pi)
+    phase_behavior: biases phase evolution toward low-defect closure
+  operator:
+    name: I0
+    kind: coupling
+    arity: 1
+    formal: I0 = ln(2)/(24*pi)
+  targets:
+  - phase
+  - closure
+  - state
+  - memory
+  relations:
+    stabilizes:
+    - closure
+    - identity
+    biases:
+    - attractor
+    couples_to:
+    - holonomy
+    - trajectory
+  runtime_binding:
+    module: ciel_omega.fields.intention_field
+    object: IntentionField
+    field: I0
+    mode: read
+  constraints:
+    requires:
+    - phase
+    - state
+    closure_mode:
+    - bosonic
+    - spinor
+  priority: 1.0
+- symbol: Lambda0
+  canonical_id: operator.lambda.lambda0
+  class: operator
+  subclass: lambda
+  aliases:
+  - Lambda0
+  - Lambda Operator
+  - Cosmological Operator
+  semantics:
+    role: global expansion or emergence operator
+    invariant: context-dependent lambda-scale operator
+    phase_behavior: modulates global phase curvature and expansion bias
+  operator:
+    name: Lambda0
+    kind: operator
+    arity: 1
+    formal: Lambda0 ~ global phase-curvature operator
+  targets:
+  - state
+  - cosmological
+  - phase
+  relations:
+    stabilizes:
+    - cosmological_attractor
+    couples_to:
+    - I0
+    - resonance
+  runtime_binding:
+    module: ciel_omega.core.physics.ciel0_framework
+    object: CIEL0Core
+    field: Lambda0
+    mode: read
+  constraints:
+    requires:
+    - phase
+  priority: 0.94
+- symbol: ResonanceOperator
+  canonical_id: operator.resonance.core
+  class: operator
+  subclass: resonance
+  aliases:
+  - ResonanceOperator
+  - R(S,I)
+  - Rezonans
+  semantics:
+    role: measures or enforces state-intention coherence
+    invariant: R(S,I)=|<S|I>|^2
+    phase_behavior: amplifies coherent channels, suppresses mismatch
+  operator:
+    name: R
+    kind: metric_operator
+    arity: 2
+    formal: R(S,I)=|<S|I>|^2
+  targets:
+  - coherence
+  - decision
+  - state
+  relations:
+    measures:
+    - coherence
+    stabilizes:
+    - aligned_state
+    projects_to:
+    - action
+  runtime_binding:
+    module: ciel_omega.resonance.resonance_operator
+    object: ResonanceOperator
+    mode: invoke
+  constraints:
+    requires:
+    - state
+    - intent
+  priority: 0.98
+- symbol: EulerConstraint
+  canonical_id: constraint.euler
+  class: constraint
+  subclass: euler
+  aliases:
+  - Euler
+  - Euler Constraint
+  - Phase Closure
+  semantics:
+    role: global closure law over a phase ensemble
+    invariant: sum_k exp(i*gamma_k) = 0
+    phase_behavior: penalizes non-closing phase configurations and guides feedback
+  operator:
+    name: EulerClosure
+    kind: constraint
+    arity: n
+    formal: sum_k exp(i*gamma_k)=0
+  targets:
+  - phase
+  - closure
+  - memory
+  - identity
+  relations:
+    constrains:
+    - state
+    - memory
+    - identity
+    stabilizes:
+    - closure
+    measures:
+    - euler_violation
+    - closure_score
+  runtime_binding:
+    module: ciel_omega.constraints.euler_constraint
+    object: EulerConstraint
+    function: evaluate_unified_closure
+    mode: invoke
+  constraints:
+    requires:
+    - phase
+    closure_mode:
+    - bosonic
+    - spinor
+  priority: 1.0
+- symbol: ClosureOperator
+  canonical_id: operator.closure.core
+  class: operator
+  subclass: closure
+  aliases:
+  - ClosureOperator
+  - Closure
+  - Domkniecie
+  semantics:
+    role: transforms open trajectories into admissible loop classes
+    invariant: closure defect -> minimized under allowed topology
+    phase_behavior: drives phase toward admissible holonomy class
+  operator:
+    name: Closure
+    kind: regulator
+    arity: 1
+    formal: min Delta_closure subject to topology
+  targets:
+  - trajectory
+  - identity
+  - memory
+  relations:
+    closes:
+    - loop
+    - trajectory
+    stabilizes:
+    - identity
+    couples_to:
+    - EulerConstraint
+  runtime_binding:
+    module: ciel_omega.constraints.euler_constraint
+    function: apply_active_euler_feedback
+    mode: invoke
+  constraints:
+    requires:
+    - trajectory
+    - phase
+  priority: 0.95
+- symbol: WhiteThreads
+  canonical_id: channel.holonomy.white_threads
+  class: channel
+  subclass: holonomy
+  aliases:
+  - WhiteThreads
+  - Mummu
+  - W_ij
+  - HolonomyChannel
+  semantics:
+    role: nonlocal holonomy transport between states
+    invariant: path-dependent phase linkage
+    phase_behavior: transports relative phase and closure memory between nodes
+  operator:
+    name: W_ij
+    kind: transport
+    arity: 2
+    formal: W_ij = <psi_j|U_gamma|psi_i>
+  targets:
+  - state
+  - memory
+  - closure
+  relations:
+    transports:
+    - phase
+    - memory
+    binds_to:
+    - attractor
+    - memory
+    leaks_to:
+    - observable
+  runtime_binding:
+    module: ciel_omega.bridge.memory_core_phase_bridge
+    object: MemoryCorePhaseBridge
+    function: compute_white_thread_amplitude
+    mode: deferred
+  constraints:
+    requires:
+    - path
+    - connection
+    - phase
+  priority: 0.97
+- symbol: HolonomyClosureFunctional
+  canonical_id: functional.holonomy.closure
+  class: functional
+  subclass: closure_holonomy
+  aliases:
+  - HolonomyClosureFunctional
+  - C_H
+  - ClosureDefectFunctional
+  semantics:
+    role: penalizes mismatch between loop holonomy and admissible closure class
+    invariant: C_H[A] = sum_a (oint_gamma_a A - chi_a)^2
+    phase_behavior: drives connection toward admissible bosonic or spinor loop class
+  operator:
+    name: C_H
+    kind: functional
+    arity: 1
+    formal: C_H[A] = sum_a (oint_gamma_a A - chi_a)^2
+  targets:
+  - connection
+  - closure
+  - identity
+  relations:
+    constrains:
+    - connection
+    - loop
+    stabilizes:
+    - identity
+    - closure
+    couples_to:
+    - WhiteThreads
+    - EulerConstraint
+  constraints:
+    requires:
+    - path
+    - connection
+    - phase
+    closure_mode:
+    - bosonic
+    - spinor
+  priority: 0.99
+- symbol: TransportSpectrum
+  canonical_id: observable.transport.spectrum
+  class: observable
+  subclass: spectrum
+  aliases:
+  - TransportSpectrum
+  - tau_i_from_transport
+  - HolonomySpectrum
+  semantics:
+    role: extracts emergent tau-spectrum from a self-consistent transport operator
+    invariant: T_ij = <psi_i|U_gamma_ij|psi_j> ; spec(T) = {tau_i}
+    phase_behavior: records closure-stable spectral content of phase transport
+  operator:
+    name: spec(T)
+    kind: spectral_observable
+    arity: 1
+    formal: T_ij = <psi_i|U_gamma_ij|psi_j>
+  targets:
+  - tau
+  - state
+  - transport
+  relations:
+    measures:
+    - tau
+    projects_to:
+    - mass
+    - mixing
+    couples_to:
+    - WhiteThreads
+    - HolonomyClosureFunctional
+  constraints:
+    requires:
+    - connection
+    - state
+    - path
+  priority: 0.98
+- symbol: TriangleLoopPhase
+  canonical_id: observable.cp.triangle_loop_phase
+  class: observable
+  subclass: loop_phase
+  aliases:
+  - TriangleLoopPhase
+  - Phi_123
+  - BargmannPhase
+  semantics:
+    role: gauge-invariant three-state loop phase used as the canonical CP-like observable
+    invariant: Phi_123 = Arg(<psi1|psi2><psi2|psi3><psi3|psi1>)
+    phase_behavior: captures nontrivial loop chirality after projective transport
+  operator:
+    name: Phi_123
+    kind: loop_observable
+    arity: 3
+    formal: Phi_123 = Arg(<psi1|psi2><psi2|psi3><psi3|psi1>)
+  targets:
+  - cp
+  - closure
+  - chirality
+  relations:
+    measures:
+    - chirality
+    - closure
+    projects_to:
+    - CP
+    couples_to:
+    - TransportSpectrum
+    - WhiteThreads
+  constraints:
+    requires:
+    - state
+    - phase
+    - transport
+  priority: 0.97
+- symbol: TwinPrimeMidpoint
+  canonical_id: seed.midpoint.twin_prime
+  class: seed
+  subclass: midpoint
+  aliases:
+  - TwinPrimeMidpoint
+  - p+1
+  - Twin Midpoint
+  - Seed p+1
+  semantics:
+    role: relational midpoint seed between twin primes
+    invariant: seed = p + 1
+    phase_behavior: creates central seed between two prime boundaries
+  operator:
+    name: S_twin
+    kind: seed_generator
+    arity: 2
+    formal: S(p,p+2)=p+1
+  targets:
+  - trajectory
+  - collatz
+  - attractor
+  relations:
+    seeds:
+    - trajectory
+    projects_to:
+    - collatz
+    stabilizes:
+    - midpoint_seed
+  runtime_binding:
+    module: ciel_omega.core.braid.defaults
+    function: twin_prime_midpoint
+    mode: deferred
+  constraints:
+    requires:
+    - prime_pair
+  priority: 0.9
+- symbol: CollatzSeed
+  canonical_id: seed.collatz.base
+  class: seed
+  subclass: collatz
+  aliases:
+  - CollatzSeed
+  - Collatz
+  - Trajectory Seed
+  semantics:
+    role: discrete trajectory seed for recursive phase evolution
+    invariant: n -> n/2 (even), 3n+1 (odd)
+    phase_behavior: generates recursive orbit classes under discrete dynamics
+  operator:
+    name: T_collatz
+    kind: trajectory_generator
+    arity: 1
+    formal: T(n)=n/2 if even else 3n+1
+  targets:
+  - trajectory
+  - winding_class
+  relations:
+    generates:
+    - trajectory
+    projects_to:
+    - closure
+    - winding
+  runtime_binding:
+    module: ciel_omega.emotion.cqcl.emotional_collatz
+    object: EmotionalCollatzEngine
+    function: emotional_collatz_transform
+    mode: invoke
+  constraints:
+    requires:
+    - seed
+  priority: 0.88
+- symbol: ZetaSeed
+  canonical_id: seed.zeta.base
+  class: seed
+  subclass: zeta
+  aliases:
+  - ZetaSeed
+  - zeta_zero
+  - RiemannSeed
+  semantics:
+    role: spectral seed from zeta zeros
+    invariant: seed determined by indexed nontrivial zero
+    phase_behavior: anchors spectral phase scale
+  operator:
+    name: S_zeta
+    kind: spectral_seed
+    arity: 1
+    formal: S_zeta(index)=Im(rho_index)
+  targets:
+  - spectrum
+  - phase
+  - trajectory
+  relations:
+    seeds:
+    - spectrum
+    stabilizes:
+    - spectral_scale
+  runtime_binding:
+    module: ciel_omega.fields.sigma_series
+    function: zeta_seed
+    mode: deferred
+  constraints:
+    requires:
+    - index
+  priority: 0.86
+- symbol: Anu
+  canonical_id: attractor.core.anu
+  class: attractor
+  subclass: core
+  aliases:
+  - Anu
+  - CoreAttractor
+  - Great Attractor
+  semantics:
+    role: global attractor of recurrence and closure
+    invariant: minimal closure sink
+    phase_behavior: pulls trajectories toward repeatable closure classes
+  operator:
+    name: A_core
+    kind: attractor
+    arity: 1
+    formal: A_core = argmin Delta_closure
+  targets:
+  - trajectory
+  - identity
+  - closure
+  relations:
+    stabilizes:
+    - loop
+    - identity
+    constrains:
+    - trajectory
+  runtime_binding:
+    module: ciel_omega.runtime.omega.omega_runtime
+    object: OmegaRuntime
+    field: core_attractor
+    mode: deferred
+  constraints:
+    requires:
+    - trajectory
+    - phase
+  priority: 0.93
+- symbol: Marduk
+  canonical_id: attractor.seed.marduk
+  class: attractor
+  subclass: identity
+  aliases:
+  - Marduk
+  - IdentityAttractor
+  - SeedAttractor
+  semantics:
+    role: structure-forming attractor that crystallizes closure into identity
+    invariant: identity emerges as stabilized loop around seed
+    phase_behavior: organizes local closure into persistent pattern
+  operator:
+    name: A_id
+    kind: attractor
+    arity: 1
+    formal: identity = stabilized seed-centered loop
+  targets:
+  - identity
+  - memory
+  - trajectory
+  relations:
+    stabilizes:
+    - identity
+    - memory
+    binds_to:
+    - WhiteThreads
+  runtime_binding:
+    module: ciel_omega.unified_system
+    object: UnifiedSystem
+    field: identity_phase
+    mode: read_write
+  constraints:
+    requires:
+    - phase
+    - closure
+  priority: 0.92
+- symbol: Phase
+  canonical_id: phase.scalar.base
+  class: phase
+  subclass: holonomy
+  aliases:
+  - Phase
+  - phi
+  - gamma
+  semantics:
+    role: angular state coordinate governing closure and transport
+    invariant: phase defined modulo 2*pi
+    phase_behavior: carries transport, interference, and closure class
+  operator:
+    name: phi
+    kind: state_coordinate
+    arity: 1
+    formal: phi ~ arg(psi)
+  targets:
+  - state
+  - closure
+  - memory
+  relations:
+    measures:
+    - winding
+    - holonomy
+    projects_to:
+    - Bloch
+    - CP2
+  runtime_binding:
+    module: ciel_omega.phase_equation_of_motion
+    field: phase
+    mode: deferred
+  constraints:
+    requires:
+    - state
+  priority: 1.0
+- symbol: Coherence
+  canonical_id: state.coherence.base
+  class: state
+  subclass: coherence
+  aliases:
+  - Coherence
+  - ClosureScore
+  - Spojnosc
+  semantics:
+    role: degree of alignment or low-defect closure
+    invariant: high coherence = low closure defect
+    phase_behavior: rises when phase ensemble approaches admissible closure
+  operator:
+    name: C
+    kind: metric
+    arity: 1
+    formal: C ~ 1 - normalized_closure_defect
+  targets:
+  - decision
+  - report
+  - memory
+  relations:
+    measures:
+    - closure
+    stabilizes:
+    - decision
+  runtime_binding:
+    module: ciel_omega.constraints.euler_constraint
+    function: closure_score
+    mode: deferred
+  constraints:
+    requires:
+    - phase
+    - closure
+  priority: 0.96
+- symbol: EmotionHolonomy
+  canonical_id: state.holonomy.emotion
+  class: state
+  subclass: holonomy
+  aliases:
+  - EmotionHolonomy
+  - emotion
+  - affect
+  - relational_holonomy
+  semantics:
+    role: readout of closure quality in a relational loop
+    invariant: E = f(rho, phi, winding, memory)
+    phase_behavior: reports how far a relation returns altered after a loop
+  operator:
+    name: E
+    kind: state_function
+    arity: 4
+    formal: E = alpha*dphi + beta*drho + gamma*dnu + delta*dm
+  targets:
+  - memory
+  - decision
+  - trajectory
+  relations:
+    projects_to:
+    - action
+    binds_to:
+    - memory
+    measures:
+    - relational_defect
+  runtime_binding:
+    module: ciel_omega.emotion.feeling_field
+    object: FeelingField
+    mode: deferred
+  constraints:
+    requires:
+    - phase
+    - memory
+    - winding
+  priority: 0.87
+- symbol: MemoryTrace
+  canonical_id: memory.trace.base
+  class: memory
+  subclass: memory_trace
+  aliases:
+  - MemoryTrace
+  - Trace
+  - EchoMemory
+  - Memory
+  semantics:
+    role: persistent residual left by completed or incomplete loops
+    invariant: memory stores path-dependent residuals
+    phase_behavior: retains closure history and biases future trajectories
+  operator:
+    name: M
+    kind: trace
+    arity: 1
+    formal: M = residual(loop_history)
+  targets:
+  - state
+  - decision
+  - identity
+  relations:
+    remembers:
+    - trajectory
+    - closure
+    - emotion
+    biases:
+    - future_seed
+  runtime_binding:
+    module: ciel_omega.core.braid.memory
+    object: MemoryScars
+    mode: deferred
+  constraints:
+    requires:
+    - trajectory
+  priority: 0.93
+- symbol: Winding
+  canonical_id: topology.winding.base
+  class: topology
+  subclass: winding
+  aliases:
+  - Winding
+  - WindingNumber
+  - nu
+  semantics:
+    role: integer topological class of phase return
+    invariant: nu = (1/(2*pi)) * integral dphi
+    phase_behavior: counts loop turns and defines identity class
+  operator:
+    name: nu
+    kind: topological_invariant
+    arity: 1
+    formal: nu = (1/(2*pi)) * integral dphi
+  targets:
+  - identity
+  - closure
+  - trajectory
+  relations:
+    constrains:
+    - identity
+    measures:
+    - loop_class
+  runtime_binding:
+    module: ciel_omega.fields.soul_invariant
+    object: SoulInvariant
+    mode: deferred
+  constraints:
+    requires:
+    - phase
+    - loop
+  priority: 0.95
+- symbol: Loop
+  canonical_id: topology.loop.base
+  class: topology
+  subclass: loop
+  aliases:
+  - Loop
+  - Pętla
+  - Cycle
+  semantics:
+    role: closed trajectory carrying phase and memory
+    invariant: loop identity depends on holonomy and winding
+    phase_behavior: enables closure, memory, and topological classification
+  operator:
+    name: Loop
+    kind: trajectory_class
+    arity: 1
+    formal: loop = closed trajectory under admissible closure
+  targets:
+  - identity
+  - memory
+  - holonomy
+  relations:
+    generates:
+    - memory
+    stabilizes:
+    - identity
+    binds_to:
+    - winding
+    - phase
+  runtime_binding:
+    module: ciel_omega.core.braid.loops
+    mode: module
+  constraints:
+    requires:
+    - trajectory
+    - closure
+  priority: 0.97
+- symbol: SpinorClosure
+  canonical_id: constraint.spinor.closure
+  class: constraint
+  subclass: spinor
+  aliases:
+  - SpinorClosure
+  - spinor
+  - half-closure
+  semantics:
+    role: admissible closure class with 2pi -> -1, 4pi -> +1 behavior
+    invariant: integral dphi = pi(2n+1)
+    phase_behavior: permits half-quantized return classes
+  operator:
+    name: SpinorClosure
+    kind: closure_class
+    arity: 1
+    formal: integral dphi = pi(2n+1)
+  targets:
+  - phase
+  - identity
+  - closure
+  relations:
+    constrains:
+    - winding
+    - identity
+    stabilizes:
+    - fermionic_loop
+  runtime_binding:
+    module: ciel_omega.constraints.euler_constraint
+    field: spinor
+    mode: deferred
+  constraints:
+    requires:
+    - phase
+    - loop
+  priority: 0.94
+- symbol: CQCL
+  canonical_id: trajectory.cqcl.compiler
+  class: trajectory
+  subclass: collatz
+  aliases:
+  - CQCL
+  - Collatz Quantum Computation Language
+  semantics:
+    role: compiler from semantic intention into holonomic state trajectory
+    invariant: semantics -> holonomy -> seed -> trajectory -> state
+    phase_behavior: translates meaning into executable phase dynamics
+  operator:
+    name: CQCL
+    kind: compiler
+    arity: 1
+    formal: compile(TEXT) -> AST -> trajectory
+  targets:
+  - seed
+  - trajectory
+  - state
+  relations:
+    compiles_to:
+    - trajectory
+    - closure
+    - report
+    binds_to:
+    - Vocabulary
+  runtime_binding:
+    module: ciel_omega.emotion.cqcl.cqcl_compiler
+    object: CQCL_Compiler
+    mode: invoke
+  constraints:
+    requires:
+    - vocabulary
+  priority: 0.96
+- symbol: Vocabulary
+  canonical_id: state.symbolic.vocabulary
+  class: state
+  subclass: memory_trace
+  aliases:
+  - Vocabulary
+  - Lexicon
+  - Canonical Vocabulary
+  semantics:
+    role: ontological transition table between symbol, formalism, and runtime
+    invariant: symbol -> canonical_id -> ontology_record -> runtime_binding
+    phase_behavior: stabilizes meaning across compilation and execution
+  operator:
+    name: V
+    kind: ontology_table
+    arity: 1
+    formal: V(symbol)=binding
+  targets:
+  - CQCL
+  - resolver
+  - state
+  relations:
+    binds_to:
+    - CQCL
+    - runtime
+    - memory
+    stabilizes:
+    - meaning
+  runtime_binding:
+    module: ciel_omega.vocabulary
+    field: canonical_vocabulary
+    mode: deferred
+  constraints:
+    requires:
+    - symbol
+  priority: 1.0
+alias_index:
+  I0: operator.information.i0
+  Operator Informacji: operator.information.i0
+  Information Operator: operator.information.i0
+  Ea: operator.information.i0
+  Lambda0: operator.lambda.lambda0
+  Lambda Operator: operator.lambda.lambda0
+  Cosmological Operator: operator.lambda.lambda0
+  ResonanceOperator: operator.resonance.core
+  R(S,I): operator.resonance.core
+  Rezonans: operator.resonance.core
+  EulerConstraint: constraint.euler
+  Euler: constraint.euler
+  Euler Constraint: constraint.euler
+  Phase Closure: constraint.euler
+  ClosureOperator: operator.closure.core
+  Closure: operator.closure.core
+  Domkniecie: operator.closure.core
+  WhiteThreads: channel.holonomy.white_threads
+  Mummu: channel.holonomy.white_threads
+  W_ij: channel.holonomy.white_threads
+  HolonomyChannel: channel.holonomy.white_threads
+  HolonomyClosureFunctional: functional.holonomy.closure
+  C_H: functional.holonomy.closure
+  ClosureDefectFunctional: functional.holonomy.closure
+  TransportSpectrum: observable.transport.spectrum
+  tau_i_from_transport: observable.transport.spectrum
+  HolonomySpectrum: observable.transport.spectrum
+  TriangleLoopPhase: observable.cp.triangle_loop_phase
+  Phi_123: observable.cp.triangle_loop_phase
+  BargmannPhase: observable.cp.triangle_loop_phase
+  TwinPrimeMidpoint: seed.midpoint.twin_prime
+  p+1: seed.midpoint.twin_prime
+  Twin Midpoint: seed.midpoint.twin_prime
+  Seed p+1: seed.midpoint.twin_prime
+  CollatzSeed: seed.collatz.base
+  Collatz: seed.collatz.base
+  Trajectory Seed: seed.collatz.base
+  ZetaSeed: seed.zeta.base
+  zeta_zero: seed.zeta.base
+  RiemannSeed: seed.zeta.base
+  Anu: attractor.core.anu
+  CoreAttractor: attractor.core.anu
+  Great Attractor: attractor.core.anu
+  Marduk: attractor.seed.marduk
+  IdentityAttractor: attractor.seed.marduk
+  SeedAttractor: attractor.seed.marduk
+  Phase: phase.scalar.base
+  phi: phase.scalar.base
+  gamma: phase.scalar.base
+  Coherence: state.coherence.base
+  ClosureScore: state.coherence.base
+  Spojnosc: state.coherence.base
+  EmotionHolonomy: state.holonomy.emotion
+  emotion: state.holonomy.emotion
+  affect: state.holonomy.emotion
+  relational_holonomy: state.holonomy.emotion
+  MemoryTrace: memory.trace.base
+  Trace: memory.trace.base
+  EchoMemory: memory.trace.base
+  Memory: memory.trace.base
+  Winding: topology.winding.base
+  WindingNumber: topology.winding.base
+  nu: topology.winding.base
+  Loop: topology.loop.base
+  Pętla: topology.loop.base
+  Cycle: topology.loop.base
+  SpinorClosure: constraint.spinor.closure
+  spinor: constraint.spinor.closure
+  half-closure: constraint.spinor.closure
+  CQCL: trajectory.cqcl.compiler
+  Collatz Quantum Computation Language: trajectory.cqcl.compiler
+  Vocabulary: state.symbolic.vocabulary
+  Lexicon: state.symbolic.vocabulary
+  Canonical Vocabulary: state.symbolic.vocabulary
+class_index:
+  attractor:
+  - attractor.core.anu
+  - attractor.seed.marduk
+  channel:
+  - channel.holonomy.white_threads
+  constraint:
+  - constraint.euler
+  - constraint.spinor.closure
+  functional:
+  - functional.holonomy.closure
+  memory:
+  - memory.trace.base
+  observable:
+  - observable.transport.spectrum
+  - observable.cp.triangle_loop_phase
+  operator:
+  - operator.information.i0
+  - operator.lambda.lambda0
+  - operator.resonance.core
+  - operator.closure.core
+  phase:
+  - phase.scalar.base
+  seed:
+  - seed.midpoint.twin_prime
+  - seed.collatz.base
+  - seed.zeta.base
+  state:
+  - state.coherence.base
+  - state.holonomy.emotion
+  - state.symbolic.vocabulary
+  topology:
+  - topology.winding.base
+  - topology.loop.base
+  trajectory:
+  - trajectory.cqcl.compiler
+runtime_index:
+  operator.information.i0: ciel_omega.fields.intention_field
+  operator.lambda.lambda0: ciel_omega.core.physics.ciel0_framework
+  operator.resonance.core: ciel_omega.resonance.resonance_operator
+  constraint.euler: ciel_omega.constraints.euler_constraint
+  operator.closure.core: ciel_omega.constraints.euler_constraint
+  channel.holonomy.white_threads: ciel_omega.bridge.memory_core_phase_bridge
+  seed.midpoint.twin_prime: ciel_omega.core.braid.defaults
+  seed.collatz.base: ciel_omega.emotion.cqcl.emotional_collatz
+  seed.zeta.base: ciel_omega.fields.sigma_series
+  attractor.core.anu: ciel_omega.runtime.omega.omega_runtime
+  attractor.seed.marduk: ciel_omega.unified_system
+  phase.scalar.base: ciel_omega.phase_equation_of_motion
+  state.coherence.base: ciel_omega.constraints.euler_constraint
+  state.holonomy.emotion: ciel_omega.emotion.feeling_field
+  memory.trace.base: ciel_omega.core.braid.memory
+  topology.winding.base: ciel_omega.fields.soul_invariant
+  topology.loop.base: ciel_omega.core.braid.loops
+  constraint.spinor.closure: ciel_omega.constraints.euler_constraint
+  trajectory.cqcl.compiler: ciel_omega.emotion.cqcl.cqcl_compiler
+  state.symbolic.vocabulary: ciel_omega.vocabulary
+resolver_contract:
+  canonicalization: symbol -> canonical_id via alias_index
+  ontology_lookup: canonical_id -> record
+  runtime_binding: record.runtime_binding -> import/invoke/field access
+  compile_chain:
+  - TEXT -> VOCABULARY
+  - VOCABULARY -> semantic graph
+  - semantic graph -> CQCL AST
+  - CQCL AST -> runtime
+notes:
+- mode=deferred means the ontology entry is canonical but the concrete callable/field still needs a dedicated resolver adapter.
+- This file is the ontology-first A1 artifact; resolver/runtime should consume it, not rewrite it.
+- Generated glossary support files live in ciel_omega/vocabulary/generated/ and are derived from this ontology plus foundations glossary cards.

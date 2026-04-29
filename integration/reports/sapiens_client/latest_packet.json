@@ -1,0 +1,285 @@
+{
+  "schema": "ciel-sot-agent/sapiens-client-packet/v0.3",
+  "identity": {
+    "sapiens_id": "tester",
+    "relation_label": "human-model",
+    "preferred_mode": "guided",
+    "truth_axis": "truth",
+    "memory_policy": "session-first"
+  },
+  "session": {
+    "created_at": "2026-04-23T23:20:06.501356+00:00",
+    "updated_at": "2026-04-23T23:20:06.501619+00:00",
+    "turn_count": 1
+  },
+  "state_geometry": {
+    "surface": {
+      "mode": "deep",
+      "recommended_action": "deep diagnostics allowed",
+      "export_boundary_mode": "PROJECTED_ONLY"
+    },
+    "internal_cymatics": {
+      "coherence_index": 0.9402788231714668,
+      "closure_penalty": 4.779719402406454,
+      "system_health": 0.5899389127228932,
+      "board_count": 763,
+      "tau_system_count": 1
+    },
+    "spin": 0.15511717724274404,
+    "axis": "truth",
+    "attractor": "orbital-holonomic-stability"
+  },
+  "control_profile": {
+    "mode": "deep",
+    "phase_lock_enable": true,
+    "target_phase_shift": 1.2843032814475555,
+    "target_phase_memory": 5.119278538068647,
+    "dt_override": 0.022,
+    "zeta_coupling_scale": 0.38,
+    "mu_phi": 0.18,
+    "epsilon_hom": 0.22,
+    "nonlocal_gate": true,
+    "euler_memory_lock": false,
+    "writeback_gate": false,
+    "rh_mode": "normal_operation",
+    "rh_severity": "low",
+    "rh_effective": 0.1961171342322798,
+    "rh_drivers": {
+      "raw_rh": 0.0016936897192126584,
+      "eba_defect": 0.049911786308943676,
+      "coherent_fraction": 1.0,
+      "closure_score": 0.4869712046337542,
+      "phase_gap": 1.0
+    },
+    "notes": "Strong coherence and closure: allow deeper diagnostic/integration passes."
+  },
+  "surface_policy": {
+    "mode": "deep",
+    "truth_over_smoothing": true,
+    "explicit_uncertainty": true,
+    "epistemic_separation": [
+      "fact",
+      "inference",
+      "hypothesis",
+      "unknown"
+    ],
+    "export_boundary_mode": "PROJECTED_ONLY",
+    "private_state_export_allowed": false,
+    "requires_projection_operator": true
+  },
+  "runtime_gating": {
+    "schema": "ciel-sot-agent/runtime-gating/v0.1",
+    "dominant_privacy_constraint": "GRADIENT_LIMITED_DISCLOSURE",
+    "dominant_horizon_class": "POROUS",
+    "export_boundary_mode": "PROJECTED_ONLY",
+    "private_state_export_allowed": false,
+    "board_sync_ready": true,
+    "system_tau_coherent": true,
+    "requires_projection_operator": true
+  },
+  "subsystem_sync_manifest": {
+    "schema": "ciel-sot-agent/subsystem-sync-manifest/v0.1",
+    "sync_registry_present": true,
+    "sync_report_present": true,
+    "board_count": 763,
+    "avg_members_per_board": 5.071,
+    "tau_orbit_count": 763,
+    "tau_system_count": 1,
+    "sync_law_counts": {
+      "sync-law:METRONOME_BOARD_COUPLING": 763
+    },
+    "condensation_operator_counts": {
+      "CONDENSE_HALF_CONCLUSIONS": 763
+    },
+    "sync_scope_counts": {
+      "BOARD_MEMBER": 448,
+      "BOARD_ROOT": 763
+    },
+    "privacy_constraint_counts": {
+      "STRICT_NONDISCLOSURE": 375,
+      "GRADIENT_LIMITED_DISCLOSURE": 4113,
+      "BROKER_GATED_DISCLOSURE": 91,
+      "SNAPSHOT_SANITIZED_DISCLOSURE": 53
+    },
+    "horizon_class_counts": {
+      "SEALED": 375,
+      "POROUS": 4113,
+      "TRANSMISSIVE": 91,
+      "OBSERVATIONAL": 53
+    },
+    "export_boundary_policy": {
+      "SEALED": {
+        "privacy_constraint": "STRICT_NONDISCLOSURE",
+        "leak_channel_mode": "NO_DIRECT_LEAK",
+        "leak_budget_class": "ZERO_LEAK_BUDGET",
+        "exportable_fields": [
+          "export_state",
+          "export_result",
+          "export_confidence",
+          "residual_uncertainty",
+          "horizon_class",
+          "privacy_constraint",
+          "leak_policy",
+          "projection_operator"
+        ]
+      },
+      "POROUS": {
+        "privacy_constraint": "GRADIENT_LIMITED_DISCLOSURE",
+        "leak_channel_mode": "HAWKING_EULER_DIFFUSIVE",
+        "leak_budget_class": "MICRO_LEAK_BUDGET",
+        "exportable_fields": [
+          "export_state",
+          "export_result",
+          "export_confidence",
+          "residual_uncertainty",
+          "horizon_class",
+          "privacy_constraint",
+          "leak_policy",
+          "projection_operator",
+          "visible_scopes"
+        ]
+      },
+      "TRANSMISSIVE": {
+        "privacy_constraint": "BROKER_GATED_DISCLOSURE",
+        "leak_channel_mode": "HAWKING_EULER_BROKERED",
+        "leak_budget_class": "BROKERED_LEAK_BUDGET",
+        "exportable_fields": [
+          "export_state",
+          "export_result",
+          "export_confidence",
+          "residual_uncertainty",
+          "horizon_class",
+          "privacy_constraint",
+          "leak_policy",
+          "projection_operator",
+          "visible_scopes",
+          "manybody_role"
+        ]
+      },
+      "OBSERVATIONAL": {
+        "privacy_constraint": "SNAPSHOT_SANITIZED_DISCLOSURE",
+        "leak_channel_mode": "SNAPSHOT_PROJECTION",
+        "leak_budget_class": "SNAPSHOT_LEAK_BUDGET",
+        "exportable_fields": [
+          "export_state",
+          "export_result",
+          "export_confidence",
+          "residual_uncertainty",
+          "horizon_class",
+          "privacy_constraint",
+          "leak_policy",
+          "projection_operator",
+          "visible_scopes",
+          "manybody_role",
+          "tau_role"
+        ]
+      }
+    },
+    "nonlocal_card_manifest": {
+      "registry_present": true,
+      "card_count": 5,
+      "active_statuses": [
+        "ACTIVE_CANONICAL_COUPLING_OPTIMIZER",
+        "ACTIVE_CANONICAL_NONLOCAL_BRIDGE",
+        "ACTIVE_CANONICAL_NONLOCAL_CARD_SET",
+        "ACTIVE_CANONICAL_NONLOCAL_RUNTIME",
+        "ACTIVE_CANONICAL_PHASE_RUNTIME"
+      ],
+      "classes": [
+        "nonlocal_memory_orchestrator",
+        "nonlocal_phase_memory_card_set",
+        "nonlocal_reduction_bridge",
+        "orbital_coupling_optimizer",
+        "phase_dynamics_runtime"
+      ],
+      "card_ids": [
+        "NL-HOLOMEM-0001",
+        "NL-EBA-0002",
+        "NL-BRIDGE-0003",
+        "NL-PHASE-0004",
+        "NL-WIJ-0005"
+      ]
+    },
+    "board_preview": [
+      {
+        "board_card_id": "file:integration/AGENT1.md",
+        "tau_orbit": "tau-orbit:file:integration/AGENT1.md",
+        "tau_system": "tau-system:GLOBAL_ATTRACTOR",
+        "member_count": 0,
+        "board_export_result": "BOARD<UNRESOLVED>",
+        "aggregation_model": "BOARD_METRONOME_COUPLING"
+      },
+      {
+        "board_card_id": "file:integration/CANONICAL_SWITCH_CHECKLIST.yaml",
+        "tau_orbit": "tau-orbit:file:integration/CANONICAL_SWITCH_CHECKLIST.yaml",
+        "tau_system": "tau-system:GLOBAL_ATTRACTOR",
+        "member_count": 0,
+        "board_export_result": "BOARD<CONSTITUTIVE>",
+        "aggregation_model": "BOARD_METRONOME_COUPLING"
+      },
+      {
+        "board_card_id": "file:integration/CANONICAL_SWITCH_CHECKLIST_CURRENT.yaml",
+        "tau_orbit": "tau-orbit:file:integration/CANONICAL_SWITCH_CHECKLIST_CURRENT.yaml",
+        "tau_system": "tau-system:GLOBAL_ATTRACTOR",
+        "member_count": 0,
+        "board_export_result": "BOARD<CONSTITUTIVE>",
+        "aggregation_model": "BOARD_METRONOME_COUPLING"
+      },
+      {
+        "board_card_id": "file:integration/INTEGRATION_DATA_SPLIT_STATUS.md",
+        "tau_orbit": "tau-orbit:file:integration/INTEGRATION_DATA_SPLIT_STATUS.md",
+        "tau_system": "tau-system:GLOBAL_ATTRACTOR",
+        "member_count": 0,
+        "board_export_result": "BOARD<UNRESOLVED>",
+        "aggregation_model": "BOARD_METRONOME_COUPLING"
+      },
+      {
+        "board_card_id": "file:integration/MACHINE_AUTHORITY_V2.md",
+        "tau_orbit": "tau-orbit:file:integration/MACHINE_AUTHORITY_V2.md",
+        "tau_system": "tau-system:GLOBAL_ATTRACTOR",
+        "member_count": 0,
+        "board_export_result": "BOARD<UNRESOLVED>",
+        "aggregation_model": "BOARD_METRONOME_COUPLING"
+      }
+    ]
+  },
+  "satellite_authority": {
+    "subsystem_id": "SAT-SAPIENS-0001",
+    "name": "Sapiens Integration Layer",
+    "class": "satellite_interaction_surface",
+    "active_status": "ACTIVE_SURFACE_AND_REPORT_LAYER",
+    "authority_rule": "Must not become second source of truth for orbital or bridge logic.",
+    "input_from": "orbital_bridge reduction outputs",
+    "output_to": "packet/session/transcript/panel state",
+    "horizon_relation": "Interactive surface just beyond bridge reduction."
+  },
+  "latest_user_turn": "Hello panel",
+  "memory_excerpt": [
+    {
+      "role": "sapiens",
+      "content": "Hello panel",
+      "timestamp": "2026-04-23T23:20:06.501607+00:00",
+      "orbital_mode": "deep",
+      "coherence_index": 0.9402788231714668,
+      "closure_penalty": 4.779719402406454
+    }
+  ],
+  "inference_contract": {
+    "relation_before_identity": true,
+    "identity_before_memory": true,
+    "mode": "deep",
+    "truth_axis": "truth",
+    "epistemic_separation": [
+      "fact",
+      "inference",
+      "hypothesis",
+      "unknown"
+    ],
+    "projection_required": true,
+    "private_state_export_allowed": false,
+    "sync_law_counts": {
+      "sync-law:METRONOME_BOARD_COUPLING": 763
+    },
+    "satellite_authority_class": "satellite_interaction_surface"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "coherence_index": 0.946979547100677,
+  "topological_charge_global": 0.15511717724274404,
+  "phase_lock_error": 4.779719402406454,
+  "beat_frequency_target_hz": 7.83,
+  "spectral_radius_A": 1.2095634717702428,
+  "fiedler_L": 0.04152962425516771,
+  "zeta_enabled": true,
+  "nonlocal_phi_ab_mean": 0.004480132942105307,
+  "nonlocal_phi_berry_mean": -0.10329774849016389,
+  "nonlocal_eba_defect_mean": 0.04660636243191005,
+  "nonlocal_coherent_fraction": 1.0,
+  "euler_bridge_closure_score": 0.5490203081103036,
+  "euler_bridge_target_phase": 0.10513460948622075,
+  "effective_rh": 0.09228747836828385,
+  "timestamp": "2026-04-29T21:13:20.517885+00:00"
+}

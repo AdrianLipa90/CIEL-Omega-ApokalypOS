@@ -1,0 +1,39 @@
+{
+  "schema": "ciel/wij-coupling-override/v0.1",
+  "couplings": {
+    "fields": {
+      "memory": 0.01,
+      "vocabulary": 0.34989006352583035,
+      "runtime": 0.01
+    },
+    "bridge": {
+      "runtime": 0.6407935569286282,
+      "constraints": 0.8382508107888368,
+      "fields": 0.01,
+      "memory": 0.01,
+      "vocabulary": 0.3074254884200051
+    },
+    "constraints": {
+      "vocabulary": 1.0,
+      "runtime": 0.08107132447965304,
+      "fields": 1.0,
+      "memory": 0.01
+    },
+    "memory": {
+      "vocabulary": 0.01,
+      "runtime": 0.01
+    },
+    "runtime": {
+      "vocabulary": 0.01
+    }
+  },
+  "_optimizer_metadata": {
+    "baseline_closure_penalty": 6.095600242566012,
+    "optimized_closure_penalty": 5.0350707392663265,
+    "delta": -1.0605,
+    "optimizer": "L-BFGS-B",
+    "warm_steps": 5,
+    "recommended_mode": "standard",
+    "system_health": 0.5030198982992776
+  }
+}

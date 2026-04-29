@@ -1,0 +1,18 @@
+symbol,meaning,status,source
+tau_i,topological eigenvalue / cycle label,confirmed,
+gamma_i,Berry phase on cycle,confirmed,
+Delta_H,holonomy defect sum,confirmed,
+R_H,coherence/decoherence scalar from holonomy defect,confirmed,
+V_rel,relational potential,confirmed,
+L_rel,relational lagrangian,confirmed,
+Sigma_i,local fingerprint state,confirmed,
+W_ij,white-thread holonomy between cycles,confirmed,
+F_i,single-state topological correction,confirmed,
+F_ij,pairwise correction factor,confirmed,
+Lambda_0(x),micro-macro regulator,confirmed,
+epsilon,micro coupling / defect amplitude,confirmed,
+D_f,fractal dimension candidate,unresolved,
+A_ij,effective pair-connection kernel (repo working notation),working_notation,conversation + Sigma/W_ij mapping
+Sigma_local,"local fingerprint (tau_i, gamma_i, F_i)",confirmed,Sigma.pdf
+Sigma_global,global energetic loop,unresolved,conversation hypothesis
+T_4,tetrahedral spatial scaffold embedded in spherical base,toy,conversation toy model

@@ -1,0 +1,5 @@
+subsystem_id,name,class,active_status,input_from,output_to,authority_rule
+SAT-NOEMA-0001,NOEMA ⇄ SOT ⇄ SapiensOrbital,satellite_export_surface,ACTIVE_EXPORT_SURFACE,canonical orbital/nonlocal registry,registry_export.noema + contract concordance,SOT runtime and registries remain canonical; NOEMA is export/spec surface only.
+SAT-SAPIENS-0001,Sapiens Integration Layer,satellite_interaction_surface,ACTIVE_SURFACE_AND_REPORT_LAYER,orbital_bridge reduction outputs,packet/session/transcript/panel state,Must not become second source of truth for orbital or bridge logic.
+SAT-AUDIO-0001,Audio Orbital Stack,satellite_io_stack,ACTIVE_OPTIONAL_IMPORT_STACK,audio/VAD/STT,sapiens packet -> omega/orbital -> response -> TTS,Kept auditable and optional; heavy models remain external until configured.
+SAT-RELMECH-0001,Relational Mechanism Import Bundle,satellite_reference_import,ACTIVE_REFERENCE_IMPORT,consolidated mechanism analysis,reviewable registries and mechanism notes,Preserve and reference; do not split into ad hoc partial packs.

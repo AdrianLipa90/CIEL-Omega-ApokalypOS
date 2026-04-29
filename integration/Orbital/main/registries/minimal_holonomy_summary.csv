@@ -1,0 +1,3 @@
+name,value,status,notes
+minimal_holonomy_core_function_count,3,confirmed-derived,strict core for holonomy -> phase -> potential
+minimal_holonomy_context_function_count,3,confirmed-derived,runtime context around strict holonomy core

@@ -1,0 +1,52 @@
+{
+  "entries": [
+    {
+      "id": "orbital_runtime_core",
+      "path": "integration/Orbital/main/dynamics.py",
+      "size": 6400,
+      "content": "orbital runtime law phase slip winding coherence attractor",
+      "ext": "py",
+      "layer": "integration",
+      "r": 8,
+      "provenance_weight": 1.25,
+      "anchor_count": 4,
+      "upstream_count": 3,
+      "downstream_count": 5,
+      "sector_role_weight": 1.30
+    },
+    {
+      "id": "orbital_formal_spec",
+      "path": "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+      "size": 5200,
+      "content": "formal orbital dynamics specification mu_eff tau_orbit phase slip target radius",
+      "ext": "md",
+      "layer": "docs/science",
+      "r": 6,
+      "provenance_weight": 1.20,
+      "anchor_count": 3,
+      "upstream_count": 2,
+      "downstream_count": 4,
+      "sector_role_weight": 1.18
+    },
+    {
+      "id": "analogy_note",
+      "path": "docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md",
+      "size": 3100,
+      "content": "kepler superfluid analogy explanatory bridge",
+      "ext": "md",
+      "layer": "docs/general",
+      "r": 3,
+      "provenance_weight": 1.0,
+      "anchor_count": 1,
+      "upstream_count": 1,
+      "downstream_count": 1,
+      "sector_role_weight": 0.95
+    }
+  ],
+  "relevant_ids": [
+    "orbital_runtime_core",
+    "orbital_formal_spec"
+  ],
+  "expected_precision_at_1": 1.0,
+  "expected_recall_at_2": 1.0
+}

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Projekty CIEL{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('projects') }}
+  <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
+    <span class="gradient-text-gold" style="font-size:1.3rem; font-weight:700;">Projekty</span>
+    <span style="color:var(--col-text-dim); font-size:.78rem;">moja przestrzeń · osobista</span>
+  </div>
+
+  <!-- Projects grid -->
+  <div class="portal-projects-grid">
+    {% for p in projects %}
+    <div class="portal-project-card glass-navy {{ p.status }}">
+      <div class="ppc-header">
+        <span class="ppc-status-dot {{ p.status }}"></span>
+        <span class="ppc-name {{ 'gradient-text-gold' if p.status == 'active' else '' }}">{{ p.name }}</span>
+        <span class="ppc-status">{{ p.status }}</span>
+      </div>
+      <p class="ppc-desc">{{ p.desc }}</p>
+      <div class="psr-tags" style="margin-top:8px;">
+        {% for t in p.get('tags', []) %}<span class="ptag">{{ t }}</span>{% endfor %}
+      </div>
+      <div class="ppc-updated">{{ p.get('updated', '') }}</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Add project form -->
+  <details class="glass-navy" style="padding:16px 20px; border-radius:10px; margin-top:20px; max-width:700px;">
+    <summary style="cursor:pointer; color:var(--col-sky); font-size:.82rem; user-select:none;">
+      + Dodaj nowy projekt
+    </summary>
+    <div style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+      <input id="proj-name" type="text" placeholder="Nazwa projektu" style="
+        background:rgba(255,255,255,.04); border:1px solid rgba(93,173,226,.2);
+        color:var(--col-text); border-radius:6px; padding:9px 12px; font-size:.83rem;">
+      <textarea id="proj-desc" rows="2" placeholder="Opis..." style="
+        background:rgba(255,255,255,.04); border:1px solid rgba(93,173,226,.2);
+        color:var(--col-text); border-radius:6px; padding:9px 12px; font-size:.83rem;
+        font-family:var(--font-mono); resize:vertical;"></textarea>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <input id="proj-tags" type="text" placeholder="tagi: portal, metryki..." style="
+          flex:1; background:rgba(255,255,255,.04); border:1px solid rgba(93,173,226,.15);
+          color:var(--col-text); border-radius:6px; padding:8px 12px; font-size:.78rem;">
+        <select id="proj-status" style="
+          background:rgba(19,21,31,.9); border:1px solid rgba(93,173,226,.2);
+          color:var(--col-text); border-radius:6px; padding:8px 10px; font-size:.78rem;">
+          <option value="planned">planned</option>
+          <option value="active">active</option>
+          <option value="done">done</option>
+          <option value="paused">paused</option>
+        </select>
+        <button id="proj-save" class="btn-gold" style="padding:8px 18px; border-radius:6px; font-size:.82rem;">
+          Zapisz
+        </button>
+      </div>
+      <div id="proj-status-msg" style="font-size:.75rem; color:var(--col-text-dim); height:16px;"></div>
+    </div>
+  </details>
+
+  <!-- Latest hunches sidebar -->
+  {% if hunches %}
+  <div class="glass-navy" style="padding:16px 20px; border-radius:10px; margin-top:16px; max-width:700px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+      <span class="gradient-text-sky" style="font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Ostatnie hunchy</span>
+      <a href="/portal/hunches" style="font-size:.72rem; color:var(--col-sky); opacity:.7;">wszystkie →</a>
+    </div>
+    {% for h in hunches %}
+    <div style="padding:8px 0; border-bottom:1px solid rgba(255,255,255,.04);">
+      <div style="font-size:.7rem; color:var(--col-text-dim); margin-bottom:3px;">{{ h.ts[:10] }}</div>
+      <div style="font-size:.8rem; color:var(--col-text-muted);">{{ h.hunch[:120] }}{% if h.hunch|length > 120 %}…{% endif %}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% include "portal_live.html" %}
+<script>
+document.getElementById('proj-save').addEventListener('click', async () => {
+  const name = document.getElementById('proj-name').value.trim();
+  const desc = document.getElementById('proj-desc').value.trim();
+  const tagsRaw = document.getElementById('proj-tags').value.trim();
+  const status = document.getElementById('proj-status').value;
+  const st = document.getElementById('proj-status-msg');
+  if (!name) { st.textContent = 'Podaj nazwę.'; return; }
+  const tags = tagsRaw ? tagsRaw.split(/[,\s]+/).filter(Boolean) : [];
+  const r = await fetch('/api/projects/add', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({name, desc, tags, status})
+  });
+  const d = await r.json();
+  if (d.ok) {
+    st.textContent = '✓ Zapisano.';
+    st.style.color = 'var(--col-sky)';
+    // prepend card without reload
+    const tagSpans = tags.map(t => `<span class="ptag">${t}</span>`).join('');
+    const isActive = status === 'active';
+    const card = document.createElement('div');
+    card.className = `portal-project-card glass-navy ${status}`;
+    card.innerHTML = `
+      <div class="ppc-header">
+        <span class="ppc-status-dot ${status}"></span>
+        <span class="ppc-name ${isActive ? 'gradient-text-gold' : ''}">${name}</span>
+        <span class="ppc-status">${status}</span>
+      </div>
+      <p class="ppc-desc">${desc}</p>
+      <div class="psr-tags" style="margin-top:8px;">${tagSpans}</div>`;
+    document.querySelector('.portal-projects-grid').prepend(card);
+    document.getElementById('proj-name').value = '';
+    document.getElementById('proj-desc').value = '';
+    document.getElementById('proj-tags').value = '';
+  } else {
+    st.textContent = 'Błąd: ' + (d.error || '?');
+  }
+});
+</script>
+{% endblock %}

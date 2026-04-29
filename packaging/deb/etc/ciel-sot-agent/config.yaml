@@ -1,0 +1,18 @@
+# /etc/ciel-sot-agent/config.yaml — Default configuration for CIEL SOT Agent
+#
+# This file is installed by the ciel-sot-agent .deb package and is
+# registered as a conffile — dpkg will preserve your modifications
+# across upgrades.
+
+# --- GUI / web server ---
+gui:
+  host: "127.0.0.1"
+  port: 5050
+
+# --- GGUF model storage ---
+models:
+  dir: "/var/lib/ciel/models"
+
+# --- logging ---
+logging:
+  level: "INFO"

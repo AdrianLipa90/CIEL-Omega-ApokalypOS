@@ -1,0 +1,102 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import csv
+
+# --- Dane wejściowe ---
+fermions = ["e","mu","tau","u","d","s","c","b","t","nu1","nu2","nu3"]
+theta = np.array([np.pi/6, np.pi/4, np.pi/3,
+                  np.pi/8, np.pi/10, np.pi/5,
+                  np.pi/2, 2*np.pi/3, 5*np.pi/6,
+                  np.pi/12, np.pi/6, np.pi/4])
+I0 = 0.009
+N = len(fermions)
+
+# --- 1) F kierunkowe ---
+F = np.zeros((N,N))
+for i in range(N):
+    for j in range(N):
+        delta_theta = theta[j] - theta[i]
+        F[i,j] = np.exp(I0 * delta_theta)
+
+# --- 2) Symetryczne warianty ---
+F_sym_abs = np.exp(I0 * np.abs(np.subtract.outer(theta, theta)))
+F_sym_cos = np.exp(I0 * np.cos(np.subtract.outer(theta, theta)))
+
+# --- 3) Zapis do CSV ---
+def save_csv(mat, filename):
+    with open(filename, 'w', newline='') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow([""] + fermions)
+        for i, row in enumerate(mat):
+            writer.writerow([fermions[i]] + list(np.round(row,8)))
+
+save_csv(F, 'Fij_toy_S2_directional.csv')
+save_csv(F_sym_abs, 'Fij_toy_S2_sym_abs.csv')
+save_csv(F_sym_cos, 'Fij_toy_S2_sym_cos.csv')
+
+# --- 4) Statystyki po generacjach ---
+generation_map = {
+    "e":1, "mu":2, "tau":3,
+    "u":1, "d":1, "s":2, "c":2, "b":3, "t":3,
+    "nu1":1, "nu2":2, "nu3":3
+}
+gens = [generation_map[f] for f in fermions]
+unique_gens = sorted(set(gens))
+
+inter_means = {}
+for ga in unique_gens:
+    for gb in unique_gens:
+        idx_a = [i for i,f in enumerate(fermions) if generation_map[f]==ga]
+        idx_b = [j for j,f in enumerate(fermions) if generation_map[f]==gb]
+        vals = [F[i,j] for i in idx_a for j in idx_b]
+        inter_means[(ga,gb)] = np.mean(vals)
+
+# DataFrame
+rows = []
+for ga in unique_gens:
+    for gb in unique_gens:
+        rows.append({
+            "gen_i": ga,
+            "gen_j": gb,
+            "mean_F_dir": inter_means[(ga,gb)],
+            "mean_F_sym_abs": np.mean([F_sym_abs[i,j] for i in range(N) for j in range(N)
+                                       if generation_map[fermions[i]]==ga and generation_map[fermions[j]]==gb]),
+            "mean_F_sym_cos": np.mean([F_sym_cos[i,j] for i in range(N) for j in range(N)
+                                       if generation_map[fermions[i]]==ga and generation_map[fermions[j]]==gb])
+        })
+stats_df = pd.DataFrame(rows)
+stats_df.to_csv('Fij_toy_S2_stats_by_generation.csv', index=False)
+
+# --- 5) Heatmapy ---
+plt.figure(figsize=(6,5))
+plt.title("F_ij (directional)")
+plt.imshow(F, aspect='auto')
+plt.colorbar()
+plt.xticks(ticks=np.arange(N), labels=fermions, rotation=90)
+plt.yticks(ticks=np.arange(N), labels=fermions)
+plt.tight_layout()
+plt.savefig('heatmap_F_directional.png')
+plt.close()
+
+plt.figure(figsize=(6,5))
+plt.title("F_ij (sym |Δθ|)")
+plt.imshow(F_sym_abs, aspect='auto')
+plt.colorbar()
+plt.xticks(ticks=np.arange(N), labels=fermions, rotation=90)
+plt.yticks(ticks=np.arange(N), labels=fermions)
+plt.tight_layout()
+plt.savefig('heatmap_F_sym_abs.png')
+plt.close()
+
+plt.figure(figsize=(6,5))
+plt.title("F_ij (sym cos)")
+plt.imshow(F_sym_cos, aspect='auto')
+plt.colorbar()
+plt.xticks(ticks=np.arange(N), labels=fermions, rotation=90)
+plt.yticks(ticks=np.arange(N), labels=fermions)
+plt.tight_layout()
+plt.savefig('heatmap_F_sym_cos.png')
+plt.close()
+
+print("Gotowe: CSV i PNG wygenerowane w bieżącym folderze.")

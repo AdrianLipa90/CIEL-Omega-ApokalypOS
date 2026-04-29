@@ -1,0 +1,4 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+0,ciel_omega/memory/base.py,update_memory_state,memory state update,stores or propagates the effect of holonomic evolution into memory state,runtime context for holonomy-bearing state persistence,confirmed-context
+0,ciel_omega/bridge/memory_core_phase_bridge.py,MemoryCorePhaseBridge.step,bridge,feeds phase/core state into memory-side holonomy computations,runtime bridge context,confirmed-context
+0,ciel_omega/unified_system.py,UnifiedSystem.run_text_cycle,unified_system,operational entrypoint in which holonomy-bearing subsystems are invoked,runtime entry context,confirmed-context

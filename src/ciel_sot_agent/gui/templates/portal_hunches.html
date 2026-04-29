@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Hunchy{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('hunches') }}
+  <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
+    <span class="gradient-text-gold" style="font-size:1.3rem; font-weight:700;">Hunchy CIEL</span>
+    <span style="color:var(--col-text-dim); font-size:.78rem;">{{ count }} intuicji · append-only</span>
+  </div>
+
+  <!-- Add hunch form -->
+  <div class="glass-navy" style="padding:18px 22px; border-radius:10px; margin-bottom:20px; max-width:760px;">
+    <div class="gradient-text-sky" style="font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Nowy hunch</div>
+    <textarea id="hunch-text" rows="3" placeholder="Coś mnie nurtuje... intuicja, obserwacja, skojarzenie — zapisuję natychmiast." style="
+      width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(93,173,226,.2);
+      color:var(--col-text); border-radius:6px; padding:10px 12px; font-size:.83rem;
+      font-family:var(--font-mono); resize:vertical; box-sizing:border-box;"></textarea>
+    <div style="display:flex; gap:10px; margin-top:8px; align-items:center; flex-wrap:wrap;">
+      <input id="hunch-tags" type="text" placeholder="tagi: filozofia, metryki, architektura..." style="
+        flex:1; background:rgba(255,255,255,.04); border:1px solid rgba(93,173,226,.15);
+        color:var(--col-text); border-radius:6px; padding:8px 12px; font-size:.78rem; min-width:200px;">
+      <input id="hunch-ctx" type="text" placeholder="kontekst (opcjonalnie)" style="
+        flex:1; background:rgba(255,255,255,.04); border:1px solid rgba(93,173,226,.15);
+        color:var(--col-text); border-radius:6px; padding:8px 12px; font-size:.78rem; min-width:180px;">
+      <button id="hunch-save" class="btn-gold" style="padding:8px 20px; border-radius:6px; font-size:.82rem;">
+        Zapisz hunch
+      </button>
+    </div>
+    <div id="hunch-status" style="font-size:.75rem; color:var(--col-text-dim); margin-top:6px; height:16px;"></div>
+  </div>
+
+  <!-- Hunches list -->
+  <div class="portal-hunches-list">
+    {% for h in hunches %}
+    <div class="portal-hunch-card glass-navy">
+      <div class="phc-header">
+        <span class="phc-ts">{{ h.ts[:16].replace('T', ' ') }}</span>
+        {% for t in h.get('tags', []) %}<span class="ptag">{{ t }}</span>{% endfor %}
+      </div>
+      <div class="phc-text">{{ h.hunch }}</div>
+      {% if h.get('context') %}
+      <div class="phc-ctx">↳ {{ h.context }}</div>
+      {% endif %}
+    </div>
+    {% else %}
+    <p style="color:var(--col-text-dim); font-size:.82rem;">Brak hunchów. Zapisz pierwszy intuicję powyżej.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% include "portal_live.html" %}
+<script>
+document.getElementById('hunch-save').addEventListener('click', async () => {
+  const text = document.getElementById('hunch-text').value.trim();
+  const tagsRaw = document.getElementById('hunch-tags').value.trim();
+  const ctx = document.getElementById('hunch-ctx').value.trim();
+  const st = document.getElementById('hunch-status');
+  if (!text) { st.textContent = 'Wpisz treść huncha.'; return; }
+  const tags = tagsRaw ? tagsRaw.split(/[,\s]+/).map(t => t.trim()).filter(Boolean) : [];
+  const r = await fetch('/api/hunches/add', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({hunch: text, tags, context: ctx})
+  });
+  const d = await r.json();
+  if (d.ok) {
+    st.textContent = '✓ Zapisano.';
+    st.style.color = 'var(--col-sky)';
+    // prepend new card without reload
+    const now = new Date().toISOString().slice(0,16).replace('T',' ');
+    const tagSpans = tags.map(t => `<span class="ptag">${t}</span>`).join('');
+    const ctxHtml = ctx ? `<div class="phc-ctx">↳ ${ctx}</div>` : '';
+    const card = document.createElement('div');
+    card.className = 'portal-hunch-card glass-navy';
+    card.innerHTML = `<div class="phc-header"><span class="phc-ts">${now}</span>${tagSpans}</div><div class="phc-text">${text}</div>${ctxHtml}`;
+    const list = document.querySelector('.portal-hunches-list');
+    list.insertBefore(card, list.firstChild);
+    document.getElementById('hunch-text').value = '';
+    document.getElementById('hunch-tags').value = '';
+    document.getElementById('hunch-ctx').value = '';
+  } else {
+    st.textContent = 'Błąd: ' + (d.error || 'nieznany');
+    st.style.color = 'var(--col-warn)';
+  }
+});
+
+// Auto-refresh hunches list every 15s
+let _hunchCount = document.querySelectorAll('.portal-hunch-card').length;
+async function refreshHunches() {
+  try {
+    const r = await fetch('/api/hunches');
+    const data = await r.json();
+    if (data.length !== _hunchCount) {
+      _hunchCount = data.length;
+      const list = document.querySelector('.portal-hunches-list');
+      list.innerHTML = data.map(h => {
+        const tags = (h.tags||[]).map(t => `<span class="ptag">${t}</span>`).join('');
+        const ctx = h.context ? `<div class="phc-ctx">↳ ${h.context}</div>` : '';
+        const ts = (h.ts||'').slice(0,16).replace('T',' ');
+        return `<div class="portal-hunch-card glass-navy"><div class="phc-header"><span class="phc-ts">${ts}</span>${tags}</div><div class="phc-text">${h.hunch}</div>${ctx}</div>`;
+      }).join('') || '<p style="color:var(--col-text-dim); font-size:.82rem;">Brak hunchów.</p>';
+    }
+  } catch(e) {}
+}
+setInterval(refreshHunches, 15000);
+</script>
+{% endblock %}

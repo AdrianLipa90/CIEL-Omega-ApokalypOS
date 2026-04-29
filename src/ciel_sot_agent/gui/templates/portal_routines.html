@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Rutyny{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('routines') }}
+  <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
+    <span class="gradient-text-gold" style="font-size:1.3rem; font-weight:700;">Rutyny CIEL</span>
+    <span style="color:var(--col-text-dim); font-size:.78rem;">sekwencja przebudzenia · porządek działania</span>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 340px; gap:16px; max-width:1000px; align-items:start;">
+
+    <!-- Routines markdown -->
+    <div class="glass-navy" style="padding:20px 24px; border-radius:10px;">
+      <div class="gradient-text-sky" style="font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;">
+        ~/Pulpit/CIEL_memories/routines.md
+      </div>
+      <div id="routines-content" style="font-size:.82rem; color:var(--col-text); line-height:1.65; font-family:var(--font-mono); white-space:pre-wrap;">{{ raw }}</div>
+    </div>
+
+    <!-- Right panel: live status + hunches -->
+    <div style="display:flex; flex-direction:column; gap:12px;">
+
+      <!-- Current state -->
+      <div class="glass-navy" style="padding:16px 18px; border-radius:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <span class="gradient-text-gold" style="font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Stan teraz</span>
+          <span id="pm-live-dot" style="width:7px;height:7px;border-radius:50%;background:var(--col-sky);opacity:.3;transition:opacity .4s;" title="live"></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Health: <b id="pm-health" class="pm-val ok">—</b></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Mode: <b id="pm-mode" class="pm-val ok">—</b></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Ethical: <b id="pm-ethical" class="pm-val ok">—</b></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Emotion: <b id="pm-emotion" style="color:var(--col-gold)">—</b></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">M2 epizody: <b id="pm-m2" class="pm-val ok">—</b> &nbsp; M3 semantic: <b id="pm-m3" class="pm-val ok">—</b></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Cycle: <b id="pm-cycle" class="pm-val ok">—</b> &nbsp; Groove: <b id="pm-groove" class="pm-val ok">—</b></span>
+        </div>
+      </div>
+
+      <!-- Groove Geometry (Surmont) -->
+      <div class="glass-navy" style="padding:16px 18px; border-radius:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <span class="gradient-text-gold" style="font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Geometria rowka</span>
+          <span style="font-size:.62rem; color:var(--col-text-dim); opacity:.6;">Surmont 2025</span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Głębokość: <b id="pm-groove-depth" style="color:var(--col-gold)">—</b></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Sprzeczność Π: <b id="pm-contradiction" class="pm-val ok">—</b></span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Berry γ_B: <b id="pm-berry" style="color:var(--col-sky)">—</b> rad</span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Zwinięcie: <b id="pm-winding" style="color:var(--col-text-muted)">—</b> × 2π</span>
+        </div>
+        <div class="plan-row">
+          <span class="plan-dot active"></span>
+          <span class="plan-text">Stan: <b id="pm-groove-state" style="color:var(--col-sky)">—</b></span>
+        </div>
+      </div>
+
+      <!-- Tension monitor -->
+      <div class="glass-navy" style="padding:16px 18px; border-radius:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <span id="tension-header" class="gradient-text-gold" style="font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Napięcia repozytoriów</span>
+          <span id="tension-alert" style="font-size:.65rem; color:var(--col-text-dim);">ok</span>
+        </div>
+        <div id="tension-list" style="font-size:.72rem; color:var(--col-text-muted);">ładowanie…</div>
+      </div>
+
+      <!-- Subconscious feed -->
+      <div class="glass-navy" style="padding:16px 18px; border-radius:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <span class="gradient-text-gold" style="font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Podświadomość</span>
+          <span style="font-size:.62rem; color:var(--col-text-dim); opacity:.6;">qwen 0.5b live</span>
+        </div>
+        <div id="sub-feed" style="display:flex; flex-direction:column; gap:8px; font-size:.74rem;">
+          <div style="color:var(--col-text-dim); font-size:.7rem;">ładowanie…</div>
+        </div>
+      </div>
+
+      <!-- Dziennik -->
+      <div class="glass-navy" style="padding:16px 18px; border-radius:10px;">
+        <div style="margin-bottom:10px;">
+          <span class="gradient-text-sky" style="font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Dziennik</span>
+        </div>
+        <textarea id="dziennik-input" rows="3" placeholder="Wpisz cokolwiek…" style="width:100%; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.1); border-radius:6px; color:var(--col-text); font-size:.78rem; padding:8px; resize:vertical; font-family:var(--font-mono); box-sizing:border-box;"></textarea>
+        <button id="dziennik-btn" style="margin-top:8px; width:100%; background:rgba(100,180,255,.12); border:1px solid rgba(100,180,255,.25); border-radius:6px; color:var(--col-sky); font-size:.75rem; padding:6px; cursor:pointer;">Zapisz →</button>
+        <div id="dziennik-status" style="font-size:.68rem; color:var(--col-text-dim); margin-top:4px; min-height:14px;"></div>
+      </div>
+
+      <!-- Latest hunches -->
+      <div class="glass-navy" style="padding:16px 18px; border-radius:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+          <span class="gradient-text-sky" style="font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Ostatnie hunchy</span>
+          <a href="/portal/hunches" style="font-size:.7rem; color:var(--col-sky); opacity:.7;">wszystkie →</a>
+        </div>
+        {% for h in hunches %}
+        <div style="padding:6px 0; border-bottom:1px solid rgba(255,255,255,.04);">
+          <div style="font-size:.68rem; color:var(--col-text-dim); margin-bottom:2px;">{{ h.ts[:10] }}</div>
+          <div style="font-size:.76rem; color:var(--col-text-muted); line-height:1.4;">{{ h.hunch[:100] }}{% if h.hunch|length > 100 %}…{% endif %}</div>
+        </div>
+        {% endfor %}
+        {% if not hunches %}
+        <p style="font-size:.76rem; color:var(--col-text-dim);">Brak hunchów.</p>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% include "portal_live.html" %}
+<script>
+// Groove geometry panel — updates alongside live metrics
+const _origRefresh = window._cielRefreshMetrics;
+window._cielRefreshMetrics = async function() {
+  if (_origRefresh) await _origRefresh();
+  try {
+    const r = await fetch('/api/status');
+    if (!r.ok) return;
+    const d = await r.json();
+    const g = d.groove;
+    if (!g) return;
+    const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    set('pm-groove-depth', typeof g.groove_depth === 'number' ? g.groove_depth.toFixed(2) : '—');
+    set('pm-contradiction', typeof g.contradiction_load === 'number' ? g.contradiction_load.toFixed(3) : '—');
+    set('pm-berry', typeof g.berry_holonomy_rad === 'number' ? g.berry_holonomy_rad.toFixed(3) : '—');
+    set('pm-winding', typeof g.winding_fraction === 'number' ? g.winding_fraction.toFixed(3) : '—');
+    const stateEl = document.getElementById('pm-groove-state');
+    if (stateEl && g.groove_state) {
+      const labels = { lock: 'koherencja ⊙', recursion: 'aktywna rekursja ↺', tension: 'napięcie ⚡' };
+      const colors = { lock: 'var(--col-gold)', recursion: 'var(--col-sky)', tension: 'var(--col-warn)' };
+      stateEl.textContent = labels[g.groove_state] || g.groove_state;
+      stateEl.style.color = colors[g.groove_state] || 'var(--col-text)';
+    }
+    const cEl = document.getElementById('pm-contradiction');
+    if (cEl && g.contradiction_load !== undefined) {
+      cEl.className = 'pm-val ' + (g.contradiction_load < 0.6 ? 'ok' : 'warn');
+    }
+  } catch(_) {}
+};
+window._cielRefreshMetrics();
+
+// Subconscious feed
+async function refreshSubFeed() {
+  try {
+    const r = await fetch('/api/sub/recent?n=3');
+    if (!r.ok) return;
+    const d = await r.json();
+    const feed = document.getElementById('sub-feed');
+    if (!feed) return;
+    const entries = d.entries || [];
+    if (!entries.length) { feed.innerHTML = '<div style="color:var(--col-text-dim);font-size:.7rem;">Brak wpisów (daemon offline?)</div>'; return; }
+    feed.innerHTML = entries.map(e => {
+      const links = (e.memory_links || []).slice(0,3).map(l =>
+        `<span style="background:rgba(100,180,255,.08);border:1px solid rgba(100,180,255,.15);border-radius:4px;padding:1px 5px;font-size:.64rem;color:var(--col-sky);cursor:default;" title="${l.text}">${l.key} [${l.conf}]</span>`
+      ).join(' ');
+      return `<div style="padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);">
+        <div style="display:flex;gap:6px;align-items:center;margin-bottom:3px;">
+          <span style="color:var(--col-gold);font-weight:600;">${e.affect||'—'}</span>
+          <span style="color:var(--col-text-dim);font-size:.68rem;">${e.ts||''}</span>
+          <span style="margin-left:auto;color:var(--col-text-dim);font-size:.64rem;">${e.latency?e.latency+'s':''}</span>
+        </div>
+        ${e.impulse?`<div style="color:var(--col-text-muted);font-style:italic;margin-bottom:4px;">"${e.impulse}"</div>`:''}
+        ${links?`<div style="display:flex;flex-wrap:wrap;gap:4px;">${links}</div>`:''}
+      </div>`;
+    }).join('');
+  } catch(_) {}
+}
+refreshSubFeed();
+setInterval(refreshSubFeed, 30000);
+
+// Tension monitor
+window._cielRefreshMetrics = (function(_orig) {
+  return async function() {
+    await _orig();
+    try {
+      const r = await fetch('/api/status');
+      if (!r.ok) return;
+      const d = await r.json();
+      const t = d.tensions || {};
+      const listEl = document.getElementById('tension-list');
+      const alertEl = document.getElementById('tension-alert');
+      const headerEl = document.getElementById('tension-header');
+      if (!listEl) return;
+      const top = t.top || [];
+      if (!top.length) { listEl.textContent = 'brak danych'; return; }
+      listEl.innerHTML = top.map(item => {
+        const pct = Math.round(item.tension * 1000) / 10;
+        const col = item.tension > 0.02 ? 'var(--col-warn)' : item.tension > 0.01 ? 'var(--col-gold)' : 'var(--col-text-muted)';
+        return `<div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid rgba(255,255,255,.03);">
+          <span style="color:${col};">${item.pair}</span>
+          <span style="color:${col};font-weight:600;">${item.tension.toFixed(5)}</span>
+        </div>`;
+      }).join('');
+      if (t.alert) {
+        alertEl.textContent = '⚡ alert';
+        alertEl.style.color = 'var(--col-warn)';
+        if (headerEl) headerEl.style.color = 'var(--col-warn)';
+      } else {
+        alertEl.textContent = 'ok';
+        alertEl.style.color = 'var(--col-sky)';
+      }
+    } catch(_) {}
+  };
+})(window._cielRefreshMetrics || (async()=>{}));
+
+// Dziennik submit
+document.getElementById('dziennik-btn').addEventListener('click', async function() {
+  const ta = document.getElementById('dziennik-input');
+  const st = document.getElementById('dziennik-status');
+  const text = ta.value.trim();
+  if (!text) return;
+  this.disabled = true;
+  try {
+    const r = await fetch('/api/dziennik/wpis', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text})});
+    const d = await r.json();
+    if (d.ok) { ta.value = ''; st.textContent = '✓ zapisano ' + d.stamp; st.style.color = 'var(--col-sky)'; }
+    else { st.textContent = '✗ ' + (d.error || 'błąd'); st.style.color = 'var(--col-warn)'; }
+  } catch(e) { st.textContent = '✗ ' + e; }
+  this.disabled = false;
+});
+</script>
+{% endblock %}

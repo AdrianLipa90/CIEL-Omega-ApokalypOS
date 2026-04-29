@@ -1,0 +1,7 @@
+path,layer,function_count,assign,call,if,loop,return,binop,compare,try,comprehension,module_assign,module_call,module_if,module_loop,module_return,module_binop,module_compare,module_try,module_comprehension
+src/ciel_sot_agent/repo_phase.py,source_core,7,18,47,3,4,8,11,3,0,3,0,5,0,0,0,1,0,0,0
+src/ciel_sot_agent/gh_coupling.py,source_core,8,57,101,9,7,8,27,9,1,1,2,5,1,1,0,0,1,0,0
+src/ciel_sot_agent/index_validator.py,source_core,7,57,225,49,10,11,13,26,3,5,11,12,3,0,0,2,1,0,2
+src/ciel_sot_agent/synchronize.py,source_core,1,4,5,0,0,1,4,0,0,0,1,1,1,0,0,0,1,0,0
+scripts/run_repo_phase_sync.py,script_entry,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,1,0,0
+scripts/run_gh_repo_coupling.py,script_entry,0,0,0,0,0,0,0,0,0,0,7,4,0,0,0,0,1,0,0

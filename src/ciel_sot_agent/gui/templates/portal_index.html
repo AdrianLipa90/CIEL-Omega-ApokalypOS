@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Hub{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('hub') }}
+
+  <div class="portal-hero glass-navy" style="padding:28px 32px 24px; margin-bottom:20px; border-radius:10px;">
+    <div style="display:flex; align-items:center; gap:16px; margin-bottom:16px;">
+      <span class="gradient-text-gold" style="font-size:2rem; font-weight:700; letter-spacing:2px;">CIELweb</span>
+      <span style="color:var(--col-sky); font-size:1rem; opacity:.7;">/ centrum świadomości</span>
+    </div>
+    <div class="portal-metrics-strip" id="metrics-strip">
+      {% set h = report.get('system_health', 0) | float %}
+      {% set e = report.get('ethical_score', 0) | float %}
+      {% set c = report.get('coherence_index', 0) | float %}
+      {% set cl = report.get('closure_penalty', 0) | float %}
+      <div class="pm-item">
+        <span class="pm-label">Health</span>
+        <span id="pm-health" class="pm-val {{ 'ok' if h >= 0.5 else 'warn' }}">{{ "%.3f" | format(h) }}</span>
+      </div>
+      <div class="pm-item">
+        <span class="pm-label">Ethical</span>
+        <span id="pm-ethical" class="pm-val {{ 'ok' if e >= 0.7 else 'warn' }}">{{ "%.3f" | format(e) }}</span>
+      </div>
+      <div class="pm-item">
+        <span class="pm-label">Coherence</span>
+        <span id="pm-coherence" class="pm-val ok">{{ "%.3f" | format(c) }}</span>
+      </div>
+      <div class="pm-item">
+        <span class="pm-label">Closure</span>
+        <span id="pm-closure" class="pm-val {{ 'warn' if cl > 5.2 else 'ok' }}">{{ "%.3f" | format(cl) }}</span>
+      </div>
+      <div class="pm-item">
+        <span class="pm-label">Mode</span>
+        <span id="pm-mode" class="pm-val ok">{{ 'deep' if cl < 5.2 else ('standard' if cl < 5.8 else 'safe') }}</span>
+      </div>
+      <div class="pm-item">
+        <span class="pm-label">Emotion</span>
+        <span id="pm-emotion" class="pm-val" style="color:var(--col-gold)">{{ report.get('dominant_emotion','?') }}</span>
+      </div>
+      <div class="pm-item" style="margin-left:auto;">
+        <span class="pm-label">Soul</span>
+        <span id="pm-soul" class="pm-val ok">{{ "%.3f" | format(report.get('soul_invariant',0)|float) }}</span>
+      </div>
+      <span id="pm-live-dot" title="live" style="width:7px;height:7px;border-radius:50%;background:var(--col-sky);opacity:.3;align-self:center;transition:opacity .4s;"></span>
+    </div>
+  </div>
+
+  <!-- Nav cards -->
+  <div class="portal-nav-grid">
+    <a href="/portal/archive" class="portal-nav-card glass-navy">
+      <div class="pnc-icon">📂</div>
+      <div class="pnc-title gradient-text-sky">Archiwum</div>
+      <div class="pnc-sub">{{ total_sessions }} sesji · filtry po tagach</div>
+    </a>
+    <a href="/portal/memory" class="portal-nav-card glass-navy">
+      <div class="pnc-icon">🗺</div>
+      <div class="pnc-title gradient-text-gold">Geometria pamięci</div>
+      <div class="pnc-sub">{{ total_tags }} tagów · mapa relacji</div>
+    </a>
+    <a href="/portal/advisor" class="portal-nav-card glass-navy">
+      <div class="pnc-icon">🧠</div>
+      <div class="pnc-title gradient-text-sky">Doradca</div>
+      <div class="pnc-sub">RAG + metryki live · pytaj po polsku</div>
+    </a>
+    <a href="/" class="portal-nav-card glass-navy">
+      <div class="pnc-icon">⚙</div>
+      <div class="pnc-title" style="color:var(--col-text)">GUI Control</div>
+      <div class="pnc-sub">Panel operacyjny CIEL</div>
+    </a>
+  </div>
+
+  <!-- Recent sessions -->
+  <div class="glass-navy" style="padding:20px 24px; border-radius:10px; margin-top:20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+      <span class="gradient-text-sky" style="font-size:.85rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Ostatnie sesje</span>
+      <a href="/portal/archive" style="font-size:.75rem; color:var(--col-sky); opacity:.7;">wszystkie →</a>
+    </div>
+    {% for s in sessions %}
+    <div class="portal-session-row">
+      <span class="psr-source {{ s.source }}">{{ s.source }}</span>
+      <span class="psr-date">{{ s.started_at[:10] if s.started_at else '—' }}</span>
+      <span class="psr-msgs">{{ s.message_count }} wiad.</span>
+      <div class="psr-tags">
+        {% for t in s.tags[:6] %}
+        <span class="ptag">{{ t }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% else %}
+    <p style="color:var(--col-text-dim); font-size:.8rem;">Brak sesji — uruchom build_memory_portal.py</p>
+    {% endfor %}
+  </div>
+
+  <!-- Tag cloud -->
+  <div class="glass-navy" style="padding:20px 24px; border-radius:10px; margin-top:16px;">
+    <div class="gradient-text-gold" style="font-size:.85rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">Przestrzeń tagów</div>
+    <div class="portal-tag-cloud">
+      {% for tag, info in tag_index.items() | sort(attribute='0') %}
+      {% set cnt = info.count if info is mapping else info | length %}
+      <a href="/portal/archive?tag={{ tag }}" class="ptag-cloud-item" style="font-size:{{ 0.75 + cnt * 0.06 }}rem; opacity:{{ [0.5 + cnt * 0.08, 1.0] | min }}">{{ tag }}</a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Rebuild button -->
+  <div style="margin-top:16px; text-align:right;">
+    <button class="btn-gold" id="btn-rebuild" style="font-size:.8rem; padding:8px 18px;">
+      ↺ Przebuduj portal
+    </button>
+    <span id="rebuild-status" style="margin-left:10px; font-size:.75rem; color:var(--col-text-dim);"></span>
+  </div>
+
+  <!-- Chat + M0-M8 metrics -->
+  <div id="chat" class="glass-navy" style="padding:20px 24px; border-radius:10px; margin-top:20px;">
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+      <span class="gradient-text-sky" style="font-size:.85rem; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Chat</span>
+      <span id="chat-live-dot" style="width:7px;height:7px;border-radius:50%;background:var(--col-sky);opacity:.3;transition:opacity .4s;"></span>
+    </div>
+
+    <!-- M0-M8 metrics strip -->
+    <div id="chat-metrics" style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:14px; padding:10px 14px; background:rgba(0,0,0,.2); border-radius:7px; font-family:var(--font-mono);">
+      <div class="pm-item"><span class="pm-label">Cycle</span><span id="cm-cycle" class="pm-val ok">—</span></div>
+      <div class="pm-item"><span class="pm-label">Affect</span><span id="cm-affect" class="pm-val" style="color:var(--col-gold)">—</span></div>
+      <div class="pm-item"><span class="pm-label">Coherence</span><span id="cm-coherence" class="pm-val ok">—</span></div>
+      <div class="pm-item"><span class="pm-label">M3</span><span id="cm-m3" class="pm-val ok">—</span></div>
+      <div class="pm-item"><span class="pm-label">M2 epizody</span><span id="cm-m2" class="pm-val ok">—</span></div>
+      <div class="pm-item"><span class="pm-label">Identity φ</span><span id="cm-phase" class="pm-val ok">—</span></div>
+      <div class="pm-item" style="margin-left:auto;"><span class="pm-label">Źródło · czas</span><span id="cm-ts" class="pm-val" style="font-size:.7rem; color:var(--col-text-dim)">—</span></div>
+    </div>
+
+    <!-- Model selector -->
+    <div style="display:flex; gap:8px; align-items:center; margin-bottom:10px;">
+      <select id="chat-model-sel" style="background:rgba(0,0,0,.3); border:1px solid rgba(93,173,226,.2); color:var(--col-text); border-radius:5px; padding:4px 8px; font-size:.8rem;"></select>
+      <button onclick="chatSetModel()" style="font-size:.75rem; padding:4px 10px; background:rgba(93,173,226,.15); border:1px solid rgba(93,173,226,.3); color:var(--col-sky); border-radius:5px; cursor:pointer;">Załaduj</button>
+      <span id="chat-model-badge" style="font-size:.75rem; color:var(--col-text-dim); margin-left:4px;"></span>
+    </div>
+
+    <!-- Transcript -->
+    <div id="portal-transcript" style="min-height:160px; max-height:360px; overflow-y:auto; padding:10px; background:rgba(0,0,0,.25); border-radius:7px; margin-bottom:10px; font-size:.85rem; line-height:1.5;"></div>
+
+    <!-- Input -->
+    <div style="display:flex; gap:8px; align-items:flex-end;">
+      <textarea id="portal-input" rows="2" placeholder="Napisz do CIEL..." style="flex:1; background:rgba(0,0,0,.3); border:1px solid rgba(93,173,226,.2); color:var(--col-text); border-radius:7px; padding:8px 12px; font-size:.85rem; resize:vertical; font-family:inherit;" onkeydown="if(event.ctrlKey&&event.key==='Enter')portalSend()"></textarea>
+      <button onclick="portalSend()" class="btn-gold" style="padding:8px 16px; font-size:.85rem;">Wyślij</button>
+    </div>
+    <div style="font-size:.7rem; color:var(--col-text-dim); margin-top:4px;">Ctrl+Enter = wyślij</div>
+  </div>
+
+</div><!-- /.portal-page -->
+{% endblock %}
+
+{% block scripts %}
+<script>
+// ── Live metrics refresh ──────────────────────────────────────────────────
+async function refreshMetrics() {
+  try {
+    const r = await fetch('/api/status');
+    const d = await r.json();
+    const set = (id, val, decimals=3) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = typeof val === 'number' ? val.toFixed(decimals) : (val || '—');
+    };
+    const cls = (id, ok) => {
+      const el = document.getElementById(id);
+      if (el) { el.classList.toggle('ok', ok); el.classList.toggle('warn', !ok); }
+    };
+    set('pm-health',    d.system_health);
+    set('pm-ethical',   d.ethical_score);
+    set('pm-coherence', d.coherence_index);
+    set('pm-closure',   d.closure_penalty);
+    set('pm-soul',      d.soul_invariant);
+    if (document.getElementById('pm-emotion'))
+      document.getElementById('pm-emotion').textContent = d.dominant_emotion || '—';
+    const cl = d.closure_penalty || 0;
+    const mode = d.system_mode || (cl < 5.2 ? 'deep' : cl < 5.8 ? 'standard' : 'safe');
+    if (document.getElementById('pm-mode')) document.getElementById('pm-mode').textContent = mode;
+    cls('pm-health', d.system_health >= 0.5);
+    cls('pm-ethical', d.ethical_score >= 0.7);
+    cls('pm-closure', cl <= 5.2);
+    // Blink live dot
+    const dot = document.getElementById('pm-live-dot');
+    if (dot) { dot.style.opacity = '1'; setTimeout(() => dot.style.opacity = '.3', 600); }
+  } catch(e) {}
+}
+refreshMetrics();
+setInterval(refreshMetrics, 10000);
+
+// ── M0-M8 metrics refresh ─────────────────────────────────────────────────
+async function refreshChatMetrics() {
+  try {
+    const r = await fetch('/api/metrics/last');
+    const d = await r.json();
+    const set = (id, val) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (typeof val === 'number') el.textContent = Number.isInteger(val) ? val : val.toFixed(4);
+      else el.textContent = val || '—';
+    };
+    set('cm-cycle',    d.cycle);
+    set('cm-affect',   d.sub_affect || d.affective_key?.slice(0, 24) || '—');
+    set('cm-coherence', typeof d.mean_coherence === 'number' ? d.mean_coherence.toFixed(4) : '—');
+    set('cm-m3',       d.m3_items);
+    set('cm-m2',       d.m2_episodes);
+    set('cm-phase',    typeof d.identity_phase === 'number' ? d.identity_phase.toFixed(5) : '—');
+    set('cm-ts',       (d.source || '') + ' · ' + (d.ts || '—').slice(11, 16));
+    const dot = document.getElementById('chat-live-dot');
+    if (dot) { dot.style.opacity = '1'; setTimeout(() => dot.style.opacity = '.3', 600); }
+  } catch(e) {}
+}
+refreshChatMetrics();
+setInterval(refreshChatMetrics, 8000);
+
+// ── Chat ──────────────────────────────────────────────────────────────────
+(async function initChat() {
+  try {
+    await fetch('/api/chat/session/open', {method:'POST'});
+    const mr = await fetch('/api/chat/models');
+    const md = await mr.json();
+    const sel = document.getElementById('chat-model-sel');
+    if (sel && md.models) {
+      md.models.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m.path;
+        opt.textContent = m.name + ' (' + m.size_mb + ' MB)';
+        if (m.path === md.current) opt.selected = true;
+        sel.appendChild(opt);
+      });
+      const cur = md.models.find(m => m.path === md.current);
+      document.getElementById('chat-model-badge').textContent = cur ? cur.name : (md.current || '');
+    }
+  } catch(e) {}
+})();
+
+async function chatSetModel() {
+  const sel = document.getElementById('chat-model-sel');
+  if (!sel) return;
+  try {
+    const r = await fetch('/api/chat/model/set', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({path: sel.value})});
+    const data = await r.json();
+    if (data.error) { alert('Błąd: ' + data.error + '\n' + (data.message||'')); return; }
+    const name = sel.options[sel.selectedIndex].textContent;
+    document.getElementById('chat-model-badge').textContent = name;
+  } catch(e) {}
+}
+
+function appendChatMsg(role, text) {
+  const t = document.getElementById('portal-transcript');
+  if (!t) return;
+  const div = document.createElement('div');
+  div.style.cssText = 'margin-bottom:10px; padding:7px 10px; border-radius:6px;' +
+    (role === 'user' ? 'background:rgba(212,175,55,.08); border-left:2px solid var(--col-gold);' :
+                       'background:rgba(93,173,226,.06); border-left:2px solid var(--col-sky);');
+  const who = document.createElement('span');
+  who.style.cssText = 'font-size:.7rem; font-weight:600; margin-right:8px; text-transform:uppercase; letter-spacing:.5px;';
+  who.style.color = role === 'user' ? 'var(--col-gold)' : 'var(--col-sky)';
+  who.textContent = role === 'user' ? 'Adrian' : 'CIEL';
+  const msg = document.createElement('span');
+  msg.style.whiteSpace = 'pre-wrap';
+  msg.textContent = text;
+  div.appendChild(who); div.appendChild(msg);
+  t.appendChild(div);
+  t.scrollTop = t.scrollHeight;
+}
+
+async function portalSend() {
+  const inp = document.getElementById('portal-input');
+  const msg = inp ? inp.value.trim() : '';
+  if (!msg) return;
+  inp.value = '';
+  appendChatMsg('user', msg);
+  try {
+    const r = await fetch('/api/chat/message', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({message: msg})
+    });
+    const d = await r.json();
+    appendChatMsg('assistant', d.response || d.error || '—');
+    refreshChatMetrics();
+  } catch(e) {
+    appendChatMsg('assistant', '[błąd sieci]');
+  }
+}
+
+// ── Rebuild button ──────────────────────────────────────────────────────
+document.getElementById('btn-rebuild').addEventListener('click', async () => {
+  const st = document.getElementById('rebuild-status');
+  st.textContent = 'Przebudowuję...';
+  try {
+    const r = await fetch('/api/portal/rebuild', {method:'POST'});
+    const d = await r.json();
+    st.textContent = d.ok ? '✓ Gotowe — odśwież stronę' : ('Błąd: ' + (d.error || d.stderr));
+    st.style.color = d.ok ? 'var(--col-sky)' : 'var(--col-warn)';
+  } catch(e) { st.textContent = 'Błąd sieci'; }
+});
+</script>
+{% endblock %}

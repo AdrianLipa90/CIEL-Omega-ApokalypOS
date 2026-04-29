@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-04-28T00:40:07.847422+00:00",
+  "n_queries": 23,
+  "n_corpus": 1913,
+  "k": 5,
+  "variants": {
+    "CIEL-FULL": {
+      "precision_at_1": 0.0,
+      "precision_at_3": 0.0,
+      "precision_at_5": 0.0348,
+      "mrr": 0.1028,
+      "phase_resonance": 0.4727,
+      "mean_closure": 0.549,
+      "latency_p50_ms": 110.1,
+      "latency_p95_ms": 25375.02,
+      "n_queries": 23
+    },
+    "CIEL-PHASE-ONLY": {
+      "precision_at_1": 0.087,
+      "precision_at_3": 0.1594,
+      "precision_at_5": 0.1652,
+      "mrr": 0.2007,
+      "phase_resonance": 1.0,
+      "mean_closure": 0.549,
+      "latency_p50_ms": 0.87,
+      "latency_p95_ms": 1.58,
+      "n_queries": 23
+    },
+    "CIEL-COSINE": {
+      "precision_at_1": 1.0,
+      "precision_at_3": 0.7971,
+      "precision_at_5": 0.6609,
+      "mrr": 1.0,
+      "phase_resonance": 0.487,
+      "mean_closure": 0.549,
+      "latency_p50_ms": 8.74,
+      "latency_p95_ms": 15.58,
+      "n_queries": 23
+    },
+    "CIEL-RANDOM": {
+      "precision_at_1": 0.087,
+      "precision_at_3": 0.1159,
+      "precision_at_5": 0.1217,
+      "mrr": 0.1826,
+      "phase_resonance": 0.4783,
+      "mean_closure": 0.549,
+      "latency_p50_ms": 0.01,
+      "latency_p95_ms": 0.03,
+      "n_queries": 23
+    }
+  },
+  "calibration": {
+    "phase_entropy": 0.8345,
+    "phase_mean": 1.5249,
+    "phase_std": 1.4601,
+    "median_gap": 0.001027,
+    "delta_tight": 0.05,
+    "delta_wide": 0.15,
+    "delta_natural": 1.0486,
+    "w_semantic": 0.7573,
+    "w_htri": 0.2427,
+    "w_nonlocal": 0.0,
+    "hebbian_eta": 0.090167,
+    "hebbian_decay": 0.937754,
+    "n_sectors": 16,
+    "nonlocal_ttl": 37.0,
+    "n_entries": 1913
+  }
+}

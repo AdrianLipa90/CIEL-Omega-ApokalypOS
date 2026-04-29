@@ -1,0 +1,17 @@
+{
+  "snapshot": "v7_consolidated",
+  "new_files": [
+    "registries/next_certainties.csv",
+    "registries/runtime_topology_metrics.csv",
+    "registries/runtime_bridge_files.csv",
+    "registries/runtime_mechanical_density.csv",
+    "docs/NEXT_CERTAINTIES_V1.md"
+  ],
+  "counts": {
+    "next_certainties": 24,
+    "runtime_python_file_count": 246,
+    "runtime_import_edge_count": 97,
+    "runtime_scc_count_gt_1": 1,
+    "runtime_bridge_like_file_count": 32
+  }
+}

@@ -1,0 +1,5 @@
+order,runtime_path,function_name,symbol_role,mechanism_role,why_minimal,status
+1,ciel_omega/orbital/metrics.py,berry_pair_phase,pairwise phase carrier,computes Berry-like pair phase between two sectors/states,pairwise coupling needs a phase term before any A_ij can exist,confirmed-mechanism
+2,ciel_omega/orbital/metrics.py,_complex_coupling,complex pair kernel,packages pairwise phase/amplitude into a complex coupling kernel,minimal transition from pair phase to effective coupling object,confirmed-mechanism
+3,ciel_omega/orbital/metrics.py,A_ij,A_ij,computes effective pair coupling between i and j,direct runtime carrier of pairwise A_ij,confirmed-mechanism
+4,ciel_omega/orbital/metrics.py,A_matrix,pairwise network assembly,assembles all pairwise A_ij into the global coupling matrix,minimal closure from one pair to system-level pairwise layer,confirmed-mechanism

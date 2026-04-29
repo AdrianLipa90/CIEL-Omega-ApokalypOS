@@ -1,0 +1,121 @@
+{
+  "schema": "ciel-sot-agent/satellite-subsystem-cards/v0.1",
+  "subsystems": [
+    {
+      "subsystem_id": "SAT-NOEMA-0001",
+      "name": "NOEMA ⇄ SOT ⇄ SapiensOrbital",
+      "class": "satellite_export_surface",
+      "active_status": "ACTIVE_EXPORT_SURFACE",
+      "anchors": [
+        "integration/imports/noema_sapiens_orbital/README.md",
+        "integration/imports/noema_sapiens_orbital/MANIFEST.json",
+        "integration/imports/noema_sapiens_orbital/CONTRACT_CONCORDANCE.json",
+        "integration/imports/noema_sapiens_orbital/generated/registry_export.noema"
+      ],
+      "role": "Canonical DSL/spec/export bridge for projected meaning from the canonical orbital/nonlocal state.",
+      "input_from": "canonical orbital/nonlocal registry",
+      "output_to": "registry_export.noema + contract concordance",
+      "authority_may": [
+        "export projected meaning from canonical registry state",
+        "carry human-auditable specification and concordance artifacts",
+        "serve as downstream DSL/spec surface for audited projection"
+      ],
+      "authority_must_not": [
+        "override SOT runtime or registry source of truth",
+        "introduce independent orbital logic outside canonical bridge/reduction flow",
+        "be treated as upstream donor of runtime state"
+      ],
+      "canonical_dependency": "Depends on canonical Omega/Orbital/Bridge outputs.",
+      "horizon_relation": "Projected/exported layer beyond the bridge horizon.",
+      "authority_rule": "SOT runtime and registries remain canonical; NOEMA is export/spec surface only."
+    },
+    {
+      "subsystem_id": "SAT-SAPIENS-0001",
+      "name": "Sapiens Integration Layer",
+      "class": "satellite_interaction_surface",
+      "active_status": "ACTIVE_SURFACE_AND_REPORT_LAYER",
+      "anchors": [
+        "integration/sapiens/README.md",
+        "integration/sapiens/panel_manifest.json",
+        "src/ciel_sot_agent/sapiens_client.py",
+        "src/ciel_sot_agent/sapiens_panel/controller.py",
+        "src/ciel_sot_agent/sapiens_panel/reduction.py"
+      ],
+      "role": "Human-model shell/controller above bridge/orbital/session/settings state.",
+      "input_from": "orbital_bridge reduction outputs",
+      "output_to": "packet/session/transcript/panel state",
+      "authority_may": [
+        "express bridge-reduced state as packet/session/transcript/panel surfaces",
+        "manage human-facing controller and settings state",
+        "host shell logic above bridge/orbital outputs"
+      ],
+      "authority_must_not": [
+        "become a second source of truth for orbital logic",
+        "recompute bridge state independently of the canonical reduction path",
+        "override canonical runtime identities or couplings"
+      ],
+      "canonical_dependency": "Receives and expresses bridge state; does not define it.",
+      "horizon_relation": "Interactive surface just beyond bridge reduction.",
+      "authority_rule": "Must not become second source of truth for orbital or bridge logic."
+    },
+    {
+      "subsystem_id": "SAT-AUDIO-0001",
+      "name": "Audio Orbital Stack",
+      "class": "satellite_io_stack",
+      "active_status": "ACTIVE_OPTIONAL_IMPORT_STACK",
+      "anchors": [
+        "integration/imports/audio_orbital_stack/README.md",
+        "integration/imports/audio_orbital_stack/MANIFEST.json",
+        "integration/imports/audio_orbital_stack/active_pipeline_semantics.json",
+        "integration/imports/audio_orbital_stack/state/audio_orbital_stack_state.json"
+      ],
+      "role": "Local speech skeleton around Omega and Orbital.",
+      "input_from": "audio/VAD/STT",
+      "output_to": "sapiens packet -> omega/orbital -> response -> TTS",
+      "authority_may": [
+        "provide optional local audio I/O around Omega and Orbital",
+        "normalize audio into packet-facing forms",
+        "remain auditable as a peripheral stack"
+      ],
+      "authority_must_not": [
+        "override canonical Omega runtime semantics",
+        "silently import heavy models as mandatory runtime requirements",
+        "be treated as core source of truth rather than optional I/O"
+      ],
+      "canonical_dependency": "Feeds Sapiens/Omega through optional I/O path.",
+      "horizon_relation": "Peripheral I/O layer around the main surface.",
+      "authority_rule": "Kept auditable and optional; heavy models remain external until configured."
+    },
+    {
+      "subsystem_id": "SAT-RELMECH-0001",
+      "name": "Relational Mechanism Import Bundle",
+      "class": "satellite_reference_import",
+      "active_status": "ACTIVE_REFERENCE_IMPORT",
+      "anchors": [
+        "integration/imports/relational_mechanism/README.md",
+        "integration/imports/relational_mechanism/MANIFEST.json",
+        "integration/imports/relational_mechanism/IMPORT_NOTES.md",
+        "integration/imports/relational_mechanism/registries/minimal_pairwise_function_set.csv",
+        "integration/imports/relational_mechanism/registries/minimal_closure_function_set.csv",
+        "integration/imports/relational_mechanism/registries/minimal_holonomy_function_set.csv",
+        "integration/imports/relational_mechanism/registries/minimal_reduction_memory_function_set.csv"
+      ],
+      "role": "Text-first preserved mechanism spine import for reviewable closure/holonomy/reduction-memory logic.",
+      "input_from": "consolidated mechanism analysis",
+      "output_to": "reviewable registries and mechanism notes",
+      "authority_may": [
+        "preserve and expose mechanism spine for review",
+        "support refactor and interpretation of pairwise/closure/holonomy/reduction-memory logic",
+        "serve as reference import tied to the active canon"
+      ],
+      "authority_must_not": [
+        "replace active runtime canon without explicit migration",
+        "be split into ad hoc partial packs that lose mechanism continuity",
+        "masquerade as current executable source of truth"
+      ],
+      "canonical_dependency": "Supports Omega root as a reference import, not active runtime source.",
+      "horizon_relation": "Reference-preserving import beyond the active execution horizon.",
+      "authority_rule": "Preserve and reference; do not split into ad hoc partial packs."
+    }
+  ]
+}

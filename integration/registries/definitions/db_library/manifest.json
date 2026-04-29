@@ -1,0 +1,78 @@
+{
+  "schema": "ciel/catalog-db-library/v0.7",
+  "card_schema": "ciel/orbital-export-card/v0.5",
+  "internal_card_schema": "ciel/internal-subsystem-card/v0.3",
+  "sync_schema": "ciel/subsystem-sync-registry/v0.1",
+  "databases": {
+    "records": {
+      "path": "integration/registries/definitions/db_library/records.sqlite",
+      "rows": 4632
+    },
+    "internal_cards": {
+      "path": "integration/registries/definitions/db_library/internal_cards.sqlite",
+      "rows": 4632
+    },
+    "horizon_policies": {
+      "path": "integration/registries/definitions/db_library/horizon_policies.sqlite",
+      "rows": 4
+    },
+    "subsystem_sync": {
+      "path": "integration/registries/definitions/db_library/subsystem_sync.sqlite",
+      "rows": 763
+    },
+    "reports": {
+      "path": "integration/registries/definitions/db_library/reports.sqlite",
+      "rows": 3
+    },
+    "edge_shards": {
+      "calls": {
+        "path": "integration/registries/definitions/db_library/edges_calls.sqlite",
+        "rows": 5234,
+        "size_bytes": 2736128,
+        "tables": [
+          "edges"
+        ],
+        "relation": "calls"
+      },
+      "contains": {
+        "path": "integration/registries/definitions/db_library/edges_contains.sqlite",
+        "rows": 3869,
+        "size_bytes": 1769472,
+        "tables": [
+          "edges"
+        ],
+        "relation": "contains"
+      },
+      "imports": {
+        "path": "integration/registries/definitions/db_library/edges_imports.sqlite",
+        "rows": 2800,
+        "size_bytes": 1126400,
+        "tables": [
+          "edges"
+        ],
+        "relation": "imports"
+      },
+      "orbital_resonance": {
+        "path": "integration/registries/definitions/db_library/edges_orbital_resonance.sqlite",
+        "rows": 12735,
+        "size_bytes": 6959104,
+        "tables": [
+          "edges"
+        ],
+        "relation": "orbital_resonance"
+      }
+    }
+  },
+  "totals": {
+    "records": 4632,
+    "internal_cards": 4632,
+    "horizon_policies": 4,
+    "subsystem_sync": 763,
+    "edges": 24638,
+    "edge_relations": 4
+  },
+  "reports": {
+    "subsystem_sync_registry": "integration/registries/definitions/subsystem_sync_registry.json",
+    "subsystem_sync_report": "integration/registries/definitions/subsystem_sync_report.json"
+  }
+}

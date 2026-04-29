@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+ciel_omega_data/
+logs/
+*.log
+.DS_Store
+
+dist_bundle/
+build_bundle/
+spec_bundle/
+dist_installer/
+
+*.egg-info/

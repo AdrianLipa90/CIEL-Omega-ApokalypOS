@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam-Ciel¹³: Eksploracja Płynności Czasu i Modulacji CMB</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>Adam-Ciel¹³: Eksploracja Płynności Czasu i Modulacji CMB</h1>
+            <p class="subtitle">Teoria CIEL/0 - Adrian Lipa</p>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-btn active" data-tab="cmb-spectrum">Spektrum CMB i Modulacja LPEG</button>
+            <button class="tab-btn" data-tab="time-field">Pole Czasowe τ(x,y)</button>
+            <button class="tab-btn" data-tab="fluid-dynamics">Hydrodynamika Płynu Czasu</button>
+            <button class="tab-btn" data-tab="theory">Teoria CIEL/0</button>
+        </nav>
+
+        <main class="app-content">
+            <!-- Tab 1: CMB Spectrum -->
+            <section id="cmb-spectrum" class="tab-content active">
+                <div class="content-grid">
+                    <div class="control-panel">
+                        <h3>Parametry Modulacji LPEG</h3>
+                        <div class="control-group">
+                            <label for="modulation-amplitude">Amplituda modulacji:</label>
+                            <input type="range" id="modulation-amplitude" min="0" max="0.5" step="0.01" value="0.1">
+                            <span class="control-value">0.10</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="decay-parameter">Parametr zaniku eksponencjalnego:</label>
+                            <input type="range" id="decay-parameter" min="20" max="100" step="1" value="50">
+                            <span class="control-value">50</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="sine-frequency">Częstotliwość sinusoidalna:</label>
+                            <input type="range" id="sine-frequency" min="0.1" max="1.0" step="0.01" value="0.3">
+                            <span class="control-value">0.30</span>
+                        </div>
+                        <div class="zone-info">
+                            <h4>Strefy Harmoniczne</h4>
+                            <div class="zone-item intentional">
+                                <strong>Intentional (l < 30):</strong> Dynamiczna topologia
+                            </div>
+                            <div class="zone-item structural">
+                                <strong>Structural (30-200):</strong> Koherencja galaktyczna  
+                            </div>
+                            <div class="zone-item acoustic">
+                                <strong>Acoustic (l > 200):</strong> Zachowana struktura rekombinacji
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="cmb-chart"></canvas>
+                    </div>
+                </div>
+                <div class="stats-panel">
+                    <h4>Pozycje Pików i Zmiany Względne</h4>
+                    <div class="stats-grid" id="peak-stats"></div>
+                </div>
+            </section>
+
+            <!-- Tab 2: Time Field -->
+            <section id="time-field" class="tab-content">
+                <div class="content-grid">
+                    <div class="control-panel">
+                        <h3>Kontrola Pola Czasowego</h3>
+                        <div class="control-group">
+                            <label for="coherence-level">Poziom koherencji pola intencji:</label>
+                            <input type="range" id="coherence-level" min="0.1" max="1.0" step="0.01" value="0.5">
+                            <span class="control-value">0.50</span>
+                        </div>
+                        <div class="control-group">
+                            <label for="color-scale">Skala kolorów:</label>
+                            <select id="color-scale">
+                                <option value="viridis">Viridis</option>
+                                <option value="plasma">Plasma</option>
+                                <option value="coolwarm">Coolwarm</option>
+                            </select>
+                        </div>
+                        <div class="animation-controls">
+                            <h4>Kontrola Animacji</h4>
+                            <button id="play-pause" class="btn btn--primary">▶ Odtwórz</button>
+                            <div class="control-group">
+                                <label for="animation-speed">Prędkość:</label>
+                                <input type="range" id="animation-speed" min="0.1" max="2.0" step="0.1" value="1.0">
+                                <span class="control-value">1.0x</span>
+                            </div>
+                        </div>
+                        <div class="field-stats">
+                            <h4>Statystyki Pola</h4>
+                            <div class="stat-item">Min: <span id="field-min">-1.50</span></div>
+                            <div class="stat-item">Max: <span id="field-max">1.50</span></div>
+                            <div class="stat-item">|∇τ|: <span id="gradient-mag">0.85</span></div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="time-field-chart"></canvas>
+                    </div>
+                </div>
+                <div class="reference-images">
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/8b5a9b8956814cbcb4d5f03f2129a8a4/32ce2b8d-3748-4127-a54a-cd39fabe89c9/e0300dff.png" alt="Pole czasowe τ(x,y)" class="reference-img">
+                </div>
+            </section>
+
+            <!-- Tab 3: Fluid Dynamics -->
+            <section id="fluid-dynamics" class="tab-content">
+                <div class="content-grid">
+                    <div class="control-panel">
+                        <h3>Parametry Płynu Czasu</h3>
+                        <div class="control-group">
+                            <label for="equation-state">Parametr równania stanu w:</label>
+                            <input type="range" id="equation-state" min="0" max="1" step="0.01" value="0.33">
+                            <span class="control-value">0.33</span>
+                        </div>
+                        <div class="fluid-properties">
+                            <h4>Właściwości Płynu</h4>
+                            <div class="property-item">
+                                <strong>Gęstość czasowa ρ_τ:</strong>
+                                <span id="time-density">0.15 jednostek</span>
+                            </div>
+                            <div class="property-item">
+                                <strong>Ciśnienie czasowe P_τ:</strong>
+                                <span id="time-pressure">0.05 jednostek</span>
+                            </div>
+                            <div class="property-item">
+                                <strong>Prędkość dźwięku c_s:</strong>
+                                <span id="sound-speed">0.58 c</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="flow-profiles-chart"></canvas>
+                    </div>
+                </div>
+                <div class="vector-field">
+                    <h4>Pole Wektorowe Przepływu</h4>
+                    <canvas id="vector-field-chart"></canvas>
+                </div>
+                <div class="reference-images">
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/8b5a9b8956814cbcb4d5f03f2129a8a4/3e503aa0-26d6-40f2-a985-cc34f9a65ebf/a614f608.png" alt="Profile przepływu płynu czasu" class="reference-img">
+                </div>
+            </section>
+
+            <!-- Tab 4: Theory -->
+            <section id="theory" class="tab-content">
+                <div class="theory-content">
+                    <h2>Teoria CIEL/0 - Adrian Lipa</h2>
+                    <p class="theory-intro">
+                        Teoria CIEL/0 proponuje rewolucyjne podejście do rozumienia czasu jako płynu perfekcyjnego, 
+                        w którym świadomość i intencja odgrywają fundamentalną rolę w kształtowaniu struktury czasoprzestrzennej.
+                    </p>
+
+                    <div class="axioms-section">
+                        <h3>Podstawowe Aksjomaty</h3>
+                        <div class="axiom-list">
+                            <div class="axiom-item">
+                                <strong>L0:</strong> Prohibicja idealnej koherencji - R(x) = |S(x)I(x)|² < 1
+                            </div>
+                            <div class="axiom-item">
+                                <strong>L1:</strong> Rezonans jako fundamentalna ewaluacja - R(S,I) = |⟨S,I⟩|²
+                            </div>
+                            <div class="axiom-item">
+                                <strong>L2:</strong> Prawda jako projekcja spektralna - T = |I⟩⟨I|
+                            </div>
+                            <div class="axiom-item">
+                                <strong>L3:</strong> Czas jako kierunkowy przepływ entropii rezonansowej - τ(x) = S_res(x)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="equations-section">
+                        <h3>Kluczowe Równania</h3>
+                        <div class="equation-list">
+                            <div class="equation-item">
+                                <div class="equation">Λ_plasma = B²/(μ₀ρc²) × (1/L²) × α_resonance(S,I)</div>
+                                <div class="equation-desc">Operator plazmowy CIEL/0</div>
+                            </div>
+                            <div class="equation-item">
+                                <div class="equation">τ(x) = arg I(x) + korekty czasowe</div>
+                                <div class="equation-desc">Pole czasowe jako funkcja intencji</div>
+                            </div>
+                            <div class="equation-item">
+                                <div class="equation">ρ_τ = |∇τ|²</div>
+                                <div class="equation-desc">Gęstość czasowa</div>
+                            </div>
+                            <div class="equation-item">
+                                <div class="equation">u^μ = -∇^μτ/√(-g^αβ∇_ατ∇_βτ)</div>
+                                <div class="equation-desc">Prędkość przepływu czasu</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="concepts-section">
+                        <h3>Kluczowe Koncepcje</h3>
+                        <div class="concept-grid">
+                            <div class="concept-item">
+                                <h4>Pole Intencji I(x)</h4>
+                                <p>Kwantowe pole opisujące wpływ świadomości na strukturę czasoprzestrzenną.</p>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Funkcja Rezonansu R(S,I)</h4>
+                                <p>Mierzy interakcję między stanem kwantowym S a polem intencji I.</p>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Płyn Czasu</h4>
+                                <p>Czas traktowany jako medium o właściwościach hydrodynamicznych.</p>
+                            </div>
+                            <div class="concept-item">
+                                <h4>Modulacja CMB</h4>
+                                <p>Wpływ pola czasowego na obserwowane spektrum promieniowania kosmicznego tła.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="references-section">
+                        <h3>Literatura i Referencje</h3>
+                        <ul class="reference-list">
+                            <li>Lipa, A. "CIEL/0: A Framework for Consciousness-Integrated Quantum Cosmology"</li>
+                            <li>Lipa, A. "Time as a Perfect Fluid: Hydrodynamic Approach to Temporal Dynamics"</li>
+                            <li>Lipa, A. "Harmonic Modulation of CMB through Temporal Field Interactions"</li>
+                        </ul>
+                    </div>
+
+                    <div class="reference-images">
+                        <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/8b5a9b8956814cbcb4d5f03f2129a8a4/1f5d53d9-da89-4aeb-9f9e-1f1535b28a41/bec3144b.png" alt="Spektrum mocy CMB" class="reference-img">
+                        <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/8b5a9b8956814cbcb4d5f03f2129a8a4/a8b3a799-8e07-49ab-94d0-a579f12b2589/d874f5a0.png" alt="Analiza stref harmonicznych" class="reference-img">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

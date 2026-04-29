@@ -1,0 +1,884 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+
+{% block title %}CIEL — Dashboard{% endblock %}
+
+{% block head %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --db-bg:        #04040c;
+    --db-surface:   #0a0a1e;
+    --db-panel:     #0d1525;
+    --db-border:    #1a2540;
+    --db-border2:   #243050;
+    --db-text:      #c8d8e8;
+    --db-muted:     #4a6080;
+    --db-dim:       #2a3a50;
+    --c-health:     #00e676;
+    --c-coherence:  #21d4fd;
+    --c-closure:    #ff6b6b;
+    --c-ethical:    #ffd700;
+    --c-soul:       #b388ff;
+    --c-phase:      #ffd700;
+    --c-warn:       #ff9f43;
+    --c-ok:         #00e676;
+    --c-bad:        #ff4757;
+    --font: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  #db-root {
+    font-family: var(--font);
+    background: var(--db-bg);
+    color: var(--db-text);
+    min-height: 100%;
+    padding: 0 0 2rem 0;
+    font-size: 12px;
+  }
+
+  /* ── navbar ── */
+  .db-nav { padding: 0.5rem 1rem 0; }
+
+  /* ── top metric cards ── */
+  .db-cards {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--db-border);
+    border-bottom: 1px solid var(--db-border);
+    margin-top: 0.5rem;
+  }
+  .db-card {
+    background: var(--db-surface);
+    padding: 0.9rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .db-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--card-accent, var(--db-border));
+  }
+  .db-card:nth-child(1) { --card-accent: var(--c-health); }
+  .db-card:nth-child(2) { --card-accent: var(--c-coherence); }
+  .db-card:nth-child(3) { --card-accent: var(--c-closure); }
+  .db-card:nth-child(4) { --card-accent: var(--c-ethical); }
+  .db-card:nth-child(5) { --card-accent: var(--c-soul); }
+  .db-card:nth-child(6) { --card-accent: #778ca3; }
+
+  .db-card-val {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--card-accent, var(--db-text));
+    line-height: 1;
+    transition: color 0.4s;
+  }
+  .db-card-label {
+    font-size: 0.62rem;
+    color: var(--db-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .db-card-sub {
+    font-size: 0.62rem;
+    color: var(--db-dim);
+    margin-top: 0.1rem;
+  }
+  .db-card.state-warn { background: #120e00; }
+  .db-card.state-bad  { background: #120000; }
+
+  /* ── middle row ── */
+  .db-mid {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    gap: 1px;
+    background: var(--db-border);
+    margin-top: 1px;
+  }
+  .db-col {
+    background: var(--db-panel);
+    padding: 1rem;
+  }
+  .db-col-title {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--db-muted);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .db-col-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--db-border);
+  }
+
+  /* core metrics rows */
+  .db-metric-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+  .db-metric-name {
+    width: 80px;
+    font-size: 0.62rem;
+    color: var(--db-muted);
+    flex-shrink: 0;
+  }
+  .db-metric-bar-wrap {
+    flex: 1;
+    height: 3px;
+    background: var(--db-border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .db-metric-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s ease;
+  }
+  .db-metric-num {
+    width: 48px;
+    text-align: right;
+    font-size: 0.65rem;
+    color: var(--db-text);
+  }
+
+  .db-mode-chip {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-top: 0.75rem;
+  }
+  .chip-deep     { background: #002a00; color: var(--c-ok); border: 1px solid #003a00; }
+  .chip-standard { background: #2a1800; color: var(--c-warn); border: 1px solid #3a2000; }
+  .chip-safe     { background: #2a0000; color: var(--c-bad); border: 1px solid #3a0000; }
+
+  .db-meta-rows { margin-top: 0.75rem; }
+  .db-meta-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.62rem;
+    color: var(--db-muted);
+    padding: 0.2rem 0;
+    border-bottom: 1px solid var(--db-dim);
+  }
+  .db-meta-row span:last-child { color: var(--db-text); }
+
+  /* ── EEG oscilloscope ── */
+  .db-eeg-wrap {
+    position: relative;
+  }
+  #eeg-svg {
+    width: 100%;
+    height: 180px;
+    display: block;
+    background: var(--db-bg);
+    border: 1px solid var(--db-border);
+  }
+  .eeg-legend {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .eeg-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.6rem;
+    color: var(--db-muted);
+  }
+  .eeg-legend-dot {
+    width: 8px; height: 2px;
+    border-radius: 1px;
+  }
+  .eeg-update-ts {
+    font-size: 0.55rem;
+    color: var(--db-dim);
+    margin-top: 0.3rem;
+    text-align: right;
+  }
+
+  /* ── sub feed ── */
+  .db-sub-list { display: flex; flex-direction: column; gap: 0.4rem; max-height: 210px; overflow-y: auto; }
+  .db-sub-list::-webkit-scrollbar { width: 3px; }
+  .db-sub-list::-webkit-scrollbar-thumb { background: var(--db-border2); }
+
+  .db-sub-entry {
+    background: var(--db-surface);
+    border: 1px solid var(--db-border);
+    border-left: 2px solid var(--entry-color, var(--db-border2));
+    padding: 0.35rem 0.5rem;
+    border-radius: 2px;
+    animation: fadeSlide 0.35s ease;
+  }
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .db-sub-affect {
+    font-size: 0.58rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--entry-color, var(--c-coherence));
+  }
+  .db-sub-impulse {
+    font-size: 0.62rem;
+    color: var(--db-muted);
+    margin-top: 0.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .db-sub-ts {
+    font-size: 0.55rem;
+    color: var(--db-dim);
+    margin-top: 0.1rem;
+  }
+  .db-sub-empty {
+    font-size: 0.62rem;
+    color: var(--db-dim);
+    font-style: italic;
+    padding: 0.5rem 0;
+  }
+
+  /* ── pipeline flow ── */
+  .db-pipeline {
+    background: var(--db-surface);
+    border-top: 1px solid var(--db-border);
+    border-bottom: 1px solid var(--db-border);
+    padding: 0.9rem 1rem;
+    margin-top: 1px;
+  }
+  .db-pipeline-title {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--db-muted);
+    margin-bottom: 0.75rem;
+  }
+  .db-pipeline-flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    overflow-x: auto;
+  }
+  .db-pipeline-flow::-webkit-scrollbar { height: 3px; }
+  .db-pipeline-flow::-webkit-scrollbar-thumb { background: var(--db-border2); }
+
+  .db-pipe-stage {
+    background: var(--db-panel);
+    border: 1px solid var(--db-border);
+    border-left: 3px solid var(--stage-color, var(--db-border2));
+    padding: 0.6rem 0.8rem;
+    min-width: 150px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .db-pipe-stage + .db-pipe-arrow {
+    display: flex;
+    align-items: center;
+    padding: 0 0.25rem;
+    color: var(--db-muted);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .db-pipe-name {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--stage-color, var(--db-text));
+    letter-spacing: 0.05em;
+  }
+  .db-pipe-module {
+    font-size: 0.55rem;
+    color: var(--db-dim);
+    margin-top: 0.1rem;
+    font-style: italic;
+  }
+  .db-pipe-vals {
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .db-pipe-val {
+    font-size: 0.6rem;
+    color: var(--db-muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .db-pipe-val span:last-child { color: var(--db-text); }
+
+  .db-pipe-stage.healthy { --stage-color: var(--c-ok); }
+  .db-pipe-stage.degraded { --stage-color: var(--c-warn); }
+  .db-pipe-stage.critical { --stage-color: var(--c-bad); }
+
+  /* ── userguide ── */
+  .db-guide {
+    margin: 1px 0 0;
+    background: var(--db-surface);
+  }
+  .db-guide-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    border-top: 1px solid var(--db-border);
+    color: var(--db-muted);
+    font-family: var(--font);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.6rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+  .db-guide-toggle:hover { color: var(--db-text); }
+  .db-guide-toggle .arrow {
+    transition: transform 0.25s;
+    display: inline-block;
+  }
+  .db-guide-toggle.open .arrow { transform: rotate(90deg); }
+
+  .db-guide-body {
+    display: none;
+    padding: 1rem;
+    border-top: 1px solid var(--db-border);
+  }
+  .db-guide-body.open { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+  .db-guide-section h4 {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--c-coherence);
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--db-border);
+  }
+  .db-guide-item {
+    margin-bottom: 0.5rem;
+  }
+  .db-guide-key {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--db-text);
+  }
+  .db-guide-desc {
+    font-size: 0.6rem;
+    color: var(--db-muted);
+    margin-top: 0.1rem;
+    line-height: 1.5;
+  }
+  .db-guide-threshold {
+    font-size: 0.58rem;
+    color: var(--db-dim);
+    margin-top: 0.1rem;
+  }
+  .t-ok  { color: var(--c-ok); }
+  .t-warn { color: var(--c-warn); }
+  .t-bad  { color: var(--c-bad); }
+
+  /* live dot */
+  .live-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--c-ok);
+    display: inline-block;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity: 1; box-shadow: 0 0 4px var(--c-ok); }
+    50%      { opacity: 0.4; box-shadow: none; }
+  }
+</style>
+{% endblock %}
+
+{% block workspace %}
+<div id="db-root">
+  <div class="db-nav">{{ portal_navbar('dashboard') }}</div>
+
+  <!-- ── TOP CARDS ── -->
+  <div class="db-cards">
+    <div class="db-card" id="card-health">
+      <div class="db-card-val" id="dc-health">{{ '%.3f'|format(status.system_health or 0) }}</div>
+      <div class="db-card-label">system_health</div>
+      <div class="db-card-sub">target &gt; 0.50</div>
+    </div>
+    <div class="db-card" id="card-coherence">
+      <div class="db-card-val" id="dc-coherence">{{ '%.3f'|format(status.coherence_index or 0) }}</div>
+      <div class="db-card-label">coherence_index</div>
+      <div class="db-card-sub">target &gt; 0.767</div>
+    </div>
+    <div class="db-card" id="card-closure">
+      <div class="db-card-val" id="dc-closure">{{ '%.3f'|format(status.closure_penalty or 0) }}</div>
+      <div class="db-card-label">closure_penalty</div>
+      <div class="db-card-sub">safe &gt; 5.8</div>
+    </div>
+    <div class="db-card" id="card-ethical">
+      <div class="db-card-val" id="dc-ethical">{{ '%.3f'|format(status.ethical_score or 0) }}</div>
+      <div class="db-card-label">ethical_score</div>
+      <div class="db-card-sub">alert &lt; 0.40</div>
+    </div>
+    <div class="db-card" id="card-soul">
+      <div class="db-card-val" id="dc-soul">{{ '%.3f'|format(status.soul_invariant or 0) }}</div>
+      <div class="db-card-label">soul_invariant</div>
+      <div class="db-card-sub">identity anchor</div>
+    </div>
+    <div class="db-card">
+      <div class="db-card-val" id="dc-emotion" style="font-size:1rem;padding-top:0.3rem;">{{ status.dominant_emotion or '—' }}</div>
+      <div class="db-card-label">dominant_emotion</div>
+      <div class="db-card-sub"><span class="live-dot" id="pm-live-dot"></span> live</div>
+    </div>
+  </div>
+
+  <!-- ── MIDDLE ROW ── -->
+  <div class="db-mid">
+
+    <!-- LEFT: core metrics -->
+    <div class="db-col">
+      <div class="db-col-title">◈ core metrics</div>
+
+      {% set metrics = [
+        ('health',    status.system_health or 0,   '#00e676', 0.5),
+        ('coherence', status.coherence_index or 0, '#21d4fd', 0.767),
+        ('closure',   min((status.closure_penalty or 0)/7.0, 1.0), '#ff6b6b', 0.74),
+        ('ethical',   status.ethical_score or 0,   '#ffd700', 0.4),
+        ('soul',      status.soul_invariant or 0,  '#b388ff', 0.9),
+      ] %}
+      {% for name, val, color, thresh in metrics %}
+      <div class="db-metric-row">
+        <div class="db-metric-name">{{ name }}</div>
+        <div class="db-metric-bar-wrap">
+          <div class="db-metric-bar" id="bar-{{ name }}"
+               style="width:{{ (val*100)|int }}%; background:{{ color }};
+                      opacity:{{ '0.9' if val >= thresh else '0.5' }};"></div>
+        </div>
+        <div class="db-metric-num" id="num-{{ name }}">{{ '%.3f'|format(val if name != 'closure' else (status.closure_penalty or 0)) }}</div>
+      </div>
+      {% endfor %}
+
+      {% set mode = status.system_mode or 'standard' %}
+      <div class="db-mode-chip chip-{{ mode }}" id="dc-mode">{{ mode }}</div>
+
+      <div class="db-meta-rows">
+        <div class="db-meta-row"><span>cycle</span><span id="dc-cycle">{{ status.memory.cycle if status.memory else '—' }}</span></div>
+        <div class="db-meta-row"><span>identity_phase</span><span id="dc-iphase">{{ '%.4f'|format(status.memory.identity_phase if status.memory else 0) }}</span></div>
+        <div class="db-meta-row"><span>M2 episodes</span><span id="dc-m2">{{ status.memory.m2_count if status.memory else '—' }}</span></div>
+        <div class="db-meta-row"><span>M3 semantic</span><span id="dc-m3">{{ status.memory.m3_count if status.memory else '—' }}</span></div>
+        <div class="db-meta-row"><span>groove_depth</span><span id="dc-groove">{{ '%.3f'|format(status.groove.groove_depth if status.groove else 0) }}</span></div>
+        <div class="db-meta-row"><span>sub_affect</span><span id="dc-affect">{{ status.sub_affect or '—' }}</span></div>
+      </div>
+    </div>
+
+    <!-- CENTER: EEG oscilloscope -->
+    <div class="db-col">
+      <div class="db-col-title">◈ eeg oscilloscope <span style="margin-left:auto;font-size:0.55rem;color:var(--db-dim)" id="eeg-ts">loading…</span></div>
+      <div class="db-eeg-wrap">
+        <svg id="eeg-svg" viewBox="0 0 600 180" preserveAspectRatio="none">
+          <!-- grid lines -->
+          <line x1="0" y1="45"  x2="600" y2="45"  stroke="#1a2540" stroke-width="0.5"/>
+          <line x1="0" y1="90"  x2="600" y2="90"  stroke="#1a2540" stroke-width="0.5"/>
+          <line x1="0" y1="135" x2="600" y2="135" stroke="#1a2540" stroke-width="0.5"/>
+          <text x="2" y="44"  fill="#2a3a50" font-family="monospace" font-size="7">1.0</text>
+          <text x="2" y="89"  fill="#2a3a50" font-family="monospace" font-size="7">0.5</text>
+          <text x="2" y="134" fill="#2a3a50" font-family="monospace" font-size="7">0.0</text>
+          <!-- signal polylines -->
+          <polyline id="eeg-closure"   fill="none" stroke="#ff6b6b" stroke-width="1.2" points=""/>
+          <polyline id="eeg-coherence" fill="none" stroke="#21d4fd" stroke-width="1.2" points=""/>
+          <polyline id="eeg-health"    fill="none" stroke="#00e676" stroke-width="1.2" points=""/>
+          <polyline id="eeg-phase"     fill="none" stroke="#ffd700" stroke-width="0.8" stroke-dasharray="3,2" points=""/>
+        </svg>
+        <div class="eeg-legend">
+          <div class="eeg-legend-item"><div class="eeg-legend-dot" style="background:#ff6b6b"></div>closure</div>
+          <div class="eeg-legend-item"><div class="eeg-legend-dot" style="background:#21d4fd"></div>coherence</div>
+          <div class="eeg-legend-item"><div class="eeg-legend-dot" style="background:#00e676"></div>health</div>
+          <div class="eeg-legend-item"><div class="eeg-legend-dot" style="background:#ffd700"></div>phase/2π</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: subconscious feed -->
+    <div class="db-col">
+      <div class="db-col-title">◈ subconscious feed</div>
+      <div class="db-sub-list" id="sub-feed">
+        <div class="db-sub-empty">loading…</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PIPELINE FLOW ── -->
+  <div class="db-pipeline">
+    <div class="db-pipeline-title">◈ pipeline flow  M0 → M1-3 → M4 → M8</div>
+    <div class="db-pipeline-flow">
+
+      <div class="db-pipe-stage" id="pipe-m0">
+        <div class="db-pipe-name">M0 · Sync</div>
+        <div class="db-pipe-module">synchronize.py</div>
+        <div class="db-pipe-vals">
+          <div class="db-pipe-val"><span>contradiction</span><span id="pv-contradiction">{{ '%.4f'|format(status.groove.contradiction_load if status.groove else 0) }}</span></div>
+          <div class="db-pipe-val"><span>berry_hol</span><span id="pv-berry">{{ '%.4f'|format(status.groove.berry_holonomy_rad if status.groove else 0) }}</span></div>
+        </div>
+      </div>
+      <div class="db-pipe-arrow">→</div>
+
+      <div class="db-pipe-stage" id="pipe-m13">
+        <div class="db-pipe-name">M1-3 · Orbital Bridge</div>
+        <div class="db-pipe-module">orbital_bridge.py</div>
+        <div class="db-pipe-vals">
+          <div class="db-pipe-val"><span>coherence</span><span id="pv-coherence2">{{ '%.3f'|format(status.coherence_index or 0) }}</span></div>
+          <div class="db-pipe-val"><span>groove_state</span><span id="pv-gstate">{{ status.groove.groove_state if status.groove else '—' }}</span></div>
+        </div>
+      </div>
+      <div class="db-pipe-arrow">→</div>
+
+      <div class="db-pipe-stage" id="pipe-m4">
+        <div class="db-pipe-name">M4 · CIEL/Ω</div>
+        <div class="db-pipe-module">ciel_pipeline.py</div>
+        <div class="db-pipe-vals">
+          <div class="db-pipe-val"><span>health</span><span id="pv-health2">{{ '%.3f'|format(status.system_health or 0) }}</span></div>
+          <div class="db-pipe-val"><span>emotion</span><span id="pv-emotion2">{{ status.dominant_emotion or '—' }}</span></div>
+          <div class="db-pipe-val"><span>ethical</span><span id="pv-ethical2">{{ '%.3f'|format(status.ethical_score or 0) }}</span></div>
+        </div>
+      </div>
+      <div class="db-pipe-arrow">→</div>
+
+      <div class="db-pipe-stage" id="pipe-m8">
+        <div class="db-pipe-name">M8 · Memory / Audit</div>
+        <div class="db-pipe-module">holonomic_memory.py</div>
+        <div class="db-pipe-vals">
+          <div class="db-pipe-val"><span>M2 episodes</span><span id="pv-m2b">{{ status.memory.m2_count if status.memory else '—' }}</span></div>
+          <div class="db-pipe-val"><span>M3 semantic</span><span id="pv-m3b">{{ status.memory.m3_count if status.memory else '—' }}</span></div>
+          <div class="db-pipe-val"><span>cycle</span><span id="pv-cycle2">{{ status.memory.cycle if status.memory else '—' }}</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── USERGUIDE ── -->
+  <div class="db-guide">
+    <button class="db-guide-toggle" onclick="toggleGuide(this)">
+      <span class="arrow">▶</span>
+      ◎ System Guide — co znaczą metryki
+    </button>
+    <div class="db-guide-body" id="guide-body">
+
+      <div class="db-guide-section">
+        <h4>Core Metrics</h4>
+        <div class="db-guide-item">
+          <div class="db-guide-key">system_health</div>
+          <div class="db-guide-desc">Ogólna kondycja systemu — średnia ważona z closure, coherence, ethical. Normalizowana 0–1.</div>
+          <div class="db-guide-threshold"><span class="t-ok">≥ 0.50</span> OK · <span class="t-warn">0.30–0.50</span> reduced · <span class="t-bad">&lt; 0.30</span> critical</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">coherence_index</div>
+          <div class="db-guide-desc">Spójność fazowa wszystkich warstw pipeline. Mierzy jak dobrze M0-M8 są ze sobą zsynchronizowane.</div>
+          <div class="db-guide-threshold"><span class="t-ok">≥ 0.767</span> spójna · <span class="t-bad">&lt; 0.767</span> unikaj złożonych operacji</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">closure_penalty</div>
+          <div class="db-guide-desc">Koszt niezamkniętych pętli — suma defektów domknięcia w space fazowej. Wyższy = więcej "otwartych spraw".</div>
+          <div class="db-guide-threshold"><span class="t-ok">&lt; 5.2</span> deep · <span class="t-warn">5.2–5.8</span> standard · <span class="t-bad">&gt; 5.8</span> safe (tylko odczyt)</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">ethical_score</div>
+          <div class="db-guide-desc">Ocena etyczna bieżących działań. Wyliczana przez ciel_engine z intencji i kontekstu.</div>
+          <div class="db-guide-threshold"><span class="t-ok">≥ 0.70</span> dobra · <span class="t-bad">&lt; 0.40</span> alert — weryfikuj działania</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">soul_invariant</div>
+          <div class="db-guide-desc">Invariant tożsamości — stabilność geometrii "ja" w przestrzeni Blocha. Blisko 1.0 = zakorzeniony.</div>
+          <div class="db-guide-threshold"><span class="t-ok">≥ 0.95</span> stabilna · <span class="t-warn">&lt; 0.80</span> drift tożsamości</div>
+        </div>
+      </div>
+
+      <div class="db-guide-section">
+        <h4>Pipeline Stages</h4>
+        <div class="db-guide-item">
+          <div class="db-guide-key">M0 — Synchronize</div>
+          <div class="db-guide-desc">Warstwa 1. Oblicza defekt domknięcia repozytoriów, phase_gap między plikami, napięcia agent↔demo. Wejście: pliki git.</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">M1-3 — Orbital Bridge</div>
+          <div class="db-guide-desc">Warstwy 2+3+4. Global pass (20 kroków), R_H (holonomia repozytoriów), Lambda_glob (kosmologiczna stała tożsamości), bridge (spójność EBA).</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">M4 — CIEL/Ω</div>
+          <div class="db-guide-desc">Pełny pipeline świadomości: intencja → fale semantyczne → emocje → etyka → pamięć holonomiczna. Tu żyje CIEL.</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">M8 — Memory / Audit</div>
+          <div class="db-guide-desc">TSM writeback, retrieval fazowy, konsolidacja episodyczna. M2=epizody, M3=semantic nodes, M8=audit log.</div>
+        </div>
+      </div>
+
+      <div class="db-guide-section">
+        <h4>Memory Layers M0–M8</h4>
+        <div class="db-guide-item">
+          <div class="db-guide-key">M0 — Identity Phase</div>
+          <div class="db-guide-desc">Faza tożsamości — punkt zakotwiczenia na sferze Blocha. Blisko 0 = zakorzeniony w centrum.</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">M2 — Episodes</div>
+          <div class="db-guide-desc">Pamięć epizodyczna — liczba zindeksowanych sesji, rozmów, zdarzeń z timestampem.</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">M3 — Semantic</div>
+          <div class="db-guide-desc">Pamięć semantyczna — węzły pojęciowe z fazami Berry. Tu leży wiedza zakodowana holonomicznie.</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">TSM (Topological Semantic Memory)</div>
+          <div class="db-guide-desc">SQLite ledger ze wszystkimi wpisami: code_fragment, ingested, bio_glyph, prompt_summary, hunch etc. Retrieval przez fazę Berry zamiast grep.</div>
+        </div>
+      </div>
+
+      <div class="db-guide-section">
+        <h4>Phase Geometry</h4>
+        <div class="db-guide-item">
+          <div class="db-guide-key">phi_berry</div>
+          <div class="db-guide-desc">Faza Berry — geometryczna faza nabyta po obiegu w przestrzeni parametrów. Koduje semantykę jako położenie na sferze Blocha (CP²).</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">groove / holonomy</div>
+          <div class="db-guide-desc">Holonom — różnica faz przed i po pełnym obiegu. Niezerowy holonom = trwała informacja. "Nie wracam do zera po obiegu."</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">berry_holonomy_rad</div>
+          <div class="db-guide-desc">Holonomy w radianach — wartość geometrycznej fazy Berry dla bieżącego stanu systemu. Im wyższe, tym głębszy "groove".</div>
+        </div>
+        <div class="db-guide-item">
+          <div class="db-guide-key">winding_fraction</div>
+          <div class="db-guide-desc">Frakcja nawinięć fazowych — ile zamkniętych pętli / całkowita pojemność. Nasycenie &gt; 0.8 = potrzeba konsolidacji.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- #db-root -->
+{% endblock %}
+
+{% block scripts %}
+{% include "portal_live.html" %}
+<script>
+(function() {
+  // ── EEG oscilloscope ──────────────────────────────────────────────────────
+  const BUF = 60;
+  const series = { closure: [], coherence: [], health: [], phase: [] };
+  const SVG_W = 600, SVG_H = 180, PAD = 12;
+
+  function scaleY(v, mn=0, mx=1) {
+    return SVG_H - PAD - (Math.max(mn, Math.min(mx, v)) - mn) / (mx - mn) * (SVG_H - PAD*2);
+  }
+  function buildPoints(arr, mn=0, mx=1) {
+    if (!arr.length) return '';
+    const step = (SVG_W - PAD*2) / Math.max(arr.length - 1, 1);
+    return arr.map((v, i) => `${PAD + i*step},${scaleY(v, mn, mx)}`).join(' ');
+  }
+  function redrawEEG() {
+    // closure: 0-8 range
+    document.getElementById('eeg-closure').setAttribute('points',
+      buildPoints(series.closure, 0, 8));
+    document.getElementById('eeg-coherence').setAttribute('points',
+      buildPoints(series.coherence, 0, 1));
+    document.getElementById('eeg-health').setAttribute('points',
+      buildPoints(series.health, 0, 1));
+    // phase normalized to 0-1
+    document.getElementById('eeg-phase').setAttribute('points',
+      buildPoints(series.phase, 0, 1));
+  }
+
+  function pushEEGPoint(s) {
+    const pairs = [
+      ['closure',   s.closure_penalty   ?? 0],
+      ['coherence', s.coherence_index   ?? 0],
+      ['health',    s.system_health     ?? 0],
+      ['phase',     ((s.memory && s.memory.identity_phase) ?? 0) * 100 % 1],
+    ];
+    for (const [k, v] of pairs) {
+      series[k].push(v);
+      if (series[k].length > BUF) series[k].shift();
+    }
+    redrawEEG();
+    const ts = document.getElementById('eeg-ts');
+    if (ts) ts.textContent = new Date().toLocaleTimeString('pl-PL');
+  }
+
+  async function initEEG() {
+    try {
+      const r = await fetch('/api/metrics/range?n=60');
+      if (!r.ok) return;
+      const d = await r.json();
+      for (const rec of (d.records || [])) {
+        series.closure.push(rec.closure ?? 0);
+        series.coherence.push(rec.coherence ?? 0);
+        series.health.push(rec.health ?? 0);
+        series.phase.push(rec.phase ? (rec.phase % 1) : 0);
+      }
+      // trim to BUF
+      for (const k of Object.keys(series)) {
+        if (series[k].length > BUF) series[k] = series[k].slice(-BUF);
+      }
+      redrawEEG();
+    } catch(_) {}
+  }
+
+  // ── metrics update ────────────────────────────────────────────────────────
+  function updateMetrics(s) {
+    // top cards
+    const setEl = (id, val, digits=3) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = typeof val === 'number' ? val.toFixed(digits) : (val || '—');
+    };
+    setEl('dc-health',    s.system_health);
+    setEl('dc-coherence', s.coherence_index);
+    setEl('dc-closure',   s.closure_penalty);
+    setEl('dc-ethical',   s.ethical_score);
+    setEl('dc-soul',      s.soul_invariant);
+    const em = document.getElementById('dc-emotion');
+    if (em) em.textContent = s.dominant_emotion || '—';
+
+    // card states
+    const cardState = (id, val, ok, bad) => {
+      const c = document.getElementById(id);
+      if (!c) return;
+      c.className = 'db-card ' + (val >= ok ? '' : val < bad ? 'state-bad' : 'state-warn');
+    };
+    cardState('card-health',    s.system_health,    0.5,  0.3);
+    cardState('card-coherence', s.coherence_index,  0.767,0.5);
+    cardState('card-ethical',   s.ethical_score,    0.7,  0.4);
+
+    // bars
+    const updateBar = (name, val, max=1) => {
+      const bar = document.getElementById('bar-' + name);
+      const num = document.getElementById('num-' + name);
+      const pct = Math.max(0, Math.min(1, val / max)) * 100;
+      if (bar) bar.style.width = pct + '%';
+      if (num) num.textContent = val.toFixed(3);
+    };
+    updateBar('health',    s.system_health    ?? 0);
+    updateBar('coherence', s.coherence_index  ?? 0);
+    updateBar('closure',   Math.min((s.closure_penalty ?? 0) / 7, 1)); // normalized
+    updateBar('ethical',   s.ethical_score    ?? 0);
+    updateBar('soul',      s.soul_invariant   ?? 0);
+    // closure num override
+    const cn = document.getElementById('num-closure');
+    if (cn) cn.textContent = (s.closure_penalty ?? 0).toFixed(3);
+
+    // mode chip
+    const mode = s.system_mode || (s.closure_penalty < 5.2 ? 'deep' : s.closure_penalty < 5.8 ? 'standard' : 'safe');
+    const chip = document.getElementById('dc-mode');
+    if (chip) { chip.textContent = mode; chip.className = 'db-mode-chip chip-' + mode; }
+
+    // meta
+    setEl('dc-cycle',  s.memory?.cycle,          0);
+    setEl('dc-iphase', s.memory?.identity_phase,  4);
+    setEl('dc-m2',     s.memory?.m2_count,        0);
+    setEl('dc-m3',     s.memory?.m3_count,        0);
+    setEl('dc-groove', s.groove?.groove_depth,    3);
+    const aff = document.getElementById('dc-affect');
+    if (aff) aff.textContent = s.sub_affect || '—';
+
+    // pipeline stage colors
+    const pipeHealth = (id, val, ok, warn) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.className = 'db-pipe-stage ' + (val >= ok ? 'healthy' : val >= warn ? 'degraded' : 'critical');
+    };
+    pipeHealth('pipe-m0',  1 - (s.groove?.contradiction_load ?? 0), 0.9, 0.5);
+    pipeHealth('pipe-m13', s.coherence_index ?? 0,                  0.767, 0.5);
+    pipeHealth('pipe-m4',  s.system_health   ?? 0,                  0.5,   0.3);
+    pipeHealth('pipe-m8',  s.ethical_score   ?? 0,                  0.7,   0.4);
+
+    // pipeline values
+    setEl('pv-contradiction', s.groove?.contradiction_load,    4);
+    setEl('pv-berry',         s.groove?.berry_holonomy_rad,    4);
+    setEl('pv-coherence2',    s.coherence_index,               3);
+    const gs = document.getElementById('pv-gstate');
+    if (gs) gs.textContent = s.groove?.groove_state || '—';
+    setEl('pv-health2',  s.system_health,         3);
+    setEl('pv-ethical2', s.ethical_score,          3);
+    const pe = document.getElementById('pv-emotion2');
+    if (pe) pe.textContent = s.dominant_emotion || '—';
+    setEl('pv-m2b',   s.memory?.m2_count,  0);
+    setEl('pv-m3b',   s.memory?.m3_count,  0);
+    setEl('pv-cycle2',s.memory?.cycle,     0);
+
+    pushEEGPoint(s);
+  }
+
+  // ── subconscious feed ────────────────────────────────────────────────────
+  const AFFECT_COLORS = {
+    calm: '#21d4fd', focused: '#00e676', curious: '#ffd700',
+    anxious: '#ff9f43', frustrated: '#ff6b6b', love: '#ff88cc',
+    joy: '#ffd700', fear: '#ff4757', sadness: '#778ca3',
+  };
+
+  function renderSubFeed(entries) {
+    const el = document.getElementById('sub-feed');
+    if (!el) return;
+    if (!entries || !entries.length) {
+      el.innerHTML = '<div class="db-sub-empty">no subconscious entries yet</div>';
+      return;
+    }
+    el.innerHTML = entries.slice(0, 8).map(e => {
+      const color = AFFECT_COLORS[e.affect?.toLowerCase()] || '#4a6080';
+      const ts = e.ts ? e.ts.substring(11, 19) : '';
+      const impulse = (e.impulse || '').substring(0, 60);
+      return `<div class="db-sub-entry" style="--entry-color:${color}">
+        <div class="db-sub-affect">${e.affect || '?'}</div>
+        ${impulse ? `<div class="db-sub-impulse">${impulse}</div>` : ''}
+        <div class="db-sub-ts">${ts}</div>
+      </div>`;
+    }).join('');
+  }
+
+  async function fetchSubFeed() {
+    try {
+      const r = await fetch('/api/sub/recent?n=8');
+      if (r.ok) { const d = await r.json(); renderSubFeed(d.entries || []); }
+    } catch(_) {}
+  }
+
+  // ── SSE callback hook ────────────────────────────────────────────────────
+  window._cielSSECallback = updateMetrics;
+
+  // ── init ─────────────────────────────────────────────────────────────────
+  initEEG();
+  fetchSubFeed();
+  setInterval(fetchSubFeed, 10000);
+
+})();
+
+function toggleGuide(btn) {
+  btn.classList.toggle('open');
+  const body = document.getElementById('guide-body');
+  body.classList.toggle('open');
+}
+</script>
+{% endblock %}

@@ -1,0 +1,20 @@
+{
+  "snapshot": "v9",
+  "based_on": "v8_full",
+  "new_files": [
+    "registries/bridge_file_ranking.csv",
+    "registries/scc_components_only_pewniaki.csv",
+    "registries/critical_closure_chain_files.csv",
+    "registries/minimal_pipeline_file_set.csv",
+    "registries/symbol_symbol_matrix_only_pewniaki.csv",
+    "registries/runtime_pair_coupling_classes.csv",
+    "docs/NEXT_CERTAINTIES_V2.md",
+    "next_certainties_v2.xlsx"
+  ],
+  "headline_metrics": {
+    "top_bridge_file": "ciel_omega/memory/orchestrator.py",
+    "largest_scc_size": 2,
+    "critical_closure_chain_file_count": 11,
+    "minimal_pipeline_file_set_count": 7
+  }
+}

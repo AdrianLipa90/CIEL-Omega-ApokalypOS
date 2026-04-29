@@ -1,0 +1,21 @@
+{
+  "schema": "ciel-sot-agent/upstream-inventory/v0.1",
+  "upstream_repo": "AdrianLipa90/ciel-omega-demo",
+  "ref": "main",
+  "ref_sha": "22379536c00d46cf26955ab1c620b521e8a0f5bc",
+  "inventory_role": "tracked-shell-path-snapshot",
+  "notes": [
+    "This inventory snapshots the shell-facing paths currently tracked from ciel-omega-demo.",
+    "It is used to validate that MAP-SOT-0001 points only to known upstream paths.",
+    "The snapshot is pinned to a concrete upstream commit SHA to reduce semantic drift."
+  ],
+  "paths": [
+    "AGENT.md",
+    "docs/INDEX.md",
+    "docs/orbital_manifest.json",
+    "main/apps/omega_app.py",
+    "main/apps/omega_orbital_app.py",
+    "main/apps/object_cards.py",
+    "main/apps/orbital_manifest_export.py"
+  ]
+}

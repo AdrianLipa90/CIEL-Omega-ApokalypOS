@@ -1,0 +1,94 @@
+{
+  "schema": "ciel-sot-agent/demo-shell-map/v0.1",
+  "upstream_repo": "AdrianLipa90/ciel-omega-demo",
+  "ref": "main",
+  "role": "core-shell-cockpit-publication-surface",
+  "notes": [
+    "This file tracks imported shell-facing objects from ciel-omega-demo.",
+    "It does not treat ciel-omega-demo as the engine.",
+    "Engine semantics remain reserved for the future Informational Dynamics layer."
+  ],
+  "objects": [
+    {
+      "id": "IMP-DEMO-0001",
+      "name": "demo_agent_protocol",
+      "kind": "protocol",
+      "upstream_path": "AGENT.md",
+      "status": "canonical",
+      "integration_role": "shell-governance",
+      "sot_bindings": [
+        "DOC-SOT-0002",
+        "MAP-SOT-0001"
+      ]
+    },
+    {
+      "id": "IMP-DEMO-0002",
+      "name": "demo_docs_index",
+      "kind": "index",
+      "upstream_path": "docs/INDEX.md",
+      "status": "canonical",
+      "integration_role": "shell-human-index",
+      "sot_bindings": [
+        "DOC-SOT-0002",
+        "MAP-SOT-0001"
+      ]
+    },
+    {
+      "id": "IMP-DEMO-0003",
+      "name": "demo_orbital_manifest",
+      "kind": "manifest",
+      "upstream_path": "docs/orbital_manifest.json",
+      "status": "canonical",
+      "integration_role": "shell-runtime-state",
+      "sot_bindings": [
+        "REG-SOT-0003",
+        "MAP-SOT-0001"
+      ]
+    },
+    {
+      "id": "IMP-DEMO-0004",
+      "name": "demo_legacy_runtime_app",
+      "kind": "runtime-app",
+      "upstream_path": "main/apps/omega_app.py",
+      "status": "canonical",
+      "integration_role": "legacy-shell-runtime",
+      "sot_bindings": [
+        "MAP-SOT-0001"
+      ]
+    },
+    {
+      "id": "IMP-DEMO-0005",
+      "name": "demo_orbital_runtime_app",
+      "kind": "runtime-app",
+      "upstream_path": "main/apps/omega_orbital_app.py",
+      "status": "canonical",
+      "integration_role": "orbital-shell-runtime",
+      "sot_bindings": [
+        "MAP-SOT-0001"
+      ]
+    },
+    {
+      "id": "IMP-DEMO-0006",
+      "name": "demo_object_cards_registry",
+      "kind": "registry",
+      "upstream_path": "main/apps/object_cards.py",
+      "status": "canonical",
+      "integration_role": "shell-epistemic-objects",
+      "sot_bindings": [
+        "MAP-SOT-0001"
+      ]
+    },
+    {
+      "id": "IMP-DEMO-0007",
+      "name": "demo_manifest_exporter",
+      "kind": "exporter",
+      "upstream_path": "main/apps/orbital_manifest_export.py",
+      "status": "canonical",
+      "integration_role": "shell-manifest-export",
+      "sot_bindings": [
+        "REG-SOT-0003",
+        "MAP-SOT-0001"
+      ]
+    }
+  ]
+}

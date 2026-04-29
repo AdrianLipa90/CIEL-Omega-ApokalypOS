@@ -1,0 +1,310 @@
+schema: ciel-sot-agent/index-registry/v0.1
+meta:
+  authority: docs/INDEX.md
+  layer_policy:
+    global_index: docs/INDEX.md
+    machine_registry: integration/index_registry.yaml
+    crossrefs: integration/hyperspace_index.json
+  notes:
+    - Global index is authoritative for navigation.
+    - Machine registry is authoritative for object metadata validation.
+    - Imported and canonical objects must be explicitly distinguished.
+objects:
+  - id: DOC-SOT-0001
+    name: architecture
+    layer: architecture
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream: []
+    downstream:
+      - REG-SOT-0001
+      - SRC-SOT-0001
+      - DOC-SOT-0002
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/ARCHITECTURE.md
+    placeholder: false
+  - id: DOC-SOT-0002
+    name: ciel_omega_demo_integration
+    layer: architecture
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - DOC-SOT-0001
+      - REG-SOT-0003
+    downstream:
+      - MAP-SOT-0001
+      - SRC-SOT-0002
+    tests:
+      - TST-SOT-0002
+    interfaces:
+      - IF-SOT-0001
+    exports: []
+    provenance: []
+    path: docs/CIEL_OMEGA_DEMO_INTEGRATION.md
+    placeholder: false
+  - id: ANL-SOT-0001
+    name: relational_analogies
+    layer: analogy
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream: []
+    downstream:
+      - HYP-SOT-0001
+      - DER-SOT-0001
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/analogies/RELATIONAL_ANALOGIES.md
+    placeholder: false
+  - id: HYP-SOT-0001
+    name: scientific_hypotheses
+    layer: science
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - ANL-SOT-0001
+    downstream:
+      - DER-SOT-0001
+      - SRC-SOT-0001
+    tests:
+      - TST-SOT-0001
+      - TST-SOT-0002
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/science/HYPOTHESES.md
+    placeholder: false
+  - id: DER-SOT-0001
+    name: derivation_notes
+    layer: derivation
+    status: canonical
+    provenance_type: native
+    owner_layer: docs
+    upstream:
+      - HYP-SOT-0001
+    downstream:
+      - SRC-SOT-0001
+    tests:
+      - TST-SOT-0001
+    interfaces: []
+    exports: []
+    provenance: []
+    path: docs/science/DERIVATION_NOTES.md
+    placeholder: false
+  - id: REG-SOT-0001
+    name: repository_registry
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0001
+    downstream:
+      - SRC-SOT-0001
+      - SRC-SOT-0002
+      - MAP-SOT-0001
+    tests:
+      - TST-SOT-0001
+    interfaces: []
+    exports:
+      - live_registry
+    provenance: []
+    path: integration/repository_registry.json
+    placeholder: false
+  - id: REG-SOT-0002
+    name: repository_couplings
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0001
+    downstream:
+      - SRC-SOT-0001
+      - SRC-SOT-0002
+    tests:
+      - TST-SOT-0001
+    interfaces: []
+    exports:
+      - live_report
+    provenance: []
+    path: integration/couplings.json
+    placeholder: false
+  - id: REG-SOT-0003
+    name: gh_upstreams
+    layer: registry
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0001
+    downstream:
+      - SRC-SOT-0002
+      - MAP-SOT-0001
+      - DOC-SOT-0002
+    tests:
+      - TST-SOT-0002
+    interfaces:
+      - IF-SOT-0001
+    exports: []
+    provenance: []
+    path: integration/gh_upstreams.json
+    placeholder: false
+  - id: MAP-SOT-0001
+    name: ciel_omega_demo_shell_map
+    layer: registry
+    status: canonical
+    provenance_type: imported
+    owner_layer: integration
+    upstream:
+      - DOC-SOT-0002
+      - REG-SOT-0003
+    downstream:
+      - SRC-SOT-0002
+      - RPT-SOT-0002
+    tests:
+      - TST-SOT-0002
+    interfaces:
+      - IF-SOT-0001
+    exports:
+      - imported_shell_map
+    provenance:
+      - AdrianLipa90/ciel-omega-demo
+    path: integration/upstreams/ciel_omega_demo_shell_map.json
+    placeholder: false
+  - id: SRC-SOT-0001
+    name: repo_phase_model
+    layer: code
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - DER-SOT-0001
+      - REG-SOT-0001
+      - REG-SOT-0002
+    downstream:
+      - SRC-SOT-0002
+      - RPT-SOT-0001
+    tests:
+      - TST-SOT-0001
+    interfaces: []
+    exports:
+      - closure_defect
+      - weighted_euler_vector
+      - pairwise_tension
+    provenance: []
+    path: src/ciel_sot_agent/repo_phase.py
+    placeholder: false
+  - id: SRC-SOT-0002
+    name: gh_live_coupling
+    layer: code
+    status: canonical
+    provenance_type: native
+    owner_layer: src
+    upstream:
+      - SRC-SOT-0001
+      - REG-SOT-0001
+      - REG-SOT-0002
+      - REG-SOT-0003
+      - MAP-SOT-0001
+    downstream:
+      - RPT-SOT-0002
+    tests:
+      - TST-SOT-0002
+    interfaces:
+      - IF-SOT-0001
+    exports:
+      - gh_live_registry
+      - live_gh_coupling_report
+    provenance: []
+    path: src/ciel_sot_agent/gh_coupling.py
+    placeholder: false
+  - id: IF-SOT-0001
+    name: github_api_pull_interface
+    layer: interface
+    status: canonical
+    provenance_type: imported
+    owner_layer: integration
+    upstream:
+      - REG-SOT-0003
+    downstream:
+      - SRC-SOT-0002
+      - MAP-SOT-0001
+    tests:
+      - TST-SOT-0002
+    interfaces: []
+    exports: []
+    provenance:
+      - GitHub REST commits endpoint
+    path: integration/gh_upstreams.json
+    placeholder: false
+  - id: TST-SOT-0001
+    name: repo_phase_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_repo_phase.py
+    placeholder: false
+  - id: TST-SOT-0002
+    name: gh_coupling_tests
+    layer: test
+    status: canonical
+    provenance_type: native
+    owner_layer: tests
+    upstream:
+      - SRC-SOT-0002
+      - MAP-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: tests/test_gh_coupling.py
+    placeholder: false
+  - id: RPT-SOT-0001
+    name: initial_sync_report
+    layer: report
+    status: canonical
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - SRC-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/reports/initial_sync_report.json
+    placeholder: false
+  - id: RPT-SOT-0002
+    name: live_gh_coupling_report
+    layer: report
+    status: placeholder
+    provenance_type: native
+    owner_layer: integration
+    upstream:
+      - SRC-SOT-0002
+      - MAP-SOT-0001
+    downstream: []
+    tests: []
+    interfaces: []
+    exports: []
+    provenance: []
+    path: integration/reports/live_gh_coupling_report.json
+    placeholder: true

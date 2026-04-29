@@ -1,0 +1,150 @@
+{
+  "src/ciel_sot_agent/synchronize.py": [
+    ".paths",
+    ".repo_phase",
+    "__future__",
+    "json",
+    "logging",
+    "pathlib"
+  ],
+  "src/ciel_sot_agent/synchronize_v2.py": [
+    ".paths",
+    ".repo_phase",
+    "__future__",
+    "json",
+    "logging",
+    "pathlib"
+  ],
+  "src/ciel_sot_agent/orbital_bridge.py": [
+    ".ciel_pipeline",
+    ".paths",
+    "__future__",
+    "integration.Orbital.main.bootstrap",
+    "integration.Orbital.main.global_pass",
+    "integration.Orbital.main.phase_control",
+    "json",
+    "logging",
+    "pathlib",
+    "typing"
+  ],
+  "src/ciel_sot_agent/ciel_pipeline.py": [
+    ".paths",
+    "__future__",
+    "argparse",
+    "ciel.engine",
+    "json",
+    "pathlib",
+    "sys",
+    "typing"
+  ],
+  "src/ciel_sot_agent/sapiens_client.py": [
+    ".orbital_bridge",
+    ".paths",
+    ".satellite_authority",
+    "__future__",
+    "argparse",
+    "dataclasses",
+    "datetime",
+    "json",
+    "pathlib",
+    "typing"
+  ],
+  "src/ciel_sot_agent/local_ciel_surface.py": [
+    "__future__",
+    "argparse",
+    "ciel_client",
+    "ciel_inference_surface",
+    "ciel_orchestrator",
+    "json",
+    "pathlib",
+    "sys",
+    "typing",
+    "unified_system"
+  ],
+  "src/ciel_sot_agent/gui/app.py": [
+    "..satellite_authority",
+    ".routes",
+    "__future__",
+    "argparse",
+    "flask",
+    "pathlib",
+    "sys"
+  ],
+  "src/ciel_sot_agent/gui/routes.py": [
+    "..gguf_manager",
+    "..local_ciel_surface",
+    "..satellite_authority",
+    "__future__",
+    "flask",
+    "json",
+    "logging",
+    "pathlib",
+    "typing"
+  ],
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_inference_surface.py": [
+    "__future__",
+    "argparse",
+    "bootstrap_runtime",
+    "ciel.gguf_backends",
+    "ciel_orchestrator",
+    "inference.middleware",
+    "json",
+    "pathlib",
+    "typing"
+  ],
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/middleware.py": [
+    "..bootstrap_runtime",
+    "..orbital.global_pass",
+    ".topology_api",
+    "__future__",
+    "inference.topology_api",
+    "json",
+    "orbital.global_pass",
+    "pathlib",
+    "sys",
+    "typing"
+  ],
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_orchestrator.py": [
+    "__future__",
+    "argparse",
+    "bio.schumann",
+    "bootstrap_runtime",
+    "ciel.engine",
+    "datetime",
+    "emotion.cqcl.emotional_collatz",
+    "fields.intention_field",
+    "fields.soul_invariant",
+    "json",
+    "os",
+    "pathlib",
+    "sys",
+    "typing"
+  ],
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_client.py": [
+    "__future__",
+    "argparse",
+    "bootstrap_runtime",
+    "ciel.gguf_backends",
+    "ciel_orchestrator",
+    "json",
+    "pathlib",
+    "sys",
+    "typing"
+  ],
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/unified_system.py": [
+    "__future__",
+    "argparse",
+    "bootstrap_runtime",
+    "bridge.memory_core_phase_bridge",
+    "ciel_client",
+    "ciel_omega.bridge.memory_core_phase_bridge",
+    "ciel_omega.ciel_client",
+    "ciel_omega.ciel_orchestrator",
+    "ciel_orchestrator",
+    "dataclasses",
+    "json",
+    "pathlib",
+    "sys",
+    "typing"
+  ]
+}

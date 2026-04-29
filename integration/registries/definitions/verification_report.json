@@ -1,0 +1,11 @@
+{
+  "schema": "ciel/orbital-registry-verification-report/v0.1",
+  "ok": true,
+  "counts": {
+    "export_cards": 4632,
+    "internal_cards": 4632,
+    "boards": 763,
+    "sync_records": 763
+  },
+  "issues": []
+}

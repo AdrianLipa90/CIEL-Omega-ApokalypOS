@@ -1,0 +1,60 @@
+{
+  "schema": "ciel/audio-orbital-import-manifest/v0.1",
+  "identity": "audio_orbital_stack",
+  "owner_layer": "integration/imports",
+  "upstream_runtime": [
+    "src/ciel-omega-demo-main/main/omega/runtime20.py",
+    "src/ciel-omega-demo-main/main/apps/orbital_cockpit.py",
+    "src/ciel_sot_agent/sapiens_client.py",
+    "src/ciel_sot_agent/sapiens_panel/controller.py",
+    "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_ciel_omega_complete.py",
+    "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/gguf_backend.py"
+  ],
+  "components": [
+    {
+      "key": "whisper_cpp",
+      "display_name": "whisper.cpp",
+      "semantic_role": "stt-engine",
+      "extract_to": "vendor/whisper.cpp",
+      "active_pipeline": true,
+      "source_url": "https://github.com/ggml-org/whisper.cpp/archive/refs/heads/master.zip"
+    },
+    {
+      "key": "faster_whisper",
+      "display_name": "faster-whisper",
+      "semantic_role": "python-stt-alternative",
+      "extract_to": "vendor/faster-whisper",
+      "active_pipeline": false,
+      "source_url": "https://github.com/SYSTRAN/faster-whisper/archive/refs/heads/master.zip"
+    },
+    {
+      "key": "silero_vad",
+      "display_name": "silero-vad",
+      "semantic_role": "speech-gate",
+      "extract_to": "vendor/silero-vad",
+      "active_pipeline": true,
+      "source_url": "https://github.com/snakers4/silero-vad/archive/refs/heads/master.zip"
+    },
+    {
+      "key": "piper",
+      "display_name": "piper",
+      "semantic_role": "tts-engine",
+      "extract_to": "vendor/piper",
+      "active_pipeline": true,
+      "source_url": "https://github.com/rhasspy/piper/archive/refs/heads/master.zip"
+    },
+    {
+      "key": "piper_samples",
+      "display_name": "piper-samples",
+      "semantic_role": "sample-audio-corpus",
+      "extract_to": "vendor/piper-samples",
+      "active_pipeline": false,
+      "source_url": "https://github.com/rhasspy/piper-samples/archive/refs/heads/master.zip"
+    }
+  ],
+  "notes": [
+    "Heavy speech models remain external and are downloaded only if URLs are configured.",
+    "piper-samples is catalogued but not extracted by default.",
+    "This import is intended as a low-friction bridge into Orbital and Sapiens packet memory."
+  ]
+}

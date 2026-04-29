@@ -1,0 +1,32 @@
+symbol,runtime_path,target_type,orchestrator_depth,status,evidence,note
+orchestrator,ciel_omega/ciel_orchestrator.py,module,0,confirmed,name/direct,canonical top-level orchestrator entry
+orchestrator,ciel_omega/runtime/controller.py,module,0,confirmed,name/direct,runtime control entry
+orchestrator,ciel_omega/runtime/omega/omega_runtime.py,module,0,confirmed,name/direct,omega runtime entry
+memory,ciel_omega/memory/orchestrator.py,module,0,confirmed,name/direct,memory orchestration layer
+memory,ciel_omega/memory/base.py,module,1,confirmed,name/direct,memory base state definitions
+memory,ciel_omega/memory/dynamics.py,module,1,confirmed,keyword/direct,memory dynamics update candidate
+gamma_i,ciel_omega/phase_equation_of_motion.py,module,3,confirmed,keyword/formula,phase equation runtime target
+gamma_i,ciel_omega/relational_formalism.py,module,,confirmed,keyword/formula,relational phase formalism target
+gamma_i,ciel_omega/core/braid/phase_field.py,module,,confirmed,name/direct,braid phase field target
+Delta_H,ciel_omega/constraints/euler_constraint.py,module,2,confirmed,name/direct,explicit Euler constraint target
+R_H,ciel_omega/orbital/rh_control.py,module,,confirmed,name/direct,R_H control target
+R_H,ciel_omega/memory/holonomy.py,module,1,candidate,keyword/semantic,holonomy coherence candidate
+V_rel,ciel_omega/relational_formalism.py,module,,confirmed,keyword/formula,relational potential target
+V_rel,ciel_omega/memory/potential.py,module,2,confirmed,name/direct,potential implementation layer
+tau_i,ciel_omega/constraints/euler_constraint.py,module,2,candidate,keyword,tau appears in canonical constraint layer
+tau_i,ciel_omega/orbital/model.py,module,,candidate,keyword/orbital,orbital model carries tau-like labels
+tau_i,ciel_omega/memory/base.py,module,1,candidate,keyword/state,state container candidate for tau indexing
+A_ij,ciel_omega/orbital/global_pass.py,module,,candidate,keyword/conceptual,effective pair-connection kernel candidate
+A_ij,ciel_omega/bridge/memory_core_phase_bridge.py,module,1,candidate,bridge/conceptual,cross-layer pair coupling bridge
+W_ij,ciel_omega/memory/holonomy.py,module,1,confirmed,name/direct,holonomy implementation target
+W_ij,ciel_omega/orbital/global_pass.py,module,,candidate,keyword/orbital,global pass likely carries pair transport
+W_ij,ciel_omega/holonomy_cosmic_seismic.py,module,,candidate,keyword/holonomy,holonomy analysis target
+F_ij,ciel_omega/phase_equation_of_motion.py,module,3,candidate,keyword/pair-correction,pair correction candidate near phase equations
+epsilon,ciel_omega/memory/potential.py,module,2,candidate,keyword,epsilon appears in potential layer
+epsilon,ciel_omega/orbital/phase_control.py,module,,candidate,keyword,phase-control epsilon candidate
+D,ciel_omega/core/physics/ciel0_framework.py,module,2,candidate,keyword/physics,macro coupling candidate
+Sigma_i,ciel_omega/fields/unified_sigma_field.py,module,,confirmed,name/direct,sigma field target
+Sigma_i,ciel_omega/fields/soul_invariant.py,module,,candidate,keyword/sigma,invariant carrier candidate
+EulerBerry,ciel_omega/constraints/euler_constraint.py,module,2,confirmed,name/direct,explicit Euler closure layer
+tetrahedral_frame,ciel_omega/experiments/intentional_tetra_or/dual_tetra_or.py,module,,candidate,name/direct,tetrahedral experiment target
+reduction,ciel_omega/ext/extemot.py,module,,candidate,keyword-only,only direct reduction keyword hit currently

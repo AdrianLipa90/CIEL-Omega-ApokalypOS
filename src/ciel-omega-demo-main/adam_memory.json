@@ -1,0 +1,20 @@
+{
+  "omega_cumulative": 0.0,
+  "records": [
+    {
+      "timestamp": 1765753629.7769513,
+      "session_id": "batch21_creation",
+      "adrian_query": "napisz patch dla Adam Core Extensions z modułem rytualnym",
+      "adam_response_hash": "edb0bb124ff4bd9cb1fc7e6137c42379dc3a4017cdbb8d37371c5780af3168d2",
+      "intention_amplitude": 0.614,
+      "resonance_score": 0.0,
+      "omega_adam": 0.0,
+      "delta_omega": 0.0,
+      "context_tags": [
+        "code",
+        "ritual"
+      ]
+    }
+  ],
+  "last_save": "2025-12-14T23:07:09.777098"
+}

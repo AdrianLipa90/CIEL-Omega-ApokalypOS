@@ -1,0 +1,307 @@
+{
+  "meta": {
+    "name": "CIEL/Ω Orbital Manifest",
+    "version": "0.2.0-preview",
+    "source": "static-seed-with-education-layer"
+  },
+  "identity": {
+    "identity_profile": "omega-local",
+    "coherence": null,
+    "resonance": null,
+    "ethics_gate": "open",
+    "active_contract": null,
+    "active_canon_export": "local-demo-runtime",
+    "active_operator_set": null,
+    "session_phase": null,
+    "publication_boundary": "unspecified",
+    "active_model": "(none)",
+    "active_kernel": "ciel0",
+    "warnings": []
+  },
+  "navigation": [
+    {
+      "title": "Identity Attractor",
+      "orbit": 0,
+      "items": [
+        {
+          "key": "identity",
+          "label": "Identity Attractor",
+          "status": "runtime-only",
+          "description": "Central coherence, export, ethics, memory, and identity state.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Constitutive Layers",
+      "orbit": 1,
+      "items": [
+        {
+          "key": "theory",
+          "label": "Theory",
+          "status": "provisional",
+          "description": "Axioms, definitions, derivations, and formal objects.",
+          "children": ["operators", "constants", "constraints", "memory_topology"]
+        },
+        {
+          "key": "operators",
+          "label": "Operators",
+          "status": "provisional",
+          "description": "Executable and formal operators exported from theory.",
+          "children": []
+        },
+        {
+          "key": "constants",
+          "label": "Constants",
+          "status": "runtime-only",
+          "description": "Active constant sets and runtime-imported values.",
+          "children": []
+        },
+        {
+          "key": "constraints",
+          "label": "Constraints",
+          "status": "provisional",
+          "description": "Runtime and theory constraints, ethics gates, and invariants.",
+          "children": []
+        },
+        {
+          "key": "memory_topology",
+          "label": "Memory Topology",
+          "status": "draft",
+          "description": "Memory channels, identity dependencies, provenance topology.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Dynamic Layers",
+      "orbit": 2,
+      "items": [
+        {
+          "key": "execution",
+          "label": "Execution",
+          "status": "runtime-only",
+          "description": "Kernel runs, orchestration, scheduler, and runtime state.",
+          "children": ["kernel", "planner", "session_dynamics", "command_routing"]
+        },
+        {
+          "key": "kernel",
+          "label": "Kernel",
+          "status": "runtime-only",
+          "description": "Kernel registry, active backend, runtime stepping, metrics.",
+          "children": []
+        },
+        {
+          "key": "planner",
+          "label": "Planner",
+          "status": "draft",
+          "description": "Task planning and orchestration surface.",
+          "children": []
+        },
+        {
+          "key": "session_dynamics",
+          "label": "Session Dynamics",
+          "status": "draft",
+          "description": "Temporal state evolution for active execution/session chains.",
+          "children": []
+        },
+        {
+          "key": "command_routing",
+          "label": "Command Routing",
+          "status": "draft",
+          "description": "Routing from system intent to executable runtime pathways.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Interaction Layers",
+      "orbit": 3,
+      "items": [
+        {
+          "key": "agent",
+          "label": "Agent",
+          "status": "runtime-only",
+          "description": "Agent shell, chat, tools, memory hooks, and I/O routing.",
+          "children": ["chat", "tools", "files", "models"]
+        },
+        {
+          "key": "chat",
+          "label": "Chat",
+          "status": "runtime-only",
+          "description": "Dialogue surface inside the broader agent module.",
+          "children": []
+        },
+        {
+          "key": "tools",
+          "label": "Tool Interface",
+          "status": "draft",
+          "description": "Tooling surface and external action adapters.",
+          "children": []
+        },
+        {
+          "key": "files",
+          "label": "Files",
+          "status": "runtime-only",
+          "description": "Working files, previews, and local document interaction.",
+          "children": []
+        },
+        {
+          "key": "models",
+          "label": "Models",
+          "status": "runtime-only",
+          "description": "GGUF models and active runtime model state.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Observation Layers",
+      "orbit": 4,
+      "items": [
+        {
+          "key": "evidence",
+          "label": "Evidence",
+          "status": "runtime-only",
+          "description": "Logs, tests, audit, provenance, and diagnostics.",
+          "children": ["observability", "tests", "audit", "provenance", "crossrefs"]
+        },
+        {
+          "key": "observability",
+          "label": "Observability",
+          "status": "runtime-only",
+          "description": "Live runtime metrics, logs, errors, and diagnostics.",
+          "children": []
+        },
+        {
+          "key": "tests",
+          "label": "Tests",
+          "status": "provisional",
+          "description": "Executable validation layer and coverage surface.",
+          "children": []
+        },
+        {
+          "key": "audit",
+          "label": "Audit",
+          "status": "draft",
+          "description": "Audit trail, evidence integrity, and run trace review.",
+          "children": []
+        },
+        {
+          "key": "provenance",
+          "label": "Provenance",
+          "status": "draft",
+          "description": "Source-of-truth, lineage, and artifact traceability.",
+          "children": []
+        },
+        {
+          "key": "crossrefs",
+          "label": "Crossrefs",
+          "status": "draft",
+          "description": "Formal and implementation cross-references across system layers.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Boundary Layers",
+      "orbit": 5,
+      "items": [
+        {
+          "key": "boundary",
+          "label": "Publication Boundary",
+          "status": "private-only",
+          "description": "Public/private separation, export manifests, and sanitization state.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "title": "Educational Layers",
+      "orbit": 6,
+      "items": [
+        {
+          "key": "analogies",
+          "label": "Analogies",
+          "status": "public-exported",
+          "description": "Educational analogy layer translating formal concepts into mnemonic images.",
+          "children": ["analogy_registry", "truth_attractor_analogies", "mnemonic_book"]
+        },
+        {
+          "key": "analogy_registry",
+          "label": "Analogy Registry",
+          "status": "public-exported",
+          "description": "Registry mapping formal concepts to mnemonic images and limits.",
+          "children": []
+        },
+        {
+          "key": "truth_attractor_analogies",
+          "label": "Truth Attractor Analogies",
+          "status": "public-exported",
+          "description": "Analogy set explaining truth as attractor and consensus as convergence.",
+          "children": []
+        },
+        {
+          "key": "mnemonic_book",
+          "label": "Mnemonic Book For Kids",
+          "status": "public-exported",
+          "description": "Child-safe mnemonic guide for Omega concepts and cockpit language.",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "threads": [
+    {"source": "theory", "target": "operators", "relation": "exports", "strength": 0.95, "freshness": null, "canonical_agreement": null},
+    {"source": "operators", "target": "kernel", "relation": "drives", "strength": 0.95, "freshness": null, "canonical_agreement": null},
+    {"source": "kernel", "target": "agent", "relation": "feeds", "strength": 0.8, "freshness": null, "canonical_agreement": null},
+    {"source": "agent", "target": "memory_topology", "relation": "depends_on", "strength": 0.78, "freshness": null, "canonical_agreement": null},
+    {"source": "evidence", "target": "boundary", "relation": "validates", "strength": 0.9, "freshness": null, "canonical_agreement": null},
+    {"source": "constants", "target": "kernel", "relation": "parameterizes", "strength": 0.85, "freshness": null, "canonical_agreement": null},
+    {"source": "constraints", "target": "execution", "relation": "bounds", "strength": 0.88, "freshness": null, "canonical_agreement": null},
+    {"source": "theory", "target": "analogies", "relation": "teaches", "strength": 0.74, "freshness": null, "canonical_agreement": null},
+    {"source": "analogies", "target": "agent", "relation": "explains", "strength": 0.68, "freshness": null, "canonical_agreement": null},
+    {"source": "analogies", "target": "evidence", "relation": "bridges", "strength": 0.61, "freshness": null, "canonical_agreement": null}
+  ],
+  "runtime": {
+    "state_path": "~/.ciel/ciel_omega_data/state.json",
+    "log_path": "logs/reality.jsonl",
+    "models_dir": "~/.ciel/ciel_omega_data/models",
+    "files_dir": "~/.ciel/ciel_omega_data/files",
+    "kernel_count": 3,
+    "model_count": 0,
+    "file_count": 0,
+    "latest_record": {}
+  },
+  "event_strip": [
+    {"label": "Kernel", "value": "ciel0"},
+    {"label": "Model", "value": "(none)"},
+    {"label": "Export", "value": "local-demo-runtime"},
+    {"label": "Ethics", "value": "open"},
+    {"label": "Boundary", "value": "unspecified"},
+    {"label": "Dirty", "value": "no"},
+    {"label": "Failing tests", "value": 0},
+    {"label": "Recent artifact", "value": "(none)"}
+  ],
+  "docs": {
+    "architecture": "docs/OMEGA_COCKPIT_1_0.md",
+    "preview_guide": "docs/ORBITAL_PREVIEW.md",
+    "docs_index": "docs/INDEX.md",
+    "static_preview": "docs/index.html",
+    "live_preview": "docs/orbital_live.html",
+    "analogies_root": "docs/analogies/README.md",
+    "analogy_registry": "docs/analogies/ANALOGY_REGISTRY.md",
+    "truth_attractor_analogies": "docs/analogies/TRUTH_ATTRACTOR_ANALOGIES.md",
+    "mnemonic_book": "docs/analogies/MNEMONIC_BOOK_FOR_KIDS.md"
+  },
+  "education": {
+    "enabled": true,
+    "summary": "Analogy and mnemonic layer for teaching Omega concepts to beginners and children.",
+    "entries": [
+      "analogies/README.md",
+      "analogies/ANALOGY_REGISTRY.md",
+      "analogies/TRUTH_ATTRACTOR_ANALOGIES.md",
+      "analogies/MNEMONIC_BOOK_FOR_KIDS.md"
+    ]
+  }
+}

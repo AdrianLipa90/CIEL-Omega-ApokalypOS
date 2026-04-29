@@ -1,0 +1,339 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Orbital Entity Cards{% endblock %}
+
+{% block head %}
+<style>
+  .orbital-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; margin-top: 14px; }
+  .entity-card { background: var(--glass-bg, rgba(10,14,40,0.82)); border: 1px solid rgba(0,184,255,0.18); border-radius: 14px; padding: 14px 16px; }
+  .entity-card:hover { border-color: rgba(0,184,255,0.45); }
+  .entity-id { font-size: .68rem; font-family: monospace; color: var(--col-text-dim, #8899bb); margin-bottom: 4px; }
+  .entity-noun { font-size: 1rem; font-weight: 700; color: var(--col-sky, #21D4FD); margin-bottom: 6px; }
+  .coupling-bar-wrap { height: 5px; background: rgba(255,255,255,0.08); border-radius: 99px; margin-bottom: 8px; }
+  .coupling-bar { height: 5px; border-radius: 99px; background: linear-gradient(90deg, #21D4FD, #2C7BFF); }
+  .entity-meta { font-size: .72rem; color: var(--col-text-dim, #8899bb); margin-bottom: 6px; }
+  .adj-list { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+  .adj-tag { font-size: .66rem; padding: 2px 8px; border-radius: 999px; border: 1px solid rgba(0,184,255,0.22); color: var(--col-text-dim, #8899bb); }
+  .horizon-SEALED       { border-color: rgba(255,80,80,0.4); color: #ff6060; }
+  .horizon-POROUS       { border-color: rgba(255,180,0,0.4); color: #f5c518; }
+  .horizon-TRANSMISSIVE { border-color: rgba(0,230,120,0.4); color: #00e678; }
+  .horizon-OBSERVATIONAL{ border-color: rgba(150,150,255,0.4); color: #a0a0ff; }
+  .horizon-badge { font-size: .66rem; padding: 2px 8px; border-radius: 999px; border: 1px solid; display: inline-block; margin-bottom: 6px; }
+  .note-text { font-size: .70rem; color: var(--col-text-dim, #8899bb); margin-top: 6px; line-height: 1.4; }
+  .sat-card { border-color: rgba(255,200,0,0.22); }
+  .sat-card .entity-noun { color: #f5c518; }
+  .section-head { font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--col-text-dim, #8899bb); margin: 20px 0 6px; }
+  .metrics-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .metric-chip { font-size: .72rem; padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(0,184,255,0.22); background: rgba(10,14,40,0.5); }
+  .metric-val { color: #21D4FD; font-weight: 700; margin-left: 4px; }
+  .refresh-btn { font-size: .75rem; padding: 5px 14px; border: 1px solid rgba(0,184,255,0.3); border-radius: 8px; background: rgba(0,184,255,0.08); color: #21D4FD; cursor: pointer; }
+  .refresh-btn:hover { background: rgba(0,184,255,0.18); }
+  .ts-label { font-size: .65rem; color: var(--col-text-dim, #8899bb); margin-left: 10px; }
+  .status-ok { color: #00e678; }
+  .status-warn { color: #f5c518; }
+  .status-err { color: #ff6060; }
+  .tab-bar { display: flex; gap: 8px; margin: 18px 0 10px; border-bottom: 1px solid rgba(0,184,255,0.15); }
+  .tab-btn { font-size: .75rem; padding: 5px 14px; border: 1px solid rgba(0,184,255,0.22); border-bottom: none; border-radius: 8px 8px 0 0; background: rgba(10,14,40,0.5); color: var(--col-text-dim, #8899bb); cursor: pointer; }
+  .tab-btn.active { background: rgba(0,184,255,0.12); color: #21D4FD; border-color: rgba(0,184,255,0.45); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; align-items: center; }
+  .filter-chip { font-size: .7rem; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(0,184,255,0.22); background: rgba(10,14,40,0.5); color: var(--col-text-dim); cursor: pointer; }
+  .filter-chip.active { background: rgba(0,184,255,0.18); color: #21D4FD; border-color: rgba(0,184,255,0.5); }
+  .file-card { background: var(--glass-bg, rgba(10,14,40,0.82)); border: 1px solid rgba(0,184,255,0.12); border-radius: 10px; padding: 10px 13px; font-size: .72rem; }
+  .file-card:hover { border-color: rgba(0,184,255,0.35); }
+  .file-path { font-family: monospace; font-size: .67rem; color: #21D4FD; word-break: break-all; margin-bottom: 4px; }
+  .file-badges { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 4px; }
+  .orbit-IDENTITY       { border-color: rgba(100,100,255,0.4); color: #8888ff; }
+  .orbit-CONSTITUTIVE   { border-color: rgba(0,184,255,0.4); color: #21D4FD; }
+  .orbit-DYNAMIC        { border-color: rgba(0,230,120,0.4); color: #00e678; }
+  .orbit-INTERACTION    { border-color: rgba(255,180,0,0.4); color: #f5c518; }
+  .orbit-OBSERVATION    { border-color: rgba(200,100,255,0.4); color: #cc77ff; }
+  .orbit-BOUNDARY       { border-color: rgba(255,80,80,0.4); color: #ff6060; }
+  .orbit-EDUCATION      { border-color: rgba(255,140,0,0.4); color: #ff8c00; }
+  .orbit-UNRESOLVED     { border-color: rgba(100,100,100,0.4); color: #666; }
+  .orbit-badge { font-size: .63rem; padding: 2px 7px; border-radius: 999px; border: 1px solid; }
+  .counts-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+</style>
+{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('orbital') }}
+  <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:8px; flex-wrap:wrap;">
+    <span class="gradient-text-sky" style="font-size:1.3rem; font-weight:700;">Orbital Entity Cards</span>
+    <button class="refresh-btn" onclick="loadData()">↻ Dane</button>
+    <button class="refresh-btn" id="run-btn" onclick="runPipeline()" style="border-color:rgba(0,230,120,0.3);color:#00e678;">▶ Uruchom pipeline</button>
+    <span class="ts-label" id="ts-label"></span>
+    <span class="ts-label" id="pipe-label"></span>
+  </div>
+
+  <div id="metrics-row" class="metrics-row"></div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('entities',this)">⬡ Byty (<span id="entity-count">…</span>)</button>
+    <button class="tab-btn" onclick="switchTab('files',this)">📁 Pliki (<span id="file-total">…</span>)</button>
+    <button class="tab-btn" onclick="switchTab('memory',this)">🧠 Pamięć (<span id="mem-total">…</span>)</button>
+  </div>
+
+  <div id="tab-entities" class="tab-panel active">
+    <div class="section-head">Byty orbitalne</div>
+    <div id="entity-grid" class="orbital-grid"><div style="color:var(--col-text-dim)">Ładowanie…</div></div>
+    <div class="section-head">Subsystemy satelitarne (<span id="sat-count">…</span>)</div>
+    <div id="sat-grid" class="orbital-grid"></div>
+  </div>
+
+  <div id="tab-files" class="tab-panel">
+    <div class="counts-row" id="class-counts"></div>
+    <div class="filter-row">
+      <span style="font-size:.7rem;color:var(--col-text-dim)">Klasa:</span>
+      <span class="filter-chip active" onclick="filterFiles('',this)">Wszystkie</span>
+      <span class="filter-chip" onclick="filterFiles('IDENTITY',this)">IDENTITY</span>
+      <span class="filter-chip" onclick="filterFiles('CONSTITUTIVE',this)">CONSTITUTIVE</span>
+      <span class="filter-chip" onclick="filterFiles('DYNAMIC',this)">DYNAMIC</span>
+      <span class="filter-chip" onclick="filterFiles('INTERACTION',this)">INTERACTION</span>
+      <span class="filter-chip" onclick="filterFiles('OBSERVATION',this)">OBSERVATION</span>
+      <span class="filter-chip" onclick="filterFiles('BOUNDARY',this)">BOUNDARY</span>
+      <span class="filter-chip" onclick="filterFiles('UNRESOLVED',this)">UNRESOLVED</span>
+    </div>
+    <div id="file-grid" class="orbital-grid"><div style="color:var(--col-text-dim)">Ładowanie…</div></div>
+    <div id="file-more" style="font-size:.7rem;color:var(--col-text-dim);margin-top:8px;"></div>
+  </div>
+
+  <div id="tab-memory" class="tab-panel">
+    <div class="counts-row" id="mem-class-counts"></div>
+    <div class="filter-row">
+      <span style="font-size:.7rem;color:var(--col-text-dim)">Klasa:</span>
+      <span class="filter-chip active" onclick="filterMemory('',this)">Wszystkie</span>
+      <span class="filter-chip" onclick="filterMemory('EPISODIC',this)">EPISODIC</span>
+      <span class="filter-chip" onclick="filterMemory('SEMANTIC',this)">SEMANTIC</span>
+      <span class="filter-chip" onclick="filterMemory('AFFECTIVE',this)">AFFECTIVE</span>
+      <span class="filter-chip" onclick="filterMemory('IDENTITY',this)">IDENTITY</span>
+      <span class="filter-chip" onclick="filterMemory('RELATIONAL',this)">RELATIONAL</span>
+      <span class="filter-chip" onclick="filterMemory('BOUNDARY',this)">BOUNDARY</span>
+      <span class="filter-chip" onclick="filterMemory('LOG',this)">LOG</span>
+    </div>
+    <div id="mem-grid" class="orbital-grid"><div style="color:var(--col-text-dim)">Ładowanie…</div></div>
+    <div id="mem-more" style="font-size:.7rem;color:var(--col-text-dim);margin-top:8px;"></div>
+  </div>
+</div>
+
+<script>
+let _activeFileClass = '';
+
+function switchTab(name, btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+  if(name==='files' && document.getElementById('file-grid').textContent.includes('Ładowanie'))
+    loadFiles('');
+  if(name==='memory' && document.getElementById('mem-grid').textContent.includes('Ładowanie'))
+    loadMemory('');
+}
+
+function filterFiles(cls, chip){
+  chip.closest('.filter-row').querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  _activeFileClass = cls;
+  loadFiles(cls);
+}
+
+function filterMemory(cls, chip){
+  chip.closest('.filter-row').querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  loadMemory(cls);
+}
+
+function esc(s){ const d=document.createElement('div'); d.textContent=String(s??''); return d.innerHTML; }
+
+function horizonClass(h){
+  const map={SEALED:'horizon-SEALED',POROUS:'horizon-POROUS',TRANSMISSIVE:'horizon-TRANSMISSIVE',OBSERVATIONAL:'horizon-OBSERVATIONAL'};
+  return map[h]||'';
+}
+
+function couplingColor(v){
+  if(v>=0.9) return '#00e678';
+  if(v>=0.7) return '#21D4FD';
+  if(v>=0.5) return '#f5c518';
+  return '#ff6060';
+}
+
+function renderEntity(e){
+  const coupling = (e.coupling_ciel ?? 0);
+  const pct = Math.round(coupling*100);
+  const hc = horizonClass(e.horizon_class);
+  const adjs = (e.adjectives||[]).map(a=>`<span class="adj-tag">${esc(a)}</span>`).join('');
+  const noteHtml = e.note ? `<div class="note-text">${esc(String(e.note).trim())}</div>` : '';
+  return `
+    <div class="entity-card">
+      <div class="entity-id">${esc(e.id||'')}</div>
+      <div class="entity-noun">${esc(e.noun||'')}</div>
+      <div class="horizon-badge ${hc}">${esc(e.horizon_class||'')}</div>
+      <div class="coupling-bar-wrap"><div class="coupling-bar" style="width:${pct}%;background:linear-gradient(90deg,${couplingColor(coupling)},#2C7BFF)"></div></div>
+      <div class="entity-meta">coupling: <strong style="color:${couplingColor(coupling)}">${coupling.toFixed(2)}</strong>　phase: ${esc((e.phase??0).toFixed(3))} rad</div>
+      <div class="adj-list">${adjs}</div>
+      ${noteHtml}
+    </div>`;
+}
+
+function renderSatellite(s){
+  const status = s.active_status||'';
+  const anchors = (s.anchors||[]).map(a=>`<div class="adj-tag" style="border-radius:4px;font-family:monospace;">${esc(a)}</div>`).join('');
+  return `
+    <div class="entity-card sat-card">
+      <div class="entity-id">${esc(s.subsystem_id||'')}</div>
+      <div class="entity-noun">${esc(s.name||'')}</div>
+      <div class="horizon-badge horizon-POROUS">${esc(status)}</div>
+      <div class="entity-meta">${esc(s.role||'')}</div>
+      <div class="adj-list" style="flex-direction:column;gap:3px;">${anchors}</div>
+    </div>`;
+}
+
+function renderMetrics(metrics, gating){
+  const chips = [];
+  const m = metrics||{};
+  if(m.system_health!=null){
+    const v=m.system_health; const cls=v>=0.7?'status-ok':v>=0.5?'status-warn':'status-err';
+    chips.push(`<span class="metric-chip">health <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`);
+  }
+  if(m.coherence_index!=null) chips.push(`<span class="metric-chip">coherence <span class="metric-val">${(m.coherence_index).toFixed(3)}</span></span>`);
+  if(m.closure_penalty!=null){
+    const v=m.closure_penalty; const cls=v<5.2?'status-ok':v<5.8?'status-warn':'status-err';
+    chips.push(`<span class="metric-chip">closure <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`);
+  }
+  if(m.ethical_score!=null) chips.push(`<span class="metric-chip">ethics <span class="metric-val">${(m.ethical_score).toFixed(3)}</span></span>`);
+  if(m.dominant_emotion) chips.push(`<span class="metric-chip">emotion <span class="metric-val">${esc(m.dominant_emotion)}</span></span>`);
+  if(gating && gating.dominant_horizon_class) chips.push(`<span class="metric-chip">horizon <span class="metric-val">${esc(gating.dominant_horizon_class)}</span></span>`);
+  document.getElementById('metrics-row').innerHTML = chips.join('');
+}
+
+async function loadData(){
+  try {
+    const res = await fetch('/api/orbital/entities', {cache:'no-store'});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+
+    document.getElementById('ts-label').textContent = 'odświeżono ' + new Date().toLocaleTimeString('pl-PL');
+
+    renderMetrics(data.metrics, data.gating);
+
+    const entities = data.entities||[];
+    document.getElementById('entity-count').textContent = entities.length;
+    const sorted = [...entities].sort((a,b)=>(b.coupling_ciel||0)-(a.coupling_ciel||0));
+    document.getElementById('entity-grid').innerHTML = sorted.map(renderEntity).join('') || '<div style="color:var(--col-text-dim)">Brak danych.</div>';
+
+    const sats = data.satellites||[];
+    document.getElementById('sat-count').textContent = sats.length;
+    document.getElementById('sat-grid').innerHTML = sats.map(renderSatellite).join('') || '<div style="color:var(--col-text-dim)">Brak danych.</div>';
+
+  } catch(err){
+    document.getElementById('entity-grid').innerHTML = `<div class="status-err">Błąd ładowania: ${esc(err.message)}</div>`;
+  }
+}
+
+async function runPipeline(){
+  const btn = document.getElementById('run-btn');
+  const lbl = document.getElementById('pipe-label');
+  btn.disabled = true;
+  btn.textContent = '⏳ Synchronizacja…';
+  lbl.textContent = '';
+  const modules = ['ciel_sot_agent.synchronize','ciel_sot_agent.orbital_bridge','ciel_sot_agent.ciel_pipeline'];
+  for(const mod of modules){
+    lbl.textContent = mod.split('.').pop() + '…';
+    try {
+      const r = await fetch('/api/pipeline/run', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({module: mod})});
+      const d = await r.json();
+      if(d.rc !== 0) { lbl.textContent = mod.split('.').pop() + ' BŁĄD rc=' + d.rc; break; }
+    } catch(e){ lbl.textContent = 'błąd: ' + e.message; break; }
+  }
+  btn.disabled = false;
+  btn.textContent = '▶ Uruchom pipeline';
+  lbl.textContent = 'gotowe ' + new Date().toLocaleTimeString('pl-PL');
+  loadData();
+}
+
+function renderFileCard(r){
+  const oc = r.orbital_role || 'UNRESOLVED';
+  const hc = r.horizon_class || '';
+  const hcClass = hc ? `horizon-${hc}` : '';
+  const conf = r.orbital_confidence != null ? `<span class="adj-tag">${(r.orbital_confidence*100).toFixed(0)}%</span>` : '';
+  return `<div class="file-card">
+    <div class="file-path">${esc(r.path||r.id||'')}</div>
+    <div class="file-badges">
+      <span class="orbit-badge orbit-${oc}">${esc(oc)}</span>
+      ${hcClass ? `<span class="orbit-badge ${hcClass}">${esc(hc)}</span>` : ''}
+      ${r.kind ? `<span class="adj-tag">${esc(r.kind)}</span>` : ''}
+      ${conf}
+    </div>
+  </div>`;
+}
+
+async function loadFiles(cls){
+  const grid = document.getElementById('file-grid');
+  const more = document.getElementById('file-more');
+  grid.innerHTML = '<div style="color:var(--col-text-dim)">Ładowanie…</div>';
+  try {
+    const url = '/api/orbital/files' + (cls ? `?class=${encodeURIComponent(cls)}&limit=300` : '?limit=300');
+    const res = await fetch(url, {cache:'no-store'});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const records = data.records || [];
+    grid.innerHTML = records.map(renderFileCard).join('') || '<div style="color:var(--col-text-dim)">Brak.</div>';
+    const total = data.total || 0;
+    const filtered = data.filtered || records.length;
+    document.getElementById('file-total').textContent = total;
+    more.textContent = cls ? `${filtered} z ${total} total (klasa: ${cls})` : `${records.length} z ${total} (limit 300)`;
+    // render counts
+    const counts = data.counts || {};
+    const COLORS = {IDENTITY:'#8888ff',CONSTITUTIVE:'#21D4FD',DYNAMIC:'#00e678',INTERACTION:'#f5c518',OBSERVATION:'#cc77ff',BOUNDARY:'#ff6060',EDUCATION:'#ff8c00',UNRESOLVED:'#666'};
+    document.getElementById('class-counts').innerHTML = Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span class="metric-chip">${k} <span class="metric-val" style="color:${COLORS[k]||'#aaa'}">${v}</span></span>`).join('');
+  } catch(err){
+    grid.innerHTML = `<div class="status-err">Błąd: ${esc(err.message)}</div>`;
+  }
+}
+
+const MEM_COLORS = {EPISODIC:'#21D4FD',SEMANTIC:'#cc77ff',AFFECTIVE:'#f5c518',IDENTITY:'#8888ff',RELATIONAL:'#00e678',BOUNDARY:'#ff6060',LOG:'#8899bb',UNRESOLVED:'#555'};
+
+function renderMemCard(r){
+  const oc = r.orbital_role || 'UNRESOLVED';
+  const hc = r.horizon_class || '';
+  const hcClass = hc ? `horizon-${hc}` : '';
+  const kb = r.size_bytes != null ? (r.size_bytes < 1024 ? r.size_bytes+'B' : (r.size_bytes/1024).toFixed(1)+'K') : '';
+  const mt = r.mtime ? r.mtime.replace('T',' ') : '';
+  return `<div class="file-card">
+    <div class="file-path">${esc(r.path||'')}</div>
+    <div class="file-badges">
+      <span class="orbit-badge" style="border-color:${MEM_COLORS[oc]||'#555'};color:${MEM_COLORS[oc]||'#555'}">${esc(oc)}</span>
+      ${hcClass ? `<span class="orbit-badge ${hcClass}">${esc(hc)}</span>` : ''}
+      ${kb ? `<span class="adj-tag">${kb}</span>` : ''}
+      ${mt ? `<span class="adj-tag" style="font-family:monospace;font-size:.62rem">${esc(mt)}</span>` : ''}
+    </div>
+  </div>`;
+}
+
+async function loadMemory(cls){
+  const grid = document.getElementById('mem-grid');
+  const more = document.getElementById('mem-more');
+  grid.innerHTML = '<div style="color:var(--col-text-dim)">Ładowanie…</div>';
+  try {
+    const url = '/api/orbital/memory' + (cls ? `?class=${encodeURIComponent(cls)}&limit=300` : '?limit=300');
+    const res = await fetch(url, {cache:'no-store'});
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const records = data.records || [];
+    grid.innerHTML = records.map(renderMemCard).join('') || '<div style="color:var(--col-text-dim)">Brak.</div>';
+    const total = data.total || 0;
+    document.getElementById('mem-total').textContent = total;
+    more.textContent = cls ? `${data.filtered} z ${total} (klasa: ${cls})` : `${records.length} z ${total} (limit 300)`;
+    const counts = data.counts || {};
+    document.getElementById('mem-class-counts').innerHTML = Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span class="metric-chip">${k} <span class="metric-val" style="color:${MEM_COLORS[k]||'#aaa'}">${v}</span></span>`).join('');
+  } catch(err){
+    grid.innerHTML = `<div class="status-err">Błąd: ${esc(err.message)}</div>`;
+  }
+}
+
+loadData();
+setInterval(loadData, 30000);
+</script>
+{% endblock %}

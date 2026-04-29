@@ -1,0 +1,51 @@
+{
+  "schema": "ciel-sot-agent/repository-registry/v0.1",
+  "repositories": [
+    {
+      "key": "canon",
+      "identity": "SeedOfTheWorlds",
+      "phi": 0.12,
+      "spin": 0.5,
+      "mass": 1.0,
+      "role": "canonical-foundations",
+      "upstream": "local-canonical-snapshot"
+    },
+    {
+      "key": "demo",
+      "identity": "ciel-omega-demo",
+      "phi": 0.31,
+      "spin": 0.5,
+      "mass": 0.8,
+      "role": "cockpit-ui-education",
+      "upstream": "AdrianLipa90/ciel-omega-demo"
+    },
+    {
+      "key": "desktop",
+      "identity": "CIEL-Desktop",
+      "phi": 0.18,
+      "spin": 0.5,
+      "mass": 0.86,
+      "role": "desktop-fixed-attribute",
+      "fixed_attribute": true,
+      "upstream": "AdrianLipa90/CIEL-Desktop"
+    },
+    {
+      "key": "metatime",
+      "identity": "Metatime",
+      "phi": 0.27,
+      "spin": -0.5,
+      "mass": 0.95,
+      "role": "historical-theory-simulations",
+      "upstream": "local-metatime-snapshot"
+    },
+    {
+      "key": "agent",
+      "identity": "CIEL-_SOT_Agent",
+      "phi": 0.05,
+      "spin": 0.5,
+      "mass": 0.9,
+      "role": "integration-attractor",
+      "upstream": "AdrianLipa90/CIEL-_SOT_Agent"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "report": "initial_sync_report",
+  "repository_count": 4,
+  "weighted_euler_vector": {
+    "real": 3.5691330776655024,
+    "imag": 0.6621352336416743,
+    "abs": 3.630032230396272
+  },
+  "closure_defect": 0.005470621809240517,
+  "pairwise_tensions": [
+    {"source": "agent", "target": "canon", "coupling": 0.97, "tension": 0.0023755297543188027},
+    {"source": "agent", "target": "demo", "coupling": 0.79, "tension": 0.02655191727373456},
+    {"source": "agent", "target": "metatime", "coupling": 0.76, "tension": 0.01831793850873981},
+    {"source": "canon", "target": "agent", "coupling": 0.97, "tension": 0.0023755297543188027},
+    {"source": "canon", "target": "demo", "coupling": 0.92, "tension": 0.01655610369211132},
+    {"source": "canon", "target": "metatime", "coupling": 0.88, "tension": 0.009881451416282827},
+    {"source": "demo", "target": "agent", "coupling": 0.79, "tension": 0.02655191727373456},
+    {"source": "demo", "target": "canon", "coupling": 0.84, "tension": 0.015116442501492942},
+    {"source": "demo", "target": "metatime", "coupling": 0.63, "tension": 0.000503932803583913},
+    {"source": "metatime", "target": "agent", "coupling": 0.76, "tension": 0.01831793850873981},
+    {"source": "metatime", "target": "canon", "coupling": 0.81, "tension": 0.009095426871805784},
+    {"source": "metatime", "target": "demo", "coupling": 0.58, "tension": 0.00046393813663280875}
+  ]
+}

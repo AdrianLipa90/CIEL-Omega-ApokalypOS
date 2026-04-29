@@ -1,0 +1,17 @@
+{
+  "system_health": 0.6203594246558864,
+  "risk_level": "low",
+  "closure_penalty": 4.779719402406454,
+  "R_H": 0.0016936897192126584,
+  "T_glob": 1.1422567257330287,
+  "Lambda_glob": 0.15511717724274404,
+  "effective_rh": 0.09228747836828385,
+  "rh_drivers": {
+    "raw_rh": 0.0016936897192126584,
+    "eba_defect": 0.04660636243191005,
+    "coherent_fraction": 1.0,
+    "closure_score": 0.5490203081103036,
+    "phase_gap": 0.06634608014448214
+  },
+  "recommended_action": "deep diagnostics allowed"
+}

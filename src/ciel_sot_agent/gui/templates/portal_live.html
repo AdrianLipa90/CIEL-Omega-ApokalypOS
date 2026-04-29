@@ -1,0 +1,57 @@
+{# Shared live-metrics refresh — SSE push + polling fallback #}
+<script>
+(function() {
+  const METRIC_IDS = {
+    'pm-health':    s => s.system_health,
+    'pm-ethical':   s => s.ethical_score,
+    'pm-coherence': s => s.coherence_index,
+    'pm-closure':   s => s.closure_penalty,
+    'pm-soul':      s => s.soul_invariant,
+    'pm-emotion':   s => s.dominant_emotion,
+    'pm-mode':      s => s.system_mode || (s.closure_penalty < 5.2 ? 'deep' : s.closure_penalty < 5.8 ? 'standard' : 'safe'),
+    'pm-m2':        s => s.memory && s.memory.m2_count != null ? s.memory.m2_count : null,
+    'pm-m3':        s => s.memory && s.memory.m3_count != null ? s.memory.m3_count : null,
+    'pm-cycle':     s => s.memory && s.memory.cycle != null ? s.memory.cycle : null,
+    'pm-groove':    s => s.groove && s.groove.groove_depth != null ? s.groove.groove_depth : null,
+    'sb-coherence': s => s.coherence_index,
+    'sb-health':    s => s.system_health,
+    'sb-mode':      s => s.system_mode || 'guided',
+  };
+
+  function applyMetrics(s) {
+    for (const [id, fn] of Object.entries(METRIC_IDS)) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const val = fn(s);
+      el.textContent = typeof val === 'number' ? val.toFixed(3) : (val || '—');
+      if (id === 'pm-health')  el.className = 'pm-val ' + (s.system_health >= 0.5 ? 'ok' : 'warn');
+      if (id === 'pm-ethical') el.className = 'pm-val ' + (s.ethical_score >= 0.7 ? 'ok' : 'warn');
+      if (id === 'pm-closure') el.className = 'pm-val ' + (s.closure_penalty <= 5.2 ? 'ok' : 'warn');
+    }
+    const dot = document.getElementById('pm-live-dot');
+    if (dot) { dot.style.opacity = '1'; setTimeout(() => dot.style.opacity = '.3', 600); }
+    // notify dashboard EEG chart if present
+    if (window._cielSSECallback) window._cielSSECallback(s);
+  }
+
+  async function fetchOnce() {
+    try {
+      const r = await fetch('/api/status');
+      if (r.ok) applyMetrics(await r.json());
+    } catch (_) {}
+  }
+
+  // SSE — primary
+  function startSSE() {
+    const es = new EventSource('/api/sse/metrics');
+    es.onmessage = e => { try { applyMetrics(JSON.parse(e.data)); } catch(_) {} };
+    es.onerror   = () => { es.close(); setTimeout(startSSE, 5000); };
+    return es;
+  }
+
+  fetchOnce();          // initial load
+  startSSE();           // live push
+  window._cielRefreshMetrics = fetchOnce;
+  window._cielApplyMetrics   = applyMetrics;
+})();
+</script>

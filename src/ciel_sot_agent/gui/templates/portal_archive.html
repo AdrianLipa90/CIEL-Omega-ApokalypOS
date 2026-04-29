@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Archiwum{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('archive') }}
+  <span class="gradient-text-sky" style="font-size:1.3rem; font-weight:700; display:block; margin-bottom:16px;">Archiwum sesji</span>
+
+  <!-- Filters -->
+  <div class="glass-navy" style="padding:16px 20px; border-radius:8px; margin-bottom:16px; display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+    <input id="search-box" type="text" placeholder="Szukaj w sesjach..." style="
+      background: rgba(255,255,255,.05); border: 1px solid rgba(93,173,226,.2);
+      color: var(--col-text); border-radius:6px; padding:8px 12px; font-size:.82rem; width:220px;">
+    <select id="source-filter" style="
+      background: rgba(19,21,31,.9); border: 1px solid rgba(93,173,226,.2);
+      color: var(--col-text); border-radius:6px; padding:8px 10px; font-size:.82rem;">
+      <option value="">Wszystkie źródła</option>
+      <option value="claude_code">claude_code</option>
+      <option value="gui_gguf">gui_gguf</option>
+      <option value="chatgpt">chatgpt</option>
+    </select>
+    <select id="tag-filter" style="
+      background: rgba(19,21,31,.9); border: 1px solid rgba(93,173,226,.2);
+      color: var(--col-text); border-radius:6px; padding:8px 10px; font-size:.82rem;">
+      <option value="">Wszystkie tagi</option>
+    </select>
+    <span id="count-label" style="color:var(--col-text-dim); font-size:.78rem; margin-left:auto;"></span>
+  </div>
+
+  <!-- Sessions list -->
+  <div id="sessions-list" class="portal-sessions-list"></div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const SESSIONS = {{ sessions_json | safe }};
+const TAG_INDEX = {{ tag_index_json | safe }};
+
+// Populate tag filter
+const tf = document.getElementById('tag-filter');
+Object.keys(TAG_INDEX).sort().forEach(t => {
+  const o = document.createElement('option');
+  const cnt = TAG_INDEX[t] && TAG_INDEX[t].sessions ? TAG_INDEX[t].count : (TAG_INDEX[t]||[]).length;
+  o.value = t; o.textContent = t + ' (' + cnt + ')';
+  tf.appendChild(o);
+});
+
+// Pre-select tag from URL param
+const urlTag = new URLSearchParams(location.search).get('tag');
+if (urlTag) tf.value = urlTag;
+
+function render(list) {
+  const el = document.getElementById('sessions-list');
+  document.getElementById('count-label').textContent = list.length + ' sesji';
+  if (!list.length) { el.innerHTML = '<p style="color:var(--col-text-dim);font-size:.8rem;padding:20px;">Brak wyników</p>'; return; }
+  el.innerHTML = list.map(s => `
+    <div class="portal-session-card glass-navy">
+      <div class="psc-header">
+        <span class="psr-source ${s.source}">${s.source}</span>
+        <span class="psc-date">${(s.started_at||'').slice(0,16).replace('T',' ')}</span>
+        <span class="psc-msgs">${s.message_count} wiad.</span>
+        <span class="psc-id" title="${s.id}">${s.id.slice(0,8)}</span>
+      </div>
+      <div class="psr-tags">${(s.tags||[]).map(t => `<span class="ptag" data-tag="${t}">${t}</span>`).join('')}</div>
+      ${s.path ? `<div class="psc-path">${s.path}</div>` : ''}
+    </div>
+  `).join('');
+
+  // Tag click filters
+  el.querySelectorAll('.ptag[data-tag]').forEach(el2 => {
+    el2.style.cursor = 'pointer';
+    el2.addEventListener('click', () => { tf.value = el2.dataset.tag; apply(); });
+  });
+}
+
+function apply() {
+  const q = document.getElementById('search-box').value.toLowerCase();
+  const src = document.getElementById('source-filter').value;
+  const tag = tf.value;
+  const filtered = SESSIONS.filter(s => {
+    if (src && s.source !== src) return false;
+    if (tag) {
+      const info = TAG_INDEX[tag];
+      const ids = info && info.sessions ? info.sessions : (info||[]);
+      if (!ids.includes(s.id)) return false;
+    }
+    if (q && !((s.id+' '+(s.tags||[]).join(' ')+(s.path||'')).toLowerCase().includes(q))) return false;
+    return true;
+  });
+  render(filtered);
+}
+
+['search-box','source-filter','tag-filter'].forEach(id =>
+  document.getElementById(id).addEventListener('input', apply));
+
+apply();
+</script>
+{% endblock %}

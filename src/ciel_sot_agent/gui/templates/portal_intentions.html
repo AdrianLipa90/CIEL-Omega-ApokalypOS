@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Intencje{% endblock %}
+
+{% block head %}
+<style>
+  .int-section { margin-bottom: 20px; }
+  .int-head { font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--col-text-dim, #8899bb); margin: 16px 0 6px; display: flex; align-items: center; gap: 8px; }
+  .int-count { font-size: .7rem; background: rgba(0,184,255,0.1); padding: 2px 8px; border-radius: 999px; }
+  .int-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(0,184,255,0.1); background: rgba(10,14,40,0.6); margin-bottom: 6px; }
+  .int-item:hover { border-color: rgba(0,184,255,0.3); }
+  .int-badge { font-size: .63rem; padding: 2px 8px; border-radius: 999px; border: 1px solid; flex-shrink: 0; margin-top: 2px; }
+  .pri-high   { border-color: rgba(255,80,80,0.5); color: #ff6060; background: rgba(255,80,80,0.08); }
+  .pri-medium { border-color: rgba(255,180,0,0.5); color: #f5c518; background: rgba(255,180,0,0.08); }
+  .pri-low    { border-color: rgba(0,184,255,0.4); color: #21D4FD; background: rgba(0,184,255,0.08); }
+  .pri-done   { border-color: rgba(0,200,100,0.4); color: #00e678; background: rgba(0,200,100,0.08); }
+  .int-text { font-size: .78rem; color: var(--col-text, #cdd6f4); flex: 1; line-height: 1.45; }
+  .int-done-btn { font-size: .65rem; padding: 2px 10px; border-radius: 999px; border: 1px solid rgba(0,200,100,0.3); background: rgba(0,200,100,0.06); color: #00e678; cursor: pointer; flex-shrink: 0; }
+  .int-done-btn:hover { background: rgba(0,200,100,0.18); }
+  .int-done-text { font-size: .76rem; color: var(--col-text-dim, #8899bb); text-decoration: line-through; flex: 1; }
+  .done-section-toggle { font-size: .72rem; color: var(--col-text-dim); cursor: pointer; }
+  .done-section-toggle:hover { color: #21D4FD; }
+  .add-row { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; align-items: center; }
+  .add-input { flex: 1; min-width: 200px; background: rgba(10,14,40,0.7); border: 1px solid rgba(0,184,255,0.25); border-radius: 8px; padding: 6px 12px; color: var(--col-text, #cdd6f4); font-size: .78rem; }
+  .add-input:focus { outline: none; border-color: rgba(0,184,255,0.55); }
+  .pri-select { background: rgba(10,14,40,0.7); border: 1px solid rgba(0,184,255,0.25); border-radius: 8px; padding: 6px 10px; color: var(--col-text, #cdd6f4); font-size: .78rem; cursor: pointer; }
+  .add-btn { padding: 6px 16px; border-radius: 8px; border: 1px solid rgba(0,230,120,0.3); background: rgba(0,230,120,0.08); color: #00e678; cursor: pointer; font-size: .78rem; }
+  .add-btn:hover { background: rgba(0,230,120,0.18); }
+  .toast { position: fixed; bottom: 20px; right: 20px; padding: 8px 16px; border-radius: 8px; font-size: .75rem; opacity: 0; transition: opacity .3s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+  .toast-ok { background: rgba(0,200,100,0.2); border: 1px solid rgba(0,200,100,0.4); color: #00e678; }
+  .toast-err { background: rgba(255,80,80,0.2); border: 1px solid rgba(255,80,80,0.4); color: #ff6060; }
+</style>
+{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('intentions') }}
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:8px;flex-wrap:wrap;">
+    <span class="gradient-text-sky" style="font-size:1.3rem;font-weight:700;">📌 Intencje</span>
+    <button class="refresh-btn" onclick="load()">↻ Odśwież</button>
+    <span class="ts-label" id="ts-label"></span>
+  </div>
+
+  <div id="active-section"></div>
+
+  <div class="int-head" style="margin-top:20px;">
+    <span class="done-section-toggle" onclick="toggleDone()">▶ Zrealizowane (<span id="done-count">…</span>)</span>
+  </div>
+  <div id="done-section" style="display:none;"></div>
+
+  <div class="add-row">
+    <input class="add-input" id="add-text" placeholder="Nowa intencja…" onkeydown="if(event.key==='Enter') addItem()">
+    <select class="pri-select" id="add-pri">
+      <option value="H">[H] High</option>
+      <option value="M" selected>[M] Medium</option>
+      <option value="L">[L] Low</option>
+    </select>
+    <button class="add-btn" onclick="addItem()">＋ Dodaj</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function esc(s){ const d=document.createElement('div'); d.textContent=String(s??''); return d.innerHTML; }
+
+function toast(msg, ok=true){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='toast show '+(ok?'toast-ok':'toast-err');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+function priLabel(p){ return p==='high'?'H':p==='medium'?'M':p==='low'?'L':'x'; }
+function priClass(p){ return p==='high'?'pri-high':p==='medium'?'pri-medium':p==='low'?'pri-low':'pri-done'; }
+
+async function markDone(raw){
+  const r = await fetch('/api/intentions/done', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({raw})});
+  const d = await r.json();
+  if(d.ok){ toast('Zrealizowane ✓'); load(); } else { toast(d.error||'błąd', false); }
+}
+
+function renderActive(items){
+  const groups = {high:[], medium:[], low:[]};
+  for(const it of items){ (groups[it.priority]||groups.low).push(it); }
+  let html = '';
+  for(const [pri, label, cls] of [['high','[H] Pilne','pri-high'],['medium','[M] Ważne','pri-medium'],['low','[L] Kiedyś','pri-low']]){
+    const list = groups[pri];
+    if(!list.length) continue;
+    html += `<div class="int-head"><span>${label}</span><span class="int-count">${list.length}</span></div>`;
+    for(const it of list){
+      html += `<div class="int-item">
+        <span class="int-badge ${cls}">${priLabel(it.priority)}</span>
+        <span class="int-text">${esc(it.text)}</span>
+        <button class="int-done-btn" onclick='markDone(${JSON.stringify(it.raw)})'>✓ done</button>
+      </div>`;
+    }
+  }
+  return html || '<div style="color:var(--col-text-dim);font-size:.78rem">Brak aktywnych intencji.</div>';
+}
+
+function renderDone(items){
+  if(!items.length) return '<div style="color:var(--col-text-dim);font-size:.76rem">Brak zrealizowanych.</div>';
+  return items.slice(0,50).map(it=>`<div class="int-item" style="opacity:.55">
+    <span class="int-badge pri-done">✓</span>
+    <span class="int-done-text">${esc(it.text)}</span>
+  </div>`).join('');
+}
+
+async function load(){
+  try {
+    const r = await fetch('/api/intentions', {cache:'no-store'});
+    const d = await r.json();
+    document.getElementById('active-section').innerHTML = renderActive(d.active||[]);
+    document.getElementById('done-section').innerHTML = renderDone(d.done||[]);
+    document.getElementById('done-count').textContent = (d.done||[]).length;
+    document.getElementById('ts-label').textContent = 'odświeżono '+new Date().toLocaleTimeString('pl-PL');
+  } catch(e){ document.getElementById('active-section').innerHTML = `<div style="color:#ff6060">Błąd: ${esc(e.message)}</div>`; }
+}
+
+function toggleDone(){
+  const s = document.getElementById('done-section');
+  s.style.display = s.style.display==='none' ? 'block' : 'none';
+}
+
+async function addItem(){
+  const text = document.getElementById('add-text').value.trim();
+  const priority = document.getElementById('add-pri').value;
+  if(!text){ toast('Wpisz tekst', false); return; }
+  const r = await fetch('/api/intentions/add', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text, priority})});
+  const d = await r.json();
+  if(d.ok){ document.getElementById('add-text').value=''; toast('Dodano ✓'); load(); }
+  else { toast(d.error||'błąd', false); }
+}
+
+load();
+</script>
+{% endblock %}

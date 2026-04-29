@@ -1,0 +1,289 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.625rem;
+  /* Navy Blue + Sky Blue + Gold Theme */
+  --background: 220 60% 8%;
+  --foreground: 200 30% 95%;
+  --card: 220 55% 12%;
+  --card-foreground: 200 30% 95%;
+  --popover: 220 55% 10%;
+  --popover-foreground: 200 30% 95%;
+  --primary: 45 90% 55%;
+  --primary-foreground: 220 60% 8%;
+  --secondary: 210 70% 25%;
+  --secondary-foreground: 200 30% 95%;
+  --muted: 220 40% 18%;
+  --muted-foreground: 200 20% 70%;
+  --accent: 195 80% 55%;
+  --accent-foreground: 220 60% 8%;
+  --destructive: 0 84% 60%;
+  --border: 220 40% 22%;
+  --input: 220 40% 22%;
+  --ring: 45 90% 55%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1929 100%);
+    min-height: 100vh;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Navy Blue Gradient Backgrounds */
+.bg-navy-gradient {
+  background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 50%, #0a1929 100%);
+}
+
+.bg-navy-card {
+  background: linear-gradient(145deg, rgba(15, 35, 65, 0.9) 0%, rgba(10, 25, 45, 0.95) 100%);
+}
+
+/* Gold accents */
+.text-gold {
+  color: #d4af37;
+}
+
+.text-gold-light {
+  color: #f4d03f;
+}
+
+.border-gold {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.bg-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+}
+
+/* Sky Blue accents */
+.text-sky-ciel {
+  color: #5dade2;
+}
+
+.text-sky-bright {
+  color: #85c1e9;
+}
+
+.border-sky {
+  border-color: rgba(93, 173, 226, 0.4);
+}
+
+/* Gradient text */
+.gradient-text-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-sky {
+  background: linear-gradient(135deg, #5dade2 0%, #85c1e9 50%, #5dade2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect with navy tint */
+.glass-navy {
+  background: rgba(15, 35, 65, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(93, 173, 226, 0.15);
+}
+
+.glass-gold {
+  background: rgba(212, 175, 55, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Glow effects */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), 0 0 60px rgba(212, 175, 55, 0.1);
+}
+
+.glow-sky {
+  box-shadow: 0 0 30px rgba(93, 173, 226, 0.3), 0 0 60px rgba(93, 173, 226, 0.1);
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.6); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+.animate-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e3a5f 0%, #d4af37 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2a4a6f 0%, #f4d03f 100%);
+}
+
+/* Code block styling */
+.code-block {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  background: linear-gradient(145deg, rgba(10, 25, 45, 0.95) 0%, rgba(15, 35, 65, 0.9) 100%);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid rgba(93, 173, 226, 0.2);
+}
+
+/* Tab styling */
+.tab-active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+  border-bottom: 2px solid #d4af37;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(93, 173, 226, 0.2);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+/* Button styling */
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+  color: #0a1628;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-sky {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2a4a6f 50%, #1e3a5f 100%);
+  color: #85c1e9;
+  border: 1px solid rgba(93, 173, 226, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-sky:hover {
+  box-shadow: 0 0 20px rgba(93, 173, 226, 0.3);
+  border-color: rgba(93, 173, 226, 0.8);
+}
+
+/* Canvas container */
+.canvas-container {
+  background: radial-gradient(ellipse at center, rgba(15, 35, 65, 0.8) 0%, rgba(10, 22, 40, 0.95) 100%);
+  border: 1px solid rgba(93, 173, 226, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Math equation styling */
+.math-equation {
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  color: #85c1e9;
+}
+
+/* Status badges */
+.badge-strict {
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+  color: white;
+}
+
+.badge-candidate {
+  background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
+  color: #0a1628;
+}
+
+.badge-open {
+  background: linear-gradient(135deg, #e74c3c 0%, #ec7063 100%);
+  color: white;
+}
+
+/* Field visualization grid */
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+/* Orbital animation */
+.orbital-ring {
+  border: 1px solid rgba(93, 173, 226, 0.2);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.orbital-particle {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #d4af37 0%, #f4d03f 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}

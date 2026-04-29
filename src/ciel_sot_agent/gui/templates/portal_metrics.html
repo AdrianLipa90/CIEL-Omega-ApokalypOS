@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Metryki{% endblock %}
+
+{% block head %}
+<style>
+  .metric-block { background: rgba(10,14,40,0.75); border: 1px solid rgba(0,184,255,0.15); border-radius: 14px; padding: 14px 18px; margin-bottom: 14px; }
+  .metric-block:hover { border-color: rgba(0,184,255,0.35); }
+  .metric-title { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--col-text-dim, #8899bb); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .metric-val-big { font-size: 1.5rem; font-weight: 700; font-family: monospace; }
+  .metric-trend { font-size: .9rem; margin-left: 8px; }
+  .sparkline-wrap { margin-top: 8px; overflow: hidden; }
+  svg.sparkline { display: block; width: 100%; height: 52px; }
+  .threshold-label { font-size: .62rem; color: rgba(255,100,100,0.7); margin-top: 2px; }
+  .emotion-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .emo-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .last-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+</style>
+{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('metrics') }}
+  <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:8px;flex-wrap:wrap;">
+    <span class="gradient-text-sky" style="font-size:1.3rem;font-weight:700;">📈 Metryki</span>
+    <button class="refresh-btn" onclick="load()">↻ Odśwież</button>
+    <select id="n-select" style="background:rgba(10,14,40,.7);border:1px solid rgba(0,184,255,.25);border-radius:8px;padding:4px 8px;color:#cdd6f4;font-size:.75rem" onchange="load()">
+      <option value="50">50 cykli</option>
+      <option value="100" selected>100 cykli</option>
+      <option value="300">300 cykli</option>
+      <option value="759">Wszystkie</option>
+    </select>
+    <span class="ts-label" id="ts-label"></span>
+  </div>
+
+  <div id="last-row" class="last-row"></div>
+  <div id="metrics-grid" class="metrics-grid"><div style="color:var(--col-text-dim)">Ładowanie…</div></div>
+</div>
+
+<script>
+function esc(s){ const d=document.createElement('div'); d.textContent=String(s??''); return d.innerHTML; }
+
+const METRICS = [
+  {key:'health',  label:'System Health',    color:'#21D4FD', threshold:0.5,  thLabel:'min 0.5', min:0, max:1, fmt:v=>v.toFixed(3)},
+  {key:'closure', label:'Closure Penalty',  color:'#f5c518', threshold:5.2,  thLabel:'safe >5.8', min:0, max:8, fmt:v=>v.toFixed(3), thHigh:5.8},
+  {key:'coherence',label:'Coherence Index', color:'#00e678', threshold:0.767,thLabel:'min 0.767',min:0.5, max:1, fmt:v=>v.toFixed(4)},
+  {key:'ethical', label:'Ethical Score',    color:'#cc77ff', threshold:0.4,  thLabel:'min 0.4',  min:0, max:1, fmt:v=>v.toFixed(4)},
+  {key:'phase',   label:'Identity Phase',   color:'#8888ff', threshold:null, thLabel:'',         min:0, max:0.1, fmt:v=>v.toFixed(5)},
+];
+
+const EMO_COLORS = {love:'#ff6b9d',joy:'#f5c518',fear:'#ff6060',curiosity:'#21D4FD',calm:'#00e678',sad:'#8899bb',frustrated:'#ff8c00',anger:'#ff4444'};
+
+function sparklineSVG(vals, color, thPct, thHighPct, minV, maxV){
+  const W=400, H=52, PAD=4;
+  const range = maxV - minV || 1;
+  const pts = vals.map((v,i)=>{
+    const x = PAD + (i/(vals.length-1||1))*(W-2*PAD);
+    const y = H - PAD - ((v-minV)/range)*(H-2*PAD);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  });
+  let thLines = '';
+  if(thPct!=null){
+    const ty = H - PAD - thPct*(H-2*PAD);
+    thLines += `<line x1="${PAD}" y1="${ty.toFixed(1)}" x2="${W-PAD}" y2="${ty.toFixed(1)}" stroke="rgba(255,100,100,0.45)" stroke-width="1" stroke-dasharray="4,3"/>`;
+  }
+  if(thHighPct!=null){
+    const ty2 = H - PAD - thHighPct*(H-2*PAD);
+    thLines += `<line x1="${PAD}" y1="${ty2.toFixed(1)}" x2="${W-PAD}" y2="${ty2.toFixed(1)}" stroke="rgba(255,150,0,0.35)" stroke-width="1" stroke-dasharray="4,3"/>`;
+  }
+  const last = pts[pts.length-1];
+  return `<svg class="sparkline" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    ${thLines}
+    <polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+    ${last ? `<circle cx="${last.split(',')[0]}" cy="${last.split(',')[1]}" r="3" fill="${color}"/>` : ''}
+  </svg>`;
+}
+
+function trend(vals){
+  if(vals.length<3) return '→';
+  const last3 = vals.slice(-3);
+  const diff = last3[2] - last3[0];
+  if(Math.abs(diff) < 0.0001) return '→';
+  return diff > 0 ? '↑' : '↓';
+}
+
+function trendColor(key, diff){
+  const goodUp = ['health','coherence','ethical'];
+  const goodDown = ['closure'];
+  if(goodUp.includes(key)) return diff>0?'#00e678':diff<0?'#ff6060':'#8899bb';
+  if(goodDown.includes(key)) return diff<0?'#00e678':diff>0?'#ff6060':'#8899bb';
+  return '#8899bb';
+}
+
+function renderMetrics(records){
+  if(!records.length) return '<div style="color:var(--col-text-dim)">Brak danych.</div>';
+
+  // Last row chips
+  const last = records[records.length-1];
+  const chips = METRICS.map(m=>{
+    const v = last[m.key];
+    if(v==null) return '';
+    return `<span class="metric-chip">${m.label.split(' ')[0].toLowerCase()} <span class="metric-val" style="color:${m.color}">${m.fmt(v)}</span></span>`;
+  }).join('');
+  const emoChip = last.emotion ? `<span class="metric-chip">emotion <span class="metric-val" style="color:${EMO_COLORS[last.emotion]||'#aaa'}">${esc(last.emotion)}</span></span>` : '';
+  document.getElementById('last-row').innerHTML = chips + emoChip;
+
+  // Sparklines
+  return METRICS.map(m=>{
+    const vals = records.map(r=>r[m.key]).filter(v=>v!=null);
+    if(!vals.length) return '';
+    const lastV = vals[vals.length-1];
+    const tr = trend(vals);
+    const diff = vals.length>1 ? lastV - vals[vals.length-2] : 0;
+    const tc = trendColor(m.key, diff);
+    const thPct = m.threshold!=null ? (m.threshold-m.min)/(m.max-m.min) : null;
+    const thHighPct = m.thHigh!=null ? (m.thHigh-m.min)/(m.max-m.min) : null;
+    const svg = sparklineSVG(vals, m.color, thPct, thHighPct, m.min, m.max);
+    return `<div class="metric-block">
+      <div class="metric-title">${esc(m.label)}</div>
+      <div style="display:flex;align-items:baseline;gap:4px">
+        <span class="metric-val-big" style="color:${m.color}">${m.fmt(lastV)}</span>
+        <span class="metric-trend" style="color:${tc}">${tr}</span>
+      </div>
+      ${m.thLabel ? `<div class="threshold-label">${esc(m.thLabel)}</div>` : ''}
+      <div class="sparkline-wrap">${svg}</div>
+    </div>`;
+  }).join('');
+}
+
+async function load(){
+  const n = document.getElementById('n-select').value;
+  const grid = document.getElementById('metrics-grid');
+  grid.innerHTML = '<div style="color:var(--col-text-dim)">Ładowanie…</div>';
+  try {
+    const r = await fetch(`/api/metrics/range?n=${n}`, {cache:'no-store'});
+    const d = await r.json();
+    grid.innerHTML = renderMetrics(d.records||[]);
+    document.getElementById('ts-label').textContent = `${d.count} rekordów · odświeżono ${new Date().toLocaleTimeString('pl-PL')}`;
+  } catch(e){
+    grid.innerHTML = `<div style="color:#ff6060">Błąd: ${esc(e.message)}</div>`;
+  }
+}
+
+load();
+setInterval(load, 60000);
+</script>
+{% endblock %}

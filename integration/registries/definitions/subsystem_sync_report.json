@@ -1,0 +1,17 @@
+{
+  "schema": "ciel/subsystem-sync-report/v0.1",
+  "board_count": 763,
+  "avg_members_per_board": 5.071,
+  "sync_scope_counts": {
+    "BOARD_MEMBER": 448,
+    "BOARD_ROOT": 763
+  },
+  "sync_law_counts": {
+    "sync-law:METRONOME_BOARD_COUPLING": 763
+  },
+  "condensation_operator_counts": {
+    "CONDENSE_HALF_CONCLUSIONS": 763
+  },
+  "tau_orbit_count": 763,
+  "tau_system_count": 1
+}

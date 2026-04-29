@@ -1,0 +1,35 @@
+{
+  "rh": 0.82,
+  "sector": "runtime",
+  "mode": "freeze_and_rebuild_closure",
+  "severity": "high",
+  "allowed_actions": [
+    "resolve",
+    "report",
+    "stabilize",
+    "link",
+    "archive"
+  ],
+  "discouraged_actions": [
+    "merge",
+    "broad_route",
+    "speculative_refactor",
+    "execution_burst"
+  ],
+  "actions": [
+    "Freeze merges.",
+    "Isolate sectors contributing to high defect.",
+    "Rebuild closure from constraints and manifests.",
+    "Prioritize diagnosis over execution."
+  ],
+  "sector_overrides": {
+    "runtime": [
+      "Reduce execution tempo.",
+      "Check memory synchronization before new runs."
+    ]
+  },
+  "notes": [
+    "High coherence defect: the system should not expand.",
+    "Sector override applied: runtime"
+  ]
+}

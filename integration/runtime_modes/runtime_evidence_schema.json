@@ -1,0 +1,37 @@
+{
+  "schema": "ciel-sot-agent/runtime-evidence-schema/v0.1",
+  "required_fields": [
+    "repository_scope",
+    "execution_mode",
+    "status_label",
+    "evidence",
+    "evidence_class",
+    "performance_evidence",
+    "blockers",
+    "unknowns",
+    "next_actions"
+  ],
+  "allowed_execution_modes": [
+    "core_only",
+    "sot_agent_without_desktop",
+    "desktop_runtime",
+    "gguf",
+    "no_gguf",
+    "audio_in",
+    "audio_out",
+    "stt",
+    "tts"
+  ],
+  "allowed_evidence_classes": [
+    "run_and_measured",
+    "inferred_from_code",
+    "documented_but_not_run",
+    "unverified"
+  ],
+  "allowed_status_labels": [
+    "tested",
+    "operational_preview",
+    "production_ready",
+    "not_production_ready"
+  ]
+}

@@ -1,0 +1,4 @@
+#!/bin/sh
+# Launcher wrapper for the CIEL Quiet Orbital Control GUI
+# Installed to /usr/bin/ciel-sot-gui by the .deb package.
+exec /opt/ciel-sot-agent/venv/bin/ciel-sot-gui "$@"

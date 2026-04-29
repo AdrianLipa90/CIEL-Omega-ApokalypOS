@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Plany{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('plans') }}
+  <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:16px;">
+    <span class="gradient-text-sky" style="font-size:1.3rem; font-weight:700;">Plany i zadania</span>
+    <span style="color:var(--col-text-dim); font-size:.78rem;">
+      {{ plans.active | length }} aktywnych · {{ plans.done | length }} zrealizowanych
+    </span>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:900px;">
+
+    <!-- Active tasks -->
+    <div class="glass-navy" style="padding:18px 22px; border-radius:10px;">
+      <div class="gradient-text-gold" style="font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">
+        ▶ Aktywne
+      </div>
+      {% for task in plans.active %}
+      <div class="plan-row plan-active">
+        <span class="plan-dot active"></span>
+        <span class="plan-text">{{ task }}</span>
+      </div>
+      {% else %}
+      <p style="color:var(--col-text-dim); font-size:.78rem;">Brak aktywnych zadań.</p>
+      {% endfor %}
+    </div>
+
+    <!-- Done tasks -->
+    <div class="glass-navy" style="padding:18px 22px; border-radius:10px;">
+      <div class="gradient-text-sky" style="font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">
+        ✓ Zrealizowane
+      </div>
+      {% for task in plans.done %}
+      <div class="plan-row plan-done">
+        <span class="plan-dot done"></span>
+        <span class="plan-text">{{ task }}</span>
+      </div>
+      {% else %}
+      <p style="color:var(--col-text-dim); font-size:.78rem;">Brak zrealizowanych zadań.</p>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  {% if plans.raw %}
+  <!-- Raw source -->
+  <details class="glass-navy" style="padding:14px 18px; border-radius:8px; margin-top:16px; max-width:900px;">
+    <summary style="cursor:pointer; font-size:.78rem; color:var(--col-text-dim); user-select:none;">
+      Źródło (project_session_todo.md)
+    </summary>
+    <pre style="font-size:.72rem; color:var(--col-text-muted); margin-top:10px; white-space:pre-wrap; font-family:var(--font-mono);">{{ plans.raw }}</pre>
+  </details>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% include "portal_live.html" %}
+{% endblock %}

@@ -1,0 +1,103 @@
+{
+  "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
+  "generated_at": "2026-04-09T18:06:11.693302+00:00",
+  "changed_keys": [
+    "agent"
+  ],
+  "upstream_checks": [
+    {
+      "key": "agent",
+      "enabled": true,
+      "repo_full_name": "AdrianLipa90/CIEL-_SOT_Agent",
+      "branch": "main",
+      "changed": true,
+      "old_sha": "b9faee2296e776bda553c241323c566c32b7f7b0",
+      "new_sha": "f0419682f23b79595ada825c05127239d5aafc1e",
+      "timestamp": "2026-04-09T18:01:40Z",
+      "message": "Update README.md",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-_SOT_Agent/commit/f0419682f23b79595ada825c05127239d5aafc1e"
+    },
+    {
+      "key": "demo",
+      "enabled": true,
+      "repo_full_name": "AdrianLipa90/ciel-omega-demo",
+      "branch": "main",
+      "changed": false,
+      "old_sha": "00bb9b060fada69891fa82ce4f7d799610b56693",
+      "new_sha": "00bb9b060fada69891fa82ce4f7d799610b56693",
+      "timestamp": "2026-03-29T22:33:33Z",
+      "message": "contracts(core): add semantic action reference card",
+      "html_url": "https://github.com/AdrianLipa90/ciel-omega-demo/commit/00bb9b060fada69891fa82ce4f7d799610b56693"
+    },
+    {
+      "key": "desktop",
+      "enabled": true,
+      "repo_full_name": "AdrianLipa90/CIEL-Desktop",
+      "branch": "main",
+      "changed": false,
+      "old_sha": "5289bc2d02ae454b77d674bf2fc39d89f30c0292",
+      "new_sha": "5289bc2d02ae454b77d674bf2fc39d89f30c0292",
+      "timestamp": "2026-04-01T15:35:56Z",
+      "message": "Merge pull request #7 from AdrianLipa90/copilot/model-relacji-adrain-ciel\n\nNormalize PanelState payload to dict in SoT adapter path",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Desktop/commit/5289bc2d02ae454b77d674bf2fc39d89f30c0292"
+    },
+    {
+      "key": "canon",
+      "enabled": false,
+      "repo_full_name": null,
+      "branch": "main",
+      "changed": false,
+      "notes": "GitHub mapping not yet declared in this integration layer"
+    },
+    {
+      "key": "metatime",
+      "enabled": false,
+      "repo_full_name": null,
+      "branch": "main",
+      "changed": false,
+      "notes": "GitHub mapping not yet declared in this integration layer"
+    }
+  ],
+  "phase_events": [
+    {
+      "kind": "intrinsic",
+      "repo": "agent",
+      "delta_phi": 0.2
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "canon",
+      "coupling": 0.97,
+      "delta_phi": 0.0440107914193864
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "demo",
+      "coupling": 0.79,
+      "delta_phi": -0.016580047791566428
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "desktop",
+      "coupling": 0.95,
+      "delta_phi": 0.023255996739729643
+    },
+    {
+      "kind": "coupled",
+      "source": "agent",
+      "target": "metatime",
+      "coupling": 0.76,
+      "delta_phi": -0.005319645340426603
+    }
+  ],
+  "closure_defect_before": 0.004428351138122455,
+  "closure_defect_after": 0.0010699902663344751,
+  "weighted_euler_vector_after": {
+    "real": 4.383623642524718,
+    "imag": 1.0394419799212453,
+    "abs": 4.505174343898832
+  }
+}

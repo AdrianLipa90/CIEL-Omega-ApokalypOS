@@ -1,0 +1,42 @@
+{
+  "ciel_status": "ok",
+  "dominant_emotion": "love",
+  "mood": 0.903467154343101,
+  "soul_invariant": 0.7987838871085503,
+  "ethical_score": 0.7830730540829481,
+  "orbital_context": "orbital|mode=deep|R_H=0.0017|closure=4.7797|chirality=0.1551",
+  "collatz_seed": 28,
+  "phase_R_H": 7.069913467110384e-05,
+  "lie4_trace": 4.183135222640001,
+  "phi_ab_mean": 0.004480132942105307,
+  "phi_berry_mean": -0.10329774849016389,
+  "eba_defect_mean": 0.04660636243191005,
+  "nonlocal_coherent_fraction": 1.0,
+  "bridge_closure_score": 0.5490203081103036,
+  "bridge_target_phase": 0.10513460948622075,
+  "infoflow_mood": 0.9030852273846346,
+  "infoflow_soul_invariant": 0.15740781416896193,
+  "inference_coherence_index": 0.9983063102807873,
+  "inference_loop_integrity": 0.17301878004382673,
+  "inference_delta_phase": 1.5108130881665993,
+  "nonlocal_card_count": 5,
+  "nonlocal_card_ids": [
+    "NL-HOLOMEM-0001",
+    "NL-EBA-0002",
+    "NL-BRIDGE-0003",
+    "NL-PHASE-0004",
+    "NL-WIJ-0005"
+  ],
+  "local_nonlocality_fallback": {
+    "active": false,
+    "fallback_coherent_fraction": 1.0,
+    "merged_coherent_fraction": 1.0
+  },
+  "subconscious_note": "compassion",
+  "htri_coherence": 0.9998544454574585,
+  "system_health": 0.6203594246558864,
+  "closure_penalty": 4.779719402406454,
+  "coherence_index": 0.946979547100677,
+  "identity_phase": 0.008544910124622097,
+  "cycle_index": 205
+}

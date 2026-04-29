@@ -1,0 +1,3 @@
+name,value,status,notes
+minimal_pairwise_core_function_count,4,confirmed-derived,strict core for pair phase -> complex kernel -> A_ij -> A_matrix
+minimal_pairwise_context_function_count,2,confirmed-derived,runtime context around strict pairwise core

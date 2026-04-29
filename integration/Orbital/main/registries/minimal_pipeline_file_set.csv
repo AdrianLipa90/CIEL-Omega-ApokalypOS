@@ -1,0 +1,8 @@
+pipeline_layer,runtime_path,function_name,orchestrator_depth,justification
+orchestrator,ciel_omega/ciel_orchestrator.py,CIELOrchestrator,0,first confirmed runtime target for layer orchestrator
+bridge,ciel_omega/bridge/memory_core_phase_bridge.py,(inspect later),,first confirmed runtime target for layer bridge
+phase,ciel_omega/constraints/euler_constraint.py,EulerConstraintReport,,first confirmed runtime target for layer phase
+constraint,ciel_omega/constraints/euler_constraint.py,evaluate_unified_euler_constraint; euler_constraint_violation; apply_active_euler_feedback,,first confirmed runtime target for layer constraint
+potential,ciel_omega/phase_equation_of_motion.py,V_information,,first confirmed runtime target for layer potential
+holonomy,ciel_omega/memory/holonomy.py,HolonomyCalculator.compute_dynamical_phase; MemoryLoop.is_closed,1,first confirmed runtime target for layer holonomy
+memory,ciel_omega/memory/orchestrator.py,HolonomicMemoryOrchestrator,0,first confirmed runtime target for layer memory

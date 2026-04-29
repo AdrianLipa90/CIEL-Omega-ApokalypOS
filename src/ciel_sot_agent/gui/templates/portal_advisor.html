@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% from "portal_nav.html" import portal_navbar %}
+{% block title %}CIELweb — Doradca{% endblock %}
+
+{% block workspace %}
+<div class="portal-page">
+  {{ portal_navbar('advisor') }}
+  <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:16px;">
+    <span class="gradient-text-sky" style="font-size:1.3rem; font-weight:700;">Doradca CIEL</span>
+    <span style="color:var(--col-text-dim); font-size:.78rem;">sekretarz · RAG · metryki live</span>
+  </div>
+
+  <div class="glass-navy" style="padding:20px 24px; border-radius:10px; max-width:760px;">
+
+    <div id="chat-log" style="
+      min-height:320px; max-height:480px; overflow-y:auto;
+      display:flex; flex-direction:column; gap:12px;
+      margin-bottom:16px; padding-right:4px;">
+      <div class="adv-msg adv-ciel">
+        <span class="adv-who">CIEL</span>
+        <span class="adv-text">Słucham, Adrian. Zadaj pytanie lub poproś o podsumowanie — mam dostęp do twoich wspomnień i live metryk systemu.</span>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:10px;">
+      <input id="adv-input" type="text" placeholder="Co słychać? / Podsumuj sesje z tagiem X / Jakie są dziś metryki?"
+        style="
+          flex:1; background:rgba(255,255,255,.05); border:1px solid rgba(93,173,226,.25);
+          color:var(--col-text); border-radius:6px; padding:10px 14px; font-size:.85rem;">
+      <button id="adv-send" class="btn-gold" style="padding:10px 20px; border-radius:6px; font-size:.85rem;">
+        Wyślij
+      </button>
+    </div>
+
+    <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+      {% for q in ['Jakie są dziś metryki?', 'Co robiłem ostatnio?', 'Podsumuj ostatnią sesję', 'Stan systemu CIEL'] %}
+      <button class="quick-q ptag" style="cursor:pointer; font-size:.75rem;">{{ q }}</button>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const log = document.getElementById('chat-log');
+const inp = document.getElementById('adv-input');
+const btn = document.getElementById('adv-send');
+
+function addMsg(who, text) {
+  const d = document.createElement('div');
+  d.className = 'adv-msg adv-' + who.toLowerCase();
+  d.innerHTML = `<span class="adv-who">${who}</span><span class="adv-text">${text.replace(/\n/g,'<br>')}</span>`;
+  log.appendChild(d);
+  log.scrollTop = log.scrollHeight;
+}
+
+async function send() {
+  const q = inp.value.trim();
+  if (!q) return;
+  addMsg('Adrian', q);
+  inp.value = '';
+  btn.disabled = true;
+  addMsg('CIEL', '…');
+  try {
+    const r = await fetch('/portal/advisor', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({q})
+    });
+    const d = await r.json();
+    log.lastChild.querySelector('.adv-text').textContent = d.answer || '(brak odpowiedzi)';
+  } catch(e) {
+    log.lastChild.querySelector('.adv-text').textContent = 'Błąd połączenia.';
+  }
+  btn.disabled = false;
+  log.scrollTop = log.scrollHeight;
+}
+
+btn.addEventListener('click', send);
+inp.addEventListener('keydown', e => { if (e.key === 'Enter') send(); });
+document.querySelectorAll('.quick-q').forEach(b =>
+  b.addEventListener('click', () => { inp.value = b.textContent; send(); })
+);
+</script>
+{% endblock %}

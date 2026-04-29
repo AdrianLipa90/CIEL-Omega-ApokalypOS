@@ -1,0 +1,210 @@
+{
+  "imports": {},
+  "readme_mesh": {},
+  "agent_mesh": {},
+  "manifest_bonus": {
+    "bridge|constraints": 0.35,
+    "bridge|memory": 0.3,
+    "constraints|fields": 0.2,
+    "fields|vocabulary": 0.25,
+    "memory|runtime": 0.2
+  },
+  "pair_scores": {
+    "bridge|constraints": 1.75,
+    "bridge|fields": 0.0,
+    "bridge|memory": 1.5,
+    "bridge|runtime": 0.0,
+    "bridge|vocabulary": 0.0,
+    "constraints|fields": 1.0,
+    "constraints|memory": 0.0,
+    "constraints|runtime": 0.0,
+    "constraints|vocabulary": 0.0,
+    "fields|memory": 0.0,
+    "fields|runtime": 0.0,
+    "fields|vocabulary": 1.25,
+    "memory|runtime": 1.0,
+    "memory|vocabulary": 0.0,
+    "runtime|vocabulary": 0.0
+  },
+  "centrality": {
+    "constraints": 2.75,
+    "fields": 2.25,
+    "runtime": 1.0,
+    "memory": 2.5,
+    "bridge": 3.25,
+    "vocabulary": 1.25
+  },
+  "masses": {
+    "constraints": {
+      "py_files": 0,
+      "char_count": 0,
+      "import_count": 0,
+      "readme_count": 0,
+      "agent_count": 0
+    },
+    "fields": {
+      "py_files": 0,
+      "char_count": 0,
+      "import_count": 0,
+      "readme_count": 0,
+      "agent_count": 0
+    },
+    "runtime": {
+      "py_files": 0,
+      "char_count": 0,
+      "import_count": 0,
+      "readme_count": 0,
+      "agent_count": 0
+    },
+    "memory": {
+      "py_files": 0,
+      "char_count": 0,
+      "import_count": 0,
+      "readme_count": 0,
+      "agent_count": 0
+    },
+    "bridge": {
+      "py_files": 0,
+      "char_count": 0,
+      "import_count": 0,
+      "readme_count": 0,
+      "agent_count": 0
+    },
+    "vocabulary": {
+      "py_files": 0,
+      "char_count": 0,
+      "import_count": 0,
+      "readme_count": 0,
+      "agent_count": 0
+    }
+  },
+  "sectors": {
+    "sectors": {
+      "constraints": {
+        "orbital_level": 2,
+        "orbital_type": "S",
+        "dominant_spin": "resolve",
+        "theta": 0.55,
+        "phi": 0.0,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.9615,
+        "coherence_weight": 1.0462,
+        "info_mass": 0.7,
+        "q_target": 1,
+        "damping": 0.1,
+        "preference": 0.1815,
+        "defect": 0.02,
+        "tau": 0.263
+      },
+      "fields": {
+        "orbital_level": 2,
+        "orbital_type": "S",
+        "dominant_spin": "stabilize",
+        "theta": 0.75,
+        "phi": 1.047197551197,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.9231,
+        "coherence_weight": 0.9923,
+        "info_mass": 0.7,
+        "q_target": 1,
+        "damping": 0.1,
+        "preference": 0.1631,
+        "defect": 0.02,
+        "tau": 0.263
+      },
+      "runtime": {
+        "orbital_level": 2,
+        "orbital_type": "F",
+        "dominant_spin": "run",
+        "theta": 1.55,
+        "phi": 2.094395102393,
+        "rhythm_ratio": 2.0,
+        "amplitude": 0.8269,
+        "coherence_weight": 0.8577,
+        "info_mass": 0.7,
+        "q_target": 4,
+        "damping": 0.14,
+        "preference": 0.1169,
+        "defect": 0.02,
+        "tau": 0.489
+      },
+      "memory": {
+        "orbital_level": 2,
+        "orbital_type": "F",
+        "dominant_spin": "stabilize",
+        "theta": 1.05,
+        "phi": 3.14159265359,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.9423,
+        "coherence_weight": 1.0192,
+        "info_mass": 0.7,
+        "q_target": 2,
+        "damping": 0.1,
+        "preference": 0.1723,
+        "defect": 0.02,
+        "tau": 0.353
+      },
+      "bridge": {
+        "orbital_level": 2,
+        "orbital_type": "P",
+        "dominant_spin": "route",
+        "theta": 1.45,
+        "phi": 4.188790204786,
+        "rhythm_ratio": 2.0,
+        "amplitude": 1.0,
+        "coherence_weight": 1.1,
+        "info_mass": 0.7,
+        "q_target": 4,
+        "damping": 0.14,
+        "preference": 0.2,
+        "defect": 0.03,
+        "tau": 0.489
+      },
+      "vocabulary": {
+        "orbital_level": 2,
+        "orbital_type": "S",
+        "dominant_spin": "link",
+        "theta": 0.7,
+        "phi": 5.235987755983,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.8462,
+        "coherence_weight": 0.8846,
+        "info_mass": 0.7,
+        "q_target": 1,
+        "damping": 0.1,
+        "preference": 0.1262,
+        "defect": 0.02,
+        "tau": 0.263
+      }
+    }
+  },
+  "couplings": {
+    "couplings": {
+      "fields": {
+        "memory": 0.1,
+        "vocabulary": 0.8143,
+        "runtime": 0.1
+      },
+      "bridge": {
+        "fields": 0.1,
+        "runtime": 0.1,
+        "constraints": 1.0,
+        "memory": 0.9071,
+        "vocabulary": 0.1
+      },
+      "constraints": {
+        "runtime": 0.1,
+        "memory": 0.1,
+        "fields": 0.7214,
+        "vocabulary": 0.1
+      },
+      "memory": {
+        "vocabulary": 0.1,
+        "runtime": 0.7214
+      },
+      "runtime": {
+        "vocabulary": 0.1
+      }
+    }
+  }
+}

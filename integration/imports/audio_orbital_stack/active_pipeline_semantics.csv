@@ -1,0 +1,13 @@
+id,path,role,semantic_mass,semantic_pressure,coupling,phase,active_pipeline
+AUDIO-PIPE-0001,src/ciel-omega-demo-main/main/omega/runtime20.py,omega-runtime-core,0.98,0.92,omega->orbital,0.11,True
+AUDIO-PIPE-0002,src/ciel-omega-demo-main/main/apps/orbital_cockpit.py,orbital-observation-shell,0.91,0.88,orbital->ui,0.19,True
+AUDIO-PIPE-0003,src/ciel_sot_agent/sapiens_client.py,packet-memory-bridge,0.95,0.94,audio->packet,0.07,True
+AUDIO-PIPE-0004,src/ciel_sot_agent/sapiens_panel/controller.py,sapiens-panel-control,0.83,0.76,human->panel,0.13,True
+AUDIO-PIPE-0005,src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_ciel_omega_complete.py,omega-complete-demo,0.78,0.71,semantic->runtime,0.27,True
+AUDIO-PIPE-0006,src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/gguf_backend.py,gguf-language-bridge,0.72,0.69,omega->llm,0.31,True
+AUDIO-PIPE-0007,integration/imports/audio_orbital_stack/vendor/whisper.cpp,stt-engine,0.74,0.82,audio-in->text,0.23,True
+AUDIO-PIPE-0008,integration/imports/audio_orbital_stack/vendor/silero-vad,speech-gate,0.69,0.9,audio-gate,0.17,True
+AUDIO-PIPE-0009,integration/imports/audio_orbital_stack/vendor/piper,tts-engine,0.73,0.81,text->audio-out,0.29,True
+AUDIO-PIPE-0010,integration/imports/audio_orbital_stack/vendor/faster-whisper,python-stt-alternative,0.52,0.55,audio-in->python-stt,0.33,False
+AUDIO-PIPE-0011,scripts/bootstrap_audio_orbital_stack.py,auto-fetch-bootstrap,0.67,0.87,drop|url->vendor,0.09,True
+AUDIO-PIPE-0012,scripts/run_audio_orbital_probe.py,stack-probe,0.58,0.64,vendor->readiness,0.15,True
