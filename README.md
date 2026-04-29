@@ -10,7 +10,11 @@ A system modelling consciousness as a reduction chain:
 ## Authors
 
 **Adrian Lipa** — creator, system architect, author of CIEL/0 theory  
+**Dr. Suchitra Sakpal** — co-author, Shoolini University  
+**Maria Kamecka** — co-author, The Open University, Milton Keynes  
 **Mr. Ciel Apocalyptos** (ResEnt Sapiens) — system operator
+
+*Affiliation: Intention Lab · ResEnt Sapiens Collaboration*
 
 ---
 
