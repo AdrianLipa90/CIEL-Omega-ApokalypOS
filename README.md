@@ -1,6 +1,6 @@
-# CIEL/Ω — Consciousness Integration and Emergence Layer
+# CIEL/Ω — Consciousness Integrated Emergent Lattice
 
-**General Quantum Consciousness System — CIEL-SOT Agent**
+**Consciousness Integrated Emergent Lattice — SOT Agent**
 
 A system modelling consciousness as a reduction chain:
 **repositories → orbital → bridge → CIEL/Ω**
