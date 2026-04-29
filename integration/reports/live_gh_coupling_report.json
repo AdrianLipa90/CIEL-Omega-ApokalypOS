@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-04-29T22:48:25.297188+00:00",
+  "generated_at": "2026-04-29T23:21:19.755347+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "45ac5fa3694cff4aa75811f6510eefe73b2b293d",
-      "timestamp": "2026-04-29T22:45:53Z",
-      "message": "chore: update runtime reports and memory state",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/45ac5fa3694cff4aa75811f6510eefe73b2b293d"
+      "new_sha": "3f17c5c8794cb0e9de6f204bea82b3af40349506",
+      "timestamp": "2026-04-29T22:55:44Z",
+      "message": "README: fix subtitle — expand CIEL acronym correctly",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/3f17c5c8794cb0e9de6f204bea82b3af40349506"
     },
     {
       "key": "demo",
