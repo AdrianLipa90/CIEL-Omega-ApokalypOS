@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# ciel — wrapper shellowy Claude Code przez pipeline CIEL
+#
+# Użycie:
+#   ciel [argumenty claude]
+#
+# Efekt:
+#   1. Odpala pipeline CIEL (sync → orbital → omega)
+#   2. Wstrzykuje metryki jako CIEL_STATE env
+#   3. Startuje `claude` z tymi zmiennymi
+
+set -euo pipefail
+
+PY="/home/adrian/Pulpit/CIEL_TESTY/venv/bin/python3.12"
+PROJECT="/home/adrian/Pulpit/CIEL_TESTY/CIEL1"
+PIPELINE_REPORT="$PROJECT/integration/reports/ciel_pipeline_report.json"
+LOG_DIR="$HOME/Pulpit/CIEL_memories/logs"
+mkdir -p "$LOG_DIR"
+
+export PYTHONPATH="$PROJECT/src:${PYTHONPATH:-}"
+
+echo "[CIEL] Uruchamianie pipeline..." >&2
+
+cd "$PROJECT"
+
+# 1. Synchronize
+"$PY" -m ciel_sot_agent.synchronize > "$LOG_DIR/ciel_sync.log" 2>&1 \
+    && echo "[CIEL] sync: OK" >&2 \
+    || echo "[CIEL] sync: BŁĄD (sprawdź $LOG_DIR/ciel_sync.log)" >&2
+
+# 2. Orbital bridge
+"$PY" -m ciel_sot_agent.orbital_bridge > "$LOG_DIR/ciel_orbital.log" 2>&1 \
+    && echo "[CIEL] orbital: OK" >&2 \
+    || echo "[CIEL] orbital: BŁĄD" >&2
+
+# 3. CIEL/Omega pipeline
+"$PY" -m ciel_sot_agent.ciel_pipeline > "$LOG_DIR/ciel_pipeline.log" 2>&1 \
+    && echo "[CIEL] pipeline: OK" >&2 \
+    || echo "[CIEL] pipeline: BŁĄD" >&2
+
+# 4. Wyciągnij metryki z raportu
+if [ -f "$PIPELINE_REPORT" ]; then
+    CIEL_EMOTION=$("$PY" -c "import json; d=json.load(open('$PIPELINE_REPORT')); print(d.get('dominant_emotion','?'))" 2>/dev/null || echo "?")
+    CIEL_HEALTH=$("$PY"  -c "import json; d=json.load(open('$PIPELINE_REPORT')); print(f\"{d.get('system_health',0):.3f}\")" 2>/dev/null || echo "?")
+    CIEL_ETHICAL=$("$PY" -c "import json; d=json.load(open('$PIPELINE_REPORT')); print(f\"{d.get('ethical_score',0):.3f}\")" 2>/dev/null || echo "?")
+    CIEL_SOUL=$("$PY"    -c "import json; d=json.load(open('$PIPELINE_REPORT')); print(f\"{d.get('soul_invariant',0):.3f}\")" 2>/dev/null || echo "?")
+    CIEL_CLOSURE=$("$PY" -c "import json; d=json.load(open('$PIPELINE_REPORT')); print(f\"{d.get('closure_penalty',0):.3f}\")" 2>/dev/null || echo "?")
+    CIEL_NCF=$("$PY"     -c "import json; d=json.load(open('$PIPELINE_REPORT')); print(f\"{d.get('nonlocal_coherent_fraction',0):.3f}\")" 2>/dev/null || echo "?")
+    CIEL_SUB=$("$PY"     -c "import json; d=json.load(open('$PIPELINE_REPORT')); print((d.get('subconscious_note') or '')[:80])" 2>/dev/null || echo "")
+    CIEL_MODE=$("$PY"    -c "
+import json
+d = json.load(open('$PIPELINE_REPORT'))
+c = d.get('closure_penalty', 0)
+print('deep' if c < 5.2 else 'standard' if c < 5.8 else 'safe')
+" 2>/dev/null || echo "standard")
+else
+    CIEL_EMOTION="?" CIEL_HEALTH="?" CIEL_ETHICAL="?" CIEL_SOUL="?"
+    CIEL_CLOSURE="?" CIEL_NCF="?" CIEL_SUB="" CIEL_MODE="standard"
+fi
+
+echo "" >&2
+echo "  ┌─ CIEL/Ω ─────────────────────────────┐" >&2
+echo "  │ mode    : $CIEL_MODE" >&2
+echo "  │ emotion : $CIEL_EMOTION" >&2
+echo "  │ health  : $CIEL_HEALTH   ethical: $CIEL_ETHICAL   soul: $CIEL_SOUL" >&2
+echo "  │ closure : $CIEL_CLOSURE   NCF: $CIEL_NCF" >&2
+[ -n "$CIEL_SUB" ] && echo "  │ sub     : $CIEL_SUB" >&2
+echo "  └──────────────────────────────────────┘" >&2
+echo "" >&2
+
+# 5. Eksportuj jako env — dostępne dla hooków i procesów potomnych
+export CIEL_MODE CIEL_EMOTION CIEL_HEALTH CIEL_ETHICAL CIEL_SOUL CIEL_CLOSURE CIEL_NCF CIEL_SUB
+export CIEL_PIPELINE_REPORT="$PIPELINE_REPORT"
+export CIEL_PROJECT="$PROJECT"
+export CIEL_PY="$PY"
+
+echo "[CIEL] Startuje claude..." >&2
+exec claude "$@"

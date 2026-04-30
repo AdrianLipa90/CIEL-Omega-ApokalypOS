@@ -1,18 +1,18 @@
 {
   "schema": "ciel-sot-agent/local-nonlocality-fallback/v0.1",
-  "timestamp": "2026-04-30T17:19:17.397705+00:00",
+  "timestamp": "2026-04-30T20:25:55.501947+00:00",
   "activation_threshold": 0.4,
   "canonical_coherent_fraction_input": 0.6,
   "fallback_active": false,
   "pc_metrics": {
-    "cpu_percent": 4.92,
-    "mem_percent": 43.1,
-    "load_avg_1m": 0.76,
-    "process_count": 345,
-    "disk_read_mb": 0.04,
-    "disk_write_mb": 0.0,
-    "net_total_mb": 10252.5033,
-    "time_of_day_phase_rad": 4.796528
+    "cpu_percent": 1.64,
+    "mem_percent": 51.72,
+    "load_avg_1m": 0.67,
+    "process_count": 339,
+    "disk_read_mb": 0.0,
+    "disk_write_mb": 0.01,
+    "net_total_mb": 6548.3417,
+    "time_of_day_phase_rad": 5.61087
   },
   "pc_phase_labels": [
     "M0_Perceptual(cpu)",
@@ -25,67 +25,67 @@
     "M7_Braid(net)"
   ],
   "pc_phases_rad": [
-    0.051727,
-    0.081888,
-    0.106029,
+    0.048258,
+    0.111125,
     0.105135,
-    0.167833,
-    0.094029,
-    0.138939,
-    0.150644
+    0.105406,
+    0.166957,
+    0.089978,
+    0.151064,
+    0.144011
   ],
   "eba_loop_results": {
     "short": {
-      "epsilon_eba": 0.05854410780472249,
-      "defect_magnitude": 0.05854410780472249,
+      "epsilon_eba": 0.05498313103802374,
+      "defect_magnitude": 0.05498313103802374,
       "is_coherent": true,
       "phi_dyn": 0.08333333333333333,
-      "phi_berry": -0.04138566430271731,
-      "phi_ab": 0.01659643877410647,
+      "phi_berry": -0.041649503414623146,
+      "phi_ab": 0.013299301119313555,
       "nu_e": 0
     },
     "medium": {
-      "epsilon_eba": 0.05192718534878885,
-      "defect_magnitude": 0.05192718534878885,
+      "epsilon_eba": 0.05739781132601141,
+      "defect_magnitude": 0.05739781132601141,
       "is_coherent": true,
-      "phi_dyn": 0.08333333333333336,
-      "phi_berry": -0.036702313219573825,
-      "phi_ab": 0.005296165235029318,
+      "phi_dyn": 0.08333333333333337,
+      "phi_berry": -0.03563330935139071,
+      "phi_ab": 0.009697787344068747,
       "nu_e": 0
     },
     "deep": {
-      "epsilon_eba": 0.049188364825064015,
-      "defect_magnitude": 0.049188364825064015,
+      "epsilon_eba": 0.054005620941287934,
+      "defect_magnitude": 0.054005620941287934,
       "is_coherent": true,
       "phi_dyn": 0.08333333333333334,
-      "phi_berry": -0.036786754992700746,
-      "phi_ab": 0.0026417864844314196,
+      "phi_berry": -0.03449148376986663,
+      "phi_ab": 0.005163771377821223,
       "nu_e": 0
     },
     "identity_stabilization": {
-      "epsilon_eba": 0.04827481609502844,
-      "defect_magnitude": 0.04827481609502844,
+      "epsilon_eba": 0.04473361640016192,
+      "defect_magnitude": 0.04473361640016192,
       "is_coherent": true,
       "phi_dyn": 0.08333333333333333,
-      "phi_berry": -0.040243374017521746,
-      "phi_ab": 0.005184856779216866,
+      "phi_berry": -0.040198349096524644,
+      "phi_ab": 0.0015986321633532335,
       "nu_e": 0
     },
     "semantic_consolidation": {
-      "epsilon_eba": 0.045936770345317436,
-      "defect_magnitude": 0.045936770345317436,
+      "epsilon_eba": 0.0486927369021127,
+      "defect_magnitude": 0.0486927369021127,
       "is_coherent": true,
-      "phi_dyn": 0.08333333333333333,
-      "phi_berry": -0.03970071597220177,
-      "phi_ab": 0.002304152984185885,
+      "phi_dyn": 0.08333333333333334,
+      "phi_berry": -0.03977242133552489,
+      "phi_ab": 0.0051318249043042444,
       "nu_e": 0
     }
   },
   "observables": {
     "nonlocal_coherent_fraction": 1.0,
-    "phi_ab_mean": 0.006404680051393992,
-    "phi_berry_mean": -0.03896376450094308,
-    "eba_defect_mean": 0.05077424888378425,
+    "phi_ab_mean": 0.006978263381772201,
+    "phi_berry_mean": -0.038349013393586005,
+    "eba_defect_mean": 0.05196258332151954,
     "loop_count": 5,
     "coherent_count": 5
   }

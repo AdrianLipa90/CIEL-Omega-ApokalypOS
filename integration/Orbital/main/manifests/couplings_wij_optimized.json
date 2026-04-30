@@ -11,7 +11,7 @@
       "fields": 0.01,
       "memory": 0.01,
       "vocabulary": 1.0,
-      "constraints": 0.7337889917549085,
+      "constraints": 0.7252734035631384,
       "runtime": 1.0
     },
     "fields": {
@@ -28,12 +28,12 @@
     }
   },
   "_optimizer_metadata": {
-    "baseline_closure_penalty": 5.20126892583082,
-    "optimized_closure_penalty": 5.200067706351431,
-    "delta": -0.0012,
+    "baseline_closure_penalty": 5.200067706351431,
+    "optimized_closure_penalty": 5.200067821434162,
+    "delta": 0.0,
     "optimizer": "L-BFGS-B",
     "warm_steps": 3,
     "recommended_mode": "standard",
-    "system_health": 0.6006549742389994
+    "system_health": 0.6008113745895268
   }
 }
