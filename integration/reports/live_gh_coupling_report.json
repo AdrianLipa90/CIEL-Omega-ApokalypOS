@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-04-30T01:20:42.656509+00:00",
+  "generated_at": "2026-04-30T02:20:23.694953+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "878a9def81c5cde6e14f457b547e790416800352",
-      "timestamp": "2026-04-30T01:12:19Z",
-      "message": "report: fix layout overflows in ch03, ch12, ch22 (margins, captions, wide tikz)",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/878a9def81c5cde6e14f457b547e790416800352"
+      "new_sha": "3280503a5f17407083cfb9bd04fe80ea37cafc02",
+      "timestamp": "2026-04-30T01:22:28Z",
+      "message": "report v1.1: add version tracking to ciel_system_report.tex + titlepage",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/3280503a5f17407083cfb9bd04fe80ea37cafc02"
     },
     {
       "key": "demo",
