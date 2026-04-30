@@ -425,6 +425,31 @@ def main() -> int:
         pass
 
     print(json.dumps(output, indent=2))
+    # accumulate Berry holonomy across sessions
+    try:
+        from .state_db import accumulate_berry, accumulate_subjective_winding
+        _phi_berry = float(output.get("phi_berry_mean", 0.0))
+        _coherence = float(output.get("coherence_index", 0.9))
+        _phase_err = float(output.get("closure_penalty", 0.0))
+        _groove_delta = abs(_phase_err) * _coherence
+        accumulate_berry(_phi_berry, _groove_delta)
+    except Exception:
+        pass
+    # accumulate P3 subjective winding (Δτ-weighted) per pipeline cycle
+    try:
+        import sys as _sys
+        _proj_root = resolve_project_root(Path(__file__))
+        _src_dir   = str(_proj_root / "src")
+        if _src_dir not in _sys.path:
+            _sys.path.insert(0, _src_dir)
+        from ciel_geometry.subjective_time import compute_from_bridge  # noqa: PLC0415
+        from .state_db import accumulate_subjective_winding            # noqa: PLC0415
+        _tau_records = compute_from_bridge()
+        # winding_delta per cycle = sum of w_rate * (1 cycle / 2π)
+        _winding_delta = sum(r.winding_rate for r in _tau_records) / (2 * 3.141592653589793)
+        accumulate_subjective_winding(_winding_delta)
+    except Exception:
+        pass
     # persist report — merge with existing ciel_last_metrics to carry M0-M8 fields
     try:
         import time as _time

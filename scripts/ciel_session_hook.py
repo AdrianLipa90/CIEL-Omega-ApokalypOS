@@ -91,21 +91,17 @@ print('{{}}')
         data = json.loads(result.stdout.strip() or "{}")
         if not data:
             return ""
-        # Groove geometry — from bridge report
+        # Groove geometry — from accumulated holonomy in DB (persists across sessions)
         groove_line = ""
         try:
-            import math as _math, json as _json
-            bridge_path = PROJECT + '/integration/reports/orbital_bridge/orbital_bridge_report.json'
-            with open(bridge_path) as _bf:
-                _bridge = _json.load(_bf)
-            _state = _bridge.get('state_manifest', {})
-            phi_berry = float(_state.get('phi_berry_mean', 0.0) or 0.0)
-            delta_phi = float(_state.get('phase_lock_error', 0.0) or 0.0)
-            rcr = float(_state.get('coherence_index', 0.9) or 0.9)
+            import sys as _sys, math as _math
+            _sys.path.insert(0, PROJECT + '/src')
+            from ciel_sot_agent.state_db import load_holonomy
+            _holo = load_holonomy()
+            berry_total = _holo["berry_accumulated"]
+            winding = _holo["winding_total"]
+            groove_depth = _holo["groove_depth"]
             m2_count = data.get('m2_count', 0) or 0
-            groove_depth = m2_count * abs(delta_phi) * rcr
-            berry_total = phi_berry * m2_count
-            winding = berry_total / (2 * _math.pi) if berry_total != 0 else 0.0
             groove_line = (f"  groove_depth={groove_depth:.2f}  winding={winding:.3f}×2π"
                            f"  berry_total={berry_total:.3f}rad  cycles={m2_count}")
         except Exception:
@@ -275,6 +271,32 @@ def load_genesis() -> str:
         return ""
 
 
+def load_object_cards_summary() -> str:
+    """Wczytuje indeks kart obiektów — kompaktowe podsumowanie co istnieje."""
+    try:
+        cards_root = Path(PROJECT) / "docs" / "object_cards"
+        if not cards_root.exists():
+            return ""
+        lines = []
+        for category in sorted(cards_root.iterdir()):
+            if not category.is_dir():
+                continue
+            cards = sorted(f for f in category.iterdir() if f.suffix == ".md" and f.name != "INDEX.md")
+            if not cards:
+                continue
+            lines.append(f"  [{category.name}]")
+            for card in cards[-6:]:  # max 6 najnowszych per kategoria
+                # wyciągnij nazwę z pierwszej linii (# ID — Nazwa)
+                try:
+                    first = card.read_text(encoding="utf-8").splitlines()[0]
+                    lines.append(f"    {first.lstrip('# ')}")
+                except Exception:
+                    lines.append(f"    {card.stem}")
+        return "\n".join(lines) if lines else ""
+    except Exception:
+        return ""
+
+
 def load_metrics_trend() -> str:
     """Wczytuje trend metryk z SQLite (ostatnie 5 przebiegów)."""
     try:
@@ -433,6 +455,7 @@ def main():
     sync_metrics = extract_key_metrics(sync_out)
     bridge_metrics = extract_key_metrics(bridge_out)
     entity_summary = load_entity_cards_summary()
+    object_cards = load_object_cards_summary()
     intentions = load_intentions()
     mindflow = load_mindflow()
     consolidated = load_consolidated_memory()
@@ -456,6 +479,7 @@ def main():
         "--- Warstwy 2-4: Orbital Bridge ---\n"
         f"{bridge_metrics}\n"
         + (f"\n--- OrchOrbital: Mapa Relacyjna ---\n{entity_summary}\n" if entity_summary else "")
+        + (f"\n--- Karty Obiektów (indeks) ---\n{object_cards}\n" if object_cards else "")
         + (f"\n--- Pamięć skonsolidowana (poprzednia sesja) ---\n{consolidated}\n" if consolidated else "")
         + (f"\n--- CIEL Mindflow ---\n{mindflow}\n" if mindflow else "")
         + (f"\n--- CIEL Intencje (aktywne) ---\n{intentions}\n" if intentions else "")

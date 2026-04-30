@@ -1,0 +1,46 @@
+{
+  "schema": "ciel/word-cards-registry/v0.1",
+  "count": 1,
+  "cards": [
+    {
+      "card_id": "WORD-0001",
+      "source_file": "docs/object_cards/words/WORD-0001.md",
+      "name": "woda / water / 水",
+      "semantic_class": "rzeczownik / noun / 名詞",
+      "root_meaning": "ciecz podtrzymująca życie, medium przepływu i zmiany stanu",
+      "resonance_orbit": "CONSTITUTIVE",
+      "berry_phase_signature": "0.0",
+      "semantic_tags": [
+        "ciecz",
+        "życie",
+        "przepływ",
+        "zmiana_stanu",
+        "przezroczystość",
+        "czystość",
+        "źródło"
+      ],
+      "translations": {},
+      "synonyms": [],
+      "antonyms": [
+        "WORD-ogień"
+      ],
+      "hyponyms": [
+        "rzeka",
+        "morze",
+        "deszcz",
+        "lód",
+        "para"
+      ],
+      "kanji_components": [],
+      "composed_into": [
+        "河",
+        "海",
+        "湖",
+        "泳",
+        "泣"
+      ],
+      "hypernym": "ciecz / liquid / 液体",
+      "translation_card_links": []
+    }
+  ]
+}

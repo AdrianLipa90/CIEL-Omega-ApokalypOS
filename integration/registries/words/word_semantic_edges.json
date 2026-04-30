@@ -1,0 +1,12 @@
+{
+  "schema": "ciel/word-semantic-edges/v0.1",
+  "count": 1,
+  "edges": [
+    {
+      "source": "WORD-0001",
+      "target": "WORD-ogień",
+      "relation": "antonym",
+      "weight": 0.5
+    }
+  ]
+}

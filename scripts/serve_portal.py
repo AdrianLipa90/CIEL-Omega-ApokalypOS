@@ -203,6 +203,75 @@ def read_orbital_data() -> dict:
     return data
 
 
+def read_geometry_data() -> dict:
+    """Return Poincaré disk layout + Bloch sphere data for orbital.html."""
+    result: dict = {"nodes": [], "edges": [], "metadata": {}, "bloch": {}, "berry_history": []}
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(PROJECT / "src"))
+        from ciel_geometry.layout import build_layout
+        from dataclasses import asdict
+        layout = build_layout(include_entities=True, entity_limit=40)
+        result["nodes"] = [asdict(n) for n in layout.nodes]
+        result["edges"] = [
+            {"src": e.src, "dst": e.dst, "weight": e.weight,
+             "arc_points": e.arc_points[::(max(1, len(e.arc_points)//12))]}  # thin out for JSON size
+            for e in layout.edges
+        ]
+        result["metadata"] = layout.metadata
+    except Exception as exc:
+        result["error"] = str(exc)
+
+    # Bloch sphere state from bridge report
+    if BRIDGE_REPORT.exists():
+        try:
+            d = json.loads(BRIDGE_REPORT.read_text(encoding="utf-8"))
+            sm = d.get("state_manifest", {})
+            phi_berry = float(sm.get("nonlocal_phi_berry_mean", 0.0))
+            coherence = float(sm.get("coherence_index", 0.9))
+            closure = float(d.get("health_manifest", sm).get("euler_bridge_closure_score",
+                             sm.get("euler_bridge_closure_score", 0.5)))
+            # Map to Bloch sphere: theta=acos(2*closure-1), phi=phi_berry
+            import math as _math
+            theta_bloch = _math.acos(max(-1.0, min(1.0, 2.0 * closure - 1.0)))
+            result["bloch"] = {
+                "theta": round(theta_bloch, 4),
+                "phi": round(phi_berry, 4),
+                "coherence": round(coherence, 4),
+                "closure": round(closure, 4),
+                "x": round(_math.sin(theta_bloch) * _math.cos(phi_berry), 4),
+                "y": round(_math.sin(theta_bloch) * _math.sin(phi_berry), 4),
+                "z": round(_math.cos(theta_bloch), 4),
+            }
+        except Exception:
+            pass
+
+    # Berry phase trajectory from orbital history
+    summary_path = PROJECT / "integration/Orbital/main/reports/global_orbital_coherence_pass/summary.json"
+    if summary_path.exists():
+        try:
+            d = json.loads(summary_path.read_text(encoding="utf-8"))
+            history = d.get("history", [])
+            import math as _math
+            trail = []
+            for step in history:
+                phi = float(step.get("nonlocal_phi_berry_mean", 0.0))
+                closure = float(step.get("euler_bridge_closure_score", 0.5))
+                theta = _math.acos(max(-1.0, min(1.0, 2.0 * closure - 1.0)))
+                trail.append({
+                    "x": round(_math.sin(theta) * _math.cos(phi), 4),
+                    "y": round(_math.sin(theta) * _math.sin(phi), 4),
+                    "z": round(_math.cos(theta), 4),
+                    "R_H": round(float(step.get("R_H", 0)), 4),
+                })
+            result["berry_history"] = trail
+        except Exception:
+            pass
+
+    result["ts"] = time.strftime("%H:%M:%S")
+    return result
+
+
 # ── sessions reader ────────────────────────────────────────────────────────
 
 def read_sessions(limit: int = 50) -> list:
@@ -450,6 +519,17 @@ class CIELHandler(BaseHTTPRequestHandler):
         # ── /api/orbital ───────────────────────────────────────────────────
         if path == "/api/orbital":
             body = json.dumps(read_orbital_data(), ensure_ascii=False).encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+
+        # ── /api/geometry ─────────────────────────────────────────────────
+        if path == "/api/geometry":
+            body = json.dumps(read_geometry_data(), ensure_ascii=False).encode("utf-8")
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Access-Control-Allow-Origin", "*")

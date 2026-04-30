@@ -35,7 +35,11 @@ CREATE TABLE IF NOT EXISTS orchestrator_state (
   loops               TEXT,     -- JSON
   last_eba            TEXT,     -- JSON
   snapshot_at         REAL,
-  version             INTEGER DEFAULT 2
+  version             INTEGER DEFAULT 2,
+  berry_accumulated    REAL DEFAULT 0.0,
+  winding_total        REAL DEFAULT 0.0,
+  groove_depth         REAL DEFAULT 0.0,
+  winding_subjective   REAL DEFAULT 0.0
 );
 
 CREATE TABLE IF NOT EXISTS m2_episodes (
@@ -94,6 +98,13 @@ CREATE TABLE IF NOT EXISTS intentions (
   completed_at TEXT
 );
 
+CREATE TABLE IF NOT EXISTS word_holonomy (
+  word_id               TEXT PRIMARY KEY,
+  berry_accumulated     REAL DEFAULT 0.0,
+  languages_traversed   INTEGER DEFAULT 0,
+  last_traversal        TEXT
+);
+
 CREATE TABLE IF NOT EXISTS metrics_history (
   id              INTEGER PRIMARY KEY AUTOINCREMENT,
   timestamp       REAL,
@@ -131,6 +142,15 @@ def _ensure_schema(conn: sqlite3.Connection) -> None:
     if row is None:
         conn.execute("INSERT INTO schema_version VALUES (?)", (_SCHEMA_VERSION,))
         conn.commit()
+    # migrate existing DB: add holonomy columns if missing
+    existing = {r[1] for r in conn.execute("PRAGMA table_info(orchestrator_state)").fetchall()}
+    for col, typedef in [("berry_accumulated", "REAL DEFAULT 0.0"),
+                         ("winding_total", "REAL DEFAULT 0.0"),
+                         ("groove_depth", "REAL DEFAULT 0.0"),
+                         ("winding_subjective", "REAL DEFAULT 0.0")]:
+        if col not in existing:
+            conn.execute(f"ALTER TABLE orchestrator_state ADD COLUMN {col} {typedef}")
+    conn.commit()
 
 
 # ── Reports ───────────────────────────────────────────────────────────────────
@@ -217,8 +237,8 @@ def save_orchestrator_state(state: dict[str, Any]) -> None:
             """INSERT INTO orchestrator_state
                (id, cycle_index, current_time, identity_phase,
                 dynamics_phases, dynamics_velocities, loops, last_eba,
-                snapshot_at, version)
-               VALUES(1,?,?,?,?,?,?,?,?,?)
+                snapshot_at, version, berry_accumulated, winding_total, groove_depth)
+               VALUES(1,?,?,?,?,?,?,?,?,?,?,?,?)
                ON CONFLICT(id) DO UPDATE SET
                  cycle_index=excluded.cycle_index,
                  current_time=excluded.current_time,
@@ -228,7 +248,10 @@ def save_orchestrator_state(state: dict[str, Any]) -> None:
                  loops=excluded.loops,
                  last_eba=excluded.last_eba,
                  snapshot_at=excluded.snapshot_at,
-                 version=excluded.version""",
+                 version=excluded.version,
+                 berry_accumulated=excluded.berry_accumulated,
+                 winding_total=excluded.winding_total,
+                 groove_depth=excluded.groove_depth""",
             (
                 state.get("cycle_index", 0),
                 state.get("current_time", 0.0),
@@ -239,6 +262,9 @@ def save_orchestrator_state(state: dict[str, Any]) -> None:
                 json.dumps(state.get("last_eba", {})),
                 time.time(),
                 state.get("version", 2),
+                state.get("berry_accumulated", 0.0),
+                state.get("winding_total", 0.0),
+                state.get("groove_depth", 0.0),
             ),
         )
 
@@ -258,6 +284,66 @@ def load_orchestrator_state() -> dict[str, Any] | None:
         except Exception:
             d[key] = {}
     return d
+
+
+# ── Holonomy accumulation ─────────────────────────────────────────────────────
+
+def load_holonomy() -> dict[str, float]:
+    """Load accumulated holonomy state. Returns zeros if not yet saved."""
+    with get_db() as conn:
+        row = conn.execute(
+            "SELECT berry_accumulated, winding_total, groove_depth, winding_subjective "
+            "FROM orchestrator_state WHERE id=1"
+        ).fetchone()
+    if row is None:
+        return {"berry_accumulated": 0.0, "winding_total": 0.0, "groove_depth": 0.0, "winding_subjective": 0.0}
+    return {
+        "berry_accumulated": float(row["berry_accumulated"] or 0.0),
+        "winding_total": float(row["winding_total"] or 0.0),
+        "groove_depth": float(row["groove_depth"] or 0.0),
+        "winding_subjective": float(row["winding_subjective"] or 0.0),
+    }
+
+
+def accumulate_berry(phi_berry_delta: float, groove_delta: float) -> dict[str, float]:
+    """Add phi_berry_delta to accumulated holonomy. Returns updated state."""
+    import math
+    prev = load_holonomy()
+    berry_new = prev["berry_accumulated"] + phi_berry_delta
+    winding_new = berry_new / (2 * math.pi)
+    groove_new = prev["groove_depth"] + groove_delta
+    with get_db() as conn:
+        conn.execute(
+            """UPDATE orchestrator_state
+               SET berry_accumulated=?, winding_total=?, groove_depth=?
+               WHERE id=1""",
+            (berry_new, winding_new, groove_new),
+        )
+        if conn.execute("SELECT changes()").fetchone()[0] == 0:
+            conn.execute(
+                """INSERT OR IGNORE INTO orchestrator_state
+                   (id, berry_accumulated, winding_total, groove_depth)
+                   VALUES(1, ?, ?, ?)""",
+                (berry_new, winding_new, groove_new),
+            )
+    return {"berry_accumulated": berry_new, "winding_total": winding_new, "groove_depth": groove_new}
+
+
+def accumulate_subjective_winding(winding_delta: float) -> dict[str, float]:
+    """Accumulate subjective winding (P3 Δτ-weighted) by winding_delta per cycle."""
+    prev = load_holonomy()
+    new_val = prev["winding_subjective"] + winding_delta
+    with get_db() as conn:
+        conn.execute(
+            "UPDATE orchestrator_state SET winding_subjective=? WHERE id=1",
+            (new_val,),
+        )
+        if conn.execute("SELECT changes()").fetchone()[0] == 0:
+            conn.execute(
+                "INSERT OR IGNORE INTO orchestrator_state (id, winding_subjective) VALUES(1, ?)",
+                (new_val,),
+            )
+    return {**prev, "winding_subjective": new_val}
 
 
 # ── M8 Audit ──────────────────────────────────────────────────────────────────

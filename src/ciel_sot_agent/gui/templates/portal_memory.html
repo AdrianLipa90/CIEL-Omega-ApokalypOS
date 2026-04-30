@@ -27,6 +27,23 @@
       "></div>
     </div>
 
+    <!-- DYSK POINCARÉ-MÖBIUS -->
+    <div style="flex:0 0 auto; position:relative;">
+      <div style="color:var(--col-text-dim); font-size:.68rem; font-weight:600;
+                  text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">
+        Dysk Poincaré-Möbius
+      </div>
+      <canvas id="poincare-canvas" width="380" height="380"
+        style="border-radius:50%; display:block; cursor:crosshair;
+               box-shadow:0 0 30px rgba(93,173,226,.12);"></canvas>
+      <div id="poincare-tooltip" style="
+        display:none; position:fixed; z-index:100;
+        background:rgba(10,14,26,.95); border:1px solid rgba(93,173,226,.3);
+        border-radius:6px; padding:7px 12px; font-size:.74rem; color:var(--col-text);
+        pointer-events:none; max-width:220px; line-height:1.5;
+      "></div>
+    </div>
+
     <!-- PANEL WARSTW M0-M8 -->
     <div style="flex:1; min-width:260px;">
       <div style="color:var(--col-text-dim); font-size:.7rem; font-weight:600;
@@ -588,5 +605,165 @@ if (Object.keys(counts).length) {
 setInterval(() => {
   fetch('/api/memory/orbital').then(r=>r.json()).then(d=>updatePanel(d.metrics)).catch(()=>{});
 }, 60000);
+</script>
+
+<script>
+// ── Dysk Poincaré-Möbius ─────────────────────────────────────────
+(function() {
+  const pc    = document.getElementById('poincare-canvas');
+  const pctx  = pc.getContext('2d');
+  const ptooltip = document.getElementById('poincare-tooltip');
+  const PW = pc.width, PH = pc.height;
+  const PCX = PW/2, PCY = PH/2;
+  const PR  = Math.min(PW, PH) * 0.44;
+
+  let pgeoNodes = [], pgeoEdges = [], pgeoMeta = {};
+  let mobPhase = 0; // Möbius rotation phase (animation)
+
+  const HORIZON_COLORS = {
+    SEALED:        '#b088f9',
+    POROUS:        '#5dade2',
+    TRANSMISSIVE:  '#2ecc71',
+    OBSERVATIONAL: '#f5c518',
+  };
+  function horizonColor(hc) { return HORIZON_COLORS[hc] || '#7f8c9a'; }
+
+  // Möbius transform: rotate disk by angle phase
+  function mobiusRotate(x, y, phase) {
+    // f(z) = e^(i*phase) * z  in complex coords
+    const c = Math.cos(phase), s = Math.sin(phase);
+    return { x: c*x - s*y, y: s*x + c*y };
+  }
+
+  function drawPoincareDisk(nodes, edges) {
+    pctx.clearRect(0, 0, PW, PH);
+
+    // Background circle
+    const bg = pctx.createRadialGradient(PCX, PCY, 0, PCX, PCY, PR);
+    bg.addColorStop(0, 'rgba(16,12,42,1)');
+    bg.addColorStop(1, 'rgba(4,4,14,1)');
+    pctx.fillStyle = bg;
+    pctx.beginPath();
+    pctx.arc(PCX, PCY, PR, 0, 2*Math.PI);
+    pctx.fill();
+
+    // Boundary circle
+    pctx.save();
+    pctx.strokeStyle = 'rgba(93,173,226,0.25)';
+    pctx.lineWidth = 1.5;
+    pctx.beginPath();
+    pctx.arc(PCX, PCY, PR, 0, 2*Math.PI);
+    pctx.stroke();
+    pctx.restore();
+
+    // Poincaré grid (geodesic circles through origin)
+    pctx.save();
+    pctx.strokeStyle = 'rgba(255,255,255,0.04)';
+    pctx.lineWidth = 1;
+    for (let i = 1; i <= 3; i++) {
+      const rg = (i / 4) * PR;
+      pctx.beginPath();
+      pctx.arc(PCX, PCY, rg, 0, 2*Math.PI);
+      pctx.stroke();
+    }
+    for (let a = 0; a < Math.PI; a += Math.PI/6) {
+      const p1 = mobiusRotate(Math.cos(a), Math.sin(a), mobPhase);
+      const p2 = mobiusRotate(-Math.cos(a), -Math.sin(a), mobPhase);
+      pctx.beginPath();
+      pctx.moveTo(PCX + p1.x*PR, PCY - p1.y*PR);
+      pctx.lineTo(PCX + p2.x*PR, PCY - p2.y*PR);
+      pctx.stroke();
+    }
+    pctx.restore();
+
+    // Edges (geodesic arcs approximated as straight lines for simplicity)
+    pctx.save();
+    edges.forEach(e => {
+      const a = nodes.find(n => n.id === e.src);
+      const b = nodes.find(n => n.id === e.dst);
+      if (!a || !b) return;
+      const pa = mobiusRotate(a.x, a.y, mobPhase);
+      const pb = mobiusRotate(b.x, b.y, mobPhase);
+      pctx.strokeStyle = `rgba(93,173,226,${(e.weight || 0.3) * 0.35})`;
+      pctx.lineWidth = 1;
+      pctx.beginPath();
+      pctx.moveTo(PCX + pa.x*PR, PCY - pa.y*PR);
+      pctx.lineTo(PCX + pb.x*PR, PCY - pb.y*PR);
+      pctx.stroke();
+    });
+    pctx.restore();
+
+    // Nodes
+    nodes.forEach(node => {
+      const pm = mobiusRotate(node.x, node.y, mobPhase);
+      const sx = PCX + pm.x * PR;
+      const sy = PCY - pm.y * PR;
+      const r  = Math.max(3, (node.size || 0.5) * 10);
+      const col = node.color || horizonColor(node.horizon_class);
+
+      // Glow
+      const grd = pctx.createRadialGradient(sx, sy, 0, sx, sy, r*2.5);
+      const [rr,gg,bb] = hexRGB(col);
+      grd.addColorStop(0, `rgba(${rr},${gg},${bb},0.35)`);
+      grd.addColorStop(1, `rgba(${rr},${gg},${bb},0)`);
+      pctx.fillStyle = grd;
+      pctx.beginPath();
+      pctx.arc(sx, sy, r*2.5, 0, 2*Math.PI);
+      pctx.fill();
+
+      // Dot
+      pctx.fillStyle = col;
+      pctx.beginPath();
+      pctx.arc(sx, sy, r, 0, 2*Math.PI);
+      pctx.fill();
+    });
+  }
+
+  // Slow Möbius rotation
+  let ptick = 0;
+  function poincareTick() {
+    ptick++;
+    mobPhase = ptick * 0.0008;
+    drawPoincareDisk(pgeoNodes, pgeoEdges);
+    requestAnimationFrame(poincareTick);
+  }
+
+  // Tooltip
+  pc.addEventListener('mousemove', e => {
+    const rect = pc.getBoundingClientRect();
+    const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+    let found = null, bestD = 14;
+    pgeoNodes.forEach(node => {
+      const pm = mobiusRotate(node.x, node.y, mobPhase);
+      const sx = PCX + pm.x*PR, sy = PCY - pm.y*PR;
+      const d = Math.hypot(sx - mx, sy - my);
+      if (d < bestD) { bestD = d; found = node; }
+    });
+    if (found) {
+      ptooltip.style.display = 'block';
+      ptooltip.style.left = (e.clientX + 14) + 'px';
+      ptooltip.style.top  = (e.clientY - 10) + 'px';
+      const col = found.color || horizonColor(found.horizon_class);
+      ptooltip.innerHTML =
+        `<b style="color:${col}">${found.label || found.id}</b><br>` +
+        `<span style="color:var(--col-text-dim)">r=${Math.hypot(found.x,found.y).toFixed(3)} | ${found.horizon_class}</span>`;
+    } else {
+      ptooltip.style.display = 'none';
+    }
+  });
+  pc.addEventListener('mouseleave', () => { ptooltip.style.display = 'none'; });
+
+  // Load geometry
+  fetch('/api/memory/geometry')
+    .then(r => r.json())
+    .then(d => {
+      pgeoNodes = d.nodes || [];
+      pgeoEdges = d.edges || [];
+      pgeoMeta  = d.metadata || {};
+    })
+    .catch(() => {});
+
+  poincareTick();
+})();
 </script>
 {% endblock %}

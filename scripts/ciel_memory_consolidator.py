@@ -385,6 +385,27 @@ def _normalize_parsed(d: dict) -> dict:
     return {"themes": themes[:4], "affect": affect, "essence": essence, "hunch": hunch}
 
 
+def _verify_essence_against_content(essence: str, content: str) -> bool:
+    """Sprawdź czy essence ma choć jeden token z rzeczywistej treści pliku.
+
+    qwen2.5-0.5b hallucynuje "Fixed Adriana's focus on Christos" bez związku z treścią.
+    Weryfikacja: przynajmniej 1 słowo z essence (>=5 znaków) musi wystąpić w content.
+    Wyjątki: bardzo krótkie pliki (<50 znaków) — przepuszczamy bez weryfikacji.
+    """
+    if not essence or not content:
+        return True  # brak treści → nie możemy zweryfikować → przepuść
+    if len(content.strip()) < 50:
+        return True  # za krótki plik — przepuść
+    essence_words = {w.lower().strip(".,!?;:'\"()[]") for w in essence.split() if len(w) >= 5}
+    content_lower = content.lower()
+    # Ignoruj słowa które zawsze pasują (nazwy własne, generyki)
+    _HALLUCINATION_NAMES = {"adriana", "christos", "adrianna"}
+    essence_words -= _HALLUCINATION_NAMES
+    if not essence_words:
+        return False  # samo "Fixed Adriana's focus" po usunięciu hallucination words = puste
+    return any(w in content_lower for w in essence_words)
+
+
 def process_file(file_row: sqlite3.Row, cycle: int) -> bool:
     """Przetwórz jeden plik. Zwraca True jeśli sukces."""
     path = Path(file_row["path"])
@@ -409,6 +430,12 @@ def process_file(file_row: sqlite3.Row, cycle: int) -> bool:
 
     latency = round(time.time() - t0, 2)
     parsed  = _parse_response(raw)
+
+    # Weryfikacja: jeśli essence nie ma związku z treścią pliku — wyczyść
+    if not _verify_essence_against_content(parsed.get("essence", ""), content):
+        print(f"[consolidator] ⚠ halucynacja odrzucona dla {path.name}: '{parsed.get('essence',''[:60])}'", file=sys.stderr)
+        parsed["essence"] = ""
+        parsed["hunch"] = ""
 
     mark_file_done(
         path=str(path), cycle=cycle,

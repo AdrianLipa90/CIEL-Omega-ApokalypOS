@@ -1283,6 +1283,35 @@ def register_routes(app: Flask) -> None:
     def memory_orbital() -> Any:
         return jsonify(_load_orbital_data())
 
+    @app.route("/api/memory/geometry")
+    def memory_geometry() -> Any:
+        """Poincaré disk geometry snapshot for portal/memory canvas."""
+        try:
+            import sys as _sys
+            _root_path = _root()
+            _src = str(_root_path / "src")
+            if _src not in _sys.path:
+                _sys.path.insert(0, _src)
+            from ciel_geometry.layout import build_layout  # noqa: PLC0415
+            layout = build_layout()
+            return jsonify({
+                "nodes": [
+                    {
+                        "id": n.id, "x": n.x, "y": n.y,
+                        "label": n.label, "size": n.size,
+                        "color": n.color, "horizon_class": n.horizon_class,
+                    }
+                    for n in layout.nodes
+                ],
+                "edges": [
+                    {"src": e.src, "dst": e.dst, "weight": e.weight}
+                    for e in layout.edges
+                ],
+                "metadata": layout.metadata,
+            })
+        except Exception as exc:
+            return jsonify({"nodes": [], "edges": [], "metadata": {}, "error": str(exc)})
+
     @app.route("/portal/dashboard")
     def portal_dashboard() -> str:
         data = _portal_data()

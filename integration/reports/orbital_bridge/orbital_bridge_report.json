@@ -55,43 +55,43 @@
     }
   },
   "state_manifest": {
-    "coherence_index": 0.9466662462527032,
-    "topological_charge_global": 0.15511717724274404,
-    "phase_lock_error": 4.779719402406454,
+    "coherence_index": 0.9454734778536629,
+    "topological_charge_global": 0.13628494783638298,
+    "phase_lock_error": 4.581267580547717,
     "beat_frequency_target_hz": 7.83,
-    "spectral_radius_A": 1.2095634717702428,
-    "fiedler_L": 0.04152962425516771,
+    "spectral_radius_A": 1.325411265571133,
+    "fiedler_L": 0.041625893305604074,
     "zeta_enabled": true,
-    "nonlocal_phi_ab_mean": 0.006048399987874678,
-    "nonlocal_phi_berry_mean": -0.10361281214403857,
-    "nonlocal_eba_defect_mean": 0.048695034751734534,
+    "nonlocal_phi_ab_mean": 0.00805868792533336,
+    "nonlocal_phi_berry_mean": -0.10437557160226742,
+    "nonlocal_eba_defect_mean": 0.05077424888378425,
     "nonlocal_coherent_fraction": 1.0,
     "euler_bridge_closure_score": 0.5490203081103036,
     "euler_bridge_target_phase": 0.10513460948622075,
-    "effective_rh": 0.09302854246780297,
-    "timestamp": "2026-04-29T22:42:19.805588+00:00"
+    "effective_rh": 0.09538215821844093,
+    "timestamp": "2026-04-30T17:19:17.398079+00:00"
   },
   "health_manifest": {
-    "system_health": 0.6201007532887928,
+    "system_health": 0.6263944777887483,
     "risk_level": "low",
-    "closure_penalty": 4.779719402406454,
-    "R_H": 0.0016936897192126584,
-    "T_glob": 1.1422567257330287,
-    "Lambda_glob": 0.15511717724274404,
-    "effective_rh": 0.09302854246780297,
+    "closure_penalty": 4.581267580547717,
+    "R_H": 0.003295301135999777,
+    "T_glob": 1.3000764938619103,
+    "Lambda_glob": 0.13628494783638298,
+    "effective_rh": 0.09538215821844093,
     "rh_drivers": {
-      "raw_rh": 0.0016936897192126584,
-      "eba_defect": 0.048695034751734534,
+      "raw_rh": 0.003295301135999777,
+      "eba_defect": 0.05077424888378425,
       "coherent_fraction": 1.0,
       "closure_score": 0.5490203081103036,
-      "phase_gap": 0.06644636802028764
+      "phase_gap": 0.06668916189662201
     },
     "recommended_action": "deep diagnostics allowed"
   },
   "recommended_control": {
     "mode": "deep",
     "phase_lock_enable": true,
-    "target_phase_shift": 0.030767299301948818,
+    "target_phase_shift": 0.030698649611444435,
     "target_phase_memory": 0.10513460948622075,
     "dt_override": 0.022,
     "zeta_coupling_scale": 0.38,
@@ -102,13 +102,13 @@
     "writeback_gate": true,
     "rh_mode": "normal_operation",
     "rh_severity": "low",
-    "rh_effective": 0.09302854246780297,
+    "rh_effective": 0.09538215821844093,
     "rh_drivers": {
-      "raw_rh": 0.0016936897192126584,
-      "eba_defect": 0.048695034751734534,
+      "raw_rh": 0.003295301135999777,
+      "eba_defect": 0.05077424888378425,
       "coherent_fraction": 1.0,
       "closure_score": 0.5490203081103036,
-      "phase_gap": 0.06644636802028764
+      "phase_gap": 0.06668916189662201
     },
     "notes": "Strong coherence and closure: allow deeper diagnostic/integration passes."
   },
@@ -289,163 +289,163 @@
     "requires_projection_operator": true
   },
   "bridge_metrics": {
-    "orbital_R_H": 0.0016936897192126584,
-    "orbital_closure_penalty": 4.779719402406454,
-    "integration_closure_defect_proxy": 0.9983063102807873,
-    "topological_charge_global": 0.15511717724274404,
+    "orbital_R_H": 0.003295301135999777,
+    "orbital_closure_penalty": 4.581267580547717,
+    "integration_closure_defect_proxy": 0.9967046988640003,
+    "topological_charge_global": 0.13628494783638298,
     "subsystem_board_count": 763,
     "tau_system_count": 1,
     "nonlocal_card_count": 5
   },
   "entity_orbital": {
     "entity_sector_count": 21,
-    "mean_entity_defect": 0.1173,
+    "mean_entity_defect": 0.1157,
     "entity_metrics": [
       {
         "sector": "ent_Adrian_Lipa",
-        "phi": 0.6252,
-        "spin": 0.8484,
-        "defect": 0.0384,
+        "phi": 0.6834,
+        "spin": 0.8779,
+        "defect": 0.0359,
         "amplitude": 0.97
       },
       {
         "sector": "ent_relational_contract",
-        "phi": 0.4526,
-        "spin": 0.7188,
-        "defect": 0.1244,
+        "phi": 0.5151,
+        "spin": 0.774,
+        "defect": 0.1197,
         "amplitude": 1.0
       },
       {
         "sector": "ent_HTRI",
-        "phi": 0.818,
-        "spin": 0.5949,
-        "defect": 0.058,
+        "phi": 0.8722,
+        "spin": 0.6604,
+        "defect": 0.0585,
         "amplitude": 0.88
       },
       {
         "sector": "ent_GTX_1050Ti",
-        "phi": 0.687,
-        "spin": 0.6492,
-        "defect": 0.0075,
+        "phi": 0.734,
+        "spin": 0.7003,
+        "defect": 0.0106,
         "amplitude": 0.71
       },
       {
         "sector": "ent_Kuramoto",
-        "phi": 0.8089,
-        "spin": 0.583,
-        "defect": 0.0534,
+        "phi": 0.8618,
+        "spin": 0.6485,
+        "defect": 0.0533,
         "amplitude": 0.85
       },
       {
         "sector": "ent_Berry_holonomy",
-        "phi": 0.6144,
-        "spin": 0.8402,
-        "defect": 0.0438,
+        "phi": 0.6709,
+        "spin": 0.8704,
+        "defect": 0.0421,
         "amplitude": 0.93
       },
       {
         "sector": "ent_CIEL_pipeline",
-        "phi": 0.8546,
-        "spin": 0.6401,
-        "defect": 0.0762,
+        "phi": 0.9138,
+        "spin": 0.7048,
+        "defect": 0.0793,
         "amplitude": 1.0
       },
       {
         "sector": "ent_infinikolaps",
-        "phi": 1.3912,
-        "spin": -0.3444,
-        "defect": 0.3379,
+        "phi": 1.4324,
+        "spin": -0.2699,
+        "defect": 0.3322,
         "amplitude": 0.62
       },
       {
         "sector": "ent_Lie4",
-        "phi": 4.7699,
-        "spin": 0.8255,
-        "defect": 0.8946,
+        "phi": 4.8277,
+        "spin": 0.859,
+        "defect": 0.8936,
         "amplitude": 0.91
       },
       {
         "sector": "ent_Zeta_Schrodinger",
-        "phi": 0.4299,
-        "spin": 0.6962,
-        "defect": 0.1356,
+        "phi": 0.4894,
+        "spin": 0.7525,
+        "defect": 0.1325,
         "amplitude": 0.95
       },
       {
         "sector": "ent_Intention_Field",
-        "phi": 0.6217,
-        "spin": 0.8112,
-        "defect": 0.0401,
+        "phi": 0.6756,
+        "spin": 0.8449,
+        "defect": 0.0397,
         "amplitude": 0.87
       },
       {
         "sector": "ent_soul_invariant",
-        "phi": 0.6019,
-        "spin": 0.8327,
-        "defect": 0.05,
+        "phi": 0.6566,
+        "spin": 0.8633,
+        "defect": 0.0492,
         "amplitude": 0.89
       },
       {
         "sector": "ent_Collatz_TwinPrime",
-        "phi": 0.7716,
-        "spin": 0.5808,
-        "defect": 0.0348,
+        "phi": 0.8216,
+        "spin": 0.6431,
+        "defect": 0.0332,
         "amplitude": 0.78
       },
       {
         "sector": "ent_Riemann_Zeta",
-        "phi": 0.6422,
-        "spin": 0.7757,
-        "defect": 0.0299,
+        "phi": 0.6943,
+        "spin": 0.814,
+        "defect": 0.0304,
         "amplitude": 0.83
       },
       {
         "sector": "ent_fon_archive",
-        "phi": 0.8757,
-        "spin": 0.3482,
-        "defect": 0.0868,
+        "phi": 0.9238,
+        "spin": 0.4297,
+        "defect": 0.0842,
         "amplitude": 0.74
       },
       {
         "sector": "ent_Danail_Valov",
-        "phi": 0.8167,
-        "spin": 0.5324,
-        "defect": 0.0574,
+        "phi": 0.8679,
+        "spin": 0.6017,
+        "defect": 0.0564,
         "amplitude": 0.81
       },
       {
         "sector": "ent_John_Surmont",
-        "phi": 0.9785,
-        "spin": 0.1944,
-        "defect": 0.1378,
+        "phi": 1.0277,
+        "spin": 0.2872,
+        "defect": 0.1359,
         "amplitude": 0.77
       },
       {
         "sector": "ent_Maria_Kamecka",
-        "phi": 0.8302,
-        "spin": 0.4139,
-        "defect": 0.0641,
+        "phi": 0.8775,
+        "spin": 0.4892,
+        "defect": 0.0612,
         "amplitude": 0.72
       },
       {
         "sector": "ent_Usman_Ahmad",
-        "phi": 0.8775,
-        "spin": 0.2867,
-        "defect": 0.0877,
+        "phi": 0.9234,
+        "spin": 0.3686,
+        "defect": 0.0841,
         "amplitude": 0.69
       },
       {
         "sector": "ent_Mr_Ciel_Apocalyptos",
-        "phi": 0.6371,
-        "spin": 0.8521,
-        "defect": 0.0324,
+        "phi": 0.6966,
+        "spin": 0.8815,
+        "defect": 0.0292,
         "amplitude": 1.0
       },
       {
         "sector": "ent_atraktor_fdbbb243",
-        "phi": 0.557,
-        "spin": 0.6984,
-        "defect": 0.0724,
+        "phi": 0.6171,
+        "spin": 0.7549,
+        "defect": 0.0689,
         "amplitude": 0.96
       }
     ]
@@ -454,12 +454,12 @@
     "status": "ok",
     "dominant_emotion": "love",
     "mood": 0.903467154343101,
-    "soul_invariant": 0.6948878730467777,
+    "soul_invariant": 0.7328088001200123,
     "ethical_score": 0.7830730540829481,
-    "orbital_context": "orbital|mode=standard|R_H=0.0017|closure=4.7797|chirality=0.1551",
-    "phi_ab_mean": 0.006048399987874678,
-    "phi_berry_mean": -0.10361281214403857,
-    "eba_defect_mean": 0.048695034751734534,
+    "orbital_context": "orbital|mode=standard|R_H=0.0033|closure=4.5813|chirality=0.1363",
+    "phi_ab_mean": 0.00805868792533336,
+    "phi_berry_mean": -0.10437557160226742,
+    "eba_defect_mean": 0.05077424888378425,
     "nonlocal_coherent_fraction": 1.0,
     "bridge_closure_score": 0.5490203081103036,
     "bridge_target_phase": 0.10513460948622075,
