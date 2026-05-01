@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-01T15:35:33.250821+00:00",
+  "generated_at": "2026-05-01T16:05:50.385727+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "4f4b2f39f07079f230714dc6af7797077832b171",
-      "timestamp": "2026-05-01T15:31:50Z",
-      "message": "gitignore: exclude generated object card directories\n\ndocs/object_cards/db/, orbital/, repo/, session/ — generowane przez skrypty, nie wersjonowane.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/4f4b2f39f07079f230714dc6af7797077832b171"
+      "new_sha": "ed9ee0de4f3fb6a9e7f6756f97442b7d5d7f290c",
+      "timestamp": "2026-05-01T15:35:33Z",
+      "message": "Update live GH coupling state",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/ed9ee0de4f3fb6a9e7f6756f97442b7d5d7f290c"
     },
     {
       "key": "demo",
