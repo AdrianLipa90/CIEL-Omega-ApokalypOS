@@ -41,13 +41,19 @@ _MEMORY_LOBE_RATE = 0.14     # rate at which memory lobes converge to their bary
 # Coupling renormalization damping
 _COUPLING_TENSION_DAMP = 0.6  # damping factor for tension-based coupling update
 
-# Mode-selection thresholds
-_SAFE_HARD_DIST_THRESH = 0.0   # any hard distortion triggers safe mode
-_SAFE_D_REPO_THRESH = 0.18     # repo closure defect threshold for safe mode
-_SAFE_E_PHI_THRESH = 6.10      # orbital closure penalty threshold for safe mode
-_SAFE_D_AFFECT_THRESH = 0.32   # affect decoherence threshold for safe mode
-_STD_D_REPO_THRESH = 0.08      # repo closure defect threshold for standard mode
-_STD_E_PHI_THRESH = 5.85       # orbital closure penalty threshold for standard mode
+# Mode-selection thresholds — expressed in ψ_mode space (see phase_control.mode_norm).
+# ψ = (1 − ci) + γ · penalty / penalty_max   where γ=0.15, penalty_max=8.0
+# Boundaries imported from phase_control so there is exactly one source of truth.
+from ciel_omega.orbital.phase_control import (
+    mode_norm as _mode_norm,
+    _PSI_DEEP     as _PSI_DEEP,
+    _PSI_STANDARD as _PSI_STANDARD,
+)
+
+_SAFE_HARD_DIST_THRESH = 0.0   # any hard distortion forces safe regardless of ψ
+_SAFE_D_REPO_THRESH    = 0.18  # repo closure defect → safe
+_SAFE_D_AFFECT_THRESH  = 0.32  # affect decoherence  → safe
+_STD_D_REPO_THRESH     = 0.08  # repo closure defect → standard (below safe)
 
 # Convergence criteria
 _STABLE_D_AFFECT_MAX = 0.22    # affect decoherence must be below this to converge
@@ -165,25 +171,28 @@ def _select_control_mode(
     D_repo: float,
     E_phi: float,
     d_affect: float,
+    ci: float = 1.0,
 ) -> tuple[str, bool]:
     """Return ``(mode, allow_writeback)`` based on distortion and coherence levels.
 
-    Three modes are possible, in order of increasing system stability:
+    Mode boundaries are unified with phase_control via ψ_mode norm so that
+    holonomic_normalizer and orbital_bridge always agree on thresholds.
 
-    * ``"safe"``     — any hard distortion present, or closure/affect above critical thresholds.
-      Write-back is disabled to protect state integrity.
-    * ``"standard"`` — soft distortion present, or metrics above mild thresholds.
-      Write-back is allowed with increased caution.
-    * ``"deep"``     — system is fully coherent; unconstrained write-back allowed.
+    * ``"safe"``     — hard distortion, repo/affect defect above critical level,
+                       or ψ ≥ _PSI_STANDARD.  Write-back disabled.
+    * ``"standard"`` — soft distortion, mild repo defect, or _PSI_DEEP ≤ ψ < _PSI_STANDARD.
+                       Write-back allowed with caution.
+    * ``"deep"``     — ψ < _PSI_DEEP and no distortion.  Full write-back.
     """
+    psi = _mode_norm(ci, E_phi)
     if (
         hard_dist > _SAFE_HARD_DIST_THRESH
         or D_repo > _SAFE_D_REPO_THRESH
-        or E_phi > _SAFE_E_PHI_THRESH
         or d_affect > _SAFE_D_AFFECT_THRESH
+        or psi >= _PSI_STANDARD
     ):
         return "safe", False
-    if soft_dist > 0.0 or D_repo > _STD_D_REPO_THRESH or E_phi > _STD_E_PHI_THRESH:
+    if soft_dist > 0.0 or D_repo > _STD_D_REPO_THRESH or psi >= _PSI_DEEP:
         return "standard", True
     return "deep", True
 
@@ -203,8 +212,10 @@ def holonomic_system_normalizer_v2(
         tensions = list(callbacks.all_pairwise_tensions(_get(X, "repo_states"), couplings))
         T_mean = sum(float(t.get("tension", 0.0)) for t in tensions) / len(tensions) if tensions else 0.0
 
+        from ciel_omega.orbital.phase_control import coherence_index_from_snapshot as _ci_from_snap
         final = _get(X, "orbital_final", {})
         E_phi = float(_get(final, "closure_penalty", 0.0))
+        _ci   = _ci_from_snap(final)
 
         affect = _sector(X, "affect")
         memory = _sector(X, "memory")
@@ -280,7 +291,7 @@ def holonomic_system_normalizer_v2(
         updated_couplings = renormalize_couplings(updated_couplings, target_norm="l1")
         _set(X, "couplings", updated_couplings)
 
-        mode, allow_writeback = _select_control_mode(hard_dist, soft_dist, D_repo, E_phi, d_affect)
+        mode, allow_writeback = _select_control_mode(hard_dist, soft_dist, D_repo, E_phi, d_affect, ci=_ci)
         _set(X, "mode", mode)
         _set(X, "allow_writeback", allow_writeback)
 

@@ -111,8 +111,25 @@ class CielEngine:
             phase_records.append(phase_system.step(0.05))
         latest_phase = phase_records[-1]
         lie4_invariant = self.lie4_collatz.invariant(collatz_seed)
+
+        # Orbit dynamics — how information jumps to attractor
+        from ciel_omega.phase_equation_of_motion import collatz_sequence, collatz_rhythm
+        _cseq = collatz_sequence(collatz_seed, 512)
+        _orbit_length = int(len(_cseq))
+        _attractor_score = round(1.0 / _orbit_length, 6)          # faster convergence = higher score
+        _rhythm = collatz_rhythm(_cseq)
+        _n_expand = int(np.sum(_rhythm > 0))
+        _parity_entropy = round(                                    # Shannon entropy of expand/contract ratio
+            float(-(_n_expand / _orbit_length) * np.log2(max(_n_expand / _orbit_length, 1e-9))
+                  - (1 - _n_expand / _orbit_length) * np.log2(max(1 - _n_expand / _orbit_length, 1e-9))),
+            6,
+        )
+
         collatz_runtime = {
             "seed": collatz_seed,
+            "orbit_length":    _orbit_length,
+            "attractor_score": _attractor_score,
+            "parity_entropy":  _parity_entropy,
             "phase": {
                 "R_H": float(latest_phase["R_H"]),
                 "euler_violation": float(latest_phase["euler_violation"]),

@@ -122,10 +122,12 @@ def _find_gguf() -> Path | None:
     return None
 
 
-def _orbital_mode(closure: float) -> str:
-    if closure < 5.2:
+def _orbital_mode(closure: float, ci: float = 1.0) -> str:
+    from ciel_omega.orbital.phase_control import mode_norm, _PSI_DEEP, _PSI_STANDARD
+    psi = mode_norm(ci, closure)
+    if psi < _PSI_DEEP:
         return "deep"
-    if closure < 5.8:
+    if psi < _PSI_STANDARD:
         return "standard"
     return "safe"
 
