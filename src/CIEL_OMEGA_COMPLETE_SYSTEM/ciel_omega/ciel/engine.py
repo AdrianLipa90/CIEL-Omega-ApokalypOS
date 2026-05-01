@@ -29,7 +29,7 @@ from memory.monolith.orchestrator import UnifiedMemoryOrchestrator
 from memory.orchestrator import HolonomicMemoryOrchestrator
 from bridge.memory_core_phase_bridge import MemoryCorePhaseBridge
 from calibration.rcde import RCDECalibratorPro
-from phase_equation_of_motion import PhaseInfoSystem, make_zeta_wt_fn
+from phase_equation_of_motion import PhaseInfoSystem, make_zeta_wt_fn, collatz_sequence, collatz_rhythm
 from mathematics.lie4.collatz_lie4 import ColatzLie4Engine
 
 log = logging.getLogger("CIEL.Engine")
@@ -113,7 +113,6 @@ class CielEngine:
         lie4_invariant = self.lie4_collatz.invariant(collatz_seed)
 
         # Orbit dynamics — how information jumps to attractor
-        from ciel_omega.phase_equation_of_motion import collatz_sequence, collatz_rhythm
         _cseq = collatz_sequence(collatz_seed, 512)
         _orbit_length = int(len(_cseq))
         _attractor_score = round(1.0 / _orbit_length, 6)          # faster convergence = higher score

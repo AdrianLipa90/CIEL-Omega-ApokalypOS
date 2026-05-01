@@ -46,6 +46,7 @@ _COUPLING_TENSION_DAMP = 0.6  # damping factor for tension-based coupling update
 # Boundaries imported from phase_control so there is exactly one source of truth.
 from ciel_omega.orbital.phase_control import (
     mode_norm as _mode_norm,
+    coherence_index_from_snapshot as _ci_from_snap,
     _PSI_DEEP     as _PSI_DEEP,
     _PSI_STANDARD as _PSI_STANDARD,
 )
@@ -212,7 +213,6 @@ def holonomic_system_normalizer_v2(
         tensions = list(callbacks.all_pairwise_tensions(_get(X, "repo_states"), couplings))
         T_mean = sum(float(t.get("tension", 0.0)) for t in tensions) / len(tensions) if tensions else 0.0
 
-        from ciel_omega.orbital.phase_control import coherence_index_from_snapshot as _ci_from_snap
         final = _get(X, "orbital_final", {})
         E_phi = float(_get(final, "closure_penalty", 0.0))
         _ci   = _ci_from_snap(final)
