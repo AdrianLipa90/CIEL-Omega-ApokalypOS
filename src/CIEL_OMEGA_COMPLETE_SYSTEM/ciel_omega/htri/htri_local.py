@@ -131,15 +131,21 @@ class GPUHtri:
         self._xp = np
         try:
             import cupy as cp
+            # Warm-up probe — catches missing nvcc/nvrtc before first real kernel
+            _probe = cp.array([1.0, 2.0], dtype=cp.float32)
+            _ = float(cp.sum(_probe))   # forces JIT compilation
             self._xp = cp
             self._cuda = True
-        except ImportError:
-            pass
+        except Exception:
+            pass  # numpy fallback remains active
         self.bank = OscillatorBank(n=GPU_CORES, kappa=0.1, dt=0.001)
 
     def run(self, steps: int = 500) -> dict[str, Any]:
         if self._cuda:
-            return self._run_cuda(steps)
+            try:
+                return self._run_cuda(steps)
+            except Exception:
+                self._cuda = False  # trwały fallback na numpy dla tej instancji
         m = self.bank.run(steps)
         m["substrate"] = "GPU_GTX1050Ti_cpu-fallback"
         return m
