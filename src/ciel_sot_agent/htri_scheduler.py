@@ -1,11 +1,8 @@
-"""HTRI Scheduler — Kuramoto na 12 wątkach CPU (i7-8750H).
+"""HTRI Scheduler — dense matrix phase dynamics na i7-8750H.
 
-Skalowanie H200 → local:
-  H200:  14 080 bloków, spread 28 Hz → bicie 7.83 Hz
-  Local: 12 wątków (logical cores), ta sama topologia Kuramoto, ta sama zasada.
-
+Używa DensePhaseNetwork (htri_matrix) zamiast scalar mean-field Kuramoto.
 Eksportuje: coherence r → n_threads_optimal dla llama.cpp.
-Zapis do ~/Pulpit/CIEL_memories/state/htri_state.json — czytany przez routes.py przy każdym inference.
+Zapis do ~/Pulpit/CIEL_memories/state/htri_state.json.
 """
 from __future__ import annotations
 
@@ -14,59 +11,42 @@ import sys
 import time
 from pathlib import Path
 
-import numpy as np
-
-# ── Hardware constants (i7-8750H) ────────────────────────────────────────────
-
-CPU_THREADS    = 12
-OMEGA_SPREAD   = 0.05   # rozrzut częstości [znorm.]
-DT             = 0.01
-N_STEPS        = 500    # ~5τ — wystarczy do konwergencji
-KAPPA_FACTOR   = 20.0   # jak w htri_mini — głęboko za progiem
-
-_STATE_PATH    = Path.home() / "Pulpit/CIEL_memories/state/htri_state.json"
-
-
-def _kuramoto_step(
-    phi: np.ndarray,
-    omega: np.ndarray,
-    kappa: float,
-    dt: float,
-) -> np.ndarray:
-    """Mean-field Kuramoto step dla N oscylatorów."""
-    z = np.mean(np.exp(1j * phi.astype(np.complex64)))
-    r = float(np.abs(z))
-    psi = float(np.angle(z))
-    coupling = kappa * r * np.sin(psi - phi)
-    return (phi + dt * (omega + coupling)) % (2 * np.pi)
+_STATE_PATH = Path.home() / "Pulpit/CIEL_memories/state/htri_state.json"
+CPU_THREADS = 12
 
 
 def run(n: int = CPU_THREADS) -> dict:
-    """Uruchom synchronizację Kuramoto dla n oscylatorów. Zwróć stan."""
-    phi = np.random.uniform(0, 2 * np.pi, n).astype(np.float32)
-    omega = np.random.normal(0.0, OMEGA_SPREAD, n).astype(np.float32)
+    """Uruchom CPUHtri (DensePhaseNetwork). Zwróć stan."""
+    try:
+        import importlib, pathlib
+        _htri_path = pathlib.Path(__file__).parent.parent / "CIEL_OMEGA_COMPLETE_SYSTEM"
+        if str(_htri_path) not in sys.path:
+            sys.path.insert(0, str(_htri_path))
+        from ciel_omega.htri.htri_local import CPUHtri
+        cpu = CPUHtri()
+        m = cpu.run(steps=300)
+        coherence = float(m.get("coherence", 0.85))
+        soul = float(m.get("soul_invariant", 0.0))
+        spectral = float(m.get("spectral_radius", 0.0))
+        potential = float(m.get("potential", 0.0))
+    except Exception as e:
+        print(f"[HTRI] DensePhaseNetwork unavailable: {e}", file=sys.stderr)
+        coherence, soul, spectral, potential = 0.85, 0.0, 0.0, 0.0
 
-    # κ_c mean-field: 2σ/1 (λ_max=1 dla all-to-all)
-    kappa_c = 2.0 * OMEGA_SPREAD
-    kappa = KAPPA_FACTOR * kappa_c
-
-    for _ in range(N_STEPS):
-        phi = _kuramoto_step(phi, omega, kappa, DT)
-
-    z = np.mean(np.exp(1j * phi.astype(np.complex64)))
-    coherence = float(np.abs(z))
-    phase_mean = float(np.angle(z))
-
-    n_threads_optimal = max(1, round(coherence * n))
+    n_threads_optimal = max(1, round(coherence * CPU_THREADS))
 
     state = {
         "coherence": coherence,
-        "phase_mean": phase_mean,
-        "n_oscillators": n,
+        "soul_invariant": soul,
+        "spectral_radius": spectral,
+        "potential": potential,
+        "n_oscillators": CPU_THREADS,
         "n_threads_optimal": n_threads_optimal,
-        "kappa": float(kappa),
+        "substrate": "CPU_i7-8750H_dense",
         "timestamp": time.time(),
     }
+
+    _STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
     _STATE_PATH.write_text(json.dumps(state))
 
     try:
@@ -91,13 +71,14 @@ def get_state() -> dict:
 
 
 def get_optimal_threads() -> int:
-    """Zwróć optymalną liczbę wątków wg HTRI coherence."""
     return get_state()["n_threads_optimal"]
 
 
 if __name__ == "__main__":
     s = run()
-    print(f"HTRI Scheduler — {s['n_oscillators']} CPU oscylatorów")
-    print(f"  coherence r     = {s['coherence']:.4f}")
-    print(f"  n_threads_opt   = {s['n_threads_optimal']} / {CPU_THREADS}")
+    print(f"HTRI Scheduler — {s['n_oscillators']} CPU oscylatorów (dense matrix)")
+    print(f"  coherence r      = {s['coherence']:.4f}")
+    print(f"  soul_invariant   = {s['soul_invariant']:.4f}")
+    print(f"  spectral_radius  = {s['spectral_radius']:.4f}")
+    print(f"  n_threads_opt    = {s['n_threads_optimal']} / {CPU_THREADS}")
     print(f"  → {_STATE_PATH} zapisany")

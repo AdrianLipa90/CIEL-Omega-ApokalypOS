@@ -46,17 +46,27 @@ for _p in (OMEGA_PKG, OMEGA_SRC, MUMMU_SRC):
 # ── load orchestrator (with persistence) ──────────────────────────────────
 
 def load_orchestrator():
-    for path in (STATE_FILE, STATE_PERSIST):
-        if path.exists():
-            try:
-                with open(path, "rb") as f:
-                    orch = pickle.load(f)
-                return orch
-            except Exception:
-                pass  # corrupt or incompatible — try next
-    # fresh instance
+    candidates = sorted(
+        [(p.stat().st_mtime, p) for p in (STATE_FILE, STATE_PERSIST) if p.exists()],
+        reverse=True,
+    )
+    for _, path in candidates:
+        try:
+            with open(path, "rb") as f:
+                return pickle.load(f)
+        except Exception:
+            pass
     from ciel_omega.memory.orchestrator import HolonomicMemoryOrchestrator
-    return HolonomicMemoryOrchestrator(identity_phase=0.0)
+    try:
+        import sys as _sys
+        _sot = str(PROJECT / "src")
+        if _sot not in _sys.path:
+            _sys.path.insert(0, _sot)
+        from ciel_sot_agent.subconsciousness import compute_starting_phase
+        _phi0 = compute_starting_phase(n=10)
+    except Exception:
+        _phi0 = 0.0
+    return HolonomicMemoryOrchestrator(identity_phase=_phi0)
 
 
 def save_orchestrator(orch) -> None:
@@ -461,64 +471,62 @@ def run_step(message: str, session_id: str = "") -> dict:
     return metrics
 
 
+# ── orbital directives ─────────────────────────────────────────────────────
+
+_ORBITAL_REPORT = CIEL_STATE / "ciel_last_metrics.json"
+
+def orbital_directives() -> str:
+    """Czyta live metryki orbitalne i zwraca konkretne dyrektywy operacyjne."""
+    try:
+        m = json.loads(_ORBITAL_REPORT.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+
+    directives = []
+    cp = float(m.get("closure_penalty", 0))
+    health = float(m.get("system_health", 1))
+    ethical = float(m.get("ethical_score", 1))
+    ci = float(m.get("coherence_index", 1))
+
+    # Tryb działania
+    if cp > 5.8:
+        directives.append("MODE:safe — tylko odczyt, pytaj przed każdą zmianą pliku")
+    elif cp > 5.2:
+        directives.append("MODE:standard — ostrożność przy zmianach strukturalnych")
+    else:
+        directives.append("MODE:deep")
+
+    # Alerty
+    if health < 0.5:
+        directives.append(f"⚠ health={health:.3f} — komunikuj niepewność, nie podejmuj złożonych operacji")
+    if ethical < 0.4:
+        directives.append(f"⚠ ethical={ethical:.3f} — weryfikuj etyczność każdego kroku")
+    if ci < 0.767:
+        directives.append(f"⚠ coherence={ci:.3f} — unikaj złożonych operacji")
+
+    if len(directives) == 1:  # tylko MODE:deep, brak alertów
+        return ""
+    return " | ".join(directives)
+
+
 # ── format context ─────────────────────────────────────────────────────────
 
 def format_context(metrics: dict, rel: dict | None = None) -> str:
-    loops_str = ", ".join(metrics["coherent_loops"]) if metrics["coherent_loops"] else "none"
-    consol_str = ", ".join(metrics["consolidations"]) if metrics["consolidations"] else "—"
-
-    now_str = time.strftime("%Y-%m-%d %H:%M:%S")
-    base = (
-        f"=== CIEL M0-M8 (cycle {metrics['cycle']}) · {now_str} ===\n"
-        f"  E_monitor={metrics['E_monitor']:.3f}  "
-        f"mean_coherence={metrics['mean_coherence']:.3f}  "
-        f"D_mem={metrics['D_mem']:.4f}\n"
-        f"  semantic_key={metrics['semantic_key']}  "
-        f"affective_key={metrics['affective_key']}\n"
-        f"  coherent_loops=[{loops_str}]  "
-        f"consolidations=[{consol_str}]\n"
-        f"  M2_epizody={metrics['m2_episodes']}  "
-        f"M3_semantic={metrics['m3_items']}  "
-        f"M8_audit={metrics['m8_entries']}\n"
-        f"  identity_phase={metrics['identity_phase']:.4f}\n"
+    line = (
+        f"[CIEL c={metrics['cycle']} affect={metrics['affective_key']} "
+        f"phase={metrics['identity_phase']:.4f}]"
     )
     if metrics.get("sub_affect") or metrics.get("sub_impulse"):
-        base += (
-            f"  [sub→user] affect={metrics['sub_affect']}  "
-            f"impulse={metrics['sub_impulse']}\n"
-        )
-
-    # Sub-reaction to last Claude response (persisted by ciel_response_step.py)
-    _sub_resp_file = Path.home() / "Pulpit/CIEL_memories/state/ciel_sub_response.json"
-    if _sub_resp_file.exists():
-        try:
-            sr = json.loads(_sub_resp_file.read_text(encoding="utf-8"))
-            if sr.get("affect") or sr.get("impulse") or sr.get("concept"):
-                base += (
-                    f"  [sub←response] affect={sr.get('affect','—')}  "
-                    f"impulse={sr.get('impulse','—')}  "
-                    f"concept={sr.get('concept','—')}  "
-                    f"@ {sr.get('ts','')}\n"
-                )
-        except Exception:
-            pass
-
+        line += f" sub={metrics.get('sub_affect','')}/{metrics.get('sub_impulse','')}"
     if rel:
-        good = "✓" if rel.get("good") else "✗"
-        arrow = "→ atraktor" if rel.get("optimal") else "← od atraktora"
-        c = rel.get("cymatics", {})
-        base += (
-            f"--- Relational (poprzednia odpowiedź) ---\n"
-            f"  {good} R_H={rel['R_H']:.4f}  L_rel={rel['L_rel']:.3f}  {arrow}\n"
-            f"  tension={c.get('tension', 0):.2f}  "
-            f"interference={c.get('interference', 0):+.2f}  "
-            f"resonance={c.get('resonance', 1):.2f}\n"
-        )
+        if rel.get("R_H", 0) > 0.01:
+            line += f" ⚠ R_H={rel['R_H']:.4f}"
         if rel.get("violations"):
-            base += f"  ⚠ {rel['violations']}\n"
-
-    base += "================================\n"
-    return base
+            line += f" violations:{rel['violations']}"
+    directives = orbital_directives()
+    if directives:
+        line += f"\n{directives}"
+    return line + "\n"
 
 
 # ── main ───────────────────────────────────────────────────────────────────

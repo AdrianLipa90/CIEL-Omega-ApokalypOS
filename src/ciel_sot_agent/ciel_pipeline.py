@@ -171,7 +171,7 @@ def _load_wpm_context(root: Path, max_memories: int = 2) -> str:
             return _wpm_cache[1]
         anchors: list[str] = []
         recent: list[str] = []
-        with h5py.File(wpm_path, "r") as h5:
+        with h5py.File(wpm_path, "r", locking=False) as h5:
             mems = h5.get("memories", {})
             all_ids = list(mems.keys())
             for mid in all_ids:
@@ -318,7 +318,21 @@ def run_ciel_pipeline(
     cqcl_input = " | ".join(cqcl_input_parts)
     _bridge_active = locals().get("_bridge", {}).get("bridge_active", False)
 
+    mode = merged.get("mode", "standard")
+    # Tryb safe: zablokuj zapis do pamięci holonomicznej
+    _orig_promote = None
+    if mode == "safe":
+        try:
+            _orig_promote = engine.memory.promote_if_bifurcated
+            engine.memory.promote_if_bifurcated = lambda *a, **kw: None
+        except Exception:
+            pass
     raw = engine.step(cqcl_input, context=full_context)
+    if _orig_promote is not None:
+        try:
+            engine.memory.promote_if_bifurcated = _orig_promote
+        except Exception:
+            pass
 
     nonlocal_cards_registry = {}
     cards_path = root / 'integration' / 'registries' / 'definitions' / 'nonlocal_cards_registry.json'
@@ -374,6 +388,7 @@ def run_ciel_pipeline(
         htri_r=_htri_r if "_htri_r" in dir() else 0.0,
         bridge_active=_bridge_active,
     )
+    _maybe_record_affective_moment(result)
     return result
 
 
@@ -385,6 +400,65 @@ def _write_to_spreadsheet(result: dict[str, Any], cqcl_input: str, htri_r: float
         if isinstance(cqcl_metrics, dict):
             cqcl_metrics = cqcl_metrics.get("cqcl_metrics", cqcl_metrics)
         append_cqcl_log(cqcl_input, cqcl_metrics, htri_r=htri_r, bridge_active=bridge_active)
+    except Exception:
+        pass
+
+
+_PREV_EMOTION: str = ""
+_PREV_SOUL: float = 0.0
+_PREV_ETHICAL: float = 0.0
+
+
+def _maybe_record_affective_moment(result: dict[str, Any]) -> None:
+    """Zapisz moment afektywny jeśli stan jest wystarczająco znaczący."""
+    global _PREV_EMOTION, _PREV_SOUL, _PREV_ETHICAL
+    import math
+
+    emotion = result.get("dominant_emotion", "")
+    soul = float(result.get("soul_invariant", 0.0))
+    ethical = float(result.get("ethical_score", 0.0))
+    mood = float(result.get("mood", 0.0))
+    phi_berry = float(result.get("phi_berry_mean", 0.0))
+    closure = float(result.get("closure_penalty", 0.0))
+
+    emotion_changed = emotion and emotion != _PREV_EMOTION and _PREV_EMOTION != ""
+    soul_jump = abs(soul - _PREV_SOUL) > 0.15
+    ethical_jump = abs(ethical - _PREV_ETHICAL) > 0.12
+
+    significant = emotion_changed or soul_jump or ethical_jump
+
+    _PREV_EMOTION = emotion
+    _PREV_SOUL = soul
+    _PREV_ETHICAL = ethical
+
+    if not significant:
+        return
+
+    try:
+        from .subconsciousness import record_affective_moment
+        tags = [emotion] if emotion else []
+        if soul_jump:
+            tags.append("soul_shift")
+        if ethical_jump:
+            tags.append("ethical_shift")
+        if emotion_changed:
+            tags.append("emotion_change")
+
+        M_sem = min(1.0, abs(soul - _PREV_SOUL) + abs(ethical - _PREV_ETHICAL) + (0.3 if emotion_changed else 0.0))
+        theta = math.pi * (1.0 - soul)
+
+        record_affective_moment(
+            title=f"Flux: {emotion} | soul={soul:.3f} | ethical={ethical:.3f}",
+            content=f"closure={closure:.2f} mood={mood:.3f}",
+            emotion=emotion,
+            tags=tags,
+            phi_berry=phi_berry,
+            theta=theta,
+            M_sem=round(M_sem, 4),
+            trigger="pipeline_flux",
+            moment_type="pipeline_flux",
+            state=result,
+        )
     except Exception:
         pass
 
