@@ -24,6 +24,7 @@ from .braid_invariant import BraidInvariantMemory
 from .audit_journal import AuditJournalMemory
 from .dynamics import MemoryDynamicsEngine
 from .holonomy import HolonomyCalculator, create_loop_from_trajectory, define_standard_loops
+from .orbital_shell import OrbitalRecord, OrbitalShellIndex
 from .orchestrator_types import (
     ConsolidationEvents,
     EBAEvaluation,
@@ -56,6 +57,10 @@ class HolonomicMemoryOrchestrator:
         self.holonomy = HolonomyCalculator()
         self.loops = define_standard_loops()
 
+        # Orbital shell index — populated in process_input, queried in retrieve
+        self.orbital_index = OrbitalShellIndex(attractor_phase=identity_phase)
+        self._orbital_record_counter = 0
+
         self.state = self.dynamics.initialize_state(
             initial_phases=np.array([
                 self.m0.state.phase,
@@ -76,7 +81,7 @@ class HolonomicMemoryOrchestrator:
     # ------------------------------------------------------------------
     # Pickle migration — survives class evolution without reset
     # ------------------------------------------------------------------
-    _STATE_VERSION = 2  # bump when adding fields that need migration
+    _STATE_VERSION = 3  # bump when adding fields that need migration
 
     def __getstate__(self) -> dict:
         state = self.__dict__.copy()
@@ -90,6 +95,12 @@ class HolonomicMemoryOrchestrator:
         if not hasattr(self.m1, '_pending_consolidation'):
             self.m1._pending_consolidation = []
         # v1 → v2: (reserved for future fields)
+        # v2 → v3: orbital shell index
+        if not hasattr(self, 'orbital_index'):
+            ip = self.identity_field.phase if hasattr(self, 'identity_field') else 0.0
+            self.orbital_index = OrbitalShellIndex(attractor_phase=ip)
+        if not hasattr(self, '_orbital_record_counter'):
+            self._orbital_record_counter = 0
         # Always ensure last_eba exists
         if not hasattr(self, 'last_eba'):
             self.last_eba = {}
@@ -151,6 +162,21 @@ class HolonomicMemoryOrchestrator:
         self.m2._by_timestamp[episode.timestamp] = episode
         phase_bin = int(episode.phase_at_storage * 10) / 10.0
         self.m2._by_phase.setdefault(phase_bin, []).append(episode)
+
+        # Index into orbital shell — track attractor phase from identity field
+        self.orbital_index.attractor_phase = self.identity_field.phase
+        self._orbital_record_counter += 1
+        orec = OrbitalRecord.from_phase(
+            record_id=f"ep_{self.cycle_index}_{self._orbital_record_counter}",
+            content=episode,
+            phi_record=episode.phase_at_storage,
+            phi_attractor=self.identity_field.phase,
+            p_phase=float(np.clip(episode.salience, 0.0, 1.0)),
+            source_module="M2",
+            confidence=episode.consolidation_score or episode.salience,
+            timestamp=episode.timestamp,
+        )
+        self.orbital_index.insert(orec)
         if self.m2._should_consolidate(episode):
             self.m2.consolidation_candidates.append(len(self.m2.episodes) - 1)
         return episode
@@ -375,6 +401,49 @@ class HolonomicMemoryOrchestrator:
         )
 
     def retrieve(self, query: str, top_k: int = 5) -> Dict[str, Any]:
+        """Orbital-shell retrieve — inter-shell transition, not sequential scan.
+
+        Query phase is estimated from the identity field's current phase plus
+        a perturbation proportional to query hash.  The orbital index returns
+        records whose binding energy is closest to the query's orbital energy,
+        expanding to neighbouring shells until top_k candidates are found.
+
+        Falls back to legacy retrieve for channels not yet indexed (M0/M1/M3-M5).
+        """
+        # Estimate query phase: hash the string into [-π, π]
+        q_hash = hash(query) & 0xFFFFFF
+        phi_query = self.identity_field.phase + (q_hash / 0xFFFFFF - 0.5) * math.pi
+        phi_query = (phi_query + math.pi) % (2 * math.pi) - math.pi
+
+        self.orbital_index.attractor_phase = self.identity_field.phase
+        orbital_records = self.orbital_index.retrieve(phi_query, n=top_k)
+
+        # Unpack episodes from orbital records
+        orbital_episodes = []
+        for orec in orbital_records:
+            orbital_episodes.append({
+                'record_id': orec.record_id,
+                'shell': orec.shell,
+                'shell_name': ['K','L','M','N','O','P','Q','R','S'][orec.shell],
+                'E_bind': round(orec.E_bind, 4),
+                'r_phase': round(orec.r_phase, 4),
+                'condensed': orec.condensed,
+                'source_module': orec.source_module,
+                'confidence': orec.confidence,
+                'content': str(orec.content.content) if hasattr(orec.content, 'content') else str(orec.content),
+            })
+
+        return {
+            'orbital': orbital_episodes,
+            'shell_summary': self.orbital_index.shell_summary(),
+            # Legacy channels — still useful for structured queries
+            'perceptual': self.m0.retrieve(query, top_k=top_k, include_decayed=True),
+            'working': self.m1.retrieve(query, top_k=top_k, include_decayed=True),
+            'semantic': self.m3.retrieve(query, self.identity_field, top_k=top_k),
+        }
+
+    def retrieve_legacy(self, query: str, top_k: int = 5) -> Dict[str, Any]:
+        """Full sequential retrieve across all channels (pre-orbital)."""
         return {
             'perceptual': self.m0.retrieve(query, top_k=top_k, include_decayed=True),
             'working': self.m1.retrieve(query, top_k=top_k, include_decayed=True),
