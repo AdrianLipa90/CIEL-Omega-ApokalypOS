@@ -18,8 +18,9 @@
         "defect": 0.02,
         "tau": 0.22498247513028186,
         "rho": 0.208910053591215,
-        "berry_phase": -0.0701302816339761,
-        "phi": 0.0
+        "berry_phase": -0.20296900391303485,
+        "phi": 0.0,
+        "suppression": 82.27
       },
       "fields": {
         "orbital_level": 2,
@@ -37,7 +38,8 @@
         "defect": 0.02,
         "tau": 0.3699449183872295,
         "rho": 0.32284764797958654,
-        "berry_phase": 0.375628904318635
+        "berry_phase": 1.5312091287624359,
+        "suppression": 29.16
       },
       "runtime": {
         "orbital_level": 2,
@@ -55,7 +57,8 @@
         "defect": 0.02,
         "tau": 0.5457039824714958,
         "rho": 0.7494102107808904,
-        "berry_phase": 0.6675903654830526
+        "berry_phase": 1.0740658787202062,
+        "suppression": -27.13
       },
       "memory": {
         "orbital_level": 2,
@@ -73,7 +76,8 @@
         "defect": 0.02,
         "tau": 0.3222132683226432,
         "rho": 0.5245450457784351,
-        "berry_phase": -0.20300947976828726
+        "berry_phase": -0.18085600251847828,
+        "suppression": 21.44
       },
       "bridge": {
         "orbital_level": 2,
@@ -91,7 +95,8 @@
         "defect": 0.03,
         "tau": 0.2665038922303647,
         "rho": 0.6767713416098301,
-        "berry_phase": 0.7660358190005306
+        "berry_phase": 1.6096502578833014,
+        "suppression": 8.61
       },
       "vocabulary": {
         "orbital_level": 2,
@@ -109,7 +114,8 @@
         "defect": 0.02,
         "tau": 0.2635010490749707,
         "rho": 0.3373670971621797,
-        "berry_phase": 0.18016307358805636
+        "berry_phase": 0.732278267057406,
+        "suppression": 0.0
       }
     }
   },

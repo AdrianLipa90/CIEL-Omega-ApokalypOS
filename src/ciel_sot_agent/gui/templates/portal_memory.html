@@ -401,6 +401,131 @@ function drawSphere() {
   ctx.setLineDash([]);
   ctx.restore();
 
+  // ── Galactic disc — emergent from memory structure ────────────
+  // Each star = one orbital memory record, placed by its holonomic geometry:
+  //   • arm index   ← orbital_role (IDENTITY→0, SEMANTIC→1, EPISODIC→2, …)
+  //   • radius      ← orbital_confidence (high conf = inner, stable orbit)
+  //   • base angle  ← phi derived from record hash (same as sphere placement)
+  //   • colour      ← roleColor of that record
+  //   • size        ← confidence × scale
+  // The disc is inscribed in the equatorial plane (θ=π/2) and co-rotates with
+  // the Berry-phase holonomic rate. The nucleus is the identity_phase attractor.
+  ctx.save();
+  const galT      = _t * 0.0018;
+  const galROuter = 0.70;
+  const galRInner = 0.05;
+  const galTilt   = 0.16;
+  const galWinding = 2.6;
+  const ROLE_ARM  = { IDENTITY:0, SEMANTIC:1, EPISODIC:2, RELATIONAL:0,
+                      AFFECTIVE:1, BOUNDARY:2, LOG:2, UNRESOLVED:1 };
+
+  // Build disc particles from actual memory records (same `points` array)
+  if (!drawSphere._galPts || drawSphere._galPtsLen !== points.length) {
+    const pts = [];
+    const rng = (s) => { let x = Math.sin(s * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+    const galArms = 3;
+    points.forEach((rec, i) => {
+      const arm     = (ROLE_ARM[rec.orbital_role] || 0) % galArms;
+      const conf    = rec.orbital_confidence || 0.5;
+      // Confidence: high → inner orbit (stable attractor), low → outer rim
+      const t_norm  = 1.0 - Math.min(0.97, Math.max(0.03, conf));
+      const r       = galRInner + t_norm * (galROuter - galRInner);
+      const hash    = hashStr(rec.path || rec.name || String(i));
+      const baseAngle = (arm / galArms) * 2 * Math.PI + t_norm * galWinding + hash * 0.8;
+      const scatter   = (rng(i * 7 + 1.3) - 0.5) * 0.18 * (1 - t_norm * 0.4);
+      const zOff      = (rng(i * 5 + 2.7) - 0.5) * 0.07 * Math.sin(Math.PI * t_norm);
+      const bright    = 0.5 + conf * 0.5;
+      const sz        = 0.9 + conf * 1.8;
+      const col       = roleColor(rec.orbital_role);
+      pts.push({ r, angle: baseAngle + scatter, zOff, bright, sz, col, t_norm });
+    });
+    // Add faint background haze if few records (so disc is never empty)
+    const rng2 = (s) => { let x = Math.sin(s * 91.3 + 17.5) * 29341.1; return x - Math.floor(x); };
+    const pad  = Math.max(0, 60 - pts.length);
+    for (let i = 0; i < pad; i++) {
+      const t_norm = 0.3 + rng2(i * 3) * 0.65;
+      const arm    = i % 3;
+      pts.push({
+        r:      galRInner + t_norm * (galROuter - galRInner),
+        angle:  (arm / 3) * 2 * Math.PI + t_norm * galWinding + rng2(i * 13) * 1.2,
+        zOff:   (rng2(i * 5) - 0.5) * 0.06,
+        bright: 0.18 + rng2(i * 7) * 0.22,
+        sz:     0.5 + rng2(i * 9) * 0.7,
+        col:    '#3a4a6a',
+        t_norm,
+      });
+    }
+    drawSphere._galPts    = pts;
+    drawSphere._galPtsLen = points.length;
+  }
+
+  const galProjected = drawSphere._galPts.map(p => {
+    const a  = p.angle + galT;
+    const lx = p.r * Math.cos(a);
+    const lz = p.r * Math.sin(a);
+    const ly = p.zOff;
+    const ty = ly * Math.cos(galTilt) - lz * Math.sin(galTilt);
+    const tz = ly * Math.sin(galTilt) + lz * Math.cos(galTilt);
+    const proj = project3D(lx, ty, tz);
+    return { ...p, px: proj.x, py: proj.y, pz: proj.z, psc: proj.scale };
+  }).sort((a, b) => a.pz - b.pz);
+
+  galProjected.forEach(p => {
+    if (p.pz < -0.65) return;
+    const depth = Math.max(0, (p.pz + 0.65) / 1.3);
+    const alpha = p.bright * (0.22 + depth * 0.52);
+    const [cr, cg, cb] = hexRGB(p.col);
+    const sz = Math.max(0.5, p.sz * p.psc * 0.82);
+
+    ctx.beginPath();
+    ctx.arc(p.px, p.py, sz * 2.2, 0, 2 * Math.PI);
+    const halo = ctx.createRadialGradient(p.px, p.py, 0, p.px, p.py, sz * 2.2);
+    halo.addColorStop(0,   `rgba(${cr},${cg},${cb},${(alpha * 0.3).toFixed(3)})`);
+    halo.addColorStop(1,   `rgba(${cr},${cg},${cb},0)`);
+    ctx.fillStyle = halo;
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(p.px, p.py, sz, 0, 2 * Math.PI);
+    ctx.fillStyle   = `rgba(${cr},${cg},${cb},${(alpha * 0.88).toFixed(3)})`;
+    ctx.shadowColor = `rgba(${cr},${cg},${cb},0.45)`;
+    ctx.shadowBlur  = 5;
+    ctx.fill();
+    ctx.shadowBlur  = 0;
+  });
+
+  // Galactic nucleus — identity_phase attractor
+  {
+    const nucP = project3D(0, 0, 0);
+    if (nucP.z > -0.3) {
+      for (let ring = 0; ring < 4; ring++) {
+        const phase  = (_t * 0.011 + ring * 0.25) % 1.0;
+        const ringR  = 3 + phase * 19;
+        const ringA  = (1 - phase) * 0.20;
+        ctx.beginPath();
+        ctx.arc(nucP.x, nucP.y, ringR, 0, 2 * Math.PI);
+        ctx.strokeStyle = `rgba(255,215,90,${ringA.toFixed(3)})`;
+        ctx.lineWidth   = 1.1 * (1 - phase);
+        ctx.shadowColor = 'rgba(255,200,70,0.45)';
+        ctx.shadowBlur  = 6;
+        ctx.stroke();
+      }
+      ctx.shadowBlur = 0;
+      const nucG = ctx.createRadialGradient(nucP.x, nucP.y, 0, nucP.x, nucP.y, 10);
+      nucG.addColorStop(0,   'rgba(255,255,210,0.90)');
+      nucG.addColorStop(0.4, 'rgba(255,195,70,0.65)');
+      nucG.addColorStop(1,   'rgba(180,90,10,0)');
+      ctx.beginPath();
+      ctx.arc(nucP.x, nucP.y, 10, 0, 2 * Math.PI);
+      ctx.fillStyle   = nucG;
+      ctx.shadowColor = 'rgba(255,195,70,0.75)';
+      ctx.shadowBlur  = 24;
+      ctx.fill();
+      ctx.shadowBlur  = 0;
+    }
+  }
+  ctx.restore();
+
   // ── Connection lines ──────────────────────────────────────────
   ctx.save();
   connections.forEach(({ a, b, w, col }) => {

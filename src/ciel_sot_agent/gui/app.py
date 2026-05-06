@@ -44,6 +44,7 @@ def create_app(root: str | Path | None = None, debug: bool = False) -> Flask:
         static_url_path="/static",
     )
     app.config["DEBUG"] = debug
+    app.config["TEMPLATES_AUTO_RELOAD"] = True
     app.config["CIEL_ROOT"] = Path(root) if root else Path.cwd()
     try:
         app.config["SATELLITE_AUTHORITY"] = project_authority_summary(require_interaction_surface(app.config["CIEL_ROOT"], "SAT-SAPIENS-0001"))

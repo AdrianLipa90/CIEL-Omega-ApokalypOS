@@ -138,6 +138,9 @@ class CIELEncoder:
     def _get_model(self):
         if self._st_model is not None:
             return self._st_model
+        import os
+        if os.environ.get("CIEL_FAST_HOOK"):
+            return None
         try:
             from sentence_transformers import SentenceTransformer  # type: ignore
             self._st_model = SentenceTransformer(self.model_name)

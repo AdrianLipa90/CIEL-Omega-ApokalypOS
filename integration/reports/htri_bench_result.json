@@ -1,0 +1,19 @@
+{
+  "baseline_n": 4,
+  "htri_n": 12,
+  "htri_coherence": 0.999998,
+  "round_a": {
+    "ms_avg": 0,
+    "ms_std": 0,
+    "cpm_avg": 0,
+    "cpm_std": 0,
+    "n": 0
+  },
+  "round_b": {
+    "ms_avg": 0,
+    "ms_std": 0,
+    "cpm_avg": 0,
+    "cpm_std": 0,
+    "n": 0
+  }
+}

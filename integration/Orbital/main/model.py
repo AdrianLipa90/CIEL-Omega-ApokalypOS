@@ -28,6 +28,7 @@ class Sector:
     tau_orbit: float = 1.0
     phase_slip_ready: bool = False
     orbit_stability: float = 1.0
+    suppression: float = 0.0  # Metatime Cᵢ: topological suppression coefficient
 
 
 @dataclass

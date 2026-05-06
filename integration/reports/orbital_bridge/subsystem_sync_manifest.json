@@ -98,8 +98,9 @@
   },
   "nonlocal_card_manifest": {
     "registry_present": true,
-    "card_count": 5,
+    "card_count": 6,
     "active_statuses": [
+      "ACTIVE_CANONICAL",
       "ACTIVE_CANONICAL_COUPLING_OPTIMIZER",
       "ACTIVE_CANONICAL_NONLOCAL_BRIDGE",
       "ACTIVE_CANONICAL_NONLOCAL_CARD_SET",
@@ -107,6 +108,7 @@
       "ACTIVE_CANONICAL_PHASE_RUNTIME"
     ],
     "classes": [
+      "holonomy_persistence",
       "nonlocal_memory_orchestrator",
       "nonlocal_phase_memory_card_set",
       "nonlocal_reduction_bridge",
@@ -114,9 +116,10 @@
       "phase_dynamics_runtime"
     ],
     "card_ids": [
-      "NL-HOLOMEM-0001",
-      "NL-EBA-0002",
+      "NL-BERRY-ACC-0005",
       "NL-BRIDGE-0003",
+      "NL-EBA-0002",
+      "NL-HOLOMEM-0001",
       "NL-PHASE-0004",
       "NL-WIJ-0005"
     ]
