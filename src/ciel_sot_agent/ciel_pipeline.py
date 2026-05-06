@@ -130,6 +130,42 @@ def _get_engine(root: Path) -> Any:
     return CielEngine()
 
 
+def _accumulated_identity_phase(engine: Any, root: Path) -> float:
+    """Return accumulated identity_phase: previous + engine delta.
+
+    Engine is fresh per call — its phase is ~0. Real accumulation lives in
+    ciel_last_metrics.json. We add the engine delta (how much it moved this step)
+    to the stored value so Berry phase grows monotonically across sessions.
+    """
+    try:
+        p = Path.home() / "Pulpit/CIEL_memories/state/ciel_last_metrics.json"
+        prev_phase = 0.0
+        if p.exists():
+            prev = json.loads(p.read_text(encoding="utf-8"))
+            prev_phase = float(prev.get("identity_phase", 0.0) or 0.0)
+        engine_phase = float(
+            getattr(getattr(getattr(engine, "memory", None), "identity_field", None), "phase", None)
+            or 0.0
+        )
+        # engine_phase after 1 step from 0 = the delta introduced this cycle
+        return prev_phase + engine_phase
+    except Exception:
+        return 0.0
+
+
+def _next_cycle_index(root: Path) -> int:
+    """Return previous cycle_index + 1 from ciel_last_metrics.json."""
+    try:
+        p = Path.home() / "Pulpit/CIEL_memories/state/ciel_last_metrics.json"
+        if p.exists():
+            prev = json.loads(p.read_text(encoding="utf-8"))
+            prev_cycle = int(prev.get("cycle_index", prev.get("cycle", 0)) or 0)
+            return prev_cycle + 1
+    except Exception:
+        pass
+    return 1
+
+
 def _orbital_state_to_context(orbital_state: dict[str, Any]) -> str:
     """Encode key orbital scalars as a compact context string for the engine."""
     r_h = orbital_state.get("R_H", 0.0)
@@ -383,6 +419,8 @@ def run_ciel_pipeline(
         "system_health": float(orbital_state.get("health_manifest", {}).get("system_health", 0.0)),
         "closure_penalty": float(orbital_state.get("health_manifest", {}).get("closure_penalty", merged.get("closure_penalty", 0.0))),
         "coherence_index": float(state_manifest.get("coherence_index", 0.0)),
+        "identity_phase": _accumulated_identity_phase(engine, root),
+        "cycle_index": _next_cycle_index(root),
     }
 
     _write_to_spreadsheet(

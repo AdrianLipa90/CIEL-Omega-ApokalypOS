@@ -204,6 +204,8 @@ def build_orbital_bridge(root: str | Path) -> dict[str, Any]:
             'soul_invariant': ciel_result['soul_invariant'],
             'ethical_score': ciel_result['ethical_score'],
             'orbital_context': ciel_result['orbital_context'],
+            'identity_phase': ciel_result.get('identity_phase', 0.0),
+            'cycle_index': ciel_result.get('cycle_index', 0),
             'phi_ab_mean': ciel_result.get('phi_ab_mean', 0.0),
             'phi_berry_mean': ciel_result.get('phi_berry_mean', 0.0),
             'eba_defect_mean': ciel_result.get('eba_defect_mean', 0.0),
