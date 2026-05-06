@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-06T17:02:26.021267+00:00",
+  "generated_at": "2026-05-06T17:50:29.221843+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "7a21556de38291402dd40d1b31d5852a7a3473a7",
-      "timestamp": "2026-05-06T16:57:03Z",
-      "message": "fix: identity_phase + cycle_index now propagate correctly to DB metrics\n\nciel_pipeline: add _accumulated_identity_phase() — prev + engine delta so\nBerry phase grows monotonically across sessions (fresh engine starts at 0).\nAdd _next_cycle_index() — reads prev from ciel_last_metrics.json + 1.\nExpose both in result dict so orbital_bridge.save_bridge_snapshot receives them.\n\norbital_bridge: forward identity_phase + cycle_index from ciel_result into\nsummary['ciel_pipeline'] — were missing, causing 0.0/202 frozen values in DB.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/7a21556de38291402dd40d1b31d5852a7a3473a7"
+      "new_sha": "7d36c323408f4d67fd7326412306a4f67ed82bd5",
+      "timestamp": "2026-05-06T17:02:26Z",
+      "message": "Update live GH coupling state",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/7d36c323408f4d67fd7326412306a4f67ed82bd5"
     },
     {
       "key": "demo",
