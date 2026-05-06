@@ -1,0 +1,16 @@
+{
+  "n_samples": 100,
+  "seed": 42,
+  "fraction_converged": 0.96,
+  "fraction_mode_safe": 0.07,
+  "median_steps": 8,
+  "p90_steps": 15,
+  "median_J": 6.290405,
+  "mean_J": 6.252896,
+  "thresholds": {
+    "fraction_converged_min": 0.8,
+    "fraction_mode_safe_max": 0.2,
+    "median_steps_max": 12
+  },
+  "pass": true
+}

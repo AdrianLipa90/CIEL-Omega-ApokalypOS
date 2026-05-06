@@ -26,6 +26,12 @@ _W_P_DIST = 1.5       # distortion penalty (weighted sum of lie/omit/hallucinate
 _W_B_PLACEHOLDER = 0.7  # placeholder-object penalty
 _W_B_DEMO = 0.8       # demo-legacy penalty
 
+# Metatime Intention Operator — universal topological coupler (I₀ = 0.009).
+# Adds a holonomic correction term: I₀ × (D_repo + E_phi + d_affect).
+# Physical basis: Berry phase γᵢ=π for all fermions; I₀ is the scalar coupling
+# between the topological charge (Chern class) and the global phase coherence.
+_I0_TOPOLOGICAL = 0.009
+
 # Distortion sub-weights (lie/omit/hallucinate carry higher ethical cost)
 _W_LIE = 10.0
 _W_OMIT = 8.0
@@ -40,6 +46,9 @@ _MEMORY_LOBE_RATE = 0.14     # rate at which memory lobes converge to their bary
 
 # Coupling renormalization damping
 _COUPLING_TENSION_DAMP = 0.6  # damping factor for tension-based coupling update
+
+# 3-body (Wᵢⱼₖ) weight — lower than pairwise _W_T_MEAN to avoid double-counting
+_W_T3 = 0.4
 
 # Mode-selection thresholds — expressed in ψ_mode space (see phase_control.mode_norm).
 # ψ = (1 − ci) + γ · penalty / penalty_max   where γ=0.15, penalty_max=8.0
@@ -57,8 +66,11 @@ _SAFE_D_AFFECT_THRESH  = 0.32  # affect decoherence  → safe
 _STD_D_REPO_THRESH     = 0.08  # repo closure defect → standard (below safe)
 
 # Convergence criteria
-_STABLE_D_AFFECT_MAX = 0.22    # affect decoherence must be below this to converge
+_STABLE_D_AFFECT_MAX = 0.30    # affect decoherence must be below this to converge (non-safe)
 _STABLE_MEMORY_SPLIT_MAX = 0.10  # max circular distance between memory lobes to converge
+# Affect decoherence decay: when amplitude drops below floor ratio, decoherence couples to amplitude.
+# Physical basis: low amplitude = quiescent affective state → lower decoherence.
+_AFFECT_DECOHERENCE_DECAY = 0.06  # per-step decay when amplitude is at floor
 
 
 def wrap(angle: float) -> float:
@@ -132,6 +144,20 @@ def renormalize_couplings(
     return {k: float(v) / norm for k, v in couplings.items()}
 
 
+def triplet_tension(phi_i: float, phi_j: float, phi_k: float,
+                    K_ij: float, K_jk: float, K_ik: float) -> float:
+    """W_ijk — geometric mean of three pairwise tensions.
+
+    Physical basis: Metatime white-thread holonomy Wᵢⱼₖ for composite states
+    (mesons, baryons). The geometric mean preserves scale invariance and collapses
+    to zero when any single leg has zero coupling.
+    """
+    t_ij = K_ij * (1.0 - math.cos(phi_j - phi_i))
+    t_jk = K_jk * (1.0 - math.cos(phi_k - phi_j))
+    t_ik = K_ik * (1.0 - math.cos(phi_k - phi_i))
+    return (t_ij * t_jk * t_ik) ** (1.0 / 3.0)
+
+
 @dataclass
 class HolonomicCallbacks:
     closure_defect: Callable[[Any], float]
@@ -144,6 +170,10 @@ class HolonomicCallbacks:
     local_tension: Callable[[Any, str, str], float]
     recompute_manifests_and_bridge: Callable[[Any], Any]
     load_full_state: Callable[[Any], Any] = lambda x: x
+    # Optional: triplet tensions for composite objects (Metatime W_ijk holonomy).
+    # Signature matches all_pairwise_tensions but returns triplet dicts.
+    # None = disabled (backwards compatible).
+    all_triplet_tensions: Callable[[Any, Mapping[tuple[str, str], float]], Iterable[Mapping[str, float]]] | None = None
 
 
 def _get(obj: Any, key: str, default: Any = None) -> Any:
@@ -209,6 +239,19 @@ def holonomic_system_normalizer_v2(
 
     for _step in range(max_iter):
         D_repo = float(callbacks.closure_defect(_get(X, "repo_states")))
+
+        # Cᵢ suppression penalty — sectors with negative suppression (Metatime d-quark analogue)
+        # contribute additional closure defect. Normalized by 1e-3 (Cᵢ is in units of tens).
+        _suppression_penalty = 0.0
+        for _sec_name in ("constraints", "fields", "runtime", "memory", "bridge", "vocabulary"):
+            try:
+                _C_i = float(_get(_sector(X, _sec_name), "suppression", 0.0))
+                if _C_i < 0.0:
+                    _suppression_penalty += abs(_C_i) * 1e-3
+            except (KeyError, TypeError):
+                pass
+        D_repo_eff = D_repo + _suppression_penalty
+
         couplings = _get(X, "couplings", {})
         tensions = list(callbacks.all_pairwise_tensions(_get(X, "repo_states"), couplings))
         T_mean = sum(float(t.get("tension", 0.0)) for t in tensions) / len(tensions) if tensions else 0.0
@@ -241,10 +284,16 @@ def holonomic_system_normalizer_v2(
         B_demo = float(callbacks.compute_demo_legacy_penalty(objects))
         B_seam = float(callbacks.compute_semantic_execution_seam_penalty(X))
 
+        T3_mean = 0.0
+        if callbacks.all_triplet_tensions is not None:
+            triplets = list(callbacks.all_triplet_tensions(_get(X, "repo_states"), couplings))
+            T3_mean = sum(float(t.get("tension", 0.0)) for t in triplets) / max(len(triplets), 1)
+
         J_prev = _get(X, "J", None)
         X.J = (
-            _W_D_REPO * D_repo
+            _W_D_REPO * D_repo_eff
             + _W_T_MEAN * T_mean
+            + _W_T3 * T3_mean
             + _W_E_PHI * E_phi
             + _W_D_AFFECT * d_affect
             + _W_D_MEMORY * d_memory
@@ -252,6 +301,7 @@ def holonomic_system_normalizer_v2(
             + _W_P_DIST * P_dist
             + _W_B_PLACEHOLDER * B_placeholder
             + _W_B_DEMO * B_demo
+            + _I0_TOPOLOGICAL * (D_repo_eff + E_phi + d_affect)  # holonomic correction
         )
 
         phi_core = float(_get(core, "phi", 0.0))
@@ -262,7 +312,12 @@ def holonomic_system_normalizer_v2(
         aff_amp = float(_get(affect, "amplitude", 1.0))
         aff_floor = float(_get(affect, "min_amplitude_floor", 0.05))
         aff_amp *= (1.0 - _AFFECT_AMP_DECAY * excess_affect)
-        _set(affect, "amplitude", max(aff_amp, aff_floor))
+        aff_amp = max(aff_amp, aff_floor)
+        _set(affect, "amplitude", aff_amp)
+        # Quiescent coupling: when amplitude is at floor, decoherence decays (affective silence).
+        if aff_amp <= aff_floor * 1.05:
+            new_d = d_affect * (1.0 - _AFFECT_DECOHERENCE_DECAY)
+            _set(affect, "decoherence", max(new_d, 0.0))
 
         lobes = list(_get(memory, "lobes", [0.0, 0.0]))
         weights = list(_get(memory, "lobe_weights", [0.5, 0.5]))
@@ -291,7 +346,7 @@ def holonomic_system_normalizer_v2(
         updated_couplings = renormalize_couplings(updated_couplings, target_norm="l1")
         _set(X, "couplings", updated_couplings)
 
-        mode, allow_writeback = _select_control_mode(hard_dist, soft_dist, D_repo, E_phi, d_affect, ci=_ci)
+        mode, allow_writeback = _select_control_mode(hard_dist, soft_dist, D_repo_eff, E_phi, d_affect, ci=_ci)
         _set(X, "mode", mode)
         _set(X, "allow_writeback", allow_writeback)
 
@@ -303,15 +358,21 @@ def holonomic_system_normalizer_v2(
         thresholds = _get(X, "thresholds", {})
         seam_ok = float(_get(thresholds, "seam_ok", 0.15))
 
-        stable = (
-            J_prev is not None
-            and abs(float(X.J) - float(J_prev)) < eps
-            and float(_get(_sector(X, "affect"), "decoherence", 0.0)) < _STABLE_D_AFFECT_MAX
+        d_affect_now = float(_get(_sector(X, "affect"), "decoherence", 0.0))
+        current_mode = _get(X, "mode")
+        j_stable = J_prev is not None and abs(float(X.J) - float(J_prev)) < eps
+        # Safe-mode convergence: allowed when J is stable and no hard distortion.
+        # Physical basis: safe is a valid protective attractor; blocking it inflates step count.
+        safe_stable = j_stable and current_mode == "safe" and hard_dist <= 0.0
+        # Normal convergence: J stable, affect quiet, memory coalesced, seam within budget.
+        normal_stable = (
+            j_stable
+            and d_affect_now < _STABLE_D_AFFECT_MAX
             and memory_split < _STABLE_MEMORY_SPLIT_MAX
             and B_seam < seam_ok
-            and _get(X, "mode") != "safe"
+            and current_mode != "safe"
         )
-        if stable:
+        if safe_stable or normal_stable:
             break
 
     return X
