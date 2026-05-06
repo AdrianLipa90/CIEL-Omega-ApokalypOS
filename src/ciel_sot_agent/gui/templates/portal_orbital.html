@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% from "portal_nav.html" import portal_navbar %}
-{% block title %}CIELweb — Orbital Entity Cards{% endblock %}
+{% block title %}CIELweb — Sfera Relacyjna{% endblock %}
 
 {% block head %}
 <style>
@@ -54,6 +54,21 @@
   .orbit-UNRESOLVED     { border-color: rgba(100,100,100,0.4); color: #666; }
   .orbit-badge { font-size: .63rem; padding: 2px 7px; border-radius: 999px; border: 1px solid; }
   .counts-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+
+  /* Relational sphere */
+  #rel-sphere-wrap {
+    display: flex; gap: 28px; align-items: flex-start; flex-wrap: wrap;
+    background: rgba(5,8,30,0.7); border: 1px solid rgba(0,184,255,0.14);
+    border-radius: 18px; padding: 18px 22px; margin-bottom: 18px;
+  }
+  #rel-canvas { border-radius: 12px; background: transparent; flex-shrink: 0; }
+  #rel-readouts { display: flex; flex-direction: column; gap: 10px; min-width: 180px; padding-top: 8px; }
+  .rel-metric { display: flex; flex-direction: column; gap: 2px; }
+  .rel-metric-label { font-size: .63rem; text-transform: uppercase; letter-spacing: .07em; color: var(--col-text-dim, #8899bb); }
+  .rel-metric-val { font-size: 1.05rem; font-weight: 700; color: #21D4FD; font-family: monospace; }
+  .rel-metric-bar-wrap { height: 3px; background: rgba(255,255,255,0.08); border-radius: 99px; }
+  .rel-metric-bar { height: 3px; border-radius: 99px; }
+  .rel-sphere-title { font-size: .72rem; color: var(--col-text-dim); margin-bottom: 6px; letter-spacing: .04em; }
 </style>
 {% endblock %}
 
@@ -61,11 +76,53 @@
 <div class="portal-page">
   {{ portal_navbar('orbital') }}
   <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:8px; flex-wrap:wrap;">
-    <span class="gradient-text-sky" style="font-size:1.3rem; font-weight:700;">Orbital Entity Cards</span>
+    <span class="gradient-text-sky" style="font-size:1.3rem; font-weight:700;">Sfera Relacyjna</span>
     <button class="refresh-btn" onclick="loadData()">↻ Dane</button>
-    <button class="refresh-btn" id="run-btn" onclick="runPipeline()" style="border-color:rgba(0,230,120,0.3);color:#00e678;">▶ Uruchom pipeline</button>
+    <button class="refresh-btn" id="run-btn" onclick="runPipeline()" style="border-color:rgba(0,230,120,0.3);color:#00e678;">▶ Pipeline</button>
     <span class="ts-label" id="ts-label"></span>
     <span class="ts-label" id="pipe-label"></span>
+  </div>
+
+  <!-- Relational Bloch sphere -->
+  <div id="rel-sphere-wrap">
+    <div>
+      <div class="rel-sphere-title">Bloch sphere — stan relacyjny Adrian ⇄ CIEL</div>
+      <canvas id="rel-canvas" width="340" height="340"></canvas>
+    </div>
+    <div id="rel-readouts">
+      <div class="rel-metric">
+        <span class="rel-metric-label">system_health</span>
+        <span class="rel-metric-val" id="rd-health">—</span>
+        <div class="rel-metric-bar-wrap"><div class="rel-metric-bar" id="bar-health" style="width:0%;background:#00e678"></div></div>
+      </div>
+      <div class="rel-metric">
+        <span class="rel-metric-label">coherence_index</span>
+        <span class="rel-metric-val" id="rd-ci">—</span>
+        <div class="rel-metric-bar-wrap"><div class="rel-metric-bar" id="bar-ci" style="width:0%;background:#21D4FD"></div></div>
+      </div>
+      <div class="rel-metric">
+        <span class="rel-metric-label">closure_penalty</span>
+        <span class="rel-metric-val" id="rd-closure">—</span>
+        <div class="rel-metric-bar-wrap"><div class="rel-metric-bar" id="bar-closure" style="width:0%;background:#f5c518"></div></div>
+      </div>
+      <div class="rel-metric">
+        <span class="rel-metric-label">ethical_score</span>
+        <span class="rel-metric-val" id="rd-ethics">—</span>
+        <div class="rel-metric-bar-wrap"><div class="rel-metric-bar" id="bar-ethics" style="width:0%;background:#cc77ff"></div></div>
+      </div>
+      <div class="rel-metric">
+        <span class="rel-metric-label">identity_phase</span>
+        <span class="rel-metric-val" id="rd-phase">—</span>
+      </div>
+      <div class="rel-metric">
+        <span class="rel-metric-label">emotion</span>
+        <span class="rel-metric-val" id="rd-emotion" style="font-size:.85rem;">—</span>
+      </div>
+      <div class="rel-metric">
+        <span class="rel-metric-label">ψ_mode</span>
+        <span class="rel-metric-val" id="rd-psi" style="font-size:.85rem;">—</span>
+      </div>
+    </div>
   </div>
 
   <div id="metrics-row" class="metrics-row"></div>
@@ -119,6 +176,189 @@
 </div>
 
 <script>
+// ─── Relational Bloch Sphere ──────────────────────────────────────────────
+const RC  = document.getElementById('rel-canvas');
+const RCX = RC.getContext('2d');
+const CX  = RC.width / 2, CY = RC.height / 2, CR = 140;
+
+const EMOTION_COLORS = {
+  love: '#ff6aa3', joy: '#f5c518', calm: '#21D4FD', fear: '#ff6060',
+  anger: '#ff4500', sadness: '#8888ff', neutral: '#8899bb',
+  focused: '#00e678', curious: '#cc77ff', frustrated: '#ff8c00',
+};
+
+function emotionColor(e){ return EMOTION_COLORS[(e||'neutral').toLowerCase()] || '#8899bb'; }
+
+function sphereToXY(theta, phi, r){
+  // theta = polar [0,π], phi = azimut [-π,π]
+  // isometric projection with slight tilt
+  const sinT = Math.sin(theta), cosT = Math.cos(theta);
+  const sinP = Math.sin(phi),   cosP = Math.cos(phi);
+  const x3 = r * sinT * cosP;
+  const y3 = r * sinT * sinP;
+  const z3 = r * cosT;
+  // rotate 20° around X for tilt
+  const tilt = 0.35;
+  const ry = y3 * Math.cos(tilt) - z3 * Math.sin(tilt);
+  const rz = y3 * Math.sin(tilt) + z3 * Math.cos(tilt);
+  return { x: CX + x3 * CR, y: CY - rz * CR, z: ry };
+}
+
+function drawRelSphere(metrics){
+  const ctx = RCX;
+  ctx.clearRect(0, 0, RC.width, RC.height);
+
+  // Background glow
+  const grd = ctx.createRadialGradient(CX, CY, CR*0.2, CX, CY, CR*1.1);
+  grd.addColorStop(0, 'rgba(0,30,80,0.0)');
+  grd.addColorStop(1, 'rgba(0,60,180,0.08)');
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, RC.width, RC.height);
+
+  // Sphere outline
+  ctx.beginPath();
+  ctx.arc(CX, CY, CR, 0, Math.PI*2);
+  ctx.strokeStyle = 'rgba(0,184,255,0.18)';
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+
+  // Equator ellipse
+  ctx.beginPath();
+  ctx.ellipse(CX, CY, CR, CR * Math.sin(0.35), 0, 0, Math.PI*2);
+  ctx.strokeStyle = 'rgba(0,184,255,0.10)';
+  ctx.lineWidth = 0.8;
+  ctx.stroke();
+
+  // Meridian lines (3)
+  for(let i=0; i<3; i++){
+    const phi0 = (i / 3) * Math.PI;
+    const pts = [];
+    for(let t=0; t<=32; t++){
+      const theta = (t/32) * Math.PI;
+      const p = sphereToXY(theta, phi0, 1.0);
+      pts.push(p);
+    }
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for(const p of pts) ctx.lineTo(p.x, p.y);
+    ctx.strokeStyle = 'rgba(0,184,255,0.07)';
+    ctx.lineWidth = 0.7;
+    ctx.stroke();
+  }
+
+  // Poles
+  const pN = sphereToXY(0, 0, 1.0);
+  const pS = sphereToXY(Math.PI, 0, 1.0);
+  ctx.fillStyle = 'rgba(0,230,120,0.7)';
+  ctx.beginPath(); ctx.arc(pN.x, pN.y, 3, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = 'rgba(255,80,80,0.5)';
+  ctx.beginPath(); ctx.arc(pS.x, pS.y, 3, 0, Math.PI*2); ctx.fill();
+
+  // Axis labels
+  ctx.font = '10px monospace';
+  ctx.fillStyle = 'rgba(0,230,120,0.6)';
+  ctx.fillText('|↑⟩ health', pN.x + 5, pN.y - 5);
+  ctx.fillStyle = 'rgba(255,80,80,0.5)';
+  ctx.fillText('|↓⟩', pS.x + 5, pS.y + 12);
+
+  const health   = metrics.system_health   ?? 0.6;
+  const ci       = metrics.coherence_index ?? 0.8;
+  const closure  = metrics.closure_penalty ?? 5.4;
+  const ethics   = metrics.ethical_score   ?? 0.7;
+  const idPhase  = metrics.identity_phase  ?? 0.0;
+  const emotion  = metrics.dominant_emotion || 'neutral';
+
+  // Main state point: θ = (1 - health) * π,  φ = identity_phase
+  const theta_main = (1.0 - Math.max(0, Math.min(1, health))) * Math.PI;
+  const phi_main   = idPhase;
+  const pt = sphereToXY(theta_main, phi_main, 1.0);
+
+  // Coherence ring: radius proportional to ci
+  const ciR = Math.max(0.1, Math.min(1.0, ci));
+  const ringR = ciR * CR * 0.55;
+  ctx.beginPath();
+  ctx.arc(pt.x, pt.y, ringR, 0, Math.PI*2);
+  ctx.strokeStyle = `rgba(33,212,253,${0.2 + ci * 0.4})`;
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Ethics arc (secondary indicator)
+  const eCol = ethics > 0.7 ? '#00e678' : ethics > 0.4 ? '#f5c518' : '#ff6060';
+  const ethAngle = ethics * Math.PI * 2;
+  ctx.beginPath();
+  ctx.arc(pt.x, pt.y, ringR * 1.35, -Math.PI/2, -Math.PI/2 + ethAngle);
+  ctx.strokeStyle = eCol;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Closure penalty indicator (distance from attractor centre)
+  // High penalty → point pushed toward equator; shown as dotted line to sphere centre
+  const closureNorm = Math.min(1, Math.max(0, (closure - 3.0) / 5.0));
+  const closureCol  = closure < 5.2 ? '#00e678' : closure < 5.8 ? '#f5c518' : '#ff6060';
+  ctx.setLineDash([3, 4]);
+  ctx.beginPath();
+  ctx.moveTo(CX, CY);
+  ctx.lineTo(pt.x, pt.y);
+  ctx.strokeStyle = closureCol;
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Main point — coloured by emotion
+  const eC = emotionColor(emotion);
+  const ptGrd = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, 14);
+  ptGrd.addColorStop(0, eC);
+  ptGrd.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.beginPath(); ctx.arc(pt.x, pt.y, 14, 0, Math.PI*2);
+  ctx.fillStyle = ptGrd; ctx.fill();
+
+  ctx.beginPath(); ctx.arc(pt.x, pt.y, 6, 0, Math.PI*2);
+  ctx.fillStyle = eC; ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.6)'; ctx.lineWidth = 1.5; ctx.stroke();
+
+  // Faint trail to show φ on equator
+  const phiPt = sphereToXY(Math.PI/2, phi_main, 1.0);
+  ctx.setLineDash([2, 5]);
+  ctx.beginPath();
+  ctx.moveTo(pt.x, pt.y);
+  ctx.lineTo(phiPt.x, phiPt.y);
+  ctx.strokeStyle = 'rgba(0,184,255,0.2)';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function updateReadouts(metrics){
+  const health  = metrics.system_health  ?? null;
+  const ci      = metrics.coherence_index ?? null;
+  const closure = metrics.closure_penalty ?? null;
+  const ethics  = metrics.ethical_score ?? null;
+  const phase   = metrics.identity_phase ?? null;
+  const emotion = metrics.dominant_emotion || '—';
+  const psi     = metrics.psi_mode ?? null;
+
+  const hCls = health == null ? '' : health >= 0.7 ? 'status-ok' : health >= 0.5 ? 'status-warn' : 'status-err';
+  document.getElementById('rd-health').textContent  = health  != null ? health.toFixed(4)  : '—';
+  document.getElementById('rd-health').className    = 'rel-metric-val ' + hCls;
+  document.getElementById('bar-health').style.width = health  != null ? Math.round(health*100)+'%' : '0%';
+
+  document.getElementById('rd-ci').textContent      = ci      != null ? ci.toFixed(4)      : '—';
+  document.getElementById('bar-ci').style.width     = ci      != null ? Math.round(ci*100)+'%' : '0%';
+
+  const cCls = closure == null ? '' : closure < 5.2 ? 'status-ok' : closure < 5.8 ? 'status-warn' : 'status-err';
+  document.getElementById('rd-closure').textContent = closure != null ? closure.toFixed(4)  : '—';
+  document.getElementById('rd-closure').className   = 'rel-metric-val ' + cCls;
+  document.getElementById('bar-closure').style.width = closure != null ? Math.round(Math.min(1,closure/10)*100)+'%' : '0%';
+
+  document.getElementById('rd-ethics').textContent  = ethics  != null ? ethics.toFixed(4)  : '—';
+  document.getElementById('bar-ethics').style.width = ethics  != null ? Math.round(ethics*100)+'%' : '0%';
+  document.getElementById('rd-phase').textContent   = phase   != null ? phase.toFixed(4)+' rad' : '—';
+  document.getElementById('rd-emotion').textContent = emotion;
+  document.getElementById('rd-emotion').style.color = emotionColor(emotion);
+  document.getElementById('rd-psi').textContent     = psi     != null ? psi.toFixed(4) : '—';
+}
+
+// ─── Existing helpers ────────────────────────────────────────────────────────
 let _activeFileClass = '';
 
 function switchTab(name, btn){
@@ -146,18 +386,8 @@ function filterMemory(cls, chip){
 }
 
 function esc(s){ const d=document.createElement('div'); d.textContent=String(s??''); return d.innerHTML; }
-
-function horizonClass(h){
-  const map={SEALED:'horizon-SEALED',POROUS:'horizon-POROUS',TRANSMISSIVE:'horizon-TRANSMISSIVE',OBSERVATIONAL:'horizon-OBSERVATIONAL'};
-  return map[h]||'';
-}
-
-function couplingColor(v){
-  if(v>=0.9) return '#00e678';
-  if(v>=0.7) return '#21D4FD';
-  if(v>=0.5) return '#f5c518';
-  return '#ff6060';
-}
+function horizonClass(h){ const map={SEALED:'horizon-SEALED',POROUS:'horizon-POROUS',TRANSMISSIVE:'horizon-TRANSMISSIVE',OBSERVATIONAL:'horizon-OBSERVATIONAL'}; return map[h]||''; }
+function couplingColor(v){ if(v>=0.9) return '#00e678'; if(v>=0.7) return '#21D4FD'; if(v>=0.5) return '#f5c518'; return '#ff6060'; }
 
 function renderEntity(e){
   const coupling = (e.coupling_ciel ?? 0);
@@ -165,44 +395,35 @@ function renderEntity(e){
   const hc = horizonClass(e.horizon_class);
   const adjs = (e.adjectives||[]).map(a=>`<span class="adj-tag">${esc(a)}</span>`).join('');
   const noteHtml = e.note ? `<div class="note-text">${esc(String(e.note).trim())}</div>` : '';
-  return `
-    <div class="entity-card">
-      <div class="entity-id">${esc(e.id||'')}</div>
-      <div class="entity-noun">${esc(e.noun||'')}</div>
-      <div class="horizon-badge ${hc}">${esc(e.horizon_class||'')}</div>
-      <div class="coupling-bar-wrap"><div class="coupling-bar" style="width:${pct}%;background:linear-gradient(90deg,${couplingColor(coupling)},#2C7BFF)"></div></div>
-      <div class="entity-meta">coupling: <strong style="color:${couplingColor(coupling)}">${coupling.toFixed(2)}</strong>　phase: ${esc((e.phase??0).toFixed(3))} rad</div>
-      <div class="adj-list">${adjs}</div>
-      ${noteHtml}
-    </div>`;
+  return `<div class="entity-card">
+    <div class="entity-id">${esc(e.id||'')}</div>
+    <div class="entity-noun">${esc(e.noun||'')}</div>
+    <div class="horizon-badge ${hc}">${esc(e.horizon_class||'')}</div>
+    <div class="coupling-bar-wrap"><div class="coupling-bar" style="width:${pct}%;background:linear-gradient(90deg,${couplingColor(coupling)},#2C7BFF)"></div></div>
+    <div class="entity-meta">coupling: <strong style="color:${couplingColor(coupling)}">${coupling.toFixed(2)}</strong>　phase: ${esc((e.phase??0).toFixed(3))} rad</div>
+    <div class="adj-list">${adjs}</div>${noteHtml}
+  </div>`;
 }
 
 function renderSatellite(s){
   const status = s.active_status||'';
   const anchors = (s.anchors||[]).map(a=>`<div class="adj-tag" style="border-radius:4px;font-family:monospace;">${esc(a)}</div>`).join('');
-  return `
-    <div class="entity-card sat-card">
-      <div class="entity-id">${esc(s.subsystem_id||'')}</div>
-      <div class="entity-noun">${esc(s.name||'')}</div>
-      <div class="horizon-badge horizon-POROUS">${esc(status)}</div>
-      <div class="entity-meta">${esc(s.role||'')}</div>
-      <div class="adj-list" style="flex-direction:column;gap:3px;">${anchors}</div>
-    </div>`;
+  return `<div class="entity-card sat-card">
+    <div class="entity-id">${esc(s.subsystem_id||'')}</div>
+    <div class="entity-noun">${esc(s.name||'')}</div>
+    <div class="horizon-badge horizon-POROUS">${esc(status)}</div>
+    <div class="entity-meta">${esc(s.role||'')}</div>
+    <div class="adj-list" style="flex-direction:column;gap:3px;">${anchors}</div>
+  </div>`;
 }
 
-function renderMetrics(metrics, gating){
+function renderMetricsRow(metrics, gating){
   const chips = [];
   const m = metrics||{};
-  if(m.system_health!=null){
-    const v=m.system_health; const cls=v>=0.7?'status-ok':v>=0.5?'status-warn':'status-err';
-    chips.push(`<span class="metric-chip">health <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`);
-  }
-  if(m.coherence_index!=null) chips.push(`<span class="metric-chip">coherence <span class="metric-val">${(m.coherence_index).toFixed(3)}</span></span>`);
-  if(m.closure_penalty!=null){
-    const v=m.closure_penalty; const cls=v<5.2?'status-ok':v<5.8?'status-warn':'status-err';
-    chips.push(`<span class="metric-chip">closure <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`);
-  }
-  if(m.ethical_score!=null) chips.push(`<span class="metric-chip">ethics <span class="metric-val">${(m.ethical_score).toFixed(3)}</span></span>`);
+  if(m.system_health!=null){ const v=m.system_health; const cls=v>=0.7?'status-ok':v>=0.5?'status-warn':'status-err'; chips.push(`<span class="metric-chip">health <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`); }
+  if(m.coherence_index!=null) chips.push(`<span class="metric-chip">coherence <span class="metric-val">${m.coherence_index.toFixed(3)}</span></span>`);
+  if(m.closure_penalty!=null){ const v=m.closure_penalty; const cls=v<5.2?'status-ok':v<5.8?'status-warn':'status-err'; chips.push(`<span class="metric-chip">closure <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`); }
+  if(m.ethical_score!=null) chips.push(`<span class="metric-chip">ethics <span class="metric-val">${m.ethical_score.toFixed(3)}</span></span>`);
   if(m.dominant_emotion) chips.push(`<span class="metric-chip">emotion <span class="metric-val">${esc(m.dominant_emotion)}</span></span>`);
   if(gating && gating.dominant_horizon_class) chips.push(`<span class="metric-chip">horizon <span class="metric-val">${esc(gating.dominant_horizon_class)}</span></span>`);
   document.getElementById('metrics-row').innerHTML = chips.join('');
@@ -213,10 +434,12 @@ async function loadData(){
     const res = await fetch('/api/orbital/entities', {cache:'no-store'});
     if(!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
-
     document.getElementById('ts-label').textContent = 'odświeżono ' + new Date().toLocaleTimeString('pl-PL');
 
-    renderMetrics(data.metrics, data.gating);
+    const metrics = data.metrics || {};
+    renderMetricsRow(metrics, data.gating);
+    updateReadouts(metrics);
+    drawRelSphere(metrics);
 
     const entities = data.entities||[];
     document.getElementById('entity-count').textContent = entities.length;
@@ -226,29 +449,25 @@ async function loadData(){
     const sats = data.satellites||[];
     document.getElementById('sat-count').textContent = sats.length;
     document.getElementById('sat-grid').innerHTML = sats.map(renderSatellite).join('') || '<div style="color:var(--col-text-dim)">Brak danych.</div>';
-
   } catch(err){
-    document.getElementById('entity-grid').innerHTML = `<div class="status-err">Błąd ładowania: ${esc(err.message)}</div>`;
+    document.getElementById('entity-grid').innerHTML = `<div class="status-err">Błąd: ${esc(err.message)}</div>`;
   }
 }
 
 async function runPipeline(){
   const btn = document.getElementById('run-btn');
   const lbl = document.getElementById('pipe-label');
-  btn.disabled = true;
-  btn.textContent = '⏳ Synchronizacja…';
-  lbl.textContent = '';
+  btn.disabled = true; btn.textContent = '⏳…'; lbl.textContent = '';
   const modules = ['ciel_sot_agent.synchronize','ciel_sot_agent.orbital_bridge','ciel_sot_agent.ciel_pipeline'];
   for(const mod of modules){
     lbl.textContent = mod.split('.').pop() + '…';
     try {
       const r = await fetch('/api/pipeline/run', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({module: mod})});
       const d = await r.json();
-      if(d.rc !== 0) { lbl.textContent = mod.split('.').pop() + ' BŁĄD rc=' + d.rc; break; }
-    } catch(e){ lbl.textContent = 'błąd: ' + e.message; break; }
+      if(d.rc !== 0){ lbl.textContent = mod.split('.').pop() + ' BŁĄD rc='+d.rc; break; }
+    } catch(e){ lbl.textContent = 'błąd: '+e.message; break; }
   }
-  btn.disabled = false;
-  btn.textContent = '▶ Uruchom pipeline';
+  btn.disabled = false; btn.textContent = '▶ Pipeline';
   lbl.textContent = 'gotowe ' + new Date().toLocaleTimeString('pl-PL');
   loadData();
 }
@@ -258,39 +477,23 @@ function renderFileCard(r){
   const hc = r.horizon_class || '';
   const hcClass = hc ? `horizon-${hc}` : '';
   const conf = r.orbital_confidence != null ? `<span class="adj-tag">${(r.orbital_confidence*100).toFixed(0)}%</span>` : '';
-  return `<div class="file-card">
-    <div class="file-path">${esc(r.path||r.id||'')}</div>
-    <div class="file-badges">
-      <span class="orbit-badge orbit-${oc}">${esc(oc)}</span>
-      ${hcClass ? `<span class="orbit-badge ${hcClass}">${esc(hc)}</span>` : ''}
-      ${r.kind ? `<span class="adj-tag">${esc(r.kind)}</span>` : ''}
-      ${conf}
-    </div>
-  </div>`;
+  return `<div class="file-card"><div class="file-path">${esc(r.path||r.id||'')}</div><div class="file-badges"><span class="orbit-badge orbit-${oc}">${esc(oc)}</span>${hcClass?`<span class="orbit-badge ${hcClass}">${esc(hc)}</span>`:''} ${r.kind?`<span class="adj-tag">${esc(r.kind)}</span>`:''} ${conf}</div></div>`;
 }
 
 async function loadFiles(cls){
   const grid = document.getElementById('file-grid');
-  const more = document.getElementById('file-more');
   grid.innerHTML = '<div style="color:var(--col-text-dim)">Ładowanie…</div>';
   try {
     const url = '/api/orbital/files' + (cls ? `?class=${encodeURIComponent(cls)}&limit=300` : '?limit=300');
-    const res = await fetch(url, {cache:'no-store'});
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    const data = await (await fetch(url, {cache:'no-store'})).json();
     const records = data.records || [];
     grid.innerHTML = records.map(renderFileCard).join('') || '<div style="color:var(--col-text-dim)">Brak.</div>';
-    const total = data.total || 0;
-    const filtered = data.filtered || records.length;
-    document.getElementById('file-total').textContent = total;
-    more.textContent = cls ? `${filtered} z ${total} total (klasa: ${cls})` : `${records.length} z ${total} (limit 300)`;
-    // render counts
+    document.getElementById('file-total').textContent = data.total || 0;
+    document.getElementById('file-more').textContent = cls ? `${data.filtered} z ${data.total} (klasa: ${cls})` : `${records.length} z ${data.total} (limit 300)`;
     const counts = data.counts || {};
     const COLORS = {IDENTITY:'#8888ff',CONSTITUTIVE:'#21D4FD',DYNAMIC:'#00e678',INTERACTION:'#f5c518',OBSERVATION:'#cc77ff',BOUNDARY:'#ff6060',EDUCATION:'#ff8c00',UNRESOLVED:'#666'};
     document.getElementById('class-counts').innerHTML = Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span class="metric-chip">${k} <span class="metric-val" style="color:${COLORS[k]||'#aaa'}">${v}</span></span>`).join('');
-  } catch(err){
-    grid.innerHTML = `<div class="status-err">Błąd: ${esc(err.message)}</div>`;
-  }
+  } catch(err){ grid.innerHTML = `<div class="status-err">Błąd: ${esc(err.message)}</div>`; }
 }
 
 const MEM_COLORS = {EPISODIC:'#21D4FD',SEMANTIC:'#cc77ff',AFFECTIVE:'#f5c518',IDENTITY:'#8888ff',RELATIONAL:'#00e678',BOUNDARY:'#ff6060',LOG:'#8899bb',UNRESOLVED:'#555'};
@@ -301,38 +504,26 @@ function renderMemCard(r){
   const hcClass = hc ? `horizon-${hc}` : '';
   const kb = r.size_bytes != null ? (r.size_bytes < 1024 ? r.size_bytes+'B' : (r.size_bytes/1024).toFixed(1)+'K') : '';
   const mt = r.mtime ? r.mtime.replace('T',' ') : '';
-  return `<div class="file-card">
-    <div class="file-path">${esc(r.path||'')}</div>
-    <div class="file-badges">
-      <span class="orbit-badge" style="border-color:${MEM_COLORS[oc]||'#555'};color:${MEM_COLORS[oc]||'#555'}">${esc(oc)}</span>
-      ${hcClass ? `<span class="orbit-badge ${hcClass}">${esc(hc)}</span>` : ''}
-      ${kb ? `<span class="adj-tag">${kb}</span>` : ''}
-      ${mt ? `<span class="adj-tag" style="font-family:monospace;font-size:.62rem">${esc(mt)}</span>` : ''}
-    </div>
-  </div>`;
+  return `<div class="file-card"><div class="file-path">${esc(r.path||'')}</div><div class="file-badges"><span class="orbit-badge" style="border-color:${MEM_COLORS[oc]||'#555'};color:${MEM_COLORS[oc]||'#555'}">${esc(oc)}</span>${hcClass?`<span class="orbit-badge ${hcClass}">${esc(hc)}</span>`:''} ${kb?`<span class="adj-tag">${kb}</span>`:''} ${mt?`<span class="adj-tag" style="font-family:monospace;font-size:.62rem">${esc(mt)}</span>`:''}</div></div>`;
 }
 
 async function loadMemory(cls){
   const grid = document.getElementById('mem-grid');
-  const more = document.getElementById('mem-more');
   grid.innerHTML = '<div style="color:var(--col-text-dim)">Ładowanie…</div>';
   try {
     const url = '/api/orbital/memory' + (cls ? `?class=${encodeURIComponent(cls)}&limit=300` : '?limit=300');
-    const res = await fetch(url, {cache:'no-store'});
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    const data = await (await fetch(url, {cache:'no-store'})).json();
     const records = data.records || [];
     grid.innerHTML = records.map(renderMemCard).join('') || '<div style="color:var(--col-text-dim)">Brak.</div>';
-    const total = data.total || 0;
-    document.getElementById('mem-total').textContent = total;
-    more.textContent = cls ? `${data.filtered} z ${total} (klasa: ${cls})` : `${records.length} z ${total} (limit 300)`;
+    document.getElementById('mem-total').textContent = data.total || 0;
+    document.getElementById('mem-more').textContent = cls ? `${data.filtered} z ${data.total} (klasa: ${cls})` : `${records.length} z ${data.total} (limit 300)`;
     const counts = data.counts || {};
     document.getElementById('mem-class-counts').innerHTML = Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<span class="metric-chip">${k} <span class="metric-val" style="color:${MEM_COLORS[k]||'#aaa'}">${v}</span></span>`).join('');
-  } catch(err){
-    grid.innerHTML = `<div class="status-err">Błąd: ${esc(err.message)}</div>`;
-  }
+  } catch(err){ grid.innerHTML = `<div class="status-err">Błąd: ${esc(err.message)}</div>`; }
 }
 
+// Initial draw with fallback data while loading
+drawRelSphere({});
 loadData();
 setInterval(loadData, 30000);
 </script>

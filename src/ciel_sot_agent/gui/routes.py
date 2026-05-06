@@ -1868,6 +1868,11 @@ def register_routes(app: Flask) -> None:
                 metrics["soul_invariant"] = cp.get("soul_invariant")
             if metrics.get("dominant_emotion") is None:
                 metrics["dominant_emotion"] = cp.get("dominant_emotion")
+            if metrics.get("identity_phase") is None:
+                metrics["identity_phase"] = cp.get("identity_phase")
+            if metrics.get("psi_mode") is None:
+                sm = bridge.get("state_manifest", {})
+                metrics["psi_mode"] = sm.get("psi_mode")
         except Exception:
             pass
         return jsonify({
