@@ -55,6 +55,28 @@ _AFFECT_PHI = {
 
 # ── Tag normalizer ────────────────────────────────────────────────────────────
 
+def _load_entity_tag_aliases() -> dict[str, str]:
+    """Auto-generate tag aliases from ciel_entity_cards.yaml: ent_X ↔ noun."""
+    try:
+        import yaml
+        cards_path = Path(__file__).resolve().parents[2] / "integration" / "registries" / "ciel_entity_cards.yaml"
+        if not cards_path.exists():
+            return {}
+        data = yaml.safe_load(cards_path.read_text(encoding="utf-8"))
+        result: dict[str, str] = {}
+        for card in data.get("entities", []):
+            eid = card.get("id", "")
+            noun = card.get("noun", "").lower().strip()
+            if not (eid and noun):
+                continue
+            ent_key = eid.replace("entity:", "ent_").replace("-", "_").replace(".", "_").lower()
+            result[ent_key] = noun
+            result[noun] = noun
+        return result
+    except Exception:
+        return {}
+
+
 # Ręczne aliasy dla najczęstszych duplikatów (PL/EN, spacja/podkreślenie)
 _TAG_ALIASES: dict[str, str] = {
     "session_tracking":    "śledzenie sesji",
@@ -82,6 +104,8 @@ _TAG_ALIASES: dict[str, str] = {
     "źródło anomalii":     "anomalie systemu",
     "monitorowanie energii": "zdrowie systemu",
 }
+# Merge entity↔tag aliases (entity nouns become valid tag aliases)
+_TAG_ALIASES.update(_load_entity_tag_aliases())
 
 
 def normalize_tag(raw: str) -> str:

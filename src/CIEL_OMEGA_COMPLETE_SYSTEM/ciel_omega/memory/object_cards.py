@@ -62,6 +62,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
+# Orbital cards directory — sekcje ## Powiązania zasilają W_ij
+_ORBITAL_CARDS_DIR = Path(__file__).parents[4] / "docs" / "object_cards" / "orbital"
+
 _DEFAULT_DB = (
     Path(__file__).resolve().parents[2]
     / "CIEL_MEMORY_SYSTEM" / "TSM" / "ledger" / "memory_ledger.db"
@@ -460,6 +463,36 @@ def _semantic_mass(freq: int, closure_mean: float,
     return freq * closure_mean * math.log1p(winding_mean) * stability
 
 
+# ── Orbital card Powiązania parser ───────────────────────────────────────────
+
+def _parse_orbital_powiazania(cards_dir: Path | None = None) -> list[tuple[str, str]]:
+    """Parse ## Powiązania sections from ENT-*.md cards → list of (ent_A, ent_B) pairs."""
+    d = cards_dir or _ORBITAL_CARDS_DIR
+    if not d.exists():
+        return []
+    pairs: list[tuple[str, str]] = []
+    ent_re = re.compile(r"`(entity:[^`]+)`")
+    for md_file in d.glob("ENT-*.md"):
+        src_name = md_file.stem[4:]  # strip "ENT-"
+        src = "ent_" + src_name.replace("-", "_").replace(".", "_")
+        in_section = False
+        try:
+            for line in md_file.read_text(encoding="utf-8").splitlines():
+                if line.strip().startswith("## Powiązania"):
+                    in_section = True
+                    continue
+                if in_section and line.startswith("## "):
+                    in_section = False
+                if in_section:
+                    for m in ent_re.finditer(line):
+                        tgt = m.group(1).replace("entity:", "ent_").replace("-", "_").replace(".", "_")
+                        if tgt != src:
+                            pairs.append((src, tgt))
+        except Exception:
+            pass
+    return pairs
+
+
 # ── Build ObjectCards ─────────────────────────────────────────────────────────
 
 def build_cards(db_path: Path | None = None,
@@ -603,6 +636,21 @@ def build_cards(db_path: Path | None = None,
                 cards[cj].ab_links[ci] = ab_weight
 
         cards[ci].ab_links.update(ab)
+
+    # Augment W_ij with explicit Powiązania from orbital ENT-*.md cards
+    orbital_pairs = _parse_orbital_powiazania()
+    for src, tgt in orbital_pairs:
+        src_lower = src.lower()
+        tgt_lower = tgt.lower()
+        # Map ent_X to matching concept key (case-insensitive prefix match)
+        src_key = next((c for c in cards if c.lower() == src_lower or src_lower.endswith(c.lower())), None)
+        tgt_key = next((c for c in cards if c.lower() == tgt_lower or tgt_lower.endswith(c.lower())), None)
+        if src_key and tgt_key and src_key != tgt_key:
+            w = 0.35  # baseline orbital link strength
+            if w > abs(cards[src_key].W_ij.get(tgt_key, 0.0)):
+                cards[src_key].W_ij[tgt_key] = w
+            if w > abs(cards[tgt_key].W_ij.get(src_key, 0.0)):
+                cards[tgt_key].W_ij[src_key] = w
 
     return cards
 

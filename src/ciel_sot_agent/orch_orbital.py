@@ -83,9 +83,18 @@ def entity_orbital_summary() -> dict[str, Any]:
     }
 
 
+def canonical_entity_id(raw: str) -> str:
+    """Canonical runtime entity id: entity:X → ent_X, bare X → ent_X."""
+    if raw.startswith("entity:"):
+        return raw.replace("entity:", "ent_").replace("-", "_").replace(".", "_")
+    if raw.startswith("ent_"):
+        return raw
+    return "ent_" + raw.replace("-", "_").replace(".", "_")
+
+
 def _entity_sector_name(entity_id: str) -> str:
     """Convert entity id to a safe sector name."""
-    return entity_id.replace("entity:", "ent_").replace("-", "_").replace(".", "_")
+    return canonical_entity_id(entity_id)
 
 
 def _rho_from_theta(theta: float) -> float:
