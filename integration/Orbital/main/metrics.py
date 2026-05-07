@@ -324,7 +324,8 @@ def closure_penalty(system: OrbitalSystem) -> float:
     penalty = sum(v * v for v in res.values())
     if system.zeta_pole is not None:
         penalty += _param(system, 'zeta_tetra_weight', 0.5) * zeta_tetra_defect(system)
-    return penalty
+    n = max(1, len(system.sectors))
+    return penalty / n
 
 
 def local_vorticity(system: OrbitalSystem) -> Dict[str, float]:

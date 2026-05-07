@@ -59,7 +59,9 @@ def _obs(final: dict, *keys: str, default: float = 0.0) -> float:
 
 
 def coherence_index_from_snapshot(final: dict) -> float:
-    raw             = max(0.0, min(1.0, 1.0 - _obs(final, "R_H", default=1.0)))
+    rh    = _obs(final, "R_H", default=1.0)
+    n     = max(1, int(final.get("n_sectors") or 6))
+    raw   = max(0.0, min(1.0, 1.0 / (1.0 + rh / n)))
     coherent_frac   = max(0.0, min(1.0, _obs(final, "nonlocal_coherent_fraction", "coherent_fraction")))
     eba_defect      = max(0.0, min(1.0, _obs(final, "nonlocal_eba_defect_mean",   "eba_defect_mean")))
     closure_score   = max(0.0, min(1.0, _obs(final, "euler_bridge_closure_score", "bridge_closure_score", "closure_score")))

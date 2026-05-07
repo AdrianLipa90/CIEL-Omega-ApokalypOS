@@ -25,7 +25,7 @@ sys.path.insert(0, str(_OMEGA))
 from ciel_omega.htri.htri_local import LocalHTRI, OscillatorBank
 
 
-CYCLE_INTERVAL = 10.0   # sekund między cyklami
+CYCLE_INTERVAL = 30.0   # sekund między cyklami
 STATE_FILE     = Path.home() / ".claude" / "htri_state.json"
 PID_FILE       = Path.home() / ".claude" / "htri_daemon.pid"
 
@@ -52,7 +52,7 @@ def _write_state(result: dict) -> None:
             "ethical_score, system_health, coherence_index, closure_penalty, mood, dominant_emotion) "
             "VALUES (?,?,?,?,?,?,?,?,?)",
             (_t.time(), result.get("cycle", 0),
-             comb.get("soul_invariant", 0.0),
+             None,
              0.0,
              comb.get("coherence", 0.0),
              comb.get("coherence", 0.0),

@@ -113,7 +113,9 @@ def effective_rh(snapshot: dict) -> tuple[float, dict[str, float]]:
     Lower is better.  This is intentionally conservative: nonlocal incoherence and
     weak Euler closure should raise the defect even when raw R_H is small.
     """
-    raw_rh = max(0.0, _obs(snapshot, "R_H"))
+    rh_raw = max(0.0, _obs(snapshot, "R_H"))
+    n = max(1, int(snapshot.get("n_sectors") or 6))
+    raw_rh = max(0.0, min(1.0, 1.0 / (1.0 + rh_raw / n)))
     eba_defect = max(0.0, _obs(snapshot, "nonlocal_eba_defect_mean", "eba_defect_mean"))
     coherent_fraction = max(0.0, min(1.0, _obs(snapshot, "nonlocal_coherent_fraction", "coherent_fraction")))
     closure_score = max(0.0, min(1.0, _obs(snapshot, "euler_bridge_closure_score", "bridge_closure_score", "closure_score")))
