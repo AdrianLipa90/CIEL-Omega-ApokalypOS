@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+import sys
 from pathlib import Path
 
 from .dynamics import step
@@ -137,6 +138,7 @@ def snapshot(system, repo_root: Path | None = None) -> dict:
         'closure_penalty': closure_penalty(system),
         'V_rel_total': total_relational_potential(system),
         'radial_spread': radial_spread(system),
+        'n_sectors': len(system.sectors),
         'mean_spin': sum(s.spin for s in system.sectors.values()) / max(1, len(system.sectors)),
         'spectral_radius_A': spec['spectral_radius_A'],
         'spectral_gap_A': spec['spectral_gap_A'],
@@ -212,6 +214,22 @@ def run_global_pass(
                         target[sid]['berry_phase'] = prev_s['berry_phase']
             except Exception:
                 pass
+
+        # Inject entity cards
+        try:
+            _src = Path(__file__).parents[3] / 'src'
+            if str(_src) not in sys.path:
+                sys.path.insert(0, str(_src))
+            from ciel_sot_agent.orch_orbital import build_entity_injection
+            _s = fresh.get('sectors', fresh) if isinstance(fresh, dict) else fresh
+            _c = payload.get('couplings', {}).get('couplings', payload.get('couplings', {}))
+            _s, _c = build_entity_injection(_s, _c)
+            fresh = {'sectors': _s}
+            payload = dict(payload)
+            payload['couplings'] = {'couplings': _c}
+        except Exception:
+            pass
+
         sectors_path.write_text(json.dumps(fresh, indent=2), encoding='utf-8')
     if 'couplings' in payload:
         couplings_path.write_text(json.dumps(payload['couplings'], indent=2), encoding='utf-8')

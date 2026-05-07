@@ -115,7 +115,11 @@ CREATE TABLE IF NOT EXISTS metrics_history (
   coherence_index REAL,
   closure_penalty REAL,
   mood            REAL,
-  dominant_emotion TEXT
+  dominant_emotion TEXT,
+  identity_drift  REAL DEFAULT NULL,
+  euler_violation REAL DEFAULT NULL,
+  attractor_dist  REAL DEFAULT NULL,
+  phase_velocity  REAL DEFAULT NULL
 );
 CREATE INDEX IF NOT EXISTS mh_ts ON metrics_history(timestamp DESC);
 """
@@ -152,6 +156,14 @@ def _ensure_schema(conn: sqlite3.Connection) -> None:
                          ("winding_subjective", "REAL DEFAULT 0.0")]:
         if col not in existing:
             conn.execute(f"ALTER TABLE orchestrator_state ADD COLUMN {col} {typedef}")
+    # migrate metrics_history: add trajectory columns if missing
+    mh_existing = {r[1] for r in conn.execute("PRAGMA table_info(metrics_history)").fetchall()}
+    for col, typedef in [("identity_drift",  "REAL DEFAULT NULL"),
+                         ("euler_violation", "REAL DEFAULT NULL"),
+                         ("attractor_dist",  "REAL DEFAULT NULL"),
+                         ("phase_velocity",  "REAL DEFAULT NULL")]:
+        if col not in mh_existing:
+            conn.execute(f"ALTER TABLE metrics_history ADD COLUMN {col} {typedef}")
     conn.commit()
 
 
@@ -195,30 +207,6 @@ def load_report_freshness(report_type: str) -> float | None:
 
 
 # ── Metrics history ───────────────────────────────────────────────────────────
-
-def append_metrics(
-    *,
-    cycle_index: int,
-    identity_phase: float,
-    ethical_score: float = 0.0,
-    system_health: float = 0.0,
-    coherence_index: float = 0.0,
-    closure_penalty: float = 0.0,
-    mood: float = 0.0,
-    dominant_emotion: str = "",
-) -> None:
-    """Append a metrics snapshot to history."""
-    with get_db() as conn:
-        conn.execute(
-            """INSERT INTO metrics_history
-               (timestamp, cycle_index, identity_phase, ethical_score, system_health,
-                coherence_index, closure_penalty, mood, dominant_emotion)
-               VALUES(?,?,?,?,?,?,?,?,?)""",
-            (
-                time.time(), cycle_index, identity_phase, ethical_score,
-                system_health, coherence_index, closure_penalty, mood, dominant_emotion,
-            ),
-        )
 
 
 def load_metrics_history(limit: int = 100) -> list[dict[str, Any]]:
@@ -405,23 +393,72 @@ def save_bridge_snapshot(
 ) -> None:
     """Write all orbital bridge data in a single SQLite transaction.
 
-    Replaces multiple save_report() + append_metrics() calls (each with its own
+    Replaces multiple save_report() calls (each with its own
     COMMIT) with one atomic write. Critical for performance — each COMMIT on WAL
     SQLite takes ~700ms on this machine.
     """
+    import math as _math
     import time as _time
     now = _time.time()
     cycle = int(ciel_pipe.get('cycle_index', 0)) or _read_cycle_from_pickle()
+
+    identity_phase  = float(ciel_pipe.get('identity_phase', 0.0))
+    coherence_index = float(state_manifest.get('coherence_index', 0.0))
+    closure_penalty = float(health_manifest.get('closure_penalty', 0.0))
+    euler_violation = float(ciel_pipe.get('euler_bridge_closure_score', 0.0))
+
+    # identity_drift: angular distance from previous cycle's identity_phase
+    identity_drift: float | None = None
+    phase_velocity: float | None = None
+    try:
+        with get_db() as _conn:
+            prev = _conn.execute(
+                "SELECT identity_phase, identity_drift FROM metrics_history "
+                "WHERE dominant_emotion != 'htri' OR dominant_emotion IS NULL "
+                "ORDER BY timestamp DESC LIMIT 1"
+            ).fetchone()
+        if prev is not None:
+            prev_phase = float(prev["identity_phase"] or 0.0)
+            raw_drift = _math.atan2(
+                _math.sin(identity_phase - prev_phase),
+                _math.cos(identity_phase - prev_phase),
+            )
+            identity_drift = abs(raw_drift)
+            # phase_velocity: smoothed drift (EMA with α=0.3 over previous velocity)
+            prev_vel = prev["identity_drift"]
+            if prev_vel is not None:
+                phase_velocity = 0.3 * identity_drift + 0.7 * float(prev_vel)
+            else:
+                phase_velocity = identity_drift
+    except Exception:
+        pass
+
+    # attractor_dist: how far from the attractor basin
+    # high closure_penalty + low coherence = far from attractor
+    attractor_dist: float | None = None
+    if coherence_index > 0:
+        attractor_dist = round(closure_penalty / coherence_index, 4)
+
+    # euler_violation: re-map bridge_closure_score → violation (1 - score)
+    euler_violation_norm: float | None = None
+    raw_cs = ciel_pipe.get('bridge_closure_score') or ciel_pipe.get('euler_bridge_closure_score')
+    if raw_cs is not None:
+        euler_violation_norm = round(1.0 - float(raw_cs), 5)
+
     metrics_row = (
         now,
         cycle,
-        float(ciel_pipe.get('identity_phase', 0.0)),
+        identity_phase,
         float(ciel_pipe.get('ethical_score', 0.0)),
         float(health_manifest.get('system_health', 0.0)),
-        float(state_manifest.get('coherence_index', 0.0)),
-        float(health_manifest.get('closure_penalty', 0.0)),
+        coherence_index,
+        closure_penalty,
         float(ciel_pipe.get('mood', 0.0)),
         str(ciel_pipe.get('dominant_emotion', '')),
+        round(identity_drift, 5) if identity_drift is not None else None,
+        euler_violation_norm,
+        attractor_dist,
+        round(phase_velocity, 5) if phase_velocity is not None else None,
     )
     summary_json = json.dumps(summary, ensure_ascii=False)
     gating_json  = json.dumps(runtime_gating, ensure_ascii=False)
@@ -448,8 +485,9 @@ def save_bridge_snapshot(
         conn.execute(
             """INSERT INTO metrics_history
                (timestamp, cycle_index, identity_phase, ethical_score, system_health,
-                coherence_index, closure_penalty, mood, dominant_emotion)
-               VALUES(?,?,?,?,?,?,?,?,?)""",
+                coherence_index, closure_penalty, mood, dominant_emotion,
+                identity_drift, euler_violation, attractor_dist, phase_velocity)
+               VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",
             metrics_row,
         )
         conn.commit()
