@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-07T03:13:20.364634+00:00",
+  "generated_at": "2026-05-07T04:30:17.895830+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "4776daa63775a13efa1af4d1a2fade9c155bbb7d",
-      "timestamp": "2026-05-07T01:56:17Z",
-      "message": "Update live GH coupling state",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/4776daa63775a13efa1af4d1a2fade9c155bbb7d"
+      "new_sha": "37dbb800212c307b17ce05ef515e8e7600dbc358",
+      "timestamp": "2026-05-07T04:19:46Z",
+      "message": "docs: escape Liquid tag in docs/INDEX.md to fix Jekyll build",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/37dbb800212c307b17ce05ef515e8e7600dbc358"
     },
     {
       "key": "demo",
