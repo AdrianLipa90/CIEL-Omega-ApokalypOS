@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-07T12:09:28.875663+00:00",
+  "generated_at": "2026-05-07T12:56:37.842656+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "03d4e30bb321a65fa178b679017722888b045678",
-      "timestamp": "2026-05-07T11:35:47Z",
-      "message": "Merge pull request #238 from AdrianLipa90/dependabot/npm_and_yarn/app/rollup-4.60.3\n\nbuild(deps): bump rollup from 4.55.1 to 4.60.3 in /app",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/03d4e30bb321a65fa178b679017722888b045678"
+      "new_sha": "f9d05cbabfd9b6eeee08d5be4f65a8d1257b28cd",
+      "timestamp": "2026-05-07T12:09:29Z",
+      "message": "Update live GH coupling state",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/f9d05cbabfd9b6eeee08d5be4f65a8d1257b28cd"
     },
     {
       "key": "demo",
