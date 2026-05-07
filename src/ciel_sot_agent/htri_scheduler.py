@@ -18,6 +18,7 @@ import time
 from pathlib import Path
 
 _STATE_PATH = Path.home() / "Pulpit/CIEL_memories/state/htri_state.json"
+_DAEMON_STATE_PATH = Path.home() / ".claude" / "htri_state.json"
 CPU_THREADS = 12
 _HTRI_TIMEOUT = 3.0   # max sekund na run — fallback do cpu jeśli przekroczony
 
@@ -160,16 +161,56 @@ def run(n: int = CPU_THREADS, power_mode: str = "auto") -> dict:
     return state
 
 
+_STATE_TTL = 300  # sekund — daemon aktualizuje stan, nie ma potrzeby liczyć częściej
+
+
 def get_state() -> dict:
-    """Wczytaj stan. Jeśli nieaktualny (>60s) — przelicz w trybie auto."""
+    """Wczytaj stan. Jeśli nieaktualny (>TTL) — przelicz w trybie auto.
+
+    Jeśli state jest stary ale plik istnieje (daemon może liczyć w tle),
+    zwróć stary state zamiast blokować na ~8s re-run.
+    """
+    cached: dict | None = None
+    now = time.time()
+
+    # 1. Sprawdź własny state
     if _STATE_PATH.exists():
         try:
             s = json.loads(_STATE_PATH.read_text())
-            if time.time() - s.get("timestamp", 0) < 60:
+            age = now - s.get("timestamp", 0)
+            if age < _STATE_TTL:
                 return s
+            cached = s
         except Exception:
             pass
-    return run()
+
+    # 2. Fallback: state z działającego htri_daemon (liczy non-stop, zawsze świeży)
+    if _DAEMON_STATE_PATH.exists():
+        try:
+            d = json.loads(_DAEMON_STATE_PATH.read_text())
+            age = now - d.get("timestamp", 0)
+            if age < _STATE_TTL:
+                # Normalizuj format demona do formatu schedulera
+                combined = d.get("combined", d)
+                return {
+                    "coherence": float(combined.get("coherence", 0.85)),
+                    "soul_invariant": float(combined.get("soul_invariant", 0.0)),
+                    "spectral_radius": float(combined.get("spectral_radius", 0.0)),
+                    "potential": float(combined.get("potential", 0.0)),
+                    "n_oscillators": int(combined.get("total_oscillators", combined.get("n_oscillators", 780))),
+                    "n_threads_optimal": max(1, round(float(combined.get("coherence", 0.85)) * CPU_THREADS)),
+                    "power_mode": "daemon",
+                    "substrate": combined.get("substrate", "htri_daemon"),
+                    "elapsed_s": 0.0,
+                    "timestamp": d.get("timestamp", now),
+                }
+        except Exception:
+            pass
+
+    try:
+        return run()
+    except Exception:
+        return cached or {"coherence": 0.85, "n_threads_optimal": 4, "power_mode": "fallback"}
 
 
 def get_optimal_threads() -> int:

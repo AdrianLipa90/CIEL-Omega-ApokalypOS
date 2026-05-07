@@ -1,6 +1,7 @@
 from __future__ import annotations
 import json
 import math
+import sys
 from pathlib import Path
 from .extract_geometry import build, repo_root_from_here
 from .registry import load_system
@@ -94,9 +95,23 @@ def run_global_pass(steps: int = 20, params: dict | None = None) -> dict:
                         target[sid]["berry_phase"] = prev_s["berry_phase"]
         except Exception:
             pass
+    # Inject entity cards before writing manifests
+    try:
+        _src = Path(__file__).parents[4] / "src"
+        if str(_src) not in sys.path:
+            sys.path.insert(0, str(_src))
+        from ciel_sot_agent.orch_orbital import build_entity_injection
+        fresh_sectors, fresh_couplings = build_entity_injection(
+            fresh_sectors.get("sectors", fresh_sectors),
+            payload["couplings"].get("couplings", payload["couplings"]),
+        )
+        fresh_sectors = {"sectors": fresh_sectors}
+        fresh_couplings = {"couplings": fresh_couplings}
+    except Exception as _ei_exc:
+        fresh_couplings = payload["couplings"]
     sectors_path.write_text(json.dumps(fresh_sectors, indent=2), encoding="utf-8")
-    couplings_path.write_text(json.dumps(payload["couplings"], indent=2), encoding="utf-8")
-    p = dict(DEFAULT_PARAMS); 
+    couplings_path.write_text(json.dumps(fresh_couplings, indent=2), encoding="utf-8")
+    p = dict(DEFAULT_PARAMS)
     if params: p.update(params)
     system = load_system(sectors_path, couplings_path, params=p)
     initial = snapshot(system); history=[initial]

@@ -355,14 +355,65 @@ def run_ciel_pipeline(
     _bridge_active = locals().get("_bridge", {}).get("bridge_active", False)
 
     mode = merged.get("mode", "standard")
+
+    # Build GateDecision from trajectory metrics — augments the mode from phase_control
+    gate_decision: dict = {}
+    try:
+        from .holonomic_normalizer import _select_control_mode as _gate_fn
+        from .state_db import get_db as _get_db
+        _id_drift, _atr_dist = 0.0, 0.0
+        try:
+            with _get_db() as _gc:
+                _tr = _gc.execute(
+                    "SELECT identity_drift, attractor_dist FROM metrics_history "
+                    "WHERE identity_drift IS NOT NULL ORDER BY id DESC LIMIT 1"
+                ).fetchone()
+            if _tr:
+                _id_drift = float(_tr["identity_drift"] or 0.0)
+                _atr_dist = float(_tr["attractor_dist"] or 0.0)
+        except Exception:
+            pass
+        _ci = float(merged.get("coherence_index",
+                               orbital_state.get("state_manifest", {}).get("coherence_index", 1.0)))
+        _ep = float(merged.get("closure_penalty", 0.0))
+        _gd = _gate_fn(
+            hard_dist=0.0, soft_dist=0.0, D_repo=0.0,
+            E_phi=_ep, d_affect=0.0, ci=_ci,
+            identity_drift=_id_drift, attractor_dist=_atr_dist,
+        )
+        # hold/safe from trajectory overrides phase_control mode only if more restrictive
+        _mode_rank = {"deep": 0, "standard": 1, "hold": 2, "safe": 3}
+        if _mode_rank.get(_gd.mode, 0) > _mode_rank.get(mode, 0):
+            mode = _gd.mode
+        gate_decision = {
+            "mode": _gd.mode,
+            "confidence": _gd.confidence,
+            "reason": _gd.reason,
+            "delay_cycles": _gd.delay_cycles,
+            "identity_drift": _gd.identity_drift,
+            "attractor_dist": _gd.attractor_dist,
+        }
+    except Exception:
+        pass
+
     # Tryb safe: zablokuj zapis do pamięci holonomicznej
+    # Tryb hold: zablokuj konsolidację, zaloguj powód spowolnienia
     _orig_promote = None
-    if mode == "safe":
+    if mode in ("safe", "hold"):
         try:
             _orig_promote = engine.memory.promote_if_bifurcated
             engine.memory.promote_if_bifurcated = lambda *a, **kw: None
         except Exception:
             pass
+        if mode == "hold" and gate_decision:
+            import logging as _logging
+            _logging.getLogger(__name__).warning(
+                "CQCL hold: %s (drift=%.4f atr_dist=%.2f delay=%d)",
+                gate_decision.get("reason", "?"),
+                gate_decision.get("identity_drift", 0.0),
+                gate_decision.get("attractor_dist", 0.0),
+                gate_decision.get("delay_cycles", 0),
+            )
     raw = engine.step(cqcl_input, context=full_context)
     if _orig_promote is not None:
         try:
@@ -412,6 +463,7 @@ def run_ciel_pipeline(
         "nonlocal_card_count": int(nonlocal_cards_registry.get('count', 0) or 0),
         "nonlocal_card_ids": [rec.get('card_id') for rec in nonlocal_cards_registry.get('records', [])],
         "local_nonlocality_fallback": _orb_nl.get("local_nonlocality_fallback"),
+        "nonlocal_graph_stats": nonlocal_runtime.get("graph_stats", {}),
         "ciel_raw": raw,
         "subconscious_note": _query_subconscious(raw),
         "htri_coherence": _htri_r if "_htri_r" in dir() else 0.0,
@@ -421,6 +473,11 @@ def run_ciel_pipeline(
         "coherence_index": float(state_manifest.get("coherence_index", 0.0)),
         "identity_phase": _accumulated_identity_phase(engine, root),
         "cycle_index": _next_cycle_index(root),
+        "gate_decision": gate_decision,
+        "gate_mode": gate_decision.get("mode", mode) if gate_decision else mode,
+        "gate_confidence": gate_decision.get("confidence", 1.0) if gate_decision else 1.0,
+        "gate_reason": gate_decision.get("reason", "") if gate_decision else "",
+        "gate_delay_cycles": gate_decision.get("delay_cycles", 0) if gate_decision else 0,
     }
 
     _write_to_spreadsheet(
@@ -515,17 +572,29 @@ def main() -> int:
     )
     args = parser.parse_args()
 
+    _ORBITAL_REPORT_TTL = 600  # sekund — nie przebudowuj jeśli raport świeższy niż 10 min
     orbital_state: dict[str, Any] = {}
     if args.orbital_json:
         with open(args.orbital_json, encoding="utf-8") as fh:
             orbital_state = json.load(fh)
     else:
-        try:
-            from .orbital_bridge import build_orbital_bridge
-            root = resolve_project_root(Path(__file__))
-            orbital_state = build_orbital_bridge(root)
-        except Exception:
-            pass
+        root = resolve_project_root(Path(__file__))
+        _cached_report = root / "integration" / "reports" / "orbital_bridge" / "orbital_bridge_report.json"
+        _use_cache = False
+        if _cached_report.exists():
+            try:
+                _age = sys.modules["time"].time() - _cached_report.stat().st_mtime if "time" in sys.modules else __import__("time").time() - _cached_report.stat().st_mtime
+                if _age < _ORBITAL_REPORT_TTL:
+                    orbital_state = json.loads(_cached_report.read_text(encoding="utf-8"))
+                    _use_cache = True
+            except Exception:
+                pass
+        if not _use_cache:
+            try:
+                from .orbital_bridge import build_orbital_bridge
+                orbital_state = build_orbital_bridge(root)
+            except Exception:
+                pass
 
     result = run_ciel_pipeline(orbital_state)
     output = {k: v for k, v in result.items() if k != "ciel_raw"}
