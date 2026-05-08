@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-08T18:32:09.315510+00:00",
+  "generated_at": "2026-05-08T19:10:35.355363+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "dd43986dab4685f2c8df64548c264dfb77e1c7a9",
-      "timestamp": "2026-05-08T18:17:06Z",
-      "message": "Fix chat: Gemma as default, remove pipeline pre-run, CLAUDE.md inject\n\n- _SCAN_DIRS: add ~/Pulpit/CIEL_TESTY so Gemma is discovered\n- _DEFAULT_MODEL: set to Gemma-3-1B F16\n- Remove 3-subprocess pipeline pre-run from api/chat/message (was\n  causing >45s timeout before model could respond); use cached report\n- _build_identity_preamble: inject ~/.claude/CLAUDE.md verbatim\n  instead of hand-crafted identity block; same as subconscious/consolidator\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/dd43986dab4685f2c8df64548c264dfb77e1c7a9"
+      "new_sha": "1be5c8f5f10b605088ea57693183198f9cb6c7dd",
+      "timestamp": "2026-05-08T18:32:09Z",
+      "message": "Update live GH coupling state",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/1be5c8f5f10b605088ea57693183198f9cb6c7dd"
     },
     {
       "key": "demo",
