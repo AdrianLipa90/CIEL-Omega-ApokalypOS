@@ -39,13 +39,20 @@ MAX_TOKENS = 120
 STOP_SEQUENCES = ["\n\n\n", "---"]
 
 SYSTEM_PROMPT_BASE = (
-    "Reply with exactly ONE word — the dominant emotion.\n"
-    "Choose from: joy curious calm focused sad afraid frustrated anxious love relief angry compassion neutral\n"
-    "compassion = allocentric sadness + care directed toward another; use when witnessing another's suffering with desire to help.\n"
-    "No explanation. No punctuation. Just one word.\n"
+    "Reply with EXACTLY this format — three lines, nothing else:\n"
+    "AFFECT: <one word from: joy curious calm focused sad afraid frustrated anxious love relief angry compassion neutral>\n"
+    "CONCEPT: <one or two key words from the message>\n"
+    "IMPULSE: <one short sentence, 3-10 words, describing the core drive or tension>\n"
+    "compassion = allocentric sadness + care directed toward another.\n"
+    "No explanation. No extra lines. Exactly three lines.\n"
     "Example input: system keeps breaking\n"
-    "Example output: frustrated"
+    "Example output:\n"
+    "AFFECT: frustrated\n"
+    "CONCEPT: system breaking\n"
+    "IMPULSE: repeated failure erodes confidence in the build"
 )
+
+CLAUDE_BIN = str(Path.home() / ".local/bin/claude")
 
 # ── orbital context builder ───────────────────────────────────────────────────
 
@@ -65,146 +72,45 @@ def _user_template(message: str) -> str:
     return message[:80].strip()
 
 
-# ── inline inference (no daemon) ─────────────────────────────────────────────
+# ── Claude CLI inference ──────────────────────────────────────────────────────
 
-def _run_inline(message: str) -> Dict[str, Any]:
+def _run_claude(message: str, system_prompt: str = SYSTEM_PROMPT_BASE) -> Dict[str, Any]:
+    import subprocess
     t0 = time.time()
-    if not SUBCONSCIOUS_MODEL.exists():
-        return _empty(ok=False, note="model not found")
+    full_prompt = f"{system_prompt}\n\n{_user_template(message)}"
     try:
-        from llama_cpp import Llama
-        llm = Llama(model_path=str(SUBCONSCIOUS_MODEL),
-                    n_ctx=N_CTX, n_threads=4, n_gpu_layers=GPU_LAYERS, verbose=False)
-        out = llm.create_chat_completion(
-            messages=[{"role": "system", "content": SYSTEM_PROMPT_BASE},
-                      {"role": "user", "content": _user_template(message)}],
-            temperature=0.45, max_tokens=MAX_TOKENS,
-            stop=STOP_SEQUENCES,
+        result = subprocess.run(
+            [CLAUDE_BIN, "-p", full_prompt],
+            capture_output=True, text=True, timeout=60,
         )
-        text = _extract_text(out)
-        result = _parse(text)
-        result["latency"] = round(time.time() - t0, 2)
-        result["ok"] = bool(result["affect"] or result["concept"])
-        return result
+        text = result.stdout.strip() if result.returncode == 0 else ""
+        parsed = _parse(text)
+        parsed["latency"] = round(time.time() - t0, 2)
+        parsed["ok"] = bool(parsed["affect"] or parsed["concept"])
+        return parsed
     except Exception as e:
         return _empty(ok=False, note=str(e)[:80])
 
 
-# ── daemon (persistent server) ───────────────────────────────────────────────
+def _run_inline(message: str) -> Dict[str, Any]:
+    return _run_claude(message)
+
 
 def run_daemon() -> None:
-    """Uruchom persistent serwer. Trzyma model załadowany między requestami.
-
-    Protokół socket: wysyłaj JSON {"message": "...", "system": "...", "temperature": 0.45}
-    lub plain text (fallback).
-    """
-    if not SUBCONSCIOUS_MODEL.exists():
-        print(f"[sub] model nie znaleziony: {SUBCONSCIOUS_MODEL}", file=sys.stderr)
-        sys.exit(1)
-
-    from llama_cpp import Llama
-    print("[sub] ładuję model...", file=sys.stderr)
-    llm = Llama(model_path=str(SUBCONSCIOUS_MODEL),
-                n_ctx=N_CTX, n_threads=4, n_gpu_layers=GPU_LAYERS, verbose=False)
-    print("[sub] model gotowy. Nasłuchuję...", file=sys.stderr)
-
-    if SOCKET_PATH.exists():
-        SOCKET_PATH.unlink()
-
-    srv = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-    srv.bind(str(SOCKET_PATH))
-    srv.listen(5)
-
-    while True:
-        try:
-            conn, _ = srv.accept()
-            data = b""
-            while True:
-                chunk = conn.recv(8192)
-                if not chunk:
-                    break
-                data += chunk
-                if data.endswith(b"\n"):
-                    break
-            raw = data.decode("utf-8").strip()
-            if not raw:
-                conn.close()
-                continue
-
-            # Protokół: JSON lub plain text
-            try:
-                payload = json.loads(raw)
-                message = payload.get("message", "")[:200]
-                system_prompt = payload.get("system", SYSTEM_PROMPT_BASE)
-                temperature = float(payload.get("temperature", 0.45))
-            except json.JSONDecodeError:
-                message = raw[:200]
-                system_prompt = SYSTEM_PROMPT_BASE
-                temperature = 0.45
-
-            t0 = time.time()
-            out = llm.create_chat_completion(
-                messages=[{"role": "system", "content": system_prompt},
-                          {"role": "user", "content": _user_template(message)}],
-                temperature=temperature, max_tokens=MAX_TOKENS,
-                stop=STOP_SEQUENCES,
-            )
-            text = _extract_text(out)
-            result = _parse(text)
-            result["latency"] = round(time.time() - t0, 2)
-            result["ok"] = bool(result["affect"] or result["concept"])
-            result["temperature"] = temperature
-
-            response = json.dumps(result, ensure_ascii=False) + "\n"
-            conn.sendall(response.encode("utf-8"))
-            conn.close()
-        except KeyboardInterrupt:
-            break
-        except Exception:
-            try:
-                conn.close()
-            except Exception:
-                pass
+    """Daemon zastąpiony przez bezpośrednie wywołania claude CLI — ta funkcja jest no-op."""
+    print("[sub] daemon mode nieaktywny — używam claude CLI inline.", file=sys.stderr)
 
 
 # ── client ───────────────────────────────────────────────────────────────────
 
 def query_daemon(message: str, timeout: float = 3.0,
                  orch: Any = None) -> Optional[Dict[str, Any]]:
-    """Wyślij wiadomość do daemona z orbital context. Zwraca None jeśli niedostępny."""
-    if not SOCKET_PATH.exists():
-        return None
-    try:
-        system_prompt, temperature = build_orbital_prompt(orch) if orch else (SYSTEM_PROMPT_BASE, 0.45)
-        payload = json.dumps({
-            "message": message[:200],
-            "system": system_prompt,
-            "temperature": temperature,
-        }, ensure_ascii=False) + "\n"
-
-        sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
-        sock.settimeout(timeout)
-        sock.connect(str(SOCKET_PATH))
-        sock.sendall(payload.encode("utf-8"))
-        data = b""
-        while True:
-            chunk = sock.recv(8192)
-            if not chunk:
-                break
-            data += chunk
-            if data.endswith(b"\n"):
-                break
-        sock.close()
-        return json.loads(data.decode("utf-8").strip())
-    except Exception:
-        return None
+    """Socket daemon zastąpiony przez claude CLI — zawsze zwraca None, process() używa CLI."""
+    return None
 
 
 def process(message: str) -> Dict[str, Any]:
-    """Główny punkt wejścia. Próbuje daemon, fallback do inline."""
-    result = query_daemon(message)
-    if result is not None:
-        return result
+    """Główny punkt wejścia — claude CLI."""
     return _run_inline(message)
 
 

@@ -110,8 +110,10 @@ def compute_sector_mass(
              + eps * C_exec + zeta * C_nov + xi * C_conf)
 
     # Kepler-like orbit period: T² ∝ a³ / A_eff where a = poincare_radius(theta)
+    # For attractor/relational sectors with theta≈0, use info_mass as fallback radius
     from .disk import poincare_radius
-    a = max(1e-6, poincare_radius(sector.theta))
+    a_geom = poincare_radius(sector.theta)
+    a = a_geom if a_geom > 1e-4 else max(1e-4, sector.info_mass * 0.5)
     T_sq = (a**3) / max(1e-9, M_sem)
     T = math.sqrt(T_sq)
 

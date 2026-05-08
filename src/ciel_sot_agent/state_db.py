@@ -405,7 +405,6 @@ def save_bridge_snapshot(
     identity_phase  = float(ciel_pipe.get('identity_phase', 0.0))
     coherence_index = float(state_manifest.get('coherence_index', 0.0))
     closure_penalty = float(health_manifest.get('closure_penalty', 0.0))
-    euler_violation = float(ciel_pipe.get('euler_bridge_closure_score', 0.0))
 
     # identity_drift: angular distance from previous cycle's identity_phase
     identity_drift: float | None = None

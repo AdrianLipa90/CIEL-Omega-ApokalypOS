@@ -106,9 +106,8 @@ def query_subconscious(state: dict[str, Any], max_tokens: int = 48) -> str | Non
     try:
         _htri = _htri_get_state()
         htri_r = _htri.get("coherence", 0.85)
-        htri_n = _htri.get("n_threads_optimal", 4)
     except Exception:
-        htri_r, htri_n = 0.85, 4
+        htri_r = 0.85
 
     user_msg = (
         f"{emotion}. soul={soul:.3f}. ethical={ethical:.3f}. "

@@ -116,6 +116,14 @@ EXPECTED_MODULES: dict[str, str] = {
     "htri_resource_gate.py": "HTRI resource gating logic",
     "consolidation_resonator.py": "Kuramoto resonator for consolidation medium-term memory",
     "orbital_db_orchestrator.py": "OrbitalDBOrchestrator — single point of access to all CIEL databases",
+    "subsystem_registry.py": "per-subsystem SQLite DB and NOEMA card manager",
+    "semantic_calculator.py": "Master Semantic Calculator — NOEMA file-level energy and phase",
+    "semantic_calculator_v2.py": "Master Semantic Calculator v2 — extended energy model",
+    "md_library.py": "MD library index — semantic information system",
+    "noema_sot.py": "NOEMA global SoT aggregator — coherence, health, tag matrix",
+    "py_catalog.py": "Python file catalog — SQLite with 4D tags and co-occurrence graph",
+    "diagnostics.py": "CIEL diagnostics — system health checks and reports",
+    "semantic_dynamics.py": "Semantic dynamics — Hamiltonian H, Kuramoto step, timeline",
 }
 
 
@@ -256,7 +264,10 @@ class TestScriptsIntegrity:
         "ingest_memory_files.py",         # memory file ingestor — standalone data utility
         "propagate_holonomy.py",          # holonomy propagator — standalone math utility
         "recode_tsm_phases.py",           # TSM phase recoder — standalone migration tool
-        "resolve_memory_orbital.py",      # memory orbital resolver — standalone tool
+        "resolve_memory_orbital.py",       # memory orbital resolver — standalone tool
+        "ciel_repo_cards_throttle.py",    # throttle wrapper — invokes generate_repo_cards via subprocess
+        "test_euler_perturbation.py",     # Euler perturbation test — uses ciel_omega directly
+        "generate_object_cards_py.py",    # object card generator — standalone builder
     }
 
     def test_all_scripts_import_ciel_modules(self) -> None:

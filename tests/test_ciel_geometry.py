@@ -85,7 +85,7 @@ def test_load_sectors_fields():
     for s in sectors.values():
         assert 0.0 <= s.theta <= math.pi
         assert 0.0 <= s.phi <= 2 * math.pi + 0.01
-        assert s.orbital_type in ("S", "F", "P")
+        assert s.orbital_type in ("S", "F", "P", "R")
 
 
 def test_load_couplings_nonempty():
@@ -165,13 +165,19 @@ def test_renderer_mpl_renders_to_figure():
 
 
 def test_renderer_mpl_save(tmp_path):
-    import subprocess, sys
+    import os, subprocess, sys
+    from pathlib import Path
+    repo_root = Path(__file__).resolve().parent.parent
+    src_dir = str(repo_root / "src")
+    env = {**os.environ, "MPLBACKEND": "Agg"}
+    existing = env.get("PYTHONPATH", "")
+    env["PYTHONPATH"] = f"{src_dir}:{existing}" if existing else src_dir
     out = tmp_path / "test_disk.png"
     result = subprocess.run(
         [sys.executable, "-m", "ciel_geometry.renderer_mpl", "--save", str(out)],
         capture_output=True, text=True,
-        env={**__import__("os").environ, "MPLBACKEND": "Agg"},
-        cwd="/home/adrian/Pulpit/CIEL_TESTY/CIEL1",
+        env=env,
+        cwd=str(repo_root),
     )
     assert result.returncode == 0, result.stderr
     assert out.exists()

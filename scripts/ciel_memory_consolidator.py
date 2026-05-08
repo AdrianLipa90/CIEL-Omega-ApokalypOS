@@ -52,7 +52,7 @@ SCAN_DIRS = [
 ]
 SCAN_EXTENSIONS = {".jsonl", ".md", ".txt"}
 
-CLAUDE_MODEL     = "claude-haiku-4-5-20251001"
+CLAUDE_MODEL     = "claude-code-cli"
 DEFAULT_INTERVAL = 300
 MAX_TOKENS       = 256
 
@@ -246,28 +246,21 @@ def write_mirror(source_type: str, result: dict) -> None:
         f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
 
-# ── Claude API ───────────────────────────────────────────────────────────────
+# ── Claude CLI (claude -p) ────────────────────────────────────────────────────
 
-def _get_client():
-    import anthropic
-    import os
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        key_file = Path.home() / ".config" / "ciel" / "api_key"
-        if key_file.exists():
-            api_key = key_file.read_text().strip()
-    return anthropic.Anthropic(api_key=api_key) if api_key else anthropic.Anthropic()
+CLAUDE_BIN = str(Path.home() / ".local/bin/claude")
 
 
 def _query_claude(content: str) -> str:
-    client = _get_client()
-    msg = client.messages.create(
-        model=CLAUDE_MODEL,
-        max_tokens=MAX_TOKENS,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": content}],
+    import subprocess
+    full_prompt = f"{SYSTEM_PROMPT}\n\n{content}"
+    result = subprocess.run(
+        [CLAUDE_BIN, "-p", full_prompt],
+        capture_output=True, text=True, timeout=60,
     )
-    return msg.content[0].text.strip()
+    if result.returncode != 0:
+        raise RuntimeError(f"claude exit {result.returncode}: {result.stderr[:200]}")
+    return result.stdout.strip()
 
 
 # ── Consolidator ─────────────────────────────────────────────────────────────
