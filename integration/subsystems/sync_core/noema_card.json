@@ -1,0 +1,38 @@
+{
+  "schema": "ciel/noema-card/v0.1",
+  "noema_id": "NL-SYNC-CORE-0001",
+  "subsystem_id": "sync_core",
+  "name": "Synchronize Core — Layer 1",
+  "sector_name": "sync_core",
+  "orbital_level": 1,
+  "orbital_type": "F",
+  "theta": 0.3,
+  "rho": 0.149995,
+  "M_sem": 0.91,
+  "gravity_role": "CORE_EXECUTOR",
+  "python_module": "synchronize",
+  "input_from": [
+    "repos",
+    "gh_coupling"
+  ],
+  "output_to": [
+    "orbital_bridge_core"
+  ],
+  "key_metrics": [
+    "closure_defect",
+    "repo_tensions_max",
+    "sync_duration_s",
+    "n_repos"
+  ],
+  "diagnosis_debt": [],
+  "created": "2026-05-08T00:54:24.889770+00:00",
+  "notes": "Warstwa 1 potoku: synchronizacja repozytoriów, obliczenie defektów sprzężeń (closure_defect), napięć między repozytoriami. Pierwsze ogniwo pipeline. state.db: historia closure_defect, n_repos, repo_tensions per run.",
+  "tags": [
+    "sync",
+    "repos",
+    "closure_defect",
+    "layer1",
+    "lv1",
+    "priority_3"
+  ]
+}

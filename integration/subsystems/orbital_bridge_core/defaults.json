@@ -1,0 +1,35 @@
+{
+  "schema": "ciel/subsystem-defaults/v0.1",
+  "subsystem_id": "orbital_bridge_core",
+  "M_sem": 0.95,
+  "orbital_level": 1,
+  "key_metrics": [
+    "coherence_index",
+    "R_H",
+    "system_health",
+    "closure_penalty",
+    "nonlocal_coherent_fraction"
+  ],
+  "config": {
+    "coherence_index_min": {
+      "value": "0.767",
+      "dtype": "float",
+      "role": "alert"
+    },
+    "system_health_min": {
+      "value": "0.5",
+      "dtype": "float",
+      "role": "alert"
+    },
+    "closure_penalty_deep": {
+      "value": "5.2",
+      "dtype": "float",
+      "role": "threshold"
+    },
+    "closure_penalty_safe": {
+      "value": "5.8",
+      "dtype": "float",
+      "role": "threshold"
+    }
+  }
+}

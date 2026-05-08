@@ -1,0 +1,190 @@
+{
+  "entries": [
+    {
+      "t": 157,
+      "ts": "2026-05-08T11:07:38.697482+00:00",
+      "identity_phase": 0.00651704130450295,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.7268199995409004,
+      "health": 0.5542379237558572,
+      "closure": 0.7053561814074231,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.66566,
+        "H_potential": -109.759989,
+        "H_attractor": 0.177861,
+        "H_total": -107.916468,
+        "n_nodes": 200
+      }
+    },
+    {
+      "t": 157,
+      "ts": "2026-05-08T11:08:41.431782+00:00",
+      "identity_phase": 0.00651704130450295,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.7268199995409004,
+      "health": 0.5542379237558572,
+      "closure": 0.7053561814074231,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.665659,
+        "H_potential": -107.56479,
+        "H_attractor": 0.171813,
+        "H_total": -105.727318,
+        "n_nodes": 200
+      },
+      "dH_dt": 2.18915
+    },
+    {
+      "t": 157,
+      "ts": "2026-05-08T11:09:22.478724+00:00",
+      "identity_phase": 0.00651704130450295,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.7268199995409004,
+      "health": 0.5542379237558572,
+      "closure": 0.7053561814074231,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.665659,
+        "H_potential": -107.564791,
+        "H_attractor": 0.168706,
+        "H_total": -105.730425,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.003107,
+      "r_sync": 1.0
+    },
+    {
+      "t": 172,
+      "ts": "2026-05-08T12:27:11.625561+00:00",
+      "identity_phase": 0.0070220563107049215,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.7888158156552759,
+      "health": 0.5573816299495599,
+      "closure": 0.7587296034977853,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.669937,
+        "H_potential": -66.65026,
+        "H_attractor": 0.165553,
+        "H_total": -64.81477,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 40.915655,
+      "r_sync": 1.0
+    },
+    {
+      "t": 172,
+      "ts": "2026-05-08T12:27:13.633399+00:00",
+      "identity_phase": 0.0070220563107049215,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.7888158156552759,
+      "health": 0.5573816299495599,
+      "closure": 0.7587296034977853,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.669937,
+        "H_potential": -66.650261,
+        "H_attractor": 0.162265,
+        "H_total": -64.818059,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.003289,
+      "r_sync": 1.0
+    },
+    {
+      "t": 173,
+      "ts": "2026-05-08T12:34:22.963576+00:00",
+      "identity_phase": 0.0070220563107049215,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.8129471833103563,
+      "health": 0.5593889298387328,
+      "closure": 0.7643098361195295,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.670468,
+        "H_potential": -55.569506,
+        "H_attractor": 0.159036,
+        "H_total": -53.740002,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 11.078057,
+      "r_sync": 1.0
+    },
+    {
+      "t": 174,
+      "ts": "2026-05-08T12:46:39.181178+00:00",
+      "identity_phase": 0.0070220563107049215,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.8324013844386199,
+      "health": 0.5613455193995859,
+      "closure": 0.7621591677627482,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.671001,
+        "H_potential": -111.999992,
+        "H_attractor": 0.159061,
+        "H_total": -110.16993,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -56.429928,
+      "r_sync": 1.0
+    }
+  ],
+  "last_updated": "2026-05-08T12:46:39.181200+00:00",
+  "count": 7
+}

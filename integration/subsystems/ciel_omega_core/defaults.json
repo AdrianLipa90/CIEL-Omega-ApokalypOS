@@ -1,0 +1,29 @@
+{
+  "schema": "ciel/subsystem-defaults/v0.1",
+  "subsystem_id": "ciel_omega_core",
+  "M_sem": 0.97,
+  "orbital_level": 1,
+  "key_metrics": [
+    "ethical_score",
+    "dominant_emotion",
+    "soul_invariant",
+    "lie4_trace"
+  ],
+  "config": {
+    "ethical_score_min": {
+      "value": "0.4",
+      "dtype": "float",
+      "role": "alert"
+    },
+    "soul_invariant_seed": {
+      "value": "0.0",
+      "dtype": "float",
+      "role": "state"
+    },
+    "lie4_trace_target": {
+      "value": "4.183",
+      "dtype": "float",
+      "role": "constant"
+    }
+  }
+}

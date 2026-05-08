@@ -1,0 +1,29 @@
+{
+  "schema": "ciel/subsystem-defaults/v0.1",
+  "subsystem_id": "sync_core",
+  "M_sem": 0.91,
+  "orbital_level": 1,
+  "key_metrics": [
+    "closure_defect",
+    "repo_tensions_max",
+    "sync_duration_s",
+    "n_repos"
+  ],
+  "config": {
+    "closure_defect_max": {
+      "value": "0.05",
+      "dtype": "float",
+      "role": "alert"
+    },
+    "repo_tensions_max": {
+      "value": "0.03",
+      "dtype": "float",
+      "role": "alert"
+    },
+    "n_repos_expected": {
+      "value": "5",
+      "dtype": "int",
+      "role": "constant"
+    }
+  }
+}

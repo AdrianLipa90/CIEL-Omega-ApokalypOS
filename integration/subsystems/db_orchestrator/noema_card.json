@@ -1,0 +1,39 @@
+{
+  "schema": "ciel/noema-card/v0.1",
+  "noema_id": "NL-DB-CORE-0001",
+  "subsystem_id": "db_orchestrator",
+  "name": "Orbital DB Orchestrator",
+  "sector_name": "db_orchestrator",
+  "orbital_level": 1,
+  "orbital_type": "S",
+  "theta": 0.4,
+  "rho": 0.199978,
+  "M_sem": 0.86,
+  "gravity_role": "CORE_MEMORY",
+  "python_module": "orbital_db_orchestrator",
+  "input_from": [
+    "all_subsystems"
+  ],
+  "output_to": [
+    "TSM",
+    "GLOSSARY",
+    "WO"
+  ],
+  "key_metrics": [
+    "db_ok_count",
+    "tsm_rows",
+    "sync_latency_ms",
+    "total_dbs"
+  ],
+  "diagnosis_debt": [],
+  "created": "2026-05-08T00:54:28.349854+00:00",
+  "notes": "Orchestrator baz danych: TSM, GLOSSARY, WO, WPM. Zarządza cyklem zapis/odczyt pamięci długoterminowej. state.db: db_ok_count, tsm_rows, sync_latency_ms. Pośrednik między pipeline a pamięcią trwałą.",
+  "tags": [
+    "memory",
+    "TSM",
+    "GLOSSARY",
+    "db_manager",
+    "lv1",
+    "priority_5"
+  ]
+}
