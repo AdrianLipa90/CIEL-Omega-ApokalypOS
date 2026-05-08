@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-08T17:10:35.289535+00:00",
+  "generated_at": "2026-05-08T17:45:59.428822+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "313c47080c7369a9774f25f5d1195827e6397a37",
-      "timestamp": "2026-05-08T17:08:17Z",
-      "message": "feat: add CIEL Faza 2-4 modules — NOEMA SoT, py_catalog, semantic dynamics, subsystem registry\n\nNew modules:\n- src/ciel_sot_agent/noema_sot.py          — NOEMA global SoT aggregator\n- src/ciel_sot_agent/subsystem_registry.py  — per-subsystem SQLite DB + NOEMA card manager\n- src/ciel_sot_agent/semantic_calculator.py — Master Semantic Calculator (file-level energy)\n- src/ciel_sot_agent/semantic_calculator_v2.py — extended energy model\n- src/ciel_sot_agent/py_catalog.py          — Python file catalog with 4D tags + co-occurrence\n- src/ciel_sot_agent/md_library.py          — MD library semantic information system\n- src/ciel_sot_agent/diagnostics.py         — CIEL system health diagnostics\n- scripts/build_file_wij.py                 — W_ij graph builder\n- scripts/test_euler_perturbation.py        — Euler constraint perturbation recovery test\n- scripts/sims/kepler_ciel_sim.py           — Kepler CIEL orbit simulator\n- tests/test_py_catalog.py                  — py_catalog test suite\n\nIntegration artifacts:\n- integration/subsystems/*/                 — 6 subsystem DB + NOEMA card directories\n- integration/registries/file_universal_catalog.json — all-file semantic catalog\n- integration/registries/file_wij_graph.json          — file crossref graph\n- integration/registries/how_to_library.json          — HOW-TO library index\n- integration/registries/md_library_index.json        — MD library index\n- integration/registries/py_library_index.json        — Python library index\n- integration/registries/timeline.json                — timeline vector (Faza 4)\n- integration/reports/noema_sot_report.json           — NOEMA SoT live report\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/313c47080c7369a9774f25f5d1195827e6397a37"
+      "new_sha": "ad774d9cac601e3b4a11d7d8c086665562a84fde",
+      "timestamp": "2026-05-08T17:10:35Z",
+      "message": "Update live GH coupling state",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/ad774d9cac601e3b4a11d7d8c086665562a84fde"
     },
     {
       "key": "demo",
