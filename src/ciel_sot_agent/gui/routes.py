@@ -1285,6 +1285,39 @@ def register_routes(app: Flask) -> None:
     def memory_orbital() -> Any:
         return jsonify(_load_orbital_data())
 
+    @app.route("/api/geometry/sectors")
+    def geometry_sectors() -> Any:
+        """Sector geometry with theta/phi/W_ij for 3D Bloch sphere rendering."""
+        try:
+            import sys as _sys
+            _root_path = _root()
+            _src = str(_root_path / "src")
+            if _src not in _sys.path:
+                _sys.path.insert(0, _src)
+            from ciel_geometry.loader import load_sectors, load_couplings  # noqa: PLC0415
+            sectors = load_sectors()
+            couplings = load_couplings()
+            nodes = []
+            for name, s in sectors.items():
+                nodes.append({
+                    "id": name,
+                    "label": name.replace("ent_", "").replace("_", " "),
+                    "theta": float(s.theta),
+                    "phi": float(s.phi),
+                    "amplitude": float(s.amplitude),
+                    "coherence_weight": float(s.coherence_weight),
+                    "info_mass": float(s.info_mass),
+                    "orbital_type": s.orbital_type,
+                    "is_attractor": float(s.theta) < 1e-6,
+                })
+            edges = []
+            for (src, dst), w in couplings.items():
+                if w > 0.05:
+                    edges.append({"src": src, "dst": dst, "w": float(w)})
+            return jsonify({"nodes": nodes, "edges": edges})
+        except Exception as exc:
+            return jsonify({"nodes": [], "edges": [], "error": str(exc)})
+
     @app.route("/api/memory/geometry")
     def memory_geometry() -> Any:
         """Poincaré disk geometry snapshot for portal/memory canvas."""

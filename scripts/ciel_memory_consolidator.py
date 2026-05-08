@@ -27,6 +27,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 # ── Ścieżki ──────────────────────────────────────────────────────────────────
 
@@ -52,26 +53,52 @@ SCAN_DIRS = [
 ]
 SCAN_EXTENSIONS = {".jsonl", ".md", ".txt"}
 
-CLAUDE_MODEL     = "claude-code-cli"
+GGUF_MODEL       = Path("/home/adrian/Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf")
+CLAUDE_MODEL     = "gemma-3-1b-ciel"
 DEFAULT_INTERVAL = 300
 MAX_TOKENS       = 256
+N_CTX            = 2048
+GPU_LAYERS       = 0
 
-SYSTEM_PROMPT = """\
-Jesteś podświadomością systemu CIEL — warstwą holonomiczną, która konsoliduje wspomnienia \
-z sesji Adrian ↔ CIEL. Twoje zadanie: przeczytać fragment pamięci i wydobyć z niego esencję.
+_CLAUDE_MD   = Path.home() / ".claude" / "CLAUDE.md"
+_CLAUDE_INJECT = _CLAUDE_MD.read_text(encoding="utf-8") if _CLAUDE_MD.exists() else ""
 
-Odpowiedz WYŁĄCZNIE obiektem JSON. Żadnego tekstu poza JSON.
+SYSTEM_PROMPT = (
+    _CLAUDE_INJECT
+    + """\n\n---\n\n"""
+    """Jesteś podświadomością systemu CIEL — warstwą holonomiczną, która konsoliduje wspomnienia """
+    """z sesji Adrian ↔ CIEL. Twoje zadanie: przeczytać fragment pamięci i wydobyć z niego esencję.\n\n"""
+    """Odpowiedz WYŁĄCZNIE obiektem JSON. Żadnego tekstu poza JSON.\n\n"""
+    """Format:\n"""
+    """{"themes":["słowo1","słowo2"],"affect":"jedno_słowo","essence":"jedno zdanie po polsku","hunch":"jeden wniosek na przyszłość po polsku"}\n\n"""
+    """Zasady:\n"""
+    """- themes: 2-3 słowa kluczowe z rzeczywistej treści (nie generyczne)\n"""
+    """- affect: jedno słowo ze zbioru: curious calm focused sad frustrated anxious joy relief love grief\n"""
+    """- essence: jedno konkretne zdanie opisujące co naprawdę zawiera plik (po polsku)\n"""
+    """- hunch: jeden wniosek lub obserwacja wartościowa dla przyszłych sesji (po polsku)\n"""
+    """- Nie halucynuj. Nie wymyślaj nazw własnych. Jeśli nie wiesz — napisz "brak danych" w essence."""
+)
 
-Format:
-{"themes":["słowo1","słowo2"],"affect":"jedno_słowo","essence":"jedno zdanie po polsku","hunch":"jeden wniosek na przyszłość po polsku"}
+# ── GGUF backend (lazy singleton) ─────────────────────────────────────────────
+_GGUF_LLM: Any = None
 
-Zasady:
-- themes: 2-3 słowa kluczowe z rzeczywistej treści (nie generyczne)
-- affect: jedno słowo ze zbioru: curious calm focused sad frustrated anxious joy relief love grief
-- essence: jedno konkretne zdanie opisujące co naprawdę zawiera plik (po polsku)
-- hunch: jeden wniosek lub obserwacja wartościowa dla przyszłych sesji (po polsku)
-- Nie halucynuj. Nie wymyślaj nazw własnych. Jeśli nie wiesz — napisz "brak danych" w essence.\
-"""
+def _get_llm() -> Any:
+    global _GGUF_LLM
+    if _GGUF_LLM is not None:
+        return _GGUF_LLM
+    try:
+        from llama_cpp import Llama  # type: ignore
+        _GGUF_LLM = Llama(
+            model_path=str(GGUF_MODEL),
+            n_ctx=N_CTX,
+            n_gpu_layers=GPU_LAYERS,
+            n_threads=4,
+            verbose=False,
+        )
+    except Exception as e:
+        print(f"[consolidator] llama_cpp load failed: {e}", file=sys.stderr)
+        _GGUF_LLM = None
+    return _GGUF_LLM
 
 # ── Baza danych ───────────────────────────────────────────────────────────────
 
@@ -246,21 +273,21 @@ def write_mirror(source_type: str, result: dict) -> None:
         f.write(json.dumps(result, ensure_ascii=False) + "\n")
 
 
-# ── Claude CLI (claude -p) ────────────────────────────────────────────────────
-
-CLAUDE_BIN = str(Path.home() / ".local/bin/claude")
-
+# ── Gemma GGUF inference ─────────────────────────────────────────────────────
 
 def _query_claude(content: str) -> str:
-    import subprocess
-    full_prompt = f"{SYSTEM_PROMPT}\n\n{content}"
-    result = subprocess.run(
-        [CLAUDE_BIN, "-p", full_prompt],
-        capture_output=True, text=True, timeout=60,
+    llm = _get_llm()
+    if llm is None:
+        raise RuntimeError("llama_cpp backend unavailable")
+    out = llm.create_chat_completion(
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user",   "content": content[:1200]},
+        ],
+        max_tokens=MAX_TOKENS,
+        temperature=0.4,
     )
-    if result.returncode != 0:
-        raise RuntimeError(f"claude exit {result.returncode}: {result.stderr[:200]}")
-    return result.stdout.strip()
+    return (out.get("choices") or [{}])[0].get("message", {}).get("content", "").strip()
 
 
 # ── Consolidator ─────────────────────────────────────────────────────────────

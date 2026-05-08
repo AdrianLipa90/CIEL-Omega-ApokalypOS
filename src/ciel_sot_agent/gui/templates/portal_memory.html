@@ -240,6 +240,13 @@ function hashStr(s) {
 function recordToAngles(rec) {
   const ph   = hashStr(rec.path || rec.name || '');
   const role = rec.orbital_role;
+
+  // Singularity: ent_Mr_Ciel_Apocalyptos is the RDZEŃ — placed at center (r=0), not on sphere surface
+  const name = rec.name || rec.path || '';
+  if (name.includes('Mr_Ciel_Apocalyptos') || name.includes('ent_Mr_Ciel')) {
+    return { theta: 0, phi: 0, r: 0 };
+  }
+
   const roleTheta = {
     IDENTITY:   0.15 + ph * 0.25,
     SEMANTIC:   0.3  + ph * 0.4,
@@ -378,7 +385,7 @@ function drawSphere() {
   ctx.save();
   ctx.setLineDash([3, 5]);
   const axes = [
-    { v: [0, 1, 0], label: '|↑⟩ IDENTITY', col: '#b088f9' },
+    { v: [0, 1, 0], label: '|0⟩ NORTH',    col: '#b088f9' },
     { v: [0,-1, 0], label: '|↓⟩ LOG',      col: '#7f8c9a' },
     { v: [1, 0, 0], label: 'EPISODIC',      col: '#5dade2' },
     { v: [0, 0, 1], label: 'SEMANTIC',      col: '#f5c518' },
@@ -522,6 +529,13 @@ function drawSphere() {
       ctx.shadowBlur  = 24;
       ctx.fill();
       ctx.shadowBlur  = 0;
+      // Label: OSOBLIWOŚĆ — RDZEŃ tożsamości
+      ctx.font        = 'bold 9px "JetBrains Mono", monospace';
+      ctx.fillStyle   = 'rgba(255,235,150,0.88)';
+      ctx.shadowColor = 'rgba(255,195,70,0.6)';
+      ctx.shadowBlur  = 8;
+      ctx.fillText('⊙ CIEL', nucP.x + 13, nucP.y - 3);
+      ctx.shadowBlur  = 0;
     }
   }
   ctx.restore();
@@ -628,11 +642,117 @@ function drawSphere() {
   }
 }
 
+// ── Sector geometry: loaded from /api/geometry/sectors ───────────
+let sectorNodes = [], sectorEdges = [];
+
+function sectorToXYZ(theta, phi) {
+  // theta=0 → singularity at center (r=0), not north pole
+  // theta>0 → placed on sphere surface at Poincaré radius
+  if (theta < 1e-5) return { x: 0, y: 0, z: 0, r: 0 };
+  const rho = Math.tanh(Math.tan(theta / 2));  // Poincaré radius
+  const r   = Math.min(0.92, rho);             // keep inside sphere surface
+  return {
+    x: r * Math.sin(theta) * Math.cos(phi),
+    y: r * Math.cos(theta),
+    z: r * Math.sin(theta) * Math.sin(phi),
+    r,
+  };
+}
+
+const ORBITAL_TYPE_COLORS = { S: '#2ecc71', F: '#5dade2', P: '#f5c518', R: '#ff6aa3' };
+function otColor(ot) { return ORBITAL_TYPE_COLORS[ot] || '#8899bb'; }
+
+function drawSectors() {
+  if (!sectorNodes.length) return;
+
+  // W_ij coupling edges
+  ctx.save();
+  sectorEdges.forEach(e => {
+    const sn = sectorNodes.find(n => n.id === e.src);
+    const dn = sectorNodes.find(n => n.id === e.dst);
+    if (!sn || !dn) return;
+    const pa = project3D(sn._x, sn._y, sn._z);
+    const pb = project3D(dn._x, dn._y, dn._z);
+    if (pa.z < -0.3 || pb.z < -0.3) return;
+    const pulse = 0.4 + 0.3 * Math.sin(_t * 0.012 + e.w * 5);
+    const alpha = e.w * 0.35 * pulse;
+    ctx.beginPath();
+    ctx.moveTo(pa.x, pa.y);
+    ctx.lineTo(pb.x, pb.y);
+    ctx.strokeStyle = `rgba(255,195,70,${alpha.toFixed(3)})`;
+    ctx.lineWidth   = Math.max(0.4, e.w * 1.5);
+    ctx.shadowColor = 'rgba(255,195,70,0.2)';
+    ctx.shadowBlur  = 3;
+    ctx.stroke();
+  });
+  ctx.shadowBlur = 0;
+  ctx.restore();
+
+  // Sector nodes
+  ctx.save();
+  const sproj = sectorNodes.map(n => {
+    const p = project3D(n._x, n._y, n._z);
+    return { ...n, px: p.x, py: p.y, pz: p.z, psc: p.scale };
+  }).sort((a, b) => a.pz - b.pz);
+
+  sproj.forEach(n => {
+    if (n.pz < -0.5) return;
+    const depth = Math.max(0, (n.pz + 0.5) / 1.5);
+    const alpha = Math.max(0.5, 0.6 + depth * 0.4);
+    const col = otColor(n.orbital_type);
+    const [cr, cg, cb] = hexRGB(col);
+    const sz = n.is_attractor ? 0  // attractor is already the nucleus at center
+                               : Math.max(3, n.amplitude * 9 * n.psc);
+
+    if (n.is_attractor) return; // rendered as nucleus already
+
+    // Glow halo
+    ctx.beginPath();
+    ctx.arc(n.px, n.py, sz * 2.5, 0, 2 * Math.PI);
+    const halo = ctx.createRadialGradient(n.px, n.py, 0, n.px, n.py, sz * 2.5);
+    halo.addColorStop(0,   `rgba(${cr},${cg},${cb},${(alpha * 0.28).toFixed(3)})`);
+    halo.addColorStop(1,   `rgba(${cr},${cg},${cb},0)`);
+    ctx.fillStyle = halo;
+    ctx.fill();
+
+    // Core
+    ctx.beginPath();
+    ctx.arc(n.px, n.py, sz, 0, 2 * Math.PI);
+    ctx.fillStyle   = `rgba(${cr},${cg},${cb},${(alpha * 0.9).toFixed(3)})`;
+    ctx.shadowColor = col;
+    ctx.shadowBlur  = 10;
+    ctx.fill();
+    ctx.shadowBlur  = 0;
+
+    // Label
+    if (n.psc > 0.7) {
+      ctx.font      = `bold ${Math.max(8, 9 * n.psc)}px "JetBrains Mono", monospace`;
+      ctx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.85).toFixed(3)})`;
+      ctx.fillText(n.label, n.px + sz + 3, n.py + 3);
+    }
+  });
+  ctx.restore();
+}
+
 function tick() {
   if (autoRotate) rotY += 0.003;
   drawSphere();
+  drawSectors();
   requestAnimationFrame(tick);
 }
+
+// Load sector geometry once
+fetch('/api/geometry/sectors')
+  .then(r => r.json())
+  .then(data => {
+    sectorEdges = data.edges || [];
+    sectorNodes = (data.nodes || []).map(n => {
+      const xyz = sectorToXYZ(n.theta, n.phi);
+      return { ...n, _x: xyz.x, _y: xyz.y, _z: xyz.z };
+    });
+  })
+  .catch(() => {});
+
 tick();
 
 // Drag
@@ -656,22 +776,47 @@ canvas.addEventListener('mousemove', e => {
   if (drag) return;
   const rect = canvas.getBoundingClientRect();
   const mx = e.clientX - rect.left, my = e.clientY - rect.top;
-  let found = null, bestD = 14;
-  points.forEach(pt => {
-    const p = project3D(pt.x, pt.y, pt.z);
+  let found = null, bestD = 16, foundType = 'memory';
+
+  // Check sector nodes first (higher priority)
+  sectorNodes.forEach(n => {
+    if (n.is_attractor) return;
+    const p = project3D(n._x, n._y, n._z);
     if (p.z < -0.3) return;
     const d = Math.hypot(p.x - mx, p.y - my);
-    if (d < bestD) { bestD = d; found = { ...pt, px: p.x, py: p.y }; }
+    if (d < bestD) { bestD = d; found = { ...n, px: p.x, py: p.y }; foundType = 'sector'; }
   });
+
+  // Then memory records
+  if (!found) {
+    points.forEach(pt => {
+      const p = project3D(pt.x, pt.y, pt.z);
+      if (p.z < -0.3) return;
+      const d = Math.hypot(p.x - mx, p.y - my);
+      if (d < bestD) { bestD = d; found = { ...pt, px: p.x, py: p.y }; foundType = 'memory'; }
+    });
+  }
+
   if (found) {
     tooltip.style.display = 'block';
     tooltip.style.left    = (e.clientX + 14) + 'px';
     tooltip.style.top     = (e.clientY - 10) + 'px';
-    const col = roleColor(found.orbital_role);
-    tooltip.innerHTML =
-      `<b style="color:${col};text-shadow:0 0 8px ${col}88">${found.orbital_role}</b><br>` +
-      `<span style="color:var(--col-text)">${found.name}</span><br>` +
-      `<span style="color:var(--col-text-dim)">conf: ${(found.orbital_confidence||0).toFixed(2)}</span>`;
+    if (foundType === 'sector') {
+      const col = otColor(found.orbital_type);
+      const wij = sectorEdges.filter(e => e.src === found.id || e.dst === found.id);
+      const wijStr = wij.slice(0,3).map(e => `${e.src === found.id ? e.dst : e.src}: ${e.w.toFixed(2)}`).join('<br>');
+      tooltip.innerHTML =
+        `<b style="color:${col};text-shadow:0 0 8px ${col}88">SEKTOR · ${found.orbital_type}</b><br>` +
+        `<span style="color:var(--col-text)">${found.id}</span><br>` +
+        `<span style="color:var(--col-text-dim)">θ=${found.theta.toFixed(3)} φ=${found.phi.toFixed(3)}</span><br>` +
+        (wijStr ? `<span style="color:rgba(255,195,70,0.7);font-size:.68rem">W_ij:<br>${wijStr}</span>` : '');
+    } else {
+      const col = roleColor(found.orbital_role);
+      tooltip.innerHTML =
+        `<b style="color:${col};text-shadow:0 0 8px ${col}88">${found.orbital_role}</b><br>` +
+        `<span style="color:var(--col-text)">${found.name}</span><br>` +
+        `<span style="color:var(--col-text-dim)">conf: ${(found.orbital_confidence||0).toFixed(2)}</span>`;
+    }
   } else {
     tooltip.style.display = 'none';
   }
