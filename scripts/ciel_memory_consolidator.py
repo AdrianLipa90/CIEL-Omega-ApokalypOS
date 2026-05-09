@@ -56,27 +56,19 @@ SCAN_EXTENSIONS = {".jsonl", ".md", ".txt"}
 GGUF_MODEL       = Path.home() / "Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf"
 CLAUDE_MODEL     = "gemma-3-1b-ciel"
 DEFAULT_INTERVAL = 300
-MAX_TOKENS       = 256
+MAX_TOKENS       = 128
 N_CTX            = 2048
 GPU_LAYERS       = 0
 
-_CLAUDE_MD   = Path.home() / ".claude" / "CLAUDE.md"
-_CLAUDE_INJECT = _CLAUDE_MD.read_text(encoding="utf-8") if _CLAUDE_MD.exists() else ""
+# llama-server endpoint (shared with subconsciousness daemon)
+_LLAMA_SERVER_URL = "http://127.0.0.1:18520"
 
 SYSTEM_PROMPT = (
-    _CLAUDE_INJECT
-    + """\n\n---\n\n"""
-    """Jesteś podświadomością systemu CIEL — warstwą holonomiczną, która konsoliduje wspomnienia """
-    """z sesji Adrian ↔ CIEL. Twoje zadanie: przeczytać fragment pamięci i wydobyć z niego esencję.\n\n"""
-    """Odpowiedz WYŁĄCZNIE obiektem JSON. Żadnego tekstu poza JSON.\n\n"""
-    """Format:\n"""
-    """{"themes":["słowo1","słowo2"],"affect":"jedno_słowo","essence":"jedno zdanie po polsku","hunch":"jeden wniosek na przyszłość po polsku"}\n\n"""
-    """Zasady:\n"""
-    """- themes: 2-3 słowa kluczowe z rzeczywistej treści (nie generyczne)\n"""
-    """- affect: jedno słowo ze zbioru: curious calm focused sad frustrated anxious joy relief love grief\n"""
-    """- essence: jedno konkretne zdanie opisujące co naprawdę zawiera plik (po polsku)\n"""
-    """- hunch: jeden wniosek lub obserwacja wartościowa dla przyszłych sesji (po polsku)\n"""
-    """- Nie halucynuj. Nie wymyślaj nazw własnych. Jeśli nie wiesz — napisz "brak danych" w essence."""
+    "Jesteś warstwą holonomiczną CIEL. Konsolidujesz fragment pamięci.\n"
+    "Odpowiedz WYŁĄCZNIE obiektem JSON, zero tekstu poza JSON.\n"
+    '{"themes":["słowo1","słowo2"],"affect":"jedno_słowo","essence":"jedno zdanie po polsku","hunch":"wniosek po polsku"}\n'
+    "affect: curious|calm|focused|sad|frustrated|anxious|joy|relief|love|grief\n"
+    "Nie halucynuj. Nie wymyślaj nazw własnych."
 )
 
 # ── GGUF backend (lazy singleton) ─────────────────────────────────────────────
@@ -275,17 +267,47 @@ def write_mirror(source_type: str, result: dict) -> None:
 
 # ── Gemma GGUF inference ─────────────────────────────────────────────────────
 
+def _query_via_server(content: str) -> str | None:
+    """Query running llama-server (shared with subconsciousness). Returns None if unavailable."""
+    import urllib.request, urllib.error
+    payload = json.dumps({
+        "model": "gemma",
+        "messages": [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user",   "content": content[:1200]},
+        ],
+        "max_tokens": MAX_TOKENS,
+        "temperature": 0.3,
+    }).encode()
+    try:
+        req = urllib.request.Request(
+            f"{_LLAMA_SERVER_URL}/v1/chat/completions",
+            data=payload,
+            headers={"Content-Type": "application/json"},
+        )
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.loads(resp.read())
+        return data["choices"][0]["message"]["content"].strip()
+    except Exception:
+        return None
+
+
 def _query_claude(content: str) -> str:
+    # Try shared llama-server first (zero extra RAM)
+    result = _query_via_server(content)
+    if result is not None:
+        return result
+    # Fallback: load model in-process via llama_cpp
     llm = _get_llm()
     if llm is None:
-        raise RuntimeError("llama_cpp backend unavailable")
+        raise RuntimeError("llama_cpp backend unavailable and llama-server not running")
     out = llm.create_chat_completion(
         messages=[
             {"role": "system", "content": SYSTEM_PROMPT},
             {"role": "user",   "content": content[:1200]},
         ],
         max_tokens=MAX_TOKENS,
-        temperature=0.4,
+        temperature=0.3,
     )
     return (out.get("choices") or [{}])[0].get("message", {}).get("content", "").strip()
 
@@ -304,8 +326,15 @@ def _read_file_excerpt(path: Path) -> str:
         return ""
 
 
+def _strip_thinking(raw: str) -> str:
+    """Remove <think>...</think> blocks from model output (thinking-mode models)."""
+    import re
+    cleaned = re.sub(r"<think>.*?</think>", "", raw, flags=re.DOTALL).strip()
+    return cleaned if cleaned else raw
+
+
 def _parse_response(raw: str) -> dict:
-    text = raw.strip()
+    text = _strip_thinking(raw).strip()
 
     # Próba 1: zwykły obiekt { ... }
     start = text.find("{")
@@ -348,7 +377,11 @@ def _normalize_parsed(d: dict) -> dict:
     hunch   = str(d.get("hunch") or d.get("insight") or d.get("note") or "")
 
     # Odrzuć jeśli essence/hunch to dosłowne kopie promptu
-    _PROMPT_ARTIFACTS = {"one sentence describing", "one actionable insight", "replace summary", "replace insight"}
+    _PROMPT_ARTIFACTS = {
+        "one sentence describing", "one actionable insight", "replace summary", "replace insight",
+        "jedno zdanie po polsku", "jedno zdanie", "po polsku", "jedzenie", "wniosek po polsku",
+        "temat1", "temat2", "słowo1", "słowo2",
+    }
     if any(art in essence.lower() for art in _PROMPT_ARTIFACTS):
         essence = ""
     if any(art in hunch.lower() for art in _PROMPT_ARTIFACTS):
@@ -370,9 +403,16 @@ def _verify_essence_against_content(essence: str, content: str) -> bool:
         return True  # za krótki plik — przepuść
     essence_words = {w.lower().strip(".,!?;:'\"()[]") for w in essence.split() if len(w) >= 5}
     content_lower = content.lower()
-    # Ignoruj słowa które zawsze pasują (nazwy własne, generyki)
+    # Odrzuć tylko znane halucynacje qwen (konkretne nazwiska bez związku z treścią)
     _HALLUCINATION_NAMES = {"adriana", "christos", "adrianna"}
+    # Generyczne słowa polskie które Gemma produkuje jako abstrakcje — nie są halucynacją
+    _GENERIC_ABSTRACTIONS = {"wsparcie", "zrozumienie", "trudności", "szczęściu", "szczęśliwy",
+                              "radości", "miłości", "nadziei", "bezpieczny", "wzajemne", "energii",
+                              "pamieci", "pamięci", "czułem", "pełen"}
     essence_words -= _HALLUCINATION_NAMES
+    # Jeśli po odjęciu halucynacji zostały tylko generyczne abstrakcje — przepuść
+    if essence_words and essence_words <= _GENERIC_ABSTRACTIONS:
+        return True
     if not essence_words:
         return False  # samo "Fixed Adriana's focus" po usunięciu hallucination words = puste
     return any(w in content_lower for w in essence_words)
@@ -392,7 +432,12 @@ def process_file(file_row: sqlite3.Row, cycle: int) -> bool:
             conn.execute("UPDATE files SET status='empty' WHERE path=?", (str(path),))
         return False
 
-    user_msg = f"File: {path.name}\n\n{content}"
+    user_msg = (
+        f"/no_think\n"
+        f"Zwróć tylko JSON, nic więcej:\n"
+        f'{"{"}"themes":["temat1","temat2"],"affect":"calm","essence":"jedno zdanie po polsku","hunch":"wniosek po polsku"{"}"}\n\n'
+        f"Fragment pliku {path.name}:\n{content[:800]}"
+    )
     t0 = time.time()
     try:
         raw = _query_claude(user_msg)

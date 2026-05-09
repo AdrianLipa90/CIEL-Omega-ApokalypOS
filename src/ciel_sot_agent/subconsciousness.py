@@ -23,6 +23,10 @@ from .htri_scheduler import get_state as _htri_get_state
 
 _SERVER_URL = "http://127.0.0.1:18520"
 
+# BETA_TEST — log every Gemma response to beta_log.jsonl for quality evaluation
+BETA_TEST = True
+_BETA_LOG = Path.home() / "Pulpit/CIEL_memories/logs/subconsciousness_beta_log.jsonl"
+
 _WAVE_ARCHIVE = (
     Path(__file__).parent.parent
     / "CIEL_OMEGA_COMPLETE_SYSTEM/CIEL_MEMORY_SYSTEM/WPM/wave_snapshots/wave_archive.h5"
@@ -137,7 +141,21 @@ def query_subconscious(state: dict[str, Any], max_tokens: int = 48) -> str | Non
         )
         with urllib.request.urlopen(req, timeout=8) as resp:
             data = json.loads(resp.read())
-        return data["choices"][0]["message"]["content"].strip()
+        fragment = data["choices"][0]["message"]["content"].strip()
+        if BETA_TEST:
+            try:
+                _BETA_LOG.parent.mkdir(parents=True, exist_ok=True)
+                entry = {
+                    "ts": datetime.utcnow().isoformat(),
+                    "input": user_msg,
+                    "output": fragment,
+                    "state": {k: state.get(k) for k in ("dominant_emotion", "soul_invariant", "coherence_index", "ethical_score", "closure_penalty")},
+                }
+                with _BETA_LOG.open("a", encoding="utf-8") as f:
+                    f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+            except Exception:
+                pass
+        return fragment
     except Exception:
         return None
 
