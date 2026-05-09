@@ -29,16 +29,21 @@ for _p in (OMEGA_PKG, OMEGA_SRC):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-SUBCONSCIOUS_MODEL = Path.home() / "Dokumenty/co8/qwen2.5-0.5b-instruct-q2_k.gguf"
+SUBCONSCIOUS_MODEL = Path.home() / "Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf"
 SOCKET_PATH = Path.home() / "Pulpit/CIEL_memories/state/ciel_subconscious.sock"
 SUB_LOG     = Path.home() / "Pulpit/CIEL_memories/logs/ciel_sub_log.jsonl"
 SUB_LOG_MAX = 20
-GPU_LAYERS = 32
-N_CTX = 512
+GPU_LAYERS = 0
+N_CTX = 2048
 MAX_TOKENS = 120
 STOP_SEQUENCES = ["\n\n\n", "---"]
 
+_CLAUDE_MD = Path.home() / ".claude" / "CLAUDE.md"
+_CLAUDE_INJECT = _CLAUDE_MD.read_text(encoding="utf-8") if _CLAUDE_MD.exists() else ""
+
 SYSTEM_PROMPT_BASE = (
+    _CLAUDE_INJECT
+    + "\n\n---\n\n"
     "Reply with EXACTLY this format — three lines, nothing else:\n"
     "AFFECT: <one word from: joy curious calm focused sad afraid frustrated anxious love relief angry compassion neutral>\n"
     "CONCEPT: <one or two key words from the message>\n"
@@ -52,7 +57,26 @@ SYSTEM_PROMPT_BASE = (
     "IMPULSE: repeated failure erodes confidence in the build"
 )
 
-CLAUDE_BIN = str(Path.home() / ".local/bin/claude")
+# ── GGUF backend (lazy-loaded, singleton) ─────────────────────────────────────
+_GGUF_LLM: Any = None
+
+def _get_llm() -> Any:
+    global _GGUF_LLM
+    if _GGUF_LLM is not None:
+        return _GGUF_LLM
+    try:
+        from llama_cpp import Llama  # type: ignore
+        _GGUF_LLM = Llama(
+            model_path=str(SUBCONSCIOUS_MODEL),
+            n_ctx=N_CTX,
+            n_gpu_layers=GPU_LAYERS,
+            n_threads=4,
+            verbose=False,
+        )
+    except Exception as e:
+        print(f"[sub] llama_cpp load failed: {e}", file=sys.stderr)
+        _GGUF_LLM = None
+    return _GGUF_LLM
 
 # ── orbital context builder ───────────────────────────────────────────────────
 
@@ -72,18 +96,24 @@ def _user_template(message: str) -> str:
     return message[:80].strip()
 
 
-# ── Claude CLI inference ──────────────────────────────────────────────────────
+# ── Gemma GGUF inference ──────────────────────────────────────────────────────
 
-def _run_claude(message: str, system_prompt: str = SYSTEM_PROMPT_BASE) -> Dict[str, Any]:
-    import subprocess
+def _run_gguf(message: str, system_prompt: str = SYSTEM_PROMPT_BASE) -> Dict[str, Any]:
     t0 = time.time()
-    full_prompt = f"{system_prompt}\n\n{_user_template(message)}"
+    llm = _get_llm()
+    if llm is None:
+        return _empty(ok=False, note="llama_cpp unavailable")
     try:
-        result = subprocess.run(
-            [CLAUDE_BIN, "-p", full_prompt],
-            capture_output=True, text=True, timeout=60,
+        out = llm.create_chat_completion(
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user",   "content": _user_template(message)},
+            ],
+            max_tokens=MAX_TOKENS,
+            stop=STOP_SEQUENCES,
+            temperature=0.45,
         )
-        text = result.stdout.strip() if result.returncode == 0 else ""
+        text = (out.get("choices") or [{}])[0].get("message", {}).get("content", "").strip()
         parsed = _parse(text)
         parsed["latency"] = round(time.time() - t0, 2)
         parsed["ok"] = bool(parsed["affect"] or parsed["concept"])
@@ -93,7 +123,7 @@ def _run_claude(message: str, system_prompt: str = SYSTEM_PROMPT_BASE) -> Dict[s
 
 
 def _run_inline(message: str) -> Dict[str, Any]:
-    return _run_claude(message)
+    return _run_gguf(message)
 
 
 def run_daemon() -> None:

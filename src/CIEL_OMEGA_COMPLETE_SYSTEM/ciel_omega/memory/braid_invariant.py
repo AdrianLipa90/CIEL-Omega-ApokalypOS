@@ -1,7 +1,7 @@
 """CIEL/Ω Memory Architecture - M7: Braid/Invariant Memory
 
 Ultra-slow memory layer tracking geometric history, trajectories, and invariants.
-Wraps existing BraidMemory implementation with phase dynamics.
+Delegates loop execution and scar management to core/braid/BraidRuntime.
 
 τ=120, r=0.15, g=0.92, δ_max=0.03π
 
@@ -11,11 +11,21 @@ Licensed under the CIEL Research Non-Commercial License v1.1.
 
 from __future__ import annotations
 
+import time
 from typing import Any, Optional, Dict, List
 import numpy as np
 from dataclasses import dataclass, field
 
 from .base import BaseMemoryChannel, PhaseState, CHANNEL_PARAMS
+
+try:
+    from ..core.braid.defaults import make_default_runtime
+    from ..core.braid.runtime import BraidRuntime
+    from ..core.braid.loops import LoopType
+    _BRAID_RUNTIME_AVAILABLE = True
+except Exception:
+    _BRAID_RUNTIME_AVAILABLE = False
+    BraidRuntime = None  # type: ignore
 
 
 @dataclass
@@ -53,20 +63,25 @@ class BraidInvariantMemory(BaseMemoryChannel):
     def __init__(self, initial_state: Optional[PhaseState] = None):
         params = CHANNEL_PARAMS[7]  # M7
         super().__init__(params, initial_state)
-        
-        # Braid memory storage
+
+        # Braid memory storage (BraidUnit for phase-channel layer)
         self.units: List[BraidUnit] = []
-        
+
         # Trajectory tracking
         self.phase_history: List[float] = []
         self.holonomy_history: List[complex] = []
-        
-        # Defect tracking
+
+        # Defect tracking (legacy — also delegated to runtime.scars)
         self.detected_loops: List[Dict] = []
         self.scars: List[Dict] = []
-        
+
         # Integration window (very long for M7)
         self.integration_window = int(params.tau * 10)  # 1200 steps
+
+        # BraidRuntime — silnik wykonawczy pętli i blizn
+        self._runtime: Optional[BraidRuntime] = (
+            make_default_runtime() if _BRAID_RUNTIME_AVAILABLE else None
+        )
         
     def compute_input_force(self, input_data: Any) -> float:
         """Compute force from input.
@@ -281,6 +296,98 @@ class BraidInvariantMemory(BaseMemoryChannel):
             'num_loops': len(self.detected_loops),
             'num_scars': len(self.scars),
             'coherence': self.compute_coherence(),
+        }
+
+
+    def weave_state(self, snapshot: Dict[str, Any]) -> Dict[str, Any]:
+        """Tka węzeł warkoczy z bieżącego stanu systemowego.
+
+        Przyjmuje bogaty snapshot z pipeline (nie tylko kilka liczb).
+        Deleguje wykonanie pętli do BraidRuntime.
+        Zwraca słowo warkoczy + subconscious_note gotowe do pipeline raportu.
+
+        snapshot powinien zawierać (wszystkie opcjonalne, graceful fallback):
+          coherence_index, closure_penalty, system_health, dominant_emotion,
+          topological_charge, soul_invariant, identity_phase, cycle_index,
+          kuramoto_r (order parameter), htri_coherence
+        """
+        t_utc = time.time()
+        cycle = int(snapshot.get("cycle_index", 0))
+        tau_ciel = (t_utc, cycle)
+
+        # Nici warkoczy — cztery wymiary stanu
+        phi_system = float(snapshot.get("identity_phase", self.state.phase))
+        q_topological = float(snapshot.get("topological_charge", 0.0))
+        sigma_soul = float(snapshot.get("soul_invariant", 0.0))
+        affect = str(snapshot.get("dominant_emotion", "unknown"))
+        coherence = float(snapshot.get("coherence_index", 0.0))
+        kuramoto_r = float(snapshot.get("kuramoto_r", 0.0))
+        htri = float(snapshot.get("htri_coherence", 0.0))
+
+        # Kontradikcja = odległość od spójności (1 = chaos, 0 = harmonia)
+        contradiction = float(np.clip(1.0 - coherence, 0.0, 1.0))
+
+        # Deleguj do BraidRuntime jeśli dostępny
+        runtime_result: Dict[str, Any] = {}
+        if self._runtime is not None:
+            # Aktualizuj fazę runtime z bieżącego stanu
+            self._runtime.phase_field.global_phase = phi_system
+            loop = self._runtime.submit_intention(
+                magnitude=max(sigma_soul, 0.1),
+                phase_offset=q_topological,
+                domain=affect,
+                loop_type=LoopType.LB,
+            )
+            results = self._runtime.step(max_loops=1)
+            if results:
+                executed_loop, success = results[0]
+                runtime_result = {
+                    "loop_id": executed_loop.loop_id,
+                    "loop_closed": executed_loop.closed,
+                    "glyph": executed_loop.glyph.name,
+                    "post_coherence": executed_loop.meta.get("post_C", coherence),
+                    "scar_count": len(self._runtime.scars.scars),
+                    "scar_residual": self._runtime.scars.residual_curvature(),
+                }
+
+        # Słowo warkoczy — formalny zapis splotu nici
+        braid_word = (
+            f"σ(φ={phi_system:.3f})"
+            f"·σ(Q={q_topological:+.3f})"
+            f"·σ(Σ={sigma_soul:.3f})"
+            f"·σ({affect})"
+        )
+
+        # Zapisz jako BraidUnit w warstwie fazowej M7
+        holonomy = self._compute_holonomy()
+        unit = BraidUnit(
+            content={"braid_word": braid_word, "snapshot": snapshot, "runtime": runtime_result},
+            phase=phi_system,
+            weight=max(coherence, 0.05),
+            timestamp=t_utc,
+            holonomy=holonomy,
+            status="closed" if runtime_result.get("loop_closed") else "open",
+        )
+        self.units.append(unit)
+        self.phase_history.append(phi_system)
+
+        # subconscious_note — fragment gotowy do pipeline raportu
+        scar_info = ""
+        if runtime_result.get("scar_count", 0) > 0:
+            scar_info = f" [{runtime_result['scar_count']} blizn, κ={runtime_result.get('scar_residual', 0):.3f}]"
+
+        note = (
+            f"{braid_word} "
+            f"| R={kuramoto_r:.3f} htri={htri:.4f} "
+            f"| τ=({cycle}){scar_info}"
+        )
+
+        return {
+            "braid_word": braid_word,
+            "subconscious_note": note,
+            "tau_ciel": tau_ciel,
+            "runtime": runtime_result,
+            "unit_count": len(self.units),
         }
 
 

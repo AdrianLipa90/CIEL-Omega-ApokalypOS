@@ -1,0 +1,6926 @@
+{
+  "generated": "2026-05-08T12:46:41.688507+00:00",
+  "total_files": 675,
+  "by_level": {
+    "1": 74,
+    "2": 320,
+    "3": 148,
+    "4": 133
+  },
+  "by_what_tag": {
+    "registry": 24,
+    "executor": 10,
+    "bridge": 9,
+    "algorithm": 204,
+    "support": 140,
+    "satellite": 15,
+    "db": 6,
+    "diagnostics": 11,
+    "memory": 61,
+    "interface": 30,
+    "config": 79,
+    "builder": 23,
+    "runner": 44,
+    "test": 66,
+    "affective": 11,
+    "constant": 6
+  },
+  "top_cooccurrences": [
+    {
+      "tags": [
+        "memory",
+        "test"
+      ],
+      "count": 18,
+      "mean_M_sem": 0.775
+    },
+    {
+      "tags": [
+        "test",
+        "satellite"
+      ],
+      "count": 5,
+      "mean_M_sem": 0.35
+    },
+    {
+      "tags": [
+        "registry",
+        "builder"
+      ],
+      "count": 5,
+      "mean_M_sem": 0.65
+    },
+    {
+      "tags": [
+        "algorithm",
+        "test"
+      ],
+      "count": 4,
+      "mean_M_sem": 0.4675
+    },
+    {
+      "tags": [
+        "memory",
+        "affective"
+      ],
+      "count": 4,
+      "mean_M_sem": 0.8
+    },
+    {
+      "tags": [
+        "diagnostics",
+        "test"
+      ],
+      "count": 3,
+      "mean_M_sem": 0.35
+    },
+    {
+      "tags": [
+        "test",
+        "interface"
+      ],
+      "count": 3,
+      "mean_M_sem": 0.35
+    },
+    {
+      "tags": [
+        "interface",
+        "satellite"
+      ],
+      "count": 3,
+      "mean_M_sem": 0.53333
+    },
+    {
+      "tags": [
+        "executor",
+        "test"
+      ],
+      "count": 3,
+      "mean_M_sem": 0.5
+    },
+    {
+      "tags": [
+        "registry",
+        "diagnostics"
+      ],
+      "count": 2,
+      "mean_M_sem": 0.5
+    }
+  ],
+  "entries": [
+    {
+      "path": "src/ciel_sot_agent/noema_sot.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.99,
+      "lines_of_code": 361,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/ciel_pipeline.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.97,
+      "lines_of_code": 709,
+      "tag_what": [
+        "executor"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/orbital_bridge.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.95,
+      "lines_of_code": 331,
+      "tag_what": [
+        "bridge"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/synchronize_v2.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.91,
+      "lines_of_code": 54,
+      "tag_what": [
+        "bridge"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/synchronize.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.91,
+      "lines_of_code": 67,
+      "tag_what": [
+        "bridge"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/phased_state.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 228,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/__main__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 72,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_surface_policy.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 34,
+      "tag_what": [
+        "satellite"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/spreadsheet_db.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 241,
+      "tag_what": [
+        "db"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/semantic_calculator_v2.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 466,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/diagnostics.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 191,
+      "tag_what": [
+        "diagnostics"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/holonomic_normalizer.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 498,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/bench_cli.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 122,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/paths.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 48,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/__init__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/consolidation_resonator.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 676,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/wpm_cli.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 195,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/semantic_calculator.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 373,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/subconsciousness.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 497,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gh_coupling_v2.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 185,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gh_coupling.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 152,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/runtime_evidence_ingest.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 131,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/md_library.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 128,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/capture_cli.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 122,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/chat_archive.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 231,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_client.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 238,
+      "tag_what": [
+        "interface",
+        "satellite"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/repo_phase.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 117,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/py_catalog.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 510,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/_gh_utils.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 168,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/subsystem_registry.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 341,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/index_validator_v2.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 297,
+      "tag_what": [
+        "diagnostics"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/local_ciel_surface.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 157,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/index_validator.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 275,
+      "tag_what": [
+        "diagnostics"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/state_db.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 503,
+      "tag_what": [
+        "db"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/htri_scheduler.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 232,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/memory_rag.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 162,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/local_nonlocality_fallback.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 496,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/satellite_authority.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 77,
+      "tag_what": [
+        "satellite"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/htri_resource_gate.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 174,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gui/__init__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gui/app.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 85,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gui/routes.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 2223,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/settings_store.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 19,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/models.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 41,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/controller.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 148,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/reduction.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 57,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/__init__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 11,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/render_schema.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 10,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/communication.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 20,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/sapiens_panel/support.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 24,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gguf_manager/__init__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gguf_manager/manager.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 261,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/gguf_manager/cli.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 102,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "integration/Orbital/main/rh_control.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 187,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/global_pass.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 352,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/phase_control.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 182,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/__init__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 14,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/bootstrap.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 46,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/registry.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 37,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/metrics.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 572,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/model.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 64,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/dynamics.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 324,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/extract_geometry.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 421,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/scripts/build_runtime_inventory.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 126,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/scripts/run_toy_sim.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 20,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/scripts/seed_formal_symbols.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 48,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/references/manual_uploads/parlie4.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 1165,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/references/manual_uploads/paradoxes.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 1534,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/src/ciel_relational_mechanism/__init__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/src/ciel_relational_mechanism/sim/__init__.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "integration/Orbital/main/src/ciel_relational_mechanism/sim/phase_toy.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 73,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "src/ciel_sot_agent/semantic_dynamics.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 318,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/orch_orbital.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.88,
+      "lines_of_code": 381,
+      "tag_what": [
+        "executor"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/orbital_db_orchestrator.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.86,
+      "lines_of_code": 495,
+      "tag_what": [
+        "db"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_geometry/subjective_time.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 153,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/layout.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 201,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/edges.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 66,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/semantic_mass.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 336,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 16,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/renderer_ascii.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 80,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/loader.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 240,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/renderer_mpl.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 253,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/ciel_geometry/disk.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 109,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_vocabulary_resolve.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 28,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/coriolis_cymatics.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 449,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/phase_equation_of_motion.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 892,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/paradox_operators.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 614,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/holonomy_cosmic_seismic.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 576,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_runtime_loop.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 90,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_sector_memory_integration.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 54,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m1_working_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 42,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_memory_sector_integration.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 44,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_kernel_v12.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 675,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_alignment_strengthening.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 100,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_affective_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 95,
+      "tag_what": [
+        "memory",
+        "affective",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_validation_fixes.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 308,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_inference_surface.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 194,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/wave_ethics.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 76,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_defect_minimization.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 72,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_m6_1_acceptance.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 386,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m0_perceptual_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 38,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_working_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 96,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m5_affective_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 56,
+      "tag_what": [
+        "memory",
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 22,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_ciel_omega_complete.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 444,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_holonomy_eba.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 333,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_llama_server_backends.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 24,
+      "tag_what": [
+        "test",
+        "runner"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_semantic_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 127,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_procedural_memory_consolidation.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 73,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_memory_system.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 401,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/relational_formalism.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 448,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_grid_stability.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 141,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_client.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 199,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_kernel_v11.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 926,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_perceptual_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 84,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_holonomic_orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 64,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_working_memory_consolidation.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 59,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_unified_euler.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 23,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_memory_governor_and_prompt.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 40,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/monolit.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 203,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_runtime_policy_integration.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 63,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_rh_control.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 16,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/phase_sweep_analysis.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 240,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_persistence.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 29,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m4_procedural_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 55,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bootstrap_runtime.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 27,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/conftest.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 12,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/lie4_algebra.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 677,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_consolidation_governor.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 36,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m3_semantic_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 87,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_retrieval.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 101,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m6_identity_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 280,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_affective_memory_consolidation.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 76,
+      "tag_what": [
+        "memory",
+        "affective",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 232,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_semantic_memory_consolidation.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 76,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/main.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 10,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/setup.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 21,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/axioms.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 72,
+      "tag_what": [
+        "constant"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_perceptual_memory_consolidation.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 51,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_holonomic_orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 48,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_full_pipeline.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 529,
+      "tag_what": [
+        "executor"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/unified_system.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 166,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_procedural_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 118,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/controller.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 53,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/backend_adapter.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 61,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/constraints/euler_constraint.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 438,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/constraints/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 15,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/compute/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/compute/gpu_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 93,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ethics/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ethics/ethical_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 100,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ethics/ethics_guard.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 34,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/htri/htri_matrix.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 182,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/htri/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 4,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/htri/htri_local.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 286,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/htri/htri_daemon.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 157,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/visualization/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/visualization/color_map.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 44,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/visualization/visual_core.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 36,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/base.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 30,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 7,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/math_utils.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 86,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/intention_field.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 65,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/psych_field.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/aether_field.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 40,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/unified_sigma_field.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 59,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 6,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/soul_invariant.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 67,
+      "tag_what": [
+        "constant"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/sigma_series.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 49,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/resonance_operator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 57,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/config/reality_layers.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 69,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/config/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 22,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/config/ciel_config.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 43,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/config/constants.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 109,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_coherence.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_lang_life.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_symphony.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_fractal_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_cosmic.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_biosymphony.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_rhythms_replication_color.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/voynich_kernel.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 269,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_rhythms_replication_color (1).py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_transcription_translation.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/bio_manuscript_glyphs.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 314,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_helix.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bridge/memory_core_phase_bridge.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 207,
+      "tag_what": [
+        "memory",
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bridge/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/middleware.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 230,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/topology_api.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 93,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/gguf_backend.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 92,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 9,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/field_dynamics.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 394,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/core_concepts.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 783,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/extended_concepts.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 222,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/test_comprehensive.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 279,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/demo_core_concepts.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 251,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 71,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/planetary_archetypes.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 300,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/transcendent.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 256,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/test_gguf_pipeline.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 343,
+      "tag_what": [
+        "executor",
+        "test"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 518,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_io/reality_logger.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 32,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_io/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 4,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_io/bootstrap.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 72,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_io/simple_loader.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 55,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/__main__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 20,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/memory_prompt_context.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 137,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/gguf_backends.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 223,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_sector_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 180,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 23,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/llm_registry.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 390,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/language_backend.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 28,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_governor.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 158,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_persistence.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 93,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/llama_server_backends.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 337,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/hf_backends.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 136,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_loop.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 326,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_retrieval.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 156,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 336,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/cli.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 71,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/empathic_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 37,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/feeling_field.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 31,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/utils.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 104,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/emotion_core.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 51,
+      "tag_what": [
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/affective_orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 66,
+      "tag_what": [
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext6.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext4.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 26,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/extemot.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 51,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext5.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 57,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext7.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 92,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext9.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 51,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext1.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 51,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext21.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 38,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext10.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 64,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext18.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 94,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext19.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 51,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/extfwcku.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 17,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext3.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 61,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext20.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 43,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext8.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 53,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext17.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 37,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext2.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 62,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/experiments/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/experiments/lab_registry.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 182,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/integration/information_flow.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 76,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/integration/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/safe_operations.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 120,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary_tools/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 2,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary_tools/symbol_extractor.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 52,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary_tools/resolver.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 74,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/rh_control.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 122,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/global_pass.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 152,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/phase_control.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 224,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 6,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/registry.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 35,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/metrics.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 302,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/model.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 54,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/dynamics.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 181,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/extract_geometry.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 285,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/calibration/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/calibration/rcde.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 85,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/scripts/run_local_gguf_pipeline.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 66,
+      "tag_what": [
+        "executor",
+        "runner"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/intuition.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 55,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/introspection.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 40,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/prediction.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 34,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/decision.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 43,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/dissociation.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 53,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 79,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/perception.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 37,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/crystal_receiver.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 36,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/schumann.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 46,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/eeg_processor.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 50,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/eeg_emotion_mapper.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 47,
+      "tag_what": [
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/resonance/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 4,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/resonance/resonance_parallel.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 42,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/resonance/multiresonance_tensor.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 37,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/resonance/resonance_operator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 26,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/glyph_interpreter.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 87,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/symbolic_bridge.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 45,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/glyph_dataset.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 66,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/glyph_pipeline.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 43,
+      "tag_what": [
+        "executor"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_wave/fourier_kernel.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 126,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_wave/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 8,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/base.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 253,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/braid_invariant.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 287,
+      "tag_what": [
+        "algorithm",
+        "constant"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/synchronizer.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 29,
+      "tag_what": [
+        "bridge"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_bloch_encoder.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 681,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/semantic_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 120,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/identity_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 164,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/_registry.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 56,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/long_term.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 55,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/audit_journal.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 366,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/affective_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 108,
+      "tag_what": [
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_doc_ingest.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 300,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/identity_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 469,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/holonomy.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 339,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 188,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/episodic.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 351,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/object_cards.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1104,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/memory_log.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 45,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/holonomic_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 777,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/soul_invariant.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 300,
+      "tag_what": [
+        "constant"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/affective_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 356,
+      "tag_what": [
+        "memory",
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/phase_geometry.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 373,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_unified_core.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1441,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/linguistic_coupling.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 227,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/working_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 236,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/perceptual_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 64,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/semantic_scorer.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 467,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orbital_holonomy.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 200,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_encoder.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 424,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/coupling.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 325,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 61,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/semantic_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 469,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/perceptual_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 223,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/procedural_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 107,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/potential.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 461,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 512,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/working_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 60,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/brain_topology.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 886,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/procedural_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 327,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/affective_lexicon.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 465,
+      "tag_what": [
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orbital_shell.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 238,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/dynamics.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 417,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_calibration.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 321,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/agent/adam_core.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 490,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/agent/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/agent/resonance_optimizer.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 78,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/agent/adam_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 129,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/omega/boot_ritual.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 49,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/omega/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/omega/omega_runtime.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 75,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/omega/drift_core.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 60,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/nonlocal_coupling.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 812,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/defaults.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 87,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/glyphs.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 63,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 29,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/loops.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 33,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/scars.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 64,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/runtime.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 113,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 57,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/phase_field.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 22,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/scheduler.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 20,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/adapter.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 71,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/quantum/quantum_optimiser.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 49,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/quantum/quantum_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 508,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/quantum/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/quantum/resonance_kernel.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 56,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/csf_simulator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 136,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/definite_kernel.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 273,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/ciel0_framework.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 692,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/reality_expander.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 38,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/reality_laws.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 222,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/memory/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 3,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/quantum_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 117,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/emotional_collatz.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 309,
+      "tag_what": [
+        "affective"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 7,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/cqcl_compiler.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 6,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/cqcl_program.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 83,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/experiments/intentional_tetra_or/dual_tetra_or.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 403,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/experiments/intentional_tetra_or/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/lie4/lie4_full.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 775,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/lie4/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/lie4/collatz_lie4.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 55,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/lie4/matrix_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 57,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/paradoxes/paradox_operators.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 107,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/paradoxes/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/paradoxes/ultimate_operators.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1486,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/universal_law/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/universal_law/universal_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 636,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/defaults.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 12,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 11,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/wpm_storage.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 14,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/rules_engine.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 19,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/tmp_processor.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 18,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/tsm_storage.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 14,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/unified_memory.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 890,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/data_types.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 13,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/orchestrator.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 24,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/cli.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 95,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_omega"
+    },
+    {
+      "path": "src/ciel_rh_control_mini_repo/tests/test_controller.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 10,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": "ciel_rh_control"
+    },
+    {
+      "path": "src/ciel_rh_control_mini_repo/ciel_rh_control/models.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 23,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_rh_control"
+    },
+    {
+      "path": "src/ciel_rh_control_mini_repo/ciel_rh_control/controller.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 35,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_rh_control"
+    },
+    {
+      "path": "src/ciel_rh_control_mini_repo/ciel_rh_control/__init__.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 3,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_rh_control"
+    },
+    {
+      "path": "src/ciel_rh_control_mini_repo/ciel_rh_control/policy.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 57,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_rh_control"
+    },
+    {
+      "path": "src/ciel_rh_control_mini_repo/ciel_rh_control/cli.py",
+      "orbital_level": 2,
+      "M_sem_proxy": 0.8,
+      "lines_of_code": 23,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_rh_control"
+    },
+    {
+      "path": "integration/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/generate_repo_cards.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 132,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_proxy.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 548,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_system_report.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 556,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_index_validator_v2.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 14,
+      "tag_what": [
+        "diagnostics",
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_launch.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 168,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_definition_db_library.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 277,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/resolve_memory_orbital.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 132,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ingest_memory_files.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 347,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_ciel_gguf.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 191,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/resolve_orbital_semantics.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 482,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_voynich_astro.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 220,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_gh_repo_coupling.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 5,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/htri_mini.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 101,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/mc_holonomic_convergence.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 243,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_subconscious.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 315,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_graph_extractor.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 347,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_memory_dump.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 122,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/htri_bench.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 162,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_chat_gui.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 243,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_nonlocal_definition_edges.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 124,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/propagate_holonomy.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 172,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_file_wij.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 300,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_lora_init.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 262,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_benchmark_retrieval.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 383,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_hw_monitor.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 393,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/recode_tsm_phases.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 90,
+      "tag_what": [
+        "memory",
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_natal_chart.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 327,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/verify_orbital_registry_integrity.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 113,
+      "tag_what": [
+        "registry",
+        "diagnostics"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_local.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 185,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_repo_cards_throttle.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 27,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/optimize_wij.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 268,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/bootstrap_audio_orbital_stack.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 137,
+      "tag_what": [
+        "builder",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/dream_whisper.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 154,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/test_euler_perturbation.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 317,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_orbital_global_pass.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 16,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_response_step.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 151,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_ciel_inference_surface.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 19,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_news_reader.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 295,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_sapiens_panel.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 28,
+      "tag_what": [
+        "runner",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_repo_phase_sync.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 14,
+      "tag_what": [
+        "algorithm",
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_ciel_local_surface.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 17,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_subsystem_sync_registry.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 124,
+      "tag_what": [
+        "registry",
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_collatz_router.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 240,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_memory_portal.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 949,
+      "tag_what": [
+        "memory",
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_audio_orbital_probe.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 44,
+      "tag_what": [
+        "runner",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/serve_portal.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 719,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/import_chatgpt_logs.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 268,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_dataset_build.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 290,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_lora_train.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 268,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_session_hook.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 530,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_orbital_definition_registry.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 234,
+      "tag_what": [
+        "registry",
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_code_learner.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 233,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_repo_sync_v2.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 14,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/normalize_definition_registry.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 89,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_orbital_monitor.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 356,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/export_orbital_registry_to_noema.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 141,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_screenshot.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 37,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_memory_consolidator.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 523,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/bootstrap_audio_orbital_and_catalog.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 132,
+      "tag_what": [
+        "registry",
+        "builder",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_word_cards_registry.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 177,
+      "tag_what": [
+        "registry",
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_memory_stop.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 461,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_orbital_bridge.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 14,
+      "tag_what": [
+        "bridge",
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_benchmark.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 178,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/run_gh_repo_coupling_v2.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 14,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/build_nonlocal_cards_registry.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 170,
+      "tag_what": [
+        "registry",
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/generate_orbital_cards.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 650,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/generate_site.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 1168,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_message_step.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 728,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "src/ciel-omega-demo-main/ciel_omega_app.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 764,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/ciel_cli.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 7,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/CIEL_RELATIONAL_MECHANISM_REPO/src/ciel_relational_mechanism/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "src/CIEL_RELATIONAL_MECHANISM_REPO/src/ciel_relational_mechanism/sim/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "src/CIEL_RELATIONAL_MECHANISM_REPO/src/ciel_relational_mechanism/sim/phase_toy.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 73,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 0,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/installer_linux.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 64,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/.workload/ext6.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 207,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/.workload/ext7.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 265,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/.workload/ext21.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 790,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/.workload/cielquantum.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 569,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/scripts/entry_omega_runpy.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 7,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/scripts/entry_omega.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 7,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/scripts/build_bundle.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 80,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/adam/core.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 59,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/adam/demo.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 36,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/adam/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 17,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/adam/optimizer.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 73,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/adam/ritual.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 116,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/adam/memory.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 130,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/physical.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 26,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/glyphs.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 55,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/enums.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 7,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/reality_logger.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 17,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 0,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/hooks.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 43,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/config.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 16,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/interfaces.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 17,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/ciel_constants.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 119,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/ethics.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 18,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/compute_backend.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 28,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/gpu.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 72,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/core/sigma.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 22,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/factory.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 18,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 2,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/ciel0_fft.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 23,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/ciel0_common.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 102,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/unified_reality.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 160,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/ciel0_state.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 15,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/registry.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 41,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/ciel0_nofft.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 18,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/kernels/ciel0_framework.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 182,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/runtime20.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 149,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/csf2.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 69,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/field_ops.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 52,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 0,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/drift.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 23,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/schumann.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 28,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/rcde.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 20,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/omega/batch18.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 285,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/emotion/emotional_collatz.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 247,
+      "tag_what": [
+        "affective"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/emotion/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 9,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/emotion/cqcl.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 135,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/experiments/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 0,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/experiments/lab17.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 167,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/spectral/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 7,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/spectral/wave12d.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 46,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/cognition/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 0,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/cognition/cognitive_loop.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 187,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/orbital_cockpit.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 328,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/omega_app.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 1878,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/omega_orbital_app.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 633,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/model_catalog.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 46,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 0,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/orbital_manifest_export.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 163,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/orbital_panels.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 104,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/main/apps/cli.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 210,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/Studies/Metatime-main/cielnofft.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 692,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/Studies/Metatime-main/neutrinotime14_fixed.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 225,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/Studies/Metatime-main/simulations/Metatime_Framework(1).py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 358,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/Studies/Metatime-main/simulations/Toy-Model White-Thread Matrix F_ij — Next Steps/Module: Berry Monopole A on S².py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 15,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/Studies/Metatime-main/simulations/Toy-Model White-Thread Matrix F_ij — Next Steps/Module: β‑Calibration.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 30,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/Studies/Metatime-main/simulations/Toy-Model White-Thread Matrix F_ij — Next Steps/Module: Extend to Full SM Baryons and Mesons.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 14,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/Studies/Metatime-main/simulations/PBH/primordialblackhole.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 83,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_omega_demo"
+    },
+    {
+      "path": "integration/Orbital/__init__.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/sims/htri_mini.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 101,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/sims/kepler_ciel_sim.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 250,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/sims/energy_benchmark.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 164,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/generate_object_cards_py.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 244,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/noema_sot.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.99,
+      "lines_of_code": 361,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/ciel_pipeline.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.97,
+      "lines_of_code": 709,
+      "tag_what": [
+        "executor"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/orbital_bridge.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.95,
+      "lines_of_code": 331,
+      "tag_what": [
+        "bridge"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/synchronize_v2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.91,
+      "lines_of_code": 54,
+      "tag_what": [
+        "bridge"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/synchronize.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.91,
+      "lines_of_code": 67,
+      "tag_what": [
+        "bridge"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/orch_orbital.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.88,
+      "lines_of_code": 381,
+      "tag_what": [
+        "executor"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/orbital_db_orchestrator.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.86,
+      "lines_of_code": 495,
+      "tag_what": [
+        "db"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "tests/test_ciel_geometry.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.82,
+      "lines_of_code": 233,
+      "tag_what": [
+        "algorithm",
+        "test"
+      ],
+      "subsystem": "ciel_geometry"
+    },
+    {
+      "path": "CIEL_CANON.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 278,
+      "tag_what": [
+        "constant"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "conftest.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 20,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "setup.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 14,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_packaging.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 390,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_index_validator.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 133,
+      "tag_what": [
+        "diagnostics",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_sapiens_surface_policy.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 28,
+      "tag_what": [
+        "test",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_sapiens_client_packet.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 194,
+      "tag_what": [
+        "test",
+        "interface",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_braid_nonlocal_coupling.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 129,
+      "tag_what": [
+        "algorithm",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_repository_machine_map.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 557,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_gguf_comparison.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 355,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_orbital_object_cards.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 74,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_gguf_manager.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 294,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_orbital_runtime.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 120,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_gui.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 211,
+      "tag_what": [
+        "test",
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_repo_phase.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 250,
+      "tag_what": [
+        "algorithm",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_sapiens_panel_components.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 227,
+      "tag_what": [
+        "test",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_semantic_speech_bridge.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 70,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_durability.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 461,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_deb_e2e.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 158,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_orbital_registry_verifier.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 39,
+      "tag_what": [
+        "registry",
+        "diagnostics",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_htri_matrix.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 79,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_phased_state.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 156,
+      "tag_what": [
+        "algorithm",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_main.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 52,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_orbital_shell.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 204,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_runtime_evidence_ingest.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 105,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_sapiens_persist_session.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 55,
+      "tag_what": [
+        "test",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_index_validator_v2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 174,
+      "tag_what": [
+        "diagnostics",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_runtime_sync_integration.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 106,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_linguistic_semantic_coupling.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 52,
+      "tag_what": [
+        "test",
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_holonomic_normalizer.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 207,
+      "tag_what": [
+        "memory",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_gh_coupling.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 168,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_gh_coupling_v2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 56,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/conftest.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 23,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_sapiens_panel.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 33,
+      "tag_what": [
+        "test",
+        "satellite"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_orbital_regression.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 302,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_synchronize_v2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 52,
+      "tag_what": [
+        "bridge",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_ciel_pipeline.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 95,
+      "tag_what": [
+        "executor",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_orbital_semantics.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 108,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_pipeline_audit.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 367,
+      "tag_what": [
+        "executor",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tools/ciel_soul_invariant_ref.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 288,
+      "tag_what": [
+        "constant"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/dist/files/Proof-of-concept2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 577,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/dist/files/cielnofft.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 688,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/dist/files/Solver.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 290,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/dist/files/originsphaseholoext.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1986,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/dist/files/cielquantum.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 575,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/dist/files/gluons.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 250,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/dist/files/originsHolo2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 809,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/public/files/Proof-of-concept2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 577,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/public/files/cielnofft.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 688,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/public/files/Solver.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 290,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/public/files/originsphaseholoext.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1986,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/public/files/cielquantum.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 575,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/public/files/gluons.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 250,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "app/public/files/originsHolo2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 809,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "packaging/android/main.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 262,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_py_catalog.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 218,
+      "tag_what": [
+        "registry",
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/phased_state.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 228,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/__main__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 72,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_surface_policy.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 34,
+      "tag_what": [
+        "satellite"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/spreadsheet_db.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 241,
+      "tag_what": [
+        "db"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/semantic_calculator_v2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 466,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/diagnostics.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 191,
+      "tag_what": [
+        "diagnostics"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/holonomic_normalizer.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 498,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/bench_cli.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 122,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/paths.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 48,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/consolidation_resonator.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 676,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/wpm_cli.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 195,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/semantic_calculator.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 373,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/subconsciousness.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 497,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gh_coupling_v2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 185,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gh_coupling.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 152,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/runtime_evidence_ingest.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 131,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/md_library.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 128,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/capture_cli.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 122,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/chat_archive.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 231,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_client.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 238,
+      "tag_what": [
+        "interface",
+        "satellite"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/repo_phase.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 117,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/py_catalog.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 510,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/_gh_utils.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 168,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/subsystem_registry.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 341,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/index_validator_v2.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 297,
+      "tag_what": [
+        "diagnostics"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/local_ciel_surface.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 157,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/index_validator.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 275,
+      "tag_what": [
+        "diagnostics"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/state_db.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 503,
+      "tag_what": [
+        "db"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/htri_scheduler.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 232,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/memory_rag.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 162,
+      "tag_what": [
+        "memory"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/local_nonlocality_fallback.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 496,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/semantic_dynamics.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 318,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/satellite_authority.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 77,
+      "tag_what": [
+        "satellite"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/htri_resource_gate.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 174,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/integration/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gui/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gui/app.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 85,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gui/routes.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 2223,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/settings_store.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 19,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/models.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 41,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/controller.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 148,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/reduction.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 57,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 11,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/render_schema.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 10,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/communication.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 20,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/sapiens_panel/support.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 24,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gguf_manager/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 5,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gguf_manager/manager.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 261,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/ciel_sot_agent/gguf_manager/cli.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 102,
+      "tag_what": [
+        "interface"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "build/lib/integration/Orbital/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/rh_control.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 187,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/global_pass.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 352,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/phase_control.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 182,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 14,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/bootstrap.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 46,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/registry.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 37,
+      "tag_what": [
+        "registry"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/metrics.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 572,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/model.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 64,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/dynamics.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 324,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/extract_geometry.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 421,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/scripts/build_runtime_inventory.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 126,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/scripts/run_toy_sim.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 20,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/scripts/seed_formal_symbols.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 48,
+      "tag_what": [
+        "builder"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/references/manual_uploads/parlie4.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1165,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/references/manual_uploads/paradoxes.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1534,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/src/ciel_relational_mechanism/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/src/ciel_relational_mechanism/sim/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "build/lib/integration/Orbital/main/src/ciel_relational_mechanism/sim/phase_toy.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 73,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": null
+    }
+  ]
+}

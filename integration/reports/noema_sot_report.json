@@ -1,0 +1,146 @@
+{
+  "global_coherence": 0.88462,
+  "global_health": 0.55382,
+  "operating_mode": "standard",
+  "priority_order": [
+    "noema_registry",
+    "ciel_omega_core",
+    "orbital_bridge_core",
+    "sync_core",
+    "orch_orbital_core",
+    "db_orchestrator"
+  ],
+  "tag_matrix": {
+    "coherence_index": 0.8324013844386199,
+    "system_health": 0.5613455193995859,
+    "closure_penalty": 0.7621591677627482,
+    "ethical_score": 0.6220563277587694,
+    "soul_invariant": 0.6588445346651934,
+    "lie4_trace": 4.183135222640001,
+    "nonlocal_coherent_fraction": 1.0,
+    "dominant_emotion": "love",
+    "global_coherence": 0.88462,
+    "global_health": 0.55382
+  },
+  "file_mass_summary": {
+    "total_files": 3224,
+    "mean_M_sem": 0.54232,
+    "max_M_sem": 0.8776,
+    "min_T_orbital": 0.00489,
+    "max_T_orbital": 0.74115,
+    "by_inference_node": {
+      "T4": 345,
+      "T2": 2600,
+      "T5": 247,
+      "T1": 13,
+      "T6": 19
+    },
+    "by_subsystem": {
+      "noema_registry": 2577,
+      "db_orchestrator": 99,
+      "orbital_bridge_core": 128,
+      "sync_core": 76,
+      "ciel_omega_core": 343,
+      "orch_orbital_core": 1
+    },
+    "top5_by_M_sem": [
+      {
+        "path": "integration/registries/definitions/orbital_definition_registry.json",
+        "M_sem": 0.8776,
+        "T_orbital": 0.0936,
+        "inference_node": "T4"
+      },
+      {
+        "path": "integration/registries/definitions/definition_registry.json",
+        "M_sem": 0.87332,
+        "T_orbital": 0.09383,
+        "inference_node": "T4"
+      },
+      {
+        "path": "integration/registries/definitions/subsystem_sync_registry.json",
+        "M_sem": 0.87332,
+        "T_orbital": 0.09383,
+        "inference_node": "T4"
+      },
+      {
+        "path": "integration/registries/file_catalog.json",
+        "M_sem": 0.86878,
+        "T_orbital": 0.09408,
+        "inference_node": "T4"
+      },
+      {
+        "path": "src/ciel_sot_agent/ciel_pipeline.py",
+        "M_sem": 0.86737,
+        "T_orbital": 0.03379,
+        "inference_node": "T4"
+      }
+    ]
+  },
+  "subsystem_count": 6,
+  "generated": "2026-05-08T12:43:02.248504+00:00",
+  "subsystems": {
+    "noema_registry": {
+      "M_sem": 0.99,
+      "orbital_level": 1,
+      "noema_id": "NL-NOEMA-CORE-0001",
+      "metrics": {
+        "H_total": -53.74,
+        "dH_dt": 11.07806,
+        "r_sync": 1.0
+      }
+    },
+    "ciel_omega_core": {
+      "M_sem": 0.97,
+      "orbital_level": 1,
+      "noema_id": "NL-OMEGA-CORE-0001",
+      "metrics": {
+        "ethical_score": 0.62206,
+        "lie4_trace": 4.18314,
+        "soul_invariant": 0.65884
+      }
+    },
+    "orbital_bridge_core": {
+      "M_sem": 0.95,
+      "orbital_level": 1,
+      "noema_id": "NL-BRIDGE-CORE-0001",
+      "metrics": {
+        "R_H": 23.92847,
+        "closure_penalty": 0.75018,
+        "coherence_index": 0.6899,
+        "nonlocal_coherent_fraction": 0.0,
+        "system_health": 0.55382
+      }
+    },
+    "sync_core": {
+      "M_sem": 0.91,
+      "orbital_level": 1,
+      "noema_id": "NL-SYNC-CORE-0001",
+      "metrics": {
+        "closure_defect": 0.00348,
+        "n_repos": 5.0
+      }
+    },
+    "orch_orbital_core": {
+      "M_sem": 0.88,
+      "orbital_level": 1,
+      "noema_id": "NL-ORCH-CORE-0001",
+      "metrics": {}
+    },
+    "db_orchestrator": {
+      "M_sem": 0.86,
+      "orbital_level": 1,
+      "noema_id": "NL-DB-CORE-0001",
+      "metrics": {}
+    }
+  },
+  "dynamics": {
+    "updated": 200,
+    "r_sync": 1.0,
+    "H_total": -110.16993,
+    "H_kinetic": 1.671001,
+    "H_potential": -111.999992,
+    "H_attractor": 0.159061,
+    "dH_dt": -56.429928,
+    "error": null
+  }
+}

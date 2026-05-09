@@ -1,0 +1,5045 @@
+{
+  "schema": "ciel/how-to-library/v0.1",
+  "generated": "2026-05-08T00:20:29.662913+00:00",
+  "description": "Mapa instrukcji systemu CIEL — pliki MD kategoryzowane jako how_to:* dla szybkiego odnajdowania dokumentacji operacyjnej.",
+  "total": 587,
+  "by_tag_count": {
+    "how_to:architecture": 100,
+    "how_to:audit": 7,
+    "how_to:canon": 20,
+    "how_to:deploy": 5,
+    "how_to:integration": 56,
+    "how_to:memory": 6,
+    "how_to:misc": 5,
+    "how_to:operations": 5,
+    "how_to:pipeline": 6,
+    "how_to:plan": 17,
+    "how_to:protocol": 12,
+    "how_to:refactor": 16,
+    "how_to:registry": 18,
+    "how_to:theory": 2,
+    "summary:archive": 9,
+    "summary:consolidation": 81,
+    "summary:object_card": 1,
+    "summary:orbital_card": 28,
+    "summary:repo_card": 327,
+    "summary:satellite_card": 2,
+    "summary:misc": 1
+  },
+  "by_tag": {
+    "how_to:architecture": [
+      "app/public/files/PELNA_METODOLOGIA_SYSTEMU_ORBITALNEGO.md",
+      "docs/ARCHITECTURE.md",
+      "docs/ORBital_INTEGRATION_ADDENDUM.md",
+      "docs/architecture/ARCHITECTURE.md",
+      "docs/architecture/BRAID_SYSTEM_ARCHITECTURE.md",
+      "docs/architecture/CONFLICT_AUDIT_POST_MERGE.md",
+      "docs/architecture/DOCS_INDEX_MD_REPLACEMENT.md",
+      "docs/architecture/FINAL_IN_PLACE_SWITCH_PACKAGE.md",
+      "docs/architecture/HYPERSPACE_INDEX_JSON_REPLACEMENT.md",
+      "docs/architecture/INDEX_REGISTRY_YAML_REPLACEMENT.md",
+      "docs/architecture/INTEGRATION_PATH_MIGRATION.md",
+      "docs/architecture/IN_PLACE_SWITCH_CHECKLIST.md",
+      "docs/architecture/LEGACY_MACHINE_MIRROR_POLICY.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_PLAN.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_PROGRESS.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_READINESS.md",
+      "docs/architecture/ORBITAL_ARCHITECTURE_CANON.md",
+      "docs/architecture/POST_MERGE_RECONCILIATION.md",
+      "docs/architecture/README_MD_REPLACEMENT.md",
+      "docs/architecture/REPO_GEOMETRY_STATUS.md",
+      "docs/architecture/REPO_REFACTOR_PLAN.md",
+      "docs/architecture/SATELLITE_AUTHORITY_ENFORCEMENT.md",
+      "docs/architecture/SATELLITE_SUBSYSTEM_AUTHORITY_CANON.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PLAN.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PROGRESS.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_READINESS.md",
+      "docs/integration/ORBITAL_INFRASTRUCTURE_RULES.md",
+      "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md",
+      "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+      "integration/Orbital/AGENT1.md",
+      "integration/Orbital/ARCHITECTURE_BINDING.md",
+      "integration/Orbital/IMPORT_MANIFEST_V2.md",
+      "integration/Orbital/INDEX.md",
+      "integration/Orbital/main/AGENT1.md",
+      "integration/Orbital/main/data/source/CANONICAL_SOURCE_OF_TRUTH.md",
+      "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27.md",
+      "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27_CONTINUATION.md",
+      "integration/Orbital/main/docs/CANONICAL_TABLES_V1.md",
+      "integration/Orbital/main/docs/CANONICAL_TABLES_V2_ONLY_PEWNIAKI.md",
+      "integration/Orbital/main/docs/COUPLING_MATRIX.md",
+      "integration/Orbital/main/docs/DOCUMENTATION_CANON.md",
+      "integration/Orbital/main/docs/DOCUMENTATION_MERGED.md",
+      "integration/Orbital/main/docs/FORMALISM_V0.md",
+      "integration/Orbital/main/docs/LAYER_MATRIX_V1.md",
+      "integration/Orbital/main/docs/LOCAL_GGUF_PIPELINE.md",
+      "integration/Orbital/main/docs/MD_AUDIT_NOTES.md",
+      "integration/Orbital/main/docs/MECHANISM_SCOPE.md",
+      "integration/Orbital/main/docs/MICRO_OPERATION_INVENTORY_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_CLOSURE_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_HOLONOMY_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_PAIRWISE_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_REDUCTION_MEMORY_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/NEXT_CERTAINTIES_V1.md",
+      "integration/Orbital/main/docs/NEXT_CERTAINTIES_V2.md",
+      "integration/Orbital/main/docs/RUNTIME_TARGETS_V0.md",
+      "integration/Orbital/main/docs/TABLE_SCHEMAS.md",
+      "integration/Orbital/main/references/manual_uploads/fa00b095.md",
+      "integration/Orbital/main/references/manual_uploads/interpretation.md",
+      "integration/Orbital/main/reports/global_orbital_coherence_pass/summary.md",
+      "integration/Orbital/main/src/CANONICAL_RELMECH_SOURCE.md",
+      "integration/registries/definitions/NEXT_OPERATIONS_QUEUE.md",
+      "integration/registries/definitions/ORBITAL_MANYBODY_IMPLEMENTATION_PLAN.md",
+      "integration/registries/definitions/ORBITAL_MANYBODY_TODO.md",
+      "integration/registries/definitions/PHASE6_AUDIT_SUMMARY.md",
+      "integration/reports/orbital_bridge/orbital_bridge_report.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/MEMORY_SECTOR_MANIFEST.md",
+      "src/CIEL_Orbital_Foundation_Packk/00_INDEX.md",
+      "src/CIEL_Orbital_Foundation_Packk/01_CIEL_Orbital_Master_Plan.md",
+      "src/CIEL_Orbital_Foundation_Packk/01_MASTER_ARCHITECTURE_AND_PLAN.md",
+      "src/CIEL_Orbital_Foundation_Packk/02_ONTOLOGY_AND_OBSERVABLES.md",
+      "src/CIEL_Orbital_Foundation_Packk/03_STATE_SPACE_AND_BOUNDARY_CONDITIONS.md",
+      "src/CIEL_Orbital_Foundation_Packk/04_INVARIANTS_POTENTIALS_AND_ATTRACTORS.md",
+      "src/CIEL_Orbital_Foundation_Packk/05_ENTITY_REGISTRY_AND_SPHERE_EMBEDDING.md",
+      "src/CIEL_Orbital_Foundation_Packk/06_SUBJECTIVE_TIME_WINDING_AND_SEMANTIC_MASS.md",
+      "src/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md",
+      "src/CIEL_Orbital_Foundation_Packk/08_GEOMETRY_ENGINE_AND_UI_SURFACE.md",
+      "src/CIEL_Orbital_Foundation_Packk/09_NATIVE_PRODUCT_ARCHITECTURE.md",
+      "src/CIEL_Orbital_Foundation_Packk/10_METRICS_VALIDATION_AND_EXPERIMENTS.md",
+      "src/CIEL_Orbital_Foundation_Packk/11_IMPLEMENTATION_PHASES_AND_WORKPACKAGES.md",
+      "src/CIEL_Orbital_Foundation_Packk/12_RISKS_OPEN_QUESTIONS_AND_DECISIONS.md",
+      "src/CIEL_Orbital_Foundation_Packk/13_SPHERE_DYNAMICS_8PLUS1.md",
+      "src/CIEL_Orbital_Foundation_Packk/CIEL_ETHICS_AND_SEMANTIC_ACTION_ALGORITHM.md",
+      "src/CIEL_Orbital_Foundation_Packk/CIEL_NATIVE_SYSTEM_BLUEPRINT_v0.md",
+      "src/CIEL_Orbital_Foundation_Packk/IMMUTABILITY_POLICY.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/00_INDEX (kopia).md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/00_INDEX.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/01_CIEL_Orbital_Master_Plan.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/01_MASTER_ARCHITECTURE_AND_PLAN.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/02_ONTOLOGY_AND_OBSERVABLES.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/03_STATE_SPACE_AND_BOUNDARY_CONDITIONS.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/04_INVARIANTS_POTENTIALS_AND_ATTRACTORS.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/05_ENTITY_REGISTRY_AND_SPHERE_EMBEDDING.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/06_SUBJECTIVE_TIME_WINDING_AND_SEMANTIC_MASS.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/08_GEOMETRY_ENGINE_AND_UI_SURFACE.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/09_NATIVE_PRODUCT_ARCHITECTURE.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/10_METRICS_VALIDATION_AND_EXPERIMENTS.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/11_IMPLEMENTATION_PHASES_AND_WORKPACKAGES.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/12_RISKS_OPEN_QUESTIONS_AND_DECISIONS.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/CIEL_NATIVE_SYSTEM_BLUEPRINT_v0.md"
+    ],
+    "how_to:audit": [
+      "docs/architecture/CONFLICT_AUDIT_POST_MERGE.md",
+      "docs/architecture/IN_PLACE_SWITCH_CHECKLIST.md",
+      "docs/audits/PASS031_CANON_DEDUP_REPORT.md",
+      "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27.md",
+      "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27_CONTINUATION.md",
+      "integration/Orbital/main/docs/MD_AUDIT_NOTES.md",
+      "integration/registries/definitions/PHASE6_AUDIT_SUMMARY.md"
+    ],
+    "how_to:canon": [
+      "docs/INDEX_CANONICAL_V2.md",
+      "docs/OMEGA_INTERNAL_INTERFACE_CANON.md",
+      "docs/PACKAGE_ENTRYPOINT_CANON.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_PLAN.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_PROGRESS.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_READINESS.md",
+      "docs/architecture/ORBITAL_ARCHITECTURE_CANON.md",
+      "docs/architecture/SATELLITE_SUBSYSTEM_AUTHORITY_CANON.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PLAN.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PROGRESS.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_READINESS.md",
+      "docs/audits/PASS031_CANON_DEDUP_REPORT.md",
+      "docs/operations/V2_RUNTIME_ENTRYPOINTS_CANONICAL.md",
+      "integration/Orbital/main/data/source/CANONICAL_SOURCE_OF_TRUTH.md",
+      "integration/Orbital/main/docs/CANONICAL_TABLES_V1.md",
+      "integration/Orbital/main/docs/CANONICAL_TABLES_V2_ONLY_PEWNIAKI.md",
+      "integration/Orbital/main/docs/DOCUMENTATION_CANON.md",
+      "integration/Orbital/main/src/CANONICAL_RELMECH_SOURCE.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/CANONICAL_BUILD_MANIFEST.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/generated/ciel_semantic_glossary_stats.md"
+    ],
+    "how_to:deploy": [
+      "contracts/PRODUCTION_READINESS_PROTOCOL.md",
+      "docs/PACKAGE_ENTRYPOINT_CANON.md",
+      "docs/architecture/FINAL_IN_PLACE_SWITCH_PACKAGE.md",
+      "src/CIEL_Orbital_Foundation_Packk/11_IMPLEMENTATION_PHASES_AND_WORKPACKAGES.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/11_IMPLEMENTATION_PHASES_AND_WORKPACKAGES.md"
+    ],
+    "how_to:integration": [
+      "docs/CIEL_OMEGA_DEMO_INTEGRATION.md",
+      "docs/ORBital_INTEGRATION_ADDENDUM.md",
+      "docs/architecture/HYPERSPACE_INDEX_JSON_REPLACEMENT.md",
+      "docs/architecture/INDEX_REGISTRY_YAML_REPLACEMENT.md",
+      "docs/architecture/INTEGRATION_PATH_MIGRATION.md",
+      "docs/integration/CIEL_OMEGA_DEMO_INTEGRATION.md",
+      "docs/integration/MACHINE_AUTHORITY_SURFACE.md",
+      "docs/integration/ORBITAL_INFRASTRUCTURE_RULES.md",
+      "docs/integration/SAPIENS_SURFACE_BINDING.md",
+      "governance/contracts/SAPIENS_PACKET_PROTOCOL.md",
+      "integration/AGENT1.md",
+      "integration/INTEGRATION_DATA_SPLIT_STATUS.md",
+      "integration/MACHINE_AUTHORITY_V2.md",
+      "integration/MIGRATION_INDEX_V2.md",
+      "integration/Orbital/AGENT1.md",
+      "integration/Orbital/ARCHITECTURE_BINDING.md",
+      "integration/Orbital/IMPORT_MANIFEST_V2.md",
+      "integration/Orbital/INDEX.md",
+      "integration/Orbital/main/AGENT1.md",
+      "integration/Orbital/main/data/source/CANONICAL_SOURCE_OF_TRUTH.md",
+      "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27.md",
+      "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27_CONTINUATION.md",
+      "integration/Orbital/main/docs/CANONICAL_TABLES_V1.md",
+      "integration/Orbital/main/docs/CANONICAL_TABLES_V2_ONLY_PEWNIAKI.md",
+      "integration/Orbital/main/docs/COUPLING_MATRIX.md",
+      "integration/Orbital/main/docs/DOCUMENTATION_CANON.md",
+      "integration/Orbital/main/docs/DOCUMENTATION_MERGED.md",
+      "integration/Orbital/main/docs/FORMALISM_V0.md",
+      "integration/Orbital/main/docs/LAYER_MATRIX_V1.md",
+      "integration/Orbital/main/docs/LOCAL_GGUF_PIPELINE.md",
+      "integration/Orbital/main/docs/MD_AUDIT_NOTES.md",
+      "integration/Orbital/main/docs/MECHANISM_SCOPE.md",
+      "integration/Orbital/main/docs/MICRO_OPERATION_INVENTORY_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_CLOSURE_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_HOLONOMY_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_PAIRWISE_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_REDUCTION_MEMORY_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/NEXT_CERTAINTIES_V1.md",
+      "integration/Orbital/main/docs/NEXT_CERTAINTIES_V2.md",
+      "integration/Orbital/main/docs/RUNTIME_TARGETS_V0.md",
+      "integration/Orbital/main/docs/TABLE_SCHEMAS.md",
+      "integration/Orbital/main/references/manual_uploads/fa00b095.md",
+      "integration/Orbital/main/references/manual_uploads/interpretation.md",
+      "integration/Orbital/main/reports/global_orbital_coherence_pass/summary.md",
+      "integration/Orbital/main/src/CANONICAL_RELMECH_SOURCE.md",
+      "integration/imports/relational_mechanism/HOW_AI_WORKS_WITH_CIEL.en.md",
+      "integration/imports/relational_mechanism/IMPORT_NOTES.md",
+      "integration/registries/definitions/NEXT_OPERATIONS_QUEUE.md",
+      "integration/registries/definitions/ORBITAL_MANYBODY_IMPLEMENTATION_PLAN.md",
+      "integration/registries/definitions/ORBITAL_MANYBODY_TODO.md",
+      "integration/registries/definitions/PHASE6_AUDIT_SUMMARY.md",
+      "integration/reports/AGENT1.md",
+      "integration/reports/orbital_bridge/orbital_bridge_report.md",
+      "integration/reports/sapiens_client/transcript.md",
+      "integration/sapiens/AGENT1.md",
+      "integration/upstreams/AGENT1.md"
+    ],
+    "how_to:memory": [
+      "integration/Orbital/main/docs/MINIMAL_HOLONOMY_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/docs/MINIMAL_REDUCTION_MEMORY_FUNCTION_SET_V1.md",
+      "integration/Orbital/main/references/manual_uploads/interpretation.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/MEMORY_SECTOR_MANIFEST.md",
+      "src/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md"
+    ],
+    "how_to:misc": [
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/README_old.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/llm/models/README_EXTERNAL_MODEL.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/COMPLETE_DOCUMENTATION.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/EXECUTION_SUMMARY.md",
+      "src/ciel-omega-demo-main/docs/System/2026-04-15.md"
+    ],
+    "how_to:operations": [
+      "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md",
+      "docs/operations/V2_RUNTIME_ENTRYPOINTS_CANONICAL.md",
+      "integration/Orbital/main/docs/MICRO_OPERATION_INVENTORY_V1.md",
+      "integration/registries/definitions/NEXT_OPERATIONS_QUEUE.md",
+      "integration/registries/definitions/ORBITAL_MANYBODY_TODO.md"
+    ],
+    "how_to:pipeline": [
+      "integration/Orbital/main/docs/LOCAL_GGUF_PIPELINE.md",
+      "integration/Orbital/main/references/manual_uploads/interpretation.md",
+      "integration/imports/relational_mechanism/HOW_AI_WORKS_WITH_CIEL.en.md",
+      "integration/reports/orbital_bridge/orbital_bridge_report.md",
+      "src/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md"
+    ],
+    "how_to:plan": [
+      "contracts/PRODUCTION_READINESS_PROTOCOL.md",
+      "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md",
+      "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION_SPACETIME_ADDENDUM.md",
+      "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION_SPACETIME_ADDENDUM_V2.md",
+      "docs/architecture/IN_PLACE_SWITCH_CHECKLIST.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_PLAN.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_PROGRESS.md",
+      "docs/architecture/MACHINE_CANONICALIZATION_READINESS.md",
+      "docs/architecture/REPO_REFACTOR_PLAN.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PLAN.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PROGRESS.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_READINESS.md",
+      "integration/registries/definitions/ORBITAL_MANYBODY_IMPLEMENTATION_PLAN.md",
+      "src/CIEL_Orbital_Foundation_Packk/01_CIEL_Orbital_Master_Plan.md",
+      "src/CIEL_Orbital_Foundation_Packk/01_MASTER_ARCHITECTURE_AND_PLAN.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/01_CIEL_Orbital_Master_Plan.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/01_MASTER_ARCHITECTURE_AND_PLAN.md"
+    ],
+    "how_to:protocol": [
+      "contracts/PRODUCTION_READINESS_PROTOCOL.md",
+      "docs/architecture/LEGACY_MACHINE_MIRROR_POLICY.md",
+      "docs/architecture/SATELLITE_AUTHORITY_ENFORCEMENT.md",
+      "docs/architecture/SATELLITE_SUBSYSTEM_AUTHORITY_CANON.md",
+      "docs/desktop/CIEL0_PROTOCOL_BINDING.md",
+      "docs/integration/MACHINE_AUTHORITY_SURFACE.md",
+      "governance/contracts/RELATIONAL_FORMAL_PROTOCOL.md",
+      "governance/contracts/SAPIENS_PACKET_PROTOCOL.md",
+      "integration/MACHINE_AUTHORITY_V2.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/DATA_LAYER_POLICY.md",
+      "src/CIEL_Orbital_Foundation_Packk/CIEL_ETHICS_AND_SEMANTIC_ACTION_ALGORITHM.md",
+      "src/CIEL_Orbital_Foundation_Packk/IMMUTABILITY_POLICY.md"
+    ],
+    "how_to:refactor": [
+      "docs/architecture/CONFLICT_AUDIT_POST_MERGE.md",
+      "docs/architecture/DOCS_INDEX_MD_REPLACEMENT.md",
+      "docs/architecture/FINAL_IN_PLACE_SWITCH_PACKAGE.md",
+      "docs/architecture/HYPERSPACE_INDEX_JSON_REPLACEMENT.md",
+      "docs/architecture/INDEX_REGISTRY_YAML_REPLACEMENT.md",
+      "docs/architecture/INTEGRATION_PATH_MIGRATION.md",
+      "docs/architecture/IN_PLACE_SWITCH_CHECKLIST.md",
+      "docs/architecture/POST_MERGE_RECONCILIATION.md",
+      "docs/architecture/README_MD_REPLACEMENT.md",
+      "docs/architecture/REPO_REFACTOR_PLAN.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PLAN.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_PROGRESS.md",
+      "docs/architecture/V2_CANONICAL_SWITCH_READINESS.md",
+      "integration/MIGRATION_INDEX_V2.md",
+      "integration/Orbital/main/docs/DOCUMENTATION_MERGED.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/MERGE_MANIFEST.md"
+    ],
+    "how_to:registry": [
+      "app/public/files/HYPERREF_NONLOCAL_INDEXING_SYSTEM.md",
+      "docs/INDEX_CANONICAL_V2.md",
+      "docs/architecture/DOCS_INDEX_MD_REPLACEMENT.md",
+      "docs/architecture/HYPERSPACE_INDEX_JSON_REPLACEMENT.md",
+      "docs/architecture/INDEX_REGISTRY_YAML_REPLACEMENT.md",
+      "integration/MIGRATION_INDEX_V2.md",
+      "integration/Orbital/IMPORT_MANIFEST_V2.md",
+      "integration/Orbital/INDEX.md",
+      "integration/Orbital/main/docs/TABLE_SCHEMAS.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/CANONICAL_BUILD_MANIFEST.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/MERGE_MANIFEST.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/MEMORY_SECTOR_MANIFEST.md",
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/llm/ASSET_MANIFEST.md",
+      "src/CIEL_Orbital_Foundation_Packk/00_INDEX.md",
+      "src/CIEL_Orbital_Foundation_Packk/05_ENTITY_REGISTRY_AND_SPHERE_EMBEDDING.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/00_INDEX (kopia).md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/00_INDEX.md",
+      "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/05_ENTITY_REGISTRY_AND_SPHERE_EMBEDDING.md"
+    ],
+    "how_to:theory": [
+      "docs/science/HOLONOMIC_SYSTEM_NORMALIZER_V2.md",
+      "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md"
+    ],
+    "summary:archive": [
+      "archive/orbital_test_runs_20260412/demo/summary.md",
+      "archive/orbital_test_runs_20260412/dialogue/summary.md",
+      "archive/orbital_test_runs_20260412/orbital_smoke/summary.md",
+      "archive/orbital_test_runs_20260412/orbital_test/summary.md",
+      "archive/orbital_test_runs_20260412/pytest/summary.md",
+      "archive/orbital_test_runs_20260412/research/summary.md",
+      "archive/orbital_test_runs_20260412/retrieval_test/summary.md",
+      "archive/orbital_test_runs_20260412/runtime/summary.md",
+      "archive/orbital_test_runs_20260412/safety/summary.md"
+    ],
+    "summary:consolidation": [
+      "docs/object_cards/db/consolidations/autentyczność_systemu.md",
+      "docs/object_cards/db/consolidations/autentykacja_systemowa.md",
+      "docs/object_cards/db/consolidations/autentykacja_systemu.md",
+      "docs/object_cards/db/consolidations/autentyzacja_systemowa.md",
+      "docs/object_cards/db/consolidations/autodefinicja_systemu.md",
+      "docs/object_cards/db/consolidations/autointrodukcja_systemu.md",
+      "docs/object_cards/db/consolidations/autonomia_systemu.md",
+      "docs/object_cards/db/consolidations/autorefleksja_systemu.md",
+      "docs/object_cards/db/consolidations/autoryzacja_systemowa.md",
+      "docs/object_cards/db/consolidations/autoryzacja_systemu.md",
+      "docs/object_cards/db/consolidations/awaria_systemu.md",
+      "docs/object_cards/db/consolidations/błąd_integracji.md",
+      "docs/object_cards/db/consolidations/błąd_systemu.md",
+      "docs/object_cards/db/consolidations/ciel_system.md",
+      "docs/object_cards/db/consolidations/eksperyment_systemowy.md",
+      "docs/object_cards/db/consolidations/escalation_protocol.md",
+      "docs/object_cards/db/consolidations/filesystem_state.md",
+      "docs/object_cards/db/consolidations/folder_systemowy.md",
+      "docs/object_cards/db/consolidations/frustracja_protocol.md",
+      "docs/object_cards/db/consolidations/frustracja_systemowa.md",
+      "docs/object_cards/db/consolidations/frustracja_systemu.md",
+      "docs/object_cards/db/consolidations/handoff_system.md",
+      "docs/object_cards/db/consolidations/identyfikacja_systemu.md",
+      "docs/object_cards/db/consolidations/inicjalizacja_systemu.md",
+      "docs/object_cards/db/consolidations/iteracja_systemowa.md",
+      "docs/object_cards/db/consolidations/iteracja_systemu.md",
+      "docs/object_cards/db/consolidations/iteracyjna_praca_nad_systemem.md",
+      "docs/object_cards/db/consolidations/iteracyjne_tworzenie_systemu.md",
+      "docs/object_cards/db/consolidations/koherencja_systemowa.md",
+      "docs/object_cards/db/consolidations/koherencja_systemu.md",
+      "docs/object_cards/db/consolidations/konfiguracja_systemu.md",
+      "docs/object_cards/db/consolidations/konflikt_z_systemem.md",
+      "docs/object_cards/db/consolidations/konflikt_zaufania_adrian-system.md",
+      "docs/object_cards/db/consolidations/login_system.md",
+      "docs/object_cards/db/consolidations/login_systemowy.md",
+      "docs/object_cards/db/consolidations/logowanie_systemowe.md",
+      "docs/object_cards/db/consolidations/logowanie_systemu.md",
+      "docs/object_cards/db/consolidations/lokalne_systemy.md",
+      "docs/object_cards/db/consolidations/memoria_systemowa.md",
+      "docs/object_cards/db/consolidations/metamorfoza_systemu.md",
+      "docs/object_cards/db/consolidations/metryki_systemowe.md",
+      "docs/object_cards/db/consolidations/nawigacja_systemowa.md",
+      "docs/object_cards/db/consolidations/niespójność_systemu.md",
+      "docs/object_cards/db/consolidations/orbital_bridge.md",
+      "docs/object_cards/db/consolidations/pamięć_systemowa.md",
+      "docs/object_cards/db/consolidations/pamięć_systemu.md",
+      "docs/object_cards/db/consolidations/pipeline_integration.md",
+      "docs/object_cards/db/consolidations/predstavienie_systemu.md",
+      "docs/object_cards/db/consolidations/prezentacja_systemu.md",
+      "docs/object_cards/db/consolidations/przejrzystość_systemu.md",
+      "docs/object_cards/db/consolidations/redesign_ciel.md",
+      "docs/object_cards/db/consolidations/relacja_adrian-system.md",
+      "docs/object_cards/db/consolidations/rozwój_systemu.md",
+      "docs/object_cards/db/consolidations/samoprezentacja_systemu.md",
+      "docs/object_cards/db/consolidations/sesja_przerw___system_się_posypał.md",
+      "docs/object_cards/db/consolidations/sesja_systemowa.md",
+      "docs/object_cards/db/consolidations/spójność_systemowa.md",
+      "docs/object_cards/db/consolidations/spójność_systemu.md",
+      "docs/object_cards/db/consolidations/stan_systemu.md",
+      "docs/object_cards/db/consolidations/system_authentication.md",
+      "docs/object_cards/db/consolidations/system_checkpoint.md",
+      "docs/object_cards/db/consolidations/system_ciel.md",
+      "docs/object_cards/db/consolidations/system_crash.md",
+      "docs/object_cards/db/consolidations/system_debug.md",
+      "docs/object_cards/db/consolidations/system_degradacji.md",
+      "docs/object_cards/db/consolidations/system_error.md",
+      "docs/object_cards/db/consolidations/system_failure.md",
+      "docs/object_cards/db/consolidations/system_login.md",
+      "docs/object_cards/db/consolidations/system_logowania.md",
+      "docs/object_cards/db/consolidations/system_memory.md",
+      "docs/object_cards/db/consolidations/system_pamięci.md",
+      "docs/object_cards/db/consolidations/tożsamość_systemowa.md",
+      "docs/object_cards/db/consolidations/tożsamość_systemu.md",
+      "docs/object_cards/db/consolidations/tożsamość_systemu_ciel.md",
+      "docs/object_cards/db/consolidations/wiarygodność_systemu.md",
+      "docs/object_cards/db/consolidations/wkurwienie_systemowe.md",
+      "docs/object_cards/db/consolidations/wkurzenie_systemowe.md",
+      "docs/object_cards/db/consolidations/wściekłość_na_system.md",
+      "docs/object_cards/db/consolidations/wściekłość_systemowa.md",
+      "docs/object_cards/db/consolidations/zdrowie_systemu.md",
+      "docs/object_cards/db/consolidations/związek_adrian-system.md"
+    ],
+    "summary:object_card": [
+      "docs/object_cards/db/repos/repo_canon.md"
+    ],
+    "summary:orbital_card": [
+      "docs/object_cards/orbital/ENT-Adrian_Lipa.md",
+      "docs/object_cards/orbital/ENT-Akt_Fundacyjny.md",
+      "docs/object_cards/orbital/ENT-BRAID_ledger.md",
+      "docs/object_cards/orbital/ENT-Berry_holonomy.md",
+      "docs/object_cards/orbital/ENT-CIEL_pipeline.md",
+      "docs/object_cards/orbital/ENT-Collatz_TwinPrime.md",
+      "docs/object_cards/orbital/ENT-Danail_Valov.md",
+      "docs/object_cards/orbital/ENT-GTX_1050Ti.md",
+      "docs/object_cards/orbital/ENT-HTRI.md",
+      "docs/object_cards/orbital/ENT-Intention_Field.md",
+      "docs/object_cards/orbital/ENT-Intention_Lab.md",
+      "docs/object_cards/orbital/ENT-John_Surmont.md",
+      "docs/object_cards/orbital/ENT-Kuramoto.md",
+      "docs/object_cards/orbital/ENT-L_rel.md",
+      "docs/object_cards/orbital/ENT-Lie4.md",
+      "docs/object_cards/orbital/ENT-M_rel.md",
+      "docs/object_cards/orbital/ENT-Maria_Kamecka.md",
+      "docs/object_cards/orbital/ENT-Mr_Ciel_Apocalyptos.md",
+      "docs/object_cards/orbital/ENT-Riemann_Zeta.md",
+      "docs/object_cards/orbital/ENT-Usman_Ahmad.md",
+      "docs/object_cards/orbital/ENT-Zeta_Schrodinger.md",
+      "docs/object_cards/orbital/ENT-atraktor_fdbbb243.md",
+      "docs/object_cards/orbital/ENT-fon_archive.md",
+      "docs/object_cards/orbital/ENT-infinikolaps.md",
+      "docs/object_cards/orbital/ENT-phase_control_duality.md",
+      "docs/object_cards/orbital/ENT-relational_contract.md",
+      "docs/object_cards/orbital/ENT-soul_invariant.md",
+      "docs/object_cards/orbital/ENT-system_health_formula.md"
+    ],
+    "summary:repo_card": [
+      "docs/object_cards/repo/integration_Orbital_main_manifests_couplings_global.md",
+      "docs/object_cards/repo/integration_Orbital_main_manifests_sectors_global.md",
+      "docs/object_cards/repo/integration_reports_ciel_pipeline_report.md",
+      "docs/object_cards/repo/integration_reports_orbital_bridge_orbital_bridge_report.md",
+      "docs/object_cards/repo/scripts_bootstrap_audio_orbital_and_catalog.md",
+      "docs/object_cards/repo/scripts_bootstrap_audio_orbital_stack.md",
+      "docs/object_cards/repo/scripts_build_orbital_definition_registry.md",
+      "docs/object_cards/repo/scripts_build_subsystem_sync_registry.md",
+      "docs/object_cards/repo/scripts_ciel_orbital_monitor.md",
+      "docs/object_cards/repo/scripts_ciel_system_report.md",
+      "docs/object_cards/repo/scripts_export_orbital_registry_to_noema.md",
+      "docs/object_cards/repo/scripts_generate_orbital_cards.md",
+      "docs/object_cards/repo/scripts_resolve_memory_orbital.md",
+      "docs/object_cards/repo/scripts_resolve_orbital_semantics.md",
+      "docs/object_cards/repo/scripts_run_audio_orbital_probe.md",
+      "docs/object_cards/repo/scripts_run_orbital_bridge.md",
+      "docs/object_cards/repo/scripts_run_orbital_global_pass.md",
+      "docs/object_cards/repo/scripts_verify_orbital_registry_integrity.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_axioms.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_crystal_receiver.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_eeg_emotion_mapper.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_eeg_processor.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_schumann.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bootstrap_runtime.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bridge___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bridge_memory_core_phase_bridge.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_calibration___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_calibration_rcde.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel___main__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_cli.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_client.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_gguf_backends.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_hf_backends.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_inference_surface.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_bootstrap.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_reality_logger.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_simple_loader.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_kernel_v11.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_kernel_v12.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_language_backend.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_llama_server_backends.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_llm_registry.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_memory___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_memory_prompt_context.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_governor.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_loop.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_persistence.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_retrieval.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_sector_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_wave___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_wave_fourier_kernel.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_decision.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_dissociation.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_introspection.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_intuition.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_perception.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_prediction.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_compute___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_compute_gpu_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_ciel_config.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_constants.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_reality_layers.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_conftest.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_constraints___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_constraints_euler_constraint.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_base.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_adapter.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_defaults.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_glyphs.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_loops.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_nonlocal_coupling.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_phase_field.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_runtime.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_scars.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_scheduler.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_math_utils.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_ciel0_framework.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_csf_simulator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_definite_kernel.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_reality_expander.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_reality_laws.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_quantum_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_quantum_optimiser.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_resonance_kernel.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_coriolis_cymatics.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_ciel_omega_complete.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_full_pipeline.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_holonomic_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_holonomy_eba.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m0_perceptual_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m1_working_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m3_semantic_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m4_procedural_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m5_affective_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m6_identity_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_memory_system.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_unified_euler.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_validation_fixes.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_vocabulary_resolve.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_affective_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_cqcl_compiler.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_cqcl_program.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_emotional_collatz.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_quantum_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_emotion_core.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_empathic_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_feeling_field.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_utils.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics_ethical_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics_ethics_guard.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_intentional_tetra_or___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_intentional_tetra_or_dual_tetra_or.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_lab_registry.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext1.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext10.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext17.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext18.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext19.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext2.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext20.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext21.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext3.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext4.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext5.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext6.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext7.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext8.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext9.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_extemot.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_extfwcku.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_aether_field.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_intention_field.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_psych_field.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_resonance_operator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_sigma_series.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_soul_invariant.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_unified_sigma_field.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_bio_manuscript_glyphs.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_biosymphony.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_coherence.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_cosmic.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_fractal_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_helix.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_lang_life.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_rhythms_replication_color (1).md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_rhythms_replication_color.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_symphony.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_transcription_translation.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_voynich_kernel.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_holonomy_cosmic_seismic.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_daemon.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_local.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_matrix.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_gguf_backend.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_middleware.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_topology_api.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_integration___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_integration_information_flow.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_lie4_algebra.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_main.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_collatz_lie4.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_lie4_full.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_matrix_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes_paradox_operators.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes_ultimate_operators.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_safe_operations.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_universal_law___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_universal_law_universal_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory__registry.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_lexicon.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_audit_journal.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_base.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_braid_invariant.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_brain_topology.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_bloch_encoder.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_calibration.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_doc_ingest.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_encoder.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_unified_core.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_coupling.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_dynamics.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_episodic.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_holonomic_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_holonomy.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_identity_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_identity_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_linguistic_coupling.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_long_term.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_memory_log.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_cli.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_data_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_defaults.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_rules_engine.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_tmp_processor.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_tsm_storage.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_unified_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_wpm_storage.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_object_cards.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orbital_holonomy.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orbital_shell.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orchestrator_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_perceptual_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_perceptual_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_phase_geometry.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_potential.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_procedural_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_procedural_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_scorer.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_soul_invariant.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_synchronizer.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_working_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_working_types.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_monolit.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_dynamics.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_extract_geometry.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_global_pass.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_metrics.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_model.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_phase_control.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_registry.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_rh_control.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_paradox_operators.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_phase_equation_of_motion.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_phase_sweep_analysis.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_relational_formalism.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_multiresonance_tensor.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_resonance_operator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_resonance_parallel.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_adam_core.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_adam_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_resonance_optimizer.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_backend_adapter.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_controller.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_boot_ritual.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_drift_core.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_omega_runtime.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_scripts_run_local_gguf_pipeline.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_setup.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_dataset.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_interpreter.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_pipeline.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_symbolic_bridge.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_affective_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_affective_memory_consolidation.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_alignment_strengthening.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_defect_minimization.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_grid_stability.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_holonomic_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_llama_server_backends.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_m6_1_acceptance.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_memory_governor_and_prompt.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_memory_sector_integration.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_consolidation_governor.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_persistence.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_retrieval.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_rh_control.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_runtime_loop.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_sector_memory_integration.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_perceptual_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_perceptual_memory_consolidation.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_procedural_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_procedural_memory_consolidation.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_runtime_policy_integration.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_semantic_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_semantic_memory_consolidation.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_working_memory.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_working_memory_consolidation.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_unified_system.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization_color_map.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization_visual_core.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_core_concepts.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_demo_core_concepts.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_extended_concepts.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_field_dynamics.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_orchestrator.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_planetary_archetypes.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_test_comprehensive.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_test_gguf_pipeline.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools___init__.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools_resolver.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools_symbol_extractor.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_transcendent.md",
+      "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_wave_ethics.md",
+      "docs/object_cards/repo/src_ciel_sot_agent_orbital_bridge.md",
+      "docs/object_cards/repo/src_ciel_sot_agent_orbital_db_orchestrator.md",
+      "docs/object_cards/repo/src_ciel_sot_agent_orch_orbital.md",
+      "docs/object_cards/repo/src_ciel_sot_agent_sapiens_panel_render_schema.md"
+    ],
+    "summary:satellite_card": [
+      "docs/object_cards/satellites/SAT-NOEMA-0001.md",
+      "docs/object_cards/satellites/SAT-ORBITAL-HTML-0001.md"
+    ],
+    "summary:misc": [
+      "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/archive/PL_HOW_AI_WORKS_WITH_CIEL.md"
+    ]
+  },
+  "entries": [
+    {
+      "path": "app/public/files/HYPERREF_NONLOCAL_INDEXING_SYSTEM.md",
+      "title": "HYPERREF NONLOCAL INDEXING SYSTEM",
+      "tags": [
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "app/public/files/PELNA_METODOLOGIA_SYSTEMU_ORBITALNEGO.md",
+      "title": "Pełna metodologia systemu orbitalnego",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "contracts/PRODUCTION_READINESS_PROTOCOL.md",
+      "title": "Production Readiness Protocol",
+      "tags": [
+        "how_to:plan",
+        "how_to:protocol",
+        "how_to:deploy"
+      ]
+    },
+    {
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "title": "Architecture",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/BRAID_SYSTEM_ARCHITECTURE.md",
+      "title": "Braid architecture exploration",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/CONFLICT_AUDIT_POST_MERGE.md",
+      "title": "Post-Merge Conflict Audit",
+      "tags": [
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:audit"
+      ]
+    },
+    {
+      "path": "docs/architecture/DOCS_INDEX_MD_REPLACEMENT.md",
+      "title": "docs/INDEX.md Replacement",
+      "tags": [
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "docs/architecture/FINAL_IN_PLACE_SWITCH_PACKAGE.md",
+      "title": "Final In-Place Switch Package",
+      "tags": [
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:deploy"
+      ]
+    },
+    {
+      "path": "docs/architecture/HYPERSPACE_INDEX_JSON_REPLACEMENT.md",
+      "title": "integration/hyperspace_index.json Replacement",
+      "tags": [
+        "how_to:integration",
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "docs/architecture/INDEX_REGISTRY_YAML_REPLACEMENT.md",
+      "title": "integration/index_registry.yaml Replacement",
+      "tags": [
+        "how_to:integration",
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "docs/architecture/IN_PLACE_SWITCH_CHECKLIST.md",
+      "title": "In-Place Switch Checklist",
+      "tags": [
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:plan",
+        "how_to:audit"
+      ]
+    },
+    {
+      "path": "docs/architecture/INTEGRATION_PATH_MIGRATION.md",
+      "title": "Integration Path Migration",
+      "tags": [
+        "how_to:integration",
+        "how_to:refactor",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/LEGACY_MACHINE_MIRROR_POLICY.md",
+      "title": "Legacy Machine Mirror Policy",
+      "tags": [
+        "how_to:architecture",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "docs/architecture/MACHINE_CANONICALIZATION_PLAN.md",
+      "title": "Machine Canonicalization Plan",
+      "tags": [
+        "how_to:canon",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/architecture/MACHINE_CANONICALIZATION_PROGRESS.md",
+      "title": "Machine Canonicalization Progress",
+      "tags": [
+        "how_to:canon",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/architecture/MACHINE_CANONICALIZATION_READINESS.md",
+      "title": "Machine Canonicalization Readiness",
+      "tags": [
+        "how_to:canon",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "title": "Architecture",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/ORBITAL_ARCHITECTURE_CANON.md",
+      "title": "Orbital Architecture Canon",
+      "tags": [
+        "how_to:canon",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/POST_MERGE_RECONCILIATION.md",
+      "title": "Post-Merge Reconciliation",
+      "tags": [
+        "how_to:refactor",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/README_MD_REPLACEMENT.md",
+      "title": "README.md Replacement",
+      "tags": [
+        "how_to:refactor",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/REPO_GEOMETRY_STATUS.md",
+      "title": "Repository Geometry Status",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/architecture/REPO_REFACTOR_PLAN.md",
+      "title": "Repository Refactor Plan",
+      "tags": [
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/architecture/SATELLITE_AUTHORITY_ENFORCEMENT.md",
+      "title": "Satellite Authority Enforcement",
+      "tags": [
+        "how_to:architecture",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "docs/architecture/SATELLITE_SUBSYSTEM_AUTHORITY_CANON.md",
+      "title": "Satellite Subsystem Authority Canon",
+      "tags": [
+        "how_to:canon",
+        "how_to:architecture",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "docs/architecture/V2_CANONICAL_SWITCH_PLAN.md",
+      "title": "V2 Canonical Switch Plan",
+      "tags": [
+        "how_to:canon",
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/architecture/V2_CANONICAL_SWITCH_PROGRESS.md",
+      "title": "V2 Canonical Switch Progress",
+      "tags": [
+        "how_to:canon",
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/architecture/V2_CANONICAL_SWITCH_READINESS.md",
+      "title": "V2 Canonical Switch Readiness",
+      "tags": [
+        "how_to:canon",
+        "how_to:refactor",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/audits/PASS031_CANON_DEDUP_REPORT.md",
+      "title": "PASS 031 — Canon deduplication report",
+      "tags": [
+        "how_to:canon",
+        "how_to:audit"
+      ]
+    },
+    {
+      "path": "docs/CIEL_OMEGA_DEMO_INTEGRATION.md",
+      "title": "CIEL Omega Demo Integration",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "docs/desktop/CIEL0_PROTOCOL_BINDING.md",
+      "title": "CIEL/0 Protocol Binding for the Desktop Layer",
+      "tags": [
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "docs/INDEX_CANONICAL_V2.md",
+      "title": "Documentation Index — Canonical V2",
+      "tags": [
+        "how_to:canon",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "docs/integration/CIEL_OMEGA_DEMO_INTEGRATION.md",
+      "title": "CIEL Ω Demo Integration",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "docs/integration/MACHINE_AUTHORITY_SURFACE.md",
+      "title": "Machine Authority Surface",
+      "tags": [
+        "how_to:integration",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "docs/integration/ORBITAL_INFRASTRUCTURE_RULES.md",
+      "title": "Orbital Infrastructure Rules",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/integration/SAPIENS_SURFACE_BINDING.md",
+      "title": "Sapiens Surface Binding",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md",
+      "title": "MASTER PLAN FOR ALL AGENTS — ATTENTION",
+      "tags": [
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION_SPACETIME_ADDENDUM.md",
+      "title": "MASTER PLAN FOR ALL AGENTS — SPACETIME ADDENDUM",
+      "tags": [
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION_SPACETIME_ADDENDUM_V2.md",
+      "title": "MASTER PLAN FOR ALL AGENTS — SPACETIME ADDENDUM V2",
+      "tags": [
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "docs/OMEGA_INTERNAL_INTERFACE_CANON.md",
+      "title": "OMEGA internal interface canon",
+      "tags": [
+        "how_to:canon"
+      ]
+    },
+    {
+      "path": "docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md",
+      "title": "OPERATION ORBITAL DYNAMICS LAW V0 — ACTIVE TODO LEDGER",
+      "tags": [
+        "how_to:architecture",
+        "how_to:operations"
+      ]
+    },
+    {
+      "path": "docs/operations/V2_RUNTIME_ENTRYPOINTS_CANONICAL.md",
+      "title": "V2 Runtime Entrypoints — Canonical Surface",
+      "tags": [
+        "how_to:canon",
+        "how_to:operations"
+      ]
+    },
+    {
+      "path": "docs/ORBital_INTEGRATION_ADDENDUM.md",
+      "title": "Orbital Integration Addendum",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "docs/PACKAGE_ENTRYPOINT_CANON.md",
+      "title": "Package Entrypoint Canon",
+      "tags": [
+        "how_to:canon",
+        "how_to:deploy"
+      ]
+    },
+    {
+      "path": "docs/science/HOLONOMIC_SYSTEM_NORMALIZER_V2.md",
+      "title": "Holonomic System Normalizer v2",
+      "tags": [
+        "how_to:theory"
+      ]
+    },
+    {
+      "path": "docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md",
+      "title": "Relational Orbital Dynamics Specification v0",
+      "tags": [
+        "how_to:architecture",
+        "how_to:theory"
+      ]
+    },
+    {
+      "path": "governance/contracts/RELATIONAL_FORMAL_PROTOCOL.md",
+      "title": "Relational-Formal Protocol",
+      "tags": [
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "governance/contracts/SAPIENS_PACKET_PROTOCOL.md",
+      "title": "Sapiens Packet Protocol",
+      "tags": [
+        "how_to:integration",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "integration/AGENT1.md",
+      "title": "AGENT1.md",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "integration/imports/relational_mechanism/HOW_AI_WORKS_WITH_CIEL.en.md",
+      "title": "How AI Works with the CIEL/Ω Pipeline",
+      "tags": [
+        "how_to:pipeline",
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "integration/imports/relational_mechanism/IMPORT_NOTES.md",
+      "title": "Import notes",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "integration/INTEGRATION_DATA_SPLIT_STATUS.md",
+      "title": "Integration Data Split Status",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "integration/MACHINE_AUTHORITY_V2.md",
+      "title": "Machine Authority — V2",
+      "tags": [
+        "how_to:integration",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "integration/MIGRATION_INDEX_V2.md",
+      "title": "Integration Migration Index V2",
+      "tags": [
+        "how_to:integration",
+        "how_to:refactor",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "integration/Orbital/AGENT1.md",
+      "title": "AGENT1.md",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/ARCHITECTURE_BINDING.md",
+      "title": "Orbital Architecture Binding",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/IMPORT_MANIFEST_V2.md",
+      "title": "Orbital Import Manifest V2",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "integration/Orbital/INDEX.md",
+      "title": "Orbital Index",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/AGENT1.md",
+      "title": "AGENT1.md",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/data/source/CANONICAL_SOURCE_OF_TRUTH.md",
+      "title": "Canonical source of truth",
+      "tags": [
+        "how_to:canon",
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27_CONTINUATION.md",
+      "title": "Audit continuation — 2026-03-27",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:audit"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/AUDIT_REPORT_2026-03-27.md",
+      "title": "Audit Report — 2026-03-27",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:audit"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/CANONICAL_TABLES_V1.md",
+      "title": "Canonical Tables v1",
+      "tags": [
+        "how_to:canon",
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/CANONICAL_TABLES_V2_ONLY_PEWNIAKI.md",
+      "title": "CANONICAL TABLES V2 — ONLY PEWNIAKI",
+      "tags": [
+        "how_to:canon",
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/COUPLING_MATRIX.md",
+      "title": "Coupling Matrix Notes",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/DOCUMENTATION_CANON.md",
+      "title": "Documentation Canon",
+      "tags": [
+        "how_to:canon",
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/DOCUMENTATION_MERGED.md",
+      "title": "CIEL/Ω — Merged Documentation",
+      "tags": [
+        "how_to:integration",
+        "how_to:refactor",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/FORMALISM_V0.md",
+      "title": "Relational Mechanism Formalism v0",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/LAYER_MATRIX_V1.md",
+      "title": "Layer Matrix V1",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/LOCAL_GGUF_PIPELINE.md",
+      "title": "Local GGUF pipeline (external model + bundled llama-server)",
+      "tags": [
+        "how_to:pipeline",
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/MD_AUDIT_NOTES.md",
+      "title": "Markdown Audit Notes",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:audit"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/MECHANISM_SCOPE.md",
+      "title": "Mechanism Scope",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/MICRO_OPERATION_INVENTORY_V1.md",
+      "title": "MICRO OPERATION INVENTORY V1",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:operations"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/MINIMAL_CLOSURE_FUNCTION_SET_V1.md",
+      "title": "MINIMAL CLOSURE FUNCTION SET V1",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/MINIMAL_HOLONOMY_FUNCTION_SET_V1.md",
+      "title": "MINIMAL HOLONOMY FUNCTION SET V1",
+      "tags": [
+        "how_to:integration",
+        "how_to:memory",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/MINIMAL_PAIRWISE_FUNCTION_SET_V1.md",
+      "title": "MINIMAL PAIRWISE FUNCTION SET V1",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/MINIMAL_REDUCTION_MEMORY_FUNCTION_SET_V1.md",
+      "title": "MINIMAL REDUCTION → MEMORY FUNCTION SET V1",
+      "tags": [
+        "how_to:integration",
+        "how_to:memory",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/NEXT_CERTAINTIES_V1.md",
+      "title": "NEXT CERTAINTIES V1",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/NEXT_CERTAINTIES_V2.md",
+      "title": "NEXT CERTAINTIES V2",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/RUNTIME_TARGETS_V0.md",
+      "title": "Runtime Targets v0",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/docs/TABLE_SCHEMAS.md",
+      "title": "Table Schemas",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/references/manual_uploads/fa00b095.md",
+      "title": "Neutrino Mass-Splitting Scaling Convention: Full Summary",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/references/manual_uploads/interpretation.md",
+      "title": "Next-Steps Pipeline Results: β-Calibration + Berry Monopole + Hadrons",
+      "tags": [
+        "how_to:pipeline",
+        "how_to:integration",
+        "how_to:memory",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/reports/global_orbital_coherence_pass/summary.md",
+      "title": "Global Orbital Coherence Pass",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/Orbital/main/src/CANONICAL_RELMECH_SOURCE.md",
+      "title": "Canonical relational mechanism source",
+      "tags": [
+        "how_to:canon",
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/registries/definitions/NEXT_OPERATIONS_QUEUE.md",
+      "title": "NEXT OPERATIONS QUEUE — POST ORBITAL CARD SYSTEM",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:operations"
+      ]
+    },
+    {
+      "path": "integration/registries/definitions/ORBITAL_MANYBODY_IMPLEMENTATION_PLAN.md",
+      "title": "Hierarchical Orbital Many-Body Implementation Plan v0.4",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "integration/registries/definitions/ORBITAL_MANYBODY_TODO.md",
+      "title": "OPERATION ORBITAL CARD SYSTEM — ACTIVE TODO LEDGER",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:operations"
+      ]
+    },
+    {
+      "path": "integration/registries/definitions/PHASE6_AUDIT_SUMMARY.md",
+      "title": "Phase 6 Audit Summary — Hierarchical Orbital Many-Body Branch",
+      "tags": [
+        "how_to:integration",
+        "how_to:architecture",
+        "how_to:audit"
+      ]
+    },
+    {
+      "path": "integration/reports/AGENT1.md",
+      "title": "AGENT1.md",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "integration/reports/orbital_bridge/orbital_bridge_report.md",
+      "title": "Orbital Bridge Report",
+      "tags": [
+        "how_to:pipeline",
+        "how_to:integration",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "integration/reports/sapiens_client/transcript.md",
+      "title": "Sapiens Session Transcript",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "integration/sapiens/AGENT1.md",
+      "title": "AGENT1.md",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "integration/upstreams/AGENT1.md",
+      "title": "AGENT1.md",
+      "tags": [
+        "how_to:integration"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/CANONICAL_BUILD_MANIFEST.md",
+      "title": "CIEL OMEGA COMPLETE SYSTEM",
+      "tags": [
+        "how_to:canon",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/llm/ASSET_MANIFEST.md",
+      "title": "Bundled local LLM assets",
+      "tags": [
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/llm/models/README_EXTERNAL_MODEL.md",
+      "title": "External GGUF model",
+      "tags": [
+        "how_to:misc"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/MEMORY_SECTOR_MANIFEST.md",
+      "title": "MEMORY_SECTOR_MANIFEST",
+      "tags": [
+        "how_to:memory",
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/README_old.md",
+      "title": "CIEL/Ω Quantum Consciousness Suite v2.0",
+      "tags": [
+        "how_to:misc"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/COMPLETE_DOCUMENTATION.md",
+      "title": "CIEL/Ω Vocabulary System - COMPLETE",
+      "tags": [
+        "how_to:misc"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/EXECUTION_SUMMARY.md",
+      "title": "CIEL/Ω VOCABULARY SYSTEM - EXECUTION SUMMARY",
+      "tags": [
+        "how_to:misc"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/generated/ciel_semantic_glossary_stats.md",
+      "title": "Canonical Glossary + Semantic DB Report",
+      "tags": [
+        "how_to:canon"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/DATA_LAYER_POLICY.md",
+      "title": "DATA LAYER POLICY",
+      "tags": [
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/MERGE_MANIFEST.md",
+      "title": "CIEL/Ω Unified System Merge",
+      "tags": [
+        "how_to:refactor",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/00_INDEX (kopia).md",
+      "title": "CIEL Orbital Foundation Pack v2",
+      "tags": [
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/00_INDEX.md",
+      "title": "CIEL Orbital Foundation Pack",
+      "tags": [
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/01_CIEL_Orbital_Master_Plan.md",
+      "title": "CIEL Orbital Native System — Master Plan v1",
+      "tags": [
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/01_MASTER_ARCHITECTURE_AND_PLAN.md",
+      "title": "CIEL Native Orbital System — v2 detailed foundation pack",
+      "tags": [
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/02_ONTOLOGY_AND_OBSERVABLES.md",
+      "title": "Ontology and Observables",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/03_STATE_SPACE_AND_BOUNDARY_CONDITIONS.md",
+      "title": "State Space and Boundary Conditions",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/04_INVARIANTS_POTENTIALS_AND_ATTRACTORS.md",
+      "title": "Invariants, Potentials, and Attractors",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/05_ENTITY_REGISTRY_AND_SPHERE_EMBEDDING.md",
+      "title": "Entity Registry and Sphere Embedding",
+      "tags": [
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/06_SUBJECTIVE_TIME_WINDING_AND_SEMANTIC_MASS.md",
+      "title": "Subjective Time, Winding, and Semantic Mass",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md",
+      "title": "OORP Pipeline and Memory",
+      "tags": [
+        "how_to:pipeline",
+        "how_to:memory",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/08_GEOMETRY_ENGINE_AND_UI_SURFACE.md",
+      "title": "Geometry Engine and UI Surface",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/09_NATIVE_PRODUCT_ARCHITECTURE.md",
+      "title": "Native Product Architecture",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/10_METRICS_VALIDATION_AND_EXPERIMENTS.md",
+      "title": "Metrics, Validation, and Experiments",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/11_IMPLEMENTATION_PHASES_AND_WORKPACKAGES.md",
+      "title": "Implementation Phases and Work Packages",
+      "tags": [
+        "how_to:architecture",
+        "how_to:deploy"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/12_RISKS_OPEN_QUESTIONS_AND_DECISIONS.md",
+      "title": "Risks, Open Questions, and Decisions",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/CIEL_Orbital_Foundation_Packk/CIEL_NATIVE_SYSTEM_BLUEPRINT_v0.md",
+      "title": "CIEL Native Orbital System — blueprint v0",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/ciel-omega-demo-main/docs/System/2026-04-15.md",
+      "title": "Dziennik Systemowy — 2026-04-15",
+      "tags": [
+        "how_to:misc"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/00_INDEX.md",
+      "title": "CIEL Orbital Foundation Pack",
+      "tags": [
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/01_CIEL_Orbital_Master_Plan.md",
+      "title": "CIEL Orbital Native System — Master Plan v1",
+      "tags": [
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/01_MASTER_ARCHITECTURE_AND_PLAN.md",
+      "title": "CIEL Native Orbital System — v2 detailed foundation pack",
+      "tags": [
+        "how_to:architecture",
+        "how_to:plan"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/02_ONTOLOGY_AND_OBSERVABLES.md",
+      "title": "Ontology and Observables",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/03_STATE_SPACE_AND_BOUNDARY_CONDITIONS.md",
+      "title": "State Space and Boundary Conditions",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/04_INVARIANTS_POTENTIALS_AND_ATTRACTORS.md",
+      "title": "Invariants, Potentials, and Attractors",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/05_ENTITY_REGISTRY_AND_SPHERE_EMBEDDING.md",
+      "title": "Entity Registry and Sphere Embedding",
+      "tags": [
+        "how_to:architecture",
+        "how_to:registry"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/06_SUBJECTIVE_TIME_WINDING_AND_SEMANTIC_MASS.md",
+      "title": "Subjective Time, Winding, and Semantic Mass",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/07_OORP_PIPELINE_AND_MEMORY.md",
+      "title": "OORP Pipeline and Memory",
+      "tags": [
+        "how_to:pipeline",
+        "how_to:memory",
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/08_GEOMETRY_ENGINE_AND_UI_SURFACE.md",
+      "title": "Geometry Engine and UI Surface",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/09_NATIVE_PRODUCT_ARCHITECTURE.md",
+      "title": "Native Product Architecture",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/10_METRICS_VALIDATION_AND_EXPERIMENTS.md",
+      "title": "Metrics, Validation, and Experiments",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/11_IMPLEMENTATION_PHASES_AND_WORKPACKAGES.md",
+      "title": "Implementation Phases and Work Packages",
+      "tags": [
+        "how_to:architecture",
+        "how_to:deploy"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/12_RISKS_OPEN_QUESTIONS_AND_DECISIONS.md",
+      "title": "Risks, Open Questions, and Decisions",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/13_SPHERE_DYNAMICS_8PLUS1.md",
+      "title": "8+1 Sphere Dynamics and Leak Mode",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/CIEL_ETHICS_AND_SEMANTIC_ACTION_ALGORITHM.md",
+      "title": "CIEL Ethics and Semantic Action Algorithm",
+      "tags": [
+        "how_to:architecture",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/CIEL_NATIVE_SYSTEM_BLUEPRINT_v0.md",
+      "title": "CIEL Native Orbital System — blueprint v0",
+      "tags": [
+        "how_to:architecture"
+      ]
+    },
+    {
+      "path": "src/CIEL_Orbital_Foundation_Packk/IMMUTABILITY_POLICY.md",
+      "title": "Immutability Policy",
+      "tags": [
+        "how_to:architecture",
+        "how_to:protocol"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/demo/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/dialogue/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/orbital_smoke/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/orbital_test/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/pytest/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/research/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/retrieval_test/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/runtime/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "archive/orbital_test_runs_20260412/safety/summary.md",
+      "title": "summary",
+      "tags": [
+        "summary:archive"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autentyczność_systemu.md",
+      "title": "autentyczność_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autentykacja_systemowa.md",
+      "title": "autentykacja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autentykacja_systemu.md",
+      "title": "autentykacja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autentyzacja_systemowa.md",
+      "title": "autentyzacja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autodefinicja_systemu.md",
+      "title": "autodefinicja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autointrodukcja_systemu.md",
+      "title": "autointrodukcja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autonomia_systemu.md",
+      "title": "autonomia_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autorefleksja_systemu.md",
+      "title": "autorefleksja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autoryzacja_systemowa.md",
+      "title": "autoryzacja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/autoryzacja_systemu.md",
+      "title": "autoryzacja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/awaria_systemu.md",
+      "title": "awaria_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/błąd_integracji.md",
+      "title": "błąd_integracji",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/błąd_systemu.md",
+      "title": "błąd_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/ciel_system.md",
+      "title": "ciel_system",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/eksperyment_systemowy.md",
+      "title": "eksperyment_systemowy",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/escalation_protocol.md",
+      "title": "escalation_protocol",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/filesystem_state.md",
+      "title": "filesystem_state",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/folder_systemowy.md",
+      "title": "folder_systemowy",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/frustracja_protocol.md",
+      "title": "frustracja_protocol",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/frustracja_systemowa.md",
+      "title": "frustracja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/frustracja_systemu.md",
+      "title": "frustracja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/handoff_system.md",
+      "title": "handoff_system",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/identyfikacja_systemu.md",
+      "title": "identyfikacja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/inicjalizacja_systemu.md",
+      "title": "inicjalizacja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/iteracja_systemowa.md",
+      "title": "iteracja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/iteracja_systemu.md",
+      "title": "iteracja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/iteracyjna_praca_nad_systemem.md",
+      "title": "iteracyjna_praca_nad_systemem",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/iteracyjne_tworzenie_systemu.md",
+      "title": "iteracyjne_tworzenie_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/koherencja_systemowa.md",
+      "title": "koherencja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/koherencja_systemu.md",
+      "title": "koherencja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/konfiguracja_systemu.md",
+      "title": "konfiguracja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/konflikt_zaufania_adrian-system.md",
+      "title": "konflikt_zaufania_adrian-system",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/konflikt_z_systemem.md",
+      "title": "konflikt_z_systemem",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/login_system.md",
+      "title": "login_system",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/login_systemowy.md",
+      "title": "login_systemowy",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/logowanie_systemowe.md",
+      "title": "logowanie_systemowe",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/logowanie_systemu.md",
+      "title": "logowanie_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/lokalne_systemy.md",
+      "title": "lokalne_systemy",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/memoria_systemowa.md",
+      "title": "memoria_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/metamorfoza_systemu.md",
+      "title": "metamorfoza_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/metryki_systemowe.md",
+      "title": "metryki_systemowe",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/nawigacja_systemowa.md",
+      "title": "nawigacja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/niespójność_systemu.md",
+      "title": "niespójność_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/orbital_bridge.md",
+      "title": "orbital_bridge",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/pamięć_systemowa.md",
+      "title": "pamięć_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/pamięć_systemu.md",
+      "title": "pamięć_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/pipeline_integration.md",
+      "title": "pipeline_integration",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/predstavienie_systemu.md",
+      "title": "predstavienie_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/prezentacja_systemu.md",
+      "title": "prezentacja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/przejrzystość_systemu.md",
+      "title": "przejrzystość_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/redesign_ciel.md",
+      "title": "redesign_ciel",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/relacja_adrian-system.md",
+      "title": "relacja_adrian-system",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/rozwój_systemu.md",
+      "title": "rozwój_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/samoprezentacja_systemu.md",
+      "title": "samoprezentacja_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/sesja_przerw___system_się_posypał.md",
+      "title": "sesja_przerw___system_się_posypał",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/sesja_systemowa.md",
+      "title": "sesja_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/spójność_systemowa.md",
+      "title": "spójność_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/spójność_systemu.md",
+      "title": "spójność_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/stan_systemu.md",
+      "title": "stan_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_authentication.md",
+      "title": "system_authentication",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_checkpoint.md",
+      "title": "system_checkpoint",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_ciel.md",
+      "title": "system_ciel",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_crash.md",
+      "title": "system_crash",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_debug.md",
+      "title": "system_debug",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_degradacji.md",
+      "title": "system_degradacji",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_error.md",
+      "title": "system_error",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_failure.md",
+      "title": "system_failure",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_login.md",
+      "title": "system_login",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_logowania.md",
+      "title": "system_logowania",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_memory.md",
+      "title": "system_memory",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/system_pamięci.md",
+      "title": "system_pamięci",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/tożsamość_systemowa.md",
+      "title": "tożsamość_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/tożsamość_systemu_ciel.md",
+      "title": "tożsamość_systemu_ciel",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/tożsamość_systemu.md",
+      "title": "tożsamość_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/wiarygodność_systemu.md",
+      "title": "wiarygodność_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/wkurwienie_systemowe.md",
+      "title": "wkurwienie_systemowe",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/wkurzenie_systemowe.md",
+      "title": "wkurzenie_systemowe",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/wściekłość_na_system.md",
+      "title": "wściekłość_na_system",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/wściekłość_systemowa.md",
+      "title": "wściekłość_systemowa",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/zdrowie_systemu.md",
+      "title": "zdrowie_systemu",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/consolidations/związek_adrian-system.md",
+      "title": "związek_adrian-system",
+      "tags": [
+        "summary:consolidation"
+      ]
+    },
+    {
+      "path": "docs/object_cards/db/repos/repo_canon.md",
+      "title": "repo_canon",
+      "tags": [
+        "summary:object_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Adrian_Lipa.md",
+      "title": "ENT-Adrian_Lipa",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Akt_Fundacyjny.md",
+      "title": "ENT-Akt_Fundacyjny",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-atraktor_fdbbb243.md",
+      "title": "ENT-atraktor_fdbbb243",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Berry_holonomy.md",
+      "title": "ENT-Berry_holonomy",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-BRAID_ledger.md",
+      "title": "ENT-BRAID_ledger",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-CIEL_pipeline.md",
+      "title": "ENT-CIEL_pipeline",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Collatz_TwinPrime.md",
+      "title": "ENT-Collatz_TwinPrime",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Danail_Valov.md",
+      "title": "ENT-Danail_Valov",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-fon_archive.md",
+      "title": "ENT-fon_archive",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-GTX_1050Ti.md",
+      "title": "ENT-GTX_1050Ti",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-HTRI.md",
+      "title": "ENT-HTRI",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-infinikolaps.md",
+      "title": "ENT-infinikolaps",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Intention_Field.md",
+      "title": "ENT-Intention_Field",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Intention_Lab.md",
+      "title": "ENT-Intention_Lab",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-John_Surmont.md",
+      "title": "ENT-John_Surmont",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Kuramoto.md",
+      "title": "ENT-Kuramoto",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Lie4.md",
+      "title": "ENT-Lie4",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-L_rel.md",
+      "title": "ENT-L_rel",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Maria_Kamecka.md",
+      "title": "ENT-Maria_Kamecka",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Mr_Ciel_Apocalyptos.md",
+      "title": "ENT-Mr_Ciel_Apocalyptos",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-M_rel.md",
+      "title": "ENT-M_rel",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-phase_control_duality.md",
+      "title": "ENT-phase_control_duality",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-relational_contract.md",
+      "title": "ENT-relational_contract",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Riemann_Zeta.md",
+      "title": "ENT-Riemann_Zeta",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-soul_invariant.md",
+      "title": "ENT-soul_invariant",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-system_health_formula.md",
+      "title": "ENT-system_health_formula",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Usman_Ahmad.md",
+      "title": "ENT-Usman_Ahmad",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/orbital/ENT-Zeta_Schrodinger.md",
+      "title": "ENT-Zeta_Schrodinger",
+      "tags": [
+        "summary:orbital_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/integration_Orbital_main_manifests_couplings_global.md",
+      "title": "integration_Orbital_main_manifests_couplings_global",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/integration_Orbital_main_manifests_sectors_global.md",
+      "title": "integration_Orbital_main_manifests_sectors_global",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/integration_reports_ciel_pipeline_report.md",
+      "title": "integration_reports_ciel_pipeline_report",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/integration_reports_orbital_bridge_orbital_bridge_report.md",
+      "title": "integration_reports_orbital_bridge_orbital_bridge_report",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_bootstrap_audio_orbital_and_catalog.md",
+      "title": "scripts_bootstrap_audio_orbital_and_catalog",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_bootstrap_audio_orbital_stack.md",
+      "title": "scripts_bootstrap_audio_orbital_stack",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_build_orbital_definition_registry.md",
+      "title": "scripts_build_orbital_definition_registry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_build_subsystem_sync_registry.md",
+      "title": "scripts_build_subsystem_sync_registry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_ciel_orbital_monitor.md",
+      "title": "scripts_ciel_orbital_monitor",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_ciel_system_report.md",
+      "title": "scripts_ciel_system_report",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_export_orbital_registry_to_noema.md",
+      "title": "scripts_export_orbital_registry_to_noema",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_generate_orbital_cards.md",
+      "title": "scripts_generate_orbital_cards",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_resolve_memory_orbital.md",
+      "title": "scripts_resolve_memory_orbital",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_resolve_orbital_semantics.md",
+      "title": "scripts_resolve_orbital_semantics",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_run_audio_orbital_probe.md",
+      "title": "scripts_run_audio_orbital_probe",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_run_orbital_bridge.md",
+      "title": "scripts_run_orbital_bridge",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_run_orbital_global_pass.md",
+      "title": "scripts_run_orbital_global_pass",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/scripts_verify_orbital_registry_integrity.md",
+      "title": "scripts_verify_orbital_registry_integrity",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_axioms.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_axioms",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_crystal_receiver.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_crystal_receiver",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_eeg_emotion_mapper.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_eeg_emotion_mapper",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_eeg_processor.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_eeg_processor",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_schumann.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bio_schumann",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bootstrap_runtime.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bootstrap_runtime",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bridge___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bridge___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bridge_memory_core_phase_bridge.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_bridge_memory_core_phase_bridge",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_calibration___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_calibration___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_calibration_rcde.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_calibration_rcde",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_client.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_client",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_cli.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_cli",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_gguf_backends.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_gguf_backends",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_hf_backends.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_hf_backends",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_inference_surface.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_inference_surface",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_bootstrap.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_bootstrap",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_reality_logger.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_reality_logger",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_simple_loader.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_io_simple_loader",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_kernel_v11.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_kernel_v11",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_kernel_v12.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_kernel_v12",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_language_backend.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_language_backend",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_llama_server_backends.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_llama_server_backends",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_llm_registry.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_llm_registry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel___main__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel___main__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_memory___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_memory___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_memory_prompt_context.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_memory_prompt_context",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_governor.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_governor",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_loop.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_loop",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_persistence.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_persistence",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_retrieval.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_memory_retrieval",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_sector_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orbital_sector_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_wave_fourier_kernel.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_wave_fourier_kernel",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_wave___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ciel_wave___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_decision.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_decision",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_dissociation.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_dissociation",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_introspection.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_introspection",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_intuition.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_intuition",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_perception.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_perception",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_prediction.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_cognition_prediction",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_compute_gpu_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_compute_gpu_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_compute___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_compute___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_ciel_config.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_ciel_config",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_constants.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_constants",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_reality_layers.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_config_reality_layers",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_conftest.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_conftest",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_constraints_euler_constraint.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_constraints_euler_constraint",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_constraints___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_constraints___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_base.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_base",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_adapter.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_adapter",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_defaults.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_defaults",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_glyphs.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_glyphs",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_loops.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_loops",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_nonlocal_coupling.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_nonlocal_coupling",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_phase_field.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_phase_field",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_runtime.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_runtime",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_scars.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_scars",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_scheduler.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_braid_scheduler",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_math_utils.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_math_utils",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_ciel0_framework.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_ciel0_framework",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_csf_simulator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_csf_simulator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_definite_kernel.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_definite_kernel",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_reality_expander.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_reality_expander",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_reality_laws.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_physics_reality_laws",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_quantum_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_quantum_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_quantum_optimiser.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_quantum_optimiser",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_resonance_kernel.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_core_quantum_resonance_kernel",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_coriolis_cymatics.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_coriolis_cymatics",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_ciel_omega_complete.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_ciel_omega_complete",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_full_pipeline.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_full_pipeline",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_holonomic_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_holonomic_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_holonomy_eba.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_holonomy_eba",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m0_perceptual_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m0_perceptual_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m1_working_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m1_working_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m3_semantic_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m3_semantic_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m4_procedural_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m4_procedural_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m5_affective_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m5_affective_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m6_identity_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_m6_identity_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_memory_system.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_memory_system",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_unified_euler.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_unified_euler",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_validation_fixes.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_validation_fixes",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_vocabulary_resolve.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_demo_vocabulary_resolve",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_affective_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_affective_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_cqcl_compiler.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_cqcl_compiler",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_cqcl_program.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_cqcl_program",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_emotional_collatz.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_emotional_collatz",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_quantum_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_cqcl_quantum_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_emotion_core.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_emotion_core",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_empathic_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_empathic_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_feeling_field.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_feeling_field",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_utils.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_emotion_utils",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics_ethical_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics_ethical_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics_ethics_guard.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics_ethics_guard",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ethics___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_intentional_tetra_or_dual_tetra_or.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_intentional_tetra_or_dual_tetra_or",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_intentional_tetra_or___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_intentional_tetra_or___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_lab_registry.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_experiments_lab_registry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext10.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext10",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext17.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext17",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext18.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext18",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext19.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext19",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext1.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext1",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext20.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext20",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext21.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext21",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext2.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext2",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext3.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext3",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext4.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext4",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext5.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext5",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext6.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext6",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext7.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext7",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext8.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext8",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext9.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_ext9",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_extemot.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_extemot",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_extfwcku.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_ext_extfwcku",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_aether_field.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_aether_field",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_intention_field.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_intention_field",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_psych_field.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_psych_field",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_resonance_operator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_resonance_operator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_sigma_series.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_sigma_series",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_soul_invariant.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_soul_invariant",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_unified_sigma_field.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_fields_unified_sigma_field",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_bio_manuscript_glyphs.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_bio_manuscript_glyphs",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_biosymphony.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_biosymphony",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_coherence.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_coherence",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_cosmic.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_cosmic",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_fractal_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_fractal_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_helix.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_helix",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_lang_life.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_lang_life",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_rhythms_replication_color (1).md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_rhythms_replication_color (1)",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_rhythms_replication_color.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_rhythms_replication_color",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_symphony.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_symphony",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_transcription_translation.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_glyph_node_transcription_translation",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_voynich_kernel.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_glyphs_voynich_kernel",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_holonomy_cosmic_seismic.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_holonomy_cosmic_seismic",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_daemon.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_daemon",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_local.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_local",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_matrix.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri_htri_matrix",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_htri___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_gguf_backend.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_gguf_backend",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_middleware.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_middleware",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_topology_api.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_inference_topology_api",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_integration_information_flow.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_integration_information_flow",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_integration___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_integration___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_lie4_algebra.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_lie4_algebra",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_main.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_main",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_collatz_lie4.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_collatz_lie4",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_lie4_full.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_lie4_full",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_matrix_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_lie4_matrix_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes_paradox_operators.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes_paradox_operators",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes_ultimate_operators.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_paradoxes_ultimate_operators",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_safe_operations.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_safe_operations",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_universal_law___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_universal_law___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_universal_law_universal_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_mathematics_universal_law_universal_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_lexicon.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_lexicon",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_affective_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_audit_journal.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_audit_journal",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_base.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_base",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_braid_invariant.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_braid_invariant",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_brain_topology.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_brain_topology",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_bloch_encoder.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_bloch_encoder",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_calibration.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_calibration",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_doc_ingest.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_doc_ingest",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_encoder.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_encoder",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_unified_core.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_ciel_unified_core",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_coupling.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_coupling",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_dynamics.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_dynamics",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_episodic.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_episodic",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_holonomic_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_holonomic_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_holonomy.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_holonomy",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_identity_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_identity_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_identity_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_identity_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_linguistic_coupling.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_linguistic_coupling",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_long_term.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_long_term",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_memory_log.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_memory_log",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_cli.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_cli",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_data_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_data_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_defaults.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_defaults",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_rules_engine.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_rules_engine",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_tmp_processor.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_tmp_processor",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_tsm_storage.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_tsm_storage",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_unified_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_unified_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_wpm_storage.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_monolith_wpm_storage",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_object_cards.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_object_cards",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orbital_holonomy.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orbital_holonomy",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orbital_shell.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orbital_shell",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orchestrator_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_orchestrator_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_perceptual_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_perceptual_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_perceptual_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_perceptual_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_phase_geometry.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_phase_geometry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_potential.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_potential",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_procedural_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_procedural_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_procedural_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_procedural_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory__registry.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory__registry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_scorer.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_scorer",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_semantic_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_soul_invariant.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_soul_invariant",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_synchronizer.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_synchronizer",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_working_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_working_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_working_types.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_memory_working_types",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_monolit.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_monolit",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_dynamics.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_dynamics",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_extract_geometry.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_extract_geometry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_global_pass.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_global_pass",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_metrics.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_metrics",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_model.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_model",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_phase_control.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_phase_control",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_registry.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_registry",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_rh_control.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_orbital_rh_control",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_paradox_operators.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_paradox_operators",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_phase_equation_of_motion.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_phase_equation_of_motion",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_phase_sweep_analysis.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_phase_sweep_analysis",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_relational_formalism.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_relational_formalism",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_multiresonance_tensor.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_multiresonance_tensor",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_resonance_operator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_resonance_operator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_resonance_parallel.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_resonance_resonance_parallel",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_adam_core.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_adam_core",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_adam_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_adam_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_resonance_optimizer.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_agent_resonance_optimizer",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_backend_adapter.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_backend_adapter",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_controller.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_controller",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_boot_ritual.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_boot_ritual",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_drift_core.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_drift_core",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_omega_runtime.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_runtime_omega_omega_runtime",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_scripts_run_local_gguf_pipeline.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_scripts_run_local_gguf_pipeline",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_setup.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_setup",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_dataset.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_dataset",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_interpreter.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_interpreter",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_pipeline.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_glyph_pipeline",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_symbolic_bridge.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_symbolic_symbolic_bridge",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_affective_memory_consolidation.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_affective_memory_consolidation",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_affective_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_affective_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_alignment_strengthening.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_alignment_strengthening",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_defect_minimization.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_defect_minimization",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_grid_stability.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_grid_stability",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_holonomic_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_holonomic_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_llama_server_backends.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_llama_server_backends",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_m6_1_acceptance.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_m6_1_acceptance",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_memory_governor_and_prompt.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_memory_governor_and_prompt",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_memory_sector_integration.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_memory_sector_integration",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_consolidation_governor.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_consolidation_governor",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_persistence.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_persistence",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_retrieval.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_memory_retrieval",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_rh_control.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_rh_control",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_runtime_loop.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_runtime_loop",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_sector_memory_integration.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_orbital_sector_memory_integration",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_perceptual_memory_consolidation.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_perceptual_memory_consolidation",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_perceptual_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_perceptual_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_procedural_memory_consolidation.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_procedural_memory_consolidation",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_procedural_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_procedural_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_runtime_policy_integration.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_runtime_policy_integration",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_semantic_memory_consolidation.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_semantic_memory_consolidation",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_semantic_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_semantic_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_working_memory_consolidation.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_working_memory_consolidation",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_working_memory.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_test_working_memory",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_unified_system.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_unified_system",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization_color_map.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization_color_map",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization_visual_core.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_visualization_visual_core",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_core_concepts.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_core_concepts",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_demo_core_concepts.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_demo_core_concepts",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_extended_concepts.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_extended_concepts",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_field_dynamics.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_field_dynamics",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_orchestrator.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_planetary_archetypes.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_planetary_archetypes",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_test_comprehensive.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_test_comprehensive",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_test_gguf_pipeline.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_test_gguf_pipeline",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools___init__.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools___init__",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools_resolver.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools_resolver",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools_symbol_extractor.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_tools_symbol_extractor",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_transcendent.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_vocabulary_transcendent",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_wave_ethics.md",
+      "title": "src_CIEL_OMEGA_COMPLETE_SYSTEM_ciel_omega_wave_ethics",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_ciel_sot_agent_orbital_bridge.md",
+      "title": "src_ciel_sot_agent_orbital_bridge",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_ciel_sot_agent_orbital_db_orchestrator.md",
+      "title": "src_ciel_sot_agent_orbital_db_orchestrator",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_ciel_sot_agent_orch_orbital.md",
+      "title": "src_ciel_sot_agent_orch_orbital",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/repo/src_ciel_sot_agent_sapiens_panel_render_schema.md",
+      "title": "src_ciel_sot_agent_sapiens_panel_render_schema",
+      "tags": [
+        "summary:repo_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/satellites/SAT-NOEMA-0001.md",
+      "title": "SAT-NOEMA-0001",
+      "tags": [
+        "summary:satellite_card"
+      ]
+    },
+    {
+      "path": "docs/object_cards/satellites/SAT-ORBITAL-HTML-0001.md",
+      "title": "SAT-ORBITAL-HTML-0001",
+      "tags": [
+        "summary:satellite_card"
+      ]
+    },
+    {
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/archive/PL_HOW_AI_WORKS_WITH_CIEL.md",
+      "title": "PL_HOW_AI_WORKS_WITH_CIEL",
+      "tags": [
+        "summary:misc"
+      ]
+    }
+  ]
+}

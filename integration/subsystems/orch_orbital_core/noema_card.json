@@ -1,0 +1,37 @@
+{
+  "schema": "ciel/noema-card/v0.1",
+  "noema_id": "NL-ORCH-CORE-0001",
+  "subsystem_id": "orch_orbital_core",
+  "name": "OrchOrbital — Entity Injection Core",
+  "sector_name": "orch_orbital_core",
+  "orbital_level": 1,
+  "orbital_type": "S",
+  "theta": 0.35,
+  "rho": 0.174989,
+  "M_sem": 0.88,
+  "gravity_role": "CORE_INJECTOR",
+  "python_module": "orch_orbital",
+  "input_from": [
+    "ciel_entity_cards"
+  ],
+  "output_to": [
+    "orbital_bridge_core"
+  ],
+  "key_metrics": [
+    "entity_count",
+    "mean_entity_defect",
+    "mean_coupling_ciel",
+    "sealed_count"
+  ],
+  "diagnosis_debt": [],
+  "created": "2026-05-08T00:54:26.519372+00:00",
+  "notes": "Injector entity cards do pola orbitalnego. Wczytuje ciel_entity_cards.yaml, oblicza defekty i sprzężenia CIEL dla każdej encji. Zasila orbital_bridge. state.db: entity_count, mean_entity_defect, mean_coupling_ciel.",
+  "tags": [
+    "entities",
+    "injection",
+    "coupling",
+    "relational",
+    "lv1",
+    "priority_4"
+  ]
+}

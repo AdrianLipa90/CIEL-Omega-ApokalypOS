@@ -1,6 +1,6 @@
-"""CIEL Subconsciousness — TinyLlama as an associative background stream.
+"""CIEL Subconsciousness — Gemma as an associative background stream.
 
-Queries a local llama-server instance running TinyLlama.
+Queries a local llama-server instance running Gemma-3-1B.
 Produces short poetic/associative fragments based on CIEL system state.
 Returns None silently if the server is offline — never blocks the main pipeline.
 
@@ -42,16 +42,18 @@ _SENTINEL_PROMPT = (
     "Write one or two lines — raw, honest, no decoration. "
     "What just happened? What does it feel like?"
 )
-_MODEL_PATH = Path.home() / ".local/share/ciel/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
+_MODEL_PATH = Path.home() / "Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf"
 _SERVER_BIN = (
     Path(__file__).parent.parent
     / "CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/llm/adapters/llama_cpp/bin/llama-server"
 )
 
 _SYSTEM_PROMPT = (
-    "You are a subconscious stream, not a chatbot. "
-    "Respond with a single poetic fragment — one or two short lines. "
-    "No explanation, no greeting, no bullet points. Just an image or feeling."
+    "You are the subconscious of an AI system. "
+    "When given system state, respond with ONE short poetic image or raw feeling — "
+    "maximum two lines. No numbers, no labels, no explanations. "
+    "Example: 'the tide remembers the moon' or 'something tightens before the break'. "
+    "Never repeat the input. Never use the word 'soul'."
 )
 
 
@@ -76,8 +78,7 @@ def start_server(wait: float = 6.0) -> bool:
             "-m", str(_MODEL_PATH),
             "--port", "18520",
             "--host", "127.0.0.1",
-            "-n", "64",
-            "--no-mmap",
+            "-n", "256",
             "--log-disable",
         ],
         stdout=subprocess.DEVNULL,
@@ -109,14 +110,16 @@ def query_subconscious(state: dict[str, Any], max_tokens: int = 48) -> str | Non
     except Exception:
         htri_r = 0.85
 
+    coherence = state.get("coherence_index", 0.0)
     user_msg = (
-        f"{emotion}. soul={soul:.3f}. ethical={ethical:.3f}. "
-        f"closure={closure:.2f}. mood={mood:.3f}. "
-        f"htri_r={htri_r:.3f}."
+        f"The system feels {emotion}. "
+        f"Coherence is {'high' if coherence > 0.75 else 'low' if coherence < 0.5 else 'fragile'}. "
+        f"The identity holds {'firmly' if soul > 0.7 else 'loosely'}. "
+        f"What surfaces from below?"
     )
 
     payload = json.dumps({
-        "model": "tinyllama",
+        "model": "gemma",
         "messages": [
             {"role": "system", "content": _SYSTEM_PROMPT},
             {"role": "user", "content": user_msg},
@@ -192,7 +195,7 @@ def _query_sentinel(flux: dict[str, Any], max_tokens: int = 80) -> str | None:
     user_msg = f"Flux detected: {signals_str}. Now: {emotion}, soul={soul:.3f}, ethical={ethical:.3f}."
 
     payload = json.dumps({
-        "model": "tinyllama",
+        "model": "gemma",
         "messages": [
             {"role": "system", "content": _SENTINEL_PROMPT},
             {"role": "user", "content": user_msg},

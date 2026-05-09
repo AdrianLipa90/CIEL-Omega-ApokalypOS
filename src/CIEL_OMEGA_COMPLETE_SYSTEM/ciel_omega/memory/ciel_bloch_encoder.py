@@ -280,15 +280,17 @@ def _token_mass(
 
 # ── Sektor weights (WΩ) ───────────────────────────────────────────────────────
 
-def _load_sector_weights() -> np.ndarray | None:
-    """Załaduj WΩ z bloch_weights.npz lub zwróć None."""
+def _load_sector_weights() -> tuple[np.ndarray | None, np.ndarray | None]:
+    """Załaduj WΩ i IA (Identity Attractor) z bloch_weights.npz."""
     if _WEIGHTS_FILE.exists():
         try:
             w = np.load(str(_WEIGHTS_FILE))
-            return w["WO"].astype(np.float32)   # (10, 3) — centroids na sferze Blocha
+            wo = w["WO"].astype(np.float32)
+            ia = w["IA"].astype(np.float32) if "IA" in w else None
+            return wo, ia
         except Exception:
             pass
-    return None
+    return None, None
 
 
 def _init_sector_weights(mass_table: dict[str, float] | None = None) -> np.ndarray:
@@ -323,7 +325,8 @@ def _init_sector_weights(mass_table: dict[str, float] | None = None) -> np.ndarr
             ], dtype=np.float32)
         log.info("WΩ seeded from %d orbital sectors", min(len(sector_masses), 10))
 
-    np.savez(str(_WEIGHTS_FILE), WO=vecs)
+    ia = np.zeros(3, dtype=np.float32)  # Identity Attractor starts at center
+    np.savez(str(_WEIGHTS_FILE), WO=vecs, IA=ia)
     return vecs
 
 
@@ -345,16 +348,21 @@ class CIELBlochEncoder:
         self._noun_index = self._load_full_noun_index()
         log.info("OrbitalNounIndex: %d words", len(self._noun_index))
 
-        # WΩ centroidy — seed z M_sem sektorów jeśli plik nie istnieje
-        self._WO = _load_sector_weights()
+        # WΩ centroidy + IA (Identity Attractor) — seed jeśli plik nie istnieje
+        self._WO, ia = _load_sector_weights()
         if self._WO is None:
             self._WO = _init_sector_weights(self._mass_table)
+            ia = None
+
+        # Identity Attractor vector — centrum sfery Blocha (nie punkt na powierzchni)
+        self._ia: np.ndarray = ia if ia is not None else np.zeros(3, dtype=np.float32)
 
         self._berry_acc = _load_berry_accumulated()
         self._cqcl_phase = _load_cqcl_phase()
+        ia_norm = float(np.linalg.norm(self._ia))
         log.info(
-            "BlochEncoder init: berry_acc=%.4f, cqcl=%.4f, orbital_objects=%d",
-            self._berry_acc, self._cqcl_phase, len(self._mass_table)
+            "BlochEncoder init: berry_acc=%.4f, cqcl=%.4f, orbital_objects=%d, IA_norm=%.4f",
+            self._berry_acc, self._cqcl_phase, len(self._mass_table), ia_norm
         )
 
     def encode(self, text: str, context: dict[str, Any] | None = None) -> BlochEncoderResult:
@@ -380,6 +388,11 @@ class CIELBlochEncoder:
 
         # Sektor
         sector_dist = self._sector_distribution(bloch_vec)
+
+        # IA update — gdy dominant sektor to 'identity', przesuń centrum atraktora
+        dominant_idx = int(np.argmax(sector_dist))
+        if SECTORS[dominant_idx] == "identity":
+            self.update_identity_attractor(bloch_vec)
 
         return BlochEncoderResult(
             phase=phi_final,
@@ -455,8 +468,25 @@ class CIELBlochEncoder:
         return cmath.phase(z) % (2 * math.pi)
 
     def _sector_distribution(self, bloch_vec: np.ndarray) -> np.ndarray:
-        """Softmax podobieństwa cosinusowego do centroidów WΩ."""
+        """Softmax podobieństwa cosinusowego do centroidów WΩ z korektą IA.
+
+        Identity Attractor (IA) działa jako pole grawitacyjne wewnątrz sfery:
+        stany bliskie kierunkowi IA dostają bonus do sektora 'identity' (idx 0).
+        Siła korekty proporcjonalna do normy IA — gdy IA = (0,0,0) brak efektu.
+        """
         dots = self._WO @ bloch_vec   # (10,)
+
+        # Korekta od Identity Attractor
+        ia_norm = float(np.linalg.norm(self._ia))
+        if ia_norm > 1e-9:
+            ia_dir = self._ia / ia_norm
+            ia_pull = float(np.dot(ia_dir, bloch_vec.astype(np.float32)))
+            ia_pull = max(0.0, ia_pull)
+            # Bonus do sektora identity (idx 0) proporcjonalny do ia_pull i siły IA
+            # ia_norm ograniczona do [0,1] — IA nie może dominować nad WΩ
+            ia_strength = min(ia_norm, 1.0) * 0.4  # max 0.4 punktu bonusu
+            dots[0] += ia_strength * ia_pull
+
         # Temperature softmax — T=0.5 dla ostrzejszego przypisania
         exp = np.exp((dots - dots.max()) / 0.5)
         return (exp / exp.sum()).astype(np.float32)
@@ -528,11 +558,22 @@ class CIELBlochEncoder:
             # Renormalizuj centroidy na sferze
             norms = np.linalg.norm(self._WO, axis=1, keepdims=True)
             self._WO /= np.maximum(norms, 1e-9)
-            # Zapisz zaktualizowane wagi
-            np.savez(str(_WEIGHTS_FILE), WO=self._WO.astype(np.float32))
+            # Zapisz zaktualizowane wagi + IA
+            np.savez(str(_WEIGHTS_FILE), WO=self._WO.astype(np.float32), IA=self._ia)
             log.info("BlochEncoder online_update: %d updates, lr=%.3f", updated, lr)
 
         return updated
+
+    def update_identity_attractor(self, bloch_vec: np.ndarray, lr: float = 0.005) -> None:
+        """Przesuń Identity Attractor w kierunku nowego stanu Blocha.
+
+        Wywołaj gdy tekst jest zaklasyfikowany do sektora 'identity'.
+        lr=0.005 — bardzo wolny dryf, odpowiada tau=180 z CHANNEL_PARAMS[6].
+        Zapis do pliku następuje natychmiast — IA musi przetrwać sesje.
+        """
+        self._ia += lr * (bloch_vec.astype(np.float32) - self._ia)
+        np.savez(str(_WEIGHTS_FILE), WO=self._WO.astype(np.float32), IA=self._ia)
+        log.debug("IA updated: norm=%.4f, vec=%s", float(np.linalg.norm(self._ia)), self._ia)
 
     def online_update_from_orbital_cards(
         self,

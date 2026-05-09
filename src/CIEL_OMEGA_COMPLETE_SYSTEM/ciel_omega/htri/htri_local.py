@@ -39,6 +39,16 @@ def plo_frequencies_local(n: int, f_base: float = 1.0,
     return np.array([f_base + (i / max(n, 1)) * spread for i in range(n)], dtype=np.float64)
 
 
+def critical_kappa(n: int, margin: float = 1.5) -> float:
+    """Kuramoto critical coupling K_c = 2*std(omegas), scaled by safety margin.
+
+    Emergent — derived from the actual frequency distribution, not hardcoded.
+    margin=1.5 puts the system solidly above the synchronization threshold.
+    """
+    omegas = plo_frequencies_local(n)
+    return 2.0 * float(np.std(omegas)) * margin
+
+
 # ── Dense phase network wrapper ─────────────────────────────────────────────
 
 @dataclass
@@ -109,7 +119,7 @@ class CPUHtri:
     """12 PLO - one per logical thread of the i7-8750H."""
 
     def __init__(self):
-        self.bank = OscillatorBank(n=CPU_THREADS, kappa=0.15, dt=0.001)
+        self.bank = OscillatorBank(n=CPU_THREADS, kappa=critical_kappa(CPU_THREADS), dt=0.001)
 
     def run(self, steps: int = 500) -> dict[str, Any]:
         m = self.bank.run(steps)
@@ -138,7 +148,7 @@ class GPUHtri:
             self._cuda = True
         except Exception:
             pass  # numpy fallback remains active
-        self.bank = OscillatorBank(n=GPU_CORES, kappa=0.1, dt=0.001)
+        self.bank = OscillatorBank(n=GPU_CORES, kappa=critical_kappa(GPU_CORES), dt=0.001)
 
     def run(self, steps: int = 500) -> dict[str, Any]:
         if self._cuda:

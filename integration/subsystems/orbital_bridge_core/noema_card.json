@@ -1,0 +1,39 @@
+{
+  "schema": "ciel/noema-card/v0.1",
+  "noema_id": "NL-BRIDGE-CORE-0001",
+  "subsystem_id": "orbital_bridge_core",
+  "name": "Orbital Bridge Core",
+  "sector_name": "orbital_bridge_core",
+  "orbital_level": 1,
+  "orbital_type": "F",
+  "theta": 0.2,
+  "rho": 0.099999,
+  "M_sem": 0.95,
+  "gravity_role": "CORE_EXECUTOR",
+  "python_module": "orbital_bridge",
+  "input_from": [
+    "sync_core"
+  ],
+  "output_to": [
+    "ciel_omega_core"
+  ],
+  "key_metrics": [
+    "coherence_index",
+    "R_H",
+    "system_health",
+    "closure_penalty",
+    "nonlocal_coherent_fraction"
+  ],
+  "diagnosis_debt": [],
+  "created": "2026-05-08T00:54:23.566401+00:00",
+  "notes": "Warstwy 2+3+4 potoku orbitalnego: global_pass (R_H, Lambda_glob), bridge (coherence, health, EBA gate), entity injection. Produkuje coherence_index, system_health, closure_penalty, nonlocal_coherent_fraction. state.db: historia tych metryk + zdarzenia bridge.",
+  "tags": [
+    "coherence",
+    "health",
+    "bridge",
+    "EBA",
+    "gate",
+    "lv1",
+    "priority_2"
+  ]
+}

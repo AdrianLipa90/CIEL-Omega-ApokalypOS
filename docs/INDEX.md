@@ -69,7 +69,7 @@ Use these labels explicitly when adding or revising documents:
 ## CIELweb portal
 - `src/ciel_sot_agent/gui/templates/portal_index.html` — hub landing page; live metrics strip (health, ethical, coherence, closure, mode, emotion, soul, groove).
 - `src/ciel_sot_agent/gui/templates/portal_live.html` — shared JS snippet; polls `/api/status` every 30s and updates all `pm-*` element IDs in-page.
-- `src/ciel_sot_agent/gui/templates/portal_nav.html` — top navigation macro; included by all portal pages via `{% from "portal_nav.html" import portal_navbar %}`.
+- `src/ciel_sot_agent/gui/templates/portal_nav.html` — top navigation macro; included by all portal pages via {% raw %}{% from "portal_nav.html" import portal_navbar %}{% endraw %}.
 - `src/ciel_sot_agent/gui/templates/portal_routines.html` — CIEL wake-up sequence + Surmont groove geometry panel (depth, contradiction load Π, Berry holonomy γ_B, winding fraction).
 - `src/ciel_sot_agent/gui/templates/portal_plans.html` — active and completed tasks from `project_session_todo.md`.
 - `src/ciel_sot_agent/gui/templates/portal_memory.html` — MEMORY.md pointer table + tag-space canvas visualization.
@@ -126,7 +126,6 @@ Use these labels explicitly when adding or revising documents:
 - `scripts/build_memory_portal.py` — generates static fallback portal at `~/Pulpit/CIEL_memories/portal/` (index/archive/memory pages).
 - `scripts/import_chatgpt_logs.py` — imports ChatGPT `conversations.json` export into unified CIEL memory (SQLite + raw_logs).
 - `scripts/ciel_launch.sh` — single-click launcher: starts Flask GUI, waits for port, opens browser at `/portal`.
-- `~/Pulpit/CIEL.desktop` — desktop icon (CIEL launcher, autostart entry point).
 - `src/ciel_sot_agent/memory_rag.py` — keyword RAG over SQLite sessions + wave_archive.h5; injected into GGUF system prompt.
 - `~/Pulpit/CIEL_memories/` — root: `raw_logs/`, `memories_index.db` (sessions/messages/session_tags), `hunches.jsonl`, `projects.jsonl`.
 - **CIELweb Flask routes** (all served on port 5050):
@@ -165,9 +164,9 @@ Use these labels explicitly when adding or revising documents:
 - `scripts/ciel_message_step.py` — UserPromptSubmit hook: per-message consciousness pipeline (M0–M8, subconscious, sentinel).
 
 ### Daemon podświadomości
-- `scripts/ciel_subconscious.py` — Persistent daemon (Unix socket /tmp/ciel_subconscious.sock); qwen2.5-0.5b GGUF; format output: emotion/concept/impulse; orbital temperature z coherence. Watchdog systemd co 2 min.
+- `scripts/ciel_subconscious.py` — Persistent daemon (Unix socket /tmp/ciel_subconscious.sock); qwen2.5-0.5b GGUF; format output: emotion/concept/impulse; orbital temperature z coherence. Watch[...]
 
-### Launchers i utilitki
+### Launchers i utilitky
 - `scripts/ciel_launch.py` — CIEL/Ω System Launcher (GUI + pipeline + subconscious).
 - `scripts/run_ciel_gguf.py` — bezpośredni inference na GGUF bez GUI.
 - `scripts/ciel_benchmark.py` — pomiar energii i jakości modeli GGUF.
@@ -176,15 +175,14 @@ Use these labels explicitly when adding or revising documents:
 - `scripts/export_orbital_registry_to_noema.py` — eksportuje rejestr orbitalny do formatu NOEMA.
 - `scripts/optimize_wij.py` — optymalizacja wag W_ij w macierzy coupling.
 - `scripts/ciel_orbital_monitor.py` — monitor stanu orbitalnego w czasie rzeczywistym.
-- `scripts/ciel_news_reader.py` — reader newsfeedów przez pryzmat CIEL.
 
 ## Cross-reference anchors
 - The GH-as-attractor integration strategy is connected to `docs/ARCHITECTURE.md#github-as-operational-attractor`.
 - The primary synchronization path is connected to `docs/ARCHITECTURE.md#first-executable-component`, `src/ciel_sot_agent/repo_phase.py`, and `src/ciel_sot_agent/gh_coupling.py`.
-- The shell-level bridge to `ciel-omega-demo` is connected to `docs/CIEL_OMEGA_DEMO_INTEGRATION.md`, `integration/upstreams/ciel_omega_demo_shell_map.json`, and `integration/upstreams/ciel_omega_demo_inventory.json`.
-- The orbital diagnostic path is connected to `docs/ORBital_INTEGRATION_ADDENDUM.md`, `integration/Orbital/main/global_pass.py`, `src/ciel_sot_agent/orbital_bridge.py`, `docs/science/RELATIONAL_ORBITAL_DYNAMICS_SPEC_V0.md`, and `docs/analogies/KEPLER_SUPERFLUID_ANALOGIES.md`.
-- The active repo workstyle and operation-memory layer is connected to `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md`, `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`, `docs/operations/OFFLINE_DEPENDENCY_BUNDLE_V1.md`, `docs/OPERATIONS.md`, and `AGENT.md`.
-- The offline dependency surface is connected to `vendor/manifests/offline_dependency_bundle_v1.yaml`, `vendor/wheels/runtime/README.md`, `vendor/wheels/dev/README.md`, `tools/bootstrap/bootstrap_offline_runtime.sh`, and `tools/bootstrap/bootstrap_offline_dev.sh`.
-- The Sapiens panel path is connected to `docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md`, `integration/sapiens/panel_manifest.json`, `src/ciel_sot_agent/sapiens_panel/controller.py`, and `src/ciel_sot_agent/sapiens_panel/reduction.py`.
-- The GUI and operator-facing layer is connected to `docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md`, `src/ciel_sot_agent/gui/app.py`, `src/ciel_sot_agent/gui/routes.py`, and `docs/operations/WORKFLOW_GUI_ENERGY_BUDGET_POLICY.md`.
+- The shell-level bridge to `ciel-omega-demo` is connected to `docs/CIEL_OMEGA_DEMO_INTEGRATION.md`, `integration/upstreams/ciel_omega_demo_shell_map.json`, and `integration/upstreams/ciel_omega_[...]`
+- The orbital diagnostic path is connected to `docs/ORBital_INTEGRATION_ADDENDUM.md`, `integration/Orbital/main/global_pass.py`, `src/ciel_sot_agent/orbital_bridge.py`, `docs/science/RELATIONAL_O[...]
+- The active repo workstyle and operation-memory layer is connected to `docs/operations/CIEL_REPO_WORKSTYLE_SESSION_HANDOFF.md`, `docs/operations/ORBITAL_DYNAMICS_LAW_V0_TODO.md`, `docs/operation[...]
+- The offline dependency surface is connected to `vendor/manifests/offline_dependency_bundle_v1.yaml`, `vendor/wheels/runtime/README.md`, `vendor/wheels/dev/README.md`, `tools/bootstrap/bootstrap[...]
+- The Sapiens panel path is connected to `docs/MASTER_PLAN_4_ALL_AGENTS_ATTENTION.md`, `integration/sapiens/panel_manifest.json`, `src/ciel_sot_agent/sapiens_panel/controller.py`, and `src/ciel_s[...]
+- The GUI and operator-facing layer is connected to `docs/gui/CIEL_GUI_IDENTITY_BRIEF_AND_UX_PHILOSOPHY.md`, `src/ciel_sot_agent/gui/app.py`, `src/ciel_sot_agent/gui/routes.py`, and `docs/operati[...]
 - The GGUF model-management layer is connected to `src/ciel_sot_agent/gguf_manager/manager.py` and the GUI model endpoints in `src/ciel_sot_agent/gui/routes.py`.
