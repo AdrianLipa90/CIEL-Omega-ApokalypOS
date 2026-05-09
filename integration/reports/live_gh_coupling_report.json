@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-09T16:47:45.132832+00:00",
+  "generated_at": "2026-05-09T17:47:16.304149+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "4940348a58dfab37383956d40d1f600928267f07",
-      "timestamp": "2026-05-09T16:19:52Z",
-      "message": "Update live GH coupling state",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/4940348a58dfab37383956d40d1f600928267f07"
+      "new_sha": "73b9204eae97691c63492586241c673cfd524c24",
+      "timestamp": "2026-05-09T17:20:49Z",
+      "message": "feat: consolidator → Gemma HTTP backend + betatest logging\n\n- ciel_memory_consolidator.py: llama-server HTTP primary (port 18520),\n  llama_cpp fallback; /no_think prefix; _strip_thinking(); rozszerzone\n  _PROMPT_ARTIFACTS; rozluźniona weryfikacja dla polskich abstrakcji\n- subconsciousness.py: BETA_TEST=True, każda odpowiedź → beta_log.jsonl\n\nJakość Gemmy 1B: ~60% sensownych wyników. Diagnoza: model za słaby\nna polish abstracts z mixed-lang files. Do dokręcenia: grammar sampling\nlub llama-server z lepszym modelem.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/73b9204eae97691c63492586241c673cfd524c24"
     },
     {
       "key": "demo",
