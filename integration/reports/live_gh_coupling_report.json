@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-09T00:40:46.272960+00:00",
+  "generated_at": "2026-05-09T01:19:51.467310+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "ac4eaed00da86756b63192012b99a242104e7b8e",
-      "timestamp": "2026-05-08T23:48:13Z",
-      "message": "Update live GH coupling state",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/ac4eaed00da86756b63192012b99a242104e7b8e"
+      "new_sha": "f2c60f01afb962c41f34766d4abecadcd711a99a",
+      "timestamp": "2026-05-09T00:40:43Z",
+      "message": "feat: Identity Attractor, Braid weave, SoulInvariant consolidation, HTRI fix\n\n- IdentityField: attractor_vector (3D center of Bloch sphere) + pull_toward_attractor()\n- CIELBlochEncoder: IA loaded/saved in bloch_weights.npz, sector_distribution with IA pull\n- SoulInvariant consolidated: fields/ canonical, memory/ re-export, ZetaRiemann preserved\n- BraidInvariantMemory: delegates to BraidRuntime, adds weave_state() (Artin braid word)\n- ciel_pipeline: subconscious_note = braid word + Gemma fragment\n- subconsciousness: switched to Gemma-3-1B, improved prompt\n- htri_local: kappa emergent from critical_kappa(n) = 1.5 * K_c(std(omegas))\n- htri_matrix: Heisenberg soft clip on order_parameter, R_max = 1 - dt*std(omegas)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/f2c60f01afb962c41f34766d4abecadcd711a99a"
     },
     {
       "key": "demo",
