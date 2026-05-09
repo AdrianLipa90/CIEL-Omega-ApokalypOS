@@ -219,26 +219,62 @@ class BaseMemoryChannel(ABC):
 
 class IdentityField:
     """Identity attractor at center of memory disk.
-    
+
     This is not a memory channel itself, but the organizing center
     around which all memories orbit. Defined by anchors, commitments,
     and stable phase.
+
+    attractor_vector: 3D point in Bloch sphere space that IS the identity
+    center — the origin around which WΩ sector centroids are defined.
+    It is NOT a state on the surface (norm != 1), but the gravitational
+    center inside the sphere. Starts at (0,0,0) and accumulates drift
+    from session history via pull_toward_attractor().
     """
-    
-    def __init__(self, initial_phase: float = 0.0):
+
+    def __init__(self, initial_phase: float = 0.0,
+                 attractor_vector: Optional[np.ndarray] = None):
         self.phase = initial_phase  # γ_I
         self.anchors: list[str] = []
         self.commitments: Dict[str, float] = {}
         self.epistemic_rules: Dict[str, Any] = {}
-        
+        # 3D identity attractor — geometric center, NOT a surface state
+        self.attractor_vector: np.ndarray = (
+            attractor_vector.astype(np.float32)
+            if attractor_vector is not None
+            else np.zeros(3, dtype=np.float32)
+        )
+
     def alignment_force(self, channel_phase: float, coupling_strength: float) -> float:
         """Compute force pulling channel toward identity phase.
-        
+
         F_align = g_k * sin(γ_I - γ_k)
         """
         delta = self.phase - channel_phase
         return coupling_strength * np.sin(delta)
-    
+
+    def pull_toward_attractor(self, bloch_vec: np.ndarray, lr: float = 0.01) -> None:
+        """Update attractor_vector toward a new Bloch surface point.
+
+        Called when identity-sector memory is encoded. The attractor
+        accumulates the weighted history of identity-tagged states.
+        lr is intentionally small — identity center moves very slowly.
+        """
+        self.attractor_vector += lr * (bloch_vec.astype(np.float32) - self.attractor_vector)
+
+    def attractor_pull_force(self, bloch_vec: np.ndarray) -> float:
+        """Scalar gravitational pull: how strongly bloch_vec is drawn to center.
+
+        Returns value in [0, 1]: 1 = bloch_vec is at attractor, 0 = orthogonal.
+        Used to weight sector assignments — states near the attractor belong
+        more to 'identity' sector regardless of WΩ cosine similarity.
+        """
+        norm_ia = float(np.linalg.norm(self.attractor_vector))
+        if norm_ia < 1e-9:
+            return 0.0  # attractor not yet initialized
+        ia_dir = self.attractor_vector / norm_ia
+        dot = float(np.dot(ia_dir, bloch_vec.astype(np.float32)))
+        return max(0.0, dot)
+
     def update_phase(self, new_phase: float) -> None:
         """Update identity phase (very slow process)"""
         self.phase = new_phase % (2 * np.pi)

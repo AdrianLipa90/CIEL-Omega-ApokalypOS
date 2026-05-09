@@ -129,7 +129,14 @@ class DensePhaseNetwork:
         return float(0.5 * np.sum(self.potential_matrix()) / max(self.n, 1))
 
     def order_parameter(self) -> float:
-        return float(np.abs(np.mean(np.exp(1j * self.phases))))
+        """Kuramoto R = |mean(e^iφ)| with Heisenberg soft clip.
+
+        R=1.0 is a frozen singularity — full coherence blocks evolution.
+        Clip: R_max = 1 - dt*std(omegas), emergent from network geometry.
+        """
+        r = float(np.abs(np.mean(np.exp(1j * self.phases))))
+        epsilon_H = self.dt * float(np.std(self.omegas))
+        return min(r, 1.0 - max(epsilon_H, 1e-9))
 
     def laplacian(self) -> np.ndarray:
         degree = np.sum(self.matrix, axis=1)

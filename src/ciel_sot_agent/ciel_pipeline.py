@@ -70,6 +70,32 @@ def _query_subconscious(raw: dict[str, Any]) -> str | None:
         pass
     return _query_subconscious_socket(raw)
 
+
+def _weave_and_query_subconscious(raw: dict[str, Any]) -> str | None:
+    """Tka węzeł warkoczy z M7, następnie pyta Gemmę o interpretację."""
+    braid_note: str | None = None
+    try:
+        import sys as _sys
+        _omega = str(Path(__file__).parents[1] / "CIEL_OMEGA_COMPLETE_SYSTEM" / "ciel_omega")
+        if _omega not in _sys.path:
+            _sys.path.insert(0, _omega)
+        _omega_root = str(Path(__file__).parents[1] / "CIEL_OMEGA_COMPLETE_SYSTEM")
+        if _omega_root not in _sys.path:
+            _sys.path.insert(0, _omega_root)
+        from ciel_omega.memory.braid_invariant import BraidInvariantMemory
+        _m7 = BraidInvariantMemory()
+        weave = _m7.weave_state(raw)
+        braid_note = weave.get("subconscious_note")
+    except Exception:
+        pass
+
+    # Gemma jako interpreter słowa warkoczy
+    llm_note = _query_subconscious(raw)
+
+    if braid_note and llm_note:
+        return f"{braid_note} || {llm_note}"
+    return braid_note or llm_note
+
 _CANONICAL_CIEL_OMEGA_SUBPATH = (
     Path("src")
     / "CIEL_OMEGA_COMPLETE_SYSTEM"
@@ -465,7 +491,7 @@ def run_ciel_pipeline(
         "local_nonlocality_fallback": _orb_nl.get("local_nonlocality_fallback"),
         "nonlocal_graph_stats": nonlocal_runtime.get("graph_stats", {}),
         "ciel_raw": raw,
-        "subconscious_note": _query_subconscious(raw),
+        "subconscious_note": _weave_and_query_subconscious(raw),
         "htri_coherence": _htri_r if "_htri_r" in dir() else 0.0,
         # health/closure from orbital bridge so pipeline report and DB have them
         "system_health": float(orbital_state.get("health_manifest", {}).get("system_health", 0.0)),
