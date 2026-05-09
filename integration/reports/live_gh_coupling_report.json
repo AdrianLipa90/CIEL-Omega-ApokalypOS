@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-09T02:19:32.673763+00:00",
+  "generated_at": "2026-05-09T03:45:30.056603+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "9922943d7a1218e8ef0e95d1d4a1db1cf97677af",
-      "timestamp": "2026-05-09T01:19:52Z",
-      "message": "Update live GH coupling state",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/9922943d7a1218e8ef0e95d1d4a1db1cf97677af"
+      "new_sha": "e27641aa7f4f44b3f1f3a08df5c9c149e7b1ea02",
+      "timestamp": "2026-05-09T02:35:49Z",
+      "message": "feat: winding_potential/phase (Hausdorff D_f=2.57), Path.home(), utcnow fix\n\n- dynamics.py + soul_invariant.py: winding_potential/winding_phase z D_f=d-β/ν\n- subconsciousness.py, ciel_subconscious.py, ciel_memory_consolidator.py: hardcoded /home/adrian → Path.home()\n- memory_log.py, unified_memory.py: datetime.utcnow() → datetime.now(timezone.utc)\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/e27641aa7f4f44b3f1f3a08df5c9c149e7b1ea02"
     },
     {
       "key": "demo",
