@@ -53,7 +53,7 @@ SCAN_DIRS = [
 ]
 SCAN_EXTENSIONS = {".jsonl", ".md", ".txt"}
 
-GGUF_MODEL       = Path("/home/adrian/Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf")
+GGUF_MODEL       = Path.home() / "Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf"
 CLAUDE_MODEL     = "gemma-3-1b-ciel"
 DEFAULT_INTERVAL = 300
 MAX_TOKENS       = 256

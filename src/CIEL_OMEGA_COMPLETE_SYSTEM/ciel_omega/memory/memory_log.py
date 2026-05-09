@@ -26,7 +26,7 @@ class MemoryLog:
         os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
 
     def record(self, entry: Dict[str, Any]):
-        entry["timestamp"] = datetime.datetime.utcnow().isoformat()
+        entry["timestamp"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         with open(self.path, "a", encoding="utf-8") as f:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 

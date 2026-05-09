@@ -29,7 +29,7 @@ for _p in (OMEGA_PKG, OMEGA_SRC):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-SUBCONSCIOUS_MODEL = Path("/home/adrian/Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf")
+SUBCONSCIOUS_MODEL = Path.home() / "Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf"
 SOCKET_PATH = Path.home() / "Pulpit/CIEL_memories/state/ciel_subconscious.sock"
 SUB_LOG     = Path.home() / "Pulpit/CIEL_memories/logs/ciel_sub_log.jsonl"
 SUB_LOG_MAX = 20

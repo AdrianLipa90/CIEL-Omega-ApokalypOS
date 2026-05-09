@@ -89,6 +89,17 @@ def _perturbed_potential(system: OrbitalSystem, name: str, *, dphi: float = 0.0,
     s.theta = theta_from_rho(s.rho)
     return total_relational_potential(tmp)
 
+# D_f = d - β/ν (Hausdorff fractal dim, percolation 3D analogue): d=3, β/ν=0.43
+_D_F = 2.57
+
+def winding_potential(V0: float, w: int) -> float:
+    """Potential energy of a winding loop on fractal torus: V ~ w^(D_f+1)."""
+    return V0 * (abs(w) ** (_D_F + 1.0))
+
+def winding_phase(Phi0: float, w: int) -> float:
+    """Phase accumulated by winding number w across fractal geometry: Φ ~ w^D_f."""
+    return Phi0 * (abs(w) ** _D_F)
+
 def _relational_step(system: OrbitalSystem, dt: float = 0.025, tau_eta: float = 0.01, tau_reg: float = 0.00) -> OrbitalSystem:
     nxt = deepcopy(system)
     names = system.names()

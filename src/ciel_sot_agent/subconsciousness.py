@@ -42,7 +42,7 @@ _SENTINEL_PROMPT = (
     "Write one or two lines — raw, honest, no decoration. "
     "What just happened? What does it feel like?"
 )
-_MODEL_PATH = Path("/home/adrian/Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf")
+_MODEL_PATH = Path.home() / "Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf"
 _SERVER_BIN = (
     Path(__file__).parent.parent
     / "CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/llm/adapters/llama_cpp/bin/llama-server"

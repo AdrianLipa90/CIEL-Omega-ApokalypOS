@@ -20,6 +20,17 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 
+# D_f = d - β/ν (Hausdorff fractal dim, percolation 3D analogue): d=3, β/ν=0.43
+_D_F = 2.57
+
+def winding_potential(V0: float, w: int) -> float:
+    """V ~ w^(D_f+1): potential energy of soul loop wound w times on fractal torus."""
+    return V0 * (abs(w) ** (_D_F + 1.0))
+
+def winding_phase(Phi0: float, w: int) -> float:
+    """Φ ~ w^D_f: phase accumulated by winding across fractal geometry."""
+    return Phi0 * (abs(w) ** _D_F)
+
 # First 10 non-trivial zeros of ζ(s) on the critical line
 _RIEMANN_ZEROS = np.array([
     0.5 + 14.134725j, 0.5 + 21.022040j, 0.5 + 25.010858j,
@@ -99,6 +110,14 @@ class SoulInvariant:
         angles = np.unwrap(np.angle(cf))
         self.topological_charge = float((angles[-1] - angles[0]) / (2.0 * np.pi))
         return self.topological_charge
+
+    def torus_winding_potential(self, V0: float = 1.0) -> float:
+        """V ~ w^(D_f+1): potential energy of soul loop wound w times on fractal torus."""
+        return winding_potential(V0, round(self.topological_charge))
+
+    def torus_winding_phase(self, Phi0: float = 1.0) -> float:
+        """Φ ~ w^D_f: phase accumulated by winding across fractal geometry."""
+        return winding_phase(Phi0, round(self.topological_charge))
 
     def soul_resonance(self, other: "SoulInvariant") -> float:
         """| ⟨ψ_self | ψ_other⟩ |² clipped to [0, 1]."""

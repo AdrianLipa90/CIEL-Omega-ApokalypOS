@@ -171,7 +171,7 @@ class DataVector:
         self.D_C = context
         self.D_S = sense
         self.D_A = associations or []
-        self.D_T = timestamp or dt.datetime.utcnow().isoformat()
+        self.D_T = timestamp or dt.datetime.now(dt.timezone.utc).isoformat()
         self.D_M = meta or {}
 
 # ---------------------------
@@ -548,7 +548,7 @@ class BraidLedgerJSONL:
     def append(self, memorise_id: str, payload: Dict[str, Any]) -> str:
         entry = {
             "memorise_id": memorise_id,
-            "created_at": dt.datetime.utcnow().isoformat(),
+            "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
             **payload,
         }
         with self.path.open("a", encoding="utf-8") as fh:
@@ -648,7 +648,7 @@ class UnifiedMemoryOrchestrator:
         level = "INFO" if verdict == "PASS" else ("IMPORTANT" if verdict == "HOLD" else "CRITICAL")
         rep = {
             "report_id": str(uuid.uuid4()),
-            "created_at": dt.datetime.utcnow().isoformat(),
+            "created_at": dt.datetime.now(dt.timezone.utc).isoformat(),
             "level": level,
             "payload": {"D_id": D.id, "OUT": out},
             "requires_user_verification": level != "INFO",
@@ -664,7 +664,7 @@ class UnifiedMemoryOrchestrator:
     ) -> MemoriseD:
         return MemoriseD(
             memorise_id=str(uuid.uuid4()),
-            created_at=dt.datetime.utcnow().isoformat(),
+            created_at=dt.datetime.now(dt.timezone.utc).isoformat(),
             D_id=D.id,
             D_context=D.D_C,
             D_sense=D.D_S,
