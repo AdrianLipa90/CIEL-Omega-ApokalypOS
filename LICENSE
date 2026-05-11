@@ -1,85 +1,250 @@
-CIEL Research Non-Commercial License v1.1
-SPDX-License-Identifier: CIEL-Research-NonCommercial-1.1
+# CIEL Limited Open Access License v1.2
 
-Copyright (c) 2025 Adrian Lipa / Intention Lab
+**SPDX-License-Identifier:** LicenseRef-CIEL-Limited-Open-Access-1.2  
+**Copyright:** © 2025 Adrian Lipa / Intention Lab. All rights reserved except as expressly granted below.
 
-Licence is for current version or upgrade and subsequently   ancillary version
+This license is a **source-available, limited open access license**. It is intended to permit human inspection, academic review, reproducibility testing, and limited non-commercial local experimentation while preserving the Licensor's commercial rights and prohibiting AI/ML training, model development, hosted services, production deployment, and commercial exploitation without a separate written agreement.
 
-1. Definitions
-1.1 “Licensor” means the copyright holder(s) listed above.
-1.2 “Software” means this codebase and accompanying documentation.
-1.3 “Academic/Public Institution” means an accredited university, college, public research institute,
-    non-profit research organization, or government/public sector entity.
-1.4 “Non-Commercial Use” means any use not intended for or directed toward commercial advantage
-    or monetary compensation.
-1.5 “Commercial Use” means any use by a for-profit entity or use intended for or directed toward
-    commercial advantage or monetary compensation, including (without limitation) providing paid
-    services, operating the Software in production for customers or users, Software-as-a-Service (SaaS),
-    embedding in commercial products, internal production deployments that support revenue-generating
-    activities, and distribution to third parties for such uses.
-1.6 “Military/Defense Entity” means any armed forces, intelligence service, defense ministry/agency,
-    military academy, or defense contractor/subcontractor.
-1.7 “Offensive Use” means use that directly enables, targets, plans, executes, or optimizes armed
-    attack, kinetic or cyber offense, targeting/strike systems, weapon guidance, lethal autonomous
-    weapons, or surveillance aimed at facilitating harm in conflict. Illustrative examples include but
-    are not limited to: fire control, target acquisition/selection, battle damage assessment for ongoing
-    strikes, offensive EW/ES, malware C2 for intrusion/attack, and predictive models to select targets.
+This license is **not** an Open Source Initiative approved open source license.
 
-2. Grant of Rights (Non-Commercial)
-Subject to this license, Licensor grants you a worldwide, royalty-free, non-exclusive, non-transferable
-license to use, copy, modify, create derivative works of, and distribute the Software solely for
-Non-Commercial Use and in accordance with Sections 3–6.
+---
 
-3. Academic/Public Exemption (Non-Commercial)
-Academic/Public Institutions may use, modify, internally deploy, and distribute the Software and
-derivatives for research, teaching, and public-interest projects without charge and without further
-permission, provided such use is Non-Commercial and complies with Section 5 (Ethical Restrictions).
+## 1. Definitions
 
-4. Commercial Use Requires Separate License
-Any Commercial Use requires a separate written commercial license from Licensor. Without such
-license, Commercial Use is prohibited. Contact on the bottom of the document.
+1.1 **Licensor** means Adrian Lipa / Intention Lab, or any successor or assignee of the rights in the Licensed Materials.
 
-5. Ethical Restrictions (No Offensive or Harmful Use)
-5.1 Offensive Use Prohibited. Offensive Use of the Software is prohibited by all parties.
-5.2 Military/Defense Ban on Offensive Use. Military/Defense Entities are expressly prohibited from
-     Offensive Use. This applies regardless of commercial or non-commercial context.
-5.3 Examples of allowed non-offensive public-interest uses include: disaster response, search and
-     rescue, humanitarian logistics, medical triage, demining/UXO clearance, defensive cybersecurity
-     (intrusion detection/monitoring without offensive payload development), and safety research.
-     These examples must remain Non-Commercial under this license.
-5.4 If your use plausibly contributes to offensive operations or harm as above, you must not use the
-     Software under this license.
+1.2 **You** or **Licensee** means any individual or legal entity accessing, copying, using, modifying, reviewing, executing, or distributing the Licensed Materials.
 
-6. Redistribution Conditions (Non-Commercial)
-Redistributions in source or binary form must (a) retain this license text and copyright notice;
-(b) clearly state any material changes; and (c) not misrepresent derivative works as the original.
+1.3 **Licensed Materials** means the software, source code, object code, scripts, configuration files, documentation, architecture, protocols, algorithms, schemas, prompts, agent contracts, governance files, reports, examples, tests, benchmarks, outputs, traces, logs, manifests, diagrams, specifications, and accompanying materials provided with or derived from this project.
 
-7. No Trademark Rights
-This license does not grant rights to use Licensor’s names, logos, or trademarks.
+1.4 **Software** means the executable and non-executable code portions of the Licensed Materials.
 
-8. No Patent License
-No patent rights are granted, whether express or implied (including by estoppel or exhaustion).
-If you require patent rights, obtain a separate license from Licensor.
+1.5 **Non-Commercial Use** means use solely for personal study, private experimentation, academic review, public-interest research, reproducibility testing, or internal evaluation where the use is not intended for, directed toward, or reasonably connected to commercial advantage, monetary compensation, paid services, production use, revenue-generating activity, investor diligence, product development, service delivery, or organizational operational benefit.
 
-9. Warranty Disclaimer
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-PURPOSE, AND NON-INFRINGEMENT.
+1.6 **Commercial Use** means any use by or for a for-profit entity, any use intended for or directed toward commercial advantage or monetary compensation, and any internal or external use that supports revenue-generating activity. Commercial Use includes, without limitation, paid services, consulting, contracting, production deployment, Software-as-a-Service, hosted access, managed services, internal tooling for a business, embedding into commercial products, integration into proprietary platforms, investor or acquisition diligence, customer demonstrations, resale, sublicensing, or distribution to third parties for any such purpose.
 
-10. Limitation of Liability
-IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER
-IN CONTRACT, TORT, OR OTHERWISE, ARISING FROM OR IN CONNECTION WITH THE SOFTWARE OR THIS LICENSE.
+1.7 **Academic/Public Institution** means an accredited university, college, public research institute, non-profit research organization, public-interest laboratory, or government/public sector entity acting solely for non-commercial research, teaching, audit, or public-interest evaluation.
 
-11. Termination
-This license terminates automatically upon breach (including Sections 4–5). Upon termination, you must
-cease use and distribution; past recipients who remain in compliance retain their rights. Licensor may
-offer reinstatement at its sole discretion.
+1.8 **AI/ML Use** means any use of the Licensed Materials for, in connection with, or as input to training, fine-tuning, distillation, alignment, reinforcement learning, preference optimization, evaluation, benchmarking, ranking, red-teaming at scale, safety tuning, embedding, vectorization, retrieval augmentation, dataset creation, synthetic data generation, model improvement, agent policy learning, automated agent orchestration, or creation of any machine-learning-derived system, model, weights, adapter, dataset, index, representation, or artifact.
 
-12. Contributions (Inbound = Outbound)
-Unless you state otherwise in writing, any contribution you submit is licensed to Licensor under this
-same license.
+1.9 **Model Artifact** means any model weights, fine-tuned model, adapter, LoRA, embedding index, vector database, dataset, synthetic dataset, distilled representation, learned policy, prompt library, benchmark corpus, evaluation suite, feature representation, or machine-readable artifact derived from, trained on, evaluated against, or materially informed by the Licensed Materials.
 
-13. Severability and No Waiver
-If any provision is unenforceable, the remainder remains in effect. No term is waived by failure to enforce it.
+1.10 **Production Use** means use in live, operational, customer-facing, user-facing, revenue-supporting, safety-relevant, compliance-relevant, infrastructure, decision-support, or organizational workflow environments, whether internal or external.
 
-For commercial licensing or clarifications: lvut.ciel@gmail.com
+1.11 **Hosted Service** means providing access to the Licensed Materials or derivative functionality over a network, API, website, application, agent platform, managed service, SaaS product, cloud service, or similar service, whether paid or unpaid.
+
+1.12 **Derivative Work** means any modification, adaptation, translation, transformation, extension, port, fork, integration, wrapper, rewrite, reimplementation, or other work based on, incorporating, or substantially derived from the Licensed Materials.
+
+1.13 **Offensive Use** means use that directly or indirectly enables, targets, plans, executes, automates, or optimizes armed attack, kinetic or cyber offense, target acquisition or selection, weapon guidance, lethal autonomous systems, malware, intrusion, exfiltration, surveillance aimed at facilitating harm, coercive profiling, or other operations intended to harm people, systems, or civil infrastructure.
+
+1.14 **Human-Directed Transient Analysis** means limited, user-initiated, temporary inspection of the Licensed Materials using a general-purpose tool or assistant solely to help a human understand, review, debug, summarize, or evaluate the Licensed Materials, provided that such use does not create, retain, export, train, fine-tune, distill, embed, index, or improve any Model Artifact and is not used for Commercial Use, Production Use, Hosted Service, or AI/ML Use.
+
+---
+
+## 2. Grant of Limited Rights
+
+Subject to full compliance with this license, the Licensor grants You a worldwide, royalty-free, non-exclusive, non-transferable, non-sublicensable, revocable license to:
+
+2.1 read and inspect the Licensed Materials;
+
+2.2 copy the Licensed Materials solely as necessary for permitted Non-Commercial Use;
+
+2.3 run the Software locally for permitted Non-Commercial Use;
+
+2.4 modify the Licensed Materials solely for private, local, Non-Commercial Use;
+
+2.5 publish non-commercial commentary, criticism, academic discussion, benchmark results, or reproducibility notes about the Licensed Materials, provided that You do not disclose protected implementation details beyond what is reasonably necessary for such discussion and You retain attribution to the Licensor;
+
+2.6 submit patches, issues, or pull requests to the Licensor under Section 13.
+
+No other rights are granted.
+
+---
+
+## 3. Limited Academic and Public-Interest Access
+
+3.1 Academic/Public Institutions may use the Licensed Materials for research, teaching, public-interest review, safety analysis, and reproducibility testing without charge, provided that all such use remains Non-Commercial and complies with this license.
+
+3.2 Academic/Public Institutions may not use the Licensed Materials for AI/ML Use, Production Use, Hosted Services, commercial partnerships, sponsored commercial research, technology transfer, procurement evaluation, or product development without a separate written license from the Licensor.
+
+3.3 Publication of research findings is allowed, but publication must not include the Licensed Materials in full, disclose non-public implementation details beyond reasonable academic necessity, or enable unauthorized Commercial Use, AI/ML Use, Production Use, or Hosted Services.
+
+---
+
+## 4. Commercial Use Requires Separate Written License
+
+4.1 Commercial Use is prohibited unless You have a separate written commercial license signed by the Licensor.
+
+4.2 No oral permission, informal message, repository access, file access, issue discussion, pull request, email exchange, demonstration, or public availability of the Licensed Materials creates commercial rights.
+
+4.3 For commercial licensing, enterprise evaluation, production deployment, strategic integration, sublicensing, acquisition, or royalty arrangements, contact: **lvut.ciel@gmail.com**.
+
+---
+
+## 5. No AI Training, Model Development, Embeddings, or Machine Learning Use
+
+5.1 AI/ML Use is prohibited unless You have a separate written license signed by the Licensor.
+
+5.2 You may not use the Licensed Materials to train, fine-tune, distill, align, evaluate, benchmark, rank, improve, embed, vectorize, index, retrieve, augment, or otherwise develop any AI system, machine learning system, foundation model, language model, agentic system, code model, multimodal model, retrieval system, vector database, synthetic dataset, learned policy, model adapter, or Model Artifact.
+
+5.3 This prohibition applies regardless of whether the use is commercial, non-commercial, academic, internal, experimental, research-oriented, public-interest, automated, manual, temporary, or exploratory, unless expressly authorized in writing by the Licensor.
+
+5.4 You may not ingest the Licensed Materials into training pipelines, fine-tuning pipelines, evaluation harnesses, benchmark corpora, RAG systems, vector databases, embedding stores, automated code analysis systems, agent orchestration frameworks, dataset curation workflows, telemetry systems, or model-improvement processes.
+
+5.5 Human-Directed Transient Analysis is permitted only to the extent expressly allowed by Section 1.14 and only when it does not result in AI/ML Use, Model Artifacts, retention for model improvement, commercial exploitation, or production integration.
+
+5.6 If You operate or control an AI system, model provider, agent platform, dataset provider, search/retrieval service, cloud service, code intelligence service, or automated analysis platform, You must not process, ingest, store, index, train on, evaluate against, or derive Model Artifacts from the Licensed Materials without a separate written license from the Licensor.
+
+---
+
+## 6. No Production Deployment, SaaS, Hosted Service, or Operational Use
+
+6.1 Production Use is prohibited without a separate written license from the Licensor.
+
+6.2 Hosted Services are prohibited without a separate written license from the Licensor.
+
+6.3 You may not provide the Licensed Materials or their functionality to third parties through an API, web service, cloud service, managed service, agent platform, plugin, extension, model wrapper, automation workflow, repository service, or any similar delivery mechanism without a separate written license from the Licensor.
+
+---
+
+## 7. Redistribution and Publication Conditions
+
+7.1 You may not redistribute the Licensed Materials, modified versions, compiled versions, forks, or Derivative Works except as expressly permitted in this section.
+
+7.2 You may share small excerpts solely for non-commercial criticism, academic discussion, bug reports, security reports, or reproducibility notes, provided that such excerpts are no larger than necessary, retain attribution, and do not enable reconstruction of a substantial portion of the Licensed Materials.
+
+7.3 You may submit patches, diffs, issues, or pull requests to the Licensor or an official project repository, subject to Section 13.
+
+7.4 Any permitted redistribution must retain this license text, copyright notice, attribution, warranty disclaimer, and all notices identifying the Licensor.
+
+7.5 You may not misrepresent any modified, forked, or derivative version as the original project or imply endorsement by the Licensor.
+
+---
+
+## 8. Ethical and Safety Restrictions
+
+8.1 Offensive Use is prohibited by all parties.
+
+8.2 Use by military, intelligence, defense, weapons, surveillance, or coercive-control entities is prohibited unless expressly authorized in a separate written license signed by the Licensor. Authorization for non-offensive humanitarian, defensive, safety, disaster-response, search-and-rescue, demining, medical, or public-interest uses may be granted separately.
+
+8.3 You may not use the Licensed Materials for unlawful surveillance, biometric identification or classification without lawful basis, social scoring, manipulation, harassment, exploitation, deception, discrimination, or any use that is reasonably likely to cause material harm to persons, civil rights, public safety, or critical infrastructure.
+
+8.4 If Your use plausibly contributes to Offensive Use, unsafe deployment, unlawful activity, or material harm, You must stop using the Licensed Materials immediately unless and until the Licensor grants separate written permission.
+
+---
+
+## 9. Privacy, Confidentiality, and Data Protection
+
+9.1 You are solely responsible for complying with all applicable privacy, data protection, confidentiality, export control, cybersecurity, and sector-specific laws when using the Licensed Materials.
+
+9.2 You may not use the Licensed Materials to process personal data, confidential data, regulated data, trade secrets, or sensitive operational data in Production Use without a separate written license from the Licensor and appropriate safeguards.
+
+---
+
+## 10. Reservation of Rights
+
+10.1 All rights not expressly granted are reserved by the Licensor.
+
+10.2 No rights are granted to use the Licensed Materials for Commercial Use, AI/ML Use, Production Use, Hosted Services, sublicensing, resale, model development, dataset development, patent practice, trademark use, or creation of competing products or services.
+
+10.3 Access to the Licensed Materials does not transfer ownership of any copyright, patent, trade secret, know-how, moral right, database right, trademark, or other intellectual property right.
+
+---
+
+## 11. No Trademark or Endorsement Rights
+
+11.1 This license does not grant rights to use the Licensor's names, logos, marks, project names, product names, branding, or trade dress, except as necessary for accurate attribution.
+
+11.2 You may not imply sponsorship, approval, certification, partnership, or endorsement by the Licensor without written permission.
+
+---
+
+## 12. No Patent License
+
+12.1 No patent rights are granted, whether express, implied, by estoppel, by exhaustion, or otherwise.
+
+12.2 If You require patent rights, You must obtain a separate written patent license from the Licensor.
+
+---
+
+## 13. Contributions
+
+13.1 Unless You clearly state otherwise in writing before submission, any issue, patch, pull request, suggestion, improvement, correction, documentation change, benchmark, test, or other contribution You submit to the Licensor or an official project repository is licensed to the Licensor under a perpetual, worldwide, royalty-free, irrevocable, sublicensable license to use, reproduce, modify, distribute, publicly perform, publicly display, commercialize, and relicense the contribution for any purpose.
+
+13.2 You represent that You have the right to submit the contribution and that it does not knowingly infringe third-party rights.
+
+13.3 The Licensor is not obligated to accept, use, publish, maintain, or compensate any contribution.
+
+---
+
+## 14. Compliance, Records, and Verification
+
+14.1 If You use the Licensed Materials beyond private personal inspection, You must maintain reasonable records sufficient to demonstrate compliance with this license.
+
+14.2 Upon reasonable written request by the Licensor, You must provide a written statement describing Your use of the Licensed Materials and confirming whether any Commercial Use, AI/ML Use, Production Use, Hosted Service, redistribution, or Model Artifact has occurred.
+
+14.3 Failure to provide a truthful compliance statement within a reasonable time may be treated as a material breach.
+
+---
+
+## 15. Termination
+
+15.1 This license terminates automatically upon any breach.
+
+15.2 Upon termination, You must immediately stop using, copying, modifying, distributing, hosting, processing, or accessing the Licensed Materials and must delete all copies, Derivative Works, Model Artifacts, embeddings, indices, datasets, traces, and other materials created in breach of this license.
+
+15.3 Termination does not limit the Licensor's rights or remedies for breach, infringement, misuse, or unauthorized exploitation.
+
+15.4 The Licensor may reinstate rights at the Licensor's sole discretion through written notice.
+
+---
+
+## 16. Warranty Disclaimer
+
+THE LICENSED MATERIALS ARE PROVIDED “AS IS” AND “AS AVAILABLE”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, SECURITY, ACCURACY, RELIABILITY, AVAILABILITY, OR THAT THE LICENSED MATERIALS WILL BE ERROR-FREE OR SUITABLE FOR ANY PARTICULAR USE.
+
+---
+
+## 17. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES, LOSS, COST, EXPENSE, OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, STATUTE, OR OTHERWISE, ARISING FROM OR IN CONNECTION WITH THE LICENSED MATERIALS OR THIS LICENSE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+---
+
+## 18. Indemnity
+
+To the maximum extent permitted by law, You agree to defend, indemnify, and hold harmless the Licensor from and against any claims, damages, losses, liabilities, costs, and expenses arising out of or relating to Your use, misuse, breach of this license, unauthorized Commercial Use, unauthorized AI/ML Use, unauthorized Production Use, Hosted Service, redistribution, Derivative Work, or violation of law or third-party rights.
+
+---
+
+## 19. Governing Law and Venue
+
+19.1 Unless the Licensor designates another jurisdiction in writing, this license is governed by the laws of England and Wales, without regard to conflict-of-law principles.
+
+19.2 Courts located in England and Wales shall have exclusive jurisdiction over disputes arising out of or relating to this license, except that the Licensor may seek injunctive or equitable relief in any competent jurisdiction.
+
+> Replace Section 19 with the Licensor's preferred jurisdiction after legal review if England and Wales is not intended.
+
+---
+
+## 20. Severability and No Waiver
+
+20.1 If any provision of this license is held unenforceable, the remaining provisions remain in effect to the maximum extent permitted by law.
+
+20.2 Failure to enforce any provision is not a waiver of the right to enforce that provision or any other provision later.
+
+---
+
+## 21. Entire License and Written Modifications
+
+21.1 This license is the entire agreement governing the limited rights granted here.
+
+21.2 Any waiver, exception, commercial license, AI/ML permission, production permission, hosted-service permission, sublicense, or other modification must be in writing and signed by the Licensor.
+
+---
+
+## 22. Contact
+
+For commercial licensing, enterprise evaluation, AI/ML permissions, production deployment, strategic integration, royalties, acquisition, or clarification:
+
+**lvut.ciel@gmail.com**
