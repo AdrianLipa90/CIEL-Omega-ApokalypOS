@@ -1,0 +1,137 @@
+{
+  "version": "2.0",
+  "name": "CIELingo Diagnostic Geometry Layer",
+  "input_versions": [
+    "v1.8",
+    "v1.9"
+  ],
+  "concept_count": 72,
+  "language_codes": [
+    "de",
+    "en",
+    "es",
+    "fr",
+    "pl"
+  ],
+  "language_panel_rows": 360,
+  "expected_language_panel_rows_for_5_langs": 360,
+  "language_panel_coverage": 1.0,
+  "operator_hook_edges": 257,
+  "operator_count": 87,
+  "operator_coverage": 1.0,
+  "avg_operator_hooks_per_concept": 3.569444,
+  "relation_edges": 525,
+  "relation_density": 0.1027,
+  "relation_type_counts": {
+    "opposes": 32,
+    "supports": 28,
+    "has_state": 1,
+    "transforms": 2,
+    "anchors": 1,
+    "contains": 9,
+    "reveals": 1,
+    "increases": 6,
+    "hides": 1,
+    "requires": 6,
+    "includes": 1,
+    "bounds": 4,
+    "paired_with": 3,
+    "seeks": 2,
+    "orders": 1,
+    "has_boundary": 1,
+    "occurs_in": 1,
+    "causes": 2,
+    "acts_on": 1,
+    "receives": 1,
+    "patterns": 1,
+    "reduces": 5,
+    "harms": 1,
+    "attracts": 1,
+    "stabilizes": 1,
+    "stores": 2,
+    "connects": 3,
+    "responds_to": 2,
+    "caused_by": 1,
+    "signals": 2,
+    "uses": 5,
+    "antonym_surface:pl": 72,
+    "antonym_surface:en": 72,
+    "antonym_surface:de": 72,
+    "antonym_surface:fr": 72,
+    "antonym_surface:es": 72,
+    "part_of": 6,
+    "enables": 4,
+    "expresses": 1,
+    "symbol_of": 2,
+    "inside": 3,
+    "relates_to": 8,
+    "can_transform_into": 1,
+    "marks": 1,
+    "is_a": 1,
+    "has": 1,
+    "relation_to": 2,
+    "stage_of": 1,
+    "is_other": 1,
+    "may_become": 1,
+    "bounded_by": 1,
+    "can_create": 2,
+    "constrains": 1
+  },
+  "top_relation_degrees": [
+    [
+      "concept:motion",
+      22
+    ],
+    [
+      "concept:knowledge",
+      22
+    ],
+    [
+      "concept:body",
+      21
+    ],
+    [
+      "concept:trust",
+      20
+    ],
+    [
+      "concept:life",
+      19
+    ],
+    [
+      "concept:truth",
+      19
+    ],
+    [
+      "concept:error",
+      19
+    ],
+    [
+      "concept:self",
+      19
+    ],
+    [
+      "concept:fear",
+      17
+    ],
+    [
+      "concept:memory",
+      17
+    ],
+    [
+      "concept:harm",
+      17
+    ],
+    [
+      "concept:matter",
+      16
+    ]
+  ],
+  "case_reconstruction_cost_mean": 0.478857,
+  "case_reconstruction_cost_max": 1.0,
+  "notes": [
+    "Diagnostic geometry is a measurement layer, not a claim of semantic truth.",
+    "Heatmaps are used to locate sparsity, conflict, overload, and reconstruction cost.",
+    "Missing or unresolved values are valid states and must be reported explicitly."
+  ]
+}

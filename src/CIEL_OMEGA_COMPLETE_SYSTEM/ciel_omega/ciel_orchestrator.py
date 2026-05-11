@@ -90,6 +90,37 @@ class CIELOrchestrator:
             'timestamp': datetime.now(timezone.utc).isoformat(),
         }
 
+    def inspect_file_sense(
+        self,
+        *,
+        file_type: Optional[str] = None,
+        location: Optional[str] = None,
+        subsystem: Optional[str] = None,
+        status: Optional[str] = None,
+        authority: Optional[str] = None,
+        purpose: Optional[str] = None,
+        path_prefix: Optional[str] = None,
+        limit: int = 25,
+        write: bool = False,
+    ) -> Dict[str, Any]:
+        """Inspect repository files through the NOEMA semantic file-sense layer."""
+        from ciel_sot_agent.noema_file_sense import inspect_registry
+
+        report = inspect_registry(
+            file_type=file_type,
+            location=location,
+            subsystem=subsystem,
+            status=status,
+            authority=authority,
+            purpose=purpose,
+            path_prefix=path_prefix,
+            limit=limit,
+            write=write,
+        )
+        report['surface'] = 'CIELOrchestrator'
+        report['component'] = 'NOEMAFileSense'
+        return report
+
     def process(self, text: str, *, verbose: bool = True, context: str = 'dialogue') -> Dict[str, Any]:
         if not self.initialized:
             raise RuntimeError('CIELOrchestrator is not initialized')
@@ -187,10 +218,19 @@ class CIELOrchestrator:
 
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description='CIEL/Ω canonical orchestrator')
-    parser.add_argument('--mode', choices=['interactive', 'process', 'status', 'ping'], default='interactive')
+    parser.add_argument('--mode', choices=['interactive', 'process', 'status', 'ping', 'file-sense'], default='interactive')
     parser.add_argument('--text', type=str, help='Text for process mode')
     parser.add_argument('--config', type=str, help='Optional JSON config path')
     parser.add_argument('--output', type=str, help='Optional JSON output path for process mode')
+    parser.add_argument('--file-type', type=str, help='Filter file-sense by semantic file type')
+    parser.add_argument('--location', type=str, help='Filter file-sense by top-level location')
+    parser.add_argument('--subsystem', type=str, help='Filter file-sense by subsystem / board card')
+    parser.add_argument('--status-filter', type=str, help='Filter file-sense by lifecycle status')
+    parser.add_argument('--authority', type=str, help='Filter file-sense by authority class')
+    parser.add_argument('--purpose', type=str, help='Filter file-sense by semantic purpose')
+    parser.add_argument('--path-prefix', type=str, help='Filter file-sense by path prefix')
+    parser.add_argument('--limit', type=int, default=25, help='Limit file-sense matches')
+    parser.add_argument('--write-registry', action='store_true', help='Write file-sense registry/report to integration/')
     return parser
 
 
@@ -216,6 +256,20 @@ def main(argv: Optional[list[str]] = None) -> int:
             return 0
         if args.mode == 'ping':
             print(json.dumps(orchestrator.ping(), ensure_ascii=False, indent=2))
+            return 0
+        if args.mode == 'file-sense':
+            report = orchestrator.inspect_file_sense(
+                file_type=args.file_type,
+                location=args.location,
+                subsystem=args.subsystem,
+                status=args.status_filter,
+                authority=args.authority,
+                purpose=args.purpose,
+                path_prefix=args.path_prefix,
+                limit=args.limit,
+                write=args.write_registry,
+            )
+            print(json.dumps(report, ensure_ascii=False, indent=2))
             return 0
         if not args.text:
             parser.error('--text is required in process mode')

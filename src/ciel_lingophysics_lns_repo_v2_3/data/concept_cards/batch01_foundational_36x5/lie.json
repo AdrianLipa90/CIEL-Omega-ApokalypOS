@@ -1,0 +1,227 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:lie",
+  "canonical_label_en": "lie",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "epistemic",
+  "semantic_axes": [
+    "deception",
+    "falsehood",
+    "intent"
+  ],
+  "semantic_mass_seed": 0.6375,
+  "phase_seed_rad": 3.316126,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "kłamstwo",
+      "brief_description": "świadome lub skutkowe oddalenie komunikatu od prawdy",
+      "near_synonyms_seed": [
+        "fałsz",
+        "oszustwo"
+      ],
+      "antonyms_seed": [
+        "prawda",
+        "szczerość"
+      ],
+      "forms_seed": [
+        "kłamstwo",
+        "kłamstwo jako hasło",
+        "kłamstwo w kontekście"
+      ],
+      "context_examples_seed": [
+        "Kłamstwo tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "not",
+        "hides",
+        "deceives"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "lie",
+      "brief_description": "intentional or effective separation of a message from truth",
+      "near_synonyms_seed": [
+        "falsehood",
+        "deception"
+      ],
+      "antonyms_seed": [
+        "truth",
+        "honesty"
+      ],
+      "forms_seed": [
+        "lie",
+        "lies",
+        "lie as concept"
+      ],
+      "context_examples_seed": [
+        "Lie forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "not",
+        "hides",
+        "deceives"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Lüge",
+      "brief_description": "absichtliche oder wirksame Entfernung einer Nachricht von Wahrheit",
+      "near_synonyms_seed": [
+        "Falschheit",
+        "Täuschung"
+      ],
+      "antonyms_seed": [
+        "Wahrheit",
+        "Ehrlichkeit"
+      ],
+      "forms_seed": [
+        "Lüge",
+        "Lüge als Begriff",
+        "Lüge im Kontext"
+      ],
+      "context_examples_seed": [
+        "Lüge bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "not",
+        "hides",
+        "deceives"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "mensonge",
+      "brief_description": "séparation intentionnelle ou effective d’un message de la vérité",
+      "near_synonyms_seed": [
+        "fausseté",
+        "tromperie"
+      ],
+      "antonyms_seed": [
+        "vérité",
+        "honnêteté"
+      ],
+      "forms_seed": [
+        "mensonge",
+        "mensonge comme concept",
+        "mensonge en contexte"
+      ],
+      "context_examples_seed": [
+        "Mensonge forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "not",
+        "hides",
+        "deceives"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "mentira",
+      "brief_description": "separación intencional o efectiva de un mensaje de la verdad",
+      "near_synonyms_seed": [
+        "falsedad",
+        "engaño"
+      ],
+      "antonyms_seed": [
+        "verdad",
+        "honestidad"
+      ],
+      "forms_seed": [
+        "mentira",
+        "mentira como concepto",
+        "mentira en contexto"
+      ],
+      "context_examples_seed": [
+        "Mentira forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "not",
+        "hides",
+        "deceives"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "not",
+    "hides",
+    "deceives"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:truth",
+      "status": "draft_seed"
+    },
+    {
+      "type": "increases",
+      "target": "concept:error",
+      "status": "draft_seed"
+    },
+    {
+      "type": "harms",
+      "target": "concept:trust",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

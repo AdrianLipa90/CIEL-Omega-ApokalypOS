@@ -1,0 +1,8 @@
+metric,value,status
+concept_cards_total,72,diagnostic
+language_panels_estimated,360,diagnostic
+relation_edges_total,525,diagnostic
+operator_links_total,257,diagnostic
+diagnostic_graph_nodes,159,diagnostic
+diagnostic_graph_edges,782,diagnostic
+registered_issues,3,diagnostic

@@ -1,0 +1,55 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:above
+family: above_vertical_superposition
+class:
+- spatial_relation
+- vertical_relation
+symbol: Above(x,y)
+arity: '2'
+dual: op:core:under
+inverse: op:core:under
+description: x is above y along a vertical or hierarchy axis
+equations:
+- Above(x,y)
+- z(x)>z(y)
+surfaces:
+  pl:
+    lemma: nad / powyżej
+    forms:
+    - nad
+    - powyżej
+    examples:
+    - Lampa jest nad stołem.
+    notes: above relation; may be spatial or hierarchical
+  en:
+    lemma: above / over
+    forms:
+    - above
+    - over
+    examples:
+    - The lamp is above the table.
+    notes: above relation
+  de:
+    lemma: über
+    forms:
+    - über
+    - oberhalb
+    examples:
+    - Die Lampe ist über dem Tisch.
+    notes: above relation
+  fr:
+    lemma: au-dessus de
+    forms:
+    - au-dessus de
+    - sur
+    examples:
+    - La lampe est au-dessus de la table.
+    notes: above relation
+  es:
+    lemma: encima de / sobre
+    forms:
+    - encima de
+    - sobre
+    examples:
+    - La lámpara está encima de la mesa.
+    notes: above relation

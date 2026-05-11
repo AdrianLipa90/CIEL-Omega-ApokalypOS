@@ -1,0 +1,20 @@
+- id: pattern:stable_orbit
+  name: Stable orbit
+  condition: E_S < 0 and e < 1 and R_H < theta_H
+  severity: info
+  description: Meaning is bound to attractor.
+- id: pattern:false_friend
+  name: CIEL false friend
+  condition: surface_similarity > theta_surface and path_distance > theta_path
+  severity: warning
+  description: Looks similar, acts differently.
+- id: pattern:euler_antonym
+  name: Euler antonym phase
+  condition: abs(exp(i*phase_delta)+1) < epsilon_ant
+  severity: error
+  description: Antonyms must be opposite-phase on the selected axis.
+- id: pattern:toxic_positive
+  name: Toxic positive surface
+  condition: surface_valence > 0 and dot(grad_U_eff, wellbeing_vector) < 0
+  severity: warning
+  description: Positive surface with harmful effective gradient.

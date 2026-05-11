@@ -1,0 +1,56 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:not
+family: negation_phase_inversion
+class:
+- logic_operator
+- phase_operator
+- polarity_operator
+symbol: ¬x / e^{iπ}
+arity: '1'
+dual: null
+inverse: null
+description: negates proposition or flips polarity/phase on selected scope
+equations:
+- Not(P)
+- ¬P
+- phase(P)+π
+surfaces:
+  pl:
+    lemma: nie
+    forms:
+    - nie
+    examples:
+    - To nie jest woda.
+    notes: scope sensitive
+  en:
+    lemma: not / no
+    forms:
+    - not
+    - 'no'
+    examples:
+    - This is not water.
+    notes: scope sensitive negation
+  de:
+    lemma: nicht / kein
+    forms:
+    - nicht
+    - kein
+    examples:
+    - Das ist kein Wasser.
+    notes: nicht/kein split
+  fr:
+    lemma: ne...pas / non
+    forms:
+    - ne...pas
+    - pas
+    - non
+    examples:
+    - Ce n’est pas de l’eau.
+    notes: discontinuous negation
+  es:
+    lemma: 'no'
+    forms:
+    - 'no'
+    examples:
+    - Esto no es agua.
+    notes: pre-verbal negation

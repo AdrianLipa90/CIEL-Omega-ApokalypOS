@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Batch Concept Library v1.8",
+  "type": "object",
+  "required": [
+    "schema",
+    "card_type",
+    "concept_id",
+    "canonical_label_en",
+    "batch_id",
+    "languages",
+    "operator_hooks"
+  ],
+  "properties": {
+    "schema": {
+      "const": "ciel_lns_concept_card_v1"
+    },
+    "card_type": {
+      "const": "CONCEPT_CARD"
+    },
+    "concept_id": {
+      "type": "string",
+      "pattern": "^concept:"
+    },
+    "canonical_label_en": {
+      "type": "string"
+    },
+    "batch_id": {
+      "type": "string"
+    },
+    "languages": {
+      "type": "object"
+    },
+    "operator_hooks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relations": {
+      "type": "array"
+    }
+  }
+}

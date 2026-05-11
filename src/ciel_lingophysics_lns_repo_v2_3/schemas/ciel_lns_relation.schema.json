@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_relation.schema.json",
+  "title": "CIEL-LNS Relation",
+  "type": "object",
+  "required": [
+    "id",
+    "source",
+    "target",
+    "type",
+    "weight",
+    "phase_delta",
+    "epistemic"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "synonym",
+        "antonym",
+        "derives",
+        "supports",
+        "contradicts",
+        "translates",
+        "invokes",
+        "creates",
+        "harms",
+        "cares",
+        "maps_to",
+        "near_surface_far_path"
+      ]
+    },
+    "axis": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "phase_delta": {
+      "type": "number"
+    },
+    "epistemic": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

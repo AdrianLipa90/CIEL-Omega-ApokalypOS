@@ -1,0 +1,2983 @@
+{
+  "name": "ciel_lingophysics_lns_repo",
+  "version": "2.2",
+  "created_at_utc": "2026-05-10T14:16:43.572654+00:00",
+  "file_count": 595,
+  "files": [
+    {
+      "path": ".gitignore",
+      "size": 57,
+      "sha256": "3a47d9dabb9197028ba6429594b9500e9ffc14fa26bad0cfeb3ac394eac5b552"
+    },
+    {
+      "path": ".pytest_cache/.gitignore",
+      "size": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": ".pytest_cache/CACHEDIR.TAG",
+      "size": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": ".pytest_cache/README.md",
+      "size": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": ".pytest_cache/v/cache/lastfailed",
+      "size": 82,
+      "sha256": "b89c177553864ae0c7dab4f0a5bb1a05e426d6228eb396bf85a3fb1aaee446ab"
+    },
+    {
+      "path": ".pytest_cache/v/cache/nodeids",
+      "size": 7392,
+      "sha256": "c8e89e55f71cfeb82f47e7aaf1cdd869046de26d8e28c715422a5c6a903ca21b"
+    },
+    {
+      "path": "LICENSE_NOTE.md",
+      "size": 1158,
+      "sha256": "980571d2df9a8bb6723515f297304f2acc17b82463664b1de2d12621e822482e"
+    },
+    {
+      "path": "MANIFEST.json",
+      "size": 140,
+      "sha256": "bf7427a8f1ee108809610f876c7ec51db92ebb65c73f0944f7e015f9ea67af8b"
+    },
+    {
+      "path": "MANIFEST_v1_8.json",
+      "size": 1471,
+      "sha256": "b8cc4c0e64ef66b8aea50601a8a68bff7c143b66ce903a01610d074e688f7481"
+    },
+    {
+      "path": "MANIFEST_v1_9.json",
+      "size": 25553,
+      "sha256": "63d3f0a8202d5b4bd71a50a535f04990c551006e930d66d80cc9f5a2ed7b4494"
+    },
+    {
+      "path": "MANIFEST_v2_0.json",
+      "size": 272,
+      "sha256": "728877a507c62a5a388e9a2be222dd80553e5bb8a4517297ae933cba68634de9"
+    },
+    {
+      "path": "MANIFEST_v2_1.json",
+      "size": 554,
+      "sha256": "fa650826bd52189cff0f5204c614f51d8e795ff4330990857b202be4c0926a00"
+    },
+    {
+      "path": "MANIFEST_v2_2.json",
+      "size": 97242,
+      "sha256": "f0ba4c3527ec3fc5f3219dfdc522a0b103c23f6e660caad3449231df7c4127fe"
+    },
+    {
+      "path": "README.md",
+      "size": 7626,
+      "sha256": "3a658ee5b34bf927cbb960bfb32cbb242954da3f16b99ffca4ef42090ac94a27"
+    },
+    {
+      "path": "VERSION",
+      "size": 43,
+      "sha256": "76f9cd0816b4dd8cd3d12da4e1c994601f0cf37d529706b81b83e59ec80b307f"
+    },
+    {
+      "path": "configs/languages/en.yaml",
+      "size": 830,
+      "sha256": "618a21fae2523c1956cfda7f8220edc507a57276044aacb12a4449b47d93addf"
+    },
+    {
+      "path": "configs/languages/pl.yaml",
+      "size": 865,
+      "sha256": "a007d8a46295c1471a7c411b2fd668161d43a259c34f57d789708e4afb5fc179"
+    },
+    {
+      "path": "configs/lingophysics.yaml",
+      "size": 748,
+      "sha256": "eb49a3ca70afa1b07ac0f80adda155b77b8cb793dab1c6c229b7078c0dfe4727"
+    },
+    {
+      "path": "data/card_ontology/card_ontology_refactor_summary_v1_7.json",
+      "size": 525,
+      "sha256": "f2d2caff8af06266a69ee2d2bec658711d8f5aba980cd1736e5fdf5234c81abf"
+    },
+    {
+      "path": "data/card_ontology/card_ontology_refactor_summary_v1_7.yaml",
+      "size": 476,
+      "sha256": "fcf649ec0607386a7579bd2e4616afcbdfc8477a5fc361df887d08c511ed7a99"
+    },
+    {
+      "path": "data/card_ontology/card_ontology_summary_v1_7.csv",
+      "size": 2005,
+      "sha256": "dffe132864c6999b2e564adba10663fc2971a138ed1db8a9af37d00f60a80609"
+    },
+    {
+      "path": "data/card_ontology/card_ontology_v1_7.json",
+      "size": 7734,
+      "sha256": "7b9a8063b3f9d8a0dfb68b19baf7522217d1ef4798935261171b615ecd6fba9f"
+    },
+    {
+      "path": "data/card_ontology/card_ontology_v1_7.yaml",
+      "size": 6683,
+      "sha256": "b9f336901508f183bca3ca88b0b98ea901a56bd881a8e2d54a18baf25291a5ca"
+    },
+    {
+      "path": "data/card_ontology/card_type_constraints_v1_7.json",
+      "size": 1299,
+      "sha256": "0d22c644f73a9ab54c2c0c054255ee6395612ec04a5fc0f156824cb5196ded49"
+    },
+    {
+      "path": "data/card_ontology/card_type_constraints_v1_7.yaml",
+      "size": 1098,
+      "sha256": "e86faea1472c606334145790fb228f78ca23b8c7ada23b7ddb22580fd9e93e86"
+    },
+    {
+      "path": "data/card_ontology/card_type_migration_map_v1_7.csv",
+      "size": 892,
+      "sha256": "72e5c1867acdd6559a3f874ef62e2b6277951d25871da98b95b943608783fdf9"
+    },
+    {
+      "path": "data/card_ontology/card_type_migration_map_v1_7.json",
+      "size": 2472,
+      "sha256": "f79468ffd7caba368d4d3e6c1682d2c64eb0a8cb3a5264bee9c9d80c4acfa28d"
+    },
+    {
+      "path": "data/case_mappings/case_gauge_reconstruction_cost_matrix.csv",
+      "size": 425,
+      "sha256": "712578fa673b59b17d44b463a2860b177119fd060a971b3a2ede6bec9d38d14b"
+    },
+    {
+      "path": "data/case_mappings/pl_case_to_5lang_surface_strategies.csv",
+      "size": 3739,
+      "sha256": "37949d9978832787ed148bf55cbf77c7fc53df52ebcca7e0e5a2b6e1641fcfb4"
+    },
+    {
+      "path": "data/case_systems/slavic_case_gauge.json",
+      "size": 8340,
+      "sha256": "b63cdbd1043cb6af8f8f0842a813ae954b58872c86cf1631c274bb9018c0925e"
+    },
+    {
+      "path": "data/case_systems/slavic_case_gauge.yaml",
+      "size": 6835,
+      "sha256": "9816198f5adaa692dfae08b295918affdf991602a7e6006ec253426af2443dd9"
+    },
+    {
+      "path": "data/coherence/repository_coherence_summary_v1_6.json",
+      "size": 1002,
+      "sha256": "634c77b01cd33c965164e4350e056dbb92c733acf84449047fe8df2fe01d29ec"
+    },
+    {
+      "path": "data/coherence/repository_coherence_summary_v1_6.yaml",
+      "size": 820,
+      "sha256": "20de2b9005a45dedb458163674155b7596a015fd2312f787f36d7efd77b4d102"
+    },
+    {
+      "path": "data/coherence/yaml_json_pair_audit_v1_6.csv",
+      "size": 11043,
+      "sha256": "1aa4d4815964069435ddb4da439af69f4c33bef9f26646662c54b694354958dd"
+    },
+    {
+      "path": "data/coherence/yaml_json_pair_audit_v1_6.json",
+      "size": 33684,
+      "sha256": "5f05c1b1fe79bc1e6a3060318ca8123bb6b58657233cfbffc1e9da02a228d29d"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/air.json",
+      "size": 5560,
+      "sha256": "fc8b50c1297e5012cb638c698cd3d7e2522299b33c7f9c5162af01c05e484a2d"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/air.yaml",
+      "size": 4093,
+      "sha256": "3a2e24a285893c5f54abd577fc2961b4e68122756182ccd4679a7052781e9c27"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/batch01_index.json",
+      "size": 237307,
+      "sha256": "d78fa85787a58bb97c7520c0a0161d6c22ef368b60a6f33d5cc5967bd7c4ae1c"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/batch01_index.yaml",
+      "size": 121930,
+      "sha256": "d2651b695e8701a0a59850eaeb98ffbc5ef553942663c14ce10954d948dadb88"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/batch01_language_panels.csv",
+      "size": 56617,
+      "sha256": "086074a06841dcaa3a7301f84660fede7214e6bfa4ec7c586d06f0643e893880"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/batch01_multilingual_concept_cards.xlsx",
+      "size": 49237,
+      "sha256": "899afd6c2f7f3b8f1803f2cf9acab07793334a1510febbcdb4990b8ef6606ecc"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/batch01_operator_links.csv",
+      "size": 5473,
+      "sha256": "ef117f24ae788d680ff701971c828badfb834a009c9e910d5818a583f2f5fd95"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/batch01_relations.csv",
+      "size": 24615,
+      "sha256": "90dfd8ff40ff6368576966de62d5c82e7871be0260335e2bdc9289badb80c30e"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/body.json",
+      "size": 5673,
+      "sha256": "47d0fe522f8fb6608466d3dd183852cb82ec15ce1d169e8e9d22700609d14f53"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/body.yaml",
+      "size": 4157,
+      "sha256": "6a89797ee93ace911422766f9a3dee8271b96c2e7216a9342ffcf363b2e35fcc"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/boundary.json",
+      "size": 5605,
+      "sha256": "dba515d061c0e2453877a37d2a477f850971a7ad684822b2090b8758aaedf519"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/boundary.yaml",
+      "size": 4133,
+      "sha256": "23480b41d89e51f854da2e2a55e6414a1397847d4965079e102800059fc9867d"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/center.json",
+      "size": 5573,
+      "sha256": "151a8b3a51b46a66df0b1b7371accc2f09530a46bd54b222acc2573e141f2ee1"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/center.yaml",
+      "size": 4136,
+      "sha256": "b345d31890c049f48610594c45ccc34069dec1b55c64ff7f37ecb58cf9a2483b"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/chaos.json",
+      "size": 5594,
+      "sha256": "bbd8b7c05483df4ac9bf9e3497e273beabcab111e81ed96d70445180511d691a"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/chaos.yaml",
+      "size": 4137,
+      "sha256": "4556f853babe492778340570397f65e28565c02f04e908f1109c15d49fe10977"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/dark.json",
+      "size": 5728,
+      "sha256": "dc3fc6237741ff5a25549ed88153d264dc383beb674c51d615c7ad6de463119d"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/dark.yaml",
+      "size": 4252,
+      "sha256": "433662749d1137bff52fc2e464e043ad1aee947bcf2f19610166cb97854a8fca"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/death.json",
+      "size": 5477,
+      "sha256": "04c7e324e9a9b1b42136322011ec61253781b81f0c104f4d52ed2d6e2e151edb"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/death.yaml",
+      "size": 4035,
+      "sha256": "f82b22de50fe9e9efee2498b6358eb5f8be4b37b6f8af634615bb9df8f7bb1b9"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/earth.json",
+      "size": 5449,
+      "sha256": "93cc99f1cf8b13f0373053d793e09cac9a3692db200801823b2ce5b721f19cbf"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/earth.yaml",
+      "size": 4009,
+      "sha256": "cd210519fe0eb546dd4e1bb1dd668e1b61d5d74c8ee1a6b031486c7dd08ab1f1"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/energy.json",
+      "size": 5685,
+      "sha256": "125cf63dac55aa28c29f814c7d02bae6ac79cdd9a9a1a42f7bd18188185fea62"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/energy.yaml",
+      "size": 4178,
+      "sha256": "8b136c5384c9f2e268ff5d9fb00e82ca11f27eb16425189ceea7316c38ef9717"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/error.json",
+      "size": 5707,
+      "sha256": "9c669d61666740b6e491e6d2dbeab88b098344666f8f17c61f57ab082f5187d9"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/error.yaml",
+      "size": 4202,
+      "sha256": "71b95b63f09e1bafd95b54d868d7693ce7186858da324f512776fd8365086e86"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/fear.json",
+      "size": 5624,
+      "sha256": "0d7e0e2d0bb456e64ac646b274fb8173b1f784fd86f4b2a254ee959319c2dbc3"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/fear.yaml",
+      "size": 4138,
+      "sha256": "c804d4adc3b69cca094e8ebea71e534bf1f3596c5b254b4875c1323ff0691fa2"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/fire.json",
+      "size": 5722,
+      "sha256": "e939886299ab7a26654634bfe33efaf3d2bc418f05fbcc3fd23d10a171ebe434"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/fire.yaml",
+      "size": 4095,
+      "sha256": "453d2e1f3a17eefe3d75b0c7ae77ebbb85e874ef6de4fb1d5a44588d5ee43c92"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/force.json",
+      "size": 5625,
+      "sha256": "4ce7dac23bb32ac804f1490659fa0f423a9372d3d70175637581ac4badfa6fd2"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/force.yaml",
+      "size": 4143,
+      "sha256": "63d82e3e4294247b864480a20106cc9a829eb564c7baf513edfaa3e61de70116"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/good.json",
+      "size": 5634,
+      "sha256": "4ad95cd8703501363c275ec37974a183427b90893d4cf2de3f5f7f20d47a3cf4"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/good.yaml",
+      "size": 4133,
+      "sha256": "d0d357efdc371ed2114d40af3753df5d0b4e2f86080294bb9eb1eb3064ffdb9e"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/harm.json",
+      "size": 5625,
+      "sha256": "c0376d7eea4bb76cc74da4396b8fe64d62897721fb3aa31aa7f8347c2863702a"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/harm.yaml",
+      "size": 4129,
+      "sha256": "055987454475b4b2dabdecd8ab6ce4183215ea2117503e5d868c214097b06ec4"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/information.json",
+      "size": 5883,
+      "sha256": "eb46649b0e7f960e1eae738356fa74886ca85fa9ad512f19eff93c6dec602a42"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/information.yaml",
+      "size": 4377,
+      "sha256": "d7b3fc234df7aab8ca50e3c730bae5fcfbf8ddf76cd9c2619136aaa3acea2b22"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/knowledge.json",
+      "size": 5848,
+      "sha256": "2e3bb9bd002c07dda669e4df4909bf59e0f554f2aef9023a1d8cb4edab414f74"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/knowledge.yaml",
+      "size": 4352,
+      "sha256": "b2ba4867617a0a47f48e2b0a91dddb070be529a003ba9c5c2c56a4cb1cdea821"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/lie.json",
+      "size": 5743,
+      "sha256": "e1555acc7a400311896ed2df59fd19676b71bf5954dee0b2c3b022fb260c1ecf"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/lie.yaml",
+      "size": 4257,
+      "sha256": "4a897c370f758fb3ad1406425ee088e65da193d6233bbccd29d3241e7aa8a415"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/life.json",
+      "size": 5735,
+      "sha256": "d21c6c18046be82d5ec4d9836b468286ed4257c08afb7a691233b1d6073689a1"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/life.yaml",
+      "size": 4183,
+      "sha256": "3d46b345df905ce8dfa82222e06822c35cfde2509dda5c07ec156bf8ab1cfbff"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/light.json",
+      "size": 5631,
+      "sha256": "58f3d95ec1974f0832c0b917f91c3db8c64554004935af55bfae6582300cffa5"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/light.yaml",
+      "size": 4125,
+      "sha256": "20d251652e1fb05b40b3a1c0592b2e483735ba06cd3ed792f56811568b8326f6"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/love.json",
+      "size": 5758,
+      "sha256": "2c2d6eaf0b2b75e8b29b74c761aeeae2f060b55daaebf193f92444b843b2bf3a"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/love.yaml",
+      "size": 4253,
+      "sha256": "d6bb57eb0a91391768e967745ccd53b60adb68c7ea99c031c3291863fda263a4"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/matter.json",
+      "size": 5719,
+      "sha256": "56cac13d270b2bfa75d5430d15fd2c6958775689e7f5ff8683462592b6b994e5"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/matter.yaml",
+      "size": 4202,
+      "sha256": "06afd4cef579584dce0080936f037646e213172dfa7071f5fff97b1804dc607a"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/memory.json",
+      "size": 5698,
+      "sha256": "b9c10027a16448fb85f45058c5aec85c1c81c8ab8d5c06175e7361eef5f26fee"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/memory.yaml",
+      "size": 4221,
+      "sha256": "b8f80778cab9e268d278a7eff78592c3f8854bfbba557a6c9b196b412d2aeb08"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/mind.json",
+      "size": 5699,
+      "sha256": "19a105f2f7b14a59a4e0cf8444873c2b9d72361cc3264842fd069c80514a3da2"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/mind.yaml",
+      "size": 4198,
+      "sha256": "6651756c5d3421667fffd43ede5edf4a6c61085d50af27d1620d4cc7901db5b8"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/motion.json",
+      "size": 5807,
+      "sha256": "de3f137d2e050c58550ef286e68ddd00897ebc526d0f5e6054eb690a53fff2fb"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/motion.yaml",
+      "size": 4250,
+      "sha256": "eb46d74db546a0b7c3c1d5a5b50a4a70d7df1c9fb47e96f519e6109c902b5aaa"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/order.json",
+      "size": 5612,
+      "sha256": "1e188c1205dbfaf041c926a9e22da89e4dcf2a674ab11fc93c342f3269abb2a5"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/order.yaml",
+      "size": 4130,
+      "sha256": "58944b1804c43d9d105222bc59a96a4e31092a6ae242342f09e250bda5979b62"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/other.json",
+      "size": 5467,
+      "sha256": "e84c1111bb6f79b8f1b90bc0817295072b90959ab031e195bfbfe13e6943a334"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/other.yaml",
+      "size": 4005,
+      "sha256": "681035346efec0972caaa4e53d21f60b5eb267b6b307107d3bc36ea18c9bb78f"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/pain.json",
+      "size": 5691,
+      "sha256": "e85b90edea2d756e62aba252c80eb695d75527e18440d34f48f4bc3c181bfb12"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/pain.yaml",
+      "size": 4165,
+      "sha256": "23ece98e66a16cd0e33693695add94e75b788f77ab18abd5404ec212692306db"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/relation.json",
+      "size": 5728,
+      "sha256": "eaf343c1b8d6df2c3059667248c7439f73ed796c181d9ed197170bb0f9781263"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/relation.yaml",
+      "size": 4247,
+      "sha256": "985e7c9a6de0361b279e296da440ceb17a6e8a899aa8fe08b91f82d487d9d2a4"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/rest.json",
+      "size": 5536,
+      "sha256": "f8033998652aacbd675598c41ce017d92fbb6ab41ccf745460b7b817c7cced18"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/rest.yaml",
+      "size": 4099,
+      "sha256": "604e4c4fb4965a013fd0938be6e6cea028ad65674d50cc011db2d0e49e33e394"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/self.json",
+      "size": 5577,
+      "sha256": "36c9d8b9bbbbeb47773ad251f4d6bc39f90d9cddccf94e7f8620e6352920371c"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/self.yaml",
+      "size": 4121,
+      "sha256": "339bb9f33f93ea0c880b6f8cf407557c34fbdfe3da1c4fa29b2418ab7c15c71f"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/space.json",
+      "size": 5909,
+      "sha256": "e5044c2cc85b78c0e7f0a18db55db47e03ab56b5091b0f0469943a74c3063db9"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/space.yaml",
+      "size": 4248,
+      "sha256": "68a1c069afa98673bb7d433bd34005ea84c6b386a1773eb23cba1220b6bc2ea0"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/time.json",
+      "size": 5501,
+      "sha256": "bf0eed5c444748135c3681c1fadbfbef2852f936fc9c11d1e7b49aa0c29e277a"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/time.yaml",
+      "size": 4059,
+      "sha256": "0652ac47ceb647e270aedbda88e1a7233c7a3aa5fc34e582a884a6fbaf097640"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/trust.json",
+      "size": 5849,
+      "sha256": "2eabeb2cd07ef6526472fc61342a7e5141ba595048f400bfa1d99e36bfab789e"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/trust.yaml",
+      "size": 4349,
+      "sha256": "31bae858b736a0cd115e048ca4db093eef1249e2a2a8436d108d4eeb022d8d10"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/truth.json",
+      "size": 5702,
+      "sha256": "3a465316ce1f48afefb7c0b7f89c36f8d9cdfcc37a0e9ff96a8da29e8687e5df"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/truth.yaml",
+      "size": 4231,
+      "sha256": "b6b43d604f42bf3d9ae29222b7ae14eb5849406b76be63e9bf9e81cbef41f885"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/water.json",
+      "size": 5774,
+      "sha256": "80f27a21c75372ccb94aa856de54bdf8960b765556f7cfe4bc643c42241be388"
+    },
+    {
+      "path": "data/concept_cards/batch01_foundational_36x5/water.yaml",
+      "size": 4111,
+      "sha256": "f7055dc08ab0cf73663fee2ae167634499c17e5bd1ed1235224181d037a79637"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/answer.json",
+      "size": 5626,
+      "sha256": "8397ab530fd778bd770c4d9ab5f8599ae8dc057cbcaed6dafaef0a84e0723070"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/answer.yaml",
+      "size": 4151,
+      "sha256": "1af030f85b7e52da75fc975c7cce2332f5b9b828761bb6097d246e2dcb24ee23"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/batch02_index.json",
+      "size": 1158,
+      "sha256": "cdecf574bf03486814801efe08f2bd90ecbabaaea7aedda0c4cdebd901ec5ce0"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/batch02_index.yaml",
+      "size": 898,
+      "sha256": "60538a6e80cfedb98470747287f0f057b9143d23aee3219e5e961b3468e61cc5"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/batch02_language_panels.csv",
+      "size": 19257,
+      "sha256": "9fb85a74ed2944a670a7847dfe30df781e6592b5ed747acce5f363a4fd24f369"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/batch02_multilingual_concept_cards.xlsx",
+      "size": 23367,
+      "sha256": "7bd9bdd0651cc5d7405ca0910244958a527050b6b7cf82171cbf3600d868c4fc"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/batch02_operator_links.csv",
+      "size": 3882,
+      "sha256": "2ae102176577d32d97cfa8a45718b65681fdd48d93aeea260fb3ef58dfbca283"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/batch02_relations.csv",
+      "size": 3530,
+      "sha256": "63d4b2358e8d459d1e04abab4b3a5b76ef599b38eaeb348aa4e41e245b932adb"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/blood.json",
+      "size": 5367,
+      "sha256": "dcb15e86a16a16513e1d5f34fce65b3a949ba891d38722e25f1eaa6c75bb014b"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/blood.yaml",
+      "size": 3941,
+      "sha256": "7eef1807a97286580d4719e50c9f8a8b4e32796cd7ac2a45e9bcf365943d4be5"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/border.json",
+      "size": 5642,
+      "sha256": "335437856cb71804556f6e9ae4da27248a9b603963207fa97d6df90541992664"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/border.yaml",
+      "size": 4101,
+      "sha256": "35dddb14259635395827097248716cfae7182f6d4e49543b21fc6ffbc17e9f48"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/child.json",
+      "size": 5370,
+      "sha256": "62eaae63237e31e21463cd6c86e115102530a8850941f5d06800f697197ddd1e"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/child.yaml",
+      "size": 3983,
+      "sha256": "8940d7b91300311cc3d6cde2e36729c2f32f52509fbcc4a522eb28f6770780df"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/city.json",
+      "size": 5416,
+      "sha256": "e151ee492b038ad9bdb148a9b96a2eeaeb34e343bcc33cba4381a534e192d649"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/city.yaml",
+      "size": 3970,
+      "sha256": "489dc4a67c6722a2af9edf744707ec31c5227527ed8fbd23afad1b2b4bf34f30"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/country.json",
+      "size": 5398,
+      "sha256": "14e6b03bfe182a28a06e39d9183b733f19a1afaf052d88e234e222ace64c57e0"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/country.yaml",
+      "size": 3961,
+      "sha256": "c15fbbab7b5acfa7b59163478462cb42b1cb25c68973f951dd01feedeef19328"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/debt.json",
+      "size": 5493,
+      "sha256": "f58b78553b50742159076dc6da67c49ba7422fe3e8f8e68783a856666efbfe06"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/debt.yaml",
+      "size": 4042,
+      "sha256": "8b331600de60c4632bfe0ef600d59dc75bdeb7c91f0031771dda23ca7291a836"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/door.json",
+      "size": 5559,
+      "sha256": "cfc821e882261d7baa13406c219caafd653e223dd676bd467fbe10e56283cd1d"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/door.yaml",
+      "size": 4018,
+      "sha256": "43258746357029e02e13646c9e78dc3e27e4d3fe88d0371397c1f5ad6451eb3a"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/doubt.json",
+      "size": 5616,
+      "sha256": "32824c4b8d2f7968ae088c7a025800efbe51087b4e021c006b0073328f95c076"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/doubt.yaml",
+      "size": 4125,
+      "sha256": "efc7dd84c8cc53eefe40818de5d639a4df1c2b0f85c97a6e579de9f5f7fca735"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/enemy.json",
+      "size": 5528,
+      "sha256": "8ac10c84c2a0f7fb59cb9fecaca7a70b34fdad5ab189dad93e7e36e13e6eb7c1"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/enemy.yaml",
+      "size": 4047,
+      "sha256": "9c2ee01cfb388b4639a6b1365d68f9243d31ef665ad36ab842494947243795e2"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/eye.json",
+      "size": 5369,
+      "sha256": "9e9d1581df93eac4a68ebc9afe0469590b91cf24782f586378af96b3b4be0127"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/eye.yaml",
+      "size": 3936,
+      "sha256": "782bfca0e35434b72a149ba6cc9e6ddac1b7dc3ea5222c4dbc5d693d1a74d2f3"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/face.json",
+      "size": 5289,
+      "sha256": "f357403ab3ada60a586a2dd85834a6df7ce54a975fbf12d8713e335681793502"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/face.yaml",
+      "size": 3969,
+      "sha256": "c66a5d80f359aed1ff0b4cf11e18eb77fa285f5a117d16c7f628cb9292a6f47f"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/friend.json",
+      "size": 5541,
+      "sha256": "897575814432f75404014c917578e83d4a936f1104e19982eedcc5c8703e6609"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/friend.yaml",
+      "size": 4060,
+      "sha256": "e7a9915e5e5852f203a382da40324c307c85a53b1780080ca22ec756065f1e94"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/gift.json",
+      "size": 5468,
+      "sha256": "4be774ac0bde831031880ec1994339c28a6f9679d2c7dcee9f20c8cd7b05ad02"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/gift.yaml",
+      "size": 4017,
+      "sha256": "a017799444588a16cca66d523c49aba079300d72d89f8fe97c9e8bc7d2ed7400"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/hand.json",
+      "size": 5368,
+      "sha256": "be272e45a5f220bf54498871e67809598a095ca94ebe39d010b1c2e7470e5f04"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/hand.yaml",
+      "size": 3941,
+      "sha256": "47262c83a263b6f3373fe3ebeb47410c65ae96b08b8891f5ff48bb3487b012b3"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/house.json",
+      "size": 5418,
+      "sha256": "47f6537db83925c432a53a6f5caed7d7a6700d3e5c588739f29e09f4a7da3976"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/house.yaml",
+      "size": 3966,
+      "sha256": "b7fb557011390c42e6734c780458032889b6329ec7ea8d31254702de85830861"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/idea.json",
+      "size": 5357,
+      "sha256": "6954b29ff2e538e1563668c347c9e2c897995f57eba0aa1fe591ad7a8cb2d497"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/idea.yaml",
+      "size": 3940,
+      "sha256": "92f91825643d66a04000a4f2f70fa4f3bb104de311e283e0b6dc37589e1b4e80"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/law.json",
+      "size": 5356,
+      "sha256": "ed706e9e4cd100fb8b2e419efc984c3f62cc2d0cd6f657a92a8f18a921e12243"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/law.yaml",
+      "size": 3923,
+      "sha256": "e4bc906d0b94410ccdb6b9861e5f1c56c4722c3814b3a12fd66c2060994cbc99"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/money.json",
+      "size": 5384,
+      "sha256": "86959232d69464bbba17f96eb0cbe57649b0cf8274c5033b9c95b6bb75ec42ff"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/money.yaml",
+      "size": 4003,
+      "sha256": "efa92e981664987583230ffe35bf40a18ec0fac7f32b0043068eaa2e2a871a41"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/name.json",
+      "size": 5236,
+      "sha256": "7275367f997812b5cb57b8ae54bc8a48c40a456a03bfbf707b63b1e6b48fdb97"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/name.yaml",
+      "size": 3935,
+      "sha256": "90aa792d3813f4d10d2178663f33e8bb63fb4e1b19f680c55188a57be9f45fda"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/parent.json",
+      "size": 5435,
+      "sha256": "8c78571f62000de07e0f2deb92deaaffca6d08fbab219df78a7bd0b0dce98f65"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/parent.yaml",
+      "size": 4054,
+      "sha256": "2078cab37608f1486035846463f6b8150871dcf2184a1e74e3f42899b900534a"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/person.json",
+      "size": 5372,
+      "sha256": "39defed03bee22946e94511f9fa9513b59125afe5e008b771aa338873571d387"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/person.yaml",
+      "size": 4001,
+      "sha256": "c769956f3cc70c9e7f4339a9e8ca9435329119773c2427a33a3170b804c96872"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/promise.json",
+      "size": 5485,
+      "sha256": "f6215cf6749537f6135a1c0bd21df9b63c3e224c2643d6c523ce6232437d7f17"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/promise.yaml",
+      "size": 4090,
+      "sha256": "9507426ffdf01adeb0d72b8bb72cd5921f6315e08365eb1d4c0efdb2e19c28fa"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/question.json",
+      "size": 5602,
+      "sha256": "7dce3d599dbdf2d44e47e8fc1ac30d47e14d11c2a37c63a092003016041bd55b"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/question.yaml",
+      "size": 4121,
+      "sha256": "05c72d442a9ab82e0ed3184faefeec19c94bbe19de10ab86566ed3b34f98a88d"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/reason.json",
+      "size": 5464,
+      "sha256": "9c56d09c3012f4c38dde92d6369592e56af33103ae1e8b6c547775707034c7e8"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/reason.yaml",
+      "size": 4038,
+      "sha256": "e3a0ff5d0d4ce8ad0ba431f6ab99f6f97e5d109fe63f45daae05f1ce0f3f5b37"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/road.json",
+      "size": 5360,
+      "sha256": "553491667a32f17eaa15cb84c67b69544891f26cbb6015e2348fe16b70b5aa7d"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/road.yaml",
+      "size": 3959,
+      "sha256": "9529c596a11df76855caf5f19dd77ebddfa4882baf23e1ea6840c86d194145f8"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/sign.json",
+      "size": 5420,
+      "sha256": "8be4d4ffd96cd24302076edc0a3fc45b06da279071fe5c5c979c64ce03a82b22"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/sign.yaml",
+      "size": 3979,
+      "sha256": "3154c7a8e2cdb62bf6c3842f3405fb6ec5d8fe2c8eaf5bf7a3d7265afabbee34"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/silence.json",
+      "size": 5587,
+      "sha256": "6d36cc65ec6ded8acd6d966960f3135a880e818b7a098c364308ae8855ab273d"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/silence.yaml",
+      "size": 4076,
+      "sha256": "52119daff0ced66d757ff439e83bc3ca4a1ad576375984ee8c126a87893b093e"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/song.json",
+      "size": 5289,
+      "sha256": "bce14e89f1efa5d31ffd15e95038b2bd0a47368be3b657e47b6eaa95823161a5"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/song.yaml",
+      "size": 3922,
+      "sha256": "ce5bfa2ceb5fdef6e59f7f7f793a0db09e49d35cfcfd8e204999957ab4eb91b6"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/sound.json",
+      "size": 5493,
+      "sha256": "ff8902b509b60ad64ded42907a9d92bb286eaea4ee7b53749c841863d1b89cca"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/sound.yaml",
+      "size": 4016,
+      "sha256": "f8cf9c6e5fd7a929ce083437ddfdc4a4084efcb036d6d1ee48ac1e05fa28dc59"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/story.json",
+      "size": 5531,
+      "sha256": "0e2ddbf17ac253a1cf4a1087dfd46d4909aa4b32aee89d3256712f77a4e6b326"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/story.yaml",
+      "size": 4080,
+      "sha256": "436e81e1085a892d152ce6681e8e4dcb7d6999a723dc4406ee48aad12a4b8678"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/stranger.json",
+      "size": 5524,
+      "sha256": "53a76d991352c5467b51adff0947b7f73a5637abd2fd254e6024c0a900667f60"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/stranger.yaml",
+      "size": 4119,
+      "sha256": "4a0508dfc1c3d49a50e33f1bd141a73250b1a69b780e7adb572c9c4a348f0ab5"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/thought.json",
+      "size": 5467,
+      "sha256": "43c7dcc99977b60d76b0531a65b58efd9bb534d708c27d63796f98ad4f403448"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/thought.yaml",
+      "size": 4056,
+      "sha256": "a16421244986591caccfa840cc98ae52cf7d7b4004ef4e798b1ffcc181fbbb21"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/voice.json",
+      "size": 5349,
+      "sha256": "9fd297122993f1c73313dfefaae27b57765c93b79e2753437e9a1360b6360f23"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/voice.yaml",
+      "size": 3952,
+      "sha256": "6c25c7d88b66c5f237b1639cd2febcc0cc29c0c019d5e8e9da74865d9520ba71"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/word.json",
+      "size": 5355,
+      "sha256": "06afe437ca7c59ed13cef12ffe63080cb96d772b71a4bce72ff81c21d84488dc"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/word.yaml",
+      "size": 3948,
+      "sha256": "888911eada5e8a82fdee12f9c80750f9816382cabdfbb2d98392cb7e9cf583cd"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/work.json",
+      "size": 5364,
+      "sha256": "b89031ced5512e1beefae3a08bdf1ac368d00174e5ca23cc2944134f9e365786"
+    },
+    {
+      "path": "data/concept_cards/batch02_cognitive_social_36x5/work.yaml",
+      "size": 3983,
+      "sha256": "f3047fa2183179acfad7bd0e752b4593281146de5f6b355218fdeff4ca8a14d9"
+    },
+    {
+      "path": "data/concept_cards/water.json",
+      "size": 9428,
+      "sha256": "037ddfa8fca105905bc7df9bb93e94eb0cad52fbf3344a879876812e92af5a6d"
+    },
+    {
+      "path": "data/concept_cards/water.yaml",
+      "size": 6977,
+      "sha256": "9c48cba268680ce0fffacdd48bb500459313f21d9fe9a148dcc1fa09d93a72a0"
+    },
+    {
+      "path": "data/concept_cards/water_multilingual_card.csv",
+      "size": 3135,
+      "sha256": "4e4731f1af53bdcf78e9438b85cbdc456f0667348b25c44fc86f03cf85d2dbd2"
+    },
+    {
+      "path": "data/concept_cards/water_multilingual_card.xlsx",
+      "size": 14701,
+      "sha256": "6294fec0f10c8d336dc35868f8a9b47c441e5d5e7cf6e4de699978b2533aace8"
+    },
+    {
+      "path": "data/diagnostics/concept_diagnostic_matrix_v2_0.csv",
+      "size": 1943,
+      "sha256": "f08527387276910143ab2b986b12b058123213b2c6e086575a16e1d25550dd89"
+    },
+    {
+      "path": "data/diagnostics/conflict_ambiguity_unresolved_registry.csv",
+      "size": 1045,
+      "sha256": "26e9ef215f35838017724c3d7b381b400bde133f4a4d6c8005d77ec4eec2d748"
+    },
+    {
+      "path": "data/diagnostics/conflict_ambiguity_unresolved_registry.json",
+      "size": 1483,
+      "sha256": "4f97ec49155fd77f693ff843c487e4e82e09529f7614fe2bf5d9322b2451a59e"
+    },
+    {
+      "path": "data/diagnostics/conflict_registry_v2_0.json",
+      "size": 37,
+      "sha256": "734633fa38096f986422e2900627ee17557902144add82668b40f9bb3da38bb7"
+    },
+    {
+      "path": "data/diagnostics/conflict_registry_v2_0.yaml",
+      "size": 25,
+      "sha256": "d6cb5a400df51862487cc112ed9083320c445dc8e50a4b0c81a06daf3cbd9810"
+    },
+    {
+      "path": "data/diagnostics/cross_language_reconstruction_costs.csv",
+      "size": 838,
+      "sha256": "ba9a1f8cc2e9a3d1345552e05e4c4fd2601bc48c49ed80813231c75397eb0690"
+    },
+    {
+      "path": "data/diagnostics/cross_language_reconstruction_costs.json",
+      "size": 4498,
+      "sha256": "45d5725490e4d54cd8e4772d83c2dd64b4c0b8a2352d33c7a5268c8760964067"
+    },
+    {
+      "path": "data/diagnostics/diagnostic_geometry_config.json",
+      "size": 649,
+      "sha256": "090d351d6e18da0868368e41d7a11154fa94c1016d45ba6f5ebd222d3a84c94b"
+    },
+    {
+      "path": "data/diagnostics/diagnostic_geometry_config.yaml",
+      "size": 535,
+      "sha256": "876be89f34b7dcef1ad3744eb1bf83979d8794d5f1567054026efdcf85075e93"
+    },
+    {
+      "path": "data/diagnostics/diagnostic_geometry_summary_v2_0.json",
+      "size": 2546,
+      "sha256": "a7fc7fd87e0d61027c39172f5375650fa0c95bd78d31c9cfc28c04bec4aa88d1"
+    },
+    {
+      "path": "data/diagnostics/diagnostic_geometry_summary_v2_0.yaml",
+      "size": 1867,
+      "sha256": "1b1cf8bf70839c4fa5260549a2e80a87ce2be955dd838e742ef8dd4954966dc0"
+    },
+    {
+      "path": "data/diagnostics/diagnostic_matrix_summary.csv",
+      "size": 282,
+      "sha256": "24a417b6b304a70e95a4026a0387be4316ba44cc06ff928a72931ff9597f6d32"
+    },
+    {
+      "path": "data/diagnostics/global_diagnostic_summary_v2_0.json",
+      "size": 1750,
+      "sha256": "9033fd1fc5f149c0af990a9769af03bc04b63eee9e610236f6ed71c48dba1a81"
+    },
+    {
+      "path": "data/diagnostics/global_diagnostic_summary_v2_0.yaml",
+      "size": 1336,
+      "sha256": "5682ba0e298a7be46263a1266d55aa63738be7892a54218c4232a89c9c7ef68c"
+    },
+    {
+      "path": "data/diagnostics/metric_registry_v2_0.json",
+      "size": 1332,
+      "sha256": "7b97787a2d7b789cbb3c9715c3271d9428b057d0f845c65e5b0a46e15db37298"
+    },
+    {
+      "path": "data/diagnostics/metric_registry_v2_0.yaml",
+      "size": 994,
+      "sha256": "808258e0a6c5e2f93fe7f229ae9e9f3f3a2b0fb5b82d74e711089a3ead41d943"
+    },
+    {
+      "path": "data/diagnostics/operator_density_by_concept.csv",
+      "size": 4994,
+      "sha256": "ec8ff4542c5dbaa97a2a4224bb1ce1ed4800059e7c72193e72a4b2be54ab41cc"
+    },
+    {
+      "path": "data/diagnostics/operator_incidence_matrix_v2_0.csv",
+      "size": 14224,
+      "sha256": "79941d514b8da62581b97afd03c0f4f4d000ebc2575c06c5ef3ca59c55a57d38"
+    },
+    {
+      "path": "data/diagnostics/relation_type_density_v2_0.csv",
+      "size": 1193,
+      "sha256": "daa244f7faf4a8268f503b0efe5787344a5c2cd28790ce12277815c5e35632e3"
+    },
+    {
+      "path": "data/event_frames/predicate_valency_frames.csv",
+      "size": 2468,
+      "sha256": "9af415de1ccff08870d76997f6a984e4f6dc948e6ed43a3496a84a5de37d3aa7"
+    },
+    {
+      "path": "data/event_frames/predicate_valency_frames.json",
+      "size": 10120,
+      "sha256": "c2e0924cff36fc6ff61faf55ccacd4e93405d741daf825f154275017fe7c4d19"
+    },
+    {
+      "path": "data/event_frames/predicate_valency_frames.yaml",
+      "size": 7771,
+      "sha256": "f4980d7c009db8f44e76cfcb55fffcadc8f7e0c239f9dc2dd67cfd84319a7517"
+    },
+    {
+      "path": "data/grammar/de_grammar_math.yaml",
+      "size": 827,
+      "sha256": "f73307b461722e5646eb2431758ba6c5985b681e7caa402d8ccac52db40b9f37"
+    },
+    {
+      "path": "data/grammar/en_grammar_math.yaml",
+      "size": 817,
+      "sha256": "8a32c79f84260f24fa85d47b33c2de32417d5e97d5bfc2816abbc01d0304464e"
+    },
+    {
+      "path": "data/grammar/es_grammar_math.yaml",
+      "size": 811,
+      "sha256": "92b5a0a1c3f78be5e90ee9996c9a9143606b66df83219916bde664b97ef94d37"
+    },
+    {
+      "path": "data/grammar/fr_grammar_math.yaml",
+      "size": 801,
+      "sha256": "1ee80a6064f000c7c2016221e42fa86dd1a25ad12b24090e6761a01d90619892"
+    },
+    {
+      "path": "data/grammar/ja_grammar_math.yaml",
+      "size": 847,
+      "sha256": "53837958686ed297c64d5ff08131967c735c33b5dbbf6c0afca51053b6419f94"
+    },
+    {
+      "path": "data/grammar/pl_grammar_math.yaml",
+      "size": 825,
+      "sha256": "aea7ff872bf6c53b1b3ff8890b0ace69c6723b5d6461aaf35e5ac09e64adc968"
+    },
+    {
+      "path": "data/graphs/batch01_concept_operator_graph.graphml",
+      "size": 29418,
+      "sha256": "84a0ac456f9e89db949d3445f613bf1d23ff2de92a94e354e979dc9e5ce44fdb"
+    },
+    {
+      "path": "data/graphs/batch01_concept_operator_graph.json",
+      "size": 31725,
+      "sha256": "f70ff45c3f225e1358d9c68a41d9f853201c4bb86f9d2ce1c493b8cbcd111e67"
+    },
+    {
+      "path": "data/graphs/batch02_concept_operator_graph.graphml",
+      "size": 36908,
+      "sha256": "e46f96c3d3efa87f2e98b2848ec30e0f3b7f810b4f9b8769c673ec59f780a95a"
+    },
+    {
+      "path": "data/graphs/batch02_concept_operator_graph.json",
+      "size": 37242,
+      "sha256": "800885ae773d63268fbaf453d4a803efa142ab3bad97ad63a9f02f378f8f802d"
+    },
+    {
+      "path": "data/graphs/case_gauge_mapping_graph.graphml",
+      "size": 10266,
+      "sha256": "ed62da58add0a4a72402f52279744fa6e3f27b806db63fcfc9f676dd9eada753"
+    },
+    {
+      "path": "data/graphs/case_gauge_mapping_graph.json",
+      "size": 11163,
+      "sha256": "27f63c19b751b7c4f6defe4b13255f3d7f145ab60ed5de391e40fd44bde62465"
+    },
+    {
+      "path": "data/graphs/dynamic_deictic_operator_graph.graphml",
+      "size": 3736,
+      "sha256": "e8f1ab566a674772d7df3481f66b56335c0cb78e3d623f8e951d095cd77f482a"
+    },
+    {
+      "path": "data/graphs/dynamic_deictic_operator_graph.json",
+      "size": 3681,
+      "sha256": "42ff1ab7d71d327c8048c6e586508d4d8b831e2b6728480eb1bebc40ed50c392"
+    },
+    {
+      "path": "data/graphs/global_diagnostic_graph.graphml",
+      "size": 134007,
+      "sha256": "40f6fe500fcae7df90995f7327d779b2c59c2fa6d0b2187264e8501d5fb20733"
+    },
+    {
+      "path": "data/graphs/global_diagnostic_graph.json",
+      "size": 129087,
+      "sha256": "d088fc73532ff551b3dfbe230cd66cb44db06951d483433e56674665eab9e44f"
+    },
+    {
+      "path": "data/graphs/ontological_aspect_graph.json",
+      "size": 2704,
+      "sha256": "7e2128a7918c8e2258cfaa9ff9b85d32e8b8b25a279754cd4ebc1bf6e4f6de66"
+    },
+    {
+      "path": "data/graphs/operator_core_graph.graphml",
+      "size": 16306,
+      "sha256": "8a54bd88216981e8010f584921174f8a9284d2981c60187a4550fc3fbcc15e9f"
+    },
+    {
+      "path": "data/graphs/operator_core_graph.json",
+      "size": 17050,
+      "sha256": "6638d1453ec232a609b5be59ac52312290ff5826a25cc3f89b727e026c7a2ed9"
+    },
+    {
+      "path": "data/graphs/predicate_valency_frame_graph.json",
+      "size": 5239,
+      "sha256": "4239e9497eae23c4ff5729745591e53d18bc8a94bbe6e70ea4801a5ed28de67d"
+    },
+    {
+      "path": "data/graphs/scope_quantifier_operator_graph.graphml",
+      "size": 1408,
+      "sha256": "35be58e43c789d13b98d79a2fe6b0d66149c9544c7517a1fcd5c141e40ae9647"
+    },
+    {
+      "path": "data/graphs/scope_quantifier_operator_graph.json",
+      "size": 2878,
+      "sha256": "1ddaec74bb2e5ba89ddee4b7e41699acd0cf52483d6be9e71450c2baa45b9f84"
+    },
+    {
+      "path": "data/graphs/water_concept_graph.dot",
+      "size": 698,
+      "sha256": "ecadeb7cc1eedb606ce5fc101d0ecd29f2ed22861f678e91fe12245d95119707"
+    },
+    {
+      "path": "data/graphs/water_concept_graph.graphml",
+      "size": 1700,
+      "sha256": "f5c96c397a7508e4647e0ab20e7607bded88d00e003aa34f741ae545ac7807fd"
+    },
+    {
+      "path": "data/graphs/water_concept_graph.json",
+      "size": 1726,
+      "sha256": "9e02fe56d86d840ceb51c269c101503edfed0ee5a236db3c9e03ff10de9689df"
+    },
+    {
+      "path": "data/hdf5/ciel_lingophysics_concept_cards_v0_7.h5",
+      "size": 11424,
+      "sha256": "83dff7139d88fd1522cb6c2467df107be6bcbd46436335b2e0af3268da7f14f7"
+    },
+    {
+      "path": "data/hdf5/ciel_lingophysics_operator_cards_v0_8.h5",
+      "size": 11776,
+      "sha256": "41676a3cab870a38eba89a4c647b0825d970a49d568eb4c3da41a8046daafeef"
+    },
+    {
+      "path": "data/hdf5/ciel_lingophysics_seed.h5",
+      "size": 15248,
+      "sha256": "336c10d8a1432275c18ceffbde1301eaf9f705116a332bd9a52baca2cb5488ad"
+    },
+    {
+      "path": "data/hdf5/cielingo_batch01_v1_0.h5",
+      "size": 16028,
+      "sha256": "9443876bc0e348421ab5766fdd163f52efd6ed1714475a79cf6e6a635e98ecba"
+    },
+    {
+      "path": "data/hdf5/cielingo_batch02_v1_8.h5",
+      "size": 21152,
+      "sha256": "ed06ab1d861d15b64864508ee2f99385f22f1a1094e8fc127f687fcd25d2a58f"
+    },
+    {
+      "path": "data/hdf5/cielingo_tame_v1_4.h5",
+      "size": 8608,
+      "sha256": "533115227c3d787d35e34d95c227181ab4d72856e4334d7fb57310dbd86cf99e"
+    },
+    {
+      "path": "data/hdf5/cielingo_valency_ontology_v1_3.h5",
+      "size": 18744,
+      "sha256": "6ce356cbd67c5a3668a27a439bef2f824c9ce669bbfbf22cce7593a842b53bd0"
+    },
+    {
+      "path": "data/heatmaps/batch01_concept_operator_incidence.csv",
+      "size": 4278,
+      "sha256": "336637c250e841fbc97f7f84254b584579a573be2b9deadfa1833d49f22043e8"
+    },
+    {
+      "path": "data/heatmaps/batch01_grammar_gauge_distance.csv",
+      "size": 203,
+      "sha256": "2c6a5c6a69f576f6a73378817ca877d22af2571146c57b4d6caae5342e166514"
+    },
+    {
+      "path": "data/heatmaps/cross_language_semantic_similarity.csv",
+      "size": 278,
+      "sha256": "5ea1b537262689f0d150f9617c1952a9fd39320b78904b9f57e255d9105e8d96"
+    },
+    {
+      "path": "data/heatmaps/dynamic_deictic_feature_matrix.csv",
+      "size": 431,
+      "sha256": "7ca5cfeda4a7499751ffb2fc7bc5129f50ed148031bae1f2e5b74a4c5b4183c3"
+    },
+    {
+      "path": "data/heatmaps/grammar_operator_distance.csv",
+      "size": 272,
+      "sha256": "b293e9cb0dd8b1b029b58bd3115d1fda1dbd9335d76faccd9b81a188aee93b70"
+    },
+    {
+      "path": "data/heatmaps/operator_feature_matrix.csv",
+      "size": 810,
+      "sha256": "cb9181e8055ad14219acbc81c5532ef62192330378d08cba362405bd6246105c"
+    },
+    {
+      "path": "data/heatmaps/water_semantic_affective_gradient.csv",
+      "size": 222,
+      "sha256": "9b130e6deed81da265539ddff3f1f87bd4160f5b52824139e49337881bde6553"
+    },
+    {
+      "path": "data/integrity/relation_integrity_report_v1_6.csv",
+      "size": 684,
+      "sha256": "4ec2b2912a092718382476b8fbd225872eb8b9fd9646d43bb247d6ce7cf9626b"
+    },
+    {
+      "path": "data/integrity/relation_integrity_report_v1_6.json",
+      "size": 1398,
+      "sha256": "8a2d518e2f52ecaa03b5d0bfe25d0c1ecbfefd725ea7c79143efbce27492559d"
+    },
+    {
+      "path": "data/json/cielingo_tame_v1_4.fallback.json",
+      "size": 565,
+      "sha256": "ba122ce92944a6c5d5de66aa5e3fc303fa636b12ef54d0a35cd3e0b5c48d579c"
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_4.json",
+      "size": 417,
+      "sha256": "63483115feacd1de74c933b62975dcb691f1ec5aa8eac6849ecc10b94ea452b9"
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_5.json",
+      "size": 307,
+      "sha256": "3560934f14bc58d1a7076af23e08e61b99e5931f29c1cea814d78029739751b1"
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_6.json",
+      "size": 883,
+      "sha256": "ce1e1109677c175db676509d5f236332965dad903f2773162d60438a6eccebd5"
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_7.json",
+      "size": 315,
+      "sha256": "1bfc89851ab7eed2899f110e5d86d3158946e3a70d017b309512eaf8cdb9b9c1"
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_8.json",
+      "size": 264,
+      "sha256": "2a25d91b2eb6a3a1b9a9df51c4d0fe857503c0dfcccf1e3adddfe7cbac739ce0"
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_9.json",
+      "size": 366,
+      "sha256": "3614281d92a6264ee5e23e4e920352707e22a5178cc90c4ba2d4798fc4980b41"
+    },
+    {
+      "path": "data/json/fallback_manifest_v2_0.json",
+      "size": 476,
+      "sha256": "e01cd88a42f2ff0aa0b69a23196d0ab93376b8c9e35976e6b506b69215703504"
+    },
+    {
+      "path": "data/json/fallback_manifest_v2_2.json",
+      "size": 488,
+      "sha256": "4f8887a136995b03783196a39d351f9748aca71774fc7c0389d1e899ffcbe54c"
+    },
+    {
+      "path": "data/json/seed_nodes.json",
+      "size": 8094,
+      "sha256": "09aadf2129f3a60f544cb4de4e6423b14487bb53ac9d438b3b4d007d2f993531"
+    },
+    {
+      "path": "data/json/seed_relations.json",
+      "size": 4043,
+      "sha256": "cf76f532ed2df1b7b5870cae39b1ac5b958701ce057e9071c979285bbde03353"
+    },
+    {
+      "path": "data/json/tame_hdf5_export_result_v1_4.json",
+      "size": 377,
+      "sha256": "4b5bc1ea539761ed0b66a454c0ce18a2f34a5dc26b50781856dddee4d3a6cbfb"
+    },
+    {
+      "path": "data/noema/inference_gate_policy_v2_2.json",
+      "size": 1767,
+      "sha256": "12fb1719752d36283abbe671fb5bba64be95f0b9c5ad0d699499034d75459fab"
+    },
+    {
+      "path": "data/noema/inference_gate_policy_v2_2.yaml",
+      "size": 1403,
+      "sha256": "5834090321e2319801004a911c8b5986b835978ab1309a9c2d0938d0f22e98f6"
+    },
+    {
+      "path": "data/noema/noema_index_seed_v2_2.csv",
+      "size": 1321,
+      "sha256": "b6980cea63a69bbd82a552ae283ee375ae35d628c9fa3839d4844a1cd1ae3c55"
+    },
+    {
+      "path": "data/noema/noema_index_seed_v2_2.json",
+      "size": 7055,
+      "sha256": "6dcd84cc30cffa31ae921b4fe116b9541080057e1c142dc3fbe546d3b5f4caac"
+    },
+    {
+      "path": "data/noema/noema_index_seed_v2_2.yaml",
+      "size": 4300,
+      "sha256": "0b34f74fa14f474ee2befff12a79099f5ab1a301c0b8985e2c4bf985a4f944ed"
+    },
+    {
+      "path": "data/noema/routing_policy_v2_2.json",
+      "size": 916,
+      "sha256": "c6019d73e4d57d598903b5edaf0ee60d335146211ff4f82d609511d5b85d1443"
+    },
+    {
+      "path": "data/noema/routing_policy_v2_2.yaml",
+      "size": 729,
+      "sha256": "a673fa55bf7eeb3092d4a7bbb4ee86e883c370a1066022368d9b93be12f92a58"
+    },
+    {
+      "path": "data/ontological_aspect/koto_mono_ser_estar.csv",
+      "size": 886,
+      "sha256": "cc33e2ebe903f7dbc88bbace05d7d63f627dc6807361a7a557ed39b9587f7ea5"
+    },
+    {
+      "path": "data/ontological_aspect/koto_mono_ser_estar.json",
+      "size": 5590,
+      "sha256": "015d239608f700faf5ad284e9018b77e9fbb36eace85c1332f074df692d9e649"
+    },
+    {
+      "path": "data/ontological_aspect/koto_mono_ser_estar.yaml",
+      "size": 4210,
+      "sha256": "538cc733a4391c24164403cf045bcc57a7f7f1d7dd24160c2c608a8d93985448"
+    },
+    {
+      "path": "data/operator_algebra/operator_algebra_index.json",
+      "size": 893,
+      "sha256": "12f2efa736503ce2a9b77159df487a294812667e70a0a9fe337320921a881e57"
+    },
+    {
+      "path": "data/operator_algebra/operator_algebra_index.yaml",
+      "size": 694,
+      "sha256": "0fc39e84b99576d8820f2acf79c4927e32e6e1bcaa52bbd451d14f2b6d06399b"
+    },
+    {
+      "path": "data/operator_algebra/operator_family_summary.csv",
+      "size": 2055,
+      "sha256": "87b48b0614c08472fc0d18166cc18c0912cd5349c7b2bd19cea0e37afdd5ad2d"
+    },
+    {
+      "path": "data/operator_cards/core_operator_cards.csv",
+      "size": 4969,
+      "sha256": "641ffc987a7be4d67c0d19d8c0ddc655306867c4935740bd5e4ebe88485dd7e2"
+    },
+    {
+      "path": "data/operator_cards/core_operator_duals.csv",
+      "size": 569,
+      "sha256": "aad9716ee2819634c26e2c329082848ded48e8e5e54b4e2d9d42bbe2bdc22766"
+    },
+    {
+      "path": "data/operator_cards/core_operator_library.xlsx",
+      "size": 24138,
+      "sha256": "2a049a6393832311556d1d552104a68fedc939c2267558d9228cfa46db97910c"
+    },
+    {
+      "path": "data/operator_cards/core_operator_modes.csv",
+      "size": 1695,
+      "sha256": "8227e34308341f894bea02d54310e0e896761d24ea923414d5f004d8684eedc8"
+    },
+    {
+      "path": "data/operator_cards/core_operator_surfaces_5lang.csv",
+      "size": 19496,
+      "sha256": "d9c91ed2fda950924844b95c4dc3390faefc881bddc84990320a4b9eb42934d8"
+    },
+    {
+      "path": "data/operator_cards/core_operators_5lang.json",
+      "size": 45546,
+      "sha256": "d3e72e6ccfc5b5ec8e6fd99498310cde0938f93b5f870cbcc1f247cf1124b7db"
+    },
+    {
+      "path": "data/operator_cards/core_operators_5lang.yaml",
+      "size": 29214,
+      "sha256": "53200cfb68d4f96f6c30d5f3c1782b77e8bde971c6893fa447448ba6ceb0387c"
+    },
+    {
+      "path": "data/operator_cards/dynamic_deictic_operators_5lang.json",
+      "size": 11367,
+      "sha256": "b0900779a1360c1522b9fed34d3fa37690d299724f96757db27a3ecb78f2deef"
+    },
+    {
+      "path": "data/operator_cards/dynamic_deictic_operators_5lang.yaml",
+      "size": 7828,
+      "sha256": "04c944e24cf5a6499bb81247fcfcd61c3a1e568438b658c06bf7a5591945353c"
+    },
+    {
+      "path": "data/operator_cards/dynamic_deictic_surfaces_5lang.csv",
+      "size": 1945,
+      "sha256": "5361437b42fd7e308092a5845a395d5c6015f953b28148f4bc1e2ef8844c3405"
+    },
+    {
+      "path": "data/operator_cards/individual/above.yaml",
+      "size": 1071,
+      "sha256": "03bfb598820683f01853632dbf5cbf5688650c1ee8953870b8f5388f36b12f10"
+    },
+    {
+      "path": "data/operator_cards/individual/after.yaml",
+      "size": 976,
+      "sha256": "30596e596b0d485815c5f3ae34029590476b7f58ece47591cf62cdde1987bacc"
+    },
+    {
+      "path": "data/operator_cards/individual/and.yaml",
+      "size": 845,
+      "sha256": "e7d7cd15c6d26e69ffa8b4788647b05381e829a8530cad321325b65ad01621b5"
+    },
+    {
+      "path": "data/operator_cards/individual/be.yaml",
+      "size": 1489,
+      "sha256": "7e2fe40b7b9ff41e0783d146cb9fd89ad4698da34f78a5518a0aa0fabbf6b1e0"
+    },
+    {
+      "path": "data/operator_cards/individual/because.yaml",
+      "size": 1074,
+      "sha256": "905fc323d536d0b222d836c4bf88b608da3c21a3265d9be6ce97c28ac522dfbd"
+    },
+    {
+      "path": "data/operator_cards/individual/before.yaml",
+      "size": 1016,
+      "sha256": "de41a0db974ead1c0635ef8575330e2b3769b8e948c1e772c728db7d593fea9f"
+    },
+    {
+      "path": "data/operator_cards/individual/contain.yaml",
+      "size": 1245,
+      "sha256": "780c8eeb31feca258ece1daa3d1bf0f3ed2c49ab2f0b3b08c66e703484c477b0"
+    },
+    {
+      "path": "data/operator_cards/individual/from.yaml",
+      "size": 971,
+      "sha256": "900efa742781acef6ac0265dbf03a9fab1745eb96ca8d79edfe2ec6c4ec904de"
+    },
+    {
+      "path": "data/operator_cards/individual/have.yaml",
+      "size": 1502,
+      "sha256": "82842a3d247fb266b1bffd885849bc495eced3822ed28272725b8b5c23a9474d"
+    },
+    {
+      "path": "data/operator_cards/individual/how.yaml",
+      "size": 1359,
+      "sha256": "b78c2d5b560ee3591ad3ba3dd0d09f6930546179d6373506b8516c36bc0fa43c"
+    },
+    {
+      "path": "data/operator_cards/individual/if_then.yaml",
+      "size": 1109,
+      "sha256": "761433f878d5b6a207c75adaf65962cf66f43bd9219116895038c5445577d8ba"
+    },
+    {
+      "path": "data/operator_cards/individual/inside.yaml",
+      "size": 1191,
+      "sha256": "003261d97168dacd9d2180546563b5ca6c4780b40fd1f428f74c15e59abbed86"
+    },
+    {
+      "path": "data/operator_cards/individual/like_as.yaml",
+      "size": 1195,
+      "sha256": "2037a31150a85cb64474a8cf2db6917e4e844a1fe116ac990e94ced5440888ab"
+    },
+    {
+      "path": "data/operator_cards/individual/not.yaml",
+      "size": 971,
+      "sha256": "f6515c94ee9de73f4fcc9025314ba9b6b9ed70d96b478276f9259074a50967db"
+    },
+    {
+      "path": "data/operator_cards/individual/on.yaml",
+      "size": 939,
+      "sha256": "0610b481ac8662c0b25444107eb5b90f0daa0867ee49248bd99237261a26a818"
+    },
+    {
+      "path": "data/operator_cards/individual/or.yaml",
+      "size": 886,
+      "sha256": "e33dd76698e6d448874a7efd031b6744ce854123a4716e7a347f62921600a4ea"
+    },
+    {
+      "path": "data/operator_cards/individual/outside.yaml",
+      "size": 1124,
+      "sha256": "3ccc54c9e8827bff7ad1bd76bc8a388c6a0e9519aebf388ab3cdd9c3e1d02a48"
+    },
+    {
+      "path": "data/operator_cards/individual/through.yaml",
+      "size": 1086,
+      "sha256": "5af697b4543c9b54784c7f98174aaada1154e8e4662a28515c8f89555669c523"
+    },
+    {
+      "path": "data/operator_cards/individual/to.yaml",
+      "size": 946,
+      "sha256": "07970ffd5096e46f4ba5be82be9769f756925e40172a37b4a51f78f1d9f46f47"
+    },
+    {
+      "path": "data/operator_cards/individual/under.yaml",
+      "size": 923,
+      "sha256": "d0778b7a509cac8f56f7da75ec518ccfc218106ace90f48f2255183f65f34520"
+    },
+    {
+      "path": "data/operator_cards/individual/when.yaml",
+      "size": 990,
+      "sha256": "038a7ba5db0c022d6d85e0c6fb1f5bc6b16572a00e5cee4ba3758ef612f93b63"
+    },
+    {
+      "path": "data/operator_cards/individual/where.yaml",
+      "size": 906,
+      "sha256": "7bdcc83d02276fc6a8e2bc6a5705b355cefb3ea1631aef8ba68584e65d71a7f4"
+    },
+    {
+      "path": "data/operator_cards/individual/with.yaml",
+      "size": 1051,
+      "sha256": "fa4b4b39b74b7063660b8529be9e9b4e6e9b7e8ba257182793c89d943d25a5ad"
+    },
+    {
+      "path": "data/operator_cards/individual/without.yaml",
+      "size": 879,
+      "sha256": "43e9ae695e721fd529de3b7b4f6229bcfc96091024c2bf9f538038f8663a7352"
+    },
+    {
+      "path": "data/operator_compositions/argument_typing_rules.yaml",
+      "size": 726,
+      "sha256": "59df654bda395f84d9780799a3f9d9a9d215d6f06491a94bf20fb28a1630ef98"
+    },
+    {
+      "path": "data/operator_compositions/duals.yaml",
+      "size": 446,
+      "sha256": "eba757ce9322741702b67290358a6208346ec68558d67cd616817b287877db58"
+    },
+    {
+      "path": "data/operator_compositions/dynamic_deictic_resolution.yaml",
+      "size": 1011,
+      "sha256": "0a6dc1b111f90520edd1ddc46b9d96a7812a864a02824338a582d436771f00b7"
+    },
+    {
+      "path": "data/operator_compositions/higher_order.yaml",
+      "size": 389,
+      "sha256": "912ca5f66e88f8a6d3b183faa74830b2d5ab724491243eef54caa6f4ed5654bf"
+    },
+    {
+      "path": "data/operator_compositions/inverses.yaml",
+      "size": 365,
+      "sha256": "f13f7602aa0e58b8e7fd2dbe1bbe552e7c99747ad681de6b5ff3e5c12d73df78"
+    },
+    {
+      "path": "data/operator_compositions/negations.yaml",
+      "size": 508,
+      "sha256": "a75bcca69c449eba3536a020a1d54273c7ec224c8b20b6562086fb7515c329ce"
+    },
+    {
+      "path": "data/operator_compositions/polyfunctional_modes.yaml",
+      "size": 437,
+      "sha256": "45abfb7d58785fe68726d052380823e0bfb9e7c69f89cd0d9c056bdd3846a329"
+    },
+    {
+      "path": "data/operator_compositions/scope_negation_interactions.yaml",
+      "size": 1147,
+      "sha256": "efc04b998b93ee54fea0613ae07d21807565872ad14288aa0664af4a2f9dc75a"
+    },
+    {
+      "path": "data/operator_compositions/tame_scope_interactions.json",
+      "size": 1075,
+      "sha256": "f0a74b03eb0fd8dc401620a7123d87e68272eb3765d4ad199d41fff417c37984"
+    },
+    {
+      "path": "data/operator_compositions/tame_scope_interactions.yaml",
+      "size": 868,
+      "sha256": "b7e360d7e86ec2ffda5eed4553a57ef3fc69d28b1054f6af17b178286aa683e4"
+    },
+    {
+      "path": "data/operator_families/affective.yaml",
+      "size": 297,
+      "sha256": "83cb9b832e71b512ccf80593832c7766c4921a7b176a71b7dfacccfed65da925"
+    },
+    {
+      "path": "data/operator_families/being_ontological.json",
+      "size": 650,
+      "sha256": "c1acc4c7a853e0949f6126ef2e789c230e3072e23a5f6432df2c66eb0be62e02"
+    },
+    {
+      "path": "data/operator_families/being_ontological.yaml",
+      "size": 546,
+      "sha256": "0db6fc2c8d1d77eda09f1bad4a5066a825771b2f954283b10eb00fa022659a15"
+    },
+    {
+      "path": "data/operator_families/causal.yaml",
+      "size": 220,
+      "sha256": "1465a188d7ab02d1ebce808f798f56dbc34e6576cdb84e006210403aebd5458e"
+    },
+    {
+      "path": "data/operator_families/comparison.yaml",
+      "size": 425,
+      "sha256": "a40e8419e9c7d663e9a5c7b775ed6464076bc538243c8eb74a54d06ada49547d"
+    },
+    {
+      "path": "data/operator_families/consensus.yaml",
+      "size": 332,
+      "sha256": "6caebb2452a589fc063f4466b648b72a19d6695b6589a17114ebec6147f4d051"
+    },
+    {
+      "path": "data/operator_families/containment.yaml",
+      "size": 512,
+      "sha256": "4d54745637923873c1ead7714a03f855c0d8bdb5a8c3c8b4f2d28099bcda993a"
+    },
+    {
+      "path": "data/operator_families/deictic_dynamic.json",
+      "size": 12039,
+      "sha256": "09c3afdecddf899499ec471d0a6e0c8dece1cc9ff2504fd583c3a59ef416f189"
+    },
+    {
+      "path": "data/operator_families/deictic_dynamic.yaml",
+      "size": 8438,
+      "sha256": "53ec4d9360482792e153cc184284f1807d7314dc09ff31449c9fe9c0ba69d78f"
+    },
+    {
+      "path": "data/operator_families/epistemic.yaml",
+      "size": 312,
+      "sha256": "e9815db06a2d703a74ab22ea4571e390c808f656731b01d7184daf37512cd1c6"
+    },
+    {
+      "path": "data/operator_families/identity.yaml",
+      "size": 264,
+      "sha256": "64d9035c4706ee5f5a559e8d7570de75fd377e20b6c3f083f2257d6be630485d"
+    },
+    {
+      "path": "data/operator_families/logical.yaml",
+      "size": 282,
+      "sha256": "160597ac026d38d58aca1d5645b79978c199df121a7f797d880f5689a5776158"
+    },
+    {
+      "path": "data/operator_families/modal.yaml",
+      "size": 279,
+      "sha256": "09e3c5125f473f0cda1c48843e18bb91fc60d06e6de6db7d1f7cfceec04209b8"
+    },
+    {
+      "path": "data/operator_families/possession.yaml",
+      "size": 478,
+      "sha256": "539414c2a2dcc03eae6976b67990ff92a8e75ded4c63deb1166c5a6f9ad51767"
+    },
+    {
+      "path": "data/operator_families/quantifier_scope_negation.json",
+      "size": 4367,
+      "sha256": "536d6128412f5260e84fb27f17f000af1f43770f98b3776579fec8b9de70e969"
+    },
+    {
+      "path": "data/operator_families/quantifier_scope_negation.yaml",
+      "size": 2892,
+      "sha256": "cce933e3d37bd13f2adfb91f54197e824dd2e0cab39bf36adc786e18db61c006"
+    },
+    {
+      "path": "data/operator_families/spatial.yaml",
+      "size": 290,
+      "sha256": "7061d44267c1a097aa9d2da2a52961523e53ff00790bd990102e3d5683820b85"
+    },
+    {
+      "path": "data/operator_families/tame_modality_evidentiality.json",
+      "size": 768,
+      "sha256": "98b3ba2201e17f1705473359bff2bae78d8ccc62fc5eb820da03a3ba93fb846e"
+    },
+    {
+      "path": "data/operator_families/tame_modality_evidentiality.yaml",
+      "size": 683,
+      "sha256": "5101359812b9b2454de79bd8e6a5f0db767ebe81403c0cb1081d1466ec47fe39"
+    },
+    {
+      "path": "data/operator_families/temporal.yaml",
+      "size": 245,
+      "sha256": "12f5f1b908719083d572ec4cbd2067e5a62c87a6e9fadf78a4534d30d1da3e74"
+    },
+    {
+      "path": "data/operator_families/transformation.yaml",
+      "size": 311,
+      "sha256": "26d2add559d7f582a115daa94a11a2a0a0a3d0549a047e32e5b7839c35b3f208"
+    },
+    {
+      "path": "data/patterns.yaml",
+      "size": 776,
+      "sha256": "d57bc66dd703c09f10d2fd91585f72d940d1eb115d61aad97700dbb84835fa1f"
+    },
+    {
+      "path": "data/registry/canonical_status_registry_v1_6.json",
+      "size": 1318,
+      "sha256": "3518d5d9a9912f235a73aac221729ba55087df539b2e2efd84c42f40e0364999"
+    },
+    {
+      "path": "data/registry/canonical_status_registry_v1_6.yaml",
+      "size": 985,
+      "sha256": "624f3a5c9a343afb4bbffb6bd790dfcc5b05e52cb7fc01fa09adc71b3b2854bc"
+    },
+    {
+      "path": "data/registry/card_type_registry_v1_6.json",
+      "size": 3568,
+      "sha256": "a27f327248e86f8d8fbc3fda8b0cd3f7076927066849d31c609e9e3a0e2bc7e3"
+    },
+    {
+      "path": "data/registry/card_type_registry_v1_6.yaml",
+      "size": 2640,
+      "sha256": "2177607a0d9025539fb4b45445d303edd9c89e2669db9bdaa0ccfa9333854f80"
+    },
+    {
+      "path": "data/roadmap/cielingo_stage_plan_v2_1.csv",
+      "size": 2632,
+      "sha256": "243c87c74bbaa96728c650627c9e44a581bf8cf253d5ba273e6ab856425346a2"
+    },
+    {
+      "path": "data/roadmap/cielingo_stage_plan_v2_1.json",
+      "size": 7165,
+      "sha256": "e4db2c76e68e35ad6813e2561e5ae5493e20063638691a2ded4b440ebf60b4b8"
+    },
+    {
+      "path": "data/roadmap/cielingo_stage_plan_v2_1.yaml",
+      "size": 5735,
+      "sha256": "c317a818ea3e45a3abbab049b9d1c2ff8e8056bbc915c4d617f690341e793046"
+    },
+    {
+      "path": "data/roadmap/cielingo_stage_plan_v2_2.csv",
+      "size": 1275,
+      "sha256": "78949c7cb170499fd6864c689b580d21cb7527165d79a592d6a2330dda3bc08d"
+    },
+    {
+      "path": "data/roadmap/cielingo_stage_plan_v2_2.json",
+      "size": 7640,
+      "sha256": "2967347eb5b0bf9ac13ce8f9fa9aa817dfbde7fc942442a941489a5be8a46a02"
+    },
+    {
+      "path": "data/roadmap/cielingo_stage_plan_v2_2.yaml",
+      "size": 6149,
+      "sha256": "1bd43711ccde90263a7703db56d6d27bdf16ad07dcafb2af09f0aa448658cc80"
+    },
+    {
+      "path": "data/roadmap/gguf_teacher_validator_policy_v2_1.json",
+      "size": 1111,
+      "sha256": "f43a3609f2a29287ed892ddb3b3f32be0beede766d99169b8a54f8c11b76b465"
+    },
+    {
+      "path": "data/roadmap/gguf_teacher_validator_policy_v2_1.yaml",
+      "size": 872,
+      "sha256": "9337718d46f499908555cda1c2a18138d5d413e8bf6c7b1d833cc4112bfc4c8f"
+    },
+    {
+      "path": "data/roadmap/noema_inference_gate_policy_v2_1.json",
+      "size": 781,
+      "sha256": "6ae9c4a048267f3f9ff993e92ea6bf389a54a7d54737388b002aa424c4fc80a2"
+    },
+    {
+      "path": "data/roadmap/noema_inference_gate_policy_v2_1.yaml",
+      "size": 706,
+      "sha256": "073fa4b5203f4f454f5106ed7275748819cf53360731d60f023a471764443fb9"
+    },
+    {
+      "path": "data/schema_coverage/schema_coverage_map_v1_6.csv",
+      "size": 1115,
+      "sha256": "8792cca0185f538a3c5104f3dfde0f3cf9f5152a60a55eb30b553221331d42c1"
+    },
+    {
+      "path": "data/schema_coverage/schema_coverage_map_v1_6.json",
+      "size": 19402,
+      "sha256": "14e3d26459e403137e66c16929fb0e8bce31377ff8ebd9b33c08c91522a0871d"
+    },
+    {
+      "path": "data/scope/scope_quantifier_feature_matrix.csv",
+      "size": 392,
+      "sha256": "653f7710929c7ebc2859df4adeb8bb8ab7c79d644c4966ae970b26b2a58c2e97"
+    },
+    {
+      "path": "data/scope/scope_quantifier_negation.json",
+      "size": 7013,
+      "sha256": "4d9b9145f89f0b827a1c62e8e39976ace192b6674d3e0416aba6c494d1ce638c"
+    },
+    {
+      "path": "data/scope/scope_quantifier_negation.yaml",
+      "size": 4826,
+      "sha256": "08f6df064cc8fe565bd1194f5f8497b241cdf135933759b35a39a19a654752bc"
+    },
+    {
+      "path": "data/seed_lexemes/en.yaml",
+      "size": 2619,
+      "sha256": "52aa3842b3ed7799fea61ac25082635ba116a0ced48cd35132d9a66b107efbc7"
+    },
+    {
+      "path": "data/seed_lexemes/pl.yaml",
+      "size": 2700,
+      "sha256": "305bd27764d282f106909307d2e667f20d55adafffb4eb747e3ec1ff9921090a"
+    },
+    {
+      "path": "data/sqlite/cielingo_batch01_v1_0.sqlite",
+      "size": 167936,
+      "sha256": "1ccb23c73038e4aea10b1ec9075baa9d6159801f17f72054f732f94785045c97"
+    },
+    {
+      "path": "data/sqlite/cielingo_batch02_v1_8.sqlite",
+      "size": 40960,
+      "sha256": "e68568487d863ae45af5946ffbb157d4141d64edebe3761665b184f6893657f2"
+    },
+    {
+      "path": "data/tame/tame_feature_matrix.csv",
+      "size": 2424,
+      "sha256": "9b4e64347169d6c771e0ad21b6e689b435b16c7b3731157b50b5bf7d5a8bac08"
+    },
+    {
+      "path": "data/tame/tame_operator_system.json",
+      "size": 10395,
+      "sha256": "29b6c21872a65a394a4668910fd83bc6791a75e761314a2c4abdcbda56f5b316"
+    },
+    {
+      "path": "data/tame/tame_operator_system.yaml",
+      "size": 6681,
+      "sha256": "8376669eeaf212cbe4cd932e090ab5897d8b18a51fc62445dc742dade173362d"
+    },
+    {
+      "path": "data/transformer_features/attention_bias_rules.json",
+      "size": 568,
+      "sha256": "0fa46aa642a81c1b5dbfa71cf895d38a5174ea63befbca428d68a797c3f3d9d4"
+    },
+    {
+      "path": "data/transformer_features/attention_bias_rules.yaml",
+      "size": 474,
+      "sha256": "ad1827d9a5dafcbf753824029a12d8df3f3461ae5ad9117dbc46b821dbde9b6f"
+    },
+    {
+      "path": "data/transformer_features/auxiliary_tasks.json",
+      "size": 988,
+      "sha256": "bcdbbdc7def982d3dbd5da50e01cfc3b47c84d65f30dac899e7e19420f4b9a09"
+    },
+    {
+      "path": "data/transformer_features/auxiliary_tasks.yaml",
+      "size": 681,
+      "sha256": "61a49e8e0c41b4c6aaa844cb5fd53696e7987d296c82bea6576d7207c56d634d"
+    },
+    {
+      "path": "data/transformer_features/feature_spec.json",
+      "size": 2104,
+      "sha256": "c83f2992bd08ee902d778656b61d3707a3e2ff959ccc0153e15bf35776aac353"
+    },
+    {
+      "path": "data/transformer_features/feature_spec.yaml",
+      "size": 1509,
+      "sha256": "4d6269ffca32b1a72242f7403d03010faf09d4d7857f1f7496f6b5d3e428d85a"
+    },
+    {
+      "path": "data/transformer_features/sample_feature_tensor_water_glass.csv",
+      "size": 234,
+      "sha256": "065530ab7ac7ea63a77051c99da9eaaf61a96c1c1e9b58d394dba168fa4b6835"
+    },
+    {
+      "path": "data/transformer_features/sample_feature_tensor_water_glass.json",
+      "size": 1197,
+      "sha256": "f426fdecccd3771ac238cd5fb3c2f74651ff62885ecd2ff5d12f880828ed8e50"
+    },
+    {
+      "path": "docs/00_CANONICAL_OVERVIEW.md",
+      "size": 1776,
+      "sha256": "ca14eee68a602ec7ba6c48e07f86bfae90e9fa3c0a720acb05ee9f6fc38d0bb9"
+    },
+    {
+      "path": "docs/01_LINGOPHYSICS_FORMALISM.md",
+      "size": 2239,
+      "sha256": "5b31a0541e6f6537700e1cb28fbd6491d44dc94b558adca63d58e76fec6ba83a"
+    },
+    {
+      "path": "docs/02_GEOMETRY_MANIFOLDS_RHYTHM.md",
+      "size": 2132,
+      "sha256": "dd1389423ce2cc8df32affdb3e9db30770acece6c447dd3b425123e83f58d0e7"
+    },
+    {
+      "path": "docs/03_GRAMMAR_AS_GAUGE.md",
+      "size": 1238,
+      "sha256": "aae06a753d80d5b7c7a03ba70212823bd07ee0601f74da6f127c43eabf40a396"
+    },
+    {
+      "path": "docs/04_ALGORITHMS.md",
+      "size": 2491,
+      "sha256": "006c2ac0a0bf7569e457fb843cfd1af6039427d131da339aed05e49df4efbc96"
+    },
+    {
+      "path": "docs/05_BILINGUAL_PL_EN_BOOTSTRAP.md",
+      "size": 1196,
+      "sha256": "c18638b227f646c8b97d692f8d6d4dca1a6f7eeef4dffb5209b41498c232b59c"
+    },
+    {
+      "path": "docs/06_VALIDATION_PATTERNS.md",
+      "size": 761,
+      "sha256": "3c7a4ff86b89acd9d5866bc106f239389214e3844622da2bf5885dd770687845"
+    },
+    {
+      "path": "docs/07_DATA_INGESTION_PWN_OXFORD_OPEN.md",
+      "size": 1742,
+      "sha256": "df4e1d946583a1e3f4b04f7f13fad10941622e52fa1decae281eaf7eeb3f7b58"
+    },
+    {
+      "path": "docs/08_CONCEPT_CARD_MODEL.md",
+      "size": 929,
+      "sha256": "980a5864dedc53d684b5b96b34f51fc4ee16972dfca1a4c3f1f3cc80b5600dcc"
+    },
+    {
+      "path": "docs/09_GRAMMAR_MATHEMATIZATION_PER_LANGUAGE.md",
+      "size": 874,
+      "sha256": "52c9aa03c629a0c828d54a2294785b487b60bca0ba0028527d6620fc5abcd71f"
+    },
+    {
+      "path": "docs/10_HEATMAPS_AND_GRAPHS.md",
+      "size": 876,
+      "sha256": "3e8497e783b86503478090d70abb09fafbbf768457f98f0e52279e2530afe909"
+    },
+    {
+      "path": "docs/11_IMPLEMENTATION_ROADMAP.md",
+      "size": 5692,
+      "sha256": "722f0be5e5588e7f82abfaedd35c5a5b47289acfd378d35dc305d0e05e67b734"
+    },
+    {
+      "path": "docs/12_OPERATOR_CARD_MODEL.md",
+      "size": 1094,
+      "sha256": "5705208583f67589aa12229dc83ea7f0e3a178fd861d4c369dd2f7dbdd83ce8b"
+    },
+    {
+      "path": "docs/13_FUNCTIONAL_WORDS_AND_DUAL_OPERATORS.md",
+      "size": 908,
+      "sha256": "63414b2be8ab526d16e7c7eb6247444fb0d9d74eb7223be126ade4c6bc2502f5"
+    },
+    {
+      "path": "docs/14_LINGOPHYSICAL_OPERATOR_ALGEBRA.md",
+      "size": 2350,
+      "sha256": "10c43a6d6cc837530c618c000d219b1ff56a2531b87edecb9423d7f873ca8924"
+    },
+    {
+      "path": "docs/15_OPERATOR_TAXONOMY.md",
+      "size": 2160,
+      "sha256": "9b909f917ce6100546d2fe2f5f82f909dc1c8a3baef26ac490599174df5fd5f8"
+    },
+    {
+      "path": "docs/16_OPERATOR_COMPOSITION_RULES.md",
+      "size": 1328,
+      "sha256": "7d7dca8ca632f8966586b8c0ceaa04a609df261eae57312720b68cfa87f5d5dc"
+    },
+    {
+      "path": "docs/17_OPERATOR_DISAMBIGUATION_AND_ARGUMENT_TYPING.md",
+      "size": 1189,
+      "sha256": "7ae34b34ff37c028a939beb782cdbcf2e8388b604f66b36c917d8a4aa89bc3d6"
+    },
+    {
+      "path": "docs/18_BATCH_LIBRARY_BUILD_PROTOCOL.md",
+      "size": 1042,
+      "sha256": "ad26807fc979f8d783469f40b03e5e4ac9ca3dd5d079d6b0df10ef029124d44e"
+    },
+    {
+      "path": "docs/19_BATCH01_FOUNDATIONAL_36X5.md",
+      "size": 1054,
+      "sha256": "de73b4753f50942e3e276998b70a2c6fb9a4264fc53df0c920427ca8d510a7f3"
+    },
+    {
+      "path": "docs/20_CASE_GAUGE_LAYER_SLAVIC_TO_WEAK_CASE_LANGUAGES.md",
+      "size": 2576,
+      "sha256": "f1e172f8424fbf50e692efad981d3d721db6c90f1de8c44ed08016074840c161"
+    },
+    {
+      "path": "docs/21_CASE_GAUGE_ALGORITHMS.md",
+      "size": 1354,
+      "sha256": "9f8b9678321ab52ec69714b24a55275b8e9b625c8fc37e989863354db9b7e01d"
+    },
+    {
+      "path": "docs/22_DYNAMIC_DEICTIC_OPERATORS.md",
+      "size": 1677,
+      "sha256": "8cead87e7eca8608b1d788be88049cf654e1d4bb8dacc681a9801b09f8bd80a8"
+    },
+    {
+      "path": "docs/23_DYNAMIC_DEIXIS_RESOLUTION_ALGORITHMS.md",
+      "size": 1685,
+      "sha256": "7fe4112971e2cac0e8e05900c526e6730435e674e40f0adcc31c735dfd378f82"
+    },
+    {
+      "path": "docs/24_PREDICATE_VALENCY_AND_EVENT_FRAMES.md",
+      "size": 1442,
+      "sha256": "f046b176ac8fc30295859d641cebceffb94d0d1669310dd6f7c81a8e0ce4a385"
+    },
+    {
+      "path": "docs/25_ONTOLOGICAL_ASPECT_AND_BEING_OPERATORS.md",
+      "size": 1819,
+      "sha256": "bf082b8a7df9aa49746b3a1bafb8424ef6dabdc70afd963098e7ba67b5b5d2a6"
+    },
+    {
+      "path": "docs/26_TAME_TENSE_ASPECT_MOOD_EVIDENTIALITY.md",
+      "size": 2774,
+      "sha256": "3661d9d4b613e79df8b1f39f41059e6ca2bd8715fa39b9d5fe725fef5c6e1a16"
+    },
+    {
+      "path": "docs/27_STORAGE_FALLBACK_JSON_PROTOCOL.md",
+      "size": 1860,
+      "sha256": "110245f0c8ddc7e66c2a731470204d331e7474d56633cc2eadb2dc7014b2cd2c"
+    },
+    {
+      "path": "docs/28_SCOPE_QUANTIFIERS_NEGATION.md",
+      "size": 1515,
+      "sha256": "d3638fbc566254bb4e4c0b96f4d5362840306c9c4289aaa5b283d28f752f4fbf"
+    },
+    {
+      "path": "docs/29_SCOPE_RESOLUTION_ALGORITHMS.md",
+      "size": 1236,
+      "sha256": "e406fbad49a7624fad67e6bc1ed01d105ec1ec67881b01fe9dc3bd1c40c9424f"
+    },
+    {
+      "path": "docs/30_REPOSITORY_COHERENCE_PASS.md",
+      "size": 1216,
+      "sha256": "102cf5fee8e475eba6c365927d0bff6869cd74778a26bdc594b9d4cef301efda"
+    },
+    {
+      "path": "docs/31_CARD_TYPE_REGISTRY_AND_STATUS.md",
+      "size": 1483,
+      "sha256": "f88a03c0b8d8e0aa6567dac95d7ca435670a51faced6669cbdb8ee65e1758d17"
+    },
+    {
+      "path": "docs/32_CARD_ONTOLOGY_REFACTOR.md",
+      "size": 1981,
+      "sha256": "6061e218449fc3e576a234a03f909b0e2fc2ab7948617654a68f3c554b1c14ff"
+    },
+    {
+      "path": "docs/33_CARD_MIGRATION_AND_TYPE_RESOLUTION.md",
+      "size": 1180,
+      "sha256": "4228195199508839d0932c5286d4451cc243b8893f9d87ba9c3a5afc66130974"
+    },
+    {
+      "path": "docs/34_BATCH02_EXPANSION_36X5.md",
+      "size": 812,
+      "sha256": "5f61f79a9c5885e0230163aac5bc575eb3da68256836804b932d48fcafed3025"
+    },
+    {
+      "path": "docs/35_BATCH02_DEPENDENCY_GROWTH_AND_MARTINI_EFFECT.md",
+      "size": 861,
+      "sha256": "44d3c39095b722a90f9ce8be0a0cf03c4512fe0e87a67a7bef52a5d73e6702f7"
+    },
+    {
+      "path": "docs/36_CIEL_TRANSFORMER_INTERFACE.md",
+      "size": 1528,
+      "sha256": "bae41f7638bc241172da1a3403f16c1bfebe0703970b118c2c7d396d9e21f6f2"
+    },
+    {
+      "path": "docs/37_CIEL_STRUCTURAL_STATISTICS.md",
+      "size": 1295,
+      "sha256": "62ec4d5dcfebe5bb794929f3054e851fc07200f98cc57f51a4efda4cc59a6ef6"
+    },
+    {
+      "path": "docs/38_AUXILIARY_LOSSES_AND_ATTENTION_BIAS.md",
+      "size": 1479,
+      "sha256": "8b20917dee64892dc57740da43fdac5a68b37d21c8a396037fd6743682a06b9b"
+    },
+    {
+      "path": "docs/39_DIAGNOSTIC_GEOMETRY_LAYER.md",
+      "size": 1776,
+      "sha256": "57cba164fcacefdc8bf20d7c3dad9d808143e810a2aa77065b30fea40a2f9549"
+    },
+    {
+      "path": "docs/40_CONFLICT_AMBIGUITY_UNRESOLVED_REGISTRY.md",
+      "size": 933,
+      "sha256": "9579cfaeaba2bad51147c32812519a3d6529647bed20ce32230de4993fa7912d"
+    },
+    {
+      "path": "docs/40_DIAGNOSTIC_METRIC_REGISTRY.md",
+      "size": 1086,
+      "sha256": "80da230fba4a68425472816bdb2141a960adb64ee4fb93680b2df8e09095f94b"
+    },
+    {
+      "path": "docs/41_NOEMA_GGUF_TEACHER_VALIDATOR_ROADMAP.md",
+      "size": 2302,
+      "sha256": "ef528152a6b4116607865b23bae409d5b6112b83e2812476af8effc706936248"
+    },
+    {
+      "path": "docs/43_NOEMA_RETRIEVAL_AND_INFERENCE_GATE.md",
+      "size": 2648,
+      "sha256": "93196b47456e3f98e47401b88bf3bb26fd117b09cd982b509ca7977e222528b4"
+    },
+    {
+      "path": "docs/44_ENERGY_AWARE_GENERATION_PIPELINE.md",
+      "size": 1661,
+      "sha256": "f053e8e91840580c0c99f7bceb407ac154459534cbc40c0d4313423cb0dd5a93"
+    },
+    {
+      "path": "examples/sentence_EN.yaml",
+      "size": 487,
+      "sha256": "05d86d77c63d84f5139afcc2cb77e6dbcc66f209b61b6745c34e192bf05eb0a7"
+    },
+    {
+      "path": "examples/sentence_PL.yaml",
+      "size": 484,
+      "sha256": "c7986f5669e5464498d8bcf0580fa49f9578d8510da3ab9ada65f04b61f031e7"
+    },
+    {
+      "path": "outputs/graphs/batch01_concept_relation_graph.png",
+      "size": 446707,
+      "sha256": "b799f119f69341301cb3ec577e9fbe27ae3c75bf89523713352cfeb3413f7a21"
+    },
+    {
+      "path": "outputs/graphs/batch02_relation_density_by_domain.png",
+      "size": 100582,
+      "sha256": "d10d750be457683342c02fee791ec343317665e5499f3592f2e0cd233208869f"
+    },
+    {
+      "path": "outputs/graphs/operator_core_graph.png",
+      "size": 722498,
+      "sha256": "fd08ee304e9b274cffaa7ff5da9b718a7f4bf8b1dd08b5fe9112952528bf4c7b"
+    },
+    {
+      "path": "outputs/graphs/v2_0_global_diagnostic_graph.png",
+      "size": 44661,
+      "sha256": "3af943fd9d2afff2c090c58d7f2783836888a9a7b9df31700ded03f2b869d898"
+    },
+    {
+      "path": "outputs/graphs/v2_0_relation_type_density.png",
+      "size": 69244,
+      "sha256": "07ee3e2181c6244b4351cf6b1ba175ed2b2a4cb8f1c23fcdf5b23fda85f7f723"
+    },
+    {
+      "path": "outputs/graphs/water_concept_graph.png",
+      "size": 74210,
+      "sha256": "cb7c40ca87ffcfcc7d9f687562fbfdd9e37d3475d000d24d6896f8b8b0cd445f"
+    },
+    {
+      "path": "outputs/heatmaps/batch01_concept_operator_incidence.png",
+      "size": 133388,
+      "sha256": "ec7c6876b8574a05bdf968b553624341f7da38756cf6b9f5249f9f50e5699148"
+    },
+    {
+      "path": "outputs/heatmaps/batch01_grammar_gauge_distance.png",
+      "size": 40949,
+      "sha256": "8d2fb38a1708fcd4e8386915d1f8fcad5e3da23713369e6b3e81bd27b430e620"
+    },
+    {
+      "path": "outputs/heatmaps/batch02_concept_operator_incidence.png",
+      "size": 93278,
+      "sha256": "32d8990e3f9d401a36473e2dfcd92f628a65b48cddce38e2823fc75d94d4151c"
+    },
+    {
+      "path": "outputs/heatmaps/batch02_grammar_gauge_distance.png",
+      "size": 28827,
+      "sha256": "dec3b7846572fb6aab7e5c77faf22fbfafce872e018e932ac611e1934cdbb0ad"
+    },
+    {
+      "path": "outputs/heatmaps/cross_language_semantic_similarity.png",
+      "size": 39421,
+      "sha256": "fc4988c9f07574e565f11e88dc6ebeb4d71d6f7962f208b05f43870feee291e2"
+    },
+    {
+      "path": "outputs/heatmaps/grammar_operator_distance.png",
+      "size": 31569,
+      "sha256": "8d034e96c5f9113dfa7739565ff6c0350df80c92a11c0f5392dddecd030fce15"
+    },
+    {
+      "path": "outputs/heatmaps/operator_feature_matrix.png",
+      "size": 100192,
+      "sha256": "c5e394089762854a409255e61c2dd83fcdedc98b0a34ddc25e89bd2d01a46acc"
+    },
+    {
+      "path": "outputs/heatmaps/v2_0_cross_language_reconstruction_cost.png",
+      "size": 30460,
+      "sha256": "1aed8d17d0b6f1decef35a05d642f876fe5c70771995643a5d93b741f08a5c20"
+    },
+    {
+      "path": "outputs/heatmaps/v2_0_operator_density_by_domain.png",
+      "size": 225014,
+      "sha256": "57a59e3c45a9db63a69a97cc9bfaddf4f28860e09024dd1c78a6560139cdc10b"
+    },
+    {
+      "path": "outputs/heatmaps/v2_0_operator_incidence_diagnostic.png",
+      "size": 108064,
+      "sha256": "5a1bc21e4aadea03db4709a254d725f06be030cdc5ee59f2a39e5ddb1b41c802"
+    },
+    {
+      "path": "outputs/heatmaps/v2_0_relation_type_matrix.png",
+      "size": 432363,
+      "sha256": "5b291090276a6d4ba97a23bef19c458c7848816c240b5cd8e688330935f3bdae"
+    },
+    {
+      "path": "outputs/heatmaps/water_semantic_affective_gradient.png",
+      "size": 50643,
+      "sha256": "d63de7711ef87f7981dc5b97fffc42199c6f916370080cfbeca7b8099e804e41"
+    },
+    {
+      "path": "reports/v0_8_operator_library_patch_report.md",
+      "size": 640,
+      "sha256": "8598e6ea4a2dde75d842cbcbede310495d4aa8f04c4396cb9f9e8f43f761de83"
+    },
+    {
+      "path": "reports/v0_9_operator_algebra_patch_report.md",
+      "size": 1139,
+      "sha256": "39bb20312e87f75d915a6376ad2804ebb2a014a6413742b39ccce9d43832f1ed"
+    },
+    {
+      "path": "reports/v1_0_batch01_local_library_patch_report.md",
+      "size": 1059,
+      "sha256": "6f3ba4c67f02281617583c981c13ce62dbab1e786fb21c58803259f4e6eb6f68"
+    },
+    {
+      "path": "reports/v1_1_case_gauge_patch_report.md",
+      "size": 973,
+      "sha256": "93de93585a269936cd2ec6473a8965cad1c6e356c3654fdffd3251503936b8d5"
+    },
+    {
+      "path": "reports/v1_2_dynamic_deictic_operator_patch_report.md",
+      "size": 1447,
+      "sha256": "c21ad6c1ab8cf81d83dd49a8aa3bdf83d0dfe97a5cd2c02fad93919c94771715"
+    },
+    {
+      "path": "reports/v1_3_valency_ontological_aspect_patch_report.md",
+      "size": 750,
+      "sha256": "35d2ecb0b6bf5e9e658d333ea580ea6b893cc106ac069352ac580083ea21591f"
+    },
+    {
+      "path": "reports/v1_4_tame_storage_fallback_patch_report.md",
+      "size": 1085,
+      "sha256": "d634420fd5e64a9e8cbbaa8dbee42ed9ab89e135b05891d2330c63bce93cf619"
+    },
+    {
+      "path": "reports/v1_5_scope_quantifier_negation_patch_report.md",
+      "size": 633,
+      "sha256": "f84e74fc703600b54b8d88c957b5699661e4b01bd4a592fe8dc6baeda85c079f"
+    },
+    {
+      "path": "reports/v1_6_repository_coherence_pass_report.md",
+      "size": 1387,
+      "sha256": "d252ecd6f47fb4b31fb7de10106d6fddb42e766eb094f9abcc7e82c35f2e26c6"
+    },
+    {
+      "path": "reports/v1_7_card_ontology_refactor_report.md",
+      "size": 909,
+      "sha256": "686d6ec3a713ab5519140810882dadf36a625beac560704aabb125d923628d84"
+    },
+    {
+      "path": "reports/v1_8_batch02_expansion_report.md",
+      "size": 1107,
+      "sha256": "6308431d946fa89bbb2204be3b8acf2ba8a5bb3f37b5691c2d8a7472af422dac"
+    },
+    {
+      "path": "reports/v1_9_ciel_transformer_interface_report.json",
+      "size": 494,
+      "sha256": "19c26d3b708d6d296eaf253ebd8f371d43a5832d643b01a09accbf992fba4116"
+    },
+    {
+      "path": "reports/v1_9_ciel_transformer_interface_report.md",
+      "size": 1052,
+      "sha256": "bfdba98f0836c1e5f9422269dd0f2280a58f536f879a9f297ae5e76e98809105"
+    },
+    {
+      "path": "reports/v2_0_diagnostic_geometry_layer_report.json",
+      "size": 3414,
+      "sha256": "5dbfb817662cae39c0e0d647dcc313442a08399f232cfef22d3b92e47c34be91"
+    },
+    {
+      "path": "reports/v2_0_diagnostic_geometry_layer_report.md",
+      "size": 1090,
+      "sha256": "1a0b51a4030418de674f596cb6f7de80a2a4f6af4bf30cf40d27af7508f7d9ad"
+    },
+    {
+      "path": "reports/v2_1_roadmap_update_report.json",
+      "size": 176,
+      "sha256": "2d0a183a585bdaf0694233d5f3f5f39377a7ba8caea6607edc1d08f987cc9ec1"
+    },
+    {
+      "path": "reports/v2_1_roadmap_update_report.md",
+      "size": 1321,
+      "sha256": "a4396726918f807842deda67dacd166483f1cb668aa2c0aa42f64d54f957444f"
+    },
+    {
+      "path": "reports/v2_2_noema_retrieval_inference_gate_report.json",
+      "size": 902,
+      "sha256": "6434ccdf7b0cae22af7325b5f1db7eb41120766325c6999508f94a5b741b6c59"
+    },
+    {
+      "path": "reports/v2_2_noema_retrieval_inference_gate_report.md",
+      "size": 1097,
+      "sha256": "1e954c46047f2a2ffddd5f66cdefc958efa022b23ccdf3aab54c5e894224a5f4"
+    },
+    {
+      "path": "schemas/ciel_lns_attention_bias.schema.json",
+      "size": 416,
+      "sha256": "51a7ab9a8ec5b559ef780c5f86f19eba67e95150758202a08d784e2b4121d3f4"
+    },
+    {
+      "path": "schemas/ciel_lns_batch_concept_card.schema.json",
+      "size": 813,
+      "sha256": "ecf34ed9c40cf6c1aaa678430caf5618c7a683c38f6385d882bbc64f2bdd79d5"
+    },
+    {
+      "path": "schemas/ciel_lns_card_ontology.schema.json",
+      "size": 1376,
+      "sha256": "9ed4145d8bab91576a4f4642d0db549955563b97e38b18f6179d6f7bbf6fa51a"
+    },
+    {
+      "path": "schemas/ciel_lns_case_gauge.schema.json",
+      "size": 737,
+      "sha256": "d562fdb1309e3b725cf6bb0d782f84fea71e004b1bb6020b87433ae969d8f37e"
+    },
+    {
+      "path": "schemas/ciel_lns_concept_card.schema.json",
+      "size": 954,
+      "sha256": "50a61092d0f60fffcd7f916425957e7c4cbf792b89daab4ad60df2c74fdb4333"
+    },
+    {
+      "path": "schemas/ciel_lns_diagnostic_geometry.schema.json",
+      "size": 1189,
+      "sha256": "666bd1b502365586ba41b4ecebeca0e9566bce9c6487d13181ba7db4acb68e12"
+    },
+    {
+      "path": "schemas/ciel_lns_dynamic_deictic_operator.schema.json",
+      "size": 1070,
+      "sha256": "fba3a5aa7b9020c0b7f3c60324b5fa7f1c871a37db83a1672fb123f07c37720b"
+    },
+    {
+      "path": "schemas/ciel_lns_event_frame.schema.json",
+      "size": 1240,
+      "sha256": "d5ab60445396f4cdd5aa7488c4d080f595d853871f6dcfe43cb88062bb91c4a7"
+    },
+    {
+      "path": "schemas/ciel_lns_inference_gate.schema.json",
+      "size": 531,
+      "sha256": "d655c8de2a1d7594a9ecf0f119d1228ac1031680a9719526ca5711e3b5e6da3a"
+    },
+    {
+      "path": "schemas/ciel_lns_language_profile.schema.json",
+      "size": 666,
+      "sha256": "9db4a836713ae09a208d35436ccef76aa8612d9ab4b15fb1dd93a10c61b8a8bc"
+    },
+    {
+      "path": "schemas/ciel_lns_noema_index.schema.json",
+      "size": 1610,
+      "sha256": "a51b21fe8ca99cf65ae6bced27c6df165a29bb39ee82d2906ba8df39de7eaaff"
+    },
+    {
+      "path": "schemas/ciel_lns_object.schema.json",
+      "size": 2451,
+      "sha256": "7e8e8f70c1701cbf5bbac70f71b8ee415d0e456d5d16747569898d5bc131af01"
+    },
+    {
+      "path": "schemas/ciel_lns_ontological_aspect.schema.json",
+      "size": 1116,
+      "sha256": "8f9a49e9173ce87f8419556a5df57f9e1b914f033ad3842365b42eae6ea270d9"
+    },
+    {
+      "path": "schemas/ciel_lns_operator_algebra.schema.json",
+      "size": 876,
+      "sha256": "c865508790953224d8b7354beed9748241f92df692f6c87c15e67dce3060b1f0"
+    },
+    {
+      "path": "schemas/ciel_lns_operator_card.schema.json",
+      "size": 1795,
+      "sha256": "7d4adfad13cec4cab340cbe19a10137f56a7296a390bf13340104a129e44f328"
+    },
+    {
+      "path": "schemas/ciel_lns_operator_family.schema.json",
+      "size": 967,
+      "sha256": "2b50e6912a0db3a8f301945513e2e982df6b56a9cbac104126505a0c3f25c5b7"
+    },
+    {
+      "path": "schemas/ciel_lns_pattern.schema.json",
+      "size": 620,
+      "sha256": "93396efd7064f0f20efd3960c48defe9f071c9121f3193ca5c9fc47fe6dd0a40"
+    },
+    {
+      "path": "schemas/ciel_lns_relation.schema.json",
+      "size": 1099,
+      "sha256": "69f5e9d7e9c31363f9bad64e5d475b07c0276b61cfcad7293ae4967b77ced20f"
+    },
+    {
+      "path": "schemas/ciel_lns_repo_coherence.schema.json",
+      "size": 932,
+      "sha256": "15c6e72912bfff166c166b792e8bc4669d12ee363d9c3926b3dfc6e2c1e01b62"
+    },
+    {
+      "path": "schemas/ciel_lns_roadmap.schema.json",
+      "size": 1583,
+      "sha256": "a6200cb60422169bb7d01b933a2269f51f88c5d416f2671b8b935a29a7dea080"
+    },
+    {
+      "path": "schemas/ciel_lns_scope_quantifier.schema.json",
+      "size": 815,
+      "sha256": "59a43ce72bdf21a94540585179f4f290aa8e211c526f4ad180843b6b09e4f0ba"
+    },
+    {
+      "path": "schemas/ciel_lns_storage_fallback.schema.json",
+      "size": 790,
+      "sha256": "cbfa625dd3f672b06486d5c9e2393c51e559303697d9c428219d6e3487ccacb9"
+    },
+    {
+      "path": "schemas/ciel_lns_tame.schema.json",
+      "size": 444,
+      "sha256": "2ad7e7041e7981d611d6b43f6210563d3d9df0a45114d475e9ff28a0a5f29fc3"
+    },
+    {
+      "path": "schemas/ciel_lns_transformer_feature_tensor.schema.json",
+      "size": 954,
+      "sha256": "71c7f76a4b8bfc7be2ac7ec7afd84bd51092cb94dceba8628d414946e6d49c96"
+    },
+    {
+      "path": "src/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/__pycache__/__init__.cpython-313.pyc",
+      "size": 173,
+      "sha256": "61ef7158e73ba0cec59fd139baf5122445ecd9b02ed85edd5a6c7c15837a7b64"
+    },
+    {
+      "path": "src/lingophysics/README.md",
+      "size": 267,
+      "sha256": "ebe5a9c75988eeabb25e0708f16c0bf02941894213db9539a4d2bc0a93b43fa9"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/attention_bias.cpython-313.pyc",
+      "size": 4390,
+      "sha256": "06ac3b4721471beb862b0dd7b81dcc6edca573a44937624f4192b906851034bc"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/auxiliary_losses.cpython-313.pyc",
+      "size": 2595,
+      "sha256": "e42894d653ab326f64ccb23ed474d03a002769fb90fc14ffa1b85756d6a1b60f"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/batch_library.cpython-313.pyc",
+      "size": 3168,
+      "sha256": "b706c8a7f8f8f85a9603423f6bc6d3f53eba067d6804cda34b6b28287c39d7b1"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/card_ontology.cpython-313.pyc",
+      "size": 6570,
+      "sha256": "8c925c8f9c54ee4f469d0b8f370e8acda975ef45167cb00f9b43c49d4e76f740"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/case_gauge.cpython-313.pyc",
+      "size": 3962,
+      "sha256": "15c1ff38ece46d03b6d0ecb92dc874f4650bce2f4598b8ab424c8363fde2627a"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/ciel_validator_loop.cpython-313.pyc",
+      "size": 2045,
+      "sha256": "370686ccd5193c00afbf56a4625797dd77a822d20f6545aaccd042ecd17be8d3"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/compute_metrics.cpython-313.pyc",
+      "size": 4337,
+      "sha256": "d01429abf7929427378c7424d07500d8561cb34800366600043b0dc608b83a88"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/diagnostic_geometry.cpython-313.pyc",
+      "size": 4184,
+      "sha256": "236beb53ce32f6272c44533d80acce33114190d85a147519e342f739d02e90f0"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/dynamic_deixis.cpython-313.pyc",
+      "size": 5495,
+      "sha256": "7dcedae5f7b67ab6f0cdf60b48e236ea403794c1d0565e81187584a327b68cb7"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/energy_estimator.cpython-313.pyc",
+      "size": 2242,
+      "sha256": "9856ded6f91078f9a9ee245468165899d86acd34abf4160512c84e28fecedb30"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/inference_gate.cpython-313.pyc",
+      "size": 3236,
+      "sha256": "c2a92cdbc7f9bc482aa8116d5b7303be37c2c30d2c3042202f7c01d2905feec1"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/noema_index.cpython-313.pyc",
+      "size": 9802,
+      "sha256": "e8836ec943d7afea4b8a1bff12627056b2c111667629e1c234aaff344945cd29"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/noema_router.cpython-313.pyc",
+      "size": 3413,
+      "sha256": "513b3a50f0afe05df4670f99b97838006b0fcdd38b4dc1ffd127dcab11907416"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/ontological_aspect.cpython-313.pyc",
+      "size": 4696,
+      "sha256": "6bc5916bf38a8119d6f5cb98127e139e93ddd0d9c25af130b114d2c2d2995985"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/operator_algebra.cpython-313.pyc",
+      "size": 5528,
+      "sha256": "2ae506cbd05614bc75388446ec7d7d435469801ac6cd8ac6900f41dae4a07e98"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/operator_card.cpython-313.pyc",
+      "size": 3900,
+      "sha256": "46f62e25ae999a3f11c2b41d97c7e6b353303e614306d4d8933058ca358f14fb"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/operator_composition.cpython-313.pyc",
+      "size": 1746,
+      "sha256": "b258d341f58e356fbe719a308ec54b203a0ba277a635fa6fa7c24e65d36eec86"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/operator_disambiguation.cpython-313.pyc",
+      "size": 2294,
+      "sha256": "c93e56db198bab28f50f46f09cf5cbe12974862bb4cbdcffc694a14410a388a1"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/predicate_valency.cpython-313.pyc",
+      "size": 5405,
+      "sha256": "04c41b2bf2f39d6717682da370ff67ffc010bb76c9a49e16f3560785cf6574b1"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/repo_coherence.cpython-313.pyc",
+      "size": 5251,
+      "sha256": "f7cff2d2b20409058a14e900a1a141eab5d6c9594dee2c3570b19bde4a590d22"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/roadmap.cpython-313.pyc",
+      "size": 3826,
+      "sha256": "1fc6db91e4cab238c616cacaa6bf18a7b50c0317dccd41310f655f05254da743"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/scope_quantifier.cpython-313.pyc",
+      "size": 6878,
+      "sha256": "09655a8629ed199c6d018f39a5a60c502489dd755655eec65b3050985801bfe2"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/storage_fallback.cpython-313.pyc",
+      "size": 6944,
+      "sha256": "03a789837acc8534774a105a5294c3a8ae8bc82cd9d7c22d67efd40ab46e7004"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/tame.cpython-313.pyc",
+      "size": 4657,
+      "sha256": "3f8ffdf9fd9d462bde36dea28664ac08edf33d4ee8483da3fa51473f5b28170f"
+    },
+    {
+      "path": "src/lingophysics/__pycache__/transformer_features.cpython-313.pyc",
+      "size": 4991,
+      "sha256": "10c849812dc9492373f3daf5b041e4b43d3e2c27d8522c22b161f4071d0b4007"
+    },
+    {
+      "path": "src/lingophysics/attention_bias.py",
+      "size": 2047,
+      "sha256": "390fdd4043f7f8e0fdb939b5af52dee69f64a56cc2bad1ff67c6c4e4e23474ca"
+    },
+    {
+      "path": "src/lingophysics/auxiliary_losses.py",
+      "size": 1168,
+      "sha256": "6c8d81aff6d74b58230422f51771822195f8c425047318f23e99285ea783b3e8"
+    },
+    {
+      "path": "src/lingophysics/batch_library.py",
+      "size": 1863,
+      "sha256": "e59b78e11ab8bb80e686998153d9a93687d1f424303dd2626f06d0f73215a787"
+    },
+    {
+      "path": "src/lingophysics/build_h5_seed.py",
+      "size": 2831,
+      "sha256": "10e68804bbc612a2b03a90a035bf5f5656aeacfbd8d9ae97fa6c9f6dccc20714"
+    },
+    {
+      "path": "src/lingophysics/build_visuals.py",
+      "size": 2320,
+      "sha256": "68932c8a139fbe6677d54fa5bf64fc1d5a8db079df6f37c912812e5d34d55b81"
+    },
+    {
+      "path": "src/lingophysics/card_ontology.py",
+      "size": 4547,
+      "sha256": "71b111390f8eb9b6ff0966260d351488766b0c2aad970f5beebfb5c84f5dbf18"
+    },
+    {
+      "path": "src/lingophysics/case_gauge.py",
+      "size": 2488,
+      "sha256": "5a0198f62b999e116f0ada2f55d3e5437b5c0b51a5790961181460b22584fd1a"
+    },
+    {
+      "path": "src/lingophysics/ciel_validator_loop.py",
+      "size": 1109,
+      "sha256": "28288aae534e923ada2c88f0f81ae20e624cdf3b46591246a7cdba504e95fe88"
+    },
+    {
+      "path": "src/lingophysics/compute_metrics.py",
+      "size": 2568,
+      "sha256": "2395901126df43498fd0ab9e886f21a939f576d2bc63a4ca78d1a027dacca6a7"
+    },
+    {
+      "path": "src/lingophysics/concept_card.py",
+      "size": 956,
+      "sha256": "a3819e5250476eb2fc4e0b830ae749c14d54ca2ed34ee0010b2c094cffa7f6b7"
+    },
+    {
+      "path": "src/lingophysics/diagnostic_geometry.py",
+      "size": 2056,
+      "sha256": "b2804dfc216b6e8d76391a7850a4365d6fe7bede8e1d1665bc5c9387a2ed6358"
+    },
+    {
+      "path": "src/lingophysics/dynamic_deixis.py",
+      "size": 4138,
+      "sha256": "3680f836dbb3bb5a21ff67caf464ceabcc68b1d61e13e32402487f5c718ec7f2"
+    },
+    {
+      "path": "src/lingophysics/energy_estimator.py",
+      "size": 1628,
+      "sha256": "1953f87a355a5ea1c6f9492c9de3f9612cbb707660b58fc237a60cf7caab38d7"
+    },
+    {
+      "path": "src/lingophysics/grammar_math.py",
+      "size": 628,
+      "sha256": "21404e8cb00060328526eca7b0481e406d10bf898e72be02c674516ab2f7aa26"
+    },
+    {
+      "path": "src/lingophysics/inference_gate.py",
+      "size": 2249,
+      "sha256": "174a26d00c37ad8662ca343fa736ca17beede9ccb3078dcfa46e43c1d72765ec"
+    },
+    {
+      "path": "src/lingophysics/noema_index.py",
+      "size": 5079,
+      "sha256": "bab186b75f0dd474682f3198124f1451e1997cd08590190c314c96991307e7e0"
+    },
+    {
+      "path": "src/lingophysics/noema_router.py",
+      "size": 2141,
+      "sha256": "d18e5678b6fa78a5c2000014b726b7db285c8bebb950d4643ac255bc3b38b50e"
+    },
+    {
+      "path": "src/lingophysics/ontological_aspect.py",
+      "size": 2937,
+      "sha256": "a2ac2509a9b500502a1a578b18a7106fb1b75145adf6658e74a923bce78c74ba"
+    },
+    {
+      "path": "src/lingophysics/operator_algebra.py",
+      "size": 3553,
+      "sha256": "27c61820d2d7823dbe0d39320dee12a33a8d4eacbcf55f1aff7f96d60e0cb788"
+    },
+    {
+      "path": "src/lingophysics/operator_card.py",
+      "size": 2094,
+      "sha256": "55b99cdc2d143d10f0f427ea6d5432c70afe8b7d3b1a21955bd62f9e17a96984"
+    },
+    {
+      "path": "src/lingophysics/operator_composition.py",
+      "size": 1082,
+      "sha256": "3f98ba88908b11bf376b68c92932e36d3ac44dfdf9211175198ab2901bff088a"
+    },
+    {
+      "path": "src/lingophysics/operator_disambiguation.py",
+      "size": 1992,
+      "sha256": "bef1c75b9b22cc8765fea9e2e3dda109420c261cde44e3fe00080cbe0ebd7ea1"
+    },
+    {
+      "path": "src/lingophysics/predicate_valency.py",
+      "size": 3175,
+      "sha256": "2d749c764aec87284e61afb041060b461006f26571507f2f029571fcabe185ff"
+    },
+    {
+      "path": "src/lingophysics/repo_coherence.py",
+      "size": 3349,
+      "sha256": "b8990dc0910fdaef8c007e228486b787c2a613207f6e192720a9d05ac9672bf2"
+    },
+    {
+      "path": "src/lingophysics/roadmap.py",
+      "size": 2289,
+      "sha256": "cd5a411cc3faf21f1aa3b2ece2df69fc91e22654461c0da84d13a2f2ceacfb23"
+    },
+    {
+      "path": "src/lingophysics/scope_quantifier.py",
+      "size": 4378,
+      "sha256": "3c3df194c28d022e4bcf6f469a36333a25d03b2cfd6cc1ffccb362ac1ff16caf"
+    },
+    {
+      "path": "src/lingophysics/storage_fallback.py",
+      "size": 4023,
+      "sha256": "756c24dd045d284e246d57a8ed7a5ea61ffea03ef0b05d2dd132584fb6132b27"
+    },
+    {
+      "path": "src/lingophysics/tame.py",
+      "size": 2641,
+      "sha256": "180945ef3049d7fdd4633177a6bffa10fc9f46af902bbf8f81e345a0a72730b7"
+    },
+    {
+      "path": "src/lingophysics/transformer_features.py",
+      "size": 2837,
+      "sha256": "06427f977eb23a1f713bb741f20225dd499005651da6676765b6647cdb1f6bfe"
+    },
+    {
+      "path": "tests/README.md",
+      "size": 413,
+      "sha256": "86247fc365885188778a8fe8344c1ce7b1b17bd27db85623a2985f54f2854083"
+    },
+    {
+      "path": "tests/__pycache__/test_attention_bias.cpython-313-pytest-9.0.2.pyc",
+      "size": 4929,
+      "sha256": "06abc84ad5dae957e0dc094cffcf1467aea0d86adc3d3171e5e377bb4abd55b0"
+    },
+    {
+      "path": "tests/__pycache__/test_auxiliary_losses.cpython-313-pytest-9.0.2.pyc",
+      "size": 4455,
+      "sha256": "91f96e6d544586afefbfd2ff06f4f52f38408fdd0c567397f36d69f8e94707ba"
+    },
+    {
+      "path": "tests/__pycache__/test_batch01_library.cpython-313-pytest-9.0.2.pyc",
+      "size": 12017,
+      "sha256": "f365245d58762cb242b69a08b0bc0fe990c73b413303161c6e3c14eb14365888"
+    },
+    {
+      "path": "tests/__pycache__/test_batch02_library.cpython-313-pytest-9.0.2.pyc",
+      "size": 4743,
+      "sha256": "4da79e7b3bc01e8b61653dc0f9146b19c08399c2a44f85571957a01b34fe470e"
+    },
+    {
+      "path": "tests/__pycache__/test_card_ontology.cpython-313-pytest-9.0.2.pyc",
+      "size": 11207,
+      "sha256": "b58c729849ca63f3f5cb10fb149226d09b365c3a75314dd33c0e29e18b0069c7"
+    },
+    {
+      "path": "tests/__pycache__/test_case_gauge.cpython-313-pytest-9.0.2.pyc",
+      "size": 11875,
+      "sha256": "2a58a0d4a8a33d2a938b308e977ebb4ca60375f105c07ab73750cd40d0198f69"
+    },
+    {
+      "path": "tests/__pycache__/test_ciel_validator_loop.cpython-313-pytest-9.0.2.pyc",
+      "size": 4894,
+      "sha256": "87e737223532ad618eca93830c20458d5acfcadefef52f9b23dd44fd1d89683f"
+    },
+    {
+      "path": "tests/__pycache__/test_concept_card_water.cpython-313-pytest-9.0.2.pyc",
+      "size": 6045,
+      "sha256": "11fb55f7553542e6ad944a08dc85d6bb7f1ef152b0acc34ca138801c7f173965"
+    },
+    {
+      "path": "tests/__pycache__/test_diagnostic_geometry.cpython-313-pytest-9.0.2.pyc",
+      "size": 11925,
+      "sha256": "90843ee7e4e7f6e8f87ce90f2c069cfdc6e0ff17525122b21a858a72d959fa83"
+    },
+    {
+      "path": "tests/__pycache__/test_dynamic_deixis.cpython-313-pytest-9.0.2.pyc",
+      "size": 9950,
+      "sha256": "07ce64a0c8d6968ae957ff906e3f324169448da06f6388886dc3a83335b4d725"
+    },
+    {
+      "path": "tests/__pycache__/test_inference_gate.cpython-313-pytest-9.0.2.pyc",
+      "size": 8901,
+      "sha256": "9d941768d92306fd586dba0377a7ee1dabc4878c32dcc7f38403e183ffe9a659"
+    },
+    {
+      "path": "tests/__pycache__/test_minimal_invariants.cpython-313-pytest-9.0.2.pyc",
+      "size": 2924,
+      "sha256": "786c7703aad4dc52cb46fa96e25f6c5efaac7b9f4a6ea452a3b127271eaf92ed"
+    },
+    {
+      "path": "tests/__pycache__/test_noema_router.cpython-313-pytest-9.0.2.pyc",
+      "size": 7531,
+      "sha256": "03a0a51dee9ac2a8ed263b7d9c929706c04fba07bb2e3488ef70a52dff4412aa"
+    },
+    {
+      "path": "tests/__pycache__/test_ontological_aspect.cpython-313-pytest-9.0.2.pyc",
+      "size": 12187,
+      "sha256": "eb1ff4a4bdfaff708ef422225f0be5167ce46a70458abd76129df21f4d213747"
+    },
+    {
+      "path": "tests/__pycache__/test_operator_algebra.cpython-313-pytest-9.0.2.pyc",
+      "size": 11445,
+      "sha256": "dde04afbf31c429756d9c3464f9ba1ae8ffafbe9e1006f42a56a1f0cbe923662"
+    },
+    {
+      "path": "tests/__pycache__/test_operator_cards.cpython-313-pytest-9.0.2.pyc",
+      "size": 8813,
+      "sha256": "b8f61c4ff815e6d4937fc045bc7875a9b6b4875b865da1af271e88994c972d72"
+    },
+    {
+      "path": "tests/__pycache__/test_predicate_valency.cpython-313-pytest-9.0.2.pyc",
+      "size": 9266,
+      "sha256": "1fec8b320e0a0fd832d9e43c2cce60fbafbed88448ddba73aefb16fd059508d5"
+    },
+    {
+      "path": "tests/__pycache__/test_repo_coherence.cpython-313-pytest-9.0.2.pyc",
+      "size": 8535,
+      "sha256": "92aa66ffdbd056564a0a2e0cceb09ee4635388100f17d9a9487c2e0bba8318d4"
+    },
+    {
+      "path": "tests/__pycache__/test_roadmap.cpython-313-pytest-9.0.2.pyc",
+      "size": 8764,
+      "sha256": "fb0004dd39b4e57bda4aa3d3c99aa23b302e5fa4588e88f5933b2b32e19fc976"
+    },
+    {
+      "path": "tests/__pycache__/test_scope_quantifier.cpython-313-pytest-9.0.2.pyc",
+      "size": 10774,
+      "sha256": "39dee31e4ffe58a85af8237c7bf9906f7ce2234868d6d0a8c28dd2c3e3bf5577"
+    },
+    {
+      "path": "tests/__pycache__/test_storage_fallback.cpython-313-pytest-9.0.2.pyc",
+      "size": 4553,
+      "sha256": "7887830476dee0b86a2019da5cd9adabe91d78d58f1333c684bd6bc29c4320af"
+    },
+    {
+      "path": "tests/__pycache__/test_tame_layer.cpython-313-pytest-9.0.2.pyc",
+      "size": 7999,
+      "sha256": "1bc3a3f106fdbc454949f259cbb5e5d9be9454824cc1e14ea14044b8a12cb6b6"
+    },
+    {
+      "path": "tests/__pycache__/test_transformer_features.cpython-313-pytest-9.0.2.pyc",
+      "size": 6209,
+      "sha256": "815568225b09919de15ea9ec5d17bcc4afb0aa9dbad7cf1fb6df45837a592fbc"
+    },
+    {
+      "path": "tests/test_attention_bias.py",
+      "size": 1076,
+      "sha256": "4693b1ba9647a0defe02158927b6384a8da3060cc060a3e81d90c31eb9c55fdd"
+    },
+    {
+      "path": "tests/test_auxiliary_losses.py",
+      "size": 940,
+      "sha256": "da5703d1e51ded78e726702640ce66d5d2c5341858cb5537215df68efb647bfc"
+    },
+    {
+      "path": "tests/test_batch01_library.py",
+      "size": 1905,
+      "sha256": "a05a3eb3f2528ace5d03bb757edec72b4ccaba0fc0bd41ca2041a2a2743be74f"
+    },
+    {
+      "path": "tests/test_batch02_library.py",
+      "size": 870,
+      "sha256": "f56fb0cd88961a790011d42d8b62e1f07d084ac340b4f507c067de7b26b17e65"
+    },
+    {
+      "path": "tests/test_card_ontology.py",
+      "size": 1993,
+      "sha256": "857c2a3813610221fde920c350d6f7d004185a1e6d5a33bdd477efba2823e741"
+    },
+    {
+      "path": "tests/test_case_gauge.py",
+      "size": 1859,
+      "sha256": "09d389d70ba870525a6cec214a7e8c68bbe80ab419f67e04e24e09bf3b55e958"
+    },
+    {
+      "path": "tests/test_ciel_validator_loop.py",
+      "size": 1123,
+      "sha256": "168385b496050b8fb679c981c16875a8b2e3939524528e5706cdb4e4e69b4303"
+    },
+    {
+      "path": "tests/test_concept_card_water.py",
+      "size": 863,
+      "sha256": "f583073211f3a57fdddd1477e51c3e86959495e3a08125161317fc9741a6bdd4"
+    },
+    {
+      "path": "tests/test_diagnostic_geometry.py",
+      "size": 1831,
+      "sha256": "b81f7b429ea9de35d9875371865b2b5ccec5d3800ceb62c6005b138ece9c7d5a"
+    },
+    {
+      "path": "tests/test_dynamic_deixis.py",
+      "size": 1618,
+      "sha256": "1d540a001e7e705654fdf4b6b6ac5a02bc39b31bd782b144477215680d03c1de"
+    },
+    {
+      "path": "tests/test_inference_gate.py",
+      "size": 2325,
+      "sha256": "ff3bcb8996a34171a275526b2e1209f2f6cf46388899917fc5843f8cec2fe71b"
+    },
+    {
+      "path": "tests/test_minimal_invariants.py",
+      "size": 256,
+      "sha256": "27047fb6e65ca0694c5b9755ab3a807348f4130adba71f9e5faa39f8d69fc66c"
+    },
+    {
+      "path": "tests/test_noema_router.py",
+      "size": 1642,
+      "sha256": "29a0af05fe77144c8012cd5520df0a1044b80496010dcfb77d216a6cd33d7797"
+    },
+    {
+      "path": "tests/test_ontological_aspect.py",
+      "size": 1829,
+      "sha256": "bb4a10d9e6e0c6ad8512850d8ba574c5d9559e6d98bc3e43c4e23a0291a5b18c"
+    },
+    {
+      "path": "tests/test_operator_algebra.py",
+      "size": 2099,
+      "sha256": "6d4d6949bc73027ad8ad095062b5cebf313d26ddf7454966c93f5674e110196c"
+    },
+    {
+      "path": "tests/test_operator_cards.py",
+      "size": 1409,
+      "sha256": "37be7184868c77ecce825c74fef340a8386d58b10c8339239a944472045eb246"
+    },
+    {
+      "path": "tests/test_predicate_valency.py",
+      "size": 1610,
+      "sha256": "aa0652319d2e3d960ca969881d451e6fe8b06243472bee2f3ab0dcc88edf54b9"
+    },
+    {
+      "path": "tests/test_repo_coherence.py",
+      "size": 1410,
+      "sha256": "949c646b7b8379d3e3998d6c84fb86d58cb34367097f95a6a62a782bf0ef0fe5"
+    },
+    {
+      "path": "tests/test_roadmap.py",
+      "size": 1609,
+      "sha256": "f871584f1ce02148fe3364c2de0284237121a5395e6ad757a719b2e20b9dfcdf"
+    },
+    {
+      "path": "tests/test_scope_quantifier.py",
+      "size": 2479,
+      "sha256": "90f01fd7c9c8125745ba0a28e06174e4ffe9607db216df7fe920c197e030d4aa"
+    },
+    {
+      "path": "tests/test_storage_fallback.py",
+      "size": 1005,
+      "sha256": "02c57a5dac5f18462dd6bb74ff818758914ebebc8be623f847757ad94f38b684"
+    },
+    {
+      "path": "tests/test_tame_layer.py",
+      "size": 1649,
+      "sha256": "ca43c6eb17ad0460ee22f8ae8800759d0344a392078d68e6df6d963131a46790"
+    },
+    {
+      "path": "tests/test_transformer_features.py",
+      "size": 1340,
+      "sha256": "b3c64f0dca86fc3423b56127583e593ebf4207a48a72d05bb9d08aeb364ba208"
+    }
+  ]
+}

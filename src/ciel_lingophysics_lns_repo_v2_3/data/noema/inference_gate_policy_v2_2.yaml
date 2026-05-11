@@ -1,0 +1,40 @@
+policy_version: '2.2'
+name: NOEMA inference gate policy
+canonicality_rule: GGUF verdict is advisory and cannot make a card or relation canonical
+  without structural validation, audit, and provenance/review where needed.
+gate_levels:
+  NO_LLM:
+    requires_gguf: false
+    model_multiplier: 0.0
+    description: Resolved by NOEMA cards, graph, and validator.
+  SMALL_GGUF:
+    requires_gguf: true
+    model_multiplier: 1.0
+    description: Simple synthesis or low-risk phrasing.
+  MEDIUM_GGUF:
+    requires_gguf: true
+    model_multiplier: 3.0
+    description: Ambiguity, scope, or cross-language reconstruction.
+  LARGE_GGUF:
+    requires_gguf: true
+    model_multiplier: 8.0
+    description: Hard synthesis or factual uncertainty.
+  GGUF_VALIDATOR:
+    requires_gguf: true
+    model_multiplier: 2.0
+    description: Teacher-validator check for a candidate analysis.
+  HUMAN_REVIEW:
+    requires_gguf: false
+    model_multiplier: 0.0
+    description: Do not auto-canonize; require human review.
+decision_rules:
+- if: validator_pass and confidence >= no_llm_threshold and no_unresolved
+  then: NO_LLM
+- if: confidence >= small_gguf_threshold and not high_impact
+  then: SMALL_GGUF
+- if: confidence >= medium_gguf_threshold and unresolved_is_low_risk
+  then: MEDIUM_GGUF
+- if: factual_validation_required or hard_synthesis
+  then: LARGE_GGUF
+- if: conflict_or_high_impact_unresolved
+  then: HUMAN_REVIEW

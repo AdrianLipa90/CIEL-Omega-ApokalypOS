@@ -1,0 +1,60 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:like_as
+family: similarity_role_mapping
+class:
+- comparison_operator
+- analogy_operator
+- role_mapping
+symbol: Like(x,y) / AsRole(x,r)
+arity: '2'
+dual: null
+inverse: null
+description: maps similarity, analogy, role or function between entities/actions
+equations:
+- Like(x,y)->Sim(x,y)
+- AsRole(x,r)->Role(x)=r
+surfaces:
+  pl:
+    lemma: jak / jako
+    forms:
+    - jak
+    - jako
+    - podobnie do
+    examples:
+    - On pracuje jako lekarz.
+    - To jest jak woda.
+    notes: similarity vs role must be disambiguated
+  en:
+    lemma: like / as
+    forms:
+    - like
+    - as
+    examples:
+    - He works as a doctor.
+    - This is like water.
+    notes: like=similarity, as=role/pattern often
+  de:
+    lemma: wie / als
+    forms:
+    - wie
+    - als
+    examples:
+    - Er arbeitet als Arzt.
+    - Das ist wie Wasser.
+    notes: wie/als distinction
+  fr:
+    lemma: comme / en tant que
+    forms:
+    - comme
+    - en tant que
+    examples:
+    - Il travaille comme médecin.
+    notes: similarity/role
+  es:
+    lemma: como
+    forms:
+    - como
+    - en calidad de
+    examples:
+    - Trabaja como médico.
+    notes: similarity/role by context

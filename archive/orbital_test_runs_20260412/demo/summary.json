@@ -1,0 +1,261 @@
+{
+  "engine": "global_orbital_coherence_pass_v64_runtime_bridge",
+  "steps": 2,
+  "params": {
+    "dt": 0.015033,
+    "tau_eta": 0.0085,
+    "tau_reg": 0.0024,
+    "sigma": 0.20992708860770198,
+    "beta": 0.8858849039288708,
+    "gamma": 0.3383621712598693,
+    "I0": 0.008114359738066937,
+    "mesh_boost": 0.813592,
+    "tension_weight": 0.24841695319131418,
+    "closure_weight": 0.08945494489662148,
+    "use_zeta_pole": true,
+    "zeta_coupling_scale": 0.323404,
+    "zeta_tetra_weight": 0.5,
+    "zeta_amplitude": 0.35,
+    "zeta_relax": 0.08,
+    "zeta_global_rotation": 0.0,
+    "zeta_heisenberg_alpha": 8.0,
+    "zeta_i0_scale": 1.0,
+    "use_relational_lagrangian": true,
+    "kappa_H": 1.0,
+    "lambda_tension": 0.15,
+    "lambda_distortion": 1.0,
+    "lambda_zeta_tetra": 1.0,
+    "alpha_spin": 4.0,
+    "mu_phi": 0.10323,
+    "mu_rho": 0.14,
+    "epsilon_hom": 0.22,
+    "spin_vorticity_gain": 0.2,
+    "relax_amp": 0.28,
+    "grad_eps": 0.001,
+    "use_euler_leak_rotation": true,
+    "D_f": 2.57,
+    "euler_angular_gain": 1.0,
+    "zeta_phase0": 0.0
+  },
+  "initial": {
+    "R_H": 0.0022992519926136024,
+    "T_glob": 2.663299565608945,
+    "Lambda_glob": 0.0,
+    "closure_penalty": 6.046420165477348,
+    "V_rel_total": 6.448214352311303,
+    "radial_spread": 0.18130906565294394,
+    "mean_spin": 0.0,
+    "spectral_radius_A": 1.4489573269385547,
+    "spectral_gap_A": 0.64489832321122,
+    "fiedler_L": 0.24968071762108252,
+    "zeta_enabled": true,
+    "zeta_tetra_defect": 3.389636702121535e-32,
+    "zeta_effective_tau": 0.3645,
+    "zeta_effective_phase": 2.220446049250313e-16,
+    "zeta_coupling_norm": 0.006760947079721459,
+    "zeta_coupling_norm_raw": 0.8497851914386316,
+    "zeta_spin": 0.0,
+    "zeta_rho": 0.45,
+    "D_f": 2.57,
+    "euler_leak_angle": 0.8953539062730907
+  },
+  "final": {
+    "R_H": 0.040225578333860895,
+    "T_glob": 2.504955785279365,
+    "Lambda_glob": 0.24740438913372267,
+    "closure_penalty": 5.96209435334716,
+    "V_rel_total": 6.378063299472926,
+    "radial_spread": 0.18310767054641963,
+    "mean_spin": -0.06083259309001896,
+    "spectral_radius_A": 1.2865260323796215,
+    "spectral_gap_A": 0.4796677640482334,
+    "fiedler_L": 0.2898573549460455,
+    "zeta_enabled": true,
+    "zeta_tetra_defect": 1.0785207688568521e-32,
+    "zeta_effective_tau": 0.3645,
+    "zeta_effective_phase": -0.000182880227934449,
+    "zeta_coupling_norm": 0.006254488084546147,
+    "zeta_coupling_norm_raw": 0.7849971589664592,
+    "zeta_spin": -0.06083259309001896,
+    "zeta_rho": 0.44988561728681065,
+    "D_f": 2.57,
+    "euler_leak_angle": 0.8953539062730907
+  },
+  "history": [
+    {
+      "R_H": 0.0022992519926136024,
+      "T_glob": 2.663299565608945,
+      "Lambda_glob": 0.0,
+      "closure_penalty": 6.046420165477348,
+      "V_rel_total": 6.448214352311303,
+      "radial_spread": 0.18130906565294394,
+      "mean_spin": 0.0,
+      "spectral_radius_A": 1.4489573269385547,
+      "spectral_gap_A": 0.64489832321122,
+      "fiedler_L": 0.24968071762108252,
+      "zeta_enabled": true,
+      "zeta_tetra_defect": 3.389636702121535e-32,
+      "zeta_effective_tau": 0.3645,
+      "zeta_effective_phase": 2.220446049250313e-16,
+      "zeta_coupling_norm": 0.006760947079721459,
+      "zeta_coupling_norm_raw": 0.8497851914386316,
+      "zeta_spin": 0.0,
+      "zeta_rho": 0.45,
+      "D_f": 2.57,
+      "euler_leak_angle": 0.8953539062730907
+    },
+    {
+      "R_H": 0.043255522628916174,
+      "T_glob": 2.589292097643956,
+      "Lambda_glob": -0.4403356285509327,
+      "closure_penalty": 5.968765947265324,
+      "V_rel_total": 6.400415284540834,
+      "radial_spread": 0.18229309653331816,
+      "mean_spin": -0.09134290506656594,
+      "spectral_radius_A": 1.386618376751894,
+      "spectral_gap_A": 0.5757402328320279,
+      "fiedler_L": 0.25997383511597616,
+      "zeta_enabled": true,
+      "zeta_tetra_defect": 2.619264724366641e-32,
+      "zeta_effective_tau": 0.3645,
+      "zeta_effective_phase": -0.00010985263134911407,
+      "zeta_coupling_norm": 0.006152368615998451,
+      "zeta_coupling_norm_raw": 0.7725973220184283,
+      "zeta_spin": -0.09134290506656594,
+      "zeta_rho": 0.44993134210540675,
+      "D_f": 2.57,
+      "euler_leak_angle": 0.8953539062730907
+    },
+    {
+      "R_H": 0.040225578333860895,
+      "T_glob": 2.504955785279365,
+      "Lambda_glob": 0.24740438913372267,
+      "closure_penalty": 5.96209435334716,
+      "V_rel_total": 6.378063299472926,
+      "radial_spread": 0.18310767054641963,
+      "mean_spin": -0.06083259309001896,
+      "spectral_radius_A": 1.2865260323796215,
+      "spectral_gap_A": 0.4796677640482334,
+      "fiedler_L": 0.2898573549460455,
+      "zeta_enabled": true,
+      "zeta_tetra_defect": 1.0785207688568521e-32,
+      "zeta_effective_tau": 0.3645,
+      "zeta_effective_phase": -0.000182880227934449,
+      "zeta_coupling_norm": 0.006254488084546147,
+      "zeta_coupling_norm_raw": 0.7849971589664592,
+      "zeta_spin": -0.06083259309001896,
+      "zeta_rho": 0.44988561728681065,
+      "D_f": 2.57,
+      "euler_leak_angle": 0.8953539062730907
+    }
+  ],
+  "diagnostics": {
+    "closure_residuals": {
+      "constraints": 0.6250266365613059,
+      "fields": 1.040474685258405,
+      "runtime": 1.30044203768455,
+      "memory": 1.3516452202968066,
+      "bridge": 0.6224745644769318,
+      "vocabulary": 0.76372744347925
+    },
+    "local_vorticity": {
+      "constraints": 0.002773285160652887,
+      "fields": -0.07671813371560585,
+      "runtime": 0.38046509518652666,
+      "memory": 0.08181473454902823,
+      "bridge": 0.17966912380366237,
+      "vocabulary": 0.12225492684094051
+    },
+    "effective_mass": {
+      "constraints": 1.274994127263056,
+      "fields": 1.3506585422866133,
+      "runtime": 0.8125819966635922,
+      "memory": 2.2895007474187112,
+      "bridge": 0.7451575673441041,
+      "vocabulary": 1.6419262222338857
+    },
+    "dominant_residual_sector": "memory",
+    "dominant_vorticity_sector": "runtime",
+    "dominant_mass_sector": "memory",
+    "residual_rank": [
+      [
+        "memory",
+        1.3516452202968066
+      ],
+      [
+        "runtime",
+        1.30044203768455
+      ],
+      [
+        "fields",
+        1.040474685258405
+      ],
+      [
+        "vocabulary",
+        0.76372744347925
+      ],
+      [
+        "constraints",
+        0.6250266365613059
+      ],
+      [
+        "bridge",
+        0.6224745644769318
+      ]
+    ],
+    "vorticity_rank": [
+      [
+        "runtime",
+        0.38046509518652666
+      ],
+      [
+        "bridge",
+        0.17966912380366237
+      ],
+      [
+        "vocabulary",
+        0.12225492684094051
+      ],
+      [
+        "memory",
+        0.08181473454902823
+      ],
+      [
+        "fields",
+        -0.07671813371560585
+      ],
+      [
+        "constraints",
+        0.002773285160652887
+      ]
+    ],
+    "mass_rank": [
+      [
+        "memory",
+        2.2895007474187112
+      ],
+      [
+        "vocabulary",
+        1.6419262222338857
+      ],
+      [
+        "fields",
+        1.3506585422866133
+      ],
+      [
+        "constraints",
+        1.274994127263056
+      ],
+      [
+        "runtime",
+        0.8125819966635922
+      ],
+      [
+        "bridge",
+        0.7451575673441041
+      ]
+    ]
+  },
+  "pass_label": "demo",
+  "repo_root": "/mnt/data/isolated_ciel_relational_full/CIEL_RELATIONAL_MECHANISM_REPO"
+}

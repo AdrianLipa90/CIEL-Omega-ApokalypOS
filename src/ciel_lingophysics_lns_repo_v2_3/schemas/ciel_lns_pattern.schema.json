@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_pattern.schema.json",
+  "title": "CIEL-LNS Validation Pattern",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "condition",
+    "severity"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "condition": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "error",
+        "critical"
+      ]
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,166 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:relation
+canonical_label_en: relation
+batch_id: batch01_foundational_36x5
+domain: relational
+semantic_axes:
+- connection
+- mapping
+- bond
+semantic_mass_seed: 0.6375
+phase_seed_rad: 4.886922
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: relacja
+    brief_description: wiązanie, zależność lub mapowanie między obiektami
+    near_synonyms_seed:
+    - związek
+    - więź
+    antonyms_seed:
+    - separacja
+    - izolacja
+    forms_seed:
+    - relacja
+    - relacja jako hasło
+    - relacja w kontekście
+    context_examples_seed:
+    - Relacja tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - with
+    - between
+    - maps
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: relation
+    brief_description: bond, dependency or mapping between objects
+    near_synonyms_seed:
+    - connection
+    - bond
+    antonyms_seed:
+    - separation
+    - isolation
+    forms_seed:
+    - relation
+    - relations
+    - relation as concept
+    context_examples_seed:
+    - Relation forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Beziehung
+    brief_description: Bindung, Abhängigkeit oder Abbildung zwischen Objekten
+    near_synonyms_seed:
+    - Verbindung
+    - Bindung
+    antonyms_seed:
+    - Trennung
+    - Isolation
+    forms_seed:
+    - Beziehung
+    - Beziehung als Begriff
+    - Beziehung im Kontext
+    context_examples_seed:
+    - Beziehung bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: relation
+    brief_description: lien, dépendance ou application entre objets
+    near_synonyms_seed:
+    - connexion
+    - lien
+    antonyms_seed:
+    - séparation
+    - isolement
+    forms_seed:
+    - relation
+    - relation comme concept
+    - relation en contexte
+    context_examples_seed:
+    - Relation forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: relación
+    brief_description: vínculo, dependencia o mapeo entre objetos
+    near_synonyms_seed:
+    - conexión
+    - vínculo
+    antonyms_seed:
+    - separación
+    - aislamiento
+    forms_seed:
+    - relación
+    - relación como concepto
+    - relación en contexto
+    context_examples_seed:
+    - Relación forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: connects
+  target: concept:self
+  status: draft_seed
+- type: connects
+  target: concept:other
+  status: draft_seed
+- type: supports
+  target: concept:memory
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

@@ -1,0 +1,11 @@
+family_id: family:causal
+description: Causal explanation, reason and consequence.
+operators:
+- op:core:because
+canonical_axes:
+- cause
+- reason
+- explanation
+core_equations:
+- Because(effect,cause)
+- Cause(cause,effect)

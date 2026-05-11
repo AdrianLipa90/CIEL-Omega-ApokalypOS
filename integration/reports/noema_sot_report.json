@@ -1,6 +1,6 @@
 {
-  "global_coherence": 0.88462,
-  "global_health": 0.55382,
+  "global_coherence": 0.91458,
+  "global_health": 0.55677,
   "operating_mode": "standard",
   "priority_order": [
     "noema_registry",
@@ -11,16 +11,18 @@
     "db_orchestrator"
   ],
   "tag_matrix": {
-    "coherence_index": 0.8324013844386199,
-    "system_health": 0.5613455193995859,
-    "closure_penalty": 0.7621591677627482,
-    "ethical_score": 0.6220563277587694,
-    "soul_invariant": 0.6588445346651934,
+    "coherence_index": 0.6782457032736694,
+    "system_health": 0.5450882126251532,
+    "closure_penalty": 0.7749402004651119,
+    "ethical_score": 0.7977991858439318,
+    "soul_invariant": 1.0690589504204846,
     "lie4_trace": 4.183135222640001,
     "nonlocal_coherent_fraction": 1.0,
     "dominant_emotion": "love",
-    "global_coherence": 0.88462,
-    "global_health": 0.55382
+    "global_coherence": 0.91458,
+    "global_health": 0.55677,
+    "jokeheal_mnemonic_pressure": 0.0,
+    "jokeheal_symbolic_pull": 0.0
   },
   "file_mass_summary": {
     "total_files": 3224,
@@ -76,17 +78,45 @@
       }
     ]
   },
+  "memory_projection": {
+    "projection_confidence": 0.88986,
+    "projection_residual": 0.11014,
+    "projection_error": 0.11014,
+    "j_noema": 0.30356,
+    "projected_centroid": {
+      "coherence_index": 0.91458,
+      "system_health": 0.86188,
+      "closure_penalty": 0.77547,
+      "ethical_score": 0.76714,
+      "soul_invariant": 0.99251,
+      "identity_phase": 0.02471
+    },
+    "source": "weighted-subsystems"
+  },
+  "jokeheal_summary": {},
+  "jokeheal_atlas": {
+    "schema": "ciel/jokeheal-mnemonic-atlas/v0.1",
+    "generated_at": "2026-05-11T16:13:37.737980+00:00",
+    "scar_count": 0,
+    "recent_count": 0,
+    "top_symbolic_objects": [],
+    "top_tags": [],
+    "mnemonic_pressure": 0.0,
+    "symbolic_pull": 0.0,
+    "recurrence_pressure": 0.0,
+    "literal_alarm_rate": 0.0
+  },
   "subsystem_count": 6,
-  "generated": "2026-05-08T12:43:02.248504+00:00",
+  "generated": "2026-05-11T16:13:37.737992+00:00",
   "subsystems": {
     "noema_registry": {
       "M_sem": 0.99,
       "orbital_level": 1,
       "noema_id": "NL-NOEMA-CORE-0001",
       "metrics": {
-        "H_total": -53.74,
-        "dH_dt": 11.07806,
-        "r_sync": 1.0
+        "H_total": -74.67413,
+        "dH_dt": 0.01588,
+        "r_sync": 0.99983
       }
     },
     "ciel_omega_core": {
@@ -96,7 +126,7 @@
       "metrics": {
         "ethical_score": 0.62206,
         "lie4_trace": 4.18314,
-        "soul_invariant": 0.65884
+        "soul_invariant": 0.63028
       }
     },
     "orbital_bridge_core": {
@@ -104,11 +134,11 @@
       "orbital_level": 1,
       "noema_id": "NL-BRIDGE-CORE-0001",
       "metrics": {
-        "R_H": 23.92847,
-        "closure_penalty": 0.75018,
-        "coherence_index": 0.6899,
+        "R_H": 5.74417,
+        "closure_penalty": 0.77805,
+        "coherence_index": 0.86523,
         "nonlocal_coherent_fraction": 0.0,
-        "system_health": 0.55382
+        "system_health": 0.55677
       }
     },
     "sync_core": {
@@ -116,7 +146,7 @@
       "orbital_level": 1,
       "noema_id": "NL-SYNC-CORE-0001",
       "metrics": {
-        "closure_defect": 0.00348,
+        "closure_defect": 0.00537,
         "n_repos": 5.0
       }
     },
@@ -135,12 +165,12 @@
   },
   "dynamics": {
     "updated": 200,
-    "r_sync": 1.0,
-    "H_total": -110.16993,
-    "H_kinetic": 1.671001,
-    "H_potential": -111.999992,
-    "H_attractor": 0.159061,
-    "dH_dt": -56.429928,
+    "r_sync": 0.99983,
+    "H_total": -74.657852,
+    "H_kinetic": 1.796513,
+    "H_potential": -76.774706,
+    "H_attractor": 0.320342,
+    "dH_dt": 0.016278,
     "error": null
   }
 }

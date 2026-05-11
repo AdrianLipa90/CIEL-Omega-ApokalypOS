@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Dynamic Deictic Operator Card",
+  "type": "object",
+  "required": [
+    "operator_id",
+    "canonical_operator",
+    "class",
+    "arity",
+    "signature",
+    "surfaces",
+    "modes",
+    "resolution_inputs"
+  ],
+  "properties": {
+    "operator_id": {
+      "type": "string"
+    },
+    "canonical_operator": {
+      "type": "string"
+    },
+    "class": {
+      "type": "string"
+    },
+    "arity": {
+      "type": "integer"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "semantic_axis": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "number"
+    },
+    "surfaces": {
+      "type": "object"
+    },
+    "modes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dual_or_related": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "resolution_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "examples": {
+      "type": "object"
+    }
+  }
+}

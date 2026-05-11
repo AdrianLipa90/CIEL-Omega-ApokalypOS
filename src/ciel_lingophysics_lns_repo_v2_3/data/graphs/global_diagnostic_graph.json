@@ -1,0 +1,5655 @@
+{
+  "version": "2.0",
+  "graph_id": "global_diagnostic_graph_v2_0",
+  "nodes": [
+    {
+      "id": "concept:water",
+      "label": "water",
+      "type": "CONCEPT_CARD",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:fire",
+      "label": "fire",
+      "type": "CONCEPT_CARD",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:earth",
+      "label": "earth",
+      "type": "CONCEPT_CARD",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:air",
+      "label": "air",
+      "type": "CONCEPT_CARD",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:light",
+      "label": "light",
+      "type": "CONCEPT_CARD",
+      "domain": "perception"
+    },
+    {
+      "id": "concept:dark",
+      "label": "darkness",
+      "type": "CONCEPT_CARD",
+      "domain": "perception"
+    },
+    {
+      "id": "concept:life",
+      "label": "life",
+      "type": "CONCEPT_CARD",
+      "domain": "biological"
+    },
+    {
+      "id": "concept:death",
+      "label": "death",
+      "type": "CONCEPT_CARD",
+      "domain": "biological"
+    },
+    {
+      "id": "concept:body",
+      "label": "body",
+      "type": "CONCEPT_CARD",
+      "domain": "embodiment"
+    },
+    {
+      "id": "concept:mind",
+      "label": "mind",
+      "type": "CONCEPT_CARD",
+      "domain": "cognitive"
+    },
+    {
+      "id": "concept:time",
+      "label": "time",
+      "type": "CONCEPT_CARD",
+      "domain": "spacetime"
+    },
+    {
+      "id": "concept:space",
+      "label": "space",
+      "type": "CONCEPT_CARD",
+      "domain": "spacetime"
+    },
+    {
+      "id": "concept:motion",
+      "label": "motion",
+      "type": "CONCEPT_CARD",
+      "domain": "dynamics"
+    },
+    {
+      "id": "concept:rest",
+      "label": "rest",
+      "type": "CONCEPT_CARD",
+      "domain": "dynamics"
+    },
+    {
+      "id": "concept:force",
+      "label": "force",
+      "type": "CONCEPT_CARD",
+      "domain": "physics"
+    },
+    {
+      "id": "concept:energy",
+      "label": "energy",
+      "type": "CONCEPT_CARD",
+      "domain": "physics"
+    },
+    {
+      "id": "concept:matter",
+      "label": "matter",
+      "type": "CONCEPT_CARD",
+      "domain": "physics"
+    },
+    {
+      "id": "concept:information",
+      "label": "information",
+      "type": "CONCEPT_CARD",
+      "domain": "informational"
+    },
+    {
+      "id": "concept:truth",
+      "label": "truth",
+      "type": "CONCEPT_CARD",
+      "domain": "epistemic"
+    },
+    {
+      "id": "concept:lie",
+      "label": "lie",
+      "type": "CONCEPT_CARD",
+      "domain": "epistemic"
+    },
+    {
+      "id": "concept:good",
+      "label": "good",
+      "type": "CONCEPT_CARD",
+      "domain": "ethical"
+    },
+    {
+      "id": "concept:harm",
+      "label": "harm",
+      "type": "CONCEPT_CARD",
+      "domain": "ethical"
+    },
+    {
+      "id": "concept:order",
+      "label": "order",
+      "type": "CONCEPT_CARD",
+      "domain": "structure"
+    },
+    {
+      "id": "concept:chaos",
+      "label": "chaos",
+      "type": "CONCEPT_CARD",
+      "domain": "structure"
+    },
+    {
+      "id": "concept:center",
+      "label": "center",
+      "type": "CONCEPT_CARD",
+      "domain": "geometry"
+    },
+    {
+      "id": "concept:boundary",
+      "label": "boundary",
+      "type": "CONCEPT_CARD",
+      "domain": "geometry"
+    },
+    {
+      "id": "concept:self",
+      "label": "self",
+      "type": "CONCEPT_CARD",
+      "domain": "relational"
+    },
+    {
+      "id": "concept:other",
+      "label": "other",
+      "type": "CONCEPT_CARD",
+      "domain": "relational"
+    },
+    {
+      "id": "concept:relation",
+      "label": "relation",
+      "type": "CONCEPT_CARD",
+      "domain": "relational"
+    },
+    {
+      "id": "concept:memory",
+      "label": "memory",
+      "type": "CONCEPT_CARD",
+      "domain": "cognitive"
+    },
+    {
+      "id": "concept:love",
+      "label": "love",
+      "type": "CONCEPT_CARD",
+      "domain": "affective"
+    },
+    {
+      "id": "concept:fear",
+      "label": "fear",
+      "type": "CONCEPT_CARD",
+      "domain": "affective"
+    },
+    {
+      "id": "concept:trust",
+      "label": "trust",
+      "type": "CONCEPT_CARD",
+      "domain": "affective_social"
+    },
+    {
+      "id": "concept:pain",
+      "label": "pain",
+      "type": "CONCEPT_CARD",
+      "domain": "affective_body"
+    },
+    {
+      "id": "concept:knowledge",
+      "label": "knowledge",
+      "type": "CONCEPT_CARD",
+      "domain": "epistemic"
+    },
+    {
+      "id": "concept:error",
+      "label": "error",
+      "type": "CONCEPT_CARD",
+      "domain": "epistemic"
+    },
+    {
+      "id": "concept:answer",
+      "label": "answer",
+      "type": "CONCEPT_CARD",
+      "domain": "cognition_dialogue"
+    },
+    {
+      "id": "concept:blood",
+      "label": "blood",
+      "type": "CONCEPT_CARD",
+      "domain": "body_life"
+    },
+    {
+      "id": "concept:border",
+      "label": "border",
+      "type": "CONCEPT_CARD",
+      "domain": "place_boundary"
+    },
+    {
+      "id": "concept:child",
+      "label": "child",
+      "type": "CONCEPT_CARD",
+      "domain": "social_family"
+    },
+    {
+      "id": "concept:city",
+      "label": "city",
+      "type": "CONCEPT_CARD",
+      "domain": "place_social"
+    },
+    {
+      "id": "concept:country",
+      "label": "country",
+      "type": "CONCEPT_CARD",
+      "domain": "place_political"
+    },
+    {
+      "id": "concept:debt",
+      "label": "debt",
+      "type": "CONCEPT_CARD",
+      "domain": "social_exchange"
+    },
+    {
+      "id": "concept:door",
+      "label": "door",
+      "type": "CONCEPT_CARD",
+      "domain": "place_boundary"
+    },
+    {
+      "id": "concept:doubt",
+      "label": "doubt",
+      "type": "CONCEPT_CARD",
+      "domain": "cognition_epistemic"
+    },
+    {
+      "id": "concept:enemy",
+      "label": "enemy",
+      "type": "CONCEPT_CARD",
+      "domain": "social_relation"
+    },
+    {
+      "id": "concept:eye",
+      "label": "eye",
+      "type": "CONCEPT_CARD",
+      "domain": "body_perception"
+    },
+    {
+      "id": "concept:face",
+      "label": "face",
+      "type": "CONCEPT_CARD",
+      "domain": "body_identity"
+    },
+    {
+      "id": "concept:friend",
+      "label": "friend",
+      "type": "CONCEPT_CARD",
+      "domain": "social_relation"
+    },
+    {
+      "id": "concept:gift",
+      "label": "gift",
+      "type": "CONCEPT_CARD",
+      "domain": "social_exchange"
+    },
+    {
+      "id": "concept:hand",
+      "label": "hand",
+      "type": "CONCEPT_CARD",
+      "domain": "body_action"
+    },
+    {
+      "id": "concept:house",
+      "label": "house",
+      "type": "CONCEPT_CARD",
+      "domain": "place_social"
+    },
+    {
+      "id": "concept:idea",
+      "label": "idea",
+      "type": "CONCEPT_CARD",
+      "domain": "cognition"
+    },
+    {
+      "id": "concept:law",
+      "label": "law",
+      "type": "CONCEPT_CARD",
+      "domain": "social_order"
+    },
+    {
+      "id": "concept:money",
+      "label": "money",
+      "type": "CONCEPT_CARD",
+      "domain": "social_exchange"
+    },
+    {
+      "id": "concept:name",
+      "label": "name",
+      "type": "CONCEPT_CARD",
+      "domain": "identity_symbol"
+    },
+    {
+      "id": "concept:parent",
+      "label": "parent",
+      "type": "CONCEPT_CARD",
+      "domain": "social_family"
+    },
+    {
+      "id": "concept:person",
+      "label": "person",
+      "type": "CONCEPT_CARD",
+      "domain": "social"
+    },
+    {
+      "id": "concept:promise",
+      "label": "promise",
+      "type": "CONCEPT_CARD",
+      "domain": "social_temporal"
+    },
+    {
+      "id": "concept:question",
+      "label": "question",
+      "type": "CONCEPT_CARD",
+      "domain": "cognition_dialogue"
+    },
+    {
+      "id": "concept:reason",
+      "label": "reason",
+      "type": "CONCEPT_CARD",
+      "domain": "cognition_logic"
+    },
+    {
+      "id": "concept:road",
+      "label": "road",
+      "type": "CONCEPT_CARD",
+      "domain": "place_motion"
+    },
+    {
+      "id": "concept:sign",
+      "label": "sign",
+      "type": "CONCEPT_CARD",
+      "domain": "language_symbol"
+    },
+    {
+      "id": "concept:silence",
+      "label": "silence",
+      "type": "CONCEPT_CARD",
+      "domain": "language_absence"
+    },
+    {
+      "id": "concept:song",
+      "label": "song",
+      "type": "CONCEPT_CARD",
+      "domain": "language_sound"
+    },
+    {
+      "id": "concept:sound",
+      "label": "sound",
+      "type": "CONCEPT_CARD",
+      "domain": "language_body"
+    },
+    {
+      "id": "concept:story",
+      "label": "story",
+      "type": "CONCEPT_CARD",
+      "domain": "language_memory"
+    },
+    {
+      "id": "concept:stranger",
+      "label": "stranger",
+      "type": "CONCEPT_CARD",
+      "domain": "social_relation"
+    },
+    {
+      "id": "concept:thought",
+      "label": "thought",
+      "type": "CONCEPT_CARD",
+      "domain": "cognition"
+    },
+    {
+      "id": "concept:voice",
+      "label": "voice",
+      "type": "CONCEPT_CARD",
+      "domain": "body_expression"
+    },
+    {
+      "id": "concept:word",
+      "label": "word",
+      "type": "CONCEPT_CARD",
+      "domain": "language"
+    },
+    {
+      "id": "concept:work",
+      "label": "work",
+      "type": "CONCEPT_CARD",
+      "domain": "social_action"
+    },
+    {
+      "id": "operator:about",
+      "label": "about",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:after",
+      "label": "after",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:against",
+      "label": "against",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:answer",
+      "label": "answer",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:around",
+      "label": "around",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:arranges",
+      "label": "arranges",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:as",
+      "label": "as",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:ask",
+      "label": "ask",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:avoids",
+      "label": "avoids",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:be",
+      "label": "be",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:because",
+      "label": "because",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:before",
+      "label": "before",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:before_after",
+      "label": "before_after",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:believes",
+      "label": "believes",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:between",
+      "label": "between",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:border",
+      "label": "border",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:boundary",
+      "label": "boundary",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:call",
+      "label": "call",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:care",
+      "label": "care",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:cares_for",
+      "label": "cares_for",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:caused_by",
+      "label": "caused_by",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:causes",
+      "label": "causes",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:contains",
+      "label": "contains",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:contradicts",
+      "label": "contradicts",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:creates",
+      "label": "creates",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:deceives",
+      "label": "deceives",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:destroys",
+      "label": "destroys",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:disrupts",
+      "label": "disrupts",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:do",
+      "label": "do",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:doubts",
+      "label": "doubts",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:emit",
+      "label": "emit",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:flow",
+      "label": "flow",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:for",
+      "label": "for",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:from",
+      "label": "from",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:give",
+      "label": "give",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:harms",
+      "label": "harms",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:has",
+      "label": "has",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:has_part",
+      "label": "has_part",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:has_property",
+      "label": "has_property",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:has_state",
+      "label": "has_state",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:have",
+      "label": "have",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:hear",
+      "label": "hear",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:hides",
+      "label": "hides",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:how",
+      "label": "how",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:if_then",
+      "label": "if_then",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:inside",
+      "label": "inside",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:inside_outside",
+      "label": "inside_outside",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:is",
+      "label": "is",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:knows",
+      "label": "knows",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:law",
+      "label": "law",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:make",
+      "label": "make",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:maps",
+      "label": "maps",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:maybe",
+      "label": "maybe",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:means",
+      "label": "means",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:memory",
+      "label": "memory",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:must",
+      "label": "must",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:not",
+      "label": "not",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:on",
+      "label": "on",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:outside",
+      "label": "outside",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:path",
+      "label": "path",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:points_to",
+      "label": "points_to",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:promise",
+      "label": "promise",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:prove",
+      "label": "prove",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:proves",
+      "label": "proves",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:question",
+      "label": "question",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:relation",
+      "label": "relation",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:repairs",
+      "label": "repairs",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:reveals",
+      "label": "reveals",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:scope",
+      "label": "scope",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:see",
+      "label": "see",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:signifies",
+      "label": "signifies",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:silence",
+      "label": "silence",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:sing",
+      "label": "sing",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:sound",
+      "label": "sound",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:state_be",
+      "label": "state_be",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:supports",
+      "label": "supports",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:tell",
+      "label": "tell",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:think",
+      "label": "think",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:through",
+      "label": "through",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:to",
+      "label": "to",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:transforms",
+      "label": "transforms",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:trust",
+      "label": "trust",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:under",
+      "label": "under",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:when",
+      "label": "when",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:will",
+      "label": "will",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:with",
+      "label": "with",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    },
+    {
+      "id": "operator:without",
+      "label": "without",
+      "type": "OPERATOR_CARD",
+      "domain": "operator"
+    }
+  ],
+  "edges": [
+    {
+      "source": "concept:water",
+      "target": "concept:fire",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "concept:life",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "concept:motion",
+      "type": "has_state",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "concept:water",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "concept:light",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "concept:matter",
+      "type": "transforms",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "concept:body",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "concept:space",
+      "type": "anchors",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "concept:life",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "concept:motion",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "concept:dark",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "concept:knowledge",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "concept:truth",
+      "type": "reveals",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "concept:light",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "concept:fear",
+      "type": "increases",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "concept:knowledge",
+      "type": "hides",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "concept:death",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "concept:water",
+      "type": "requires",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "concept:body",
+      "type": "includes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "concept:life",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "concept:time",
+      "type": "bounds",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "concept:mind",
+      "type": "paired_with",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "concept:pain",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "concept:motion",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "concept:body",
+      "type": "paired_with",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "concept:memory",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "concept:truth",
+      "type": "seeks",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "concept:motion",
+      "type": "orders",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "concept:memory",
+      "type": "bounds",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "concept:motion",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "concept:center",
+      "type": "bounds",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "concept:boundary",
+      "type": "has_boundary",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "concept:rest",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "concept:time",
+      "type": "requires",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "concept:space",
+      "type": "occurs_in",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "concept:motion",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "concept:order",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "concept:motion",
+      "type": "causes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "concept:matter",
+      "type": "acts_on",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "concept:matter",
+      "type": "transforms",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "concept:motion",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "concept:information",
+      "type": "paired_with",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "concept:energy",
+      "type": "receives",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "concept:error",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "concept:knowledge",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "concept:matter",
+      "type": "patterns",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "concept:lie",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "concept:knowledge",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "concept:error",
+      "type": "reduces",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "concept:truth",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "concept:error",
+      "type": "increases",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "concept:trust",
+      "type": "harms",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "concept:harm",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "concept:trust",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "concept:life",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "concept:good",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "concept:pain",
+      "type": "causes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "concept:trust",
+      "type": "reduces",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "concept:chaos",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "concept:knowledge",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "concept:order",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "concept:error",
+      "type": "increases",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "concept:boundary",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "concept:relation",
+      "type": "attracts",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "concept:center",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "concept:space",
+      "type": "bounds",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "concept:other",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "concept:identity",
+      "type": "stabilizes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "concept:memory",
+      "type": "stores",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "concept:self",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "concept:relation",
+      "type": "requires",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "concept:self",
+      "type": "connects",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "concept:other",
+      "type": "connects",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "concept:memory",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "concept:identity",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "concept:information",
+      "type": "stores",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "concept:fear",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "concept:trust",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "concept:harm",
+      "type": "reduces",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "concept:trust",
+      "type": "reduces",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "concept:pain",
+      "type": "increases",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "concept:harm",
+      "type": "responds_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "concept:fear",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "concept:relation",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "concept:truth",
+      "type": "requires",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "concept:harm",
+      "type": "caused_by",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "concept:body",
+      "type": "signals",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "concept:fear",
+      "type": "increases",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "concept:truth",
+      "type": "requires",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "concept:information",
+      "type": "uses",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "concept:error",
+      "type": "reduces",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "concept:knowledge",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "concept:truth",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "concept:chaos",
+      "type": "increases",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "ogień",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "susza",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "fire",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "dryness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "Feuer",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "Trockenheit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "feu",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "sécheresse",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "fuego",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "sequedad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "woda",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "zimno",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "water",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "cold",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "Wasser",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "Kälte",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "eau",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "froid",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "agua",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "frío",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "niebo",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "powietrze",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "sky",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "air",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "Himmel",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "Luft",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "ciel",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "air",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "cielo",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "aire",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "próżnia",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "ziemia",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "vacuum",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "earth",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "Vakuum",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "Erde",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "vide",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "terre",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "vacío",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "tierra",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "ciemność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "mrok",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "darkness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "shadow",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "Dunkelheit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "Schatten",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "obscurité",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "ombre",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "oscuridad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "sombra",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "światło",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "jasność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "light",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "brightness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "Licht",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "Helligkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "lumière",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "clarté",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "luz",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "claridad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "śmierć",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "martwota",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "death",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "lifelessness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "Tod",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "Leblosigkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "mort",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "inertie",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "muerte",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "inercia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "życie",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "narodziny",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "life",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "birth",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "Leben",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "Geburt",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "vie",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "naissance",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "vida",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "nacimiento",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "umysł",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "duch",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "mind",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "spirit",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "Geist",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "Seele",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "esprit",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "âme",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "mente",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "espíritu",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "ciało",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "materia",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "body",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "matter",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "Körper",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "Materie",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "corps",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "matière",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "cuerpo",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "materia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "bezczas",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "wieczność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "timelessness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "eternity",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "Zeitlosigkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "Ewigkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "intemporalité",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "éternité",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "atemporalidad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "eternidad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "punkt",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "brak miejsca",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "point",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "no-space",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "Punkt",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "Raumlosigkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "point",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "absence d’espace",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "punto",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "sin espacio",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "spoczynek",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "bezruch",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "rest",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "stillness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "Ruhe",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "Stillstand",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "repos",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "immobilité",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "reposo",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "quietud",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "ruch",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "zmiana",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "motion",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "change",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "Bewegung",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "Veränderung",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "mouvement",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "changement",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "movimiento",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "cambio",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "słabość",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "bezsilność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "weakness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "powerlessness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "Schwäche",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "Ohnmacht",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "faiblesse",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "impuissance",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "debilidad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "impotencia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "wyczerpanie",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "bezwład",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "exhaustion",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "inertia",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "Erschöpfung",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "Trägheit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "épuisement",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "inertie",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "agotamiento",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "inercia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "pustka",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "informacja",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "void",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "information",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "Leere",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "Information",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "vide",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "information",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "vacío",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "información",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "szum",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "niewiedza",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "noise",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "ignorance",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "Rauschen",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "Unwissen",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "bruit",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "ignorance",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "ruido",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "ignorancia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "kłamstwo",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "fałsz",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "lie",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "falsehood",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "Lüge",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "Falschheit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "mensonge",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "fausseté",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "mentira",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "falsedad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "prawda",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "szczerość",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "truth",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "honesty",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "Wahrheit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "Ehrlichkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "vérité",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "honnêteté",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "verdad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "honestidad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "zło",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "krzywda",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "evil",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "harm",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "Böse",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "Schaden",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "mal",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "dommage",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "mal",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "daño",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "dobro",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "opieka",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "good",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "care",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "Gut",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "Fürsorge",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "bien",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "soin",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "bien",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "cuidado",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "chaos",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "nieład",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "chaos",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "disorder",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "Chaos",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "Unordnung",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "chaos",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "désordre",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "caos",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "desorden",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "porządek",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "ład",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "order",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "structure",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "Ordnung",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "Struktur",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "ordre",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "structure",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "orden",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "estructura",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "brzeg",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "peryferia",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "edge",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "periphery",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "Rand",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "Peripherie",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "bord",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "périphérie",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "borde",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "periferia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "centrum",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "ciągłość",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "center",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "continuity",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "Zentrum",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "Kontinuität",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "centre",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "continuité",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "centro",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "continuidad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "inny",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "obcy",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "other",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "stranger",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "Andere",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "Fremde",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "autre",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "étranger",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "otro",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "extraño",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "ja",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "swoje",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "self",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "same",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "Selbst",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "Gleiches",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "soi",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "même",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "yo",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "mismo",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "separacja",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "izolacja",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "separation",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "isolation",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "Trennung",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "Isolation",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "séparation",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "isolement",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "separación",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "aislamiento",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "zapomnienie",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "amnezja",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "forgetting",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "amnesia",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "Vergessen",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "Amnesie",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "oubli",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "amnésie",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "olvido",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "amnesia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "nienawiść",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "obojętność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "hate",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "indifference",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "Hass",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "Gleichgültigkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "haine",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "indifférence",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "odio",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "indiferencia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "odwaga",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "zaufanie",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "courage",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "trust",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "Mut",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "Vertrauen",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "courage",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "confiance",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "valor",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "confianza",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "nieufność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "podejrzenie",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "distrust",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "suspicion",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "Misstrauen",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "Verdacht",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "méfiance",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "soupçon",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "desconfianza",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "sospecha",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "ulga",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "przyjemność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "relief",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "pleasure",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "Erleichterung",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "Freude",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "soulagement",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "plaisir",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "alivio",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "placer",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "niewiedza",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "błąd",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "ignorance",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "error",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "Unwissen",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "Fehler",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "ignorance",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "erreur",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "ignorancia",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "error",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "poprawność",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "prawda",
+      "type": "antonym_surface:pl",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "correctness",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "truth",
+      "type": "antonym_surface:en",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "Richtigkeit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "Wahrheit",
+      "type": "antonym_surface:de",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "exactitude",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "vérité",
+      "type": "antonym_surface:fr",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "corrección",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "verdad",
+      "type": "antonym_surface:es",
+      "status": "surface_seed"
+    },
+    {
+      "source": "concept:eye",
+      "target": "concept:body",
+      "type": "part_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:eye",
+      "target": "concept:knowledge",
+      "type": "enables",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:hand",
+      "target": "concept:body",
+      "type": "part_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:hand",
+      "target": "concept:work",
+      "type": "enables",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:voice",
+      "target": "concept:sound",
+      "type": "uses",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:voice",
+      "target": "concept:self",
+      "type": "expresses",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:name",
+      "target": "concept:self",
+      "type": "symbol_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:name",
+      "target": "concept:word",
+      "type": "uses",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:face",
+      "target": "concept:body",
+      "type": "part_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:face",
+      "target": "concept:identity",
+      "type": "signals",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:blood",
+      "target": "concept:life",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:blood",
+      "target": "concept:body",
+      "type": "inside",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:thought",
+      "target": "concept:mind",
+      "type": "inside",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:thought",
+      "target": "concept:idea",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:idea",
+      "target": "concept:mind",
+      "type": "inside",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:idea",
+      "target": "concept:work",
+      "type": "can_transform_into",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:question",
+      "target": "concept:answer",
+      "type": "seeks",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:question",
+      "target": "concept:unknown",
+      "type": "marks",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:answer",
+      "target": "concept:question",
+      "type": "responds_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:answer",
+      "target": "concept:knowledge",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:reason",
+      "target": "concept:knowledge",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:reason",
+      "target": "concept:chaos",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:doubt",
+      "target": "concept:proof",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:doubt",
+      "target": "concept:error",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:person",
+      "target": "concept:human",
+      "type": "is_a",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:person",
+      "target": "concept:self",
+      "type": "has",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:child",
+      "target": "concept:parent",
+      "type": "relation_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:child",
+      "target": "concept:life",
+      "type": "stage_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:parent",
+      "target": "concept:child",
+      "type": "relation_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:parent",
+      "target": "concept:care",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:friend",
+      "target": "concept:trust",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:friend",
+      "target": "concept:enemy",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:stranger",
+      "target": "concept:self",
+      "type": "is_other",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:stranger",
+      "target": "concept:friend",
+      "type": "may_become",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:enemy",
+      "target": "concept:friend",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:enemy",
+      "target": "concept:conflict",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:house",
+      "target": "concept:door",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:house",
+      "target": "concept:home",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:door",
+      "target": "concept:house",
+      "type": "part_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:door",
+      "target": "concept:road",
+      "type": "enables",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:road",
+      "target": "concept:motion",
+      "type": "enables",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:road",
+      "target": "concept:city",
+      "type": "connects",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:city",
+      "target": "concept:house",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:city",
+      "target": "concept:country",
+      "type": "part_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:country",
+      "target": "concept:city",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:country",
+      "target": "concept:border",
+      "type": "bounded_by",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:border",
+      "target": "concept:country",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:border",
+      "target": "concept:center",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:gift",
+      "target": "concept:debt",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:gift",
+      "target": "concept:care",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:debt",
+      "target": "concept:gift",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:debt",
+      "target": "concept:promise",
+      "type": "requires",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:promise",
+      "target": "concept:trust",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:promise",
+      "target": "concept:debt",
+      "type": "can_create",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:law",
+      "target": "concept:order",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:law",
+      "target": "concept:freedom",
+      "type": "constrains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:work",
+      "target": "concept:hand",
+      "type": "uses",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:work",
+      "target": "concept:money",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:money",
+      "target": "concept:work",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:money",
+      "target": "concept:debt",
+      "type": "can_create",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:word",
+      "target": "concept:language",
+      "type": "part_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:word",
+      "target": "concept:meaning",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sign",
+      "target": "concept:meaning",
+      "type": "symbol_of",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sign",
+      "target": "concept:name",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sound",
+      "target": "concept:voice",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sound",
+      "target": "concept:silence",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:silence",
+      "target": "concept:sound",
+      "type": "opposes",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:silence",
+      "target": "concept:rest",
+      "type": "relates_to",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:story",
+      "target": "concept:event",
+      "type": "contains",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:story",
+      "target": "concept:memory",
+      "type": "supports",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:song",
+      "target": "concept:sound",
+      "type": "uses",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "operator:flow",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:water",
+      "target": "operator:without",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "operator:transforms",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "operator:destroys",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "operator:creates",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fire",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "operator:under",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "operator:on",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:earth",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:air",
+      "target": "operator:outside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "operator:reveals",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:light",
+      "target": "operator:before",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "operator:hides",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:dark",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "operator:be",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "operator:before",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:life",
+      "target": "operator:after",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "operator:after",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:death",
+      "target": "operator:without",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "operator:has_part",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:body",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "operator:knows",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "operator:believes",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:mind",
+      "target": "operator:doubts",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "operator:before",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "operator:after",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:time",
+      "target": "operator:when",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "operator:outside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "operator:on",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "operator:under",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:space",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "operator:from",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:motion",
+      "target": "operator:after",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "operator:after",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:rest",
+      "target": "operator:before",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "operator:causes",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "operator:transforms",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:force",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "operator:transforms",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "operator:has_property",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:energy",
+      "target": "operator:causes",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "operator:has_property",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:matter",
+      "target": "operator:transforms",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "operator:means",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:information",
+      "target": "operator:reveals",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "operator:is",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "operator:knows",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:truth",
+      "target": "operator:proves",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "operator:hides",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:lie",
+      "target": "operator:deceives",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "operator:supports",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:good",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "operator:harms",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "operator:without",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:harm",
+      "target": "operator:causes",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "operator:arranges",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:order",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "operator:disrupts",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "operator:around",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:center",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "operator:outside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "operator:is",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "operator:has",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:self",
+      "target": "operator:knows",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "operator:without",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:other",
+      "target": "operator:relation",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "operator:between",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:relation",
+      "target": "operator:maps",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "operator:after",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:memory",
+      "target": "operator:has_state",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "operator:cares_for",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:love",
+      "target": "operator:supports",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "operator:avoids",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:fear",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "operator:believes",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:trust",
+      "target": "operator:supports",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "operator:has_state",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "operator:caused_by",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:pain",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "operator:knows",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "operator:proves",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "operator:contradicts",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:error",
+      "target": "operator:repairs",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:eye",
+      "target": "operator:see",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:eye",
+      "target": "operator:has_part",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:eye",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:eye",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:hand",
+      "target": "operator:has_part",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:hand",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:hand",
+      "target": "operator:make",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:hand",
+      "target": "operator:give",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:voice",
+      "target": "operator:emit",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:voice",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:voice",
+      "target": "operator:about",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:voice",
+      "target": "operator:as",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:name",
+      "target": "operator:is",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:name",
+      "target": "operator:as",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:name",
+      "target": "operator:call",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:face",
+      "target": "operator:see",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:face",
+      "target": "operator:has_part",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:face",
+      "target": "operator:as",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:blood",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:blood",
+      "target": "operator:flow",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:blood",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:blood",
+      "target": "operator:supports",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:thought",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:thought",
+      "target": "operator:about",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:thought",
+      "target": "operator:think",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:thought",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:idea",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:idea",
+      "target": "operator:about",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:idea",
+      "target": "operator:think",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:idea",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:question",
+      "target": "operator:ask",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:question",
+      "target": "operator:answer",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:question",
+      "target": "operator:how",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:question",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:answer",
+      "target": "operator:ask",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:answer",
+      "target": "operator:answer",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:answer",
+      "target": "operator:how",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:answer",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:reason",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:reason",
+      "target": "operator:if_then",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:reason",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:reason",
+      "target": "operator:prove",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:doubt",
+      "target": "operator:maybe",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:doubt",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:doubt",
+      "target": "operator:question",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:doubt",
+      "target": "operator:scope",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:person",
+      "target": "operator:is",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:person",
+      "target": "operator:has",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:person",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:person",
+      "target": "operator:as",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:child",
+      "target": "operator:has",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:child",
+      "target": "operator:from",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:child",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:child",
+      "target": "operator:care",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:parent",
+      "target": "operator:has",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:parent",
+      "target": "operator:from",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:parent",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:parent",
+      "target": "operator:care",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:friend",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:friend",
+      "target": "operator:against",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:friend",
+      "target": "operator:trust",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:friend",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:stranger",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:stranger",
+      "target": "operator:against",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:stranger",
+      "target": "operator:trust",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:stranger",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:enemy",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:enemy",
+      "target": "operator:against",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:enemy",
+      "target": "operator:trust",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:enemy",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:house",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:house",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:house",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:house",
+      "target": "operator:boundary",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:door",
+      "target": "operator:between",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:door",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:door",
+      "target": "operator:inside_outside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:door",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:road",
+      "target": "operator:from",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:road",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:road",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:road",
+      "target": "operator:path",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:city",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:city",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:city",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:city",
+      "target": "operator:boundary",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:country",
+      "target": "operator:inside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:country",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:country",
+      "target": "operator:law",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:country",
+      "target": "operator:border",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:border",
+      "target": "operator:between",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:border",
+      "target": "operator:through",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:border",
+      "target": "operator:inside_outside",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:border",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:gift",
+      "target": "operator:give",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:gift",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:gift",
+      "target": "operator:have",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:gift",
+      "target": "operator:for",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:debt",
+      "target": "operator:give",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:debt",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:debt",
+      "target": "operator:have",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:debt",
+      "target": "operator:for",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:promise",
+      "target": "operator:will",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:promise",
+      "target": "operator:must",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:promise",
+      "target": "operator:promise",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:promise",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:law",
+      "target": "operator:must",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:law",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:law",
+      "target": "operator:if_then",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:law",
+      "target": "operator:because",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:work",
+      "target": "operator:do",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:work",
+      "target": "operator:make",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:work",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:work",
+      "target": "operator:for",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:money",
+      "target": "operator:give",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:money",
+      "target": "operator:to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:money",
+      "target": "operator:have",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:money",
+      "target": "operator:for",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:word",
+      "target": "operator:is",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:word",
+      "target": "operator:as",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:word",
+      "target": "operator:means",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:word",
+      "target": "operator:contains",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sign",
+      "target": "operator:means",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sign",
+      "target": "operator:as",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sign",
+      "target": "operator:points_to",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sign",
+      "target": "operator:signifies",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sound",
+      "target": "operator:emit",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sound",
+      "target": "operator:hear",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sound",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:sound",
+      "target": "operator:sound",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:silence",
+      "target": "operator:not",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:silence",
+      "target": "operator:without",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:silence",
+      "target": "operator:state_be",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:silence",
+      "target": "operator:silence",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:story",
+      "target": "operator:tell",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:story",
+      "target": "operator:about",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:story",
+      "target": "operator:before_after",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:story",
+      "target": "operator:memory",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:song",
+      "target": "operator:sing",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:song",
+      "target": "operator:with",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:song",
+      "target": "operator:about",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    },
+    {
+      "source": "concept:song",
+      "target": "operator:sound",
+      "type": "operator_hook",
+      "status": "draft_seed"
+    }
+  ],
+  "status": "diagnostic_seed"
+}

@@ -1,0 +1,167 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:love
+canonical_label_en: love
+batch_id: batch01_foundational_36x5
+domain: affective
+semantic_axes:
+- bond
+- care
+- attraction
+semantic_mass_seed: 0.725
+phase_seed_rad: 5.235988
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: miłość
+    brief_description: silna więź troski, przywiązania i ukierunkowania na dobro
+    near_synonyms_seed:
+    - uczucie
+    - przywiązanie
+    antonyms_seed:
+    - nienawiść
+    - obojętność
+    forms_seed:
+    - miłość
+    - miłość jako hasło
+    - miłość w kontekście
+    context_examples_seed:
+    - Miłość tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - with
+    - cares_for
+    - supports
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: love
+    brief_description: strong bond of care, attachment and orientation toward good
+    near_synonyms_seed:
+    - affection
+    - attachment
+    antonyms_seed:
+    - hate
+    - indifference
+    forms_seed:
+    - love
+    - loves
+    - love as concept
+    context_examples_seed:
+    - Love forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Liebe
+    brief_description: starke Bindung von Fürsorge, Anhänglichkeit und Orientierung
+      zum Guten
+    near_synonyms_seed:
+    - Zuneigung
+    - Bindung
+    antonyms_seed:
+    - Hass
+    - Gleichgültigkeit
+    forms_seed:
+    - Liebe
+    - Liebe als Begriff
+    - Liebe im Kontext
+    context_examples_seed:
+    - Liebe bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: amour
+    brief_description: lien fort de soin, attachement et orientation vers le bien
+    near_synonyms_seed:
+    - affection
+    - attachement
+    antonyms_seed:
+    - haine
+    - indifférence
+    forms_seed:
+    - amour
+    - amour comme concept
+    - amour en contexte
+    context_examples_seed:
+    - Amour forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: amor
+    brief_description: vínculo fuerte de cuidado, apego y orientación hacia el bien
+    near_synonyms_seed:
+    - afecto
+    - apego
+    antonyms_seed:
+    - odio
+    - indiferencia
+    forms_seed:
+    - amor
+    - amor como concepto
+    - amor en contexto
+    context_examples_seed:
+    - Amor forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: opposes
+  target: concept:fear
+  status: draft_seed
+- type: supports
+  target: concept:trust
+  status: draft_seed
+- type: reduces
+  target: concept:harm
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

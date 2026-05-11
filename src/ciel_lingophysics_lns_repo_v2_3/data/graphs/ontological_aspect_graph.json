@@ -1,0 +1,120 @@
+{
+  "nodes": [
+    {
+      "id": "MonoConcreteThing",
+      "type": "ontological_aspect_operator",
+      "language": "ja"
+    },
+    {
+      "id": "objecthood",
+      "type": "semantic_mode"
+    },
+    {
+      "id": "KotoAbstractEventFact",
+      "type": "ontological_aspect_operator",
+      "language": "ja"
+    },
+    {
+      "id": "conceptuality",
+      "type": "semantic_mode"
+    },
+    {
+      "id": "SerIdentityBe",
+      "type": "ontological_aspect_operator",
+      "language": "es"
+    },
+    {
+      "id": "identity_class_role_origin",
+      "type": "semantic_mode"
+    },
+    {
+      "id": "EstarStateBe",
+      "type": "ontological_aspect_operator",
+      "language": "es"
+    },
+    {
+      "id": "state_location_result",
+      "type": "semantic_mode"
+    },
+    {
+      "id": "EnglishBePolyfunctional",
+      "type": "ontological_aspect_operator",
+      "language": "en"
+    },
+    {
+      "id": "polyfunctional_be",
+      "type": "semantic_mode"
+    },
+    {
+      "id": "PolishBycPolyfunctional",
+      "type": "ontological_aspect_operator",
+      "language": "pl"
+    },
+    {
+      "id": "polyfunctional_be_with_case_and_adjective_resolution",
+      "type": "semantic_mode"
+    }
+  ],
+  "edges": [
+    {
+      "source": "MonoConcreteThing",
+      "target": "objecthood",
+      "type": "projects_to_mode"
+    },
+    {
+      "source": "KotoAbstractEventFact",
+      "target": "conceptuality",
+      "type": "projects_to_mode"
+    },
+    {
+      "source": "SerIdentityBe",
+      "target": "identity_class_role_origin",
+      "type": "projects_to_mode"
+    },
+    {
+      "source": "EstarStateBe",
+      "target": "state_location_result",
+      "type": "projects_to_mode"
+    },
+    {
+      "source": "EnglishBePolyfunctional",
+      "target": "polyfunctional_be",
+      "type": "projects_to_mode"
+    },
+    {
+      "source": "PolishBycPolyfunctional",
+      "target": "polyfunctional_be_with_case_and_adjective_resolution",
+      "type": "projects_to_mode"
+    },
+    {
+      "source": "EnglishBePolyfunctional",
+      "target": "SerIdentityBe",
+      "type": "can_resolve_as"
+    },
+    {
+      "source": "EnglishBePolyfunctional",
+      "target": "EstarStateBe",
+      "type": "can_resolve_as"
+    },
+    {
+      "source": "PolishBycPolyfunctional",
+      "target": "SerIdentityBe",
+      "type": "can_resolve_as"
+    },
+    {
+      "source": "PolishBycPolyfunctional",
+      "target": "EstarStateBe",
+      "type": "can_resolve_as"
+    },
+    {
+      "source": "KotoAbstractEventFact",
+      "target": "MonoConcreteThing",
+      "type": "ontological_contrast"
+    },
+    {
+      "source": "SerIdentityBe",
+      "target": "EstarStateBe",
+      "type": "being_mode_contrast"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:have
+family: possession_property_part_state
+class:
+- possession
+- property_attachment
+- part_relation
+- state_attachment
+symbol: Have(x,y)
+arity: '2'
+dual: null
+inverse: null
+description: broad operator for ownership, parts, attributes, states and relational attachment
+equations:
+- Have(possessor, possessed)
+- HasPart(whole, part)
+- HasProperty(entity, property)
+- HasState(entity, state)
+surfaces:
+  pl:
+    lemma: mieć / ma
+    forms:
+    - mieć
+    - ma
+    - mam
+    - masz
+    - miał
+    - miała
+    examples:
+    - Jan ma psa.
+    - Dom ma dach.
+    - Woda ma temperaturę.
+    notes: highly polyfunctional possession operator
+  en:
+    lemma: have / has
+    forms:
+    - have
+    - has
+    - had
+    - having
+    examples:
+    - John has a dog.
+    - The house has a roof.
+    - Water has temperature.
+    notes: possession/property/part/state
+  de:
+    lemma: haben / hat
+    forms:
+    - haben
+    - hat
+    - habe
+    - hast
+    - hatte
+    examples:
+    - Jan hat einen Hund.
+    - Das Haus hat ein Dach.
+    notes: possession and auxiliary
+  fr:
+    lemma: avoir / a
+    forms:
+    - avoir
+    - a
+    - ai
+    - as
+    - avait
+    examples:
+    - Jean a un chien.
+    - La maison a un toit.
+    notes: possession and auxiliary
+  es:
+    lemma: tener / tiene
+    forms:
+    - tener
+    - tiene
+    - tengo
+    - tienes
+    - tuvo
+    examples:
+    - Juan tiene un perro.
+    - La casa tiene un techo.
+    notes: possession/state/property

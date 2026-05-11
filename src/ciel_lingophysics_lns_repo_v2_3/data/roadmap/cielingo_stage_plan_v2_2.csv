@@ -1,0 +1,9 @@
+id,name,target_version,status,objective
+P0,Foundation complete,v0.6-v2.0,completed_seed,"Establish formalism, card libraries, operator algebra, grammar layers, diagnostics, and transformer interface skeleton."
+P1,Roadmap and governance correction,v2.1,completed_local_patch,Replace obsolete v0.7 roadmap with staged plan including NOEMA-first routing and GGUF teacher-validator policy.
+P2,NOEMA Retrieval and Inference Gate,v2.2,current_patch,"Implement NOEMA retrieval, routing, inference-gate policy, and relative energy estimator."
+P3,GGUF Teacher-Validator Learning Loop,v2.3,planned,Use GGUF/LLM only as advisory validator during learning and hard-case review.
+P4,CIELingo Validator Hardening,v2.4,planned,"Promote validator from file tests to semantic quality gate for cards, relations, scope, cases, and event frames."
+P5,Batch03 Controlled Expansion,v2.5,planned,Add next 20 concept cards x 5 languages using strengthened validators and dependency reports.
+P6,Transformer Adapter Experiments,v2.6-v2.8,research_planned,"Test CIEL feature tensors as auxiliary signals, attention bias, adapter features, or validator constraints."
+P7,Benchmark and Public Draft,v3.0,future,"Prepare technical spec draft, demo cases, reproducibility pack, and benchmark tasks."

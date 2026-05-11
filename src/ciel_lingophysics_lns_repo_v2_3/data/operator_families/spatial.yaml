@@ -1,0 +1,17 @@
+family_id: family:spatial
+description: Relative spatial location and orientation.
+operators:
+- op:core:on
+- op:core:under
+- op:core:above
+- op:core:through
+canonical_axes:
+- verticality
+- support
+- path
+- relative_position
+core_equations:
+- On(x,y)
+- Under(x,y)
+- Above(x,y)
+- Through(x,y)

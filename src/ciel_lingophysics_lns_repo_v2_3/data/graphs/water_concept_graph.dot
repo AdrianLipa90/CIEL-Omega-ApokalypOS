@@ -1,0 +1,15 @@
+digraph water_concept {
+  "concept:water" [label="water/woda"];
+  "axis:life" [label="life/życie"];
+  "axis:flow" [label="flow/przepływ"];
+  "axis:cleansing" [label="cleansing/oczyszczanie"];
+  "axis:danger" [label="danger/zagrożenie"];
+  "ant:drought" [label="drought/susza"];
+  "ant:fire" [label="fire/ogień"];
+  "concept:water" -> "axis:life" [label="supports:0.96"];
+  "concept:water" -> "axis:flow" [label="embodies:0.94"];
+  "concept:water" -> "axis:cleansing" [label="symbolizes:0.74"];
+  "concept:water" -> "ant:drought" [label="antonym_axis:0.91"];
+  "concept:water" -> "ant:fire" [label="oppositional_contextual:0.66"];
+  "concept:water" -> "flood" [label="danger_potential:0.48"];
+}

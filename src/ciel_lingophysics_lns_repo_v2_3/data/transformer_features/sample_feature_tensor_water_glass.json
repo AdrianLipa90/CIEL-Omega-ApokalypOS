@@ -1,0 +1,58 @@
+{
+  "version": "1.9",
+  "sentence": "Woda jest w szklance.",
+  "tokens": [
+    {
+      "id": 0,
+      "surface": "Woda",
+      "card_type": "CONCEPT_CARD",
+      "concept_id": "concept:water",
+      "roles": [
+        "theme"
+      ],
+      "features": {
+        "concept_mass": 0.91
+      }
+    },
+    {
+      "id": 1,
+      "surface": "jest",
+      "card_type": "OPERATOR_CARD",
+      "operator_id": "op:being_locative",
+      "features": {
+        "operator_incidence": 0.88
+      }
+    },
+    {
+      "id": 2,
+      "surface": "w",
+      "card_type": "OPERATOR_CARD",
+      "operator_id": "op:inside",
+      "roles": [
+        "spatial_containment"
+      ],
+      "features": {
+        "operator_incidence": 0.95
+      }
+    },
+    {
+      "id": 3,
+      "surface": "szklance",
+      "card_type": "CONCEPT_CARD",
+      "concept_id": "concept:glass",
+      "roles": [
+        "container"
+      ],
+      "features": {
+        "case_gauge": "loc",
+        "concept_mass": 0.58
+      }
+    }
+  ],
+  "invariant": "Inside(Water, Glass) ⇔ Contains(Glass, Water)",
+  "validator_expectations": [
+    "operator_inside_present",
+    "theme_container_roles_present",
+    "dual_contains_preserved"
+  ]
+}

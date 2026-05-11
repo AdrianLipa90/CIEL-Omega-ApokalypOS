@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_diagnostic_geometry.schema.json",
+  "title": "CIEL-LNS Diagnostic Geometry Summary",
+  "type": "object",
+  "required": [
+    "version",
+    "cards_total",
+    "languages",
+    "relation_edges_total",
+    "operator_links_total",
+    "status"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "cards_total": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "language_panel_estimate": {
+      "type": "integer"
+    },
+    "relation_edges_total": {
+      "type": "integer"
+    },
+    "operator_links_total": {
+      "type": "integer"
+    },
+    "relation_type_counts": {
+      "type": "object"
+    },
+    "grammar_features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "max_cross_language_cost": {
+      "type": "number"
+    },
+    "mean_cross_language_cost": {
+      "type": "number"
+    },
+    "registered_diagnostic_issues": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+negations:
+- source: Inside(x,y)
+  negated: Not(Inside(x,y))
+  not_equivalent_to: Outside(x,y)
+  possible_states:
+  - outside
+  - boundary
+  - unknown
+  - partial
+  - category_error
+- source: Have(x,y)
+  negated: Not(Have(x,y))
+  not_equivalent_to: Lose(x,y)
+  possible_states:
+  - never_had
+  - no_longer_has
+  - cannot_have
+  - unknown
+- source: Know(agent,p)
+  negated: Not(Know(agent,p))
+  not_equivalent_to: Believe(Not(p))
+  possible_states:
+  - ignorance
+  - uncertainty
+  - withheld
+  - false belief

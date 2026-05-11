@@ -1,0 +1,14 @@
+{
+  "version": "v1.8",
+  "preferred_storage": [
+    "yaml",
+    "json",
+    "csv",
+    "sqlite",
+    "hdf5",
+    "xlsx"
+  ],
+  "fallback_policy": "if binary or tabular export fails, write JSON/JSONL and explicit error report",
+  "fallbacks": [],
+  "status": "ok"
+}

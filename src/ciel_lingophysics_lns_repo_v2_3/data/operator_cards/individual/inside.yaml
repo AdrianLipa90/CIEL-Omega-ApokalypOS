@@ -1,0 +1,60 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:inside
+family: interiority_location
+class:
+- spatial_relation
+- topological_relation
+- localizer
+symbol: Inside(x,y) ⇔ Contains(y,x)
+arity: '2'
+dual: op:core:contain
+inverse: op:core:contain
+description: 'object-oriented interior relation: x is inside y'
+equations:
+- Inside(x,y)
+- x ∈ Int(y)
+surfaces:
+  pl:
+    lemma: w / wewnątrz / w środku
+    forms:
+    - w
+    - wewnątrz
+    - w środku
+    - we wnętrzu
+    examples:
+    - Woda jest w szklance.
+    notes: maps to interior relation
+  en:
+    lemma: in / inside
+    forms:
+    - in
+    - inside
+    - within
+    examples:
+    - Water is in the glass.
+    notes: object-in-container relation
+  de:
+    lemma: in / innerhalb
+    forms:
+    - in
+    - im
+    - innerhalb
+    examples:
+    - Wasser ist im Glas.
+    notes: dative/accusative split may mark state vs motion
+  fr:
+    lemma: dans / à l’intérieur
+    forms:
+    - dans
+    - à l’intérieur de
+    examples:
+    - L’eau est dans le verre.
+    notes: interior localizer
+  es:
+    lemma: en / dentro de
+    forms:
+    - en
+    - dentro de
+    examples:
+    - El agua está en el vaso.
+    notes: interior localizer

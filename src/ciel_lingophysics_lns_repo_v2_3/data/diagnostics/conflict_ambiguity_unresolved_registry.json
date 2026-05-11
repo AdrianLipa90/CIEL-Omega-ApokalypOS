@@ -1,0 +1,29 @@
+{
+  "version": "2.0",
+  "issues": [
+    {
+      "issue_id": "diag:unresolved_scope_examples",
+      "issue_type": "UNRESOLVED_SCOPE",
+      "severity": "WARN",
+      "description": "Scope-sensitive constructions such as not-all / none / every-not require explicit scope stack resolution before semantic equivalence is accepted.",
+      "affected_layers": "SCOPE_CARD;TAME_CARD;EVENT_FRAME",
+      "recommended_action": "Run scope_quantifier resolver on translated examples and keep unresolved states explicit."
+    },
+    {
+      "issue_id": "diag:case_reconstruction_cost_pl_to_en",
+      "issue_type": "CROSS_LANGUAGE_RECONSTRUCTION_COST",
+      "severity": "WARN",
+      "description": "Polish case-gauge roles must be reconstructed through word order, prepositions, and predicate valency in lower-case languages.",
+      "affected_layers": "CASE_GAUGE_CARD;EVENT_FRAME;GRAMMAR_CARD",
+      "recommended_action": "Use case gauge mappings and event frames before approving PL to EN/FR/ES equivalence."
+    },
+    {
+      "issue_id": "diag:operator_concept_boundary",
+      "issue_type": "CARD_TYPE_BOUNDARY",
+      "severity": "INFO",
+      "description": "Functional words remain operator cards rather than concept cards; concept/operator confusion is a blocker in future batch ingestion.",
+      "affected_layers": "CARD_ONTOLOGY;OPERATOR_CARD;CONCEPT_CARD",
+      "recommended_action": "Validate each new item against card ontology before adding to concept batches."
+    }
+  ]
+}

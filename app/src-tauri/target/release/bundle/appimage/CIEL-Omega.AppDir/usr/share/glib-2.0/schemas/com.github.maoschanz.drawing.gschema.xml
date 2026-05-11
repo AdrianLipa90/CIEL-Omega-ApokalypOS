@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="drawing">
+
+  <schema id="com.github.maoschanz.drawing"
+          path="/com/github/maoschanz/drawing/">
+
+    <!-- Actual options -->
+    <key type="s" name="deco-type">
+      <default>''</default>
+      <summary>Type of window decorations</summary>
+      <description>
+        Can be '' (automatic), 'hg' (GNOME headerbar), 'he' (elementary OS
+        headerbar), 'm' (menubar only), 'mtc' (menubar and toolbar, colorful
+        icons), 'mts' (menubar and toolbar, symbolic icons), 'tc' (toolbar only,
+        colorful icons), or 'ts' (toolbar only, symbolic icons).
+      </description>
+    </key>
+    <key type="b" name="big-icons">
+      <default>false</default>
+      <summary>Use large icons</summary>
+      <description>Use 24px symbolic icons instead of 16px. It's an
+      accessibility feature which is off by default because it can make icons
+      blurry.</description>
+    </key>
+    <key type="b" name="ctrl-zoom">
+      <default>true</default>
+      <summary>Use ctrl to zoom.</summary>
+      <description>The user can zoom by scrolling or ctrl+scrolling.</description>
+    </key>
+    <key type="as" name="disabled-tools">
+      <default>['brush', 'color_select', 'points', 'picker', 'paint']</default>
+      <summary>Optional tools to disable</summary>
+      <description>A list of optional tools' id to disable.</description>
+    </key>
+    <key type="i" name="preview-size">
+      <default>320</default>
+      <summary>Preview size</summary>
+      <description>Size of the bigger dimension of the preview (px).</description>
+    </key>
+    <key type="s" name="replace-alpha">
+      <default>'ask'</default>
+      <summary>What will replace transparent pixels if needed</summary>
+      <description>
+        What will replace transparent pixels when saving to a file format not
+        supporting it, such as JPG or BMP. It can be 'white', 'black', 'ask'
+        (the value isn't memorized and a dialog is prompted each time),
+        'nothing' (the alpha channel is removed, which usually replace deleted
+        areas with black but preserves semi-transparent colors' saturation),
+        'checkboard', or 'initial' (the initial color of an image).
+      </description>
+    </key>
+    <key type="as" name="ui-background-rgba">
+      <default>['0.0', '0.0', '0.0', '0.5']</default>
+      <summary>Default UI background color</summary>
+      <description>
+        The color for the background of the user interface, behind the image.
+      </description>
+    </key>
+    <key type="b" name="devel-only">
+      <default>false</default>
+      <summary>Experimental features</summary>
+      <description>Turn on devel features (not recommended).</description>
+    </key>
+    <key type="b" name="dark-theme-variant">
+      <default>false</default>
+      <summary>If the app prefers the dark theme variant</summary>
+      <description>
+        This setting impacts the related boolean setting from GTK, but doesn't
+        change the actual theme. So if the global theme is already dark, it has
+        no effect.
+      </description>
+    </key>
+    
+    <!-- Default new canvas -->
+    <key type="as" name="default-rgba">
+      <default>['1.0', '1.0', '1.0', '1.0']</default>
+      <summary>Default color background</summary>
+      <description>The default color background of a new image.</description>
+    </key>
+    <key type="i" name="default-width">
+      <default>1000</default>
+      <summary>Default width</summary>
+      <description>Default width of a new image (px).</description>
+    </key>
+    <key type="i" name="default-height">
+      <default>600</default>
+      <summary>Default height</summary>
+      <description>Default height of a new image (px).</description>
+    </key>
+
+    <!-- Remembered state of the window -->
+    <key type="b" name="maximized">
+      <default>false</default>
+      <summary>State of the window</summary>
+      <description>The state of the last closed window.</description>
+    </key>
+    <key type="b" name="show-labels">
+      <default>false</default>
+      <summary>Labels in side pane</summary>
+      <description>
+        Visibility of tools' labels in the side pane. If false, tools are
+        displayed in a flowbox (several icons per line if not enough height).
+      </description>
+    </key>
+    <key type="s" name="last-active-tool">
+      <default>'pencil'</default>
+      <summary>Default active tool</summary>
+      <description>The id of the last active tool, saved when closing a
+      window.</description>
+    </key>
+    <key type="b" name="direct-color-edit">
+      <default>false</default>
+      <summary>Don't use a color palette</summary>
+      <description>If a click on the color button should display directly
+      the complete color selector.</description>
+    </key>
+
+    <!-- Release notes handling -->
+    <key type="s" name="last-version">
+      <default>'0.0.0'</default>
+      <summary>Last used app version</summary>
+      <description>
+        The last version of the app that the user has started. If the string
+        doesn't correspond to the running version of the app, a dialog is shown
+        to tell the user to read the release notes.
+      </description>
+    </key>
+
+    <!-- Tools options state -->
+    <child name="tools-options" schema="com.github.maoschanz.drawing.tools-options"/>
+  </schema>
+
+  <!-- ##################################################################### -->
+
+  <schema id="com.github.maoschanz.drawing.tools-options"
+          path="/com/github/maoschanz/drawing/tools-options/">
+
+    <key type="as" name="last-right-rgba">
+      <default>['1.0', '1.0', '0.0', '0.5']</default>
+      <summary>Last right-click color</summary>
+      <description>The last edition color for the right click, saved when
+      closing a window.</description>
+    </key>
+    <key type="as" name="last-left-rgba">
+      <default>['0.8', '0.0', '0.0', '1.0']</default>
+      <summary>Last left-click color</summary>
+      <description>The last edition color for the left click, saved when closing
+      a window.</description>
+    </key>
+    <key type="i" name="last-size">
+      <default>5</default>
+      <summary>Last tool size</summary>
+      <description>The last tool size (px), saved when closing a window.</description>
+    </key>
+    <key type="s" name="last-active-shape">
+      <default>'polygon'</default>
+      <summary>Default active shape</summary>
+      <description>The id of the last active shape from the "shape" tool, saved
+      when closing a window.</description>
+    </key>
+    <key type="s" name="last-shape-filling">
+      <default>'empty'</default>
+      <summary>Default shape filling style</summary>
+      <description>The name of the last active shape filling style from the
+      "shape" tool, saved when closing a window.</description>
+    </key>
+    <key type="s" name="last-font-name">
+      <default>'Sans'</default>
+      <summary>Default active font</summary>
+      <description>The name of the last active font family, from the "text"
+      tool, saved when closing a window.</description>
+    </key>
+    <key type="s" name="last-text-background">
+      <default>'thin-outline'</default>
+      <summary>Text insertion background style</summary>
+      <description>The name of the last active background style, from the "text"
+      tool, saved when closing a window.</description>
+    </key>
+    <key type="b" name="use-antialiasing">
+      <default>true</default>
+      <summary>Use antialiasing or not</summary>
+      <description>The default value of the 'antialiasing' boolean option, for
+      any compatible tools.</description>
+    </key>
+    <key type="s" name="last-delete-replace">
+      <default>'alpha'</default>
+      <summary>Type of color left behind by a deletion</summary>
+      <description>
+        A deletion is any use of the solid eraser, or any area under a selection
+        that will be moved, cut, or deleted. The value can be 'alpha'
+        (transparency), 'initial' (the initial color of the canvas), or
+        'secondary' (the color of the right-click).
+      </description>
+    </key>
+
+    <!-- TODO persist also: active filter? active brush? -->
+    <!-- crop's "expand with"? color application mode?-->
+  </schema>
+
+</schemalist>
+

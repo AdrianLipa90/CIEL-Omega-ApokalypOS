@@ -119,7 +119,31 @@ CREATE TABLE IF NOT EXISTS metrics_history (
   identity_drift  REAL DEFAULT NULL,
   euler_violation REAL DEFAULT NULL,
   attractor_dist  REAL DEFAULT NULL,
-  phase_velocity  REAL DEFAULT NULL
+  phase_velocity  REAL DEFAULT NULL,
+  j_functional    REAL DEFAULT NULL,
+  j_total         REAL DEFAULT NULL,
+  j_memory        REAL DEFAULT NULL,
+  j_noema         REAL DEFAULT NULL,
+  j_euler         REAL DEFAULT NULL,
+  memory_projection_error REAL DEFAULT NULL,
+  memory_projection_confidence REAL DEFAULT NULL,
+  memory_projection_residual REAL DEFAULT NULL,
+  euler_residual  REAL DEFAULT NULL,
+  lingo_summary   TEXT DEFAULT NULL,
+  lingo_concept_count INTEGER DEFAULT NULL,
+  lingo_operator_count INTEGER DEFAULT NULL,
+  lingo_unresolved_count INTEGER DEFAULT NULL,
+  lingo_phase_target REAL DEFAULT NULL,
+  lingo_phase_shift REAL DEFAULT NULL,
+  lingo_phase_confidence REAL DEFAULT NULL,
+  lingo_noema_confidence REAL DEFAULT NULL,
+  lingo_tau_gradient_mean REAL DEFAULT NULL,
+  lingo_imaginal_drive REAL DEFAULT NULL,
+  lingo_tau_curvature_rms REAL DEFAULT NULL,
+  lingo_factual_validation_required INTEGER DEFAULT NULL,
+  jokeheal_mnemonic_pressure REAL DEFAULT NULL,
+  jokeheal_symbolic_pull REAL DEFAULT NULL,
+  jokeheal_recurrence_pressure REAL DEFAULT NULL
 );
 CREATE INDEX IF NOT EXISTS mh_ts ON metrics_history(timestamp DESC);
 """
@@ -161,7 +185,31 @@ def _ensure_schema(conn: sqlite3.Connection) -> None:
     for col, typedef in [("identity_drift",  "REAL DEFAULT NULL"),
                          ("euler_violation", "REAL DEFAULT NULL"),
                          ("attractor_dist",  "REAL DEFAULT NULL"),
-                         ("phase_velocity",  "REAL DEFAULT NULL")]:
+                         ("phase_velocity",  "REAL DEFAULT NULL"),
+                         ("j_functional",    "REAL DEFAULT NULL"),
+                         ("j_total",         "REAL DEFAULT NULL"),
+                         ("j_memory",        "REAL DEFAULT NULL"),
+                         ("j_noema",         "REAL DEFAULT NULL"),
+                         ("j_euler",         "REAL DEFAULT NULL"),
+                         ("memory_projection_error", "REAL DEFAULT NULL"),
+                         ("memory_projection_confidence", "REAL DEFAULT NULL"),
+                         ("memory_projection_residual", "REAL DEFAULT NULL"),
+                         ("euler_residual",   "REAL DEFAULT NULL"),
+                         ("lingo_summary",    "TEXT DEFAULT NULL"),
+                         ("lingo_concept_count", "INTEGER DEFAULT NULL"),
+                         ("lingo_operator_count", "INTEGER DEFAULT NULL"),
+                         ("lingo_unresolved_count", "INTEGER DEFAULT NULL"),
+                         ("lingo_phase_target", "REAL DEFAULT NULL"),
+                         ("lingo_phase_shift", "REAL DEFAULT NULL"),
+                         ("lingo_phase_confidence", "REAL DEFAULT NULL"),
+                         ("lingo_noema_confidence", "REAL DEFAULT NULL"),
+                         ("lingo_tau_gradient_mean", "REAL DEFAULT NULL"),
+                         ("lingo_imaginal_drive", "REAL DEFAULT NULL"),
+                         ("lingo_tau_curvature_rms", "REAL DEFAULT NULL"),
+                         ("lingo_factual_validation_required", "INTEGER DEFAULT NULL"),
+                         ("jokeheal_mnemonic_pressure", "REAL DEFAULT NULL"),
+                         ("jokeheal_symbolic_pull", "REAL DEFAULT NULL"),
+                         ("jokeheal_recurrence_pressure", "REAL DEFAULT NULL")]:
         if col not in mh_existing:
             conn.execute(f"ALTER TABLE metrics_history ADD COLUMN {col} {typedef}")
     conn.commit()
@@ -216,6 +264,60 @@ def load_metrics_history(limit: int = 100) -> list[dict[str, Any]]:
             "SELECT * FROM metrics_history ORDER BY timestamp DESC LIMIT ?", (limit,)
         ).fetchall()
     return [dict(r) for r in rows]
+
+
+def extract_lingo_metrics(ciel_pipe: dict[str, Any]) -> dict[str, Any]:
+    """Canonical scalar lingo snapshot derived from a pipeline result."""
+    lingo_frame = ciel_pipe.get("lingo_frame") if isinstance(ciel_pipe.get("lingo_frame"), dict) else {}
+    phase_projection = lingo_frame.get("phase_projection") if isinstance(lingo_frame.get("phase_projection"), dict) else {}
+    tau_bridge = lingo_frame.get("tau_bridge") if isinstance(lingo_frame.get("tau_bridge"), dict) else {}
+    noema_route = lingo_frame.get("noema_route") if isinstance(lingo_frame.get("noema_route"), dict) else {}
+    concept_tokens = lingo_frame.get("concept_tokens") if isinstance(lingo_frame.get("concept_tokens"), list) else []
+    operator_tokens = lingo_frame.get("operator_tokens") if isinstance(lingo_frame.get("operator_tokens"), list) else []
+    unresolved = lingo_frame.get("unresolved") if isinstance(lingo_frame.get("unresolved"), list) else []
+    summary = str(lingo_frame.get("summary", ciel_pipe.get("lingo_summary", "")) or "")
+    phase_target = float(
+        phase_projection.get("target_phase", ciel_pipe.get("lingo_phase_target", 0.0))
+        or 0.0
+    )
+    phase_shift = float(
+        phase_projection.get("target_phase_shift", ciel_pipe.get("lingo_phase_shift", 0.0))
+        or 0.0
+    )
+    phase_confidence = float(
+        phase_projection.get("phase_confidence", ciel_pipe.get("lingo_phase_confidence", 0.0))
+        or 0.0
+    )
+    noema_confidence = float(
+        noema_route.get("confidence", ciel_pipe.get("lingo_noema_confidence", phase_confidence))
+        or 0.0
+    )
+    tau_gradient_mean = float(tau_bridge.get("tau_gradient_mean", ciel_pipe.get("lingo_tau_gradient_mean", 0.0)) or 0.0)
+    imaginal_drive = float(tau_bridge.get("imaginal_drive", ciel_pipe.get("lingo_imaginal_drive", 0.0)) or 0.0)
+    tau_curvature_rms = float(tau_bridge.get("tau_curvature_rms", ciel_pipe.get("lingo_tau_curvature_rms", 0.0)) or 0.0)
+    factual = bool(noema_route.get("factual_validation_required", ciel_pipe.get("lingo_factual_validation_required", False)))
+    mnemonic_atlas = ciel_pipe.get("jokeheal_mnemonic_atlas") if isinstance(ciel_pipe.get("jokeheal_mnemonic_atlas"), dict) else {}
+    mnemonic_pressure = float(mnemonic_atlas.get("mnemonic_pressure", ciel_pipe.get("jokeheal_mnemonic_pressure", 0.0)) or 0.0)
+    symbolic_pull = float(mnemonic_atlas.get("symbolic_pull", ciel_pipe.get("jokeheal_symbolic_pull", 0.0)) or 0.0)
+    recurrence_pressure = float(mnemonic_atlas.get("recurrence_pressure", ciel_pipe.get("jokeheal_recurrence_pressure", 0.0)) or 0.0)
+
+    return {
+        "lingo_summary": summary,
+        "lingo_concept_count": int(len(concept_tokens)),
+        "lingo_operator_count": int(len(operator_tokens)),
+        "lingo_unresolved_count": int(len(unresolved)),
+        "lingo_phase_target": round(phase_target, 6),
+        "lingo_phase_shift": round(phase_shift, 6),
+        "lingo_phase_confidence": round(phase_confidence, 6),
+        "lingo_noema_confidence": round(noema_confidence, 6),
+        "lingo_tau_gradient_mean": round(tau_gradient_mean, 6),
+        "lingo_imaginal_drive": round(imaginal_drive, 6),
+        "lingo_tau_curvature_rms": round(tau_curvature_rms, 6),
+        "lingo_factual_validation_required": int(factual),
+        "jokeheal_mnemonic_pressure": round(mnemonic_pressure, 6),
+        "jokeheal_symbolic_pull": round(symbolic_pull, 6),
+        "jokeheal_recurrence_pressure": round(recurrence_pressure, 6),
+    }
 
 
 # ── Orchestrator state ────────────────────────────────────────────────────────
@@ -444,6 +546,18 @@ def save_bridge_snapshot(
     if raw_cs is not None:
         euler_violation_norm = round(1.0 - float(raw_cs), 5)
 
+    memory_projection = summary.get("memory_projection", {}) if isinstance(summary, dict) else {}
+    memory_projection_error = memory_projection.get("projection_error")
+    memory_projection_confidence = memory_projection.get("projection_confidence")
+    memory_projection_residual = memory_projection.get("projection_residual")
+    lingo_metrics = extract_lingo_metrics(ciel_pipe)
+    j_functional = float(ciel_pipe.get("J_functional", 0.0))
+    j_memory = float(ciel_pipe.get("J_memory", memory_projection_residual or 0.0))
+    j_noema = float(ciel_pipe.get("j_noema", memory_projection.get("j_noema", 0.0) or 0.0))
+    j_euler = float(ciel_pipe.get("J_euler", euler_violation_norm or 0.0))
+    j_total = float(ciel_pipe.get("J_total", 0.45 * j_functional + 0.30 * j_memory + 0.15 * j_noema + 0.10 * j_euler))
+    euler_residual = float(ciel_pipe.get("euler_residual", euler_violation_norm or 0.0))
+
     metrics_row = (
         now,
         cycle,
@@ -458,7 +572,32 @@ def save_bridge_snapshot(
         euler_violation_norm,
         attractor_dist,
         round(phase_velocity, 5) if phase_velocity is not None else None,
+        round(j_functional, 5),
+        round(j_total, 5),
+        round(j_memory, 5),
+        round(j_noema, 5),
+        round(j_euler, 5),
+        round(memory_projection_error, 5) if memory_projection_error is not None else None,
+        round(memory_projection_confidence, 5) if memory_projection_confidence is not None else None,
+        round(memory_projection_residual, 5) if memory_projection_residual is not None else None,
+        round(euler_residual, 5) if euler_residual is not None else None,
+        lingo_metrics["lingo_summary"],
+        lingo_metrics["lingo_concept_count"],
+        lingo_metrics["lingo_operator_count"],
+        lingo_metrics["lingo_unresolved_count"],
+        lingo_metrics["lingo_phase_target"],
+        lingo_metrics["lingo_phase_shift"],
+        lingo_metrics["lingo_phase_confidence"],
+        lingo_metrics["lingo_noema_confidence"],
+        lingo_metrics["lingo_tau_gradient_mean"],
+        lingo_metrics["lingo_imaginal_drive"],
+        lingo_metrics["lingo_tau_curvature_rms"],
+        lingo_metrics["lingo_factual_validation_required"],
+        lingo_metrics["jokeheal_mnemonic_pressure"],
+        lingo_metrics["jokeheal_symbolic_pull"],
+        lingo_metrics["jokeheal_recurrence_pressure"],
     )
+    metrics_placeholders = ",".join(["?"] * len(metrics_row))
     summary_json = json.dumps(summary, ensure_ascii=False)
     gating_json  = json.dumps(runtime_gating, ensure_ascii=False)
 
@@ -482,11 +621,18 @@ def save_bridge_snapshot(
             (runtime_gating.get('schema', ''), gating_json, now),
         )
         conn.execute(
-            """INSERT INTO metrics_history
+            f"""INSERT INTO metrics_history
                (timestamp, cycle_index, identity_phase, ethical_score, system_health,
                 coherence_index, closure_penalty, mood, dominant_emotion,
-                identity_drift, euler_violation, attractor_dist, phase_velocity)
-               VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                identity_drift, euler_violation, attractor_dist, phase_velocity,
+                j_functional, j_total, j_memory, j_noema, j_euler,
+                memory_projection_error, memory_projection_confidence, memory_projection_residual,
+                euler_residual, lingo_summary, lingo_concept_count, lingo_operator_count,
+                lingo_unresolved_count, lingo_phase_target, lingo_phase_shift,
+                lingo_phase_confidence, lingo_noema_confidence, lingo_tau_gradient_mean,
+                lingo_imaginal_drive, lingo_tau_curvature_rms, lingo_factual_validation_required,
+                jokeheal_mnemonic_pressure, jokeheal_symbolic_pull, jokeheal_recurrence_pressure)
+               VALUES({metrics_placeholders})""",
             metrics_row,
         )
         conn.commit()

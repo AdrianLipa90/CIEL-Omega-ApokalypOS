@@ -1085,7 +1085,7 @@ def _nav_html_projects() -> str:
         ("index.html", "Projekty"),
     ]
     links = "".join(
-        f'<a href="{href}"{"" if label != "Projekty" else " class=\"active\""}'
+        f'<a href="{href}"{"" if label != "Projekty" else " class=\'active\'"}'
         f'>{label}</a>\n  '
         for href, label in pages
     )

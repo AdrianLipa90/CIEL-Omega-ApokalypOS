@@ -1,0 +1,121 @@
+operator_id,language,language_name,lemma,forms,examples,notes,grammar_role,symbol
+op:core:be,pl,Polish,być / jest,być|jest|są|był|była|będzie,Woda jest cieczą. || Człowiek jest w domu.,"copula can mark class, identity, location or state",copula|identity|existence|state_binding,"≡ / Is(x,y) / Exists(x)"
+op:core:be,en,English,be / is,be|is|are|was|were|will be,Water is a liquid. || The person is at home.,copula/state/existence helper,copula|identity|existence|state_binding,"≡ / Is(x,y) / Exists(x)"
+op:core:be,de,German,sein / ist,sein|ist|sind|war|waren,Wasser ist eine Flüssigkeit. || Der Mensch ist zu Hause.,copula with case/articles,copula|identity|existence|state_binding,"≡ / Is(x,y) / Exists(x)"
+op:core:be,fr,French,être / est,être|est|sont|était|sera,L’eau est un liquide. || La personne est à la maison.,copula and state binding,copula|identity|existence|state_binding,"≡ / Is(x,y) / Exists(x)"
+op:core:be,es,Spanish,ser/estar / es/está,ser|estar|es|está|son|están|fue,El agua es un líquido. || La persona está en casa.,ser/estar split: identity vs state/location,copula|identity|existence|state_binding,"≡ / Is(x,y) / Exists(x)"
+op:core:have,pl,Polish,mieć / ma,mieć|ma|mam|masz|miał|miała,Jan ma psa. || Dom ma dach. || Woda ma temperaturę.,highly polyfunctional possession operator,possession|property_attachment|part_relation|state_attachment,"Have(x,y)"
+op:core:have,en,English,have / has,have|has|had|having,John has a dog. || The house has a roof. || Water has temperature.,possession/property/part/state,possession|property_attachment|part_relation|state_attachment,"Have(x,y)"
+op:core:have,de,German,haben / hat,haben|hat|habe|hast|hatte,Jan hat einen Hund. || Das Haus hat ein Dach.,possession and auxiliary,possession|property_attachment|part_relation|state_attachment,"Have(x,y)"
+op:core:have,fr,French,avoir / a,avoir|a|ai|as|avait,Jean a un chien. || La maison a un toit.,possession and auxiliary,possession|property_attachment|part_relation|state_attachment,"Have(x,y)"
+op:core:have,es,Spanish,tener / tiene,tener|tiene|tengo|tienes|tuvo,Juan tiene un perro. || La casa tiene un techo.,possession/state/property,possession|property_attachment|part_relation|state_attachment,"Have(x,y)"
+op:core:contain,pl,Polish,zawiera,zawiera|zawierają|zawierał|zawierający,Szklanka zawiera wodę.,container-focused dual of inside,spatial_relation|set_inclusion|topological_relation,"Contains(y,x) ⇔ Inside(x,y)"
+op:core:contain,en,English,contain / contains,contain|contains|contained|containing,The glass contains water.,container-focused,spatial_relation|set_inclusion|topological_relation,"Contains(y,x) ⇔ Inside(x,y)"
+op:core:contain,de,German,enthalten / enthält,enthalten|enthält|enthielt,Das Glas enthält Wasser.,container/content relation,spatial_relation|set_inclusion|topological_relation,"Contains(y,x) ⇔ Inside(x,y)"
+op:core:contain,fr,French,contenir / contient,contenir|contient|contenait,Le verre contient de l’eau.,container-focused,spatial_relation|set_inclusion|topological_relation,"Contains(y,x) ⇔ Inside(x,y)"
+op:core:contain,es,Spanish,contener / contiene,contener|contiene|contenía,El vaso contiene agua.,container-focused,spatial_relation|set_inclusion|topological_relation,"Contains(y,x) ⇔ Inside(x,y)"
+op:core:inside,pl,Polish,w / wewnątrz / w środku,w|wewnątrz|w środku|we wnętrzu,Woda jest w szklance.,maps to interior relation,spatial_relation|topological_relation|localizer,"Inside(x,y) ⇔ Contains(y,x)"
+op:core:inside,en,English,in / inside,in|inside|within,Water is in the glass.,object-in-container relation,spatial_relation|topological_relation|localizer,"Inside(x,y) ⇔ Contains(y,x)"
+op:core:inside,de,German,in / innerhalb,in|im|innerhalb,Wasser ist im Glas.,dative/accusative split may mark state vs motion,spatial_relation|topological_relation|localizer,"Inside(x,y) ⇔ Contains(y,x)"
+op:core:inside,fr,French,dans / à l’intérieur,dans|à l’intérieur de,L’eau est dans le verre.,interior localizer,spatial_relation|topological_relation|localizer,"Inside(x,y) ⇔ Contains(y,x)"
+op:core:inside,es,Spanish,en / dentro de,en|dentro de,El agua está en el vaso.,interior localizer,spatial_relation|topological_relation|localizer,"Inside(x,y) ⇔ Contains(y,x)"
+op:core:outside,pl,Polish,na zewnątrz / poza,na zewnątrz|poza|zewnątrz,Kot jest poza domem.,exterior relative to boundary,spatial_relation|topological_relation|localizer,"Outside(x,y)"
+op:core:outside,en,English,outside / beyond,outside|beyond,The cat is outside the house.,exterior relation,spatial_relation|topological_relation|localizer,"Outside(x,y)"
+op:core:outside,de,German,außerhalb,außerhalb|draußen,Die Katze ist außerhalb des Hauses.,exterior relation,spatial_relation|topological_relation|localizer,"Outside(x,y)"
+op:core:outside,fr,French,dehors / hors de,dehors|hors de|à l’extérieur de,Le chat est hors de la maison.,exterior relation,spatial_relation|topological_relation|localizer,"Outside(x,y)"
+op:core:outside,es,Spanish,fuera de,fuera de|afuera,El gato está fuera de la casa.,exterior relation,spatial_relation|topological_relation|localizer,"Outside(x,y)"
+op:core:on,pl,Polish,na,na,Książka leży na stole.,surface/support localizer,spatial_relation|support_relation,"On(x,y)"
+op:core:on,en,English,on,on|upon,The book is on the table.,surface/support,spatial_relation|support_relation,"On(x,y)"
+op:core:on,de,German,auf,auf,Das Buch liegt auf dem Tisch.,case may encode state/motion,spatial_relation|support_relation,"On(x,y)"
+op:core:on,fr,French,sur,sur,Le livre est sur la table.,surface localizer,spatial_relation|support_relation,"On(x,y)"
+op:core:on,es,Spanish,sobre / en,sobre|en,El libro está sobre la mesa.,surface/support,spatial_relation|support_relation,"On(x,y)"
+op:core:under,pl,Polish,pod,pod,Kot jest pod stołem.,below relation,spatial_relation|vertical_relation,"Under(x,y)"
+op:core:under,en,English,under,under|beneath|below,The cat is under the table.,below relation,spatial_relation|vertical_relation,"Under(x,y)"
+op:core:under,de,German,unter,unter,Die Katze ist unter dem Tisch.,below relation,spatial_relation|vertical_relation,"Under(x,y)"
+op:core:under,fr,French,sous,sous,Le chat est sous la table.,below relation,spatial_relation|vertical_relation,"Under(x,y)"
+op:core:under,es,Spanish,debajo de / bajo,debajo de|bajo,El gato está debajo de la mesa.,below relation,spatial_relation|vertical_relation,"Under(x,y)"
+op:core:above,pl,Polish,nad / powyżej,nad|powyżej,Lampa jest nad stołem.,above relation; may be spatial or hierarchical,spatial_relation|vertical_relation,"Above(x,y)"
+op:core:above,en,English,above / over,above|over,The lamp is above the table.,above relation,spatial_relation|vertical_relation,"Above(x,y)"
+op:core:above,de,German,über,über|oberhalb,Die Lampe ist über dem Tisch.,above relation,spatial_relation|vertical_relation,"Above(x,y)"
+op:core:above,fr,French,au-dessus de,au-dessus de|sur,La lampe est au-dessus de la table.,above relation,spatial_relation|vertical_relation,"Above(x,y)"
+op:core:above,es,Spanish,encima de / sobre,encima de|sobre,La lámpara está encima de la mesa.,above relation,spatial_relation|vertical_relation,"Above(x,y)"
+op:core:before,pl,Polish,przed,przed|wcześniej niż,Świt jest przed południem.,temporal/spatial depending on arguments,temporal_relation|ordering_operator,"Before(x,y)"
+op:core:before,en,English,before,before|prior to,Dawn is before noon.,temporal precedence,temporal_relation|ordering_operator,"Before(x,y)"
+op:core:before,de,German,vor,vor,Die Morgendämmerung ist vor dem Mittag.,temporal/spatial,temporal_relation|ordering_operator,"Before(x,y)"
+op:core:before,fr,French,avant,avant|avant que,L’aube est avant midi.,temporal precedence,temporal_relation|ordering_operator,"Before(x,y)"
+op:core:before,es,Spanish,antes de,antes de,El amanecer es antes del mediodía.,temporal precedence,temporal_relation|ordering_operator,"Before(x,y)"
+op:core:after,pl,Polish,po,po|później niż,Noc jest po dniu.,temporal/spatial ordering,temporal_relation|ordering_operator,"After(x,y)"
+op:core:after,en,English,after,after|following,Night is after day.,temporal succession,temporal_relation|ordering_operator,"After(x,y)"
+op:core:after,de,German,nach,nach,Die Nacht ist nach dem Tag.,temporal succession,temporal_relation|ordering_operator,"After(x,y)"
+op:core:after,fr,French,après,après,La nuit est après le jour.,temporal succession,temporal_relation|ordering_operator,"After(x,y)"
+op:core:after,es,Spanish,después de,después de|tras,La noche es después del día.,temporal succession,temporal_relation|ordering_operator,"After(x,y)"
+op:core:with,pl,Polish,z / ze,z|ze,Idę z przyjacielem. || Piszę piórem.,co-presence/instrument may split by case/context,relation_operator|instrument_operator|co_presence,"With(x,y)"
+op:core:with,en,English,with,with,I go with a friend. || I write with a pen.,association/instrument,relation_operator|instrument_operator|co_presence,"With(x,y)"
+op:core:with,de,German,mit,mit,Ich gehe mit einem Freund.,dative association/instrument,relation_operator|instrument_operator|co_presence,"With(x,y)"
+op:core:with,fr,French,avec,avec,Je vais avec un ami.,association/instrument,relation_operator|instrument_operator|co_presence,"With(x,y)"
+op:core:with,es,Spanish,con,con,Voy con un amigo.,association/instrument,relation_operator|instrument_operator|co_presence,"With(x,y)"
+op:core:without,pl,Polish,bez,bez,Kawa bez cukru.,absence/deprivation,relation_operator|absence_operator|negated_association,"Without(x,y)"
+op:core:without,en,English,without,without,Coffee without sugar.,absence of associated item,relation_operator|absence_operator|negated_association,"Without(x,y)"
+op:core:without,de,German,ohne,ohne,Kaffee ohne Zucker.,absence,relation_operator|absence_operator|negated_association,"Without(x,y)"
+op:core:without,fr,French,sans,sans,Café sans sucre.,absence,relation_operator|absence_operator|negated_association,"Without(x,y)"
+op:core:without,es,Spanish,sin,sin,Café sin azúcar.,absence,relation_operator|absence_operator|negated_association,"Without(x,y)"
+op:core:from,pl,Polish,od / z,od|z,Wracam z domu. || List od matki.,source/origin split,source_operator|path_operator,"From(x,source)"
+op:core:from,en,English,from,from|out of,I return from home. || A letter from mother.,source/origin,source_operator|path_operator,"From(x,source)"
+op:core:from,de,German,von / aus,von|aus,Ich komme aus dem Haus.,source distinction,source_operator|path_operator,"From(x,source)"
+op:core:from,fr,French,de / depuis,de|depuis,Je reviens de la maison.,source/origin,source_operator|path_operator,"From(x,source)"
+op:core:from,es,Spanish,de / desde,de|desde,Vuelvo de casa.,source/origin,source_operator|path_operator,"From(x,source)"
+op:core:to,pl,Polish,do / ku,do|ku,Idę do domu.,destination/goal,target_operator|path_operator,"To(x,target)"
+op:core:to,en,English,to / toward,to|toward|towards,I go to the house.,target/destination,target_operator|path_operator,"To(x,target)"
+op:core:to,de,German,zu / nach,zu|nach,Ich gehe nach Hause.,destination distinction,target_operator|path_operator,"To(x,target)"
+op:core:to,fr,French,à / vers,à|vers,Je vais à la maison.,target/destination,target_operator|path_operator,"To(x,target)"
+op:core:to,es,Spanish,a / hacia,a|hacia,Voy a casa.,target/destination,target_operator|path_operator,"To(x,target)"
+op:core:through,pl,Polish,przez,przez,Idę przez las. || Wiadomość przyszła przez telefon.,path/agency/mediation,path_operator|channel_operator|mediation,"Through(x,medium)"
+op:core:through,en,English,through,through|via,I walk through the forest. || The message came via phone.,path/channel,path_operator|channel_operator|mediation,"Through(x,medium)"
+op:core:through,de,German,durch,durch,Ich gehe durch den Wald.,path/causal channel,path_operator|channel_operator|mediation,"Through(x,medium)"
+op:core:through,fr,French,par / à travers,par|à travers,Je marche à travers la forêt.,path/agency,path_operator|channel_operator|mediation,"Through(x,medium)"
+op:core:through,es,Spanish,por / a través de,por|a través de,Camino por el bosque.,path/mediation,path_operator|channel_operator|mediation,"Through(x,medium)"
+op:core:and,pl,Polish,i / oraz,i|oraz,Woda i ogień.,conjunction,logic_operator|graph_coupling,x ∧ y / x ⊗ y
+op:core:and,en,English,and,and,Water and fire.,conjunction,logic_operator|graph_coupling,x ∧ y / x ⊗ y
+op:core:and,de,German,und,und,Wasser und Feuer.,conjunction,logic_operator|graph_coupling,x ∧ y / x ⊗ y
+op:core:and,fr,French,et,et,L’eau et le feu.,conjunction,logic_operator|graph_coupling,x ∧ y / x ⊗ y
+op:core:and,es,Spanish,y / e,y|e,Agua y fuego.,conjunction,logic_operator|graph_coupling,x ∧ y / x ⊗ y
+op:core:or,pl,Polish,albo / lub,albo|lub,Woda albo sok.,inclusive/exclusive distinction may be context-dependent,logic_operator|branching_operator,x ∨ y / x ⊕ y
+op:core:or,en,English,or,or,Water or juice.,alternative,logic_operator|branching_operator,x ∨ y / x ⊕ y
+op:core:or,de,German,oder,oder,Wasser oder Saft.,alternative,logic_operator|branching_operator,x ∨ y / x ⊕ y
+op:core:or,fr,French,ou,ou,De l’eau ou du jus.,alternative,logic_operator|branching_operator,x ∨ y / x ⊕ y
+op:core:or,es,Spanish,o / u,o|u,Agua o jugo.,alternative,logic_operator|branching_operator,x ∨ y / x ⊕ y
+op:core:not,pl,Polish,nie,nie,To nie jest woda.,scope sensitive,logic_operator|phase_operator|polarity_operator,¬x / e^{iπ}
+op:core:not,en,English,not / no,not|no,This is not water.,scope sensitive negation,logic_operator|phase_operator|polarity_operator,¬x / e^{iπ}
+op:core:not,de,German,nicht / kein,nicht|kein,Das ist kein Wasser.,nicht/kein split,logic_operator|phase_operator|polarity_operator,¬x / e^{iπ}
+op:core:not,fr,French,ne...pas / non,ne...pas|pas|non,Ce n’est pas de l’eau.,discontinuous negation,logic_operator|phase_operator|polarity_operator,¬x / e^{iπ}
+op:core:not,es,Spanish,no,no,Esto no es agua.,pre-verbal negation,logic_operator|phase_operator|polarity_operator,¬x / e^{iπ}
+op:core:if_then,pl,Polish,jeśli...to / gdy...to,jeśli|gdy|to|wtedy,"Jeśli pada, to ziemia moknie.",conditional-temporal overlap,logic_operator|condition_operator|causal_structure,If(P)⇒Q
+op:core:if_then,en,English,if...then,if|then|when,"If it rains, then the ground gets wet.",condition/result,logic_operator|condition_operator|causal_structure,If(P)⇒Q
+op:core:if_then,de,German,wenn...dann,wenn|dann,"Wenn es regnet, dann wird der Boden nass.",condition/result,logic_operator|condition_operator|causal_structure,If(P)⇒Q
+op:core:if_then,fr,French,si...alors,si|alors,"S’il pleut, alors le sol devient humide.",condition/result,logic_operator|condition_operator|causal_structure,If(P)⇒Q
+op:core:if_then,es,Spanish,si...entonces,si|entonces,"Si llueve, entonces el suelo se moja.",condition/result,logic_operator|condition_operator|causal_structure,If(P)⇒Q
+op:core:because,pl,Polish,bo / ponieważ,bo|ponieważ|gdyż,"Ziemia moknie, bo pada.",causal/explanatory,causal_operator|explanation_operator,"Because(Q,P) => Cause(P,Q)"
+op:core:because,en,English,because,because|since,The ground gets wet because it rains.,cause/reason,causal_operator|explanation_operator,"Because(Q,P) => Cause(P,Q)"
+op:core:because,de,German,weil / denn,weil|denn,"Der Boden wird nass, weil es regnet.",causal; syntax shift in weil,causal_operator|explanation_operator,"Because(Q,P) => Cause(P,Q)"
+op:core:because,fr,French,parce que / car,parce que|car,Le sol devient humide parce qu’il pleut.,cause/reason,causal_operator|explanation_operator,"Because(Q,P) => Cause(P,Q)"
+op:core:because,es,Spanish,porque,porque|ya que,El suelo se moja porque llueve.,cause/reason,causal_operator|explanation_operator,"Because(Q,P) => Cause(P,Q)"
+op:core:how,pl,Polish,jak,jak|jako,Jak to działa? || To działa jak silnik. || Zrób to jak wcześniej.,manner/similarity/pattern/conditional overlap,query_operator|manner_operator|comparison_operator|pattern_mapping,"How(T) / Like(x,y) / As(x,y)"
+op:core:how,en,English,how / as / like,how|as|like,How does it work? || It works like an engine. || Do it as before.,split across how/as/like,query_operator|manner_operator|comparison_operator|pattern_mapping,"How(T) / Like(x,y) / As(x,y)"
+op:core:how,de,German,wie / als,wie|als,Wie funktioniert das? || Es funktioniert wie ein Motor.,wie/als split,query_operator|manner_operator|comparison_operator|pattern_mapping,"How(T) / Like(x,y) / As(x,y)"
+op:core:how,fr,French,comment / comme,comment|comme,Comment ça marche? || Ça marche comme un moteur.,comment/comme split,query_operator|manner_operator|comparison_operator|pattern_mapping,"How(T) / Like(x,y) / As(x,y)"
+op:core:how,es,Spanish,cómo / como,cómo|como,¿Cómo funciona? || Funciona como un motor.,accent distinguishes query in writing,query_operator|manner_operator|comparison_operator|pattern_mapping,"How(T) / Like(x,y) / As(x,y)"
+op:core:where,pl,Polish,gdzie,gdzie,Gdzie jest woda?,location query,query_operator|spatial_operator,Where(x)->ask(Location(x))
+op:core:where,en,English,where,where,Where is the water?,location query,query_operator|spatial_operator,Where(x)->ask(Location(x))
+op:core:where,de,German,wo / wohin,wo|wohin,Wo ist das Wasser?,location vs direction split,query_operator|spatial_operator,Where(x)->ask(Location(x))
+op:core:where,fr,French,où,où,Où est l’eau?,location query,query_operator|spatial_operator,Where(x)->ask(Location(x))
+op:core:where,es,Spanish,dónde,dónde|adónde,¿Dónde está el agua?,location vs direction split,query_operator|spatial_operator,Where(x)->ask(Location(x))
+op:core:when,pl,Polish,kiedy / gdy,kiedy|gdy,Kiedy pada deszcz?,temporal query/subordinator,query_operator|temporal_operator,When(e)->ask(Time(e))
+op:core:when,en,English,when,when,When does it rain?,time query/subordinator,query_operator|temporal_operator,When(e)->ask(Time(e))
+op:core:when,de,German,wann / wenn / als,wann|wenn|als,Wann regnet es?,query/conditional/past split,query_operator|temporal_operator,When(e)->ask(Time(e))
+op:core:when,fr,French,quand / lorsque,quand|lorsque,Quand pleut-il?,time query/subordinator,query_operator|temporal_operator,When(e)->ask(Time(e))
+op:core:when,es,Spanish,cuándo / cuando,cuándo|cuando,¿Cuándo llueve?,accent distinguishes query,query_operator|temporal_operator,When(e)->ask(Time(e))
+op:core:like_as,pl,Polish,jak / jako,jak|jako|podobnie do,On pracuje jako lekarz. || To jest jak woda.,similarity vs role must be disambiguated,comparison_operator|analogy_operator|role_mapping,"Like(x,y) / AsRole(x,r)"
+op:core:like_as,en,English,like / as,like|as,He works as a doctor. || This is like water.,"like=similarity, as=role/pattern often",comparison_operator|analogy_operator|role_mapping,"Like(x,y) / AsRole(x,r)"
+op:core:like_as,de,German,wie / als,wie|als,Er arbeitet als Arzt. || Das ist wie Wasser.,wie/als distinction,comparison_operator|analogy_operator|role_mapping,"Like(x,y) / AsRole(x,r)"
+op:core:like_as,fr,French,comme / en tant que,comme|en tant que,Il travaille comme médecin.,similarity/role,comparison_operator|analogy_operator|role_mapping,"Like(x,y) / AsRole(x,r)"
+op:core:like_as,es,Spanish,como,como|en calidad de,Trabaja como médico.,similarity/role by context,comparison_operator|analogy_operator|role_mapping,"Like(x,y) / AsRole(x,r)"

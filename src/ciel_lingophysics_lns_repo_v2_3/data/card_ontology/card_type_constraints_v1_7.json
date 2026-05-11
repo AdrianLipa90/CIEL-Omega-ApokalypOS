@@ -1,0 +1,45 @@
+{
+  "version": "1.7.0",
+  "constraints": [
+    {
+      "id": "COT-001",
+      "level": "BLOCKER",
+      "rule": "Every machine-actionable card must declare or infer exactly one primary card type."
+    },
+    {
+      "id": "COT-002",
+      "level": "BLOCKER",
+      "rule": "CONCEPT_CARD must not define formal_modes as its primary structure; use operator_hooks instead."
+    },
+    {
+      "id": "COT-003",
+      "level": "BLOCKER",
+      "rule": "OPERATOR_CARD must define arity or formal_modes unless explicitly unresolved."
+    },
+    {
+      "id": "COT-004",
+      "level": "WARN",
+      "rule": "YAML curated seeds may lack JSON mirrors only when status is seed or draft."
+    },
+    {
+      "id": "COT-005",
+      "level": "WARN",
+      "rule": "ROOT_OR_MISC files must appear in repo coherence report and not be silently ignored."
+    },
+    {
+      "id": "COT-006",
+      "level": "BLOCKER",
+      "rule": "Generated artifacts must not override canonical YAML/JSON source data."
+    },
+    {
+      "id": "COT-007",
+      "level": "WARN",
+      "rule": "DEICTIC_CARD may be unresolved, but must declare anchor domain."
+    },
+    {
+      "id": "COT-008",
+      "level": "BLOCKER",
+      "rule": "SCOPE_CARD must preserve unresolved scope instead of collapsing to guessed meaning."
+    }
+  ]
+}

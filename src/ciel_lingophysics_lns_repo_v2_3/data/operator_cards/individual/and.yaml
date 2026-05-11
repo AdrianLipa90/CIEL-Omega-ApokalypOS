@@ -1,0 +1,53 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:and
+family: conjunction_coupling
+class:
+- logic_operator
+- graph_coupling
+symbol: x ∧ y / x ⊗ y
+arity: 2+
+dual: op:core:or
+inverse: null
+description: joins structures conjunctively; can tensor-couple semantic bodies
+equations:
+- And(x,y)
+- x ∧ y
+- x ⊗ y
+surfaces:
+  pl:
+    lemma: i / oraz
+    forms:
+    - i
+    - oraz
+    examples:
+    - Woda i ogień.
+    notes: conjunction
+  en:
+    lemma: and
+    forms:
+    - and
+    examples:
+    - Water and fire.
+    notes: conjunction
+  de:
+    lemma: und
+    forms:
+    - und
+    examples:
+    - Wasser und Feuer.
+    notes: conjunction
+  fr:
+    lemma: et
+    forms:
+    - et
+    examples:
+    - L’eau et le feu.
+    notes: conjunction
+  es:
+    lemma: y / e
+    forms:
+    - y
+    - e
+    examples:
+    - Agua y fuego.
+    notes: conjunction

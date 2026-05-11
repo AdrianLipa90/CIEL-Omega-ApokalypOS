@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Card Ontology v1.7",
+  "type": "object",
+  "required": [
+    "version",
+    "name",
+    "card_types"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "principle": {
+      "type": "string"
+    },
+    "canonical_formula": {
+      "type": "string"
+    },
+    "card_types": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "storage_root",
+          "semantic_role",
+          "status_default"
+        ],
+        "properties": {
+          "storage_root": {
+            "type": "string"
+          },
+          "semantic_role": {
+            "type": "string"
+          },
+          "primary_payload": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "forbidden_payload": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "canonical_examples": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status_default": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

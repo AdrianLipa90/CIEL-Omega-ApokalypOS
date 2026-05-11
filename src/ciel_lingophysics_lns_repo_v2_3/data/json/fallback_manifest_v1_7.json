@@ -1,0 +1,9 @@
+{
+  "version": "1.7.0",
+  "fallback_policy": "if preferred storage fails, write JSON/JSONL fallback and explicit report",
+  "new_artifacts": [
+    "data/card_ontology/card_ontology_v1_7.json",
+    "data/card_ontology/card_type_constraints_v1_7.json",
+    "data/card_ontology/card_type_migration_map_v1_7.json"
+  ]
+}

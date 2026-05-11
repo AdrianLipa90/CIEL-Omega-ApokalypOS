@@ -1,0 +1,83 @@
+{
+  "version": "1.7.0",
+  "migrations": [
+    {
+      "source_pattern": "data/concept_cards/*",
+      "target_card_type": "CONCEPT_CARD",
+      "status_default": "seed",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/operator_cards/*",
+      "target_card_type": "OPERATOR_CARD",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/operator_families/*",
+      "target_card_type": "OPERATOR_FAMILY",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/operator_compositions/*",
+      "target_card_type": "OPERATOR_COMPOSITION",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/grammar/*",
+      "target_card_type": "GRAMMAR_CARD",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/case_systems/*",
+      "target_card_type": "CASE_GAUGE_CARD",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/case_mappings/*",
+      "target_card_type": "CASE_MAPPING",
+      "status_default": "generated",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/event_frames/*",
+      "target_card_type": "EVENT_FRAME",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/ontological_aspect/*",
+      "target_card_type": "ONTOLOGICAL_ASPECT",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/tame/*",
+      "target_card_type": "TAME_CARD",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/operator_cards/*",
+      "target_card_type": "DEICTIC_CARD",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/scope/*",
+      "target_card_type": "SCOPE_CARD",
+      "status_default": "draft",
+      "migration_action": "classify_and_validate"
+    },
+    {
+      "source_pattern": "data/json/*",
+      "target_card_type": "JSON_FALLBACK",
+      "status_default": "generated",
+      "migration_action": "classify_and_validate"
+    }
+  ]
+}

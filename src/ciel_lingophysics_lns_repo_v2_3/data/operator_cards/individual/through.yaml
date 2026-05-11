@@ -1,0 +1,56 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:through
+family: path_traversal_mediation
+class:
+- path_operator
+- channel_operator
+- mediation
+symbol: Through(x,medium)
+arity: '2'
+dual: null
+inverse: null
+description: movement, causation or communication through a medium/channel
+equations:
+- Through(path,medium)
+- MediatedBy(action,medium)
+surfaces:
+  pl:
+    lemma: przez
+    forms:
+    - przez
+    examples:
+    - Idę przez las.
+    - Wiadomość przyszła przez telefon.
+    notes: path/agency/mediation
+  en:
+    lemma: through
+    forms:
+    - through
+    - via
+    examples:
+    - I walk through the forest.
+    - The message came via phone.
+    notes: path/channel
+  de:
+    lemma: durch
+    forms:
+    - durch
+    examples:
+    - Ich gehe durch den Wald.
+    notes: path/causal channel
+  fr:
+    lemma: par / à travers
+    forms:
+    - par
+    - à travers
+    examples:
+    - Je marche à travers la forêt.
+    notes: path/agency
+  es:
+    lemma: por / a través de
+    forms:
+    - por
+    - a través de
+    examples:
+    - Camino por el bosque.
+    notes: path/mediation

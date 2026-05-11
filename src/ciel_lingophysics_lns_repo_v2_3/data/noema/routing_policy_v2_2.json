@@ -1,0 +1,38 @@
+{
+  "policy_version": "2.2",
+  "name": "NOEMA routing policy",
+  "non_claim": "NOEMA routing reduces context and model calls; it does not make dense GGUF execute only selected internal weights.",
+  "language_priority": [
+    "pl",
+    "en",
+    "de",
+    "fr",
+    "es"
+  ],
+  "retrieval": {
+    "default_limit": 8,
+    "minimum_score": 0.18,
+    "score_weights": {
+      "exact_label_match": 0.5,
+      "partial_label_match": 0.25,
+      "operator_hook_match": 0.35,
+      "domain_match": 0.2,
+      "relation_neighbor_bonus": 0.1,
+      "status_bonus_curated_seed": 0.08
+    }
+  },
+  "confidence_thresholds": {
+    "no_llm": 0.82,
+    "small_gguf": 0.62,
+    "medium_gguf": 0.42,
+    "human_review": 0.25
+  },
+  "gguf_call_reasons": [
+    "low_confidence",
+    "unresolved_scope",
+    "unresolved_deixis",
+    "factual_validation_required",
+    "cross_language_conflict",
+    "novel_operator_or_event_frame"
+  ]
+}

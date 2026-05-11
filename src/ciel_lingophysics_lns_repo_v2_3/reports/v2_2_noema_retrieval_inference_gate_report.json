@@ -1,0 +1,29 @@
+{
+  "report_version": "2.2",
+  "title": "NOEMA Retrieval and Inference Gate Patch Report",
+  "created_at_utc": "2026-05-10T14:16:15.342618+00:00",
+  "status": "completed_local_patch",
+  "summary": {
+    "new_docs": 2,
+    "new_src_modules": 4,
+    "new_tests": 2,
+    "noema_seed_cards": 9,
+    "gate_levels": [
+      "NO_LLM",
+      "SMALL_GGUF",
+      "MEDIUM_GGUF",
+      "LARGE_GGUF",
+      "GGUF_VALIDATOR",
+      "HUMAN_REVIEW"
+    ],
+    "non_claim": "NOEMA routing reduces context and model calls; it does not make dense GGUF execute only selected internal weights."
+  },
+  "key_rules": [
+    "NOEMA routes first.",
+    "CIELingo validates structurally.",
+    "GGUF verdict is advisory, not canonical.",
+    "Dense GGUF partial execution is not claimed.",
+    "Unresolved high-impact issues route to human review."
+  ],
+  "next_recommended_patch": "v2.3 GGUF Teacher-Validator Learning Loop"
+}

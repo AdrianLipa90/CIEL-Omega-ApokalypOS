@@ -1,0 +1,449 @@
+{
+  "version": "1.2",
+  "cards": [
+    {
+      "operator_id": "op:dyn:somewhere",
+      "canonical_operator": "Somewhere",
+      "class": "dynamic_spatial_indefinite",
+      "arity": 1,
+      "signature": "Somewhere(E) -> ∃x∈Place : Located(E,x) ∧ resolution(x)<1",
+      "semantic_axis": "spatial_reference_resolution",
+      "phase": 1.5708,
+      "surfaces": {
+        "pl": [
+          "gdzieś"
+        ],
+        "en": [
+          "somewhere"
+        ],
+        "de": [
+          "irgendwo"
+        ],
+        "fr": [
+          "quelque part"
+        ],
+        "es": [
+          "en algún lugar",
+          "en algún sitio"
+        ]
+      },
+      "modes": [
+        "existential_location",
+        "unknown_location",
+        "context_resolvable_anchor"
+      ],
+      "dual_or_related": [
+        "op:dyn:nowhere",
+        "op:dyn:anywhere",
+        "op:query:where"
+      ],
+      "resolution_inputs": [
+        "event",
+        "speaker_context",
+        "memory_trace",
+        "spatial_frame"
+      ],
+      "examples": {
+        "pl": "Położyłem klucz gdzieś w domu.",
+        "en": "I put the key somewhere in the house.",
+        "de": "Ich habe den Schlüssel irgendwo im Haus hingelegt.",
+        "fr": "J'ai mis la clé quelque part dans la maison.",
+        "es": "Puse la llave en algún lugar de la casa."
+      }
+    },
+    {
+      "operator_id": "op:dyn:anywhere",
+      "canonical_operator": "Anywhere",
+      "class": "dynamic_spatial_free_choice",
+      "arity": 1,
+      "signature": "Anywhere(E) -> ∀/free-choice x∈Place : PermittedOrRelevant(Located(E,x))",
+      "semantic_axis": "spatial_scope_free_choice",
+      "phase": 0.7854,
+      "surfaces": {
+        "pl": [
+          "gdziekolwiek"
+        ],
+        "en": [
+          "anywhere"
+        ],
+        "de": [
+          "irgendwo",
+          "wo auch immer"
+        ],
+        "fr": [
+          "n'importe où"
+        ],
+        "es": [
+          "donde sea",
+          "en cualquier lugar"
+        ]
+      },
+      "modes": [
+        "free_choice_location",
+        "low_constraint_location",
+        "universalized_indefinite"
+      ],
+      "dual_or_related": [
+        "op:dyn:somewhere",
+        "op:dyn:nowhere"
+      ],
+      "resolution_inputs": [
+        "modal_scope",
+        "permission_scope",
+        "negation_scope",
+        "spatial_frame"
+      ],
+      "examples": {
+        "pl": "Możesz usiąść gdziekolwiek.",
+        "en": "You can sit anywhere.",
+        "de": "Du kannst dich irgendwo hinsetzen.",
+        "fr": "Tu peux t'asseoir n'importe où.",
+        "es": "Puedes sentarte donde sea."
+      }
+    },
+    {
+      "operator_id": "op:dyn:nowhere",
+      "canonical_operator": "Nowhere",
+      "class": "dynamic_spatial_negative_indefinite",
+      "arity": 1,
+      "signature": "Nowhere(E) -> ¬∃x∈Place : Located(E,x) within active search domain",
+      "semantic_axis": "spatial_negative_scope",
+      "phase": 4.7124,
+      "surfaces": {
+        "pl": [
+          "nigdzie"
+        ],
+        "en": [
+          "nowhere"
+        ],
+        "de": [
+          "nirgendwo"
+        ],
+        "fr": [
+          "nulle part"
+        ],
+        "es": [
+          "en ninguna parte"
+        ]
+      },
+      "modes": [
+        "negative_location",
+        "failed_spatial_resolution",
+        "empty_search_domain"
+      ],
+      "dual_or_related": [
+        "op:dyn:somewhere",
+        "op:logical:not"
+      ],
+      "resolution_inputs": [
+        "negation_scope",
+        "search_domain",
+        "spatial_frame"
+      ],
+      "examples": {
+        "pl": "Nie mogę tego nigdzie znaleźć.",
+        "en": "I cannot find it anywhere / I find it nowhere.",
+        "de": "Ich kann es nirgendwo finden.",
+        "fr": "Je ne peux le trouver nulle part.",
+        "es": "No puedo encontrarlo en ninguna parte."
+      }
+    },
+    {
+      "operator_id": "op:dyn:sometime",
+      "canonical_operator": "Sometime",
+      "class": "dynamic_temporal_indefinite",
+      "arity": 1,
+      "signature": "Sometime(E) -> ∃t∈Time : Occurs(E,t) ∧ resolution(t)<1",
+      "semantic_axis": "temporal_reference_resolution",
+      "phase": 1.5708,
+      "surfaces": {
+        "pl": [
+          "kiedyś"
+        ],
+        "en": [
+          "sometime",
+          "once"
+        ],
+        "de": [
+          "irgendwann",
+          "einst"
+        ],
+        "fr": [
+          "un jour",
+          "autrefois"
+        ],
+        "es": [
+          "algún día",
+          "alguna vez"
+        ]
+      },
+      "modes": [
+        "indefinite_time",
+        "past_once",
+        "future_sometime",
+        "memory_temporal_anchor"
+      ],
+      "dual_or_related": [
+        "op:dyn:never",
+        "op:dyn:anytime",
+        "op:query:when"
+      ],
+      "resolution_inputs": [
+        "tense",
+        "aspect",
+        "memory_trace",
+        "speaker_intention",
+        "temporal_frame"
+      ],
+      "examples": {
+        "pl": "Kiedyś to zrobimy.",
+        "en": "We will do it sometime.",
+        "de": "Wir werden es irgendwann tun.",
+        "fr": "Nous le ferons un jour.",
+        "es": "Lo haremos algún día."
+      }
+    },
+    {
+      "operator_id": "op:dyn:anytime",
+      "canonical_operator": "Anytime",
+      "class": "dynamic_temporal_free_choice",
+      "arity": 1,
+      "signature": "Anytime(E) -> ∀/free-choice t∈Time : PermittedOrRelevant(Occurs(E,t))",
+      "semantic_axis": "temporal_scope_free_choice",
+      "phase": 0.7854,
+      "surfaces": {
+        "pl": [
+          "kiedykolwiek"
+        ],
+        "en": [
+          "anytime",
+          "whenever"
+        ],
+        "de": [
+          "jederzeit",
+          "wann auch immer"
+        ],
+        "fr": [
+          "n'importe quand",
+          "quand tu veux"
+        ],
+        "es": [
+          "cuando sea",
+          "en cualquier momento"
+        ]
+      },
+      "modes": [
+        "free_choice_time",
+        "unbounded_temporal_permission",
+        "conditional_temporal_scope"
+      ],
+      "dual_or_related": [
+        "op:dyn:sometime",
+        "op:dyn:never"
+      ],
+      "resolution_inputs": [
+        "modal_scope",
+        "permission_scope",
+        "temporal_frame"
+      ],
+      "examples": {
+        "pl": "Możesz przyjść kiedykolwiek.",
+        "en": "You can come anytime.",
+        "de": "Du kannst jederzeit kommen.",
+        "fr": "Tu peux venir quand tu veux.",
+        "es": "Puedes venir cuando sea."
+      }
+    },
+    {
+      "operator_id": "op:dyn:never",
+      "canonical_operator": "Never",
+      "class": "dynamic_temporal_negative_indefinite",
+      "arity": 1,
+      "signature": "Never(E) -> ¬∃t∈Time : Occurs(E,t) within active temporal domain",
+      "semantic_axis": "temporal_negative_scope",
+      "phase": 4.7124,
+      "surfaces": {
+        "pl": [
+          "nigdy"
+        ],
+        "en": [
+          "never"
+        ],
+        "de": [
+          "nie",
+          "niemals"
+        ],
+        "fr": [
+          "jamais"
+        ],
+        "es": [
+          "nunca",
+          "jamás"
+        ]
+      },
+      "modes": [
+        "negative_time",
+        "empty_temporal_domain",
+        "absolute_or_contextual_never"
+      ],
+      "dual_or_related": [
+        "op:dyn:sometime",
+        "op:logical:not"
+      ],
+      "resolution_inputs": [
+        "negation_scope",
+        "temporal_domain",
+        "epistemic_strength"
+      ],
+      "examples": {
+        "pl": "Nigdy tego nie powiedziałem.",
+        "en": "I never said that.",
+        "de": "Ich habe das nie gesagt.",
+        "fr": "Je n'ai jamais dit cela.",
+        "es": "Nunca dije eso."
+      }
+    },
+    {
+      "operator_id": "op:dyn:somehow",
+      "canonical_operator": "Somehow",
+      "class": "dynamic_manner_indefinite",
+      "arity": 1,
+      "signature": "Somehow(T) -> ∃m∈Manner : RealizedBy(T,m) ∧ resolution(m)<1",
+      "semantic_axis": "manner_reference_resolution",
+      "phase": 1.5708,
+      "surfaces": {
+        "pl": [
+          "jakoś"
+        ],
+        "en": [
+          "somehow"
+        ],
+        "de": [
+          "irgendwie"
+        ],
+        "fr": [
+          "d'une manière ou d'une autre"
+        ],
+        "es": [
+          "de alguna manera"
+        ]
+      },
+      "modes": [
+        "indefinite_manner",
+        "unknown_means",
+        "low_resolution_process"
+      ],
+      "dual_or_related": [
+        "op:query:how",
+        "op:dyn:anyhow"
+      ],
+      "resolution_inputs": [
+        "process",
+        "method_context",
+        "goal_pressure"
+      ],
+      "examples": {
+        "pl": "Jakoś to naprawimy.",
+        "en": "We will fix it somehow.",
+        "de": "Wir werden es irgendwie reparieren.",
+        "fr": "Nous allons le réparer d'une manière ou d'une autre.",
+        "es": "Lo arreglaremos de alguna manera."
+      }
+    },
+    {
+      "operator_id": "op:dyn:somewhere_to",
+      "canonical_operator": "TowardSomewhere",
+      "class": "dynamic_directional_indefinite",
+      "arity": 1,
+      "signature": "TowardSomewhere(E) -> ∃x∈Place : Destination(E,x) ∧ resolution(x)<1",
+      "semantic_axis": "directional_destination_resolution",
+      "phase": 1.5708,
+      "surfaces": {
+        "pl": [
+          "dokądś",
+          "gdzieś do"
+        ],
+        "en": [
+          "somewhere to",
+          "to somewhere"
+        ],
+        "de": [
+          "irgendwohin"
+        ],
+        "fr": [
+          "quelque part où aller",
+          "vers quelque part"
+        ],
+        "es": [
+          "a algún lugar"
+        ]
+      },
+      "modes": [
+        "indefinite_destination",
+        "unresolved_goal_location"
+      ],
+      "dual_or_related": [
+        "op:dyn:somewhere_from",
+        "op:spatial:to"
+      ],
+      "resolution_inputs": [
+        "motion_event",
+        "destination_frame",
+        "goal_context"
+      ],
+      "examples": {
+        "pl": "Musimy dokądś pójść.",
+        "en": "We need to go somewhere.",
+        "de": "Wir müssen irgendwohin gehen.",
+        "fr": "Nous devons aller quelque part.",
+        "es": "Tenemos que ir a algún lugar."
+      }
+    },
+    {
+      "operator_id": "op:dyn:somewhere_from",
+      "canonical_operator": "FromSomewhere",
+      "class": "dynamic_source_indefinite",
+      "arity": 1,
+      "signature": "FromSomewhere(E) -> ∃x∈Place : Source(E,x) ∧ resolution(x)<1",
+      "semantic_axis": "source_resolution",
+      "phase": 1.5708,
+      "surfaces": {
+        "pl": [
+          "skądś"
+        ],
+        "en": [
+          "from somewhere"
+        ],
+        "de": [
+          "irgendwoher"
+        ],
+        "fr": [
+          "de quelque part"
+        ],
+        "es": [
+          "de algún lugar"
+        ]
+      },
+      "modes": [
+        "indefinite_source",
+        "unresolved_origin_location"
+      ],
+      "dual_or_related": [
+        "op:dyn:somewhere_to",
+        "op:spatial:from"
+      ],
+      "resolution_inputs": [
+        "motion_event",
+        "source_frame",
+        "provenance_context"
+      ],
+      "examples": {
+        "pl": "Ten dźwięk dochodzi skądś z góry.",
+        "en": "That sound comes from somewhere above.",
+        "de": "Dieses Geräusch kommt irgendwoher von oben.",
+        "fr": "Ce son vient de quelque part au-dessus.",
+        "es": "Ese sonido viene de algún lugar de arriba."
+      }
+    }
+  ]
+}

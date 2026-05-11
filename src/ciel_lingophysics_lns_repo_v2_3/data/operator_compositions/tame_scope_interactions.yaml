@@ -1,0 +1,21 @@
+version: '1.4'
+composition_id: tame_scope_interactions
+rules:
+- id: negation_scope_over_modality
+  form: Not(Must(E)) != Must(Not(E))
+  meaning: Negating necessity differs from necessitating negation.
+- id: evidentiality_not_truth
+  form: Reportative(E) does not imply Truth(E)
+  meaning: Reported events retain source marking and cannot be promoted to verified
+    without provenance.
+- id: perfective_completion
+  form: Perfective(E) -> Bounded(E)
+  meaning: Perfective aspect introduces event boundary, not necessarily external truth
+    verification.
+- id: conditional_nonassertion
+  form: Conditional(E) -> NonAsserted(E)
+  meaning: Conditional mood lowers assertion force unless context licenses factual
+    reading.
+- id: imperative_goal_vector
+  form: Imperative(E) -> GoalVector(E)
+  meaning: Imperative adds purpose/force vector, not just event description.

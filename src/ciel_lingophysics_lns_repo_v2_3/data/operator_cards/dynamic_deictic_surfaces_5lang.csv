@@ -1,0 +1,10 @@
+operator_id,canonical_operator,class,pl,en,de,fr,es,signature
+op:dyn:somewhere,Somewhere,dynamic_spatial_indefinite,gdzieś,somewhere,irgendwo,quelque part,en algún lugar; en algún sitio,"Somewhere(E) -> ∃x∈Place : Located(E,x) ∧ resolution(x)<1"
+op:dyn:anywhere,Anywhere,dynamic_spatial_free_choice,gdziekolwiek,anywhere,irgendwo; wo auch immer,n'importe où,donde sea; en cualquier lugar,"Anywhere(E) -> ∀/free-choice x∈Place : PermittedOrRelevant(Located(E,x))"
+op:dyn:nowhere,Nowhere,dynamic_spatial_negative_indefinite,nigdzie,nowhere,nirgendwo,nulle part,en ninguna parte,"Nowhere(E) -> ¬∃x∈Place : Located(E,x) within active search domain"
+op:dyn:sometime,Sometime,dynamic_temporal_indefinite,kiedyś,sometime; once,irgendwann; einst,un jour; autrefois,algún día; alguna vez,"Sometime(E) -> ∃t∈Time : Occurs(E,t) ∧ resolution(t)<1"
+op:dyn:anytime,Anytime,dynamic_temporal_free_choice,kiedykolwiek,anytime; whenever,jederzeit; wann auch immer,n'importe quand; quand tu veux,cuando sea; en cualquier momento,"Anytime(E) -> ∀/free-choice t∈Time : PermittedOrRelevant(Occurs(E,t))"
+op:dyn:never,Never,dynamic_temporal_negative_indefinite,nigdy,never,nie; niemals,jamais,nunca; jamás,"Never(E) -> ¬∃t∈Time : Occurs(E,t) within active temporal domain"
+op:dyn:somehow,Somehow,dynamic_manner_indefinite,jakoś,somehow,irgendwie,d'une manière ou d'une autre,de alguna manera,"Somehow(T) -> ∃m∈Manner : RealizedBy(T,m) ∧ resolution(m)<1"
+op:dyn:somewhere_to,TowardSomewhere,dynamic_directional_indefinite,dokądś; gdzieś do,somewhere to; to somewhere,irgendwohin,quelque part où aller; vers quelque part,a algún lugar,"TowardSomewhere(E) -> ∃x∈Place : Destination(E,x) ∧ resolution(x)<1"
+op:dyn:somewhere_from,FromSomewhere,dynamic_source_indefinite,skądś,from somewhere,irgendwoher,de quelque part,de algún lugar,"FromSomewhere(E) -> ∃x∈Place : Source(E,x) ∧ resolution(x)<1"

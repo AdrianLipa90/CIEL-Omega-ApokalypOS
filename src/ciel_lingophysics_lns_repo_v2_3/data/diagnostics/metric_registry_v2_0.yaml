@@ -1,0 +1,34 @@
+version: '2.0'
+metrics:
+- id: concept_count
+  description: Number of concept cards detected across batch libraries.
+  type: count
+- id: language_panel_coverage
+  description: Observed language panels divided by concepts × 5 expected languages.
+  type: ratio
+  thresholds:
+    warn_below: 0.95
+    blocker_below: 0.8
+- id: operator_coverage
+  description: Fraction of concept cards with at least one operator hook.
+  type: ratio
+  thresholds:
+    warn_below: 0.8
+    blocker_below: 0.5
+- id: relation_density
+  description: Directed relation edges divided by N*(N-1). Used as graph sparsity
+    signal, not a quality score alone.
+  type: ratio
+- id: avg_operator_hooks_per_concept
+  description: Mean number of operator hooks per concept card.
+  type: float
+- id: case_reconstruction_cost_mean
+  description: Average case-gauge reconstruction cost when mapping richer case systems
+    to weaker-case languages.
+  type: float
+diagnostic_statuses:
+- PASS
+- WARN
+- BLOCKER
+- UNRESOLVED
+- CONFLICT

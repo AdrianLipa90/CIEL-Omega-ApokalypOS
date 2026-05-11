@@ -1,0 +1,8 @@
+case,pl_morphological_signal,en_surface_reconstruction_cost,de_surface_reconstruction_cost,fr_surface_reconstruction_cost,es_surface_reconstruction_cost
+Nom,1.0,0.35,0.05,0.30000000000000004,0.28
+Acc,1.0,0.4,0.05,0.35,0.32999999999999996
+Gen,1.0,0.6,0.24999999999999997,0.55,0.53
+Dat,1.0,0.45,0.1,0.4,0.38
+Ins,1.0,0.5,0.15,0.45,0.43
+Loc,1.0,0.55,0.19999999999999998,0.5,0.48
+Voc,1.0,0.4,0.05,0.35,0.32999999999999996

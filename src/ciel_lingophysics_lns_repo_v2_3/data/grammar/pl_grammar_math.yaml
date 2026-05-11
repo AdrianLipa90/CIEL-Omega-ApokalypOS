@@ -1,0 +1,38 @@
+language_code: pl
+language: Polish
+grammar_as_gauge:
+  connection: A_gram^(pl)
+  surface_to_equation: Surface_l -> Grammar_l -> Equation -> Knot -> Invariant
+  local_vector_axes:
+  - inflection
+  - word_order_fixedness
+  - topic_focus
+  - particle_density
+  - case_marking
+  - agreement
+  - honorificity
+  - context_reliance
+  local_vector:
+  - 0.92
+  - 0.74
+  - 0.65
+  - 0.25
+  - 0.35
+  - 0.4
+  - 0.25
+  - 0.62
+  curvature_estimate: 0.2303
+  gauge_notes:
+    word_order: SVO-flexible
+    case_system_strength: 1.0
+    inflection_density: 0.92
+operator_mapping:
+  noun_mass: x
+  case_operator: K_case
+  prepositional_channel: f:x->y
+  aspect_context: C_aspect
+  negation: ¬
+  pluralization: μ_n
+water_sentence_equation_examples:
+  canonical: Płynąć(A=woda, Path=rzeka)
+  need_context: Need(Agent=speaker, Patient=water)

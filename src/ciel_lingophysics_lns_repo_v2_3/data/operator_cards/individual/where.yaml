@@ -1,0 +1,51 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:where
+family: location_query
+class:
+- query_operator
+- spatial_operator
+symbol: Where(x)->ask(Location(x))
+arity: '1'
+dual: null
+inverse: null
+description: queries or marks location of an entity/event
+equations:
+- Where(x)->ask(Location(x))
+surfaces:
+  pl:
+    lemma: gdzie
+    forms:
+    - gdzie
+    examples:
+    - Gdzie jest woda?
+    notes: location query
+  en:
+    lemma: where
+    forms:
+    - where
+    examples:
+    - Where is the water?
+    notes: location query
+  de:
+    lemma: wo / wohin
+    forms:
+    - wo
+    - wohin
+    examples:
+    - Wo ist das Wasser?
+    notes: location vs direction split
+  fr:
+    lemma: où
+    forms:
+    - où
+    examples:
+    - Où est l’eau?
+    notes: location query
+  es:
+    lemma: dónde
+    forms:
+    - dónde
+    - adónde
+    examples:
+    - ¿Dónde está el agua?
+    notes: location vs direction split

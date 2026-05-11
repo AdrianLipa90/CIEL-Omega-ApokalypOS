@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS/Ω Multilingual Concept Card",
+  "type": "object",
+  "required": [
+    "ciel_lns",
+    "concept_id",
+    "canonical_attractor",
+    "languages",
+    "relations"
+  ],
+  "properties": {
+    "ciel_lns": {
+      "type": "string"
+    },
+    "concept_id": {
+      "type": "string"
+    },
+    "canonical_attractor": {
+      "type": "object"
+    },
+    "languages": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "lemma",
+          "pos",
+          "description",
+          "synonyms",
+          "antonyms",
+          "forms",
+          "contexts",
+          "operators"
+        ]
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source",
+          "target",
+          "type",
+          "weight"
+        ]
+      }
+    }
+  }
+}

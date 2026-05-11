@@ -1,0 +1,17 @@
+{
+  "version": "1.7.0",
+  "patch": "Card Ontology Refactor",
+  "file_count": 346,
+  "new_core_files": [
+    "docs/32_CARD_ONTOLOGY_REFACTOR.md",
+    "docs/33_CARD_MIGRATION_AND_TYPE_RESOLUTION.md",
+    "data/card_ontology/card_ontology_v1_7.json",
+    "schemas/ciel_lns_card_ontology.schema.json",
+    "src/lingophysics/card_ontology.py",
+    "tests/test_card_ontology.py"
+  ],
+  "blockers": 0,
+  "warnings": [
+    "YAML/JSON mirror policy remains staged: curated human-readable YAML seeds may still lack JSON mirrors."
+  ]
+}

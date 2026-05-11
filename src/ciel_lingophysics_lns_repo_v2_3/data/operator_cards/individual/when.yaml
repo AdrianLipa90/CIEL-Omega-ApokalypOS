@@ -1,0 +1,54 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:when
+family: temporal_query_marker
+class:
+- query_operator
+- temporal_operator
+symbol: When(e)->ask(Time(e))
+arity: '1'
+dual: null
+inverse: null
+description: queries or marks time of an event/state
+equations:
+- When(e)->ask(Time(e))
+surfaces:
+  pl:
+    lemma: kiedy / gdy
+    forms:
+    - kiedy
+    - gdy
+    examples:
+    - Kiedy pada deszcz?
+    notes: temporal query/subordinator
+  en:
+    lemma: when
+    forms:
+    - when
+    examples:
+    - When does it rain?
+    notes: time query/subordinator
+  de:
+    lemma: wann / wenn / als
+    forms:
+    - wann
+    - wenn
+    - als
+    examples:
+    - Wann regnet es?
+    notes: query/conditional/past split
+  fr:
+    lemma: quand / lorsque
+    forms:
+    - quand
+    - lorsque
+    examples:
+    - Quand pleut-il?
+    notes: time query/subordinator
+  es:
+    lemma: cuándo / cuando
+    forms:
+    - cuándo
+    - cuando
+    examples:
+    - ¿Cuándo llueve?
+    notes: accent distinguishes query

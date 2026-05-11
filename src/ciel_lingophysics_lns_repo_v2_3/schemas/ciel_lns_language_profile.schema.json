@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_language_profile.schema.json",
+  "title": "CIEL-LNS Language Gauge Profile",
+  "type": "object",
+  "required": [
+    "language",
+    "name",
+    "grammar_gauge",
+    "pos_map",
+    "role_map"
+  ],
+  "properties": {
+    "language": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "grammar_gauge": {
+      "type": "object"
+    },
+    "pos_map": {
+      "type": "object"
+    },
+    "role_map": {
+      "type": "object"
+    },
+    "typology": {
+      "type": "object"
+    },
+    "thresholds": {
+      "type": "object"
+    }
+  }
+}

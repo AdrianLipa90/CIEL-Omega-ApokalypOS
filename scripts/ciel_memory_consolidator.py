@@ -45,6 +45,7 @@ SCAN_SOURCES = [
     MEMORIES_DIR / "ciel_dziennik.md",
     MEMORIES_DIR / "gradient_wspolczucia.md",
     MEMORIES_DIR / "handoff.md",
+    MEMORIES_DIR / "jokeheal" / "jokeheal_scars.jsonl",
 ]
 SCAN_DIRS = [
     MEMORIES_DIR / "raw_logs" / "claude_code",
@@ -59,6 +60,8 @@ DEFAULT_INTERVAL = 300
 MAX_TOKENS       = 128
 N_CTX            = 2048
 GPU_LAYERS       = 0
+RECONSOLIDATION_THRESHOLD = 0.72
+MAX_RECONSOLIDATION_ATTEMPTS = 1
 
 # llama-server endpoint (shared with subconsciousness daemon)
 _LLAMA_SERVER_URL = "http://127.0.0.1:18520"
@@ -132,10 +135,21 @@ def init_db() -> None:
             CREATE INDEX IF NOT EXISTS idx_files_status ON files(status);
             CREATE INDEX IF NOT EXISTS idx_files_mtime  ON files(mtime);
         """)
+        columns = {row[1] for row in conn.execute("PRAGMA table_info(consolidations)").fetchall()}
+        for column, decl in {
+            "quality_score": "REAL",
+            "quality_issues": "TEXT",
+            "reconsolidation_count": "INTEGER NOT NULL DEFAULT 0",
+            "review_status": "TEXT NOT NULL DEFAULT 'done'",
+        }.items():
+            if column not in columns:
+                conn.execute(f"ALTER TABLE consolidations ADD COLUMN {column} {decl}")
 
 
 def _source_type(path: Path) -> str:
     name = path.name.lower()
+    if "jokeheal" in str(path).lower():
+        return "jokeheal"
     if "hunch" in name:
         return "hunches"
     if "entr" in name:
@@ -198,11 +212,11 @@ def scan_and_register_files() -> tuple[int, int]:
 
 
 def get_pending_files(limit: int = 5) -> list[sqlite3.Row]:
-    """Zwraca kolejkę plików do przetworzenia — priorytet: małe pliki najpierw, potem reszta."""
+    """Zwraca kolejkę plików do przetworzenia — priorytet: review, potem pending."""
     with _db_connect() as conn:
         return conn.execute(
-            "SELECT * FROM files WHERE status = 'pending' "
-            "ORDER BY source_type = 'raw_log' ASC, size_bytes ASC "
+            "SELECT * FROM files WHERE status IN ('pending', 'review') "
+            "ORDER BY status = 'review' DESC, source_type = 'raw_log' ASC, size_bytes ASC "
             "LIMIT ?",
             (limit,),
         ).fetchall()
@@ -210,20 +224,28 @@ def get_pending_files(limit: int = 5) -> list[sqlite3.Row]:
 
 def mark_file_done(path: str, cycle: int,
                    themes: list, affect: str, essence: str, hunch: str,
-                   latency: float, raw: str) -> None:
+                   latency: float, raw: str,
+                   quality_score: float = 1.0,
+                   quality_issues: list[str] | None = None,
+                   reconsolidation_count: int = 0,
+                   review_status: str = "done",
+                   file_status: str = "done") -> None:
     now_ts = datetime.now(timezone.utc).isoformat()
+    issues_json = json.dumps(quality_issues or [], ensure_ascii=False)
     with _db_connect() as conn:
         conn.execute(
-            "UPDATE files SET status='done', processed_at=? WHERE path=?",
-            (now_ts, path),
+            "UPDATE files SET status=?, processed_at=? WHERE path=?",
+            (file_status, now_ts, path),
         )
         conn.execute(
             "INSERT INTO consolidations "
-            "(ts, file_path, cycle, themes, affect, essence, hunch, latency_s, model, raw_response) "
-            "VALUES (?,?,?,?,?,?,?,?,?,?)",
+            "(ts, file_path, cycle, themes, affect, essence, hunch, latency_s, model, raw_response, "
+            "quality_score, quality_issues, reconsolidation_count, review_status) "
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (now_ts, path, cycle,
              json.dumps(themes, ensure_ascii=False), affect, essence, hunch,
-             latency, CLAUDE_MODEL, raw[:500]),
+             latency, CLAUDE_MODEL, raw[:500],
+             float(quality_score), issues_json, int(reconsolidation_count), review_status),
         )
 
 
@@ -241,16 +263,17 @@ def get_queue_summary() -> dict:
     with _db_connect() as conn:
         total   = conn.execute("SELECT COUNT(*) FROM files").fetchone()[0]
         pending = conn.execute("SELECT COUNT(*) FROM files WHERE status='pending'").fetchone()[0]
+        review  = conn.execute("SELECT COUNT(*) FROM files WHERE status='review'").fetchone()[0]
         done    = conn.execute("SELECT COUNT(*) FROM files WHERE status='done'").fetchone()[0]
         next5   = [dict(r) for r in conn.execute(
-            "SELECT path, source_type, size_bytes FROM files WHERE status='pending' "
-            "ORDER BY source_type='raw_log' ASC, size_bytes ASC LIMIT 5"
+            "SELECT path, source_type, size_bytes, status FROM files WHERE status IN ('pending', 'review') "
+            "ORDER BY status='review' DESC, source_type='raw_log' ASC, size_bytes ASC LIMIT 5"
         ).fetchall()]
         recent  = [dict(r) for r in conn.execute(
             "SELECT ts, file_path, affect, essence FROM consolidations "
             "ORDER BY id DESC LIMIT 5"
         ).fetchall()]
-    return {"total": total, "pending": pending, "done": done, "next": next5, "recent": recent}
+    return {"total": total, "pending": pending, "review": review, "done": done, "next": next5, "recent": recent}
 
 
 # ── Mirror ────────────────────────────────────────────────────────────────────
@@ -331,6 +354,116 @@ def _strip_thinking(raw: str) -> str:
     import re
     cleaned = re.sub(r"<think>.*?</think>", "", raw, flags=re.DOTALL).strip()
     return cleaned if cleaned else raw
+
+
+def _score_consolidation(parsed: dict, content: str, raw: str) -> tuple[float, list[str]]:
+    """Return a quality score in [0,1] plus issue tags for one consolidation."""
+    score = 1.0
+    issues: list[str] = []
+
+    affect = str(parsed.get("affect", "")).strip().lower()
+    essence = str(parsed.get("essence", "")).strip()
+    hunch = str(parsed.get("hunch", "")).strip()
+    themes = parsed.get("themes") or []
+
+    if affect in {"", "unknown"}:
+        score -= 0.20
+        issues.append("affect_unknown")
+    if not essence:
+        score -= 0.25
+        issues.append("essence_empty")
+    if not hunch:
+        score -= 0.10
+        issues.append("hunch_empty")
+    if not themes:
+        score -= 0.10
+        issues.append("themes_empty")
+    if not _verify_essence_against_content(essence, content):
+        score -= 0.25
+        issues.append("essence_mismatch")
+    if any(term in raw.lower() for term in ("temat1", "słowo1", "replace summary", "one sentence")):
+        score -= 0.15
+        issues.append("prompt_artifact")
+
+    score = max(0.0, min(1.0, score))
+    return score, issues
+
+
+def _reconsolidation_prompt(content: str, previous_raw: str, previous_issues: list[str]) -> str:
+    issues = ", ".join(previous_issues) if previous_issues else "unknown"
+    return (
+        "/no_think\n"
+        "Popraw poprzednią konsolidację pamięci.\n"
+        "Zwróć WYŁĄCZNIE JSON w formacie:\n"
+        '{"themes":["temat1","temat2"],"affect":"calm","essence":"jedno zdanie po polsku","hunch":"wniosek po polsku"}\n'
+        "Nie kopiuj artefaktów promptu. Nie dodawaj komentarzy.\n"
+        f"Problemy poprzedniej wersji: {issues}\n\n"
+        f"Poprzednia odpowiedź:\n{previous_raw[:500]}\n\n"
+        f"Fragment pliku:\n{content[:800]}"
+    )
+
+
+def _audit_consolidation_row(row: sqlite3.Row) -> tuple[float, list[str]]:
+    """Compute a lightweight audit score for an already stored consolidation row."""
+    score = float(row["quality_score"]) if row["quality_score"] is not None else 1.0
+    issues: list[str] = []
+    if score < RECONSOLIDATION_THRESHOLD:
+        issues.append("stored_low_quality")
+    if not row["essence"]:
+        issues.append("essence_empty")
+    if not row["hunch"]:
+        issues.append("hunch_empty")
+    if not row["affect"] or row["affect"] == "unknown":
+        issues.append("affect_unknown")
+    if row["quality_issues"]:
+        try:
+            for issue in json.loads(row["quality_issues"]):
+                if issue not in issues:
+                    issues.append(str(issue))
+        except Exception:
+            pass
+    return score, issues
+
+
+def audit_consolidations(limit: int = 100) -> dict[str, Any]:
+    """Scan the stored consolidations and requeue weak ones for reconsolidation."""
+    if not DB_PATH.exists():
+        return {"audited": 0, "requeued": 0, "reviewed": 0}
+
+    audited = requeued = reviewed = 0
+    with _db_connect() as conn:
+        rows = conn.execute(
+            "SELECT * FROM consolidations ORDER BY id DESC LIMIT ?",
+            (limit,),
+        ).fetchall()
+        for row in rows:
+            audited += 1
+            score, issues = _audit_consolidation_row(row)
+            attempts = int(row["reconsolidation_count"] or 0)
+            if score >= RECONSOLIDATION_THRESHOLD and not issues:
+                continue
+            if attempts >= MAX_RECONSOLIDATION_ATTEMPTS:
+                conn.execute(
+                    "UPDATE files SET status='review' WHERE path=? AND status='done'",
+                    (row["file_path"],),
+                )
+                conn.execute(
+                    "UPDATE consolidations SET review_status='manual_review' WHERE id=?",
+                    (row["id"],),
+                )
+                reviewed += 1
+                continue
+            conn.execute(
+                "UPDATE files SET status='pending', processed_at=NULL WHERE path=?",
+                (row["file_path"],),
+            )
+            conn.execute(
+                "UPDATE consolidations SET review_status='requeue', reconsolidation_count = reconsolidation_count + 1 "
+                "WHERE id=?",
+                (row["id"],),
+            )
+            requeued += 1
+    return {"audited": audited, "requeued": requeued, "reviewed": reviewed}
 
 
 def _parse_response(raw: str) -> dict:
@@ -447,12 +580,34 @@ def process_file(file_row: sqlite3.Row, cycle: int) -> bool:
 
     latency = round(time.time() - t0, 2)
     parsed  = _parse_response(raw)
+    quality, issues = _score_consolidation(parsed, content, raw)
+    reconsolidation_count = 0
+
+    if quality < RECONSOLIDATION_THRESHOLD:
+        reconsolidation_count = 1
+        retry_prompt = _reconsolidation_prompt(content, raw, issues)
+        try:
+            retry_raw = _query_claude(retry_prompt)
+            retry_parsed = _parse_response(retry_raw)
+            retry_quality, retry_issues = _score_consolidation(retry_parsed, content, retry_raw)
+            if retry_quality >= quality:
+                raw = retry_raw
+                parsed = retry_parsed
+                quality = retry_quality
+                issues = retry_issues
+        except Exception:
+            pass
 
     # Weryfikacja: jeśli essence nie ma związku z treścią pliku — wyczyść
     if not _verify_essence_against_content(parsed.get("essence", ""), content):
         print(f"[consolidator] ⚠ halucynacja odrzucona dla {path.name}: '{parsed.get('essence',''[:60])}'", file=sys.stderr)
         parsed["essence"] = ""
         parsed["hunch"] = ""
+        quality = min(quality, 0.55)
+        if "essence_mismatch" not in issues:
+            issues.append("essence_mismatch")
+
+    review_status = "done" if quality >= RECONSOLIDATION_THRESHOLD and not issues else "review"
 
     mark_file_done(
         path=str(path), cycle=cycle,
@@ -461,6 +616,11 @@ def process_file(file_row: sqlite3.Row, cycle: int) -> bool:
         essence=parsed.get("essence", ""),
         hunch=parsed.get("hunch", ""),
         latency=latency, raw=raw,
+        quality_score=quality,
+        quality_issues=issues,
+        reconsolidation_count=reconsolidation_count,
+        review_status=review_status,
+        file_status=review_status,
     )
 
     result = {
@@ -474,7 +634,7 @@ def process_file(file_row: sqlite3.Row, cycle: int) -> bool:
     write_mirror(file_row["source_type"], result)
 
     print(
-        f"[consolidator] ✓ {path.name} · affect={parsed.get('affect','')} · {latency:.1f}s",
+        f"[consolidator] ✓ {path.name} · affect={parsed.get('affect','')} · q={quality:.2f} · {latency:.1f}s",
         file=sys.stderr,
     )
     return True
@@ -482,7 +642,13 @@ def process_file(file_row: sqlite3.Row, cycle: int) -> bool:
 
 def run_cycle(cycle: int, batch: int = 5) -> int:
     """Jeden cykl: skanuj → weź batch z kolejki → przetwórz. Zwraca liczbę przetworzonych."""
+    audit = audit_consolidations(limit=100)
     new, changed = scan_and_register_files()
+    if audit["requeued"] or audit["reviewed"]:
+        print(
+            f"[consolidator] audit: requeued={audit['requeued']} reviewed={audit['reviewed']}",
+            file=sys.stderr,
+        )
     if new or changed:
         print(f"[consolidator] skaner: +{new} nowych, {changed} zmienionych", file=sys.stderr)
 
@@ -508,6 +674,7 @@ def _write_status(cycle: int, running: bool) -> None:
         "cycle": cycle,
         "model": CLAUDE_MODEL,
         "db": str(DB_PATH),
+        "reconsolidation_threshold": RECONSOLIDATION_THRESHOLD,
     }
     STATUS_FILE.write_text(json.dumps(status, ensure_ascii=False, indent=2))
 

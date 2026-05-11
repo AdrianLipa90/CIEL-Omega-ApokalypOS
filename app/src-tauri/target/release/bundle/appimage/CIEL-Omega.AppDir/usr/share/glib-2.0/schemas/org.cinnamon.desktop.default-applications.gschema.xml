@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.cinnamon.desktop.default-applications" path="/org/cinnamon/desktop/applications/">
+    <child name="office" schema="org.cinnamon.desktop.default-applications.office"/>
+    <child name="terminal" schema="org.cinnamon.desktop.default-applications.terminal"/>
+    <child name="calculator" schema="org.cinnamon.desktop.default-applications.calculator"/>
+  </schema>
+  <schema id="org.cinnamon.desktop.default-applications.office" path="/org/cinnamon/desktop/applications/office/">
+    <child name="calendar" schema="org.cinnamon.desktop.default-applications.office.calendar"/>
+    <child name="tasks" schema="org.cinnamon.desktop.default-applications.office.tasks"/>
+  </schema>
+  <schema id="org.cinnamon.desktop.default-applications.office.calendar" path="/org/cinnamon/desktop/applications/office/calendar/">
+    <key name="exec" type="s">
+      <default>'evolution -c calendar'</default>
+      <summary>Default calendar</summary>
+      <description>
+        Default calendar application
+      </description>
+    </key>
+    <key name="needs-term" type="b">
+      <default>false</default>
+      <summary>Calendar needs terminal</summary>
+      <description>
+        Whether the default calendar application needs a terminal to run.
+      </description>
+    </key>
+  </schema>
+  <schema id="org.cinnamon.desktop.default-applications.office.tasks" path="/org/cinnamon/desktop/applications/office/tasks/">
+    <key name="exec" type="s">
+      <default>'evolution -c tasks'</default>
+      <summary>Default tasks</summary>
+      <description>
+        Default tasks application.
+      </description>
+    </key>
+    <key name="needs-term" type="b">
+      <default>false</default>
+      <summary>Tasks needs terminal</summary>
+      <description>
+        Whether the default tasks application needs a terminal to run.
+      </description>
+    </key>
+  </schema>
+  <schema id="org.cinnamon.desktop.default-applications.terminal" path="/org/cinnamon/desktop/applications/terminal/">
+    <key name="exec" type="s">
+      <default>'gnome-terminal'</default>
+      <summary>Terminal application</summary>
+      <description>
+        Terminal program to use when starting applications that require one.
+      </description>
+    </key>
+    <key name="exec-arg" type="s">
+      <default>'--'</default>
+      <summary>Exec Arguments</summary>
+      <description>
+        Argument used to execute programs in the terminal defined by the
+        'exec' key.
+      </description>
+    </key>
+  </schema>
+  <schema id="org.cinnamon.desktop.default-applications.calculator" path="/org/cinnamon/desktop/applications/calculator/">
+    <key name="exec" type="s">
+      <default>'gnome-calculator'</default>
+      <summary>Default calculator</summary>
+      <description>
+        Default calculator application.
+      </description>
+    </key>
+    <key name="needs-term" type="b">
+      <default>false</default>
+      <summary>Calculator needs terminal</summary>
+      <description>
+        Whether the default calculator application needs a terminal to run.
+      </description>
+    </key>
+  </schema>
+</schemalist>

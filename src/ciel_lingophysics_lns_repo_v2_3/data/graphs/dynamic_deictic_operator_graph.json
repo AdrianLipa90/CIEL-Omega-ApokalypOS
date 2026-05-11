@@ -1,0 +1,152 @@
+{
+  "version": "1.2",
+  "nodes": [
+    {
+      "id": "op:dyn:somewhere",
+      "label": "Somewhere",
+      "type": "dynamic_spatial_indefinite"
+    },
+    {
+      "id": "op:dyn:anywhere",
+      "label": "Anywhere",
+      "type": "dynamic_spatial_free_choice"
+    },
+    {
+      "id": "op:dyn:nowhere",
+      "label": "Nowhere",
+      "type": "dynamic_spatial_negative_indefinite"
+    },
+    {
+      "id": "op:dyn:sometime",
+      "label": "Sometime",
+      "type": "dynamic_temporal_indefinite"
+    },
+    {
+      "id": "op:dyn:anytime",
+      "label": "Anytime",
+      "type": "dynamic_temporal_free_choice"
+    },
+    {
+      "id": "op:dyn:never",
+      "label": "Never",
+      "type": "dynamic_temporal_negative_indefinite"
+    },
+    {
+      "id": "op:dyn:somehow",
+      "label": "Somehow",
+      "type": "dynamic_manner_indefinite"
+    },
+    {
+      "id": "op:dyn:somewhere_to",
+      "label": "TowardSomewhere",
+      "type": "dynamic_directional_indefinite"
+    },
+    {
+      "id": "op:dyn:somewhere_from",
+      "label": "FromSomewhere",
+      "type": "dynamic_source_indefinite"
+    }
+  ],
+  "edges": [
+    {
+      "source": "op:dyn:somewhere",
+      "target": "op:dyn:nowhere",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somewhere",
+      "target": "op:dyn:anywhere",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somewhere",
+      "target": "op:query:where",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:anywhere",
+      "target": "op:dyn:somewhere",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:anywhere",
+      "target": "op:dyn:nowhere",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:nowhere",
+      "target": "op:dyn:somewhere",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:nowhere",
+      "target": "op:logical:not",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:sometime",
+      "target": "op:dyn:never",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:sometime",
+      "target": "op:dyn:anytime",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:sometime",
+      "target": "op:query:when",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:anytime",
+      "target": "op:dyn:sometime",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:anytime",
+      "target": "op:dyn:never",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:never",
+      "target": "op:dyn:sometime",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:never",
+      "target": "op:logical:not",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somehow",
+      "target": "op:query:how",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somehow",
+      "target": "op:dyn:anyhow",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somewhere_to",
+      "target": "op:dyn:somewhere_from",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somewhere_to",
+      "target": "op:spatial:to",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somewhere_from",
+      "target": "op:dyn:somewhere_to",
+      "relation": "related_dynamic_operator"
+    },
+    {
+      "source": "op:dyn:somewhere_from",
+      "target": "op:spatial:from",
+      "relation": "related_dynamic_operator"
+    }
+  ]
+}

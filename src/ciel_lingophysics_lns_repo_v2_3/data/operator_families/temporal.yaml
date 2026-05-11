@@ -1,0 +1,12 @@
+family_id: family:temporal
+description: Temporal order, simultaneity and event binding.
+operators:
+- op:core:before
+- op:core:after
+- op:core:when
+canonical_axes:
+- temporal_order
+- event_condition
+duals:
+- left: Before(x,y)
+  right: After(y,x)

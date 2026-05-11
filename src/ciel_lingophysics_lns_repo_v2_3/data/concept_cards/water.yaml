@@ -1,0 +1,350 @@
+ciel_lns: 0.7-concept-card-multilingual-draft
+concept_id: ciel:concept:water:0001
+canonical_attractor:
+  label: water
+  core_formula: H2O_as_common_linguistic_concept_not_chemical_database
+  semantic_axes:
+  - life
+  - flow
+  - cleansing
+  - danger
+  - boundary
+  - memory
+  - coolness
+  - fluidity
+  semantic_mass: 0.93
+  attractor_stability: 0.89
+  effective_potential:
+    life_support: 0.96
+    danger_flood_drowning: 0.42
+    cleansing: 0.77
+    symbolic_depth: 0.81
+  note: This card is hand-curated seed data, not copied from proprietary dictionaries.
+languages:
+  pl:
+    language: Polish
+    lemma: woda
+    script: Latin
+    pos: NOUN
+    gender: feminine
+    number: singular
+    case_system: 1.0
+    word_order: SVO-flexible
+    inflection_density: 0.92
+    description: substancja płynna, podstawowy atraktor życia, oczyszczania i przepływu
+    synonyms:
+    - ciecz
+    - płyn
+    - H2O
+    - wody
+    near_synonyms:
+    - wilgoć
+    - napój
+    - strumień
+    - akwatyczność
+    antonyms:
+    - susza
+    - ogień
+    - suchość
+    forms:
+    - woda
+    - wody
+    - wodzie
+    - wodę
+    - wodą
+    - wodo
+    - wodach
+    - wodami
+    contexts:
+    - Woda płynie przez rzekę.
+    - Potrzebuję wody.
+    - Woda jest warunkiem życia.
+    operators:
+      noun_mass: x
+      case_operator: K_case
+      prepositional_channel: f:x->y
+      aspect_context: C_aspect
+      negation: ¬
+      pluralization: μ_n
+    grammar_vector:
+    - 0.92
+    - 0.74
+    - 0.65
+    - 0.25
+    - 0.35
+    - 0.4
+    - 0.25
+    - 0.62
+  en:
+    language: English
+    lemma: water
+    script: Latin
+    pos: NOUN
+    gender: none
+    number: singular/mass
+    case_system: 0.15
+    word_order: SVO-fixed
+    inflection_density: 0.28
+    description: liquid substance, life-supporting attractor of flow, cleansing and
+      continuity
+    synonyms:
+    - H2O
+    - liquid
+    - aqua
+    near_synonyms:
+    - fluid
+    - rain
+    - stream
+    - moisture
+    antonyms:
+    - drought
+    - fire
+    - dryness
+    forms:
+    - water
+    - waters
+    - watered
+    - watering
+    contexts:
+    - Water flows through the river.
+    - I need water.
+    - Water is a condition of life.
+    operators:
+      noun_mass: x
+      article_operator: D
+      prepositional_channel: f:x->y
+      aspect_context: C_aspect
+      negation: not
+      pluralization: μ_n
+    grammar_vector:
+    - 0.28
+    - 0.85
+    - 0.72
+    - 0.2
+    - 0.1
+    - 0.3
+    - 0.15
+    - 0.58
+  de:
+    language: German
+    lemma: Wasser
+    script: Latin
+    pos: NOUN
+    gender: neuter
+    number: singular/mass
+    case_system: 0.75
+    word_order: V2/SOV-subordinate
+    inflection_density: 0.7
+    description: flüssige Substanz, Attraktor von Leben und Fluss
+    synonyms:
+    - H2O
+    - Flüssigkeit
+    near_synonyms:
+    - Nässe
+    - Regen
+    - Strom
+    antonyms:
+    - Dürre
+    - Feuer
+    - Trockenheit
+    forms:
+    - Wasser
+    - Wassers
+    - 'Wasserstoff- Kontext: nicht identisch'
+    - Wässer
+    contexts:
+    - Das Wasser fließt durch den Fluss.
+    - Ich brauche Wasser.
+    operators:
+      noun_mass: x
+      case_operator: K_case
+      article_operator: D
+      verb_second_constraint: V2
+      compound_operator: ⊗
+    grammar_vector:
+    - 0.7
+    - 0.55
+    - 0.66
+    - 0.2
+    - 0.62
+    - 0.55
+    - 0.25
+    - 0.5
+  fr:
+    language: French
+    lemma: eau
+    script: Latin
+    pos: NOUN
+    gender: feminine
+    number: singular/mass
+    case_system: 0.05
+    word_order: SVO-fixed
+    inflection_density: 0.38
+    description: substance liquide, attracteur de vie, flux et purification
+    synonyms:
+    - H2O
+    - liquide
+    near_synonyms:
+    - humidité
+    - pluie
+    - rivière
+    antonyms:
+    - sécheresse
+    - feu
+    forms:
+    - eau
+    - eaux
+    - de l’eau
+    - à l’eau
+    contexts:
+    - L’eau coule dans la rivière.
+    - J’ai besoin d’eau.
+    operators:
+      noun_mass: x
+      article_operator: D
+      partitive_operator: Part
+      prepositional_channel: f:x->y
+    grammar_vector:
+    - 0.38
+    - 0.82
+    - 0.72
+    - 0.18
+    - 0.1
+    - 0.35
+    - 0.2
+    - 0.54
+  es:
+    language: Spanish
+    lemma: agua
+    script: Latin
+    pos: NOUN
+    gender: feminine with masculine article in singular
+    number: singular/mass
+    case_system: 0.05
+    word_order: SVO-flexible
+    inflection_density: 0.46
+    description: sustancia líquida, atractor de vida, flujo y limpieza
+    synonyms:
+    - H2O
+    - líquido
+    near_synonyms:
+    - humedad
+    - lluvia
+    - río
+    antonyms:
+    - sequía
+    - fuego
+    - sequedad
+    forms:
+    - agua
+    - aguas
+    - el agua
+    - del agua
+    contexts:
+    - El agua fluye por el río.
+    - Necesito agua.
+    operators:
+      noun_mass: x
+      article_operator: D
+      gender_exception_operator: G_ex
+      prepositional_channel: f:x->y
+    grammar_vector:
+    - 0.46
+    - 0.78
+    - 0.7
+    - 0.18
+    - 0.12
+    - 0.4
+    - 0.2
+    - 0.55
+  ja:
+    language: Japanese
+    lemma: 水
+    readings:
+    - みず/mizu
+    - スイ/sui
+    script: Kanji/Kana
+    pos: NOUN
+    gender: none
+    number: contextual
+    case_system: 0.35
+    word_order: SOV-topic-prominent
+    inflection_density: 0.42
+    description: 液体、生命と流れの意味場を持つ語
+    synonyms:
+    - H2O
+    - 液体
+    near_synonyms:
+    - 雨
+    - 川
+    - 湿気
+    antonyms:
+    - 乾燥
+    - 火
+    forms:
+    - 水
+    - みず
+    - 水が
+    - 水を
+    - 水に
+    contexts:
+    - 水が川を流れる。
+    - 水が必要です。
+    operators:
+      glyph_microknot: G_kanji
+      topic_particle: は
+      case_particle: が/を/に
+      SOV_binding: T_final
+      contextual_number: μ_ctx
+    grammar_vector:
+    - 0.42
+    - 0.35
+    - 0.78
+    - 0.88
+    - 0.25
+    - 0.45
+    - 0.75
+    - 0.52
+cross_language:
+  invariant: liquid/life/flow attractor preserved across local grammar gauges
+  antonym_phase_constraint: Ant_xi(water,dryness/fire/drought) => exp(i*Δφ)+1≈0 on
+    selected axis
+  translation_equivalence_rule: equivalence requires invariant, role, context, path
+    and outcome compatibility, not surface similarity
+relations:
+- source: water
+  target: life
+  type: supports
+  weight: 0.96
+- source: water
+  target: flow
+  type: embodies
+  weight: 0.94
+- source: water
+  target: cleansing
+  type: symbolizes
+  weight: 0.74
+- source: water
+  target: drought
+  type: antonym_axis
+  axis: moisture
+  phase_delta: pi
+  weight: 0.91
+- source: water
+  target: fire
+  type: oppositional_contextual
+  axis: elemental_symbolic
+  phase_delta: pi
+  weight: 0.66
+- source: water
+  target: flood
+  type: danger_potential
+  weight: 0.48
+linguistic_operators:
+  noun_as_mass: N -> x_m
+  context_operator: C(o,l,t)
+  grammar_gauge: A_gram^(l)
+  meaning_operator: S_hat(surface,grammar,context,memory)
+  purpose_operator: G_hat(psi_sem)->T(M_S)
+  path_operator: P_hat(psi_sem)->Traj(M_Omega)
+  effective_potential: U_eff = U_S + U_path + U_outcome

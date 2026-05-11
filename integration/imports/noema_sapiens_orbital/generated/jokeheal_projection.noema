@@ -1,0 +1,14 @@
+# Generated/spec projection stub for SAT-JOKEHEAL-0001.
+# Authority: projection only. This file grants no runtime authority to NOEMA.
+
+object jokeheal_subsystem_SAT_JOKEHEAL_0001
+  kind = "satellite_subsystem"
+  role = "cognitive_tension_relief"
+  canonical_code = "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/jokeheal/"
+  packaged_adapter = "src/ciel_sot_agent/jokeheal.py"
+  boundary_protocol = "contracts/JOKEHEAL_BOUNDARY_PROTOCOL.md"
+  humor_rule = "touch_pain_not_deny_pain"
+  literal_marker = "sensu_stricte"
+  literal_alarm_rule = "dangerous_concrete_action_disables_comedy"
+  authority = "projection_only_no_runtime_authority"
+end

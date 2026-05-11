@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Storage Fallback Record",
+  "type": "object",
+  "required": [
+    "preferred_format",
+    "fallback_format",
+    "used_fallback",
+    "target_path",
+    "result_path",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "preferred_format": {
+      "type": "string"
+    },
+    "fallback_format": {
+      "type": "string"
+    },
+    "used_fallback": {
+      "type": "boolean"
+    },
+    "error_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "error_message": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_path": {
+      "type": "string"
+    },
+    "result_path": {
+      "type": "string"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    }
+  }
+}

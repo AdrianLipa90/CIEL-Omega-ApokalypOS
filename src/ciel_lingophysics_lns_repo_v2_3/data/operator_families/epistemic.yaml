@@ -1,0 +1,17 @@
+family_id: family:epistemic
+description: Knowledge, belief, doubt, proof and uncertainty.
+operators:
+- op:future:know
+- op:future:believe
+- op:future:doubt
+- op:future:prove
+canonical_axes:
+- knowledge
+- belief
+- doubt
+- proof
+core_equations:
+- Know(agent,p)
+- Believe(agent,p)
+- Doubt(agent,p)
+- Prove(agent,p)

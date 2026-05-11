@@ -1,0 +1,11 @@
+check,path,status,observed,expected,error
+batch01_concept_count,,PASS,36,36,
+batch01_language_panels,,WARN,0,180,
+required_path_exists,data/operator_algebra/operator_algebra_index.json,PASS,,,
+required_path_exists,data/operator_compositions/duals.yaml,PASS,,,
+required_path_exists,data/operator_compositions/inverses.yaml,PASS,,,
+required_path_exists,data/operator_compositions/negations.yaml,PASS,,,
+required_path_exists,data/case_systems/slavic_case_gauge.yaml,PASS,,,
+required_path_exists,data/tame/tame_operator_system.yaml,PASS,,,
+required_path_exists,data/scope/scope_quantifier_negation.yaml,PASS,,,
+required_path_exists,src/lingophysics/storage_fallback.py,PASS,,,

@@ -1,0 +1,29 @@
+version: '1.9'
+tasks:
+- id: operator_class_prediction
+  target: operator.class
+  loss: cross_entropy
+  weight: 0.2
+- id: event_role_prediction
+  target: event_frame.roles
+  loss: multi_label_bce
+  weight: 0.25
+- id: scope_status_prediction
+  target: scope.status
+  loss: cross_entropy
+  weight: 0.2
+- id: tame_vector_prediction
+  target: tame.vector
+  loss: multi_label_bce
+  weight: 0.15
+- id: phase_constraint_prediction
+  target: phase.constraint_status
+  loss: mse_or_margin
+  weight: 0.1
+- id: graph_distance_regression
+  target: graph.distance
+  loss: smooth_l1
+  weight: 0.1
+formula: L_total = L_lm + sum(lambda_i * L_i)
+note: Weights are provisional configuration values.
+

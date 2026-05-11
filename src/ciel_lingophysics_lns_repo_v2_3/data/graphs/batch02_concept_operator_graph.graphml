@@ -1,0 +1,1217 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="edge" attr.name="status" attr.type="string"/>
+<key id="d3" for="edge" attr.name="type" attr.type="string"/>
+<key id="d2" for="node" attr.name="batch" attr.type="string"/>
+<key id="d1" for="node" attr.name="type" attr.type="string"/>
+<key id="d0" for="node" attr.name="label" attr.type="string"/>
+<graph edgedefault="directed"><node id="concept:eye">
+  <data key="d0">eye</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:see">
+  <data key="d0">see</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:has_part">
+  <data key="d0">has_part</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:inside">
+  <data key="d0">inside</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:with">
+  <data key="d0">with</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:body">
+  <data key="d0">body</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:knowledge">
+  <data key="d0">knowledge</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:hand">
+  <data key="d0">hand</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:make">
+  <data key="d0">make</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:give">
+  <data key="d0">give</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:work">
+  <data key="d0">work</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:voice">
+  <data key="d0">voice</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:emit">
+  <data key="d0">emit</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:about">
+  <data key="d0">about</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:as">
+  <data key="d0">as</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:sound">
+  <data key="d0">sound</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:self">
+  <data key="d0">self</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:name">
+  <data key="d0">name</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:is">
+  <data key="d0">is</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:call">
+  <data key="d0">call</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:word">
+  <data key="d0">word</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:face">
+  <data key="d0">face</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:identity">
+  <data key="d0">identity</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:blood">
+  <data key="d0">blood</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:flow">
+  <data key="d0">flow</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:supports">
+  <data key="d0">supports</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:life">
+  <data key="d0">life</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:thought">
+  <data key="d0">thought</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:think">
+  <data key="d0">think</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:not">
+  <data key="d0">not</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:mind">
+  <data key="d0">mind</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:idea">
+  <data key="d0">idea</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:question">
+  <data key="d0">question</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:ask">
+  <data key="d0">ask</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:answer">
+  <data key="d0">answer</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:how">
+  <data key="d0">how</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:because">
+  <data key="d0">because</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:answer">
+  <data key="d0">answer</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:unknown">
+  <data key="d0">unknown</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:reason">
+  <data key="d0">reason</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:if_then">
+  <data key="d0">if_then</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:prove">
+  <data key="d0">prove</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:chaos">
+  <data key="d0">chaos</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:doubt">
+  <data key="d0">doubt</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:maybe">
+  <data key="d0">maybe</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:question">
+  <data key="d0">question</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:scope">
+  <data key="d0">scope</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:proof">
+  <data key="d0">proof</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:error">
+  <data key="d0">error</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:person">
+  <data key="d0">person</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:has">
+  <data key="d0">has</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:human">
+  <data key="d0">human</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:child">
+  <data key="d0">child</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:from">
+  <data key="d0">from</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:to">
+  <data key="d0">to</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:care">
+  <data key="d0">care</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:parent">
+  <data key="d0">parent</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:care">
+  <data key="d0">care</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:friend">
+  <data key="d0">friend</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:against">
+  <data key="d0">against</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:trust">
+  <data key="d0">trust</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:trust">
+  <data key="d0">trust</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:enemy">
+  <data key="d0">enemy</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:stranger">
+  <data key="d0">stranger</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:conflict">
+  <data key="d0">conflict</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:house">
+  <data key="d0">house</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:contains">
+  <data key="d0">contains</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:boundary">
+  <data key="d0">boundary</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:door">
+  <data key="d0">door</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:home">
+  <data key="d0">home</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="operator:between">
+  <data key="d0">between</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:through">
+  <data key="d0">through</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:inside_outside">
+  <data key="d0">inside_outside</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:road">
+  <data key="d0">road</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:path">
+  <data key="d0">path</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:motion">
+  <data key="d0">motion</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:city">
+  <data key="d0">city</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:country">
+  <data key="d0">country</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:law">
+  <data key="d0">law</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:border">
+  <data key="d0">border</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:border">
+  <data key="d0">border</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:center">
+  <data key="d0">center</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:gift">
+  <data key="d0">gift</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:have">
+  <data key="d0">have</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:for">
+  <data key="d0">for</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:debt">
+  <data key="d0">debt</data>
+  <data key="d1">concept_or_external</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:promise">
+  <data key="d0">promise</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:will">
+  <data key="d0">will</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:must">
+  <data key="d0">must</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:promise">
+  <data key="d0">promise</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:law">
+  <data key="d0">law</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="concept:order">
+  <data key="d0">order</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:freedom">
+  <data key="d0">freedom</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="operator:do">
+  <data key="d0">do</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:money">
+  <data key="d0">money</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:means">
+  <data key="d0">means</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:language">
+  <data key="d0">language</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:meaning">
+  <data key="d0">meaning</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:sign">
+  <data key="d0">sign</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:points_to">
+  <data key="d0">points_to</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:signifies">
+  <data key="d0">signifies</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:hear">
+  <data key="d0">hear</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:sound">
+  <data key="d0">sound</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:silence">
+  <data key="d0">silence</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:without">
+  <data key="d0">without</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:state_be">
+  <data key="d0">state_be</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:silence">
+  <data key="d0">silence</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:rest">
+  <data key="d0">rest</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:story">
+  <data key="d0">story</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:tell">
+  <data key="d0">tell</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:before_after">
+  <data key="d0">before_after</data>
+  <data key="d1">operator</data>
+</node>
+<node id="operator:memory">
+  <data key="d0">memory</data>
+  <data key="d1">operator</data>
+</node>
+<node id="concept:event">
+  <data key="d0">event</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:memory">
+  <data key="d0">memory</data>
+  <data key="d1">concept_or_external</data>
+</node>
+<node id="concept:song">
+  <data key="d0">song</data>
+  <data key="d1">concept</data>
+  <data key="d2">batch02</data>
+</node>
+<node id="operator:sing">
+  <data key="d0">sing</data>
+  <data key="d1">operator</data>
+</node>
+<edge source="concept:eye" target="operator:see">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:eye" target="operator:has_part">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:eye" target="operator:inside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:eye" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:eye" target="concept:body">
+  <data key="d3">part_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:eye" target="concept:knowledge">
+  <data key="d3">enables</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:hand" target="operator:has_part">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:hand" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:hand" target="operator:make">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:hand" target="operator:give">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:hand" target="concept:body">
+  <data key="d3">part_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:hand" target="concept:work">
+  <data key="d3">enables</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:work" target="operator:do">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:work" target="operator:make">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:work" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:work" target="operator:for">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:work" target="concept:hand">
+  <data key="d3">uses</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:work" target="concept:money">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:voice" target="operator:emit">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:voice" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:voice" target="operator:about">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:voice" target="operator:as">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:voice" target="concept:sound">
+  <data key="d3">uses</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:voice" target="concept:self">
+  <data key="d3">expresses</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:sound" target="operator:emit">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sound" target="operator:hear">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sound" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sound" target="operator:sound">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sound" target="concept:voice">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:sound" target="concept:silence">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:name" target="operator:is">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:name" target="operator:as">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:name" target="operator:call">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:name" target="concept:self">
+  <data key="d3">symbol_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:name" target="concept:word">
+  <data key="d3">uses</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:word" target="operator:is">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:word" target="operator:as">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:word" target="operator:means">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:word" target="operator:contains">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:word" target="concept:language">
+  <data key="d3">part_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:word" target="concept:meaning">
+  <data key="d3">contains</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:face" target="operator:see">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:face" target="operator:has_part">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:face" target="operator:as">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:face" target="concept:body">
+  <data key="d3">part_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:face" target="concept:identity">
+  <data key="d3">signals</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:blood" target="operator:inside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:blood" target="operator:flow">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:blood" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:blood" target="operator:supports">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:blood" target="concept:life">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:blood" target="concept:body">
+  <data key="d3">inside</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:thought" target="operator:inside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:thought" target="operator:about">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:thought" target="operator:think">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:thought" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:thought" target="concept:mind">
+  <data key="d3">inside</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:thought" target="concept:idea">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:idea" target="operator:inside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:idea" target="operator:about">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:idea" target="operator:think">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:idea" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:idea" target="concept:mind">
+  <data key="d3">inside</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:idea" target="concept:work">
+  <data key="d3">can_transform_into</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:question" target="operator:ask">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:question" target="operator:answer">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:question" target="operator:how">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:question" target="operator:because">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:question" target="concept:answer">
+  <data key="d3">seeks</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:question" target="concept:unknown">
+  <data key="d3">marks</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:answer" target="operator:ask">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:answer" target="operator:answer">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:answer" target="operator:how">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:answer" target="operator:because">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:answer" target="concept:question">
+  <data key="d3">responds_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:answer" target="concept:knowledge">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:reason" target="operator:because">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:reason" target="operator:if_then">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:reason" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:reason" target="operator:prove">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:reason" target="concept:knowledge">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:reason" target="concept:chaos">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:doubt" target="operator:maybe">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:doubt" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:doubt" target="operator:question">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:doubt" target="operator:scope">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:doubt" target="concept:proof">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:doubt" target="concept:error">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:person" target="operator:is">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:person" target="operator:has">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:person" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:person" target="operator:as">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:person" target="concept:human">
+  <data key="d3">is_a</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:person" target="concept:self">
+  <data key="d3">has</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:child" target="operator:has">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:child" target="operator:from">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:child" target="operator:to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:child" target="operator:care">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:child" target="concept:parent">
+  <data key="d3">relation_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:child" target="concept:life">
+  <data key="d3">stage_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:parent" target="operator:has">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:parent" target="operator:from">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:parent" target="operator:to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:parent" target="operator:care">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:parent" target="concept:child">
+  <data key="d3">relation_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:parent" target="concept:care">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:friend" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:friend" target="operator:against">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:friend" target="operator:trust">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:friend" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:friend" target="concept:trust">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:friend" target="concept:enemy">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:enemy" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:enemy" target="operator:against">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:enemy" target="operator:trust">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:enemy" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:enemy" target="concept:friend">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:enemy" target="concept:conflict">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:stranger" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:stranger" target="operator:against">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:stranger" target="operator:trust">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:stranger" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:stranger" target="concept:self">
+  <data key="d3">is_other</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:stranger" target="concept:friend">
+  <data key="d3">may_become</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:house" target="operator:inside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:house" target="operator:contains">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:house" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:house" target="operator:boundary">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:house" target="concept:door">
+  <data key="d3">contains</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:house" target="concept:home">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:door" target="operator:between">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:door" target="operator:through">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:door" target="operator:inside_outside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:door" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:door" target="concept:house">
+  <data key="d3">part_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:door" target="concept:road">
+  <data key="d3">enables</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:road" target="operator:from">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:road" target="operator:to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:road" target="operator:through">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:road" target="operator:path">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:road" target="concept:motion">
+  <data key="d3">enables</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:road" target="concept:city">
+  <data key="d3">connects</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:city" target="operator:inside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:city" target="operator:contains">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:city" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:city" target="operator:boundary">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:city" target="concept:house">
+  <data key="d3">contains</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:city" target="concept:country">
+  <data key="d3">part_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:country" target="operator:inside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:country" target="operator:contains">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:country" target="operator:law">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:country" target="operator:border">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:country" target="concept:city">
+  <data key="d3">contains</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:country" target="concept:border">
+  <data key="d3">bounded_by</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:border" target="operator:between">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:border" target="operator:through">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:border" target="operator:inside_outside">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:border" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:border" target="concept:country">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:border" target="concept:center">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:gift" target="operator:give">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:gift" target="operator:to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:gift" target="operator:have">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:gift" target="operator:for">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:gift" target="concept:debt">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:gift" target="concept:care">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:debt" target="operator:give">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:debt" target="operator:to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:debt" target="operator:have">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:debt" target="operator:for">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:debt" target="concept:gift">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:debt" target="concept:promise">
+  <data key="d3">requires</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:promise" target="operator:will">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:promise" target="operator:must">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:promise" target="operator:promise">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:promise" target="operator:to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:promise" target="concept:trust">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:promise" target="concept:debt">
+  <data key="d3">can_create</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:law" target="operator:must">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:law" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:law" target="operator:if_then">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:law" target="operator:because">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:law" target="concept:order">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:law" target="concept:freedom">
+  <data key="d3">constrains</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:money" target="operator:give">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:money" target="operator:to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:money" target="operator:have">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:money" target="operator:for">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:money" target="concept:work">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:money" target="concept:debt">
+  <data key="d3">can_create</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:sign" target="operator:means">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sign" target="operator:as">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sign" target="operator:points_to">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sign" target="operator:signifies">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:sign" target="concept:meaning">
+  <data key="d3">symbol_of</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:sign" target="concept:name">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:silence" target="operator:not">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:silence" target="operator:without">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:silence" target="operator:state_be">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:silence" target="operator:silence">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:silence" target="concept:sound">
+  <data key="d3">opposes</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:silence" target="concept:rest">
+  <data key="d3">relates_to</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:story" target="operator:tell">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:story" target="operator:about">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:story" target="operator:before_after">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:story" target="operator:memory">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:story" target="concept:event">
+  <data key="d3">contains</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:story" target="concept:memory">
+  <data key="d3">supports</data>
+  <data key="d4">draft_seed</data>
+</edge>
+<edge source="concept:song" target="operator:sing">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:song" target="operator:with">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:song" target="operator:about">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:song" target="operator:sound">
+  <data key="d3">operator_hook</data>
+</edge>
+<edge source="concept:song" target="concept:sound">
+  <data key="d3">uses</data>
+  <data key="d4">draft_seed</data>
+</edge>
+</graph></graphml>

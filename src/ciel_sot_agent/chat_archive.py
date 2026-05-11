@@ -19,8 +19,9 @@ _RAW_LOGS = _MEMORIES_BASE / "raw_logs"
 _DB_PATH = _MEMORIES_BASE / "memories_index.db"
 
 _lock = threading.Lock()
-_session_id: str = str(uuid.uuid4())[:8]
-_session_file: dict[str, Path] = {}
+_default_session_id: str = str(uuid.uuid4())[:8]
+# One log file per (source, session_id). `session_id` may be provided by an external system (e.g. Codex).
+_session_file: dict[tuple[str, str], Path] = {}
 
 
 # ── SQLite index ────────────────────────────────────────────────────────────
@@ -84,35 +85,44 @@ def _db_append_message(session_id: str, role: str, content: str, source: str, mo
 
 # ── session file ─────────────────────────────────────────────────────────────
 
-def _session_path(source: str) -> Path:
+def _normalize_session_id(session_id: str | None) -> str:
+    sid = (session_id or _default_session_id).strip() or _default_session_id
+    # Keep filenames short, keep DB ids stable (DB uses caller-provided session_id).
+    return sid[:32]
+
+
+def _session_path(source: str, session_id: str | None) -> Path:
     now = datetime.now(timezone.utc)
     week = f"W{now.strftime('%V')}"
     folder = _RAW_LOGS / now.strftime("%Y") / now.strftime("%m") / week
     folder.mkdir(parents=True, exist_ok=True)
-    fname = f"{now.strftime('%Y-%m-%d_%H-%M')}_{_session_id}_{source}.md"
+    sid = _normalize_session_id(session_id)
+    fname = f"{now.strftime('%Y-%m-%d_%H-%M')}_{sid}_{source}.md"
     return folder / fname
 
 
-def _get_session_file(source: str) -> Path:
-    if source not in _session_file:
-        path = _session_path(source)
+def _get_session_file(source: str, session_id: str | None) -> Path:
+    sid = _normalize_session_id(session_id)
+    key = (source, sid)
+    if key not in _session_file:
+        path = _session_path(source, sid)
         with _lock:
-            if source not in _session_file:
+            if key not in _session_file:
                 path.write_text(
                     f"# CIEL Conversation Log\n"
                     f"- source  : {source}\n"
-                    f"- session : {_session_id}\n"
+                    f"- session : {sid}\n"
                     f"- started : {datetime.now(timezone.utc).isoformat()}\n\n---\n\n",
                     encoding="utf-8",
                 )
-                _session_file[source] = path
-                _db_register_session(_session_id, path, source)
-    return _session_file[source]
+                _session_file[key] = path
+                _db_register_session(sid, path, source)
+    return _session_file[key]
 
 
-def open_session(source: str = "gui_gguf") -> Path:
+def open_session(source: str = "gui_gguf", session_id: str | None = None) -> Path:
     """Pre-create session file immediately — call at startup."""
-    return _get_session_file(source)
+    return _get_session_file(source, session_id=session_id)
 
 
 # ── public API ───────────────────────────────────────────────────────────────
@@ -133,11 +143,11 @@ def append(
         if extra:
             extra_str = "\n" + "\n".join(f"_{k}: {v}_" for k, v in extra.items())
         block = f"### [{ts}] {role_label}\n\n{content}{extra_str}\n\n---\n\n"
-        path = _get_session_file(source)
+        path = _get_session_file(source, session_id=session_id)
         with _lock:
             with open(path, "a", encoding="utf-8") as f:
                 f.write(block)
-        _db_append_message(session_id or _session_id, role, content, source, model)
+        _db_append_message(_normalize_session_id(session_id), role, content, source, model)
     except Exception:
         pass
 
@@ -186,9 +196,10 @@ def load_last_session_history(source: str = "gui_gguf", max_messages: int = 40) 
         key=lambda p: p.stat().st_mtime,
         reverse=True,
     )
-    current = _session_file.get(source)
+    # Skip all session files opened in the current process for this source.
+    current = {p for (src, _sid), p in _session_file.items() if src == source}
     for f in files:
-        if current and f == current:
+        if current and f in current:
             continue
         text = f.read_text(encoding="utf-8", errors="replace")
         messages = _parse_log_to_history(text)

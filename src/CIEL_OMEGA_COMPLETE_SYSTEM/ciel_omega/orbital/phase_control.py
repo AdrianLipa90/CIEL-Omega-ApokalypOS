@@ -116,8 +116,11 @@ def recommend_control(final: dict) -> dict:
     coherent_frac  = max(0.0, min(1.0, _obs(final, "nonlocal_coherent_fraction", "coherent_fraction")))
     eba_defect     = max(0.0, _obs(final, "nonlocal_eba_defect_mean", "eba_defect_mean"))
     closure_score  = max(0.0, min(1.0, _obs(final, "euler_bridge_closure_score", "bridge_closure_score", "closure_score")))
-    target_phase   = _obs(final, "euler_bridge_target_phase", "bridge_target_phase", "target_phase")
+    target_phase   = _obs(final, "euler_bridge_target_phase", "bridge_target_phase", "lingo_phase_target", "target_phase")
     phi_berry      = _obs(final, "nonlocal_phi_berry_mean", "phi_berry_mean")
+    tau_bridge     = final.get("lingo_tau_bridge") if isinstance(final.get("lingo_tau_bridge"), dict) else {}
+    tau_gradient   = float((tau_bridge or {}).get("tau_gradient_mean", _obs(final, "lingo_tau_gradient_mean")) or 0.0)
+    imaginal_drive = float((tau_bridge or {}).get("imaginal_drive", _obs(final, "lingo_imaginal_drive")) or 0.0)
     diff           = (phi_berry - target_phase + math.pi) % (2 * math.pi) - math.pi
     phase_gap      = min(1.0, abs(diff) / math.pi)
 
@@ -143,7 +146,8 @@ def recommend_control(final: dict) -> dict:
         and euler_memory_lock
         and rh_decision.severity != "high"
     )
-    target_phase_shift = -zeta_phase + 0.25 * target_phase
+    tau_bias = 0.15 * tau_gradient * (0.5 + 0.5 * max(0.0, min(1.0, imaginal_drive)))
+    target_phase_shift = -zeta_phase + 0.25 * target_phase + tau_bias
 
     notes = {
         "deep":     "Strong coherence and closure: allow deeper diagnostic/integration passes.",
@@ -176,6 +180,9 @@ def build_state_manifest(final: dict) -> dict:
     rh_eff, _drivers = effective_rh(final)
     ci      = coherence_index_from_snapshot(final)
     penalty = phase_lock_error(final)
+    lingo_frame = final.get("lingo_frame") if isinstance(final.get("lingo_frame"), dict) else {}
+    noema_route = lingo_frame.get("noema_route") if isinstance(lingo_frame.get("noema_route"), dict) else {}
+    phase_projection = lingo_frame.get("phase_projection") if isinstance(lingo_frame.get("phase_projection"), dict) else {}
     return {
         "coherence_index":              ci,
         "topological_charge_global":    topological_charge_global(final),
@@ -190,7 +197,18 @@ def build_state_manifest(final: dict) -> dict:
         "nonlocal_eba_defect_mean":     _obs(final, "nonlocal_eba_defect_mean",      "eba_defect_mean"),
         "nonlocal_coherent_fraction":   _obs(final, "nonlocal_coherent_fraction",    "coherent_fraction"),
         "euler_bridge_closure_score":   _obs(final, "euler_bridge_closure_score",    "bridge_closure_score", "closure_score"),
-        "euler_bridge_target_phase":    _obs(final, "euler_bridge_target_phase",     "bridge_target_phase",  "target_phase"),
+        "euler_bridge_target_phase":    _obs(final, "euler_bridge_target_phase",     "bridge_target_phase", "lingo_phase_target", "target_phase"),
+        "lingo_phase_target":           _obs(final, "lingo_phase_target", "target_phase"),
+        "lingo_phase_confidence":       float((phase_projection or {}).get("phase_confidence", final.get("lingo_phase_confidence", 0.0)) if phase_projection else float(final.get("lingo_phase_confidence", 0.0) or 0.0)),
+        "lingo_noema_confidence":       float((noema_route or {}).get("confidence", final.get("lingo_noema_confidence", 0.0)) if noema_route else float(final.get("lingo_noema_confidence", 0.0) or 0.0)),
+        "lingo_tau_gradient_mean":      _obs(final, "lingo_tau_gradient_mean"),
+        "lingo_imaginal_drive":         _obs(final, "lingo_imaginal_drive"),
+        "lingo_tau_curvature_rms":      _obs(final, "lingo_tau_curvature_rms"),
+        "lingo_summary":                str(final.get("lingo_summary", lingo_frame.get("summary", "")) or ""),
+        "lingo_concept_count":          int(final.get("lingo_concept_count", len(lingo_frame.get("concept_tokens", []) if isinstance(lingo_frame.get("concept_tokens"), list) else [])) or 0),
+        "lingo_operator_count":         int(final.get("lingo_operator_count", len(lingo_frame.get("operator_tokens", []) if isinstance(lingo_frame.get("operator_tokens"), list) else [])) or 0),
+        "lingo_unresolved_count":       int(final.get("lingo_unresolved_count", len(lingo_frame.get("unresolved", []) if isinstance(lingo_frame.get("unresolved"), list) else [])) or 0),
+        "lingo_factual_validation_required": int(bool((noema_route or {}).get("factual_validation_required", final.get("lingo_factual_validation_required", False)))) if (noema_route or final.get("lingo_factual_validation_required") is not None) else 0,
         "effective_rh":                 rh_eff,
         "timestamp":                    datetime.now(timezone.utc).isoformat(),
     }

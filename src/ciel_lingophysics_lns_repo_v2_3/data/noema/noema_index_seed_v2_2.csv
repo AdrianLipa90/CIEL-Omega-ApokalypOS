@@ -1,0 +1,10 @@
+id,canonical_ref,card_type,domains,operator_hooks,confidence,status
+noema:concept:water,concept:water,CONCEPT_CARD,substance|elemental|containment_examples,Inside|Contains|HaveProperty|Move,0.82,curated_seed
+noema:concept:glass,concept:glass,CONCEPT_CARD,container|object|containment_examples,Contains|Inside|HavePart,0.78,curated_seed
+noema:operator:inside,operator:Inside,OPERATOR_CARD,spatial_topological|containment,Inside,0.9,operator_seed
+noema:operator:contains,operator:Contains,OPERATOR_CARD,spatial_topological|containment,Contains,0.9,operator_seed
+noema:scope:negation_quantifier,scope:quantifier_negation,SCOPE_CARD,scope|negation|quantification,Not|All|None|Some,0.72,draft_guardrail
+noema:case:slavic_role_gauge,case:slavic_case_gauge,CASE_GAUGE_CARD,grammar_gauge|role_realization|slavic,AgentRole|PatientRole|RecipientRole|InstrumentRole,0.68,draft_guardrail
+noema:tame:temporal_modality,tame:core,TAME_CARD,tame|epistemic_status|time,Past|Present|Future|Perfective|Imperfective|Must|May,0.7,draft_guardrail
+noema:event:containment_frame,event_frame:containment,EVENT_FRAME,event_frame|containment,Inside|Contains,0.85,curated_seed
+noema:deictic:unresolved_anchor,deictic:dynamic_anchor,DEICTIC_CARD,deixis|unresolved_anchor,UnresolvedPlace|UnresolvedTime|UnresolvedManner,0.66,draft_guardrail

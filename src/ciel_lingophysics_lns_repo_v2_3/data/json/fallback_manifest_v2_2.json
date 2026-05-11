@@ -1,0 +1,16 @@
+{
+  "fallback_manifest_version": "2.2",
+  "created_at_utc": "2026-05-10T14:16:15.342618+00:00",
+  "preferred_outputs": [
+    "json",
+    "yaml",
+    "csv"
+  ],
+  "fallback_rule": "If any binary or database write fails, write JSON fallback and explicit report.",
+  "v2_2_outputs": [
+    "data/noema/noema_index_seed_v2_2.json",
+    "data/noema/routing_policy_v2_2.json",
+    "data/noema/inference_gate_policy_v2_2.json",
+    "reports/v2_2_noema_retrieval_inference_gate_report.json"
+  ]
+}

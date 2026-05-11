@@ -1,0 +1,151 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:name
+canonical_label_en: name
+batch_id: batch02_cognitive_social_36x5
+domain: identity_symbol
+semantic_axes:
+- identity
+- sign
+- language
+semantic_mass_seed: 0.675
+phase_seed_rad: 0.523599
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: imię
+    brief_description: karta pojęciowa 'imię' jako ręcznie kuratorowany seed lingofizyczny
+    near_synonyms_seed:
+    - nazwa
+    antonyms_seed: []
+    forms_seed:
+    - imię
+    - imię as lemma
+    - imię in context
+    context_examples_seed:
+    - imię participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - is
+    - as
+    - call
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: name
+    brief_description: concept card 'name' as a hand-curated lingophysics seed
+    near_synonyms_seed:
+    - label
+    antonyms_seed: []
+    forms_seed:
+    - name
+    - name as lemma
+    - name in context
+    context_examples_seed:
+    - name participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Name
+    brief_description: Begriffskarte 'Name' als handkuratiertes Lingophysik-Seed
+    near_synonyms_seed:
+    - Bezeichnung
+    antonyms_seed: []
+    forms_seed:
+    - Name
+    - Name as lemma
+    - Name in context
+    context_examples_seed:
+    - Name participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: nom
+    brief_description: carte conceptuelle 'nom' comme graine lingophysique curée manuellement
+    near_synonyms_seed:
+    - désignation
+    antonyms_seed: []
+    forms_seed:
+    - nom
+    - nom as lemma
+    - nom in context
+    context_examples_seed:
+    - nom participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: nombre
+    brief_description: tarjeta conceptual 'nombre' como semilla lingofísica curada
+      manualmente
+    near_synonyms_seed:
+    - denominación
+    antonyms_seed: []
+    forms_seed:
+    - nombre
+    - nombre as lemma
+    - nombre in context
+    context_examples_seed:
+    - nombre participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: symbol_of
+  target: concept:self
+  status: draft_seed
+- type: uses
+  target: concept:word
+  status: draft_seed
+quality_flags:
+- CURATED_SEED
+- BATCH02
+- REQUIRES_HUMAN_REVIEW

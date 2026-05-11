@@ -218,6 +218,19 @@ def build_orbital_bridge(root: str | Path) -> dict[str, Any]:
             'collatz_seed': ciel_result.get('collatz_seed', 0),
             'lie4_trace': ciel_result.get('lie4_trace', 0.0),
         }
+        lingo_frame = ciel_result.get('lingo_frame', {}) if isinstance(ciel_result, dict) else {}
+        lingo_phase_projection = lingo_frame.get('phase_projection', {}) if isinstance(lingo_frame, dict) else {}
+        if isinstance(lingo_phase_projection, dict) and lingo_phase_projection:
+            summary['ciel_pipeline']['lingo_phase_target'] = float(lingo_phase_projection.get('target_phase', 0.0))
+            summary['ciel_pipeline']['lingo_phase_shift'] = float(lingo_phase_projection.get('target_phase_shift', 0.0))
+            summary['ciel_pipeline']['lingo_phase_confidence'] = float(lingo_phase_projection.get('phase_confidence', 0.0))
+            summary['ciel_pipeline']['lingo_phase_projection'] = lingo_phase_projection
+        lingo_tau_bridge = lingo_frame.get('tau_bridge', {}) if isinstance(lingo_frame, dict) else {}
+        if isinstance(lingo_tau_bridge, dict) and lingo_tau_bridge:
+            summary['ciel_pipeline']['lingo_tau_bridge'] = lingo_tau_bridge
+            summary['ciel_pipeline']['lingo_tau_gradient_mean'] = float(lingo_tau_bridge.get('tau_gradient_mean', 0.0))
+            summary['ciel_pipeline']['lingo_imaginal_drive'] = float(lingo_tau_bridge.get('imaginal_drive', 0.0))
+            summary['ciel_pipeline']['lingo_tau_curvature_rms'] = float(lingo_tau_bridge.get('tau_curvature_rms', 0.0))
         control_view.update({
             'nonlocal_phi_ab_mean': ciel_result.get('phi_ab_mean', 0.0),
             'nonlocal_phi_berry_mean': ciel_result.get('phi_berry_mean', 0.0),
@@ -226,6 +239,18 @@ def build_orbital_bridge(root: str | Path) -> dict[str, Any]:
             'euler_bridge_closure_score': ciel_result.get('bridge_closure_score', 0.0),
             'euler_bridge_target_phase': ciel_result.get('bridge_target_phase', 0.0),
         })
+        if isinstance(lingo_phase_projection, dict) and lingo_phase_projection:
+            control_view.update({
+                'lingo_phase_target': float(lingo_phase_projection.get('target_phase', 0.0)),
+                'lingo_phase_shift': float(lingo_phase_projection.get('target_phase_shift', 0.0)),
+                'lingo_phase_confidence': float(lingo_phase_projection.get('phase_confidence', 0.0)),
+            })
+        if isinstance(lingo_tau_bridge, dict) and lingo_tau_bridge:
+            control_view.update({
+                'lingo_tau_gradient_mean': float(lingo_tau_bridge.get('tau_gradient_mean', 0.0)),
+                'lingo_imaginal_drive': float(lingo_tau_bridge.get('imaginal_drive', 0.0)),
+                'lingo_tau_curvature_rms': float(lingo_tau_bridge.get('tau_curvature_rms', 0.0)),
+            })
 
         # --- Local Nonlocality Fallback ---
         # If canonical coherent_fraction is below threshold, run PC-state EBA
@@ -270,6 +295,28 @@ def build_orbital_bridge(root: str | Path) -> dict[str, Any]:
             })
         except Exception as fb_exc:
             _LOG.warning("Local nonlocality fallback unavailable: %s", fb_exc)
+
+        # NOEMA memory projection — attach projected memory field to the same bridge state
+        try:
+            from .noema_sot import run as run_noema_sot
+            noema_report = run_noema_sot()
+            summary['noema_sot'] = {
+                'global_coherence': noema_report.get('global_coherence', 0.0),
+                'global_health': noema_report.get('global_health', 0.0),
+                'operating_mode': noema_report.get('operating_mode', 'standard'),
+                'memory_projection': noema_report.get('memory_projection', {}),
+                'priority_order': noema_report.get('priority_order', []),
+            }
+            memory_projection = noema_report.get('memory_projection', {}) or {}
+            summary['memory_projection'] = memory_projection
+            control_view.update({
+                'memory_projection_confidence': float(memory_projection.get('projection_confidence', 0.0)),
+                'memory_projection_residual': float(memory_projection.get('projection_residual', 1.0)),
+                'memory_projection_error': float(memory_projection.get('projection_error', 1.0)),
+                'j_noema': float(memory_projection.get('j_noema', 1.0)),
+            })
+        except Exception as noema_exc:
+            _LOG.warning("NOEMA memory projection unavailable: %s", noema_exc)
 
     except Exception as exc:
         _LOG.warning("CIEL/Ω pipeline unavailable: %s", exc)

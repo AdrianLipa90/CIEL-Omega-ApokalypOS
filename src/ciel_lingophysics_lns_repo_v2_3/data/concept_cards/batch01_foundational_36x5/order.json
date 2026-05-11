@@ -1,0 +1,222 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:order",
+  "canonical_label_en": "order",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "structure",
+  "semantic_axes": [
+    "pattern",
+    "stability",
+    "arrangement"
+  ],
+  "semantic_mass_seed": 0.7688,
+  "phase_seed_rad": 3.839724,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "porządek",
+      "brief_description": "stabilny układ relacji, reguł i wzorców",
+      "near_synonyms_seed": [
+        "ład",
+        "układ"
+      ],
+      "antonyms_seed": [
+        "chaos",
+        "nieład"
+      ],
+      "forms_seed": [
+        "porządek",
+        "porządek jako hasło",
+        "porządek w kontekście"
+      ],
+      "context_examples_seed": [
+        "Porządek tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "arranges",
+        "contains",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "order",
+      "brief_description": "stable arrangement of relations, rules and patterns",
+      "near_synonyms_seed": [
+        "structure",
+        "arrangement"
+      ],
+      "antonyms_seed": [
+        "chaos",
+        "disorder"
+      ],
+      "forms_seed": [
+        "order",
+        "orders",
+        "order as concept"
+      ],
+      "context_examples_seed": [
+        "Order forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "arranges",
+        "contains",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Ordnung",
+      "brief_description": "stabile Anordnung von Beziehungen, Regeln und Mustern",
+      "near_synonyms_seed": [
+        "Struktur",
+        "Anordnung"
+      ],
+      "antonyms_seed": [
+        "Chaos",
+        "Unordnung"
+      ],
+      "forms_seed": [
+        "Ordnung",
+        "Ordnung als Begriff",
+        "Ordnung im Kontext"
+      ],
+      "context_examples_seed": [
+        "Ordnung bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "arranges",
+        "contains",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "ordre",
+      "brief_description": "agencement stable de relations, règles et motifs",
+      "near_synonyms_seed": [
+        "structure",
+        "agencement"
+      ],
+      "antonyms_seed": [
+        "chaos",
+        "désordre"
+      ],
+      "forms_seed": [
+        "ordre",
+        "ordre comme concept",
+        "ordre en contexte"
+      ],
+      "context_examples_seed": [
+        "Ordre forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "arranges",
+        "contains",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "orden",
+      "brief_description": "disposición estable de relaciones, reglas y patrones",
+      "near_synonyms_seed": [
+        "estructura",
+        "arreglo"
+      ],
+      "antonyms_seed": [
+        "caos",
+        "desorden"
+      ],
+      "forms_seed": [
+        "orden",
+        "orden como concepto",
+        "orden en contexto"
+      ],
+      "context_examples_seed": [
+        "Orden forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "arranges",
+        "contains",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "arranges",
+    "contains",
+    "because"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:chaos",
+      "status": "draft_seed"
+    },
+    {
+      "type": "supports",
+      "target": "concept:knowledge",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

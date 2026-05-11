@@ -1,0 +1,14 @@
+source_pattern,target_card_type,status_default,migration_action
+data/concept_cards/*,CONCEPT_CARD,seed,classify_and_validate
+data/operator_cards/*,OPERATOR_CARD,draft,classify_and_validate
+data/operator_families/*,OPERATOR_FAMILY,draft,classify_and_validate
+data/operator_compositions/*,OPERATOR_COMPOSITION,draft,classify_and_validate
+data/grammar/*,GRAMMAR_CARD,draft,classify_and_validate
+data/case_systems/*,CASE_GAUGE_CARD,draft,classify_and_validate
+data/case_mappings/*,CASE_MAPPING,generated,classify_and_validate
+data/event_frames/*,EVENT_FRAME,draft,classify_and_validate
+data/ontological_aspect/*,ONTOLOGICAL_ASPECT,draft,classify_and_validate
+data/tame/*,TAME_CARD,draft,classify_and_validate
+data/operator_cards/*,DEICTIC_CARD,draft,classify_and_validate
+data/scope/*,SCOPE_CARD,draft,classify_and_validate
+data/json/*,JSON_FALLBACK,generated,classify_and_validate

@@ -183,8 +183,2087 @@
       },
       "dH_dt": -56.429928,
       "r_sync": 1.0
+    },
+    {
+      "t": 651,
+      "ts": "2026-05-11T03:51:44.022795+00:00",
+      "identity_phase": 0.02213797574967112,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781670473681072,
+      "health": 0.5450215005570233,
+      "closure": 0.774944159153808,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.774255,
+        "H_potential": -76.774914,
+        "H_attractor": 0.155008,
+        "H_total": -74.845651,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 35.324279,
+      "r_sync": 1.0
+    },
+    {
+      "t": 652,
+      "ts": "2026-05-11T03:53:05.351682+00:00",
+      "identity_phase": 0.02213797574967112,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781237121273463,
+      "health": 0.5449692145612262,
+      "closure": 0.7749440468945085,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.774633,
+        "H_potential": -76.774915,
+        "H_attractor": 0.144801,
+        "H_total": -74.855481,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.00983,
+      "r_sync": 1.0
+    },
+    {
+      "t": 653,
+      "ts": "2026-05-11T04:02:26.707334+00:00",
+      "identity_phase": 0.02213797574967112,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781237121273463,
+      "health": 0.5449692145612262,
+      "closure": 0.7749440468945085,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.774633,
+        "H_potential": -76.774915,
+        "H_attractor": 0.144801,
+        "H_total": -74.855481,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 0.0,
+      "r_sync": 1.0
+    },
+    {
+      "t": 585,
+      "ts": "2026-05-11T04:13:31.967894+00:00",
+      "identity_phase": 0.022337691253414053,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779783884288447,
+      "health": 0.5448245525169944,
+      "closure": 0.7749438304432682,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.77501,
+        "H_potential": -76.774915,
+        "H_attractor": 0.134859,
+        "H_total": -74.865046,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.009565,
+      "r_sync": 1.0
+    },
+    {
+      "t": 586,
+      "ts": "2026-05-11T04:16:04.952455+00:00",
+      "identity_phase": 0.02237094885996365,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782707724967704,
+      "health": 0.5451354011918468,
+      "closure": 0.7749437261218551,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.772847,
+        "H_potential": -76.774915,
+        "H_attractor": 0.125219,
+        "H_total": -74.876849,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.011803,
+      "r_sync": 1.0
+    },
+    {
+      "t": 588,
+      "ts": "2026-05-11T04:26:23.545847+00:00",
+      "identity_phase": 0.02237094885996365,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782950511622278,
+      "health": 0.5451606140265681,
+      "closure": 0.7749436243195978,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.775387,
+        "H_potential": -76.774915,
+        "H_attractor": 0.125265,
+        "H_total": -74.874263,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 0.002586,
+      "r_sync": 1.0
+    },
+    {
+      "t": 588,
+      "ts": "2026-05-11T04:36:45.437811+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785384960890107,
+      "health": 0.5454209542480744,
+      "closure": 0.7749435249755919,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.775763,
+        "H_potential": -76.774916,
+        "H_attractor": 0.116007,
+        "H_total": -74.883146,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.008883,
+      "r_sync": 1.0
+    },
+    {
+      "t": 589,
+      "ts": "2026-05-11T04:46:36.707571+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783209509222803,
+      "health": 0.5451889991355824,
+      "closure": 0.7749434280303868,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.776139,
+        "H_potential": -76.774916,
+        "H_attractor": 0.107112,
+        "H_total": -74.891665,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.008519,
+      "r_sync": 1.0
+    },
+    {
+      "t": 590,
+      "ts": "2026-05-11T04:56:56.278858+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781631597058178,
+      "health": 0.5450181169,
+      "closure": 0.7749433334261161,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.776515,
+        "H_potential": -76.774916,
+        "H_attractor": 0.09858,
+        "H_total": -74.89982,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.008155,
+      "r_sync": 1.0
+    },
+    {
+      "t": 591,
+      "ts": "2026-05-11T05:07:49.200021+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782242315549826,
+      "health": 0.5450856240545603,
+      "closure": 0.7749432411061462,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.77689,
+        "H_potential": -76.774915,
+        "H_attractor": 0.090411,
+        "H_total": -74.907614,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.007794,
+      "r_sync": 1.0
+    },
+    {
+      "t": 592,
+      "ts": "2026-05-11T05:17:32.911128+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782555335791067,
+      "health": 0.5451177902285571,
+      "closure": 0.7749429773069294,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.777265,
+        "H_potential": -76.774915,
+        "H_attractor": 0.082604,
+        "H_total": -74.915046,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.007432,
+      "r_sync": 1.0
+    },
+    {
+      "t": 593,
+      "ts": "2026-05-11T05:27:50.633019+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783282022520178,
+      "health": 0.5451864281101172,
+      "closure": 0.7749428935855321,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.77764,
+        "H_potential": -76.774915,
+        "H_attractor": 0.07516,
+        "H_total": -74.922114,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.007068,
+      "r_sync": 1.0
+    },
+    {
+      "t": 594,
+      "ts": "2026-05-11T05:37:59.724578+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782357996658462,
+      "health": 0.5450874773051542,
+      "closure": 0.7749428118855062,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.778014,
+        "H_potential": -76.774914,
+        "H_attractor": 0.068078,
+        "H_total": -74.928823,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.006709,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 595,
+      "ts": "2026-05-11T05:48:26.101986+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782148534395032,
+      "health": 0.5450651906289765,
+      "closure": 0.7749427321580679,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.778388,
+        "H_potential": -76.774913,
+        "H_attractor": 0.061355,
+        "H_total": -74.935171,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.006348,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 596,
+      "ts": "2026-05-11T05:58:49.399218+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782186031124869,
+      "health": 0.5450693629969868,
+      "closure": 0.7749426543555314,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.778761,
+        "H_potential": -76.774913,
+        "H_attractor": 0.054991,
+        "H_total": -74.941161,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00599,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 597,
+      "ts": "2026-05-11T06:09:23.278164+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783481615589474,
+      "health": 0.5452067367265818,
+      "closure": 0.7749425784314136,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.779134,
+        "H_potential": -76.774912,
+        "H_attractor": 0.048987,
+        "H_total": -74.946791,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00563,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 590,
+      "ts": "2026-05-11T06:19:53.584270+00:00",
+      "identity_phase": 0.022503949223868804,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781282165067012,
+      "health": 0.5449786871240141,
+      "closure": 0.7749425043403313,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.779506,
+        "H_potential": -76.774911,
+        "H_attractor": 0.043324,
+        "H_total": -74.952081,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00529,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 594,
+      "ts": "2026-05-11T06:29:55.736914+00:00",
+      "identity_phase": 0.022636957082039597,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781311969838916,
+      "health": 0.5449766314572494,
+      "closure": 0.7749424320379993,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.779878,
+        "H_potential": -76.77491,
+        "H_attractor": 0.037991,
+        "H_total": -74.957041,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00496,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 601,
+      "ts": "2026-05-11T06:40:09.527786+00:00",
+      "identity_phase": 0.02286988257013815,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781343585016141,
+      "health": 0.5449855613713512,
+      "closure": 0.774942361481242,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78025,
+        "H_potential": -76.774909,
+        "H_attractor": 0.032971,
+        "H_total": -74.961688,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.004647,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 602,
+      "ts": "2026-05-11T06:50:26.926641+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780072491364028,
+      "health": 0.544844103850785,
+      "closure": 0.7749422926278703,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.780621,
+        "H_potential": -76.774907,
+        "H_attractor": 0.028316,
+        "H_total": -74.96597,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.004282,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 603,
+      "ts": "2026-05-11T07:00:42.984947+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779261913061944,
+      "health": 0.5447583551724038,
+      "closure": 0.7749422254367332,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.780992,
+        "H_potential": -76.774906,
+        "H_attractor": 0.024032,
+        "H_total": -74.969881,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.003911,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 604,
+      "ts": "2026-05-11T07:11:06.495000+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780069356339121,
+      "health": 0.5448436500682423,
+      "closure": 0.774942159867745,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.781363,
+        "H_potential": -76.774904,
+        "H_attractor": 0.020119,
+        "H_total": -74.973422,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.003541,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 605,
+      "ts": "2026-05-11T07:21:36.519357+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781016172969295,
+      "health": 0.5449443122317591,
+      "closure": 0.7749420958816458,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.781733,
+        "H_potential": -76.774903,
+        "H_attractor": 0.016576,
+        "H_total": -74.976594,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.003172,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 606,
+      "ts": "2026-05-11T07:31:41.580757+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780595842600611,
+      "health": 0.544899814422972,
+      "closure": 0.7749420334402233,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.782103,
+        "H_potential": -76.774901,
+        "H_attractor": 0.013402,
+        "H_total": -74.979396,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.002802,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 607,
+      "ts": "2026-05-11T07:42:01.374496+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781218790806619,
+      "health": 0.5449656216368933,
+      "closure": 0.7749419725062636,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.782472,
+        "H_potential": -76.774899,
+        "H_attractor": 0.010598,
+        "H_total": -74.981829,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.002433,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 608,
+      "ts": "2026-05-11T07:52:08.999882+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781347077667069,
+      "health": 0.5449792297468926,
+      "closure": 0.7749419130432272,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.782841,
+        "H_potential": -76.774897,
+        "H_attractor": 0.008161,
+        "H_total": -74.983894,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.002065,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 609,
+      "ts": "2026-05-11T08:02:29.801874+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678279342660965,
+      "health": 0.5451332817882674,
+      "closure": 0.7749418550156816,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78321,
+        "H_potential": -76.774895,
+        "H_attractor": 0.006093,
+        "H_total": -74.985592,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.001698,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 610,
+      "ts": "2026-05-11T08:12:34.358906+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781557912833017,
+      "health": 0.5450019897282997,
+      "closure": 0.7749417983889211,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.783578,
+        "H_potential": -76.774893,
+        "H_attractor": 0.004391,
+        "H_total": -74.986924,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.001332,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 611,
+      "ts": "2026-05-11T08:23:00.768355+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781704356494281,
+      "health": 0.5450170813148318,
+      "closure": 0.7749417431291312,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.783946,
+        "H_potential": -76.774891,
+        "H_attractor": 0.003056,
+        "H_total": -74.987888,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": -0.000964,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 612,
+      "ts": "2026-05-11T08:33:13.430903+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782500932007227,
+      "health": 0.5451038603681077,
+      "closure": 0.7749416892033133,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.784314,
+        "H_potential": -76.774888,
+        "H_attractor": 0.002087,
+        "H_total": -74.988488,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": -0.0006,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 613,
+      "ts": "2026-05-11T08:43:41.191484+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678255112645244,
+      "health": 0.5451076963933701,
+      "closure": 0.7749416365792288,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.784681,
+        "H_potential": -76.774886,
+        "H_attractor": 0.001484,
+        "H_total": -74.988722,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": -0.000234,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 614,
+      "ts": "2026-05-11T08:53:52.285112+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781288599553893,
+      "health": 0.544972251113796,
+      "closure": 0.7749415852254644,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.785048,
+        "H_potential": -76.774883,
+        "H_attractor": 0.001245,
+        "H_total": -74.988591,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": 0.000131,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 615,
+      "ts": "2026-05-11T09:04:13.694181+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781489753220495,
+      "health": 0.5449948834957613,
+      "closure": 0.7749415351113087,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.785414,
+        "H_potential": -76.774881,
+        "H_attractor": 0.00137,
+        "H_total": -74.988096,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": 0.000495,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 616,
+      "ts": "2026-05-11T09:14:36.516777+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785515852873749,
+      "health": 0.5454235160808296,
+      "closure": 0.7749414862069222,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78578,
+        "H_potential": -76.774878,
+        "H_attractor": 0.00186,
+        "H_total": -74.987239,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.000857,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 617,
+      "ts": "2026-05-11T09:24:56.945386+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783768198636472,
+      "health": 0.5452377212077558,
+      "closure": 0.7749414384829739,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.786145,
+        "H_potential": -76.774875,
+        "H_attractor": 0.002712,
+        "H_total": -74.986018,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.001221,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 618,
+      "ts": "2026-05-11T09:35:13.670579+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783538900319602,
+      "health": 0.545213850760261,
+      "closure": 0.774941391911014,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.786511,
+        "H_potential": -76.774872,
+        "H_attractor": 0.003927,
+        "H_total": -74.984435,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.001583,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 619,
+      "ts": "2026-05-11T09:45:23.088387+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783366953358542,
+      "health": 0.5451940833175607,
+      "closure": 0.774941346463297,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.786875,
+        "H_potential": -76.774869,
+        "H_attractor": 0.005504,
+        "H_total": -74.98249,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.001945,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 620,
+      "ts": "2026-05-11T09:55:50.058842+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786002283871105,
+      "health": 0.5454772816852861,
+      "closure": 0.7749413021125183,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78724,
+        "H_potential": -76.774866,
+        "H_attractor": 0.007443,
+        "H_total": -74.980184,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.002306,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 621,
+      "ts": "2026-05-11T10:06:19.280481+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783517530973009,
+      "health": 0.5452115570064637,
+      "closure": 0.7749412588323686,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.787604,
+        "H_potential": -76.774863,
+        "H_attractor": 0.009742,
+        "H_total": -74.977517,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.002667,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 622,
+      "ts": "2026-05-11T10:17:35.302949+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785602632730522,
+      "health": 0.5454375159304972,
+      "closure": 0.7749412165968742,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.787967,
+        "H_potential": -76.77486,
+        "H_attractor": 0.012402,
+        "H_total": -74.97449,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.003027,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 623,
+      "ts": "2026-05-11T10:26:35.737097+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678463368023426,
+      "health": 0.5453377965925326,
+      "closure": 0.7749411753808432,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.788331,
+        "H_potential": -76.774857,
+        "H_attractor": 0.015423,
+        "H_total": -74.971103,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.003387,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 624,
+      "ts": "2026-05-11T10:40:54.480439+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784943660438594,
+      "health": 0.545369405483148,
+      "closure": 0.7749411351596455,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.788694,
+        "H_potential": -76.774853,
+        "H_attractor": 0.018802,
+        "H_total": -74.967357,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.003746,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 625,
+      "ts": "2026-05-11T10:50:40.542589+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784859965089897,
+      "health": 0.5453606188183178,
+      "closure": 0.7749410959093376,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.789056,
+        "H_potential": -76.77485,
+        "H_attractor": 0.02254,
+        "H_total": -74.963253,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.004104,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 626,
+      "ts": "2026-05-11T11:04:49.613385+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785551119766494,
+      "health": 0.5454365108435066,
+      "closure": 0.7749410576063953,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.789418,
+        "H_potential": -76.774846,
+        "H_attractor": 0.026637,
+        "H_total": -74.958791,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.004462,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 627,
+      "ts": "2026-05-11T11:15:10.062563+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786826413139289,
+      "health": 0.5455852408196007,
+      "closure": 0.7749409837518124,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78978,
+        "H_potential": -76.774842,
+        "H_attractor": 0.031093,
+        "H_total": -74.953969,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.004822,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 628,
+      "ts": "2026-05-11T11:26:12.812426+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787474557264995,
+      "health": 0.5456487690193591,
+      "closure": 0.7749409481560685,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.790141,
+        "H_potential": -76.774839,
+        "H_attractor": 0.035906,
+        "H_total": -74.948791,
+        "n_nodes": 200,
+        "r_sync": 0.99993
+      },
+      "dH_dt": 0.005178,
+      "r_sync": 0.99993
+    },
+    {
+      "t": 629,
+      "ts": "2026-05-11T11:35:14.435811+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787841248354205,
+      "health": 0.5456865187504766,
+      "closure": 0.7749409134194567,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.790502,
+        "H_potential": -76.774835,
+        "H_attractor": 0.041075,
+        "H_total": -74.943257,
+        "n_nodes": 200,
+        "r_sync": 0.99993
+      },
+      "dH_dt": 0.005534,
+      "r_sync": 0.99993
+    },
+    {
+      "t": 630,
+      "ts": "2026-05-11T11:45:21.366114+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787451811336943,
+      "health": 0.5456442025718066,
+      "closure": 0.7749408795212648,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.790863,
+        "H_potential": -76.774831,
+        "H_attractor": 0.046601,
+        "H_total": -74.937367,
+        "n_nodes": 200,
+        "r_sync": 0.99993
+      },
+      "dH_dt": 0.00589,
+      "r_sync": 0.99993
+    },
+    {
+      "t": 631,
+      "ts": "2026-05-11T11:55:44.690627+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6788484010245734,
+      "health": 0.5457524659413597,
+      "closure": 0.774940846441262,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.791223,
+        "H_potential": -76.774827,
+        "H_attractor": 0.052481,
+        "H_total": -74.931122,
+        "n_nodes": 200,
+        "r_sync": 0.99992
+      },
+      "dH_dt": 0.006245,
+      "r_sync": 0.99992
+    },
+    {
+      "t": 632,
+      "ts": "2026-05-11T12:06:03.004976+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786845474533214,
+      "health": 0.5455740942230233,
+      "closure": 0.7749408141597045,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.791583,
+        "H_potential": -76.774823,
+        "H_attractor": 0.058717,
+        "H_total": -74.924523,
+        "n_nodes": 200,
+        "r_sync": 0.99992
+      },
+      "dH_dt": 0.006599,
+      "r_sync": 0.99992
+    },
+    {
+      "t": 633,
+      "ts": "2026-05-11T12:16:18.473446+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787998049383753,
+      "health": 0.5456950744322248,
+      "closure": 0.7749407826573153,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.791943,
+        "H_potential": -76.774819,
+        "H_attractor": 0.065306,
+        "H_total": -74.91757,
+        "n_nodes": 200,
+        "r_sync": 0.99992
+      },
+      "dH_dt": 0.006953,
+      "r_sync": 0.99992
+    },
+    {
+      "t": 634,
+      "ts": "2026-05-11T12:26:14.774011+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785278900077193,
+      "health": 0.5454034710608727,
+      "closure": 0.7749407519152783,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792302,
+        "H_potential": -76.774814,
+        "H_attractor": 0.072248,
+        "H_total": -74.910264,
+        "n_nodes": 200,
+        "r_sync": 0.99991
+      },
+      "dH_dt": 0.007306,
+      "r_sync": 0.99991
+    },
+    {
+      "t": 635,
+      "ts": "2026-05-11T12:36:42.504713+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783896542536381,
+      "health": 0.5452575146665635,
+      "closure": 0.774940721915228,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792661,
+        "H_potential": -76.77481,
+        "H_attractor": 0.079545,
+        "H_total": -74.902605,
+        "n_nodes": 200,
+        "r_sync": 0.99991
+      },
+      "dH_dt": 0.007659,
+      "r_sync": 0.99991
+    },
+    {
+      "t": 636,
+      "ts": "2026-05-11T12:47:04.513124+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784449121687132,
+      "health": 0.545316159651641,
+      "closure": 0.7749406926392651,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793019,
+        "H_potential": -76.774806,
+        "H_attractor": 0.087194,
+        "H_total": -74.894593,
+        "n_nodes": 200,
+        "r_sync": 0.99991
+      },
+      "dH_dt": 0.008012,
+      "r_sync": 0.99991
+    },
+    {
+      "t": 637,
+      "ts": "2026-05-11T12:57:37.763882+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783642372089721,
+      "health": 0.5452307642474702,
+      "closure": 0.7749406640698709,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793377,
+        "H_potential": -76.774801,
+        "H_attractor": 0.095195,
+        "H_total": -74.886229,
+        "n_nodes": 200,
+        "r_sync": 0.9999
+      },
+      "dH_dt": 0.008364,
+      "r_sync": 0.9999
+    },
+    {
+      "t": 638,
+      "ts": "2026-05-11T13:07:52.380889+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786044227981701,
+      "health": 0.5454884035103491,
+      "closure": 0.7749406361900703,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793735,
+        "H_potential": -76.774797,
+        "H_attractor": 0.103549,
+        "H_total": -74.877513,
+        "n_nodes": 200,
+        "r_sync": 0.9999
+      },
+      "dH_dt": 0.008716,
+      "r_sync": 0.9999
+    },
+    {
+      "t": 639,
+      "ts": "2026-05-11T13:18:15.921625+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.67872527504676,
+      "health": 0.5455987158433206,
+      "closure": 0.7749406089831236,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794092,
+        "H_potential": -76.774792,
+        "H_attractor": 0.112241,
+        "H_total": -74.868459,
+        "n_nodes": 200,
+        "r_sync": 0.9999
+      },
+      "dH_dt": 0.009054,
+      "r_sync": 0.9999
+    },
+    {
+      "t": 640,
+      "ts": "2026-05-11T13:28:32.035579+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678819453325402,
+      "health": 0.5457009065571199,
+      "closure": 0.7749405824328305,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794449,
+        "H_potential": -76.774788,
+        "H_attractor": 0.121284,
+        "H_total": -74.859055,
+        "n_nodes": 200,
+        "r_sync": 0.99989
+      },
+      "dH_dt": 0.009404,
+      "r_sync": 0.99989
+    },
+    {
+      "t": 641,
+      "ts": "2026-05-11T13:38:44.693094+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786872750312061,
+      "health": 0.5455551523945065,
+      "closure": 0.7749405565234212,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794806,
+        "H_potential": -76.774783,
+        "H_attractor": 0.130675,
+        "H_total": -74.849303,
+        "n_nodes": 200,
+        "r_sync": 0.99989
+      },
+      "dH_dt": 0.009752,
+      "r_sync": 0.99989
+    },
+    {
+      "t": 642,
+      "ts": "2026-05-11T13:49:05.913764+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785778628626692,
+      "health": 0.5454389746892344,
+      "closure": 0.7749405312392373,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795162,
+        "H_potential": -76.774778,
+        "H_attractor": 0.140414,
+        "H_total": -74.839202,
+        "n_nodes": 200,
+        "r_sync": 0.99989
+      },
+      "dH_dt": 0.010101,
+      "r_sync": 0.99989
+    },
+    {
+      "t": 643,
+      "ts": "2026-05-11T13:59:27.008267+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785226875080103,
+      "health": 0.5453796989376285,
+      "closure": 0.7749405065653752,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795518,
+        "H_potential": -76.774773,
+        "H_attractor": 0.150502,
+        "H_total": -74.828754,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.010448,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 644,
+      "ts": "2026-05-11T14:00:39.250882+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784402678985383,
+      "health": 0.5452927498820763,
+      "closure": 0.7749404824870072,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795873,
+        "H_potential": -76.774768,
+        "H_attractor": 0.160937,
+        "H_total": -74.817959,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.010795,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 645,
+      "ts": "2026-05-11T14:00:57.433018+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787627108500145,
+      "health": 0.5456339071426192,
+      "closure": 0.7749404589897364,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795873,
+        "H_potential": -76.774768,
+        "H_attractor": 0.160937,
+        "H_total": -74.817959,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.0,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 645,
+      "ts": "2026-05-11T14:01:04.072354+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787627108500145,
+      "health": 0.5456339071426192,
+      "closure": 0.7749404589897364,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795873,
+        "H_potential": -76.774768,
+        "H_attractor": 0.160937,
+        "H_total": -74.817959,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.0,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 647,
+      "ts": "2026-05-11T14:09:47.519874+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678716616749813,
+      "health": 0.5455891962014477,
+      "closure": 0.7749404360596409,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792262,
+        "H_potential": -76.774775,
+        "H_attractor": 0.160262,
+        "H_total": -74.82225,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": -0.004291,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 607,
+      "ts": "2026-05-11T14:20:03.648010+00:00",
+      "identity_phase": 0.02306971280871726,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787752604135916,
+      "health": 0.5456532717240364,
+      "closure": 0.7749404136829311,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792619,
+        "H_potential": -76.77477,
+        "H_attractor": 0.171096,
+        "H_total": -74.811055,
+        "n_nodes": 200,
+        "r_sync": 0.99987
+      },
+      "dH_dt": 0.011195,
+      "r_sync": 0.99987
+    },
+    {
+      "t": 611,
+      "ts": "2026-05-11T14:30:21.700419+00:00",
+      "identity_phase": 0.023202952459061062,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678602578893558,
+      "health": 0.5454650684541552,
+      "closure": 0.7749403918462846,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792974,
+        "H_potential": -76.774764,
+        "H_attractor": 0.182348,
+        "H_total": -74.799442,
+        "n_nodes": 200,
+        "r_sync": 0.99987
+      },
+      "dH_dt": 0.011613,
+      "r_sync": 0.99987
+    },
+    {
+      "t": 615,
+      "ts": "2026-05-11T14:40:47.583560+00:00",
+      "identity_phase": 0.02333611304776876,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786369988032698,
+      "health": 0.5455062299172522,
+      "closure": 0.774940370536645,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.79333,
+        "H_potential": -76.774759,
+        "H_attractor": 0.194027,
+        "H_total": -74.787402,
+        "n_nodes": 200,
+        "r_sync": 0.99987
+      },
+      "dH_dt": 0.01204,
+      "r_sync": 0.99987
+    },
+    {
+      "t": 620,
+      "ts": "2026-05-11T14:51:28.092704+00:00",
+      "identity_phase": 0.023502292371815028,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6789080806359173,
+      "health": 0.5457920824340388,
+      "closure": 0.7749403497413367,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793685,
+        "H_potential": -76.774754,
+        "H_attractor": 0.206154,
+        "H_total": -74.774915,
+        "n_nodes": 200,
+        "r_sync": 0.99986
+      },
+      "dH_dt": 0.012487,
+      "r_sync": 0.99986
+    },
+    {
+      "t": 623,
+      "ts": "2026-05-11T15:01:50.580784+00:00",
+      "identity_phase": 0.02360177014301079,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786796371573114,
+      "health": 0.5455488116366204,
+      "closure": 0.7749403294478535,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.79404,
+        "H_potential": -76.774748,
+        "H_attractor": 0.218701,
+        "H_total": -74.762008,
+        "n_nodes": 200,
+        "r_sync": 0.99986
+      },
+      "dH_dt": 0.012907,
+      "r_sync": 0.99986
+    },
+    {
+      "t": 629,
+      "ts": "2026-05-11T15:11:58.803857+00:00",
+      "identity_phase": 0.02379999617038085,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786746952730605,
+      "health": 0.5455456488014585,
+      "closure": 0.7749403096442223,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794394,
+        "H_potential": -76.774743,
+        "H_attractor": 0.231729,
+        "H_total": -74.748619,
+        "n_nodes": 200,
+        "r_sync": 0.99985
+      },
+      "dH_dt": 0.013389,
+      "r_sync": 0.99985
+    },
+    {
+      "t": 634,
+      "ts": "2026-05-11T15:22:11.617464+00:00",
+      "identity_phase": 0.023964267500764073,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786105345911565,
+      "health": 0.5454760775167581,
+      "closure": 0.7749402903185095,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794748,
+        "H_potential": -76.774737,
+        "H_attractor": 0.245227,
+        "H_total": -74.734762,
+        "n_nodes": 200,
+        "r_sync": 0.99985
+      },
+      "dH_dt": 0.013857,
+      "r_sync": 0.99985
+    },
+    {
+      "t": 643,
+      "ts": "2026-05-11T15:32:32.033690+00:00",
+      "identity_phase": 0.024257561574205274,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787725288390757,
+      "health": 0.5456493954968465,
+      "closure": 0.7749402714592336,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795102,
+        "H_potential": -76.774731,
+        "H_attractor": 0.259282,
+        "H_total": -74.720347,
+        "n_nodes": 200,
+        "r_sync": 0.99984
+      },
+      "dH_dt": 0.014415,
+      "r_sync": 0.99984
+    },
+    {
+      "t": 649,
+      "ts": "2026-05-11T15:42:50.657878+00:00",
+      "identity_phase": 0.024451432051357216,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786048129929491,
+      "health": 0.5454694349155371,
+      "closure": 0.7749402530551003,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795455,
+        "H_potential": -76.774725,
+        "H_attractor": 0.273844,
+        "H_total": -74.705425,
+        "n_nodes": 200,
+        "r_sync": 0.99984
+      },
+      "dH_dt": 0.014922,
+      "r_sync": 0.99984
+    },
+    {
+      "t": 654,
+      "ts": "2026-05-11T15:53:00.500149+00:00",
+      "identity_phase": 0.024612149057474796,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786984910280582,
+      "health": 0.5455692632823974,
+      "closure": 0.7749402350951188,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795808,
+        "H_potential": -76.774719,
+        "H_attractor": 0.288903,
+        "H_total": -74.690008,
+        "n_nodes": 200,
+        "r_sync": 0.99984
+      },
+      "dH_dt": 0.015417,
+      "r_sync": 0.99984
+    },
+    {
+      "t": 657,
+      "ts": "2026-05-11T16:03:26.411281+00:00",
+      "identity_phase": 0.02470829247831041,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784848297946025,
+      "health": 0.5453406518915517,
+      "closure": 0.7749402175686213,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.796161,
+        "H_potential": -76.774713,
+        "H_attractor": 0.304422,
+        "H_total": -74.67413,
+        "n_nodes": 200,
+        "r_sync": 0.99983
+      },
+      "dH_dt": 0.015878,
+      "r_sync": 0.99983
+    },
+    {
+      "t": 658,
+      "ts": "2026-05-11T16:13:47.021119+00:00",
+      "identity_phase": 0.02470829247831041,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782457032736694,
+      "health": 0.5450882126251532,
+      "closure": 0.7749402004651119,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.796513,
+        "H_potential": -76.774706,
+        "H_attractor": 0.320342,
+        "H_total": -74.657852,
+        "n_nodes": 200,
+        "r_sync": 0.99983
+      },
+      "dH_dt": 0.016278,
+      "r_sync": 0.99983
     }
   ],
-  "last_updated": "2026-05-08T12:46:39.181200+00:00",
-  "count": 7
+  "last_updated": "2026-05-11T16:13:47.021140+00:00",
+  "count": 84
 }

@@ -4,12 +4,12 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT="$(dirname "$SCRIPT_DIR")"
 VENV="$(dirname "$PROJECT")/venv"
-PORT=5050
-URL="http://localhost:${PORT}/portal"
+PORT=2435
+URL="http://127.0.0.1:${PORT}/portal"
 LOG="/tmp/ciel_gui.log"
 
 # 1. Check if already running
-if curl -s --max-time 1 "http://localhost:${PORT}/" > /dev/null 2>&1; then
+if curl -s --max-time 1 "http://127.0.0.1:${PORT}/api/status" > /dev/null 2>&1; then
   echo "[CIEL] GUI already running on :${PORT}"
   xdg-open "$URL" 2>/dev/null &
   exit 0
@@ -25,7 +25,7 @@ echo "[CIEL] GUI PID=$GUI_PID"
 # 3. Wait for it to be up (max 15s)
 for i in $(seq 1 30); do
   sleep 0.5
-  if curl -s --max-time 1 "http://localhost:${PORT}/" > /dev/null 2>&1; then
+  if curl -s --max-time 1 "http://127.0.0.1:${PORT}/api/status" > /dev/null 2>&1; then
     echo "[CIEL] GUI ready after ${i} tries"
     break
   fi

@@ -1,0 +1,92 @@
+version: '1.9'
+status: draft_seed
+tensor_name: CIELFeatureTensor
+description: Deterministic structural sidecar tensor for transformer-facing CIEL-LNS
+  features.
+feature_groups:
+  card_type:
+    dim: 10
+    labels:
+    - CONCEPT_CARD
+    - OPERATOR_CARD
+    - GRAMMAR_CARD
+    - CASE_GAUGE_CARD
+    - TAME_CARD
+    - DEICTIC_CARD
+    - SCOPE_CARD
+    - EVENT_FRAME
+    - ONTOLOGICAL_ASPECT
+    - UNKNOWN
+  operator:
+    dim: 8
+    labels:
+    - identity
+    - possession
+    - containment
+    - spatial
+    - temporal
+    - logical
+    - comparison
+    - modal
+  event_frame:
+    dim: 8
+    labels:
+    - agent
+    - patient
+    - theme
+    - recipient
+    - experiencer
+    - stimulus
+    - source
+    - goal
+  case_gauge:
+    dim: 7
+    labels:
+    - nom
+    - acc
+    - gen
+    - dat
+    - ins
+    - loc
+    - voc
+  tame:
+    dim: 7
+    labels:
+    - past
+    - present
+    - future
+    - perfective
+    - imperfective
+    - modal
+    - evidential
+  scope:
+    dim: 6
+    labels:
+    - all
+    - some
+    - none
+    - neg_outside
+    - neg_inside
+    - unresolved
+  deixis:
+    dim: 5
+    labels:
+    - place
+    - time
+    - manner
+    - source
+    - destination
+  phase:
+    dim: 4
+    labels:
+    - synonym_phase
+    - antonym_phase
+    - surface_intent_phase
+    - unresolved_phase
+normalization:
+  binary_features: 0_or_1
+  continuous_features: 0_to_1
+  phase_features: radians_mod_2pi
+fallback: If tensor serialization fails, write JSONL rows with token_id, surface,
+  features, and error metadata.
+

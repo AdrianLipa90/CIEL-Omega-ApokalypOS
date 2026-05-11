@@ -1,0 +1,341 @@
+{
+  "version": "1.5",
+  "layer": "scope_quantifier_negation",
+  "axiom": "scope is an operator stack; surface similarity is not scope equivalence",
+  "dimensions": {
+    "quantifier": {
+      "ALL": {
+        "symbol": "∀",
+        "operator": "ForAll",
+        "phase": 0.1,
+        "force": 1.0,
+        "class": "universal"
+      },
+      "EACH": {
+        "symbol": "∀_each",
+        "operator": "ForEach",
+        "phase": 0.12,
+        "force": 1.0,
+        "class": "distributive_universal"
+      },
+      "SOME": {
+        "symbol": "∃",
+        "operator": "Exists",
+        "phase": 0.35,
+        "force": 0.72,
+        "class": "existential"
+      },
+      "MANY": {
+        "symbol": "∃many",
+        "operator": "Many",
+        "phase": 0.42,
+        "force": 0.62,
+        "class": "vague_quantity"
+      },
+      "FEW": {
+        "symbol": "∃few",
+        "operator": "Few",
+        "phase": 0.48,
+        "force": 0.55,
+        "class": "vague_quantity"
+      },
+      "ONE": {
+        "symbol": "∃=1",
+        "operator": "ExactlyOne",
+        "phase": 0.55,
+        "force": 0.82,
+        "class": "cardinal"
+      },
+      "NO": {
+        "symbol": "¬∃",
+        "operator": "No",
+        "phase": 3.141593,
+        "force": 1.0,
+        "class": "negative_quantifier"
+      },
+      "ANY": {
+        "symbol": "∃/∀?",
+        "operator": "Any",
+        "phase": 0.7,
+        "force": 0.45,
+        "class": "polarity_sensitive"
+      }
+    },
+    "negation_position": {
+      "none": {
+        "operator": "IdentityPolarity",
+        "phase": 0.0
+      },
+      "outside_quantifier": {
+        "operator": "NotOverQuantifier",
+        "phase": 1.570796
+      },
+      "inside_predicate": {
+        "operator": "NotOverPredicate",
+        "phase": 2.094395
+      },
+      "quantifier_negative": {
+        "operator": "NegativeQuantifier",
+        "phase": 3.141593
+      },
+      "unresolved": {
+        "operator": "UnresolvedScope",
+        "phase": 0.785398
+      }
+    }
+  },
+  "surface_forms": {
+    "pl": {
+      "ALL": [
+        "każdy",
+        "każda",
+        "każde",
+        "wszyscy",
+        "wszystkie"
+      ],
+      "EACH": [
+        "każdy z osobna",
+        "każdorazowo"
+      ],
+      "SOME": [
+        "ktoś",
+        "jakiś",
+        "niektórzy",
+        "pewien"
+      ],
+      "MANY": [
+        "wielu",
+        "wiele",
+        "liczni"
+      ],
+      "FEW": [
+        "mało",
+        "niewielu",
+        "kilku"
+      ],
+      "ONE": [
+        "jeden",
+        "jedna",
+        "jedno"
+      ],
+      "NO": [
+        "żaden",
+        "żadna",
+        "żadne",
+        "nikt",
+        "nic"
+      ],
+      "ANY": [
+        "jakikolwiek",
+        "ktokolwiek",
+        "cokolwiek"
+      ],
+      "NEG": [
+        "nie"
+      ]
+    },
+    "en": {
+      "ALL": [
+        "all",
+        "every",
+        "everyone",
+        "everything"
+      ],
+      "EACH": [
+        "each"
+      ],
+      "SOME": [
+        "some",
+        "someone",
+        "somebody",
+        "something"
+      ],
+      "MANY": [
+        "many",
+        "much",
+        "numerous"
+      ],
+      "FEW": [
+        "few",
+        "little"
+      ],
+      "ONE": [
+        "one",
+        "exactly one"
+      ],
+      "NO": [
+        "no",
+        "none",
+        "nobody",
+        "nothing"
+      ],
+      "ANY": [
+        "any",
+        "anyone",
+        "anything"
+      ],
+      "NEG": [
+        "not",
+        "no"
+      ]
+    },
+    "de": {
+      "ALL": [
+        "alle",
+        "jeder"
+      ],
+      "SOME": [
+        "einige",
+        "jemand"
+      ],
+      "NO": [
+        "kein",
+        "niemand",
+        "nichts"
+      ],
+      "NEG": [
+        "nicht"
+      ],
+      "ANY": [
+        "irgendein",
+        "irgendjemand"
+      ]
+    },
+    "fr": {
+      "ALL": [
+        "tout",
+        "tous",
+        "chaque"
+      ],
+      "SOME": [
+        "quelques",
+        "quelqu’un"
+      ],
+      "NO": [
+        "aucun",
+        "personne",
+        "rien"
+      ],
+      "NEG": [
+        "ne ... pas"
+      ],
+      "ANY": [
+        "n’importe quel"
+      ]
+    },
+    "es": {
+      "ALL": [
+        "todo",
+        "todos",
+        "cada"
+      ],
+      "SOME": [
+        "algunos",
+        "alguien"
+      ],
+      "NO": [
+        "ningún",
+        "nadie",
+        "nada"
+      ],
+      "NEG": [
+        "no"
+      ],
+      "ANY": [
+        "cualquier",
+        "cualquiera"
+      ]
+    }
+  },
+  "normalization_rules": [
+    {
+      "id": "not_all",
+      "quantifier": "ALL",
+      "negation_position": "outside_quantifier",
+      "normalized": "EXISTS(x, DOMAIN(x) AND NOT(P(x)))",
+      "warning": "not all is not none"
+    },
+    {
+      "id": "all_not",
+      "quantifier": "ALL",
+      "negation_position": "inside_predicate",
+      "normalized": "FORALL(x, DOMAIN(x) -> NOT(P(x)))",
+      "equivalent_to": "NO(x, P(x)) under fixed domain"
+    },
+    {
+      "id": "not_some",
+      "quantifier": "SOME",
+      "negation_position": "outside_quantifier",
+      "normalized": "NOT(EXISTS(x, DOMAIN(x) AND P(x)))",
+      "equivalent_to": "NO(x, P(x))"
+    },
+    {
+      "id": "some_not",
+      "quantifier": "SOME",
+      "negation_position": "inside_predicate",
+      "normalized": "EXISTS(x, DOMAIN(x) AND NOT(P(x)))",
+      "warning": "some not is weaker than no"
+    },
+    {
+      "id": "negative_quantifier",
+      "quantifier": "NO",
+      "negation_position": "quantifier_negative",
+      "normalized": "FORALL(x, DOMAIN(x) -> NOT(P(x)))",
+      "equivalent_to": "NOT(EXISTS(x, DOMAIN(x) AND P(x)))"
+    }
+  ],
+  "false_equivalence_guards": [
+    {
+      "a": "NOT(ALL x P(x))",
+      "b": "NO x P(x)",
+      "equivalent": false
+    },
+    {
+      "a": "SOME x NOT(P(x))",
+      "b": "NO x P(x)",
+      "equivalent": false
+    },
+    {
+      "a": "ALL x NOT(P(x))",
+      "b": "NO x P(x)",
+      "equivalent": true,
+      "condition": "same domain and predicate"
+    },
+    {
+      "a": "NOT(SOME x P(x))",
+      "b": "NO x P(x)",
+      "equivalent": true,
+      "condition": "same domain and predicate"
+    }
+  ],
+  "examples": [
+    {
+      "pl": "Nie każdy człowiek wie.",
+      "en": "Not every human knows.",
+      "quantifier": "ALL",
+      "negation_position": "outside_quantifier",
+      "normalized": "EXISTS(x, Human(x) AND NOT(Know(x)))"
+    },
+    {
+      "pl": "Żaden człowiek nie wie.",
+      "en": "No human knows.",
+      "quantifier": "NO",
+      "negation_position": "quantifier_negative",
+      "normalized": "FORALL(x, Human(x) -> NOT(Know(x)))"
+    },
+    {
+      "pl": "Niektórzy ludzie nie wiedzą.",
+      "en": "Some people do not know.",
+      "quantifier": "SOME",
+      "negation_position": "inside_predicate",
+      "normalized": "EXISTS(x, Human(x) AND NOT(Know(x)))"
+    },
+    {
+      "pl": "Każdy człowiek nie wie.",
+      "en": "Every human does not know.",
+      "quantifier": "ALL",
+      "negation_position": "inside_predicate",
+      "normalized": "FORALL(x, Human(x) -> NOT(Know(x)))"
+    }
+  ]
+}

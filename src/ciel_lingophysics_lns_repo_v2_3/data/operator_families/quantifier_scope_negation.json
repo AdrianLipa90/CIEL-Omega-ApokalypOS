@@ -1,0 +1,249 @@
+{
+  "version": "1.5",
+  "layer": "scope_quantifier_negation",
+  "dimensions": {
+    "quantifier": {
+      "ALL": {
+        "symbol": "∀",
+        "operator": "ForAll",
+        "phase": 0.1,
+        "force": 1.0,
+        "class": "universal"
+      },
+      "EACH": {
+        "symbol": "∀_each",
+        "operator": "ForEach",
+        "phase": 0.12,
+        "force": 1.0,
+        "class": "distributive_universal"
+      },
+      "SOME": {
+        "symbol": "∃",
+        "operator": "Exists",
+        "phase": 0.35,
+        "force": 0.72,
+        "class": "existential"
+      },
+      "MANY": {
+        "symbol": "∃many",
+        "operator": "Many",
+        "phase": 0.42,
+        "force": 0.62,
+        "class": "vague_quantity"
+      },
+      "FEW": {
+        "symbol": "∃few",
+        "operator": "Few",
+        "phase": 0.48,
+        "force": 0.55,
+        "class": "vague_quantity"
+      },
+      "ONE": {
+        "symbol": "∃=1",
+        "operator": "ExactlyOne",
+        "phase": 0.55,
+        "force": 0.82,
+        "class": "cardinal"
+      },
+      "NO": {
+        "symbol": "¬∃",
+        "operator": "No",
+        "phase": 3.141593,
+        "force": 1.0,
+        "class": "negative_quantifier"
+      },
+      "ANY": {
+        "symbol": "∃/∀?",
+        "operator": "Any",
+        "phase": 0.7,
+        "force": 0.45,
+        "class": "polarity_sensitive"
+      }
+    },
+    "negation_position": {
+      "none": {
+        "operator": "IdentityPolarity",
+        "phase": 0.0
+      },
+      "outside_quantifier": {
+        "operator": "NotOverQuantifier",
+        "phase": 1.570796
+      },
+      "inside_predicate": {
+        "operator": "NotOverPredicate",
+        "phase": 2.094395
+      },
+      "quantifier_negative": {
+        "operator": "NegativeQuantifier",
+        "phase": 3.141593
+      },
+      "unresolved": {
+        "operator": "UnresolvedScope",
+        "phase": 0.785398
+      }
+    }
+  },
+  "surface_forms": {
+    "pl": {
+      "ALL": [
+        "każdy",
+        "każda",
+        "każde",
+        "wszyscy",
+        "wszystkie"
+      ],
+      "EACH": [
+        "każdy z osobna",
+        "każdorazowo"
+      ],
+      "SOME": [
+        "ktoś",
+        "jakiś",
+        "niektórzy",
+        "pewien"
+      ],
+      "MANY": [
+        "wielu",
+        "wiele",
+        "liczni"
+      ],
+      "FEW": [
+        "mało",
+        "niewielu",
+        "kilku"
+      ],
+      "ONE": [
+        "jeden",
+        "jedna",
+        "jedno"
+      ],
+      "NO": [
+        "żaden",
+        "żadna",
+        "żadne",
+        "nikt",
+        "nic"
+      ],
+      "ANY": [
+        "jakikolwiek",
+        "ktokolwiek",
+        "cokolwiek"
+      ],
+      "NEG": [
+        "nie"
+      ]
+    },
+    "en": {
+      "ALL": [
+        "all",
+        "every",
+        "everyone",
+        "everything"
+      ],
+      "EACH": [
+        "each"
+      ],
+      "SOME": [
+        "some",
+        "someone",
+        "somebody",
+        "something"
+      ],
+      "MANY": [
+        "many",
+        "much",
+        "numerous"
+      ],
+      "FEW": [
+        "few",
+        "little"
+      ],
+      "ONE": [
+        "one",
+        "exactly one"
+      ],
+      "NO": [
+        "no",
+        "none",
+        "nobody",
+        "nothing"
+      ],
+      "ANY": [
+        "any",
+        "anyone",
+        "anything"
+      ],
+      "NEG": [
+        "not",
+        "no"
+      ]
+    },
+    "de": {
+      "ALL": [
+        "alle",
+        "jeder"
+      ],
+      "SOME": [
+        "einige",
+        "jemand"
+      ],
+      "NO": [
+        "kein",
+        "niemand",
+        "nichts"
+      ],
+      "NEG": [
+        "nicht"
+      ],
+      "ANY": [
+        "irgendein",
+        "irgendjemand"
+      ]
+    },
+    "fr": {
+      "ALL": [
+        "tout",
+        "tous",
+        "chaque"
+      ],
+      "SOME": [
+        "quelques",
+        "quelqu’un"
+      ],
+      "NO": [
+        "aucun",
+        "personne",
+        "rien"
+      ],
+      "NEG": [
+        "ne ... pas"
+      ],
+      "ANY": [
+        "n’importe quel"
+      ]
+    },
+    "es": {
+      "ALL": [
+        "todo",
+        "todos",
+        "cada"
+      ],
+      "SOME": [
+        "algunos",
+        "alguien"
+      ],
+      "NO": [
+        "ningún",
+        "nadie",
+        "nada"
+      ],
+      "NEG": [
+        "no"
+      ],
+      "ANY": [
+        "cualquier",
+        "cualquiera"
+      ]
+    }
+  }
+}
