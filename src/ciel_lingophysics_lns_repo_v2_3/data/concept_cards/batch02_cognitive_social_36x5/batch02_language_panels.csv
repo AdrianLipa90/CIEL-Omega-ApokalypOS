@@ -1,0 +1,181 @@
+concept_id,canonical_label_en,domain,language,lemma,near_synonyms_seed,antonyms_seed,operator_tags,review_status
+concept:eye,eye,body_perception,pl,oko,narząd wzroku,,see; has_part; inside; with,needs_human_validation
+concept:eye,eye,body_perception,en,eye,organ of sight,,see; has_part; inside; with,needs_human_validation
+concept:eye,eye,body_perception,de,Auge,Sehorgan,,see; has_part; inside; with,needs_human_validation
+concept:eye,eye,body_perception,fr,œil,organe de vision,,see; has_part; inside; with,needs_human_validation
+concept:eye,eye,body_perception,es,ojo,órgano de visión,,see; has_part; inside; with,needs_human_validation
+concept:hand,hand,body_action,pl,ręka,dłoń,,has_part; with; make; give,needs_human_validation
+concept:hand,hand,body_action,en,hand,palm; manual organ,,has_part; with; make; give,needs_human_validation
+concept:hand,hand,body_action,de,Hand,Handfläche,,has_part; with; make; give,needs_human_validation
+concept:hand,hand,body_action,fr,main,main,,has_part; with; make; give,needs_human_validation
+concept:hand,hand,body_action,es,mano,mano,,has_part; with; make; give,needs_human_validation
+concept:voice,voice,body_expression,pl,głos,brzmienie,,emit; with; about; as,needs_human_validation
+concept:voice,voice,body_expression,en,voice,vocal sound,,emit; with; about; as,needs_human_validation
+concept:voice,voice,body_expression,de,Stimme,Stimmklang,,emit; with; about; as,needs_human_validation
+concept:voice,voice,body_expression,fr,voix,voix,,emit; with; about; as,needs_human_validation
+concept:voice,voice,body_expression,es,voz,voz,,emit; with; about; as,needs_human_validation
+concept:name,name,identity_symbol,pl,imię,nazwa,,is; as; call,needs_human_validation
+concept:name,name,identity_symbol,en,name,label,,is; as; call,needs_human_validation
+concept:name,name,identity_symbol,de,Name,Bezeichnung,,is; as; call,needs_human_validation
+concept:name,name,identity_symbol,fr,nom,désignation,,is; as; call,needs_human_validation
+concept:name,name,identity_symbol,es,nombre,denominación,,is; as; call,needs_human_validation
+concept:face,face,body_identity,pl,twarz,oblicze,,see; has_part; as,needs_human_validation
+concept:face,face,body_identity,en,face,visage,,see; has_part; as,needs_human_validation
+concept:face,face,body_identity,de,Gesicht,Antlitz,,see; has_part; as,needs_human_validation
+concept:face,face,body_identity,fr,visage,figure,,see; has_part; as,needs_human_validation
+concept:face,face,body_identity,es,rostro,cara,,see; has_part; as,needs_human_validation
+concept:blood,blood,body_life,pl,krew,posoka,,inside; flow; with; supports,needs_human_validation
+concept:blood,blood,body_life,en,blood,blood,,inside; flow; with; supports,needs_human_validation
+concept:blood,blood,body_life,de,Blut,Blut,,inside; flow; with; supports,needs_human_validation
+concept:blood,blood,body_life,fr,sang,sang,,inside; flow; with; supports,needs_human_validation
+concept:blood,blood,body_life,es,sangre,sangre,,inside; flow; with; supports,needs_human_validation
+concept:thought,thought,cognition,pl,myśl,refleksja,,inside; about; think; not,needs_human_validation
+concept:thought,thought,cognition,en,thought,reflection,,inside; about; think; not,needs_human_validation
+concept:thought,thought,cognition,de,Gedanke,Überlegung,,inside; about; think; not,needs_human_validation
+concept:thought,thought,cognition,fr,pensée,réflexion,,inside; about; think; not,needs_human_validation
+concept:thought,thought,cognition,es,pensamiento,reflexión,,inside; about; think; not,needs_human_validation
+concept:idea,idea,cognition,pl,idea,pomysł,,inside; about; think; not,needs_human_validation
+concept:idea,idea,cognition,en,idea,notion,,inside; about; think; not,needs_human_validation
+concept:idea,idea,cognition,de,Idee,Einfall,,inside; about; think; not,needs_human_validation
+concept:idea,idea,cognition,fr,idée,notion,,inside; about; think; not,needs_human_validation
+concept:idea,idea,cognition,es,idea,noción,,inside; about; think; not,needs_human_validation
+concept:question,question,cognition_dialogue,pl,pytanie,zapytanie,odpowiedź,ask; answer; how; because,needs_human_validation
+concept:question,question,cognition_dialogue,en,question,query,answer,ask; answer; how; because,needs_human_validation
+concept:question,question,cognition_dialogue,de,Frage,Anfrage,Antwort,ask; answer; how; because,needs_human_validation
+concept:question,question,cognition_dialogue,fr,question,interrogation,réponse,ask; answer; how; because,needs_human_validation
+concept:question,question,cognition_dialogue,es,pregunta,interrogación,respuesta,ask; answer; how; because,needs_human_validation
+concept:answer,answer,cognition_dialogue,pl,odpowiedź,odzew,pytanie,ask; answer; how; because,needs_human_validation
+concept:answer,answer,cognition_dialogue,en,answer,reply,question,ask; answer; how; because,needs_human_validation
+concept:answer,answer,cognition_dialogue,de,Antwort,Erwiderung,Frage,ask; answer; how; because,needs_human_validation
+concept:answer,answer,cognition_dialogue,fr,réponse,réplique,question,ask; answer; how; because,needs_human_validation
+concept:answer,answer,cognition_dialogue,es,respuesta,contestación,pregunta,ask; answer; how; because,needs_human_validation
+concept:reason,reason,cognition_logic,pl,rozum,racjonalność,,because; if_then; not; prove,needs_human_validation
+concept:reason,reason,cognition_logic,en,reason,rationality,,because; if_then; not; prove,needs_human_validation
+concept:reason,reason,cognition_logic,de,Vernunft,Rationalität,,because; if_then; not; prove,needs_human_validation
+concept:reason,reason,cognition_logic,fr,raison,rationalité,,because; if_then; not; prove,needs_human_validation
+concept:reason,reason,cognition_logic,es,razón,racionalidad,,because; if_then; not; prove,needs_human_validation
+concept:doubt,doubt,cognition_epistemic,pl,wątpliwość,niepewność,pewność,maybe; not; question; scope,needs_human_validation
+concept:doubt,doubt,cognition_epistemic,en,doubt,uncertainty,certainty,maybe; not; question; scope,needs_human_validation
+concept:doubt,doubt,cognition_epistemic,de,Zweifel,Unsicherheit,Gewissheit,maybe; not; question; scope,needs_human_validation
+concept:doubt,doubt,cognition_epistemic,fr,doute,incertitude,certitude,maybe; not; question; scope,needs_human_validation
+concept:doubt,doubt,cognition_epistemic,es,duda,incertidumbre,certeza,maybe; not; question; scope,needs_human_validation
+concept:person,person,social,pl,osoba,człowiek,,is; has; with; as,needs_human_validation
+concept:person,person,social,en,person,human being,,is; has; with; as,needs_human_validation
+concept:person,person,social,de,Person,Mensch,,is; has; with; as,needs_human_validation
+concept:person,person,social,fr,personne,être humain,,is; has; with; as,needs_human_validation
+concept:person,person,social,es,persona,ser humano,,is; has; with; as,needs_human_validation
+concept:child,child,social_family,pl,dziecko,potomek,,has; from; to; care,needs_human_validation
+concept:child,child,social_family,en,child,offspring,,has; from; to; care,needs_human_validation
+concept:child,child,social_family,de,Kind,Nachkomme,,has; from; to; care,needs_human_validation
+concept:child,child,social_family,fr,enfant,descendant,,has; from; to; care,needs_human_validation
+concept:child,child,social_family,es,niño,descendiente,,has; from; to; care,needs_human_validation
+concept:parent,parent,social_family,pl,rodzic,opiekun,,has; from; to; care,needs_human_validation
+concept:parent,parent,social_family,en,parent,caregiver,,has; from; to; care,needs_human_validation
+concept:parent,parent,social_family,de,Elternteil,Sorgeberechtigter,,has; from; to; care,needs_human_validation
+concept:parent,parent,social_family,fr,parent,parent,,has; from; to; care,needs_human_validation
+concept:parent,parent,social_family,es,progenitor,cuidador,,has; from; to; care,needs_human_validation
+concept:friend,friend,social_relation,pl,przyjaciel,towarzysz,wróg,with; against; trust; not,needs_human_validation
+concept:friend,friend,social_relation,en,friend,companion,enemy,with; against; trust; not,needs_human_validation
+concept:friend,friend,social_relation,de,Freund,Gefährte,Feind,with; against; trust; not,needs_human_validation
+concept:friend,friend,social_relation,fr,ami,compagnon,ennemi,with; against; trust; not,needs_human_validation
+concept:friend,friend,social_relation,es,amigo,compañero,enemigo,with; against; trust; not,needs_human_validation
+concept:stranger,stranger,social_relation,pl,nieznajomy,obcy,,with; against; trust; not,needs_human_validation
+concept:stranger,stranger,social_relation,en,stranger,unknown person,,with; against; trust; not,needs_human_validation
+concept:stranger,stranger,social_relation,de,Fremder,Unbekannter,,with; against; trust; not,needs_human_validation
+concept:stranger,stranger,social_relation,fr,étranger,inconnu,,with; against; trust; not,needs_human_validation
+concept:stranger,stranger,social_relation,es,desconocido,desconocido,,with; against; trust; not,needs_human_validation
+concept:enemy,enemy,social_relation,pl,wróg,przeciwnik,przyjaciel,with; against; trust; not,needs_human_validation
+concept:enemy,enemy,social_relation,en,enemy,foe,friend,with; against; trust; not,needs_human_validation
+concept:enemy,enemy,social_relation,de,Feind,Gegner,Freund,with; against; trust; not,needs_human_validation
+concept:enemy,enemy,social_relation,fr,ennemi,adversaire,ami,with; against; trust; not,needs_human_validation
+concept:enemy,enemy,social_relation,es,enemigo,adversario,amigo,with; against; trust; not,needs_human_validation
+concept:house,house,place_social,pl,dom,budynek mieszkalny,,inside; contains; with; boundary,needs_human_validation
+concept:house,house,place_social,en,house,dwelling,,inside; contains; with; boundary,needs_human_validation
+concept:house,house,place_social,de,Haus,Wohnhaus,,inside; contains; with; boundary,needs_human_validation
+concept:house,house,place_social,fr,maison,habitation,,inside; contains; with; boundary,needs_human_validation
+concept:house,house,place_social,es,casa,vivienda,,inside; contains; with; boundary,needs_human_validation
+concept:door,door,place_boundary,pl,drzwi,wejście,ściana,between; through; inside_outside; not,needs_human_validation
+concept:door,door,place_boundary,en,door,entryway,wall,between; through; inside_outside; not,needs_human_validation
+concept:door,door,place_boundary,de,Tür,Eingang,Wand,between; through; inside_outside; not,needs_human_validation
+concept:door,door,place_boundary,fr,porte,entrée,mur,between; through; inside_outside; not,needs_human_validation
+concept:door,door,place_boundary,es,puerta,entrada,pared,between; through; inside_outside; not,needs_human_validation
+concept:road,road,place_motion,pl,droga,trasa,,from; to; through; path,needs_human_validation
+concept:road,road,place_motion,en,road,path,,from; to; through; path,needs_human_validation
+concept:road,road,place_motion,de,Straße,Weg,,from; to; through; path,needs_human_validation
+concept:road,road,place_motion,fr,route,chemin,,from; to; through; path,needs_human_validation
+concept:road,road,place_motion,es,camino,ruta,,from; to; through; path,needs_human_validation
+concept:city,city,place_social,pl,miasto,metropolia,,inside; contains; with; boundary,needs_human_validation
+concept:city,city,place_social,en,city,town,,inside; contains; with; boundary,needs_human_validation
+concept:city,city,place_social,de,Stadt,Ort,,inside; contains; with; boundary,needs_human_validation
+concept:city,city,place_social,fr,ville,cité,,inside; contains; with; boundary,needs_human_validation
+concept:city,city,place_social,es,ciudad,urbe,,inside; contains; with; boundary,needs_human_validation
+concept:country,country,place_political,pl,kraj,państwo,,inside; contains; law; border,needs_human_validation
+concept:country,country,place_political,en,country,state,,inside; contains; law; border,needs_human_validation
+concept:country,country,place_political,de,Land,Staat,,inside; contains; law; border,needs_human_validation
+concept:country,country,place_political,fr,pays,État,,inside; contains; law; border,needs_human_validation
+concept:country,country,place_political,es,país,Estado,,inside; contains; law; border,needs_human_validation
+concept:border,border,place_boundary,pl,granica,kres,centrum,between; through; inside_outside; not,needs_human_validation
+concept:border,border,place_boundary,en,border,limit,center,between; through; inside_outside; not,needs_human_validation
+concept:border,border,place_boundary,de,Grenze,Rand,Zentrum,between; through; inside_outside; not,needs_human_validation
+concept:border,border,place_boundary,fr,frontière,limite,centre,between; through; inside_outside; not,needs_human_validation
+concept:border,border,place_boundary,es,frontera,límite,centro,between; through; inside_outside; not,needs_human_validation
+concept:gift,gift,social_exchange,pl,dar,prezent,dług,give; to; have; for,needs_human_validation
+concept:gift,gift,social_exchange,en,gift,present,debt,give; to; have; for,needs_human_validation
+concept:gift,gift,social_exchange,de,Geschenk,Gabe,Schuld,give; to; have; for,needs_human_validation
+concept:gift,gift,social_exchange,fr,cadeau,présent,dette,give; to; have; for,needs_human_validation
+concept:gift,gift,social_exchange,es,regalo,presente,deuda,give; to; have; for,needs_human_validation
+concept:debt,debt,social_exchange,pl,dług,zobowiązanie,dar,give; to; have; for,needs_human_validation
+concept:debt,debt,social_exchange,en,debt,obligation,gift,give; to; have; for,needs_human_validation
+concept:debt,debt,social_exchange,de,Schuld,Verbindlichkeit,Geschenk,give; to; have; for,needs_human_validation
+concept:debt,debt,social_exchange,fr,dette,obligation,cadeau,give; to; have; for,needs_human_validation
+concept:debt,debt,social_exchange,es,deuda,obligación,regalo,give; to; have; for,needs_human_validation
+concept:promise,promise,social_temporal,pl,obietnica,przyrzeczenie,,will; must; promise; to,needs_human_validation
+concept:promise,promise,social_temporal,en,promise,pledge,,will; must; promise; to,needs_human_validation
+concept:promise,promise,social_temporal,de,Versprechen,Zusage,,will; must; promise; to,needs_human_validation
+concept:promise,promise,social_temporal,fr,promesse,engagement,,will; must; promise; to,needs_human_validation
+concept:promise,promise,social_temporal,es,promesa,promesa,,will; must; promise; to,needs_human_validation
+concept:law,law,social_order,pl,prawo,ustawa,,must; not; if_then; because,needs_human_validation
+concept:law,law,social_order,en,law,rule,,must; not; if_then; because,needs_human_validation
+concept:law,law,social_order,de,Gesetz,Recht,,must; not; if_then; because,needs_human_validation
+concept:law,law,social_order,fr,loi,règle,,must; not; if_then; because,needs_human_validation
+concept:law,law,social_order,es,ley,norma,,must; not; if_then; because,needs_human_validation
+concept:work,work,social_action,pl,praca,robota,,do; make; with; for,needs_human_validation
+concept:work,work,social_action,en,work,labor,,do; make; with; for,needs_human_validation
+concept:work,work,social_action,de,Arbeit,Tätigkeit,,do; make; with; for,needs_human_validation
+concept:work,work,social_action,fr,travail,activité,,do; make; with; for,needs_human_validation
+concept:work,work,social_action,es,trabajo,labor,,do; make; with; for,needs_human_validation
+concept:money,money,social_exchange,pl,pieniądz,pieniądze,,give; to; have; for,needs_human_validation
+concept:money,money,social_exchange,en,money,currency,,give; to; have; for,needs_human_validation
+concept:money,money,social_exchange,de,Geld,Währung,,give; to; have; for,needs_human_validation
+concept:money,money,social_exchange,fr,argent,monnaie,,give; to; have; for,needs_human_validation
+concept:money,money,social_exchange,es,dinero,moneda,,give; to; have; for,needs_human_validation
+concept:word,word,language,pl,słowo,wyraz,,is; as; means; contains,needs_human_validation
+concept:word,word,language,en,word,term,,is; as; means; contains,needs_human_validation
+concept:word,word,language,de,Wort,Ausdruck,,is; as; means; contains,needs_human_validation
+concept:word,word,language,fr,mot,terme,,is; as; means; contains,needs_human_validation
+concept:word,word,language,es,palabra,término,,is; as; means; contains,needs_human_validation
+concept:sign,sign,language_symbol,pl,znak,symbol,,means; as; points_to; signifies,needs_human_validation
+concept:sign,sign,language_symbol,en,sign,symbol,,means; as; points_to; signifies,needs_human_validation
+concept:sign,sign,language_symbol,de,Zeichen,Symbol,,means; as; points_to; signifies,needs_human_validation
+concept:sign,sign,language_symbol,fr,signe,symbole,,means; as; points_to; signifies,needs_human_validation
+concept:sign,sign,language_symbol,es,signo,símbolo,,means; as; points_to; signifies,needs_human_validation
+concept:sound,sound,language_body,pl,dźwięk,brzmienie,cisza,emit; hear; with; sound,needs_human_validation
+concept:sound,sound,language_body,en,sound,tone,silence,emit; hear; with; sound,needs_human_validation
+concept:sound,sound,language_body,de,Klang,Ton,Stille,emit; hear; with; sound,needs_human_validation
+concept:sound,sound,language_body,fr,son,bruit,silence,emit; hear; with; sound,needs_human_validation
+concept:sound,sound,language_body,es,sonido,ruido,silencio,emit; hear; with; sound,needs_human_validation
+concept:silence,silence,language_absence,pl,cisza,milczenie,dźwięk,not; without; state_be; silence,needs_human_validation
+concept:silence,silence,language_absence,en,silence,quiet,sound,not; without; state_be; silence,needs_human_validation
+concept:silence,silence,language_absence,de,Stille,Schweigen,Klang,not; without; state_be; silence,needs_human_validation
+concept:silence,silence,language_absence,fr,silence,calme,son,not; without; state_be; silence,needs_human_validation
+concept:silence,silence,language_absence,es,silencio,quietud,sonido,not; without; state_be; silence,needs_human_validation
+concept:story,story,language_memory,pl,opowieść,historia,,tell; about; before_after; memory,needs_human_validation
+concept:story,story,language_memory,en,story,narrative,,tell; about; before_after; memory,needs_human_validation
+concept:story,story,language_memory,de,Geschichte,Erzählung,,tell; about; before_after; memory,needs_human_validation
+concept:story,story,language_memory,fr,histoire,récit,,tell; about; before_after; memory,needs_human_validation
+concept:story,story,language_memory,es,historia,relato,,tell; about; before_after; memory,needs_human_validation
+concept:song,song,language_sound,pl,pieśń,piosenka,,sing; with; about; sound,needs_human_validation
+concept:song,song,language_sound,en,song,tune,,sing; with; about; sound,needs_human_validation
+concept:song,song,language_sound,de,Lied,Gesang,,sing; with; about; sound,needs_human_validation
+concept:song,song,language_sound,fr,chanson,chant,,sing; with; about; sound,needs_human_validation
+concept:song,song,language_sound,es,canción,canto,,sing; with; about; sound,needs_human_validation

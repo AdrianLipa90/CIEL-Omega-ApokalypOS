@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Scope Quantifier Negation Schema",
+  "type": "object",
+  "required": [
+    "version",
+    "layer",
+    "dimensions",
+    "normalization_rules"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "layer": {
+      "const": "scope_quantifier_negation"
+    },
+    "dimensions": {
+      "type": "object"
+    },
+    "surface_forms": {
+      "type": "object"
+    },
+    "normalization_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "quantifier",
+          "negation_position",
+          "normalized"
+        ]
+      }
+    },
+    "false_equivalence_guards": {
+      "type": "array"
+    },
+    "examples": {
+      "type": "array"
+    }
+  }
+}

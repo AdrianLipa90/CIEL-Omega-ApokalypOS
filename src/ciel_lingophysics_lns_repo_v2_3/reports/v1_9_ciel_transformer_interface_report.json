@@ -1,0 +1,17 @@
+{
+  "version": "1.9.0",
+  "patch": "CIEL-Transformer Interface",
+  "added_docs": 3,
+  "added_modules": [
+    "transformer_features.py",
+    "attention_bias.py",
+    "auxiliary_losses.py",
+    "ciel_validator_loop.py"
+  ],
+  "added_tests": 4,
+  "notes": [
+    "This patch defines interface-level components only; it does not train or modify a real transformer model.",
+    "Binary model artifacts are intentionally absent.",
+    "All structural statistics are draft configuration values."
+  ]
+}

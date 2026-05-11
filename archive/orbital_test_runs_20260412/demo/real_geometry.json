@@ -1,0 +1,245 @@
+{
+  "imports": {
+    "bridge|constraints": 1,
+    "bridge|memory": 1,
+    "bridge|vocabulary": 1,
+    "fields|vocabulary": 1,
+    "memory|runtime": 1
+  },
+  "readme_mesh": {
+    "bridge|constraints": 2.5,
+    "bridge|fields": 2.5,
+    "bridge|memory": 2.5,
+    "bridge|runtime": 2.5,
+    "bridge|vocabulary": 1.25,
+    "constraints|fields": 2.5,
+    "constraints|memory": 2.5,
+    "constraints|runtime": 2.5,
+    "constraints|vocabulary": 1.25,
+    "fields|runtime": 2.5,
+    "fields|vocabulary": 1.5,
+    "memory|runtime": 2.5,
+    "memory|vocabulary": 1.5
+  },
+  "agent_mesh": {
+    "bridge|constraints": 2.5,
+    "bridge|fields": 2.5,
+    "bridge|memory": 2.5,
+    "bridge|runtime": 2.5,
+    "bridge|vocabulary": 2.5,
+    "constraints|fields": 2.5,
+    "constraints|memory": 2.5,
+    "constraints|runtime": 2.5,
+    "constraints|vocabulary": 2.5,
+    "fields|runtime": 2.5,
+    "fields|vocabulary": 2.5,
+    "memory|runtime": 2.5,
+    "memory|vocabulary": 2.5,
+    "runtime|vocabulary": 0.25
+  },
+  "manifest_bonus": {
+    "bridge|constraints": 0.35,
+    "bridge|memory": 0.3,
+    "constraints|fields": 0.2,
+    "fields|vocabulary": 0.25,
+    "memory|runtime": 0.2
+  },
+  "pair_scores": {
+    "bridge|constraints": 16.5,
+    "bridge|fields": 13.75,
+    "bridge|memory": 16.25,
+    "bridge|runtime": 13.75,
+    "bridge|vocabulary": 11.625,
+    "constraints|fields": 14.75,
+    "constraints|memory": 13.75,
+    "constraints|runtime": 13.75,
+    "constraints|vocabulary": 10.625,
+    "fields|memory": 0.0,
+    "fields|runtime": 13.75,
+    "fields|vocabulary": 13.5,
+    "memory|runtime": 15.75,
+    "memory|vocabulary": 11.25,
+    "runtime|vocabulary": 0.75
+  },
+  "centrality": {
+    "constraints": 69.375,
+    "fields": 55.75,
+    "runtime": 57.75,
+    "memory": 57.0,
+    "bridge": 71.875,
+    "vocabulary": 47.75
+  },
+  "masses": {
+    "constraints": {
+      "py_files": 2,
+      "char_count": 14683,
+      "import_count": 13,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "fields": {
+      "py_files": 7,
+      "char_count": 9982,
+      "import_count": 50,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "runtime": {
+      "py_files": 11,
+      "char_count": 50144,
+      "import_count": 106,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "memory": {
+      "py_files": 36,
+      "char_count": 281574,
+      "import_count": 535,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "bridge": {
+      "py_files": 2,
+      "char_count": 9513,
+      "import_count": 24,
+      "readme_count": 1,
+      "agent_count": 1
+    },
+    "vocabulary": {
+      "py_files": 10,
+      "char_count": 109191,
+      "import_count": 120,
+      "readme_count": 1,
+      "agent_count": 1
+    }
+  },
+  "sectors": {
+    "sectors": {
+      "constraints": {
+        "orbital_level": 2,
+        "orbital_type": "S",
+        "dominant_spin": "resolve",
+        "theta": 0.55,
+        "phi": 0.0,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.9913,
+        "coherence_weight": 1.0878,
+        "info_mass": 1.0865,
+        "q_target": 1,
+        "damping": 0.1,
+        "preference": 0.1958,
+        "defect": 0.02,
+        "tau": 0.263
+      },
+      "fields": {
+        "orbital_level": 2,
+        "orbital_type": "S",
+        "dominant_spin": "stabilize",
+        "theta": 0.75,
+        "phi": 1.047197551197,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.9439,
+        "coherence_weight": 1.0215,
+        "info_mass": 1.0748,
+        "q_target": 1,
+        "damping": 0.1,
+        "preference": 0.1731,
+        "defect": 0.02,
+        "tau": 0.263
+      },
+      "runtime": {
+        "orbital_level": 2,
+        "orbital_type": "F",
+        "dominant_spin": "run",
+        "theta": 1.55,
+        "phi": 2.094395102393,
+        "rhythm_ratio": 2.0,
+        "amplitude": 0.9509,
+        "coherence_weight": 1.0312,
+        "info_mass": 1.1747,
+        "q_target": 4,
+        "damping": 0.14,
+        "preference": 0.1764,
+        "defect": 0.02,
+        "tau": 0.489
+      },
+      "memory": {
+        "orbital_level": 2,
+        "orbital_type": "F",
+        "dominant_spin": "stabilize",
+        "theta": 1.05,
+        "phi": 3.14159265359,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.9483,
+        "coherence_weight": 1.0276,
+        "info_mass": 1.75,
+        "q_target": 2,
+        "damping": 0.1,
+        "preference": 0.1752,
+        "defect": 0.02,
+        "tau": 0.353
+      },
+      "bridge": {
+        "orbital_level": 2,
+        "orbital_type": "P",
+        "dominant_spin": "route",
+        "theta": 1.45,
+        "phi": 4.188790204786,
+        "rhythm_ratio": 2.0,
+        "amplitude": 1.0,
+        "coherence_weight": 1.1,
+        "info_mass": 1.0736,
+        "q_target": 4,
+        "damping": 0.14,
+        "preference": 0.2,
+        "defect": 0.03,
+        "tau": 0.489
+      },
+      "vocabulary": {
+        "orbital_level": 2,
+        "orbital_type": "S",
+        "dominant_spin": "link",
+        "theta": 0.7,
+        "phi": 5.235987755983,
+        "rhythm_ratio": 1.0,
+        "amplitude": 0.9161,
+        "coherence_weight": 0.9825,
+        "info_mass": 1.3215,
+        "q_target": 1,
+        "damping": 0.1,
+        "preference": 0.1597,
+        "defect": 0.02,
+        "tau": 0.263
+      }
+    }
+  },
+  "couplings": {
+    "couplings": {
+      "constraints": {
+        "runtime": 0.8917,
+        "vocabulary": 0.7686,
+        "fields": 0.9311,
+        "memory": 0.8917
+      },
+      "bridge": {
+        "vocabulary": 0.808,
+        "fields": 0.8917,
+        "memory": 0.9902,
+        "runtime": 0.8917,
+        "constraints": 1.0
+      },
+      "fields": {
+        "memory": 0.1,
+        "runtime": 0.8917,
+        "vocabulary": 0.8818
+      },
+      "memory": {
+        "runtime": 0.9705,
+        "vocabulary": 0.7932
+      },
+      "runtime": {
+        "vocabulary": 0.3795
+      }
+    }
+  }
+}

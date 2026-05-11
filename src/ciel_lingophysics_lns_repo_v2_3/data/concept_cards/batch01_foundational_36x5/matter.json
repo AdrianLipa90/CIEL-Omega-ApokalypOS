@@ -1,0 +1,222 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:matter",
+  "canonical_label_en": "matter",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "physics",
+  "semantic_axes": [
+    "substance",
+    "materiality",
+    "mass"
+  ],
+  "semantic_mass_seed": 0.9,
+  "phase_seed_rad": 2.792527,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "materia",
+      "brief_description": "substancjalny nośnik masy, struktury i przemiany",
+      "near_synonyms_seed": [
+        "substancja",
+        "tworzywo"
+      ],
+      "antonyms_seed": [
+        "pustka",
+        "informacja"
+      ],
+      "forms_seed": [
+        "materia",
+        "materia jako hasło",
+        "materia w kontekście"
+      ],
+      "context_examples_seed": [
+        "Materia tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "contains",
+        "has_property",
+        "transforms"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "matter",
+      "brief_description": "substantial carrier of mass, structure and transformation",
+      "near_synonyms_seed": [
+        "substance",
+        "material"
+      ],
+      "antonyms_seed": [
+        "void",
+        "information"
+      ],
+      "forms_seed": [
+        "matter",
+        "matters",
+        "matter as concept"
+      ],
+      "context_examples_seed": [
+        "Matter forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "contains",
+        "has_property",
+        "transforms"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Materie",
+      "brief_description": "substantieller Träger von Masse, Struktur und Verwandlung",
+      "near_synonyms_seed": [
+        "Substanz",
+        "Stoff"
+      ],
+      "antonyms_seed": [
+        "Leere",
+        "Information"
+      ],
+      "forms_seed": [
+        "Materie",
+        "Materie als Begriff",
+        "Materie im Kontext"
+      ],
+      "context_examples_seed": [
+        "Materie bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "contains",
+        "has_property",
+        "transforms"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "matière",
+      "brief_description": "support substantiel de masse, structure et transformation",
+      "near_synonyms_seed": [
+        "substance",
+        "matériau"
+      ],
+      "antonyms_seed": [
+        "vide",
+        "information"
+      ],
+      "forms_seed": [
+        "matière",
+        "matière comme concept",
+        "matière en contexte"
+      ],
+      "context_examples_seed": [
+        "Matière forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "contains",
+        "has_property",
+        "transforms"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "materia",
+      "brief_description": "soporte sustancial de masa, estructura y transformación",
+      "near_synonyms_seed": [
+        "sustancia",
+        "material"
+      ],
+      "antonyms_seed": [
+        "vacío",
+        "información"
+      ],
+      "forms_seed": [
+        "materia",
+        "materia como concepto",
+        "materia en contexto"
+      ],
+      "context_examples_seed": [
+        "Materia forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "contains",
+        "has_property",
+        "transforms"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "contains",
+    "has_property",
+    "transforms"
+  ],
+  "relations": [
+    {
+      "type": "paired_with",
+      "target": "concept:information",
+      "status": "draft_seed"
+    },
+    {
+      "type": "receives",
+      "target": "concept:energy",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

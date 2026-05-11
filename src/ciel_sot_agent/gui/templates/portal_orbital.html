@@ -293,8 +293,8 @@ function drawRelSphere(metrics){
 
   // Closure penalty indicator (distance from attractor centre)
   // High penalty → point pushed toward equator; shown as dotted line to sphere centre
-  const closureNorm = Math.min(1, Math.max(0, (closure - 3.0) / 5.0));
-  const closureCol  = closure < 5.2 ? '#00e678' : closure < 5.8 ? '#f5c518' : '#ff6060';
+  const closureNorm = Math.min(1, Math.max(0, closure / 0.35));
+  const closureCol  = closure < 0.15 ? '#00e678' : closure < 0.35 ? '#f5c518' : '#ff6060';
   ctx.setLineDash([3, 4]);
   ctx.beginPath();
   ctx.moveTo(CX, CY);
@@ -345,7 +345,7 @@ function updateReadouts(metrics){
   document.getElementById('rd-ci').textContent      = ci      != null ? ci.toFixed(4)      : '—';
   document.getElementById('bar-ci').style.width     = ci      != null ? Math.round(ci*100)+'%' : '0%';
 
-  const cCls = closure == null ? '' : closure < 5.2 ? 'status-ok' : closure < 5.8 ? 'status-warn' : 'status-err';
+  const cCls = closure == null ? '' : closure < 0.15 ? 'status-ok' : closure < 0.35 ? 'status-warn' : 'status-err';
   document.getElementById('rd-closure').textContent = closure != null ? closure.toFixed(4)  : '—';
   document.getElementById('rd-closure').className   = 'rel-metric-val ' + cCls;
   document.getElementById('bar-closure').style.width = closure != null ? Math.round(Math.min(1,closure/10)*100)+'%' : '0%';
@@ -422,7 +422,7 @@ function renderMetricsRow(metrics, gating){
   const m = metrics||{};
   if(m.system_health!=null){ const v=m.system_health; const cls=v>=0.7?'status-ok':v>=0.5?'status-warn':'status-err'; chips.push(`<span class="metric-chip">health <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`); }
   if(m.coherence_index!=null) chips.push(`<span class="metric-chip">coherence <span class="metric-val">${m.coherence_index.toFixed(3)}</span></span>`);
-  if(m.closure_penalty!=null){ const v=m.closure_penalty; const cls=v<5.2?'status-ok':v<5.8?'status-warn':'status-err'; chips.push(`<span class="metric-chip">closure <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`); }
+  if(m.closure_penalty!=null){ const v=m.closure_penalty; const cls=v<0.15?'status-ok':v<0.35?'status-warn':'status-err'; chips.push(`<span class="metric-chip">closure <span class="metric-val ${cls}">${v.toFixed(3)}</span></span>`); }
   if(m.ethical_score!=null) chips.push(`<span class="metric-chip">ethics <span class="metric-val">${m.ethical_score.toFixed(3)}</span></span>`);
   if(m.dominant_emotion) chips.push(`<span class="metric-chip">emotion <span class="metric-val">${esc(m.dominant_emotion)}</span></span>`);
   if(gating && gating.dominant_horizon_class) chips.push(`<span class="metric-chip">horizon <span class="metric-val">${esc(gating.dominant_horizon_class)}</span></span>`);

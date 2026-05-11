@@ -1,0 +1,8 @@
+algorithm_id,level,applies_to,fallback
+alg:case_gauge,family/language,family:slavic|language:de:standard,UNRESOLVED_CASE_ROLE
+alg:word_order_role_mapper,family/language,family:germanic|family:romance,UNRESOLVED_ROLE_ORDER
+alg:being_operator_split,language,language:es:standard|language:fr:standard|language:en:standard|language:pl:standard,UNRESOLVED_BEING_MODE
+alg:koto_mono_classifier,language,language:ja:planned,UNRESOLVED_ONTOLOGICAL_ASPECT
+alg:clitic_resolver,language,family:romance,UNRESOLVED_CLITIC_REFERENCE
+alg:particle_role_mapper,language,family:japonic,UNRESOLVED_PARTICLE_ROLE
+alg:root_pattern_analyzer,family,family:semitic,UNRESOLVED_ROOT_PATTERN

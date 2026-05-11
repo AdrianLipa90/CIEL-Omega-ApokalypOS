@@ -100,3 +100,8 @@ That separation is required to avoid false canonical ownership and to keep shell
 
 Every conceptual file in `docs/` should appear in `integration/hyperspace_index.json`.
 Machine-readable and human-readable indices must evolve together.
+
+## Current memory/orbital audit references
+
+- `docs/architecture/MEMORY_ORBITAL_CLASSIFICATION_AUDIT_2026-05-11.md`
+- `docs/architecture/MEMORY_REFACTOR_EXECUTION_PLAN_2026-05-11.md`

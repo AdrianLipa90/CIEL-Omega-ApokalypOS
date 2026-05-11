@@ -1,0 +1,53 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:after
+family: temporal_succession
+class:
+- temporal_relation
+- ordering_operator
+symbol: After(x,y)
+arity: '2'
+dual: op:core:before
+inverse: op:core:before
+description: x follows y in time, sequence or consequence
+equations:
+- After(x,y)
+- t(x)>t(y)
+surfaces:
+  pl:
+    lemma: po
+    forms:
+    - po
+    - później niż
+    examples:
+    - Noc jest po dniu.
+    notes: temporal/spatial ordering
+  en:
+    lemma: after
+    forms:
+    - after
+    - following
+    examples:
+    - Night is after day.
+    notes: temporal succession
+  de:
+    lemma: nach
+    forms:
+    - nach
+    examples:
+    - Die Nacht ist nach dem Tag.
+    notes: temporal succession
+  fr:
+    lemma: après
+    forms:
+    - après
+    examples:
+    - La nuit est après le jour.
+    notes: temporal succession
+  es:
+    lemma: después de
+    forms:
+    - después de
+    - tras
+    examples:
+    - La noche es después del día.
+    notes: temporal succession

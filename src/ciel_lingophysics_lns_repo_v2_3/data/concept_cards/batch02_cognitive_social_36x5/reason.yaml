@@ -1,0 +1,153 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:reason
+canonical_label_en: reason
+batch_id: batch02_cognitive_social_36x5
+domain: cognition_logic
+semantic_axes:
+- mind
+- logic
+- cause
+semantic_mass_seed: 0.613
+phase_seed_rad: 1.745329
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: rozum
+    brief_description: karta pojęciowa 'rozum' jako ręcznie kuratorowany seed lingofizyczny
+    near_synonyms_seed:
+    - racjonalność
+    antonyms_seed: []
+    forms_seed:
+    - rozum
+    - rozum as lemma
+    - rozum in context
+    context_examples_seed:
+    - rozum participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - because
+    - if_then
+    - not
+    - prove
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: reason
+    brief_description: concept card 'reason' as a hand-curated lingophysics seed
+    near_synonyms_seed:
+    - rationality
+    antonyms_seed: []
+    forms_seed:
+    - reason
+    - reason as lemma
+    - reason in context
+    context_examples_seed:
+    - reason participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Vernunft
+    brief_description: Begriffskarte 'Vernunft' als handkuratiertes Lingophysik-Seed
+    near_synonyms_seed:
+    - Rationalität
+    antonyms_seed: []
+    forms_seed:
+    - Vernunft
+    - Vernunft as lemma
+    - Vernunft in context
+    context_examples_seed:
+    - Vernunft participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: raison
+    brief_description: carte conceptuelle 'raison' comme graine lingophysique curée
+      manuellement
+    near_synonyms_seed:
+    - rationalité
+    antonyms_seed: []
+    forms_seed:
+    - raison
+    - raison as lemma
+    - raison in context
+    context_examples_seed:
+    - raison participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: razón
+    brief_description: tarjeta conceptual 'razón' como semilla lingofísica curada
+      manualmente
+    near_synonyms_seed:
+    - racionalidad
+    antonyms_seed: []
+    forms_seed:
+    - razón
+    - razón as lemma
+    - razón in context
+    context_examples_seed:
+    - razón participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: supports
+  target: concept:knowledge
+  status: draft_seed
+- type: opposes
+  target: concept:chaos
+  status: draft_seed
+quality_flags:
+- CURATED_SEED
+- BATCH02
+- REQUIRES_HUMAN_REVIEW

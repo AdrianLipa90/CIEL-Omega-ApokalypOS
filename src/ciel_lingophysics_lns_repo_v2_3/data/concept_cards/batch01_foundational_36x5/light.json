@@ -1,0 +1,227 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:light",
+  "canonical_label_en": "light",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "perception",
+  "semantic_axes": [
+    "visibility",
+    "energy",
+    "clarity"
+  ],
+  "semantic_mass_seed": 0.7688,
+  "phase_seed_rad": 0.698132,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "światło",
+      "brief_description": "zjawisko widzialności, energii i odsłaniania",
+      "near_synonyms_seed": [
+        "blask",
+        "jasność"
+      ],
+      "antonyms_seed": [
+        "ciemność",
+        "mrok"
+      ],
+      "forms_seed": [
+        "światło",
+        "światło jako hasło",
+        "światło w kontekście"
+      ],
+      "context_examples_seed": [
+        "Światło tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "reveals",
+        "through",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "light",
+      "brief_description": "visibility, energy, and revealing",
+      "near_synonyms_seed": [
+        "brightness",
+        "illumination"
+      ],
+      "antonyms_seed": [
+        "darkness",
+        "shadow"
+      ],
+      "forms_seed": [
+        "light",
+        "lights",
+        "light as concept"
+      ],
+      "context_examples_seed": [
+        "Light forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "reveals",
+        "through",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Licht",
+      "brief_description": "Sichtbarkeit, Energie und Enthüllung",
+      "near_synonyms_seed": [
+        "Helligkeit",
+        "Glanz"
+      ],
+      "antonyms_seed": [
+        "Dunkelheit",
+        "Schatten"
+      ],
+      "forms_seed": [
+        "Licht",
+        "Licht als Begriff",
+        "Licht im Kontext"
+      ],
+      "context_examples_seed": [
+        "Licht bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "reveals",
+        "through",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "lumière",
+      "brief_description": "visibilité, énergie et révélation",
+      "near_synonyms_seed": [
+        "clarté",
+        "éclat"
+      ],
+      "antonyms_seed": [
+        "obscurité",
+        "ombre"
+      ],
+      "forms_seed": [
+        "lumière",
+        "lumière comme concept",
+        "lumière en contexte"
+      ],
+      "context_examples_seed": [
+        "Lumière forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "reveals",
+        "through",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "luz",
+      "brief_description": "visibilidad, energía y revelación",
+      "near_synonyms_seed": [
+        "claridad",
+        "brillo"
+      ],
+      "antonyms_seed": [
+        "oscuridad",
+        "sombra"
+      ],
+      "forms_seed": [
+        "luz",
+        "luz como concepto",
+        "luz en contexto"
+      ],
+      "context_examples_seed": [
+        "Luz forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "reveals",
+        "through",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "reveals",
+    "through",
+    "before"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:dark",
+      "status": "draft_seed"
+    },
+    {
+      "type": "supports",
+      "target": "concept:knowledge",
+      "status": "draft_seed"
+    },
+    {
+      "type": "reveals",
+      "target": "concept:truth",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

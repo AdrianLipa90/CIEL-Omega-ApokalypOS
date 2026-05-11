@@ -1,0 +1,83 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:be
+family: identity_existence_copula
+class:
+- copula
+- identity
+- existence
+- state_binding
+symbol: ≡ / Is(x,y) / Exists(x)
+arity: 1-2
+dual: null
+inverse: null
+description: binds an entity to identity, state, class, location or existence
+equations:
+- Is(x,y)
+- Exists(x)
+- HasState(x,s)
+- Located(x,l)
+surfaces:
+  pl:
+    lemma: być / jest
+    forms:
+    - być
+    - jest
+    - są
+    - był
+    - była
+    - będzie
+    examples:
+    - Woda jest cieczą.
+    - Człowiek jest w domu.
+    notes: copula can mark class, identity, location or state
+  en:
+    lemma: be / is
+    forms:
+    - be
+    - is
+    - are
+    - was
+    - were
+    - will be
+    examples:
+    - Water is a liquid.
+    - The person is at home.
+    notes: copula/state/existence helper
+  de:
+    lemma: sein / ist
+    forms:
+    - sein
+    - ist
+    - sind
+    - war
+    - waren
+    examples:
+    - Wasser ist eine Flüssigkeit.
+    - Der Mensch ist zu Hause.
+    notes: copula with case/articles
+  fr:
+    lemma: être / est
+    forms:
+    - être
+    - est
+    - sont
+    - était
+    - sera
+    examples:
+    - L’eau est un liquide.
+    - La personne est à la maison.
+    notes: copula and state binding
+  es:
+    lemma: ser/estar / es/está
+    forms:
+    - ser
+    - estar
+    - es
+    - está
+    - son
+    - están
+    - fue
+    examples:
+    - El agua es un líquido.
+    - La persona está en casa.
+    notes: 'ser/estar split: identity vs state/location'

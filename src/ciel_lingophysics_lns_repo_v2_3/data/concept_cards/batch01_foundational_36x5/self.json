@@ -1,0 +1,227 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:self",
+  "canonical_label_en": "self",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "relational",
+  "semantic_axes": [
+    "identity",
+    "subject",
+    "perspective"
+  ],
+  "semantic_mass_seed": 0.55,
+  "phase_seed_rad": 4.537856,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "ja",
+      "brief_description": "perspektywa podmiotu, własna tożsamość i punkt odniesienia",
+      "near_synonyms_seed": [
+        "siebie",
+        "podmiot"
+      ],
+      "antonyms_seed": [
+        "inny",
+        "obcy"
+      ],
+      "forms_seed": [
+        "ja",
+        "ja jako hasło",
+        "ja w kontekście"
+      ],
+      "context_examples_seed": [
+        "Ja tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "is",
+        "has",
+        "knows"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "self",
+      "brief_description": "subject perspective, own identity and reference point",
+      "near_synonyms_seed": [
+        "identity",
+        "subject"
+      ],
+      "antonyms_seed": [
+        "other",
+        "stranger"
+      ],
+      "forms_seed": [
+        "self",
+        "selfs",
+        "self as concept"
+      ],
+      "context_examples_seed": [
+        "Self forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "is",
+        "has",
+        "knows"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Selbst",
+      "brief_description": "Subjektperspektive, eigene Identität und Bezugspunkt",
+      "near_synonyms_seed": [
+        "Ich",
+        "Subjekt"
+      ],
+      "antonyms_seed": [
+        "Andere",
+        "Fremde"
+      ],
+      "forms_seed": [
+        "Selbst",
+        "Selbst als Begriff",
+        "Selbst im Kontext"
+      ],
+      "context_examples_seed": [
+        "Selbst bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "is",
+        "has",
+        "knows"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "soi",
+      "brief_description": "perspective du sujet, identité propre et point de référence",
+      "near_synonyms_seed": [
+        "moi",
+        "sujet"
+      ],
+      "antonyms_seed": [
+        "autre",
+        "étranger"
+      ],
+      "forms_seed": [
+        "soi",
+        "soi comme concept",
+        "soi en contexte"
+      ],
+      "context_examples_seed": [
+        "Soi forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "is",
+        "has",
+        "knows"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "yo",
+      "brief_description": "perspectiva del sujeto, identidad propia y punto de referencia",
+      "near_synonyms_seed": [
+        "sí mismo",
+        "sujeto"
+      ],
+      "antonyms_seed": [
+        "otro",
+        "extraño"
+      ],
+      "forms_seed": [
+        "yo",
+        "yo como concepto",
+        "yo en contexto"
+      ],
+      "context_examples_seed": [
+        "Yo forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "is",
+        "has",
+        "knows"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "is",
+    "has",
+    "knows"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:other",
+      "status": "draft_seed"
+    },
+    {
+      "type": "stabilizes",
+      "target": "concept:identity",
+      "status": "draft_seed"
+    },
+    {
+      "type": "stores",
+      "target": "concept:memory",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

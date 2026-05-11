@@ -1,0 +1,14 @@
+card_type,storage_root,semantic_role,status_default,notes
+CONCEPT_CARD,data/concept_cards/,semantic mass / attractor,seed,"Names things, ideas, processes, states, or attractor concepts. Does not execute transformations by itself."
+OPERATOR_CARD,data/operator_cards/,function / force / transformation,draft,Functional words and operator surfaces. Acts on concept cards or predicates.
+OPERATOR_FAMILY,data/operator_families/,operator class / algebraic family,draft,Groups operators into reusable algebraic families.
+OPERATOR_COMPOSITION,data/operator_compositions/,composition law,draft,"Defines duals, inverses, negation interactions, and higher-order operator rules."
+GRAMMAR_CARD,data/grammar/,local grammar gauge,draft,"Language-specific realization geometry: word order, morphology, agreement, particles."
+CASE_GAUGE_CARD,data/case_systems/,hidden role operator encoded morphologically,draft,Represents Slavic-style case semantics and reconstruction strategies in weak-case languages.
+CASE_MAPPING,data/case_mappings/,cross-language realization map,generated,"Maps case-gauge roles to word order, preposition, clitic, or verb-valency strategies."
+EVENT_FRAME,data/event_frames/,predicate valency skeleton,draft,Defines which roles a predicate allows before grammar realizes them.
+ONTOLOGICAL_ASPECT,data/ontological_aspect/,object/concept/being mode split,draft,Handles thing/concept and identity/state distinctions.
+TAME_CARD,data/tame/,time/aspect/mood/modality/evidentiality operator,draft,Encodes temporal and epistemic orientation of propositions.
+DEICTIC_CARD,data/operator_cards/,unresolved dynamic anchor,draft,Dynamic operators such as somewhere/sometime remain unresolved until context binds them.
+SCOPE_CARD,data/scope/,scope and quantifier control,draft,Prevents false equivalence between different quantifier-negation scopes.
+JSON_FALLBACK,data/json/,safe degraded persistence,generated,Ensures pipeline continues with explicit JSON/JSONL fallback when richer storage fails.

@@ -62,10 +62,14 @@ def main(argv: list[str] | None = None) -> None:
         description="Launch the CIEL Quiet Orbital Control web interface.",
     )
     parser.add_argument("--host", default="127.0.0.1", help="Bind host (default: 127.0.0.1)")
-    parser.add_argument("--port", default=5050, type=int, help="Bind port (default: 5050)")
+    parser.add_argument("--port", default=2435, type=int, help="Bind port (default: 2435)")
     parser.add_argument("--debug", action="store_true", help="Enable Flask debug mode")
     parser.add_argument("--root", default=None, help="Project root directory")
 
     args = parser.parse_args(argv if argv is not None else sys.argv[1:])
     app = create_app(root=args.root, debug=args.debug)
     app.run(host=args.host, port=args.port, debug=args.debug)
+
+
+if __name__ == "__main__":  # pragma: no cover
+    main()

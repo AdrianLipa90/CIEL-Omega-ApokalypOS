@@ -1,0 +1,134 @@
+{
+  "version": "1.5",
+  "nodes": [
+    {
+      "id": "quantifier:ALL",
+      "type": "quantifier"
+    },
+    {
+      "id": "quantifier:EACH",
+      "type": "quantifier"
+    },
+    {
+      "id": "quantifier:SOME",
+      "type": "quantifier"
+    },
+    {
+      "id": "quantifier:MANY",
+      "type": "quantifier"
+    },
+    {
+      "id": "quantifier:FEW",
+      "type": "quantifier"
+    },
+    {
+      "id": "quantifier:ONE",
+      "type": "quantifier"
+    },
+    {
+      "id": "quantifier:NO",
+      "type": "quantifier"
+    },
+    {
+      "id": "quantifier:ANY",
+      "type": "quantifier"
+    },
+    {
+      "id": "negation:none",
+      "type": "negation_position"
+    },
+    {
+      "id": "negation:outside_quantifier",
+      "type": "negation_position"
+    },
+    {
+      "id": "negation:inside_predicate",
+      "type": "negation_position"
+    },
+    {
+      "id": "negation:quantifier_negative",
+      "type": "negation_position"
+    },
+    {
+      "id": "negation:unresolved",
+      "type": "negation_position"
+    },
+    {
+      "id": "rule:not_all",
+      "type": "normalization_rule",
+      "normalized": "EXISTS(x, DOMAIN(x) AND NOT(P(x)))"
+    },
+    {
+      "id": "rule:all_not",
+      "type": "normalization_rule",
+      "normalized": "FORALL(x, DOMAIN(x) -> NOT(P(x)))"
+    },
+    {
+      "id": "rule:not_some",
+      "type": "normalization_rule",
+      "normalized": "NOT(EXISTS(x, DOMAIN(x) AND P(x)))"
+    },
+    {
+      "id": "rule:some_not",
+      "type": "normalization_rule",
+      "normalized": "EXISTS(x, DOMAIN(x) AND NOT(P(x)))"
+    },
+    {
+      "id": "rule:negative_quantifier",
+      "type": "normalization_rule",
+      "normalized": "FORALL(x, DOMAIN(x) -> NOT(P(x)))"
+    }
+  ],
+  "edges": [
+    {
+      "source": "quantifier:ALL",
+      "target": "rule:not_all",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "negation:outside_quantifier",
+      "target": "rule:not_all",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "quantifier:ALL",
+      "target": "rule:all_not",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "negation:inside_predicate",
+      "target": "rule:all_not",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "quantifier:SOME",
+      "target": "rule:not_some",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "negation:outside_quantifier",
+      "target": "rule:not_some",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "quantifier:SOME",
+      "target": "rule:some_not",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "negation:inside_predicate",
+      "target": "rule:some_not",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "quantifier:NO",
+      "target": "rule:negative_quantifier",
+      "type": "feeds_rule"
+    },
+    {
+      "source": "negation:quantifier_negative",
+      "target": "rule:negative_quantifier",
+      "type": "feeds_rule"
+    }
+  ]
+}

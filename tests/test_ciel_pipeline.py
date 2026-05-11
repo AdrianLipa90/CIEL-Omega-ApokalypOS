@@ -93,3 +93,20 @@ def test_run_ciel_pipeline_ciel_raw_present() -> None:
     result = run_ciel_pipeline({})
     assert "ciel_raw" in result
     assert isinstance(result["ciel_raw"], dict)
+
+
+def test_run_ciel_pipeline_exposes_j_and_memory_projection_keys() -> None:
+    orbital_state = {
+        "memory_projection": {
+            "projection_confidence": 0.8,
+            "projection_residual": 0.2,
+            "projection_error": 0.2,
+            "j_noema": 0.34,
+        }
+    }
+    result = run_ciel_pipeline(orbital_state)
+    for key in ("J_functional", "J_memory", "J_euler", "J_total", "j_noema", "memory_projection_confidence", "lingo_frame", "lingo_phase_projection", "lingo_tau_bridge", "lingo_tau_gradient_mean", "lingo_imaginal_drive"):
+        assert key in result
+    assert isinstance(result["lingo_frame"], dict)
+    assert isinstance(result["lingo_phase_projection"], dict)
+    assert isinstance(result["lingo_tau_bridge"], dict)

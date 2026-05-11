@@ -1,0 +1,57 @@
+operator_id,formal_mode
+op:core:be,"Is(x,y)"
+op:core:be,Exists(x)
+op:core:be,"HasState(x,s)"
+op:core:be,"Located(x,l)"
+op:core:have,"Have(possessor, possessed)"
+op:core:have,"HasPart(whole, part)"
+op:core:have,"HasProperty(entity, property)"
+op:core:have,"HasState(entity, state)"
+op:core:contain,"Contains(y,x)"
+op:core:contain,x ⊂ Int(y)
+op:core:inside,"Inside(x,y)"
+op:core:inside,x ∈ Int(y)
+op:core:outside,"Outside(x,y)"
+op:core:outside,x ∉ Int(y)
+op:core:on,"On(x,y)"
+op:core:on,"Contact(x, Surface(y))"
+op:core:under,"Under(x,y)"
+op:core:under,z(x)<z(y)
+op:core:above,"Above(x,y)"
+op:core:above,z(x)>z(y)
+op:core:before,"Before(x,y)"
+op:core:before,t(x)<t(y)
+op:core:after,"After(x,y)"
+op:core:after,t(x)>t(y)
+op:core:with,"With(x,y)"
+op:core:with,"Associate(x,y)"
+op:core:with,"Instrument(action,y)"
+op:core:without,"Without(x,y)"
+op:core:without,"¬With(x,y)"
+op:core:from,"From(x,s)"
+op:core:from,Origin(x)=s
+op:core:to,"To(x,t)"
+op:core:to,Target(x)=t
+op:core:through,"Through(path,medium)"
+op:core:through,"MediatedBy(action,medium)"
+op:core:and,"And(x,y)"
+op:core:and,x ∧ y
+op:core:and,x ⊗ y
+op:core:or,"Or(x,y)"
+op:core:or,x ∨ y
+op:core:or,x ⊕ y
+op:core:not,Not(P)
+op:core:not,¬P
+op:core:not,phase(P)+π
+op:core:if_then,"If(P,Q)"
+op:core:if_then,P ⇒ Q
+op:core:because,"Because(Q,P)"
+op:core:because,"Cause(P,Q)"
+op:core:because,"Reason(P,Q)"
+op:core:how,How(T)->ask(Manner(T))
+op:core:how,"Like(x,y)->Sim(x,y)"
+op:core:how,"As(x,y)->MapPattern(y→x)"
+op:core:where,Where(x)->ask(Location(x))
+op:core:when,When(e)->ask(Time(e))
+op:core:like_as,"Like(x,y)->Sim(x,y)"
+op:core:like_as,"AsRole(x,r)->Role(x)=r"

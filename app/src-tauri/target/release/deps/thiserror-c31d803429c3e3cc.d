@@ -1,0 +1,14 @@
+/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/deps/thiserror-c31d803429c3e3cc.d: /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/build/thiserror-e791945715606989/out/private.rs
+
+/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/deps/libthiserror-c31d803429c3e3cc.rlib: /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/build/thiserror-e791945715606989/out/private.rs
+
+/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/deps/libthiserror-c31d803429c3e3cc.rmeta: /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs /home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/build/thiserror-e791945715606989/out/private.rs
+
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/lib.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/aserror.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/display.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/var.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/thiserror-2.0.18/src/private.rs:
+/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/build/thiserror-e791945715606989/out/private.rs:
+
+# env-dep:OUT_DIR=/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/build/thiserror-e791945715606989/out

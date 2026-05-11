@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<key id="label" for="node" attr.name="label" attr.type="string"/>
+<key id="type" for="all" attr.name="type" attr.type="string"/>
+<key id="domain" for="node" attr.name="domain" attr.type="string"/>
+<key id="status" for="edge" attr.name="status" attr.type="string"/>
+<graph id="global_diagnostic_graph_v2_0" edgedefault="directed">
+<node id="concept:water"><data key="label">water</data><data key="type">CONCEPT_CARD</data><data key="domain">elemental</data></node>
+<node id="concept:fire"><data key="label">fire</data><data key="type">CONCEPT_CARD</data><data key="domain">elemental</data></node>
+<node id="concept:earth"><data key="label">earth</data><data key="type">CONCEPT_CARD</data><data key="domain">elemental</data></node>
+<node id="concept:air"><data key="label">air</data><data key="type">CONCEPT_CARD</data><data key="domain">elemental</data></node>
+<node id="concept:light"><data key="label">light</data><data key="type">CONCEPT_CARD</data><data key="domain">perception</data></node>
+<node id="concept:dark"><data key="label">darkness</data><data key="type">CONCEPT_CARD</data><data key="domain">perception</data></node>
+<node id="concept:life"><data key="label">life</data><data key="type">CONCEPT_CARD</data><data key="domain">biological</data></node>
+<node id="concept:death"><data key="label">death</data><data key="type">CONCEPT_CARD</data><data key="domain">biological</data></node>
+<node id="concept:body"><data key="label">body</data><data key="type">CONCEPT_CARD</data><data key="domain">embodiment</data></node>
+<node id="concept:mind"><data key="label">mind</data><data key="type">CONCEPT_CARD</data><data key="domain">cognitive</data></node>
+<node id="concept:time"><data key="label">time</data><data key="type">CONCEPT_CARD</data><data key="domain">spacetime</data></node>
+<node id="concept:space"><data key="label">space</data><data key="type">CONCEPT_CARD</data><data key="domain">spacetime</data></node>
+<node id="concept:motion"><data key="label">motion</data><data key="type">CONCEPT_CARD</data><data key="domain">dynamics</data></node>
+<node id="concept:rest"><data key="label">rest</data><data key="type">CONCEPT_CARD</data><data key="domain">dynamics</data></node>
+<node id="concept:force"><data key="label">force</data><data key="type">CONCEPT_CARD</data><data key="domain">physics</data></node>
+<node id="concept:energy"><data key="label">energy</data><data key="type">CONCEPT_CARD</data><data key="domain">physics</data></node>
+<node id="concept:matter"><data key="label">matter</data><data key="type">CONCEPT_CARD</data><data key="domain">physics</data></node>
+<node id="concept:information"><data key="label">information</data><data key="type">CONCEPT_CARD</data><data key="domain">informational</data></node>
+<node id="concept:truth"><data key="label">truth</data><data key="type">CONCEPT_CARD</data><data key="domain">epistemic</data></node>
+<node id="concept:lie"><data key="label">lie</data><data key="type">CONCEPT_CARD</data><data key="domain">epistemic</data></node>
+<node id="concept:good"><data key="label">good</data><data key="type">CONCEPT_CARD</data><data key="domain">ethical</data></node>
+<node id="concept:harm"><data key="label">harm</data><data key="type">CONCEPT_CARD</data><data key="domain">ethical</data></node>
+<node id="concept:order"><data key="label">order</data><data key="type">CONCEPT_CARD</data><data key="domain">structure</data></node>
+<node id="concept:chaos"><data key="label">chaos</data><data key="type">CONCEPT_CARD</data><data key="domain">structure</data></node>
+<node id="concept:center"><data key="label">center</data><data key="type">CONCEPT_CARD</data><data key="domain">geometry</data></node>
+<node id="concept:boundary"><data key="label">boundary</data><data key="type">CONCEPT_CARD</data><data key="domain">geometry</data></node>
+<node id="concept:self"><data key="label">self</data><data key="type">CONCEPT_CARD</data><data key="domain">relational</data></node>
+<node id="concept:other"><data key="label">other</data><data key="type">CONCEPT_CARD</data><data key="domain">relational</data></node>
+<node id="concept:relation"><data key="label">relation</data><data key="type">CONCEPT_CARD</data><data key="domain">relational</data></node>
+<node id="concept:memory"><data key="label">memory</data><data key="type">CONCEPT_CARD</data><data key="domain">cognitive</data></node>
+<node id="concept:love"><data key="label">love</data><data key="type">CONCEPT_CARD</data><data key="domain">affective</data></node>
+<node id="concept:fear"><data key="label">fear</data><data key="type">CONCEPT_CARD</data><data key="domain">affective</data></node>
+<node id="concept:trust"><data key="label">trust</data><data key="type">CONCEPT_CARD</data><data key="domain">affective_social</data></node>
+<node id="concept:pain"><data key="label">pain</data><data key="type">CONCEPT_CARD</data><data key="domain">affective_body</data></node>
+<node id="concept:knowledge"><data key="label">knowledge</data><data key="type">CONCEPT_CARD</data><data key="domain">epistemic</data></node>
+<node id="concept:error"><data key="label">error</data><data key="type">CONCEPT_CARD</data><data key="domain">epistemic</data></node>
+<node id="concept:answer"><data key="label">answer</data><data key="type">CONCEPT_CARD</data><data key="domain">cognition_dialogue</data></node>
+<node id="concept:blood"><data key="label">blood</data><data key="type">CONCEPT_CARD</data><data key="domain">body_life</data></node>
+<node id="concept:border"><data key="label">border</data><data key="type">CONCEPT_CARD</data><data key="domain">place_boundary</data></node>
+<node id="concept:child"><data key="label">child</data><data key="type">CONCEPT_CARD</data><data key="domain">social_family</data></node>
+<node id="concept:city"><data key="label">city</data><data key="type">CONCEPT_CARD</data><data key="domain">place_social</data></node>
+<node id="concept:country"><data key="label">country</data><data key="type">CONCEPT_CARD</data><data key="domain">place_political</data></node>
+<node id="concept:debt"><data key="label">debt</data><data key="type">CONCEPT_CARD</data><data key="domain">social_exchange</data></node>
+<node id="concept:door"><data key="label">door</data><data key="type">CONCEPT_CARD</data><data key="domain">place_boundary</data></node>
+<node id="concept:doubt"><data key="label">doubt</data><data key="type">CONCEPT_CARD</data><data key="domain">cognition_epistemic</data></node>
+<node id="concept:enemy"><data key="label">enemy</data><data key="type">CONCEPT_CARD</data><data key="domain">social_relation</data></node>
+<node id="concept:eye"><data key="label">eye</data><data key="type">CONCEPT_CARD</data><data key="domain">body_perception</data></node>
+<node id="concept:face"><data key="label">face</data><data key="type">CONCEPT_CARD</data><data key="domain">body_identity</data></node>
+<node id="concept:friend"><data key="label">friend</data><data key="type">CONCEPT_CARD</data><data key="domain">social_relation</data></node>
+<node id="concept:gift"><data key="label">gift</data><data key="type">CONCEPT_CARD</data><data key="domain">social_exchange</data></node>
+<node id="concept:hand"><data key="label">hand</data><data key="type">CONCEPT_CARD</data><data key="domain">body_action</data></node>
+<node id="concept:house"><data key="label">house</data><data key="type">CONCEPT_CARD</data><data key="domain">place_social</data></node>
+<node id="concept:idea"><data key="label">idea</data><data key="type">CONCEPT_CARD</data><data key="domain">cognition</data></node>
+<node id="concept:law"><data key="label">law</data><data key="type">CONCEPT_CARD</data><data key="domain">social_order</data></node>
+<node id="concept:money"><data key="label">money</data><data key="type">CONCEPT_CARD</data><data key="domain">social_exchange</data></node>
+<node id="concept:name"><data key="label">name</data><data key="type">CONCEPT_CARD</data><data key="domain">identity_symbol</data></node>
+<node id="concept:parent"><data key="label">parent</data><data key="type">CONCEPT_CARD</data><data key="domain">social_family</data></node>
+<node id="concept:person"><data key="label">person</data><data key="type">CONCEPT_CARD</data><data key="domain">social</data></node>
+<node id="concept:promise"><data key="label">promise</data><data key="type">CONCEPT_CARD</data><data key="domain">social_temporal</data></node>
+<node id="concept:question"><data key="label">question</data><data key="type">CONCEPT_CARD</data><data key="domain">cognition_dialogue</data></node>
+<node id="concept:reason"><data key="label">reason</data><data key="type">CONCEPT_CARD</data><data key="domain">cognition_logic</data></node>
+<node id="concept:road"><data key="label">road</data><data key="type">CONCEPT_CARD</data><data key="domain">place_motion</data></node>
+<node id="concept:sign"><data key="label">sign</data><data key="type">CONCEPT_CARD</data><data key="domain">language_symbol</data></node>
+<node id="concept:silence"><data key="label">silence</data><data key="type">CONCEPT_CARD</data><data key="domain">language_absence</data></node>
+<node id="concept:song"><data key="label">song</data><data key="type">CONCEPT_CARD</data><data key="domain">language_sound</data></node>
+<node id="concept:sound"><data key="label">sound</data><data key="type">CONCEPT_CARD</data><data key="domain">language_body</data></node>
+<node id="concept:story"><data key="label">story</data><data key="type">CONCEPT_CARD</data><data key="domain">language_memory</data></node>
+<node id="concept:stranger"><data key="label">stranger</data><data key="type">CONCEPT_CARD</data><data key="domain">social_relation</data></node>
+<node id="concept:thought"><data key="label">thought</data><data key="type">CONCEPT_CARD</data><data key="domain">cognition</data></node>
+<node id="concept:voice"><data key="label">voice</data><data key="type">CONCEPT_CARD</data><data key="domain">body_expression</data></node>
+<node id="concept:word"><data key="label">word</data><data key="type">CONCEPT_CARD</data><data key="domain">language</data></node>
+<node id="concept:work"><data key="label">work</data><data key="type">CONCEPT_CARD</data><data key="domain">social_action</data></node>
+<node id="operator:about"><data key="label">about</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:after"><data key="label">after</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:against"><data key="label">against</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:answer"><data key="label">answer</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:around"><data key="label">around</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:arranges"><data key="label">arranges</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:as"><data key="label">as</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:ask"><data key="label">ask</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:avoids"><data key="label">avoids</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:be"><data key="label">be</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:because"><data key="label">because</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:before"><data key="label">before</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:before_after"><data key="label">before_after</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:believes"><data key="label">believes</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:between"><data key="label">between</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:border"><data key="label">border</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:boundary"><data key="label">boundary</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:call"><data key="label">call</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:care"><data key="label">care</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:cares_for"><data key="label">cares_for</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:caused_by"><data key="label">caused_by</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:causes"><data key="label">causes</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:contains"><data key="label">contains</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:contradicts"><data key="label">contradicts</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:creates"><data key="label">creates</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:deceives"><data key="label">deceives</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:destroys"><data key="label">destroys</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:disrupts"><data key="label">disrupts</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:do"><data key="label">do</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:doubts"><data key="label">doubts</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:emit"><data key="label">emit</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:flow"><data key="label">flow</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:for"><data key="label">for</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:from"><data key="label">from</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:give"><data key="label">give</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:harms"><data key="label">harms</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:has"><data key="label">has</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:has_part"><data key="label">has_part</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:has_property"><data key="label">has_property</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:has_state"><data key="label">has_state</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:have"><data key="label">have</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:hear"><data key="label">hear</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:hides"><data key="label">hides</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:how"><data key="label">how</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:if_then"><data key="label">if_then</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:inside"><data key="label">inside</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:inside_outside"><data key="label">inside_outside</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:is"><data key="label">is</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:knows"><data key="label">knows</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:law"><data key="label">law</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:make"><data key="label">make</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:maps"><data key="label">maps</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:maybe"><data key="label">maybe</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:means"><data key="label">means</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:memory"><data key="label">memory</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:must"><data key="label">must</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:not"><data key="label">not</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:on"><data key="label">on</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:outside"><data key="label">outside</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:path"><data key="label">path</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:points_to"><data key="label">points_to</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:promise"><data key="label">promise</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:prove"><data key="label">prove</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:proves"><data key="label">proves</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:question"><data key="label">question</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:relation"><data key="label">relation</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:repairs"><data key="label">repairs</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:reveals"><data key="label">reveals</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:scope"><data key="label">scope</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:see"><data key="label">see</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:signifies"><data key="label">signifies</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:silence"><data key="label">silence</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:sing"><data key="label">sing</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:sound"><data key="label">sound</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:state_be"><data key="label">state_be</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:supports"><data key="label">supports</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:tell"><data key="label">tell</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:think"><data key="label">think</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:through"><data key="label">through</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:to"><data key="label">to</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:transforms"><data key="label">transforms</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:trust"><data key="label">trust</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:under"><data key="label">under</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:when"><data key="label">when</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:will"><data key="label">will</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:with"><data key="label">with</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<node id="operator:without"><data key="label">without</data><data key="type">OPERATOR_CARD</data><data key="domain">operator</data></node>
+<edge id="e0" source="concept:water" target="concept:fire"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e1" source="concept:water" target="concept:life"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e2" source="concept:water" target="concept:motion"><data key="type">has_state</data><data key="status">draft_seed</data></edge>
+<edge id="e3" source="concept:fire" target="concept:water"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e4" source="concept:fire" target="concept:light"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e5" source="concept:fire" target="concept:matter"><data key="type">transforms</data><data key="status">draft_seed</data></edge>
+<edge id="e6" source="concept:earth" target="concept:body"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e7" source="concept:earth" target="concept:space"><data key="type">anchors</data><data key="status">draft_seed</data></edge>
+<edge id="e8" source="concept:air" target="concept:life"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e9" source="concept:air" target="concept:motion"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e10" source="concept:light" target="concept:dark"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e11" source="concept:light" target="concept:knowledge"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e12" source="concept:light" target="concept:truth"><data key="type">reveals</data><data key="status">draft_seed</data></edge>
+<edge id="e13" source="concept:dark" target="concept:light"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e14" source="concept:dark" target="concept:fear"><data key="type">increases</data><data key="status">draft_seed</data></edge>
+<edge id="e15" source="concept:dark" target="concept:knowledge"><data key="type">hides</data><data key="status">draft_seed</data></edge>
+<edge id="e16" source="concept:life" target="concept:death"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e17" source="concept:life" target="concept:water"><data key="type">requires</data><data key="status">draft_seed</data></edge>
+<edge id="e18" source="concept:life" target="concept:body"><data key="type">includes</data><data key="status">draft_seed</data></edge>
+<edge id="e19" source="concept:death" target="concept:life"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e20" source="concept:death" target="concept:time"><data key="type">bounds</data><data key="status">draft_seed</data></edge>
+<edge id="e21" source="concept:body" target="concept:mind"><data key="type">paired_with</data><data key="status">draft_seed</data></edge>
+<edge id="e22" source="concept:body" target="concept:pain"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e23" source="concept:body" target="concept:motion"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e24" source="concept:mind" target="concept:body"><data key="type">paired_with</data><data key="status">draft_seed</data></edge>
+<edge id="e25" source="concept:mind" target="concept:memory"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e26" source="concept:mind" target="concept:truth"><data key="type">seeks</data><data key="status">draft_seed</data></edge>
+<edge id="e27" source="concept:time" target="concept:motion"><data key="type">orders</data><data key="status">draft_seed</data></edge>
+<edge id="e28" source="concept:time" target="concept:memory"><data key="type">bounds</data><data key="status">draft_seed</data></edge>
+<edge id="e29" source="concept:space" target="concept:motion"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e30" source="concept:space" target="concept:center"><data key="type">bounds</data><data key="status">draft_seed</data></edge>
+<edge id="e31" source="concept:space" target="concept:boundary"><data key="type">has_boundary</data><data key="status">draft_seed</data></edge>
+<edge id="e32" source="concept:motion" target="concept:rest"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e33" source="concept:motion" target="concept:time"><data key="type">requires</data><data key="status">draft_seed</data></edge>
+<edge id="e34" source="concept:motion" target="concept:space"><data key="type">occurs_in</data><data key="status">draft_seed</data></edge>
+<edge id="e35" source="concept:rest" target="concept:motion"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e36" source="concept:rest" target="concept:order"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e37" source="concept:force" target="concept:motion"><data key="type">causes</data><data key="status">draft_seed</data></edge>
+<edge id="e38" source="concept:force" target="concept:matter"><data key="type">acts_on</data><data key="status">draft_seed</data></edge>
+<edge id="e39" source="concept:energy" target="concept:matter"><data key="type">transforms</data><data key="status">draft_seed</data></edge>
+<edge id="e40" source="concept:energy" target="concept:motion"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e41" source="concept:matter" target="concept:information"><data key="type">paired_with</data><data key="status">draft_seed</data></edge>
+<edge id="e42" source="concept:matter" target="concept:energy"><data key="type">receives</data><data key="status">draft_seed</data></edge>
+<edge id="e43" source="concept:information" target="concept:error"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e44" source="concept:information" target="concept:knowledge"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e45" source="concept:information" target="concept:matter"><data key="type">patterns</data><data key="status">draft_seed</data></edge>
+<edge id="e46" source="concept:truth" target="concept:lie"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e47" source="concept:truth" target="concept:knowledge"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e48" source="concept:truth" target="concept:error"><data key="type">reduces</data><data key="status">draft_seed</data></edge>
+<edge id="e49" source="concept:lie" target="concept:truth"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e50" source="concept:lie" target="concept:error"><data key="type">increases</data><data key="status">draft_seed</data></edge>
+<edge id="e51" source="concept:lie" target="concept:trust"><data key="type">harms</data><data key="status">draft_seed</data></edge>
+<edge id="e52" source="concept:good" target="concept:harm"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e53" source="concept:good" target="concept:trust"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e54" source="concept:good" target="concept:life"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e55" source="concept:harm" target="concept:good"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e56" source="concept:harm" target="concept:pain"><data key="type">causes</data><data key="status">draft_seed</data></edge>
+<edge id="e57" source="concept:harm" target="concept:trust"><data key="type">reduces</data><data key="status">draft_seed</data></edge>
+<edge id="e58" source="concept:order" target="concept:chaos"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e59" source="concept:order" target="concept:knowledge"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e60" source="concept:chaos" target="concept:order"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e61" source="concept:chaos" target="concept:error"><data key="type">increases</data><data key="status">draft_seed</data></edge>
+<edge id="e62" source="concept:center" target="concept:boundary"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e63" source="concept:center" target="concept:relation"><data key="type">attracts</data><data key="status">draft_seed</data></edge>
+<edge id="e64" source="concept:boundary" target="concept:center"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e65" source="concept:boundary" target="concept:space"><data key="type">bounds</data><data key="status">draft_seed</data></edge>
+<edge id="e66" source="concept:self" target="concept:other"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e67" source="concept:self" target="concept:identity"><data key="type">stabilizes</data><data key="status">draft_seed</data></edge>
+<edge id="e68" source="concept:self" target="concept:memory"><data key="type">stores</data><data key="status">draft_seed</data></edge>
+<edge id="e69" source="concept:other" target="concept:self"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e70" source="concept:other" target="concept:relation"><data key="type">requires</data><data key="status">draft_seed</data></edge>
+<edge id="e71" source="concept:relation" target="concept:self"><data key="type">connects</data><data key="status">draft_seed</data></edge>
+<edge id="e72" source="concept:relation" target="concept:other"><data key="type">connects</data><data key="status">draft_seed</data></edge>
+<edge id="e73" source="concept:relation" target="concept:memory"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e74" source="concept:memory" target="concept:identity"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e75" source="concept:memory" target="concept:information"><data key="type">stores</data><data key="status">draft_seed</data></edge>
+<edge id="e76" source="concept:love" target="concept:fear"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e77" source="concept:love" target="concept:trust"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e78" source="concept:love" target="concept:harm"><data key="type">reduces</data><data key="status">draft_seed</data></edge>
+<edge id="e79" source="concept:fear" target="concept:trust"><data key="type">reduces</data><data key="status">draft_seed</data></edge>
+<edge id="e80" source="concept:fear" target="concept:pain"><data key="type">increases</data><data key="status">draft_seed</data></edge>
+<edge id="e81" source="concept:fear" target="concept:harm"><data key="type">responds_to</data><data key="status">draft_seed</data></edge>
+<edge id="e82" source="concept:trust" target="concept:fear"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e83" source="concept:trust" target="concept:relation"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e84" source="concept:trust" target="concept:truth"><data key="type">requires</data><data key="status">draft_seed</data></edge>
+<edge id="e85" source="concept:pain" target="concept:harm"><data key="type">caused_by</data><data key="status">draft_seed</data></edge>
+<edge id="e86" source="concept:pain" target="concept:body"><data key="type">signals</data><data key="status">draft_seed</data></edge>
+<edge id="e87" source="concept:pain" target="concept:fear"><data key="type">increases</data><data key="status">draft_seed</data></edge>
+<edge id="e88" source="concept:knowledge" target="concept:truth"><data key="type">requires</data><data key="status">draft_seed</data></edge>
+<edge id="e89" source="concept:knowledge" target="concept:information"><data key="type">uses</data><data key="status">draft_seed</data></edge>
+<edge id="e90" source="concept:knowledge" target="concept:error"><data key="type">reduces</data><data key="status">draft_seed</data></edge>
+<edge id="e91" source="concept:error" target="concept:knowledge"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e92" source="concept:error" target="concept:truth"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e93" source="concept:error" target="concept:chaos"><data key="type">increases</data><data key="status">draft_seed</data></edge>
+<edge id="e94" source="concept:water" target="ogień"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e95" source="concept:water" target="susza"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e96" source="concept:water" target="fire"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e97" source="concept:water" target="dryness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e98" source="concept:water" target="Feuer"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e99" source="concept:water" target="Trockenheit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e100" source="concept:water" target="feu"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e101" source="concept:water" target="sécheresse"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e102" source="concept:water" target="fuego"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e103" source="concept:water" target="sequedad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e104" source="concept:fire" target="woda"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e105" source="concept:fire" target="zimno"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e106" source="concept:fire" target="water"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e107" source="concept:fire" target="cold"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e108" source="concept:fire" target="Wasser"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e109" source="concept:fire" target="Kälte"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e110" source="concept:fire" target="eau"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e111" source="concept:fire" target="froid"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e112" source="concept:fire" target="agua"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e113" source="concept:fire" target="frío"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e114" source="concept:earth" target="niebo"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e115" source="concept:earth" target="powietrze"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e116" source="concept:earth" target="sky"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e117" source="concept:earth" target="air"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e118" source="concept:earth" target="Himmel"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e119" source="concept:earth" target="Luft"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e120" source="concept:earth" target="ciel"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e121" source="concept:earth" target="air"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e122" source="concept:earth" target="cielo"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e123" source="concept:earth" target="aire"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e124" source="concept:air" target="próżnia"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e125" source="concept:air" target="ziemia"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e126" source="concept:air" target="vacuum"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e127" source="concept:air" target="earth"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e128" source="concept:air" target="Vakuum"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e129" source="concept:air" target="Erde"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e130" source="concept:air" target="vide"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e131" source="concept:air" target="terre"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e132" source="concept:air" target="vacío"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e133" source="concept:air" target="tierra"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e134" source="concept:light" target="ciemność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e135" source="concept:light" target="mrok"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e136" source="concept:light" target="darkness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e137" source="concept:light" target="shadow"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e138" source="concept:light" target="Dunkelheit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e139" source="concept:light" target="Schatten"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e140" source="concept:light" target="obscurité"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e141" source="concept:light" target="ombre"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e142" source="concept:light" target="oscuridad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e143" source="concept:light" target="sombra"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e144" source="concept:dark" target="światło"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e145" source="concept:dark" target="jasność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e146" source="concept:dark" target="light"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e147" source="concept:dark" target="brightness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e148" source="concept:dark" target="Licht"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e149" source="concept:dark" target="Helligkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e150" source="concept:dark" target="lumière"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e151" source="concept:dark" target="clarté"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e152" source="concept:dark" target="luz"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e153" source="concept:dark" target="claridad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e154" source="concept:life" target="śmierć"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e155" source="concept:life" target="martwota"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e156" source="concept:life" target="death"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e157" source="concept:life" target="lifelessness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e158" source="concept:life" target="Tod"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e159" source="concept:life" target="Leblosigkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e160" source="concept:life" target="mort"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e161" source="concept:life" target="inertie"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e162" source="concept:life" target="muerte"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e163" source="concept:life" target="inercia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e164" source="concept:death" target="życie"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e165" source="concept:death" target="narodziny"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e166" source="concept:death" target="life"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e167" source="concept:death" target="birth"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e168" source="concept:death" target="Leben"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e169" source="concept:death" target="Geburt"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e170" source="concept:death" target="vie"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e171" source="concept:death" target="naissance"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e172" source="concept:death" target="vida"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e173" source="concept:death" target="nacimiento"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e174" source="concept:body" target="umysł"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e175" source="concept:body" target="duch"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e176" source="concept:body" target="mind"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e177" source="concept:body" target="spirit"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e178" source="concept:body" target="Geist"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e179" source="concept:body" target="Seele"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e180" source="concept:body" target="esprit"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e181" source="concept:body" target="âme"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e182" source="concept:body" target="mente"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e183" source="concept:body" target="espíritu"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e184" source="concept:mind" target="ciało"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e185" source="concept:mind" target="materia"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e186" source="concept:mind" target="body"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e187" source="concept:mind" target="matter"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e188" source="concept:mind" target="Körper"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e189" source="concept:mind" target="Materie"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e190" source="concept:mind" target="corps"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e191" source="concept:mind" target="matière"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e192" source="concept:mind" target="cuerpo"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e193" source="concept:mind" target="materia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e194" source="concept:time" target="bezczas"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e195" source="concept:time" target="wieczność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e196" source="concept:time" target="timelessness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e197" source="concept:time" target="eternity"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e198" source="concept:time" target="Zeitlosigkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e199" source="concept:time" target="Ewigkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e200" source="concept:time" target="intemporalité"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e201" source="concept:time" target="éternité"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e202" source="concept:time" target="atemporalidad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e203" source="concept:time" target="eternidad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e204" source="concept:space" target="punkt"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e205" source="concept:space" target="brak miejsca"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e206" source="concept:space" target="point"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e207" source="concept:space" target="no-space"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e208" source="concept:space" target="Punkt"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e209" source="concept:space" target="Raumlosigkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e210" source="concept:space" target="point"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e211" source="concept:space" target="absence d’espace"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e212" source="concept:space" target="punto"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e213" source="concept:space" target="sin espacio"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e214" source="concept:motion" target="spoczynek"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e215" source="concept:motion" target="bezruch"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e216" source="concept:motion" target="rest"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e217" source="concept:motion" target="stillness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e218" source="concept:motion" target="Ruhe"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e219" source="concept:motion" target="Stillstand"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e220" source="concept:motion" target="repos"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e221" source="concept:motion" target="immobilité"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e222" source="concept:motion" target="reposo"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e223" source="concept:motion" target="quietud"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e224" source="concept:rest" target="ruch"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e225" source="concept:rest" target="zmiana"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e226" source="concept:rest" target="motion"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e227" source="concept:rest" target="change"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e228" source="concept:rest" target="Bewegung"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e229" source="concept:rest" target="Veränderung"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e230" source="concept:rest" target="mouvement"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e231" source="concept:rest" target="changement"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e232" source="concept:rest" target="movimiento"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e233" source="concept:rest" target="cambio"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e234" source="concept:force" target="słabość"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e235" source="concept:force" target="bezsilność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e236" source="concept:force" target="weakness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e237" source="concept:force" target="powerlessness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e238" source="concept:force" target="Schwäche"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e239" source="concept:force" target="Ohnmacht"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e240" source="concept:force" target="faiblesse"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e241" source="concept:force" target="impuissance"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e242" source="concept:force" target="debilidad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e243" source="concept:force" target="impotencia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e244" source="concept:energy" target="wyczerpanie"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e245" source="concept:energy" target="bezwład"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e246" source="concept:energy" target="exhaustion"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e247" source="concept:energy" target="inertia"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e248" source="concept:energy" target="Erschöpfung"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e249" source="concept:energy" target="Trägheit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e250" source="concept:energy" target="épuisement"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e251" source="concept:energy" target="inertie"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e252" source="concept:energy" target="agotamiento"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e253" source="concept:energy" target="inercia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e254" source="concept:matter" target="pustka"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e255" source="concept:matter" target="informacja"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e256" source="concept:matter" target="void"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e257" source="concept:matter" target="information"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e258" source="concept:matter" target="Leere"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e259" source="concept:matter" target="Information"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e260" source="concept:matter" target="vide"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e261" source="concept:matter" target="information"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e262" source="concept:matter" target="vacío"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e263" source="concept:matter" target="información"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e264" source="concept:information" target="szum"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e265" source="concept:information" target="niewiedza"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e266" source="concept:information" target="noise"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e267" source="concept:information" target="ignorance"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e268" source="concept:information" target="Rauschen"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e269" source="concept:information" target="Unwissen"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e270" source="concept:information" target="bruit"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e271" source="concept:information" target="ignorance"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e272" source="concept:information" target="ruido"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e273" source="concept:information" target="ignorancia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e274" source="concept:truth" target="kłamstwo"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e275" source="concept:truth" target="fałsz"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e276" source="concept:truth" target="lie"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e277" source="concept:truth" target="falsehood"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e278" source="concept:truth" target="Lüge"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e279" source="concept:truth" target="Falschheit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e280" source="concept:truth" target="mensonge"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e281" source="concept:truth" target="fausseté"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e282" source="concept:truth" target="mentira"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e283" source="concept:truth" target="falsedad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e284" source="concept:lie" target="prawda"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e285" source="concept:lie" target="szczerość"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e286" source="concept:lie" target="truth"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e287" source="concept:lie" target="honesty"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e288" source="concept:lie" target="Wahrheit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e289" source="concept:lie" target="Ehrlichkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e290" source="concept:lie" target="vérité"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e291" source="concept:lie" target="honnêteté"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e292" source="concept:lie" target="verdad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e293" source="concept:lie" target="honestidad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e294" source="concept:good" target="zło"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e295" source="concept:good" target="krzywda"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e296" source="concept:good" target="evil"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e297" source="concept:good" target="harm"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e298" source="concept:good" target="Böse"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e299" source="concept:good" target="Schaden"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e300" source="concept:good" target="mal"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e301" source="concept:good" target="dommage"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e302" source="concept:good" target="mal"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e303" source="concept:good" target="daño"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e304" source="concept:harm" target="dobro"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e305" source="concept:harm" target="opieka"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e306" source="concept:harm" target="good"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e307" source="concept:harm" target="care"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e308" source="concept:harm" target="Gut"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e309" source="concept:harm" target="Fürsorge"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e310" source="concept:harm" target="bien"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e311" source="concept:harm" target="soin"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e312" source="concept:harm" target="bien"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e313" source="concept:harm" target="cuidado"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e314" source="concept:order" target="chaos"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e315" source="concept:order" target="nieład"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e316" source="concept:order" target="chaos"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e317" source="concept:order" target="disorder"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e318" source="concept:order" target="Chaos"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e319" source="concept:order" target="Unordnung"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e320" source="concept:order" target="chaos"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e321" source="concept:order" target="désordre"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e322" source="concept:order" target="caos"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e323" source="concept:order" target="desorden"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e324" source="concept:chaos" target="porządek"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e325" source="concept:chaos" target="ład"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e326" source="concept:chaos" target="order"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e327" source="concept:chaos" target="structure"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e328" source="concept:chaos" target="Ordnung"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e329" source="concept:chaos" target="Struktur"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e330" source="concept:chaos" target="ordre"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e331" source="concept:chaos" target="structure"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e332" source="concept:chaos" target="orden"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e333" source="concept:chaos" target="estructura"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e334" source="concept:center" target="brzeg"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e335" source="concept:center" target="peryferia"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e336" source="concept:center" target="edge"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e337" source="concept:center" target="periphery"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e338" source="concept:center" target="Rand"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e339" source="concept:center" target="Peripherie"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e340" source="concept:center" target="bord"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e341" source="concept:center" target="périphérie"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e342" source="concept:center" target="borde"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e343" source="concept:center" target="periferia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e344" source="concept:boundary" target="centrum"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e345" source="concept:boundary" target="ciągłość"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e346" source="concept:boundary" target="center"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e347" source="concept:boundary" target="continuity"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e348" source="concept:boundary" target="Zentrum"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e349" source="concept:boundary" target="Kontinuität"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e350" source="concept:boundary" target="centre"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e351" source="concept:boundary" target="continuité"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e352" source="concept:boundary" target="centro"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e353" source="concept:boundary" target="continuidad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e354" source="concept:self" target="inny"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e355" source="concept:self" target="obcy"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e356" source="concept:self" target="other"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e357" source="concept:self" target="stranger"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e358" source="concept:self" target="Andere"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e359" source="concept:self" target="Fremde"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e360" source="concept:self" target="autre"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e361" source="concept:self" target="étranger"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e362" source="concept:self" target="otro"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e363" source="concept:self" target="extraño"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e364" source="concept:other" target="ja"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e365" source="concept:other" target="swoje"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e366" source="concept:other" target="self"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e367" source="concept:other" target="same"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e368" source="concept:other" target="Selbst"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e369" source="concept:other" target="Gleiches"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e370" source="concept:other" target="soi"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e371" source="concept:other" target="même"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e372" source="concept:other" target="yo"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e373" source="concept:other" target="mismo"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e374" source="concept:relation" target="separacja"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e375" source="concept:relation" target="izolacja"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e376" source="concept:relation" target="separation"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e377" source="concept:relation" target="isolation"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e378" source="concept:relation" target="Trennung"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e379" source="concept:relation" target="Isolation"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e380" source="concept:relation" target="séparation"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e381" source="concept:relation" target="isolement"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e382" source="concept:relation" target="separación"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e383" source="concept:relation" target="aislamiento"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e384" source="concept:memory" target="zapomnienie"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e385" source="concept:memory" target="amnezja"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e386" source="concept:memory" target="forgetting"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e387" source="concept:memory" target="amnesia"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e388" source="concept:memory" target="Vergessen"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e389" source="concept:memory" target="Amnesie"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e390" source="concept:memory" target="oubli"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e391" source="concept:memory" target="amnésie"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e392" source="concept:memory" target="olvido"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e393" source="concept:memory" target="amnesia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e394" source="concept:love" target="nienawiść"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e395" source="concept:love" target="obojętność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e396" source="concept:love" target="hate"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e397" source="concept:love" target="indifference"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e398" source="concept:love" target="Hass"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e399" source="concept:love" target="Gleichgültigkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e400" source="concept:love" target="haine"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e401" source="concept:love" target="indifférence"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e402" source="concept:love" target="odio"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e403" source="concept:love" target="indiferencia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e404" source="concept:fear" target="odwaga"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e405" source="concept:fear" target="zaufanie"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e406" source="concept:fear" target="courage"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e407" source="concept:fear" target="trust"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e408" source="concept:fear" target="Mut"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e409" source="concept:fear" target="Vertrauen"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e410" source="concept:fear" target="courage"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e411" source="concept:fear" target="confiance"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e412" source="concept:fear" target="valor"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e413" source="concept:fear" target="confianza"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e414" source="concept:trust" target="nieufność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e415" source="concept:trust" target="podejrzenie"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e416" source="concept:trust" target="distrust"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e417" source="concept:trust" target="suspicion"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e418" source="concept:trust" target="Misstrauen"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e419" source="concept:trust" target="Verdacht"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e420" source="concept:trust" target="méfiance"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e421" source="concept:trust" target="soupçon"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e422" source="concept:trust" target="desconfianza"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e423" source="concept:trust" target="sospecha"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e424" source="concept:pain" target="ulga"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e425" source="concept:pain" target="przyjemność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e426" source="concept:pain" target="relief"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e427" source="concept:pain" target="pleasure"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e428" source="concept:pain" target="Erleichterung"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e429" source="concept:pain" target="Freude"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e430" source="concept:pain" target="soulagement"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e431" source="concept:pain" target="plaisir"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e432" source="concept:pain" target="alivio"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e433" source="concept:pain" target="placer"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e434" source="concept:knowledge" target="niewiedza"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e435" source="concept:knowledge" target="błąd"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e436" source="concept:knowledge" target="ignorance"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e437" source="concept:knowledge" target="error"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e438" source="concept:knowledge" target="Unwissen"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e439" source="concept:knowledge" target="Fehler"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e440" source="concept:knowledge" target="ignorance"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e441" source="concept:knowledge" target="erreur"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e442" source="concept:knowledge" target="ignorancia"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e443" source="concept:knowledge" target="error"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e444" source="concept:error" target="poprawność"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e445" source="concept:error" target="prawda"><data key="type">antonym_surface:pl</data><data key="status">surface_seed</data></edge>
+<edge id="e446" source="concept:error" target="correctness"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e447" source="concept:error" target="truth"><data key="type">antonym_surface:en</data><data key="status">surface_seed</data></edge>
+<edge id="e448" source="concept:error" target="Richtigkeit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e449" source="concept:error" target="Wahrheit"><data key="type">antonym_surface:de</data><data key="status">surface_seed</data></edge>
+<edge id="e450" source="concept:error" target="exactitude"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e451" source="concept:error" target="vérité"><data key="type">antonym_surface:fr</data><data key="status">surface_seed</data></edge>
+<edge id="e452" source="concept:error" target="corrección"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e453" source="concept:error" target="verdad"><data key="type">antonym_surface:es</data><data key="status">surface_seed</data></edge>
+<edge id="e454" source="concept:eye" target="concept:body"><data key="type">part_of</data><data key="status">draft_seed</data></edge>
+<edge id="e455" source="concept:eye" target="concept:knowledge"><data key="type">enables</data><data key="status">draft_seed</data></edge>
+<edge id="e456" source="concept:hand" target="concept:body"><data key="type">part_of</data><data key="status">draft_seed</data></edge>
+<edge id="e457" source="concept:hand" target="concept:work"><data key="type">enables</data><data key="status">draft_seed</data></edge>
+<edge id="e458" source="concept:voice" target="concept:sound"><data key="type">uses</data><data key="status">draft_seed</data></edge>
+<edge id="e459" source="concept:voice" target="concept:self"><data key="type">expresses</data><data key="status">draft_seed</data></edge>
+<edge id="e460" source="concept:name" target="concept:self"><data key="type">symbol_of</data><data key="status">draft_seed</data></edge>
+<edge id="e461" source="concept:name" target="concept:word"><data key="type">uses</data><data key="status">draft_seed</data></edge>
+<edge id="e462" source="concept:face" target="concept:body"><data key="type">part_of</data><data key="status">draft_seed</data></edge>
+<edge id="e463" source="concept:face" target="concept:identity"><data key="type">signals</data><data key="status">draft_seed</data></edge>
+<edge id="e464" source="concept:blood" target="concept:life"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e465" source="concept:blood" target="concept:body"><data key="type">inside</data><data key="status">draft_seed</data></edge>
+<edge id="e466" source="concept:thought" target="concept:mind"><data key="type">inside</data><data key="status">draft_seed</data></edge>
+<edge id="e467" source="concept:thought" target="concept:idea"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e468" source="concept:idea" target="concept:mind"><data key="type">inside</data><data key="status">draft_seed</data></edge>
+<edge id="e469" source="concept:idea" target="concept:work"><data key="type">can_transform_into</data><data key="status">draft_seed</data></edge>
+<edge id="e470" source="concept:question" target="concept:answer"><data key="type">seeks</data><data key="status">draft_seed</data></edge>
+<edge id="e471" source="concept:question" target="concept:unknown"><data key="type">marks</data><data key="status">draft_seed</data></edge>
+<edge id="e472" source="concept:answer" target="concept:question"><data key="type">responds_to</data><data key="status">draft_seed</data></edge>
+<edge id="e473" source="concept:answer" target="concept:knowledge"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e474" source="concept:reason" target="concept:knowledge"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e475" source="concept:reason" target="concept:chaos"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e476" source="concept:doubt" target="concept:proof"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e477" source="concept:doubt" target="concept:error"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e478" source="concept:person" target="concept:human"><data key="type">is_a</data><data key="status">draft_seed</data></edge>
+<edge id="e479" source="concept:person" target="concept:self"><data key="type">has</data><data key="status">draft_seed</data></edge>
+<edge id="e480" source="concept:child" target="concept:parent"><data key="type">relation_to</data><data key="status">draft_seed</data></edge>
+<edge id="e481" source="concept:child" target="concept:life"><data key="type">stage_of</data><data key="status">draft_seed</data></edge>
+<edge id="e482" source="concept:parent" target="concept:child"><data key="type">relation_to</data><data key="status">draft_seed</data></edge>
+<edge id="e483" source="concept:parent" target="concept:care"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e484" source="concept:friend" target="concept:trust"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e485" source="concept:friend" target="concept:enemy"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e486" source="concept:stranger" target="concept:self"><data key="type">is_other</data><data key="status">draft_seed</data></edge>
+<edge id="e487" source="concept:stranger" target="concept:friend"><data key="type">may_become</data><data key="status">draft_seed</data></edge>
+<edge id="e488" source="concept:enemy" target="concept:friend"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e489" source="concept:enemy" target="concept:conflict"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e490" source="concept:house" target="concept:door"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e491" source="concept:house" target="concept:home"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e492" source="concept:door" target="concept:house"><data key="type">part_of</data><data key="status">draft_seed</data></edge>
+<edge id="e493" source="concept:door" target="concept:road"><data key="type">enables</data><data key="status">draft_seed</data></edge>
+<edge id="e494" source="concept:road" target="concept:motion"><data key="type">enables</data><data key="status">draft_seed</data></edge>
+<edge id="e495" source="concept:road" target="concept:city"><data key="type">connects</data><data key="status">draft_seed</data></edge>
+<edge id="e496" source="concept:city" target="concept:house"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e497" source="concept:city" target="concept:country"><data key="type">part_of</data><data key="status">draft_seed</data></edge>
+<edge id="e498" source="concept:country" target="concept:city"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e499" source="concept:country" target="concept:border"><data key="type">bounded_by</data><data key="status">draft_seed</data></edge>
+<edge id="e500" source="concept:border" target="concept:country"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e501" source="concept:border" target="concept:center"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e502" source="concept:gift" target="concept:debt"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e503" source="concept:gift" target="concept:care"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e504" source="concept:debt" target="concept:gift"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e505" source="concept:debt" target="concept:promise"><data key="type">requires</data><data key="status">draft_seed</data></edge>
+<edge id="e506" source="concept:promise" target="concept:trust"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e507" source="concept:promise" target="concept:debt"><data key="type">can_create</data><data key="status">draft_seed</data></edge>
+<edge id="e508" source="concept:law" target="concept:order"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e509" source="concept:law" target="concept:freedom"><data key="type">constrains</data><data key="status">draft_seed</data></edge>
+<edge id="e510" source="concept:work" target="concept:hand"><data key="type">uses</data><data key="status">draft_seed</data></edge>
+<edge id="e511" source="concept:work" target="concept:money"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e512" source="concept:money" target="concept:work"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e513" source="concept:money" target="concept:debt"><data key="type">can_create</data><data key="status">draft_seed</data></edge>
+<edge id="e514" source="concept:word" target="concept:language"><data key="type">part_of</data><data key="status">draft_seed</data></edge>
+<edge id="e515" source="concept:word" target="concept:meaning"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e516" source="concept:sign" target="concept:meaning"><data key="type">symbol_of</data><data key="status">draft_seed</data></edge>
+<edge id="e517" source="concept:sign" target="concept:name"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e518" source="concept:sound" target="concept:voice"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e519" source="concept:sound" target="concept:silence"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e520" source="concept:silence" target="concept:sound"><data key="type">opposes</data><data key="status">draft_seed</data></edge>
+<edge id="e521" source="concept:silence" target="concept:rest"><data key="type">relates_to</data><data key="status">draft_seed</data></edge>
+<edge id="e522" source="concept:story" target="concept:event"><data key="type">contains</data><data key="status">draft_seed</data></edge>
+<edge id="e523" source="concept:story" target="concept:memory"><data key="type">supports</data><data key="status">draft_seed</data></edge>
+<edge id="e524" source="concept:song" target="concept:sound"><data key="type">uses</data><data key="status">draft_seed</data></edge>
+<edge id="e525" source="concept:water" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e526" source="concept:water" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e527" source="concept:water" target="operator:flow"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e528" source="concept:water" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e529" source="concept:water" target="operator:without"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e530" source="concept:fire" target="operator:transforms"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e531" source="concept:fire" target="operator:destroys"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e532" source="concept:fire" target="operator:creates"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e533" source="concept:fire" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e534" source="concept:earth" target="operator:under"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e535" source="concept:earth" target="operator:on"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e536" source="concept:earth" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e537" source="concept:air" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e538" source="concept:air" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e539" source="concept:air" target="operator:outside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e540" source="concept:light" target="operator:reveals"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e541" source="concept:light" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e542" source="concept:light" target="operator:before"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e543" source="concept:dark" target="operator:hides"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e544" source="concept:dark" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e545" source="concept:dark" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e546" source="concept:life" target="operator:be"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e547" source="concept:life" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e548" source="concept:life" target="operator:before"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e549" source="concept:life" target="operator:after"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e550" source="concept:death" target="operator:after"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e551" source="concept:death" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e552" source="concept:death" target="operator:without"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e553" source="concept:body" target="operator:has_part"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e554" source="concept:body" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e555" source="concept:body" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e556" source="concept:mind" target="operator:knows"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e557" source="concept:mind" target="operator:believes"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e558" source="concept:mind" target="operator:doubts"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e559" source="concept:time" target="operator:before"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e560" source="concept:time" target="operator:after"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e561" source="concept:time" target="operator:when"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e562" source="concept:space" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e563" source="concept:space" target="operator:outside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e564" source="concept:space" target="operator:on"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e565" source="concept:space" target="operator:under"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e566" source="concept:space" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e567" source="concept:motion" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e568" source="concept:motion" target="operator:from"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e569" source="concept:motion" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e570" source="concept:motion" target="operator:after"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e571" source="concept:rest" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e572" source="concept:rest" target="operator:after"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e573" source="concept:rest" target="operator:before"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e574" source="concept:force" target="operator:causes"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e575" source="concept:force" target="operator:transforms"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e576" source="concept:force" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e577" source="concept:energy" target="operator:transforms"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e578" source="concept:energy" target="operator:has_property"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e579" source="concept:energy" target="operator:causes"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e580" source="concept:matter" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e581" source="concept:matter" target="operator:has_property"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e582" source="concept:matter" target="operator:transforms"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e583" source="concept:information" target="operator:means"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e584" source="concept:information" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e585" source="concept:information" target="operator:reveals"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e586" source="concept:truth" target="operator:is"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e587" source="concept:truth" target="operator:knows"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e588" source="concept:truth" target="operator:proves"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e589" source="concept:lie" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e590" source="concept:lie" target="operator:hides"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e591" source="concept:lie" target="operator:deceives"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e592" source="concept:good" target="operator:supports"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e593" source="concept:good" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e594" source="concept:good" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e595" source="concept:harm" target="operator:harms"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e596" source="concept:harm" target="operator:without"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e597" source="concept:harm" target="operator:causes"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e598" source="concept:order" target="operator:arranges"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e599" source="concept:order" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e600" source="concept:order" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e601" source="concept:chaos" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e602" source="concept:chaos" target="operator:disrupts"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e603" source="concept:chaos" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e604" source="concept:center" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e605" source="concept:center" target="operator:around"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e606" source="concept:center" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e607" source="concept:boundary" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e608" source="concept:boundary" target="operator:outside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e609" source="concept:boundary" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e610" source="concept:self" target="operator:is"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e611" source="concept:self" target="operator:has"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e612" source="concept:self" target="operator:knows"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e613" source="concept:other" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e614" source="concept:other" target="operator:without"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e615" source="concept:other" target="operator:relation"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e616" source="concept:relation" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e617" source="concept:relation" target="operator:between"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e618" source="concept:relation" target="operator:maps"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e619" source="concept:memory" target="operator:after"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e620" source="concept:memory" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e621" source="concept:memory" target="operator:has_state"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e622" source="concept:love" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e623" source="concept:love" target="operator:cares_for"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e624" source="concept:love" target="operator:supports"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e625" source="concept:fear" target="operator:avoids"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e626" source="concept:fear" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e627" source="concept:fear" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e628" source="concept:trust" target="operator:believes"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e629" source="concept:trust" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e630" source="concept:trust" target="operator:supports"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e631" source="concept:pain" target="operator:has_state"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e632" source="concept:pain" target="operator:caused_by"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e633" source="concept:pain" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e634" source="concept:knowledge" target="operator:knows"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e635" source="concept:knowledge" target="operator:proves"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e636" source="concept:knowledge" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e637" source="concept:error" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e638" source="concept:error" target="operator:contradicts"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e639" source="concept:error" target="operator:repairs"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e640" source="concept:eye" target="operator:see"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e641" source="concept:eye" target="operator:has_part"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e642" source="concept:eye" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e643" source="concept:eye" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e644" source="concept:hand" target="operator:has_part"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e645" source="concept:hand" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e646" source="concept:hand" target="operator:make"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e647" source="concept:hand" target="operator:give"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e648" source="concept:voice" target="operator:emit"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e649" source="concept:voice" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e650" source="concept:voice" target="operator:about"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e651" source="concept:voice" target="operator:as"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e652" source="concept:name" target="operator:is"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e653" source="concept:name" target="operator:as"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e654" source="concept:name" target="operator:call"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e655" source="concept:face" target="operator:see"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e656" source="concept:face" target="operator:has_part"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e657" source="concept:face" target="operator:as"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e658" source="concept:blood" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e659" source="concept:blood" target="operator:flow"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e660" source="concept:blood" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e661" source="concept:blood" target="operator:supports"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e662" source="concept:thought" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e663" source="concept:thought" target="operator:about"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e664" source="concept:thought" target="operator:think"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e665" source="concept:thought" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e666" source="concept:idea" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e667" source="concept:idea" target="operator:about"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e668" source="concept:idea" target="operator:think"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e669" source="concept:idea" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e670" source="concept:question" target="operator:ask"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e671" source="concept:question" target="operator:answer"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e672" source="concept:question" target="operator:how"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e673" source="concept:question" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e674" source="concept:answer" target="operator:ask"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e675" source="concept:answer" target="operator:answer"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e676" source="concept:answer" target="operator:how"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e677" source="concept:answer" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e678" source="concept:reason" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e679" source="concept:reason" target="operator:if_then"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e680" source="concept:reason" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e681" source="concept:reason" target="operator:prove"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e682" source="concept:doubt" target="operator:maybe"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e683" source="concept:doubt" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e684" source="concept:doubt" target="operator:question"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e685" source="concept:doubt" target="operator:scope"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e686" source="concept:person" target="operator:is"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e687" source="concept:person" target="operator:has"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e688" source="concept:person" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e689" source="concept:person" target="operator:as"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e690" source="concept:child" target="operator:has"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e691" source="concept:child" target="operator:from"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e692" source="concept:child" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e693" source="concept:child" target="operator:care"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e694" source="concept:parent" target="operator:has"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e695" source="concept:parent" target="operator:from"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e696" source="concept:parent" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e697" source="concept:parent" target="operator:care"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e698" source="concept:friend" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e699" source="concept:friend" target="operator:against"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e700" source="concept:friend" target="operator:trust"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e701" source="concept:friend" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e702" source="concept:stranger" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e703" source="concept:stranger" target="operator:against"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e704" source="concept:stranger" target="operator:trust"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e705" source="concept:stranger" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e706" source="concept:enemy" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e707" source="concept:enemy" target="operator:against"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e708" source="concept:enemy" target="operator:trust"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e709" source="concept:enemy" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e710" source="concept:house" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e711" source="concept:house" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e712" source="concept:house" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e713" source="concept:house" target="operator:boundary"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e714" source="concept:door" target="operator:between"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e715" source="concept:door" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e716" source="concept:door" target="operator:inside_outside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e717" source="concept:door" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e718" source="concept:road" target="operator:from"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e719" source="concept:road" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e720" source="concept:road" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e721" source="concept:road" target="operator:path"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e722" source="concept:city" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e723" source="concept:city" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e724" source="concept:city" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e725" source="concept:city" target="operator:boundary"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e726" source="concept:country" target="operator:inside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e727" source="concept:country" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e728" source="concept:country" target="operator:law"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e729" source="concept:country" target="operator:border"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e730" source="concept:border" target="operator:between"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e731" source="concept:border" target="operator:through"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e732" source="concept:border" target="operator:inside_outside"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e733" source="concept:border" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e734" source="concept:gift" target="operator:give"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e735" source="concept:gift" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e736" source="concept:gift" target="operator:have"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e737" source="concept:gift" target="operator:for"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e738" source="concept:debt" target="operator:give"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e739" source="concept:debt" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e740" source="concept:debt" target="operator:have"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e741" source="concept:debt" target="operator:for"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e742" source="concept:promise" target="operator:will"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e743" source="concept:promise" target="operator:must"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e744" source="concept:promise" target="operator:promise"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e745" source="concept:promise" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e746" source="concept:law" target="operator:must"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e747" source="concept:law" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e748" source="concept:law" target="operator:if_then"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e749" source="concept:law" target="operator:because"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e750" source="concept:work" target="operator:do"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e751" source="concept:work" target="operator:make"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e752" source="concept:work" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e753" source="concept:work" target="operator:for"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e754" source="concept:money" target="operator:give"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e755" source="concept:money" target="operator:to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e756" source="concept:money" target="operator:have"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e757" source="concept:money" target="operator:for"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e758" source="concept:word" target="operator:is"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e759" source="concept:word" target="operator:as"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e760" source="concept:word" target="operator:means"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e761" source="concept:word" target="operator:contains"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e762" source="concept:sign" target="operator:means"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e763" source="concept:sign" target="operator:as"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e764" source="concept:sign" target="operator:points_to"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e765" source="concept:sign" target="operator:signifies"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e766" source="concept:sound" target="operator:emit"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e767" source="concept:sound" target="operator:hear"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e768" source="concept:sound" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e769" source="concept:sound" target="operator:sound"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e770" source="concept:silence" target="operator:not"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e771" source="concept:silence" target="operator:without"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e772" source="concept:silence" target="operator:state_be"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e773" source="concept:silence" target="operator:silence"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e774" source="concept:story" target="operator:tell"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e775" source="concept:story" target="operator:about"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e776" source="concept:story" target="operator:before_after"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e777" source="concept:story" target="operator:memory"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e778" source="concept:song" target="operator:sing"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e779" source="concept:song" target="operator:with"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e780" source="concept:song" target="operator:about"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+<edge id="e781" source="concept:song" target="operator:sound"><data key="type">operator_hook</data><data key="status">draft_seed</data></edge>
+</graph>
+</graphml>

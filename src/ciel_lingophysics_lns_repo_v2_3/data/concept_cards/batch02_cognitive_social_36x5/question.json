@@ -1,0 +1,222 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:question",
+  "canonical_label_en": "question",
+  "batch_id": "batch02_cognitive_social_36x5",
+  "domain": "cognition_dialogue",
+  "semantic_axes": [
+    "unknown",
+    "language",
+    "dialogue"
+  ],
+  "semantic_mass_seed": 0.551,
+  "phase_seed_rad": 1.396263,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "pytanie",
+      "brief_description": "karta pojęciowa 'pytanie' jako ręcznie kuratorowany seed lingofizyczny",
+      "near_synonyms_seed": [
+        "zapytanie"
+      ],
+      "antonyms_seed": [
+        "odpowiedź"
+      ],
+      "forms_seed": [
+        "pytanie",
+        "pytanie as lemma",
+        "pytanie in context"
+      ],
+      "context_examples_seed": [
+        "pytanie participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "ask",
+        "answer",
+        "how",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "question",
+      "brief_description": "concept card 'question' as a hand-curated lingophysics seed",
+      "near_synonyms_seed": [
+        "query"
+      ],
+      "antonyms_seed": [
+        "answer"
+      ],
+      "forms_seed": [
+        "question",
+        "question as lemma",
+        "question in context"
+      ],
+      "context_examples_seed": [
+        "question participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "ask",
+        "answer",
+        "how",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Frage",
+      "brief_description": "Begriffskarte 'Frage' als handkuratiertes Lingophysik-Seed",
+      "near_synonyms_seed": [
+        "Anfrage"
+      ],
+      "antonyms_seed": [
+        "Antwort"
+      ],
+      "forms_seed": [
+        "Frage",
+        "Frage as lemma",
+        "Frage in context"
+      ],
+      "context_examples_seed": [
+        "Frage participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "ask",
+        "answer",
+        "how",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "question",
+      "brief_description": "carte conceptuelle 'question' comme graine lingophysique curée manuellement",
+      "near_synonyms_seed": [
+        "interrogation"
+      ],
+      "antonyms_seed": [
+        "réponse"
+      ],
+      "forms_seed": [
+        "question",
+        "question as lemma",
+        "question in context"
+      ],
+      "context_examples_seed": [
+        "question participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "ask",
+        "answer",
+        "how",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "pregunta",
+      "brief_description": "tarjeta conceptual 'pregunta' como semilla lingofísica curada manualmente",
+      "near_synonyms_seed": [
+        "interrogación"
+      ],
+      "antonyms_seed": [
+        "respuesta"
+      ],
+      "forms_seed": [
+        "pregunta",
+        "pregunta as lemma",
+        "pregunta in context"
+      ],
+      "context_examples_seed": [
+        "pregunta participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "ask",
+        "answer",
+        "how",
+        "because"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "ask",
+    "answer",
+    "how",
+    "because"
+  ],
+  "relations": [
+    {
+      "type": "seeks",
+      "target": "concept:answer",
+      "status": "draft_seed"
+    },
+    {
+      "type": "marks",
+      "target": "concept:unknown",
+      "status": "draft_seed"
+    }
+  ],
+  "quality_flags": [
+    "CURATED_SEED",
+    "BATCH02",
+    "REQUIRES_HUMAN_REVIEW"
+  ]
+}

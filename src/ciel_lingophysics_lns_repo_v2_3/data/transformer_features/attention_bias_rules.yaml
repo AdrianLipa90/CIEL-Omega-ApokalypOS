@@ -1,0 +1,17 @@
+version: '1.9'
+bias_formula: B_CIEL(i,j)=Σ w_k f_k(i,j) - w_conflict conflict(i,j)
+weights:
+  same_event_frame: 0.4
+  operator_argument_link: 0.7
+  case_role_link: 0.55
+  scope_compatibility: 0.35
+  tame_compatibility: 0.25
+  phase_compatibility: 0.45
+  conflict_penalty: 0.9
+conflict_rules:
+- role_swap_without_passive_or_dual_transform
+- not_all_mapped_to_none
+- inside_contains_dual_broken
+- ser_estar_identity_state_collapse
+- antonym_phase_collapsed_to_synonym_phase
+

@@ -1,0 +1,219 @@
+{
+  "cielingo_roadmap_version": "2.1",
+  "status": "draft_canonical_plan",
+  "generated_at": "2026-05-10T14:06:58.425427+00:00",
+  "principles": [
+    "Keep technical documentation neutral: no magical, metaphysical, or poetic claims in repo artifacts.",
+    "Treat CIELingo as a typed linguistic-physics data/model system, not as an ordinary dictionary.",
+    "Prefer local NOEMA retrieval and structural validation before invoking any GGUF/LLM model.",
+    "GGUF/LLM verdicts are advisory teacher-validator signals, not canonical truth.",
+    "Unknown, unresolved, conflict, and needs_review are valid states and must be stored explicitly.",
+    "Every new card must enter through card ontology, schema validation, graph comparison, and diagnostic reporting.",
+    "If preferred storage fails, write JSON/JSONL fallback plus an explicit report."
+  ],
+  "current_state": {
+    "latest_completed_version": "v2.0",
+    "concept_cards": 72,
+    "languages": [
+      "PL",
+      "EN",
+      "DE",
+      "FR",
+      "ES"
+    ],
+    "major_layers": [
+      "concept cards",
+      "operator cards",
+      "operator algebra",
+      "case gauge",
+      "dynamic deixis",
+      "predicate valency and event frames",
+      "ontological aspect",
+      "TAM-E",
+      "scope/quantifiers/negation",
+      "card ontology",
+      "transformer interface",
+      "diagnostic geometry"
+    ],
+    "known_constraint": "GitHub connector currently sees the repository but file write through Contents API returned 403 in the previous attempt."
+  },
+  "batch_policy": {
+    "0_to_100_concept_cards": 36,
+    "100_to_200_concept_cards": 20,
+    "200_to_400_concept_cards": 15,
+    "400_plus_concept_cards": "10 or curated patches only",
+    "rule": "Batch size decreases as dependency density grows."
+  },
+  "phases": [
+    {
+      "id": "P0",
+      "name": "Foundation complete",
+      "target_version": "v0.6-v2.0",
+      "status": "completed_seed",
+      "objective": "Establish formalism, card libraries, operator algebra, grammar layers, diagnostics, and transformer interface skeleton.",
+      "deliverables": [
+        "formal docs",
+        "schemas",
+        "Batch01/Batch02",
+        "diagnostic graph",
+        "validator loops"
+      ],
+      "exit_criteria": [
+        "tests pass locally",
+        "diagnostic registry has no blockers",
+        "fallback manifests exist"
+      ]
+    },
+    {
+      "id": "P1",
+      "name": "Roadmap and governance correction",
+      "target_version": "v2.1",
+      "status": "current_patch",
+      "objective": "Replace obsolete v0.7 roadmap with staged plan including NOEMA-first routing and GGUF teacher-validator policy.",
+      "deliverables": [
+        "updated docs/11 roadmap",
+        "NOEMA/GGUF roadmap doc",
+        "roadmap JSON/YAML/CSV",
+        "roadmap module/tests"
+      ],
+      "exit_criteria": [
+        "roadmap schema exists",
+        "stage plan validates",
+        "repo clearly states GGUF is advisory only"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "NOEMA Retrieval and Inference Gate",
+      "target_version": "v2.2",
+      "status": "planned",
+      "objective": "Route prompts to relevant concept/operator/event-frame subgraphs before any model call.",
+      "deliverables": [
+        "noema index schema",
+        "routing policy",
+        "inference gate policy",
+        "energy estimator skeleton"
+      ],
+      "exit_criteria": [
+        "local decision can choose no_model/small_model/gguf_validator",
+        "routing decisions are auditable"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "GGUF Teacher-Validator Learning Loop",
+      "target_version": "v2.3",
+      "status": "planned",
+      "objective": "Use GGUF/LLM only as advisory validator during learning and hard-case review.",
+      "deliverables": [
+        "teacher verdict schema",
+        "verdict fusion",
+        "confidence policy",
+        "human review hooks"
+      ],
+      "exit_criteria": [
+        "GGUF verdict cannot set canonical alone",
+        "conflict produces unresolved/needs_review rather than overwrite"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "CIELingo Validator Hardening",
+      "target_version": "v2.4",
+      "status": "planned",
+      "objective": "Promote validator from file tests to semantic quality gate for cards, relations, scope, cases, and event frames.",
+      "deliverables": [
+        "quality statuses",
+        "blocker/warn/conflict registry",
+        "semantic invariant test suite"
+      ],
+      "exit_criteria": [
+        "validator can reject false equivalences for scope, case, and operator duals"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "Batch03 Controlled Expansion",
+      "target_version": "v2.5",
+      "status": "planned",
+      "objective": "Add next 20 concept cards x 5 languages using strengthened validators and dependency reports.",
+      "deliverables": [
+        "Batch03 cards",
+        "relation graph delta",
+        "heatmaps",
+        "martini-effect dependency report"
+      ],
+      "exit_criteria": [
+        "no blockers",
+        "new cards compared against previous 72 cards",
+        "all unresolved issues explicit"
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "Transformer Adapter Experiments",
+      "target_version": "v2.6-v2.8",
+      "status": "research_planned",
+      "objective": "Test CIEL feature tensors as auxiliary signals, attention bias, adapter features, or validator constraints.",
+      "deliverables": [
+        "feature tensor dataset",
+        "attention bias experiments",
+        "auxiliary loss prototypes",
+        "evaluation report"
+      ],
+      "exit_criteria": [
+        "measurable improvement on selected invariant tests or clear negative result"
+      ]
+    },
+    {
+      "id": "P7",
+      "name": "Benchmark and Public Draft",
+      "target_version": "v3.0",
+      "status": "future",
+      "objective": "Prepare technical spec draft, demo cases, reproducibility pack, and benchmark tasks.",
+      "deliverables": [
+        "spec draft",
+        "demo notebook/CLI",
+        "benchmark suite",
+        "reproducibility checklist"
+      ],
+      "exit_criteria": [
+        "external reviewer can run tests and inspect claims without private context"
+      ]
+    }
+  ],
+  "risk_register": [
+    {
+      "risk": "semantic dependency explosion",
+      "mitigation": "decrease batch size; maintain conflict/unresolved registry; run graph deltas"
+    },
+    {
+      "risk": "LLM/GGUF over-trust",
+      "mitigation": "teacher verdict advisory only; canonical status requires structural validation"
+    },
+    {
+      "risk": "manual seed treated as authoritative dictionary",
+      "mitigation": "use curated_seed/draft/needs_review statuses"
+    },
+    {
+      "risk": "cross-language flattening",
+      "mitigation": "case gauge, TAM-E, ontology aspect, scope stack, reconstruction cost metrics"
+    },
+    {
+      "risk": "binary storage failure",
+      "mitigation": "JSON/JSONL fallback protocol with explicit audit record"
+    },
+    {
+      "risk": "metaphorical language polluting repo claims",
+      "mitigation": "technical style policy in roadmap and README"
+    }
+  ],
+  "extensions": [
+    {
+      "version": "2.3",
+      "stage": "Language Family Grammar Algorithms and Dialect Adapter Policy",
+      "status": "complete",
+      "purpose": "Split grammar algorithms by family, language, and dialect/variant adapter."
+    }
+  ]
+}

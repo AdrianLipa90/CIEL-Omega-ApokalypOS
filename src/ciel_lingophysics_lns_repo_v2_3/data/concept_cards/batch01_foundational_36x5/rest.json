@@ -1,0 +1,222 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:rest",
+  "canonical_label_en": "rest",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "dynamics",
+  "semantic_axes": [
+    "stability",
+    "no_motion",
+    "pause"
+  ],
+  "semantic_mass_seed": 0.7688,
+  "phase_seed_rad": 2.268928,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "spoczynek",
+      "brief_description": "stan braku ruchu, pauzy lub względnej stabilności",
+      "near_synonyms_seed": [
+        "bezruch",
+        "pauza"
+      ],
+      "antonyms_seed": [
+        "ruch",
+        "zmiana"
+      ],
+      "forms_seed": [
+        "spoczynek",
+        "spoczynek jako hasło",
+        "spoczynek w kontekście"
+      ],
+      "context_examples_seed": [
+        "Spoczynek tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "not",
+        "after",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "rest",
+      "brief_description": "state of no motion, pause or relative stability",
+      "near_synonyms_seed": [
+        "stillness",
+        "pause"
+      ],
+      "antonyms_seed": [
+        "motion",
+        "change"
+      ],
+      "forms_seed": [
+        "rest",
+        "rests",
+        "rest as concept"
+      ],
+      "context_examples_seed": [
+        "Rest forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "not",
+        "after",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Ruhe",
+      "brief_description": "Zustand ohne Bewegung, Pause oder relative Stabilität",
+      "near_synonyms_seed": [
+        "Stillstand",
+        "Pause"
+      ],
+      "antonyms_seed": [
+        "Bewegung",
+        "Veränderung"
+      ],
+      "forms_seed": [
+        "Ruhe",
+        "Ruhe als Begriff",
+        "Ruhe im Kontext"
+      ],
+      "context_examples_seed": [
+        "Ruhe bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "not",
+        "after",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "repos",
+      "brief_description": "état sans mouvement, pause ou stabilité relative",
+      "near_synonyms_seed": [
+        "immobilité",
+        "pause"
+      ],
+      "antonyms_seed": [
+        "mouvement",
+        "changement"
+      ],
+      "forms_seed": [
+        "repos",
+        "repos comme concept",
+        "repos en contexte"
+      ],
+      "context_examples_seed": [
+        "Repos forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "not",
+        "after",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "reposo",
+      "brief_description": "estado sin movimiento, pausa o estabilidad relativa",
+      "near_synonyms_seed": [
+        "quietud",
+        "pausa"
+      ],
+      "antonyms_seed": [
+        "movimiento",
+        "cambio"
+      ],
+      "forms_seed": [
+        "reposo",
+        "reposo como concepto",
+        "reposo en contexto"
+      ],
+      "context_examples_seed": [
+        "Reposo forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "not",
+        "after",
+        "before"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "not",
+    "after",
+    "before"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:motion",
+      "status": "draft_seed"
+    },
+    {
+      "type": "supports",
+      "target": "concept:order",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

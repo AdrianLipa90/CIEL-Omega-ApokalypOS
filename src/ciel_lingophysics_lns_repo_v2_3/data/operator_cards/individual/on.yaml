@@ -1,0 +1,52 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:on
+family: surface_contact_support
+class:
+- spatial_relation
+- support_relation
+symbol: On(x,y)
+arity: '2'
+dual: op:core:under
+inverse: op:core:under
+description: surface contact or support relation
+equations:
+- On(x,y)
+- Contact(x, Surface(y))
+surfaces:
+  pl:
+    lemma: na
+    forms:
+    - na
+    examples:
+    - Książka leży na stole.
+    notes: surface/support localizer
+  en:
+    lemma: 'on'
+    forms:
+    - 'on'
+    - upon
+    examples:
+    - The book is on the table.
+    notes: surface/support
+  de:
+    lemma: auf
+    forms:
+    - auf
+    examples:
+    - Das Buch liegt auf dem Tisch.
+    notes: case may encode state/motion
+  fr:
+    lemma: sur
+    forms:
+    - sur
+    examples:
+    - Le livre est sur la table.
+    notes: surface localizer
+  es:
+    lemma: sobre / en
+    forms:
+    - sobre
+    - en
+    examples:
+    - El libro está sobre la mesa.
+    notes: surface/support

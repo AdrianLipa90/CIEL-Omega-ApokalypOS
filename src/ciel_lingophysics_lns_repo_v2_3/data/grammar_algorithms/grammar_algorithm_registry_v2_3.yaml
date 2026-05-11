@@ -1,0 +1,63 @@
+schema_version: '2.3'
+status: draft_seed
+pipeline: family_profile -> language_profile -> dialect_adapter -> grammar_algorithm_stack
+  -> NOEMA route -> CIEL validator
+algorithms:
+- id: alg:case_gauge
+  level: family/language
+  applies_to:
+  - family:slavic
+  - language:de:standard
+  fallback: UNRESOLVED_CASE_ROLE
+- id: alg:word_order_role_mapper
+  level: family/language
+  applies_to:
+  - family:germanic
+  - family:romance
+  fallback: UNRESOLVED_ROLE_ORDER
+- id: alg:being_operator_split
+  level: language
+  applies_to:
+  - language:es:standard
+  - language:fr:standard
+  - language:en:standard
+  - language:pl:standard
+  fallback: UNRESOLVED_BEING_MODE
+- id: alg:koto_mono_classifier
+  level: language
+  applies_to:
+  - language:ja:planned
+  fallback: UNRESOLVED_ONTOLOGICAL_ASPECT
+- id: alg:clitic_resolver
+  level: language
+  applies_to:
+  - family:romance
+  fallback: UNRESOLVED_CLITIC_REFERENCE
+- id: alg:particle_role_mapper
+  level: language
+  applies_to:
+  - family:japonic
+  fallback: UNRESOLVED_PARTICLE_ROLE
+- id: alg:root_pattern_analyzer
+  level: family
+  applies_to:
+  - family:semitic
+  fallback: UNRESOLVED_ROOT_PATTERN
+fine_tuning_policy:
+  principle: Fine-tune only adapter layers or auxiliary classifiers until enough curated
+    examples exist; never overwrite canonical CIEL structures from model output alone.
+  units:
+  - minimal_pairs
+  - operator_duals
+  - case_role_samples
+  - scope_ambiguity_pairs
+  - dialect_variant_pairs
+  - validator_failures
+  promotion_thresholds:
+    draft_to_reviewed: 0.8
+    reviewed_to_canonical: 0.95
+  requires_human_review_for:
+  - dialect_level_L3_or_higher
+  - high_impact_semantics
+  - factual_claims
+  - unresolved_scope_with_negation

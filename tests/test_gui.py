@@ -174,6 +174,37 @@ class TestApiModels:
         assert resp.status_code == 405
 
 
+class TestApiContracts:
+    def test_intentions_returns_canonical_shape(self, client):
+        resp = client.get("/api/intentions")
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert "intentions" in data
+
+    def test_consolidator_results_returns_canonical_shape(self, client):
+        resp = client.get("/api/consolidator/results")
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert "results" in data
+        assert "status" in data
+
+    def test_critical_routes_are_unique(self, app):
+        critical = {
+            "/api/intentions",
+            "/api/intentions/add",
+            "/api/intentions/done",
+            "/api/projects/add",
+            "/api/sub/recent",
+            "/api/consolidator/results",
+        }
+        counts = {rule: 0 for rule in critical}
+        for rule in app.url_map.iter_rules():
+            if rule.rule in counts:
+                counts[rule.rule] += 1
+        for rule, count in counts.items():
+            assert count == 1, f"duplicate route registered: {rule} ({count})"
+
+
 # -------------------------------------------------------------------
 # 404 handler
 # -------------------------------------------------------------------

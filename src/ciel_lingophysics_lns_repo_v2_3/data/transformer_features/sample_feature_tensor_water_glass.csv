@@ -1,0 +1,5 @@
+token_id,surface,card_type,concept_or_operator,roles
+0,Woda,CONCEPT_CARD,concept:water,theme
+1,jest,OPERATOR_CARD,op:being_locative,
+2,w,OPERATOR_CARD,op:inside,spatial_containment
+3,szklance,CONCEPT_CARD,concept:glass,container

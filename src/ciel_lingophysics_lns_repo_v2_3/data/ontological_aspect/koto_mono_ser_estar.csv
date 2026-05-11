@@ -1,0 +1,7 @@
+operator_id,canonical_operator,language,surfaces,equation,semantic_mode
+onto:ja:mono,MonoConcreteThing,ja,物|もの|mono,Mono(x) -> ConcreteOrObjectLikeThing(x),objecthood
+onto:ja:koto,KotoAbstractEventFact,ja,事|こと|koto,Koto(p/e) -> AbstractEventFactOrProposition(p/e),conceptuality
+onto:es:ser,SerIdentityBe,es,ser|soy|eres|es|somos|son,"Ser(x,y) -> IdentityBe(x,y)",identity_class_role_origin
+onto:es:estar,EstarStateBe,es,estar|estoy|estás|está|estamos|están,"Estar(x,s,t?) -> StateBe(x,s,t?)",state_location_result
+onto:en:be,EnglishBePolyfunctional,en,be|am|is|are|was|were,"Be(x,y) -> Resolve(IdentityBe | StateBe | LocationBe | ExistenceBe)",polyfunctional_be
+onto:pl:byc,PolishBycPolyfunctional,pl,być|jestem|jesteś|jest|jesteśmy|są,"Byc(x,y) -> Resolve(IdentityBe | StateBe | LocationBe | ExistenceBe)",polyfunctional_be_with_case_and_adjective_resolution

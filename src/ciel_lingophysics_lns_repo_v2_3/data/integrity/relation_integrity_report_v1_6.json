@@ -1,0 +1,58 @@
+{
+  "version": "1.6",
+  "created_utc": "2026-05-10T13:08:13.520802+00:00",
+  "checks": [
+    {
+      "check": "batch01_concept_count",
+      "status": "PASS",
+      "observed": 36,
+      "expected": 36
+    },
+    {
+      "check": "batch01_language_panels",
+      "status": "WARN",
+      "observed": 0,
+      "expected": 180
+    },
+    {
+      "check": "required_path_exists",
+      "path": "data/operator_algebra/operator_algebra_index.json",
+      "status": "PASS"
+    },
+    {
+      "check": "required_path_exists",
+      "path": "data/operator_compositions/duals.yaml",
+      "status": "PASS"
+    },
+    {
+      "check": "required_path_exists",
+      "path": "data/operator_compositions/inverses.yaml",
+      "status": "PASS"
+    },
+    {
+      "check": "required_path_exists",
+      "path": "data/operator_compositions/negations.yaml",
+      "status": "PASS"
+    },
+    {
+      "check": "required_path_exists",
+      "path": "data/case_systems/slavic_case_gauge.yaml",
+      "status": "PASS"
+    },
+    {
+      "check": "required_path_exists",
+      "path": "data/tame/tame_operator_system.yaml",
+      "status": "PASS"
+    },
+    {
+      "check": "required_path_exists",
+      "path": "data/scope/scope_quantifier_negation.yaml",
+      "status": "PASS"
+    },
+    {
+      "check": "required_path_exists",
+      "path": "src/lingophysics/storage_fallback.py",
+      "status": "PASS"
+    }
+  ]
+}

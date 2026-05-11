@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_operator_algebra.schema.json",
+  "title": "CIEL-LNS Operator Algebra Index",
+  "type": "object",
+  "required": [
+    "version",
+    "name",
+    "families",
+    "composition_files"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "principle": {
+      "type": "string"
+    },
+    "families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "composition_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_card_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "operator_metrics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.cinnamon.desktop.session" path="/org/cinnamon/desktop/session/">
+    <key name="idle-delay" type="u">
+      <default>900</default>
+      <summary>Time before session is considered idle</summary>
+      <description>The number of seconds of inactivity before the session is considered idle.</description>
+    </key>
+    <key name="session-name" type="s">
+      <default>"cinnamon"</default>
+      <summary>Session type</summary>
+      <description>The name of the session to use.  Known values are
+      "gnome" and "gnome-fallback".</description>
+    </key>
+    <key name="session-manager-uses-logind" type="b">
+      <default>true</default>
+      <summary>*no longer used*</summary>
+    </key>
+    <key name="settings-daemon-uses-logind" type="b">
+      <default>true</default>
+      <summary>*no longer used*</summary>
+    </key>
+  </schema>
+</schemalist>

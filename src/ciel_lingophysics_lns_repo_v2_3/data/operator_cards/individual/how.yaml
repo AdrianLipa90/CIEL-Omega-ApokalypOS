@@ -1,0 +1,66 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:how
+family: manner_similarity_pattern_polyfunction
+class:
+- query_operator
+- manner_operator
+- comparison_operator
+- pattern_mapping
+symbol: How(T) / Like(x,y) / As(x,y)
+arity: 1-2
+dual: null
+inverse: null
+description: polyfunctional manner question, comparison or pattern-mapping operator
+equations:
+- How(T)->ask(Manner(T))
+- Like(x,y)->Sim(x,y)
+- As(x,y)->MapPattern(y→x)
+surfaces:
+  pl:
+    lemma: jak
+    forms:
+    - jak
+    - jako
+    examples:
+    - Jak to działa?
+    - To działa jak silnik.
+    - Zrób to jak wcześniej.
+    notes: manner/similarity/pattern/conditional overlap
+  en:
+    lemma: how / as / like
+    forms:
+    - how
+    - as
+    - like
+    examples:
+    - How does it work?
+    - It works like an engine.
+    - Do it as before.
+    notes: split across how/as/like
+  de:
+    lemma: wie / als
+    forms:
+    - wie
+    - als
+    examples:
+    - Wie funktioniert das?
+    - Es funktioniert wie ein Motor.
+    notes: wie/als split
+  fr:
+    lemma: comment / comme
+    forms:
+    - comment
+    - comme
+    examples:
+    - Comment ça marche?
+    - Ça marche comme un moteur.
+    notes: comment/comme split
+  es:
+    lemma: cómo / como
+    forms:
+    - cómo
+    - como
+    examples:
+    - ¿Cómo funciona?
+    - Funciona como un motor.
+    notes: accent distinguishes query in writing

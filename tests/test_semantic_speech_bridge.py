@@ -43,6 +43,25 @@ FAKE_STATE = {
     "nonlocal_runtime": {"semantic_key": "memory bridge", "coherent_fraction": 0.84},
     "euler_bridge": {"memory_semantic_key": "memory bridge"},
     "runtime_policy": {"response_strategy": "truth-aligned-user-intent", "durable_write_allowed": True},
+    "lingo_frame": {
+        "summary": "CIELingo|concepts=bridge, memory|operators=through|deictic=Now:relative_anchor|unresolved=Now|factual=no|noema_conf=0.710",
+        "concept_tokens": ["bridge", "memory"],
+        "operator_tokens": ["through"],
+        "unresolved": ["Now"],
+        "deictic_frame": {
+            "anchors": [],
+            "relative_anchors": [
+                {"operator": "Now", "surface": "now", "resolution_state": "relative_anchor"}
+            ],
+        },
+        "noema_route": {"confidence": 0.71, "factual_validation_required": False},
+        "phase_projection": {"target_phase": 0.0, "target_phase_shift": 0.0, "phase_confidence": 0.66},
+        "tau_bridge": {
+            "tau_gradient_mean": 0.12,
+            "imaginal_drive": 0.44,
+            "tau_curvature_rms": 0.08,
+        },
+    },
     "intention_vector": [0.1, 0.2, 0.3],
     "simulation": {"coherence": [0.8, 0.9]},
     "cognition": {"phase": 0.2},
@@ -56,6 +75,12 @@ def test_build_semantic_speech_context_exposes_memory_as_text():
     assert "audit trail keeps the history intact" in ctx["text"]
     assert "Semantic labels: memory, retrieval, speech" in ctx["text"]
     assert "Memory score: 0.730" in ctx["text"]
+    assert "CIELingo summary:" in ctx["text"]
+    assert "CIELingo concepts: bridge, memory" in ctx["text"]
+    assert "CIELingo deictics: Now:relative_anchor" in ctx["text"]
+    assert "CIELingo phase target:" in ctx["text"]
+    assert "CIELingo tau gradient:" in ctx["text"]
+    assert "CIELingo imaginal drive:" in ctx["text"]
     assert "Runtime policy: truth-aligned-user-intent" in ctx["text"]
     assert ctx["retrieval"]["ranked"]
 

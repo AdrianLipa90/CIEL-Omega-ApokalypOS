@@ -1,0 +1,21 @@
+family_id: family:containment
+description: Topological interior, inclusion and container/contained relations.
+operators:
+- op:core:inside
+- op:core:contain
+- op:core:outside
+canonical_axes:
+- spatial_containment
+- set_inclusion
+- conceptual_interior
+core_equations:
+- Inside(x,y) -> x ∈ Int(y)
+- Contains(y,x) <=> Inside(x,y)
+- Outside(x,y) -> x ∉ Closure(y)
+duals:
+- left: Inside(x,y)
+  right: Contains(y,x)
+inverses:
+- left: Inside(x,y)
+  right: Outside(x,y)
+  note: not exact under boundary/unknown cases

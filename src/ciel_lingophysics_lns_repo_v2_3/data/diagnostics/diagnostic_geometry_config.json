@@ -1,0 +1,24 @@
+{
+  "version": "2.0",
+  "layer": "Diagnostic Geometry Layer",
+  "purpose": "Detect cross-language reconstruction costs, relation density, operator incidence, conflict/unresolved markers, and graph growth diagnostics.",
+  "input_layers": [
+    "concept_cards",
+    "operator_links",
+    "relations",
+    "grammar_vectors",
+    "card_ontology",
+    "scope",
+    "case_gauge",
+    "tame",
+    "event_frames"
+  ],
+  "outputs": [
+    "cost_matrices",
+    "heatmaps",
+    "diagnostic_graph",
+    "conflict_registry",
+    "quality_report"
+  ],
+  "no_claim_policy": "Diagnostics are seed-level structural signals, not authoritative linguistic statistics."
+}

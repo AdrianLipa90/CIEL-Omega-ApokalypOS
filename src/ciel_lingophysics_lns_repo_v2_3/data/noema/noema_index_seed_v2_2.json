@@ -1,0 +1,346 @@
+{
+  "noema_index_version": "2.2",
+  "created_at_utc": "2026-05-10T14:16:15.342618+00:00",
+  "status": "draft_seed",
+  "non_claim": "NOEMA routing reduces context and model calls; it does not make dense GGUF execute only selected internal weights.",
+  "cards": [
+    {
+      "id": "noema:concept:water",
+      "canonical_ref": "concept:water",
+      "card_type": "CONCEPT_CARD",
+      "labels": {
+        "en": [
+          "water"
+        ],
+        "pl": [
+          "woda"
+        ],
+        "de": [
+          "Wasser"
+        ],
+        "fr": [
+          "eau"
+        ],
+        "es": [
+          "agua"
+        ]
+      },
+      "domains": [
+        "substance",
+        "elemental",
+        "containment_examples"
+      ],
+      "operator_hooks": [
+        "Inside",
+        "Contains",
+        "HaveProperty",
+        "Move"
+      ],
+      "relations": [
+        {
+          "type": "inside_example",
+          "target": "noema:concept:glass"
+        }
+      ],
+      "confidence": 0.82,
+      "status": "curated_seed"
+    },
+    {
+      "id": "noema:concept:glass",
+      "canonical_ref": "concept:glass",
+      "card_type": "CONCEPT_CARD",
+      "labels": {
+        "en": [
+          "glass",
+          "cup"
+        ],
+        "pl": [
+          "szklanka",
+          "szklance",
+          "szklankę",
+          "szklanki"
+        ],
+        "de": [
+          "Glas"
+        ],
+        "fr": [
+          "verre"
+        ],
+        "es": [
+          "vaso"
+        ]
+      },
+      "domains": [
+        "container",
+        "object",
+        "containment_examples"
+      ],
+      "operator_hooks": [
+        "Contains",
+        "Inside",
+        "HavePart"
+      ],
+      "relations": [
+        {
+          "type": "contains_example",
+          "target": "noema:concept:water"
+        }
+      ],
+      "confidence": 0.78,
+      "status": "curated_seed"
+    },
+    {
+      "id": "noema:operator:inside",
+      "canonical_ref": "operator:Inside",
+      "card_type": "OPERATOR_CARD",
+      "labels": {
+        "en": [
+          "inside",
+          "in",
+          "within"
+        ],
+        "pl": [
+          "w",
+          "wewnątrz",
+          "w środku"
+        ],
+        "de": [
+          "in",
+          "innerhalb"
+        ],
+        "fr": [
+          "dans",
+          "à l’intérieur"
+        ],
+        "es": [
+          "en",
+          "dentro"
+        ]
+      },
+      "domains": [
+        "spatial_topological",
+        "containment"
+      ],
+      "operator_hooks": [
+        "Inside"
+      ],
+      "relations": [
+        {
+          "type": "dual_of",
+          "target": "noema:operator:contains"
+        }
+      ],
+      "confidence": 0.9,
+      "status": "operator_seed"
+    },
+    {
+      "id": "noema:operator:contains",
+      "canonical_ref": "operator:Contains",
+      "card_type": "OPERATOR_CARD",
+      "labels": {
+        "en": [
+          "contains"
+        ],
+        "pl": [
+          "zawiera"
+        ],
+        "de": [
+          "enthält"
+        ],
+        "fr": [
+          "contient"
+        ],
+        "es": [
+          "contiene"
+        ]
+      },
+      "domains": [
+        "spatial_topological",
+        "containment"
+      ],
+      "operator_hooks": [
+        "Contains"
+      ],
+      "relations": [
+        {
+          "type": "dual_of",
+          "target": "noema:operator:inside"
+        }
+      ],
+      "confidence": 0.9,
+      "status": "operator_seed"
+    },
+    {
+      "id": "noema:scope:negation_quantifier",
+      "canonical_ref": "scope:quantifier_negation",
+      "card_type": "SCOPE_CARD",
+      "labels": {
+        "en": [
+          "not every",
+          "none",
+          "some not"
+        ],
+        "pl": [
+          "nie każdy",
+          "żaden",
+          "niektórzy nie"
+        ]
+      },
+      "domains": [
+        "scope",
+        "negation",
+        "quantification"
+      ],
+      "operator_hooks": [
+        "Not",
+        "All",
+        "None",
+        "Some"
+      ],
+      "relations": [
+        {
+          "type": "guards_false_equivalence",
+          "target": "noema:operator:not"
+        }
+      ],
+      "confidence": 0.72,
+      "status": "draft_guardrail"
+    },
+    {
+      "id": "noema:case:slavic_role_gauge",
+      "canonical_ref": "case:slavic_case_gauge",
+      "card_type": "CASE_GAUGE_CARD",
+      "labels": {
+        "en": [
+          "case gauge"
+        ],
+        "pl": [
+          "przypadek",
+          "mianownik",
+          "biernik",
+          "celownik",
+          "narzędnik"
+        ]
+      },
+      "domains": [
+        "grammar_gauge",
+        "role_realization",
+        "slavic"
+      ],
+      "operator_hooks": [
+        "AgentRole",
+        "PatientRole",
+        "RecipientRole",
+        "InstrumentRole"
+      ],
+      "relations": [
+        {
+          "type": "maps_to_surface_strategy",
+          "target": "noema:grammar:word_order_prepositions"
+        }
+      ],
+      "confidence": 0.68,
+      "status": "draft_guardrail"
+    },
+    {
+      "id": "noema:tame:temporal_modality",
+      "canonical_ref": "tame:core",
+      "card_type": "TAME_CARD",
+      "labels": {
+        "en": [
+          "tense",
+          "aspect",
+          "mood",
+          "modality",
+          "evidentiality"
+        ],
+        "pl": [
+          "czas",
+          "aspekt",
+          "tryb",
+          "modalność",
+          "źródło wiedzy"
+        ]
+      },
+      "domains": [
+        "tame",
+        "epistemic_status",
+        "time"
+      ],
+      "operator_hooks": [
+        "Past",
+        "Present",
+        "Future",
+        "Perfective",
+        "Imperfective",
+        "Must",
+        "May"
+      ],
+      "relations": [],
+      "confidence": 0.7,
+      "status": "draft_guardrail"
+    },
+    {
+      "id": "noema:event:containment_frame",
+      "canonical_ref": "event_frame:containment",
+      "card_type": "EVENT_FRAME",
+      "labels": {
+        "en": [
+          "containment frame"
+        ],
+        "pl": [
+          "rama zawierania"
+        ]
+      },
+      "domains": [
+        "event_frame",
+        "containment"
+      ],
+      "operator_hooks": [
+        "Inside",
+        "Contains"
+      ],
+      "relations": [
+        {
+          "type": "uses_operator",
+          "target": "noema:operator:inside"
+        },
+        {
+          "type": "uses_operator",
+          "target": "noema:operator:contains"
+        }
+      ],
+      "confidence": 0.85,
+      "status": "curated_seed"
+    },
+    {
+      "id": "noema:deictic:unresolved_anchor",
+      "canonical_ref": "deictic:dynamic_anchor",
+      "card_type": "DEICTIC_CARD",
+      "labels": {
+        "en": [
+          "somewhere",
+          "sometime",
+          "somehow"
+        ],
+        "pl": [
+          "gdzieś",
+          "kiedyś",
+          "jakoś"
+        ]
+      },
+      "domains": [
+        "deixis",
+        "unresolved_anchor"
+      ],
+      "operator_hooks": [
+        "UnresolvedPlace",
+        "UnresolvedTime",
+        "UnresolvedManner"
+      ],
+      "relations": [],
+      "confidence": 0.66,
+      "status": "draft_guardrail"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+language: pl
+name: Polish
+grammar_gauge:
+  word_order: flexible-SVO-common
+  case_marking: high
+  inflection: high
+  article_definiteness: low
+  aspect: lexical_and_morphological
+  topic_focus: word_order_case_prosody
+pos_map:
+  NOUN: object_or_mass
+  PROPN: identity_constant
+  VERB: transformation_operator
+  ADJ: attribute_projector
+  ADV: operator_modifier
+  ADP: relation_morphism
+  PRON: reference_operator
+  CCONJ: structure_coupler
+  PART: phase_modulator
+role_map:
+  nsubj: Agent
+  obj: Patient
+  iobj: Receiver
+  obl: Context
+  amod: Attribute
+  advmod: OperatorModifier
+  neg: PolarityInverter
+  aux: TenseAspectMode
+  case: CaseGauge
+typology:
+  primary_dependency_source:
+  - case
+  - inflection
+  - prepositions
+  - word_order
+  cross_linguistic_notes: Use case and aspect before word-order assumptions.
+thresholds:
+  grammar_curvature_expected: high

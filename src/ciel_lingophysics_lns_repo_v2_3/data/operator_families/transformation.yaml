@@ -1,0 +1,14 @@
+family_id: family:transformation
+description: Creation, destruction, becoming and state transitions.
+operators:
+- op:future:create
+- op:future:destroy
+- op:future:become
+canonical_axes:
+- creation
+- destruction
+- state_transition
+core_equations:
+- Create(agent,object)
+- Destroy(agent,object)
+- Become(x,state)

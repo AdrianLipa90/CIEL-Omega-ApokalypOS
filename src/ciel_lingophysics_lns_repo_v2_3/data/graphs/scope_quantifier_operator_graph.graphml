@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<graph edgedefault="directed">
+<node id="quantifier:ALL"/>
+<node id="quantifier:EACH"/>
+<node id="quantifier:SOME"/>
+<node id="quantifier:MANY"/>
+<node id="quantifier:FEW"/>
+<node id="quantifier:ONE"/>
+<node id="quantifier:NO"/>
+<node id="quantifier:ANY"/>
+<node id="negation:none"/>
+<node id="negation:outside_quantifier"/>
+<node id="negation:inside_predicate"/>
+<node id="negation:quantifier_negative"/>
+<node id="negation:unresolved"/>
+<node id="rule:not_all"/>
+<node id="rule:all_not"/>
+<node id="rule:not_some"/>
+<node id="rule:some_not"/>
+<node id="rule:negative_quantifier"/>
+<edge id="e0" source="quantifier:ALL" target="rule:not_all"/>
+<edge id="e1" source="negation:outside_quantifier" target="rule:not_all"/>
+<edge id="e2" source="quantifier:ALL" target="rule:all_not"/>
+<edge id="e3" source="negation:inside_predicate" target="rule:all_not"/>
+<edge id="e4" source="quantifier:SOME" target="rule:not_some"/>
+<edge id="e5" source="negation:outside_quantifier" target="rule:not_some"/>
+<edge id="e6" source="quantifier:SOME" target="rule:some_not"/>
+<edge id="e7" source="negation:inside_predicate" target="rule:some_not"/>
+<edge id="e8" source="quantifier:NO" target="rule:negative_quantifier"/>
+<edge id="e9" source="negation:quantifier_negative" target="rule:negative_quantifier"/>
+</graph>
+</graphml>

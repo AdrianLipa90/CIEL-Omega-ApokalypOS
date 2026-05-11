@@ -1,0 +1,208 @@
+{
+  "languages": [
+    "pl",
+    "en",
+    "de",
+    "fr",
+    "es"
+  ],
+  "features": [
+    "article_system",
+    "aspect_marking",
+    "case_marking",
+    "fixed_word_order",
+    "gender_marking",
+    "inflection_load",
+    "preposition_load",
+    "topic_focus_particles"
+  ],
+  "matrix": [
+    [
+      0.0,
+      1.624808,
+      1.031988,
+      1.428286,
+      1.222702
+    ],
+    [
+      1.624808,
+      0.0,
+      1.048809,
+      0.707107,
+      0.877496
+    ],
+    [
+      1.031988,
+      1.048809,
+      0.0,
+      0.663325,
+      0.655744
+    ],
+    [
+      1.428286,
+      0.707107,
+      0.663325,
+      0.0,
+      0.380789
+    ],
+    [
+      1.222702,
+      0.877496,
+      0.655744,
+      0.380789,
+      0.0
+    ]
+  ],
+  "rows": [
+    {
+      "source_language": "pl",
+      "target_language": "pl",
+      "grammar_gauge_distance": 0.0,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "pl",
+      "target_language": "en",
+      "grammar_gauge_distance": 1.624808,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "pl",
+      "target_language": "de",
+      "grammar_gauge_distance": 1.031988,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "pl",
+      "target_language": "fr",
+      "grammar_gauge_distance": 1.428286,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "pl",
+      "target_language": "es",
+      "grammar_gauge_distance": 1.222702,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "en",
+      "target_language": "pl",
+      "grammar_gauge_distance": 1.624808,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "en",
+      "target_language": "en",
+      "grammar_gauge_distance": 0.0,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "en",
+      "target_language": "de",
+      "grammar_gauge_distance": 1.048809,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "en",
+      "target_language": "fr",
+      "grammar_gauge_distance": 0.707107,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "en",
+      "target_language": "es",
+      "grammar_gauge_distance": 0.877496,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "de",
+      "target_language": "pl",
+      "grammar_gauge_distance": 1.031988,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "de",
+      "target_language": "en",
+      "grammar_gauge_distance": 1.048809,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "de",
+      "target_language": "de",
+      "grammar_gauge_distance": 0.0,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "de",
+      "target_language": "fr",
+      "grammar_gauge_distance": 0.663325,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "de",
+      "target_language": "es",
+      "grammar_gauge_distance": 0.655744,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "fr",
+      "target_language": "pl",
+      "grammar_gauge_distance": 1.428286,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "fr",
+      "target_language": "en",
+      "grammar_gauge_distance": 0.707107,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "fr",
+      "target_language": "de",
+      "grammar_gauge_distance": 0.663325,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "fr",
+      "target_language": "fr",
+      "grammar_gauge_distance": 0.0,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "fr",
+      "target_language": "es",
+      "grammar_gauge_distance": 0.380789,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "es",
+      "target_language": "pl",
+      "grammar_gauge_distance": 1.222702,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "es",
+      "target_language": "en",
+      "grammar_gauge_distance": 0.877496,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "es",
+      "target_language": "de",
+      "grammar_gauge_distance": 0.655744,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "es",
+      "target_language": "fr",
+      "grammar_gauge_distance": 0.380789,
+      "status": "diagnostic_seed"
+    },
+    {
+      "source_language": "es",
+      "target_language": "es",
+      "grammar_gauge_distance": 0.0,
+      "status": "diagnostic_seed"
+    }
+  ]
+}

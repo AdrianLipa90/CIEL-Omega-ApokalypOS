@@ -1,0 +1,14 @@
+[Unit]
+Description=CIEL Codex Bridge (Codex rollout -> CIEL raw_logs + hooks)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/adrian/Pulpit/CIEL_TESTY/CIEL1
+ExecStart=/home/adrian/Pulpit/CIEL_TESTY/CIEL1/scripts/ciel_codex_bridge.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target
+

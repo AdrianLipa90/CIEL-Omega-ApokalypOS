@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<graph edgedefault="directed">
+<node id="op:dyn:somewhere"><data key="label">Somewhere</data><data key="type">dynamic_spatial_indefinite</data></node>
+<node id="op:dyn:anywhere"><data key="label">Anywhere</data><data key="type">dynamic_spatial_free_choice</data></node>
+<node id="op:dyn:nowhere"><data key="label">Nowhere</data><data key="type">dynamic_spatial_negative_indefinite</data></node>
+<node id="op:dyn:sometime"><data key="label">Sometime</data><data key="type">dynamic_temporal_indefinite</data></node>
+<node id="op:dyn:anytime"><data key="label">Anytime</data><data key="type">dynamic_temporal_free_choice</data></node>
+<node id="op:dyn:never"><data key="label">Never</data><data key="type">dynamic_temporal_negative_indefinite</data></node>
+<node id="op:dyn:somehow"><data key="label">Somehow</data><data key="type">dynamic_manner_indefinite</data></node>
+<node id="op:dyn:somewhere_to"><data key="label">TowardSomewhere</data><data key="type">dynamic_directional_indefinite</data></node>
+<node id="op:dyn:somewhere_from"><data key="label">FromSomewhere</data><data key="type">dynamic_source_indefinite</data></node>
+<edge id="e0" source="op:dyn:somewhere" target="op:dyn:nowhere"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e1" source="op:dyn:somewhere" target="op:dyn:anywhere"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e2" source="op:dyn:somewhere" target="op:query:where"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e3" source="op:dyn:anywhere" target="op:dyn:somewhere"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e4" source="op:dyn:anywhere" target="op:dyn:nowhere"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e5" source="op:dyn:nowhere" target="op:dyn:somewhere"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e6" source="op:dyn:nowhere" target="op:logical:not"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e7" source="op:dyn:sometime" target="op:dyn:never"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e8" source="op:dyn:sometime" target="op:dyn:anytime"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e9" source="op:dyn:sometime" target="op:query:when"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e10" source="op:dyn:anytime" target="op:dyn:sometime"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e11" source="op:dyn:anytime" target="op:dyn:never"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e12" source="op:dyn:never" target="op:dyn:sometime"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e13" source="op:dyn:never" target="op:logical:not"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e14" source="op:dyn:somehow" target="op:query:how"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e15" source="op:dyn:somehow" target="op:dyn:anyhow"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e16" source="op:dyn:somewhere_to" target="op:dyn:somewhere_from"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e17" source="op:dyn:somewhere_to" target="op:spatial:to"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e18" source="op:dyn:somewhere_from" target="op:dyn:somewhere_to"><data key="relation">related_dynamic_operator</data></edge>
+<edge id="e19" source="op:dyn:somewhere_from" target="op:spatial:from"><data key="relation">related_dynamic_operator</data></edge>
+</graph>
+</graphml>

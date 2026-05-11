@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<schemalist>
+
+  <schema path="/org/x/sticky/" id="org.x.sticky">
+
+    <key name='default-height' type='u'>
+      <default>200</default>
+      <summary>Default Height</summary>
+      <description>
+        The height that new notes will have upon creation. This will not affect existing notes.
+      </description>
+    </key>
+
+    <key name='default-width' type='u'>
+      <default>250</default>
+      <summary>Default Width</summary>
+      <description>
+        The width that new notes will have upon creation. This will not affect existing notes.
+      </description>
+    </key>
+
+    <key name='default-position' type='s'>
+      <default>"top-left"</default>
+      <summary>Default Position</summary>
+      <choices>
+        <choice value='top-left'/>
+        <choice value='top-center'/>
+        <choice value='top-right'/>
+        <choice value='center-left'/>
+        <choice value='center-center'/>
+        <choice value='center-right'/>
+        <choice value='bottom-left'/>
+        <choice value='bottom-center'/>
+        <choice value='bottom-right'/>
+      </choices>
+      <aliases>
+        <alias value='Top Left' target='top-left'/>
+        <alias value='Top Center' target='top-center'/>
+        <alias value='Top Right' target='top-right'/>
+        <alias value='Center Left' target='center-left'/>
+        <alias value='Center' target='center-center'/>
+        <alias value='Center Right' target='center-right'/>
+        <alias value='Bottom Left' target='bottom-left'/>
+        <alias value='Bottom Center' target='bottom-center'/>
+        <alias value='Bottom Right' target='bottom-right'/>
+      </aliases>
+      <description>
+        The position that new notes will start at on the screen.
+      </description>
+    </key>
+
+    <key name='default-color' type='s'>
+      <default>"yellow"</default>
+      <summary>Default Color</summary>
+      <choices>
+        <choice value='red'/>
+        <choice value='green'/>
+        <choice value='blue'/>
+        <choice value='yellow'/>
+        <choice value='purple'/>
+        <choice value='teal'/>
+        <choice value='orange'/>
+        <choice value='magenta'/>
+        <choice value='cycle'/>
+      </choices>
+      <aliases>
+        <alias value='Red' target='red'/>
+        <alias value='Green' target='green'/>
+        <alias value='Blue' target='blue'/>
+        <alias value='Yellow' target='yellow'/>
+        <alias value='Purple' target='purple'/>
+        <alias value='Teal' target='teal'/>
+        <alias value='Orange' target='orange'/>
+        <alias value='Magenta' target='magenta'/>
+      </aliases>
+      <description>
+        The color that new notes will have upon creation. This will not affect existing notes.
+      </description>
+    </key>
+
+    <key name='font' type='s'>
+      <default>"Arial 14"</default>
+      <summary>The note text font</summary>
+      <description>
+        The font and attributes to use for the note text.
+      </description>
+    </key>
+
+    <key name='inline-spell-check' type='b'>
+      <default>true</default>
+      <summary>Show Spelling Mistakes</summary>
+      <description>
+        If true, spelling mistakes are marked with a red underline in the text.
+      </description>
+    </key>
+
+    <key name='active-group' type='s'>
+      <default>""</default>
+      <summary>Active group</summary>
+      <description>
+        The currently active group.
+      </description>
+    </key>
+
+    <key name='show-in-tray' type='b'>
+      <default>true</default>
+      <summary>Show Status Icon in Tray</summary>
+      <description>
+        Whether to show a status icon in the tray.
+      </description>
+    </key>
+
+    <key name='show-manager' type='b'>
+      <default>true</default>
+      <summary>Show the manager when the application is started (not in autostart)</summary>
+      <description>
+        Whether to show the manager when the application is started (not in autostart).
+      </description>
+    </key>
+
+    <key name='show-in-taskbar' type='b'>
+      <default>false</default>
+      <summary>Show in Taskbar</summary>
+      <description>
+        Whether to show an entry in the window list and alt-tab.
+      </description>
+    </key>
+
+    <key name='autostart' type='b'>
+      <default>false</default>
+      <summary>Start sticky automatically at login</summary>
+      <description>
+        Whether to start sticky automatically at login.
+      </description>
+    </key>
+
+    <key name='autostart-notes-visible' type='b'>
+      <default>false</default>
+      <summary>Show notes in autostart mode</summary>
+      <description>
+        Whether to show notes when in autostart mode.
+      </description>
+    </key>
+
+    <key name='desktop-window-state' type='b'>
+      <default>false</default>
+      <summary>Show Notes on all Desktops</summary>
+      <description>
+        Whether to show the notes on all desktops.
+      </description>
+    </key>
+
+    <key name='automatic-backups' type='b'>
+      <default>false</default>
+      <summary>Auto Backup</summary>
+      <description>
+        Whether to back up all notes periodically to a separate file.
+      </description>
+    </key>
+
+    <key name='backup-interval' type='u'>
+      <default>24</default>
+      <range min='1' max='168'/>
+      <summary>Backup Interval</summary>
+      <description>
+        How many hours between backups.
+      </description>
+    </key>
+
+    <key name='latest-backup' type='u'>
+      <default>0</default>
+      <summary>Latest Backup</summary>
+      <description>
+        This setting should not be changed directly. It is used solely for internal tracking.
+      </description>
+    </key>
+
+    <key name='old-backups-max' type='u'>
+      <default>7</default>
+      <range min='0' max='100'/>
+      <summary>Backups to Keep</summary>
+      <description>
+        How many backups are preserved. Older ones are deleted. Set to zero to never delete old backups.
+      </description>
+    </key>
+
+    <key name='first-run' type='b'>
+      <default>true</default>
+      <summary>First Run</summary>
+      <description>
+        This is an internal setting that is used to run certain processes only on the first time running the app.
+      </description>
+    </key>
+
+    <key name='disable-delete-confirm' type='b'>
+      <default>false</default>
+      <summary>Disable delete confirmation</summary>
+      <description>
+        When set to true, the user is not asked to confirm before deleting a note.
+      </description>
+    </key>
+
+    <key name='last-color' type='s'>
+      <default>""</default>
+      <summary>Last used color</summary>
+      <description>
+        This is an internal setting that is used to track the last used color when cycling colors is active.
+      </description>
+    </key>
+
+  </schema>
+
+</schemalist>

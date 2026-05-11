@@ -1,0 +1,21 @@
+{
+  "schema": "ciel/jokeheal-manifest/v0.1",
+  "identity": "SAT-JOKEHEAL-0001",
+  "status": "draft",
+  "canonical_code": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/jokeheal/",
+  "packaged_adapter": "src/ciel_sot_agent/jokeheal.py",
+  "architecture_doc": "docs/architecture/CIEL_JOKEHEAL_SUBSYSTEM.md",
+  "boundary_protocol": "contracts/JOKEHEAL_BOUNDARY_PROTOCOL.md",
+  "noema_projection": "integration/imports/noema_sapiens_orbital/generated/jokeheal_projection.noema",
+  "tests": [
+    "tests/test_jokeheal_subsystem.py"
+  ],
+  "invariants": [
+    "Humor may touch pain.",
+    "Humor may not deny pain.",
+    "Humor may reframe scar.",
+    "Humor may not erase scar.",
+    "Literal danger disables comedy.",
+    "NOEMA projection has no runtime authority."
+  ]
+}

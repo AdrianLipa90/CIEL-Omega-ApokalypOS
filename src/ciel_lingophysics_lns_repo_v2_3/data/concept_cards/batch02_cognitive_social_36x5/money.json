@@ -1,0 +1,212 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:money",
+  "canonical_label_en": "money",
+  "batch_id": "batch02_cognitive_social_36x5",
+  "domain": "social_exchange",
+  "semantic_axes": [
+    "exchange",
+    "value",
+    "society"
+  ],
+  "semantic_mass_seed": 0.644,
+  "phase_seed_rad": 5.061455,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "pieniądz",
+      "brief_description": "karta pojęciowa 'pieniądz' jako ręcznie kuratorowany seed lingofizyczny",
+      "near_synonyms_seed": [
+        "pieniądze"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "pieniądz",
+        "pieniądz as lemma",
+        "pieniądz in context"
+      ],
+      "context_examples_seed": [
+        "pieniądz participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "give",
+        "to",
+        "have",
+        "for"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "money",
+      "brief_description": "concept card 'money' as a hand-curated lingophysics seed",
+      "near_synonyms_seed": [
+        "currency"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "money",
+        "money as lemma",
+        "money in context"
+      ],
+      "context_examples_seed": [
+        "money participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "give",
+        "to",
+        "have",
+        "for"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Geld",
+      "brief_description": "Begriffskarte 'Geld' als handkuratiertes Lingophysik-Seed",
+      "near_synonyms_seed": [
+        "Währung"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "Geld",
+        "Geld as lemma",
+        "Geld in context"
+      ],
+      "context_examples_seed": [
+        "Geld participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "give",
+        "to",
+        "have",
+        "for"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "argent",
+      "brief_description": "carte conceptuelle 'argent' comme graine lingophysique curée manuellement",
+      "near_synonyms_seed": [
+        "monnaie"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "argent",
+        "argent as lemma",
+        "argent in context"
+      ],
+      "context_examples_seed": [
+        "argent participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "give",
+        "to",
+        "have",
+        "for"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "dinero",
+      "brief_description": "tarjeta conceptual 'dinero' como semilla lingofísica curada manualmente",
+      "near_synonyms_seed": [
+        "moneda"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "dinero",
+        "dinero as lemma",
+        "dinero in context"
+      ],
+      "context_examples_seed": [
+        "dinero participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "give",
+        "to",
+        "have",
+        "for"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "give",
+    "to",
+    "have",
+    "for"
+  ],
+  "relations": [
+    {
+      "type": "relates_to",
+      "target": "concept:work",
+      "status": "draft_seed"
+    },
+    {
+      "type": "can_create",
+      "target": "concept:debt",
+      "status": "draft_seed"
+    }
+  ],
+  "quality_flags": [
+    "CURATED_SEED",
+    "BATCH02",
+    "REQUIRES_HUMAN_REVIEW"
+  ]
+}

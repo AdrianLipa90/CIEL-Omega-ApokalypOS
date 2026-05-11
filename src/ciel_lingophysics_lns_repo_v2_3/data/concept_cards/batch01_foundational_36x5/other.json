@@ -1,0 +1,222 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:other",
+  "canonical_label_en": "other",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "relational",
+  "semantic_axes": [
+    "alterity",
+    "external_subject",
+    "difference"
+  ],
+  "semantic_mass_seed": 0.5938,
+  "phase_seed_rad": 4.712389,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "inny",
+      "brief_description": "podmiot lub obiekt odróżniony od ja",
+      "near_synonyms_seed": [
+        "drugi",
+        "obcy"
+      ],
+      "antonyms_seed": [
+        "ja",
+        "swoje"
+      ],
+      "forms_seed": [
+        "inny",
+        "inny jako hasło",
+        "inny w kontekście"
+      ],
+      "context_examples_seed": [
+        "Inny tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "with",
+        "without",
+        "relation"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "other",
+      "brief_description": "subject or object distinguished from self",
+      "near_synonyms_seed": [
+        "another",
+        "else"
+      ],
+      "antonyms_seed": [
+        "self",
+        "same"
+      ],
+      "forms_seed": [
+        "other",
+        "others",
+        "other as concept"
+      ],
+      "context_examples_seed": [
+        "Other forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "with",
+        "without",
+        "relation"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Andere",
+      "brief_description": "Subjekt oder Objekt, das vom Selbst unterschieden ist",
+      "near_synonyms_seed": [
+        "Anderer",
+        "Fremder"
+      ],
+      "antonyms_seed": [
+        "Selbst",
+        "Gleiches"
+      ],
+      "forms_seed": [
+        "Andere",
+        "Andere als Begriff",
+        "Andere im Kontext"
+      ],
+      "context_examples_seed": [
+        "Andere bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "with",
+        "without",
+        "relation"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "autre",
+      "brief_description": "sujet ou objet distingué du soi",
+      "near_synonyms_seed": [
+        "autrui",
+        "différent"
+      ],
+      "antonyms_seed": [
+        "soi",
+        "même"
+      ],
+      "forms_seed": [
+        "autre",
+        "autre comme concept",
+        "autre en contexte"
+      ],
+      "context_examples_seed": [
+        "Autre forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "with",
+        "without",
+        "relation"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "otro",
+      "brief_description": "sujeto u objeto distinguido del yo",
+      "near_synonyms_seed": [
+        "ajeno",
+        "distinto"
+      ],
+      "antonyms_seed": [
+        "yo",
+        "mismo"
+      ],
+      "forms_seed": [
+        "otro",
+        "otro como concepto",
+        "otro en contexto"
+      ],
+      "context_examples_seed": [
+        "Otro forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "with",
+        "without",
+        "relation"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "with",
+    "without",
+    "relation"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:self",
+      "status": "draft_seed"
+    },
+    {
+      "type": "requires",
+      "target": "concept:relation",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

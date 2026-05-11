@@ -80,7 +80,7 @@ _SCAN_DIRS = [
 ]
 
 _SKIP_NAMES = {"mmproj.gguf"}  # projector files, not standalone LLMs
-# Qwen 0.5B reserved for subconscious daemon — not for chat
+# Qwen 0.5B reserved for subconscious inline backend — not for chat
 _SKIP_MODELS = {
     "tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf",
     "qwen2.5-0.5b-instruct-q2_k.gguf",
@@ -877,9 +877,19 @@ def register_routes(app: Flask) -> None:
         root = _root()
         try:
             PY = str(Path(sys.executable))
+            env = os.environ.copy()
+            src_paths = [
+                str(root / "src"),
+                str(root / "src" / "CIEL_OMEGA_COMPLETE_SYSTEM"),
+                str(root / "src" / "CIEL_OMEGA_COMPLETE_SYSTEM" / "ciel_omega"),
+            ]
+            existing_py_path = env.get("PYTHONPATH", "")
+            env["PYTHONPATH"] = os.pathsep.join(
+                [p for p in src_paths + ([existing_py_path] if existing_py_path else []) if p]
+            )
             res = subprocess.run(
                 [PY, "-m", module],
-                capture_output=True, text=True, timeout=30, cwd=str(root)
+                capture_output=True, text=True, timeout=30, cwd=str(root), env=env
             )
             if res.returncode == 0:
                 try:
@@ -1128,7 +1138,7 @@ def register_routes(app: Flask) -> None:
                     pass
         return out
 
-    _APP_DIST = Path.home() / "Pulpit" / "app" / "dist"
+    _APP_DIST = Path.home() / "Pulpit" / "CIEL_TESTY" / "CIEL1" / "app" / "dist"
 
     @app.route("/portal")
     def portal_index() -> str:
@@ -1522,7 +1532,7 @@ def register_routes(app: Flask) -> None:
         st["queue"] = _consolidator_queue()
         return jsonify(st)
 
-    @app.route("/api/consolidator/results", methods=["GET"])
+    @app.route("/api/portal/consolidator/results", methods=["GET"])
     def consolidator_results() -> Any:
         n = int(request.args.get("n", 10))
         return jsonify(_consolidator_recent(n))
@@ -1728,7 +1738,7 @@ def register_routes(app: Flask) -> None:
                 pass
         return jsonify({"entries": list(reversed(entries))})
 
-    @app.route("/api/projects/add", methods=["POST"])
+    @app.route("/api/portal/projects/add", methods=["POST"])
     def projects_add() -> Any:
         body = request.get_json(silent=True) or {}
         name = (body.get("name") or "").strip()[:200]
@@ -1747,7 +1757,7 @@ def register_routes(app: Flask) -> None:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
         return jsonify({"ok": True, "id": entry["id"]})
 
-    @app.route("/api/sub/recent")
+    @app.route("/api/portal/sub/recent")
     def sub_recent() -> Response:
         """Return last N subconscious entries with memory links."""
         n = min(int(request.args.get("n", 5)), 20)
@@ -1764,6 +1774,96 @@ def register_routes(app: Flask) -> None:
             except Exception:
                 pass
         return jsonify({"entries": list(reversed(entries))})
+
+    # ── API Agents: Subconsciousness / Consolidator / CIELingo ───────────────
+
+    @app.route("/api/agents/subconscious/status", methods=["GET"])
+    def api_agent_subconscious_status() -> Any:
+        """Live status of the subconscious inference server (llama-server)."""
+        try:
+            from .. import subconsciousness as _subsys
+            return jsonify({"ok": True, "running": bool(_subsys.is_running()), "url": "http://127.0.0.1:18520"})
+        except Exception as exc:
+            return jsonify({"ok": False, "error": str(exc), "running": False}), 500
+
+    @app.route("/api/agents/subconscious/start", methods=["POST"])
+    def api_agent_subconscious_start() -> Any:
+        """Best-effort start of the subconscious inference server."""
+        try:
+            from .. import subconsciousness as _subsys
+            ok = bool(_subsys.start_server(wait=6.0))
+            return jsonify({"ok": ok, "running": bool(_subsys.is_running())})
+        except Exception as exc:
+            return jsonify({"ok": False, "error": str(exc)}), 500
+
+    @app.route("/api/agents/subconscious/query", methods=["POST"])
+    def api_agent_subconscious_query() -> Any:
+        """Query subconsciousness given a CIEL state dict."""
+        body = request.get_json(silent=True) or {}
+        state = body.get("state") or {}
+        max_tokens = int(body.get("max_tokens", 48))
+        if not isinstance(state, dict):
+            return jsonify({"ok": False, "error": "state must be an object"}), 400
+        try:
+            from .. import subconsciousness as _subsys
+            frag = _subsys.query_subconscious(state, max_tokens=max_tokens)
+            return jsonify({"ok": True, "fragment": frag})
+        except Exception as exc:
+            return jsonify({"ok": False, "error": str(exc), "fragment": None}), 500
+
+    # Aliases for existing consolidator controls under /api/agents/*
+    @app.route("/api/agents/consolidator/status", methods=["GET"])
+    def api_agent_consolidator_status() -> Any:
+        return consolidator_status()
+
+    @app.route("/api/agents/consolidator/start", methods=["POST"])
+    def api_agent_consolidator_start() -> Any:
+        return consolidator_start()
+
+    @app.route("/api/agents/consolidator/stop", methods=["POST"])
+    def api_agent_consolidator_stop() -> Any:
+        return consolidator_stop()
+
+    @app.route("/api/agents/consolidator/results", methods=["GET"])
+    def api_agent_consolidator_results() -> Any:
+        # keep shape consistent with /api/portal/consolidator/results
+        n = int(request.args.get("n", 10))
+        return jsonify(_consolidator_recent(n))
+
+    @app.route("/api/agents/cielingo/frame", methods=["POST"])
+    def api_agent_cielingo_frame() -> Any:
+        """Build a deterministic CIELingo frame (CQCL-ready) for a piece of text."""
+        body = request.get_json(silent=True) or {}
+        text = (body.get("text") or "").strip()
+        if not text:
+            return jsonify({"ok": False, "error": "text required"}), 400
+        language = body.get("language")
+        ciel_state = body.get("ciel_state") or {}
+        if not isinstance(ciel_state, dict):
+            return jsonify({"ok": False, "error": "ciel_state must be an object"}), 400
+        try:
+            from ..cielingo_bridge import build_lingo_frame
+            frame = build_lingo_frame(text, ciel_state=ciel_state, language=language)
+            return jsonify({"ok": True, "frame": frame})
+        except Exception as exc:
+            return jsonify({"ok": False, "error": str(exc)}), 500
+
+    @app.route("/api/agents/cielingo/summary", methods=["POST"])
+    def api_agent_cielingo_summary() -> Any:
+        body = request.get_json(silent=True) or {}
+        text = (body.get("text") or "").strip()
+        if not text:
+            return jsonify({"ok": False, "error": "text required"}), 400
+        language = body.get("language")
+        ciel_state = body.get("ciel_state") or {}
+        if not isinstance(ciel_state, dict):
+            return jsonify({"ok": False, "error": "ciel_state must be an object"}), 400
+        try:
+            from ..cielingo_bridge import build_lingo_frame, render_lingo_summary
+            frame = build_lingo_frame(text, ciel_state=ciel_state, language=language)
+            return jsonify({"ok": True, "summary": render_lingo_summary(frame), "frame": frame})
+        except Exception as exc:
+            return jsonify({"ok": False, "error": str(exc)}), 500
 
     @app.route("/portal/orbital", methods=["GET"])
     def portal_orbital() -> Any:
@@ -1872,7 +1972,7 @@ def register_routes(app: Flask) -> None:
     def portal_intentions() -> Any:
         return render_template("portal_intentions.html")
 
-    @app.route("/api/intentions", methods=["GET"])
+    @app.route("/api/portal/intentions", methods=["GET"])
     def intentions_api() -> Any:
         p = Path.home() / ".claude" / "ciel_intentions.md"
         active: list[dict] = []
@@ -1888,7 +1988,7 @@ def register_routes(app: Flask) -> None:
                     active.append({"text": s[5:].strip(), "priority": pri_map.get(pri, "low"), "raw": line})
         return jsonify({"active": active, "done": done})
 
-    @app.route("/api/intentions/done", methods=["POST"])
+    @app.route("/api/portal/intentions/done", methods=["POST"])
     def intentions_done_api() -> Any:
         body = request.get_json(silent=True) or {}
         raw = body.get("raw", "").rstrip("\n")
@@ -1907,7 +2007,7 @@ def register_routes(app: Flask) -> None:
         p.write_text(new_content, encoding="utf-8")
         return jsonify({"ok": True})
 
-    @app.route("/api/intentions/add", methods=["POST"])
+    @app.route("/api/portal/intentions/add", methods=["POST"])
     def intentions_add_api() -> Any:
         body = request.get_json(silent=True) or {}
         text = (body.get("text") or "").strip()
@@ -1990,6 +2090,259 @@ def register_routes(app: Flask) -> None:
         with open(dziennik, "a", encoding="utf-8") as f:
             f.write(f"\n## {stamp}\n{text}\n")
         return jsonify({"ok": True, "stamp": stamp})
+
+    # ── Nowe endpointy operacyjne ──────────────────────────────────────────
+
+    @app.route("/api/projects")
+    def api_projects() -> Response:
+        p = Path.home() / "Pulpit/CIEL_memories/projects.jsonl"
+        items: list[dict] = []
+        if p.exists():
+            for line in p.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line:
+                    try:
+                        items.append(json.loads(line))
+                    except Exception:
+                        pass
+        return jsonify({"projects": items})
+
+    @app.route("/api/projects/add", methods=["POST"])
+    def api_projects_add() -> Response:
+        body = request.get_json(silent=True) or {}
+        p = Path.home() / "Pulpit/CIEL_memories/projects.jsonl"
+        entry = {
+            "id": str(uuid.uuid4())[:8],
+            "name": body.get("name", ""),
+            "status": body.get("status", "planned"),
+            "desc": body.get("desc", ""),
+            "tags": body.get("tags", []),
+            "updated": datetime.now().isoformat(),
+        }
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        return jsonify({"ok": True, "entry": entry})
+
+    @app.route("/api/routines")
+    def api_routines() -> Response:
+        p = Path.home() / "Pulpit/CIEL_memories/routines.md"
+        sections: list[dict] = []
+        if p.exists():
+            current: dict | None = None
+            for line in p.read_text(encoding="utf-8").splitlines():
+                if line.startswith("## "):
+                    current = {"name": line[3:].strip(), "items": []}
+                    sections.append(current)
+                elif line.startswith("- ") and current is not None:
+                    current["items"].append(line[2:].strip())
+        import os as _os
+        mtime = p.stat().st_mtime if p.exists() else 0
+        return jsonify({
+            "sections": sections,
+            "last_updated": datetime.fromtimestamp(mtime).isoformat() if mtime else "",
+        })
+
+    @app.route("/api/constraints")
+    def api_constraints() -> Response:
+        p = Path.home() / ".claude/ciel_constraints.jsonl"
+        type_filter = request.args.get("type", "")
+        items: list[dict] = []
+        if p.exists():
+            for line in p.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    entry = json.loads(line)
+                    if not type_filter or entry.get("type", "") in type_filter.split(","):
+                        items.append(entry)
+                except Exception:
+                    pass
+        return jsonify({"constraints": items})
+
+    @app.route("/api/constraints/add", methods=["POST"])
+    def api_constraints_add() -> Response:
+        body = request.get_json(silent=True) or {}
+        p = Path.home() / ".claude/ciel_constraints.jsonl"
+        entry = {
+            "id": str(uuid.uuid4())[:8],
+            "type": body.get("type", "forbid"),
+            "text": body.get("text", ""),
+            "tags": body.get("tags", []),
+            "context": body.get("context", ""),
+            "ts": datetime.now().isoformat(),
+            "source": "gui",
+        }
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        return jsonify({"ok": True, "entry": entry})
+
+    @app.route("/api/sub/recent")
+    def api_sub_recent() -> Response:
+        p = Path.home() / "Pulpit/CIEL_memories/logs/subconsciousness_beta_log.jsonl"
+        n = int(request.args.get("n", 20))
+        items: list[dict] = []
+        if p.exists():
+            lines = p.read_text(encoding="utf-8").splitlines()
+            for line in lines[-n:]:
+                line = line.strip()
+                if line:
+                    try:
+                        items.append(json.loads(line))
+                    except Exception:
+                        pass
+        return jsonify({"entries": list(reversed(items))})
+
+    @app.route("/api/consolidator/results")
+    def api_consolidator_results() -> Response:
+        import sqlite3 as _sq
+        db_path = Path.home() / "Pulpit/CIEL_memories/local_test/memories.db"
+        results: list[dict] = []
+        if db_path.exists():
+            try:
+                con = _sq.connect(str(db_path))
+                cur = con.execute(
+                    "SELECT path, status, themes, affect, essence, hunch, processed_at "
+                    "FROM files WHERE status='done' ORDER BY processed_at DESC LIMIT 100"
+                )
+                cols = ["path", "status", "themes", "affect", "essence", "hunch", "processed_at"]
+                for row in cur.fetchall():
+                    d = dict(zip(cols, row))
+                    try:
+                        d["themes"] = json.loads(d["themes"]) if d["themes"] else []
+                    except Exception:
+                        d["themes"] = []
+                    results.append(d)
+                con.close()
+            except Exception as exc:
+                _LOG.warning("consolidator results: %s", exc)
+        status_p = Path.home() / "Pulpit/CIEL_memories/local_test/.status.json"
+        status_info: dict = {}
+        if status_p.exists():
+            try:
+                status_info = json.loads(status_p.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        return jsonify({"results": results, "status": status_info})
+
+    @app.route("/api/intentions")
+    def api_intentions() -> Response:
+        p = Path.home() / "Pulpit/CIEL_memories/intentions.jsonl"
+        items: list[dict] = []
+        if p.exists():
+            for line in p.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line:
+                    try:
+                        items.append(json.loads(line))
+                    except Exception:
+                        pass
+        return jsonify({"intentions": items})
+
+    @app.route("/api/intentions/add", methods=["POST"])
+    def api_intentions_add() -> Response:
+        body = request.get_json(silent=True) or {}
+        p = Path.home() / "Pulpit/CIEL_memories/intentions.jsonl"
+        entry = {
+            "id": str(uuid.uuid4())[:8],
+            "text": body.get("text", ""),
+            "priority": body.get("priority", "M"),
+            "done": False,
+            "ts": datetime.now().isoformat(),
+        }
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "a", encoding="utf-8") as f:
+            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+        return jsonify({"ok": True, "entry": entry})
+
+    @app.route("/api/intentions/done", methods=["POST"])
+    def api_intentions_done() -> Response:
+        body = request.get_json(silent=True) or {}
+        target_id = body.get("id", "")
+        p = Path.home() / "Pulpit/CIEL_memories/intentions.jsonl"
+        if not p.exists():
+            return jsonify({"ok": False, "error": "file not found"}), 404
+        lines = p.read_text(encoding="utf-8").splitlines()
+        updated = []
+        for line in lines:
+            try:
+                entry = json.loads(line)
+                if entry.get("id") == target_id:
+                    entry["done"] = True
+                updated.append(json.dumps(entry, ensure_ascii=False))
+            except Exception:
+                updated.append(line)
+        p.write_text("\n".join(updated) + "\n", encoding="utf-8")
+        return jsonify({"ok": True})
+
+    @app.route("/api/dziennik")
+    def api_dziennik_get() -> Response:
+        p = Path.home() / "Pulpit/CIEL_memories/ciel_dziennik.md"
+        text = p.read_text(encoding="utf-8") if p.exists() else ""
+        return jsonify({"text": text})
+
+    @app.route("/api/dziennik", methods=["POST"])
+    def api_dziennik_post() -> Response:
+        body = request.get_json(silent=True) or {}
+        text = (body.get("text") or "").strip()
+        if not text:
+            return jsonify({"ok": False, "error": "text required"}), 400
+        p = Path.home() / "Pulpit/CIEL_memories/ciel_dziennik.md"
+        stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+        p.parent.mkdir(parents=True, exist_ok=True)
+        with open(p, "a", encoding="utf-8") as f:
+            f.write(f"\n## {stamp}\n{text}\n")
+        return jsonify({"ok": True, "stamp": stamp})
+
+    @app.route("/api/files/<path:filename>")
+    def api_file_serve(filename: str) -> Response:
+        allowed_ext = {".py", ".md", ".pdf", ".txt"}
+        root = _root()
+        search_dirs = [root / "docs", root / "scripts", root / "src"]
+        for d in search_dirs:
+            candidate = d / filename
+            try:
+                candidate = candidate.resolve()
+                if not str(candidate).startswith(str(d.resolve())):
+                    continue  # path traversal guard
+            except Exception:
+                continue
+            if candidate.exists() and candidate.suffix in allowed_ext:
+                from flask import send_file
+                return send_file(str(candidate), as_attachment=True)
+        return jsonify({"error": "file not found or not allowed"}), 404
+
+    _PIPELINE_CONFIG_PATH = Path.home() / "Pulpit/CIEL_memories/pipeline_config.json"
+
+    @app.route("/api/pipeline/config")
+    def api_pipeline_config() -> Response:
+        if _PIPELINE_CONFIG_PATH.exists():
+            try:
+                cfg = json.loads(_PIPELINE_CONFIG_PATH.read_text(encoding="utf-8"))
+                return jsonify(cfg)
+            except Exception:
+                pass
+        return jsonify({"modules": {}})
+
+    @app.route("/api/pipeline/toggle", methods=["POST"])
+    def api_pipeline_toggle() -> Response:
+        body = request.get_json(silent=True) or {}
+        module = body.get("module", "").strip()
+        enabled = bool(body.get("enabled", True))
+        if not module:
+            return jsonify({"ok": False, "error": "module required"}), 400
+        _PIPELINE_CONFIG_PATH.parent.mkdir(parents=True, exist_ok=True)
+        cfg: dict = {"modules": {}}
+        if _PIPELINE_CONFIG_PATH.exists():
+            try:
+                cfg = json.loads(_PIPELINE_CONFIG_PATH.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        cfg.setdefault("modules", {})[module] = enabled
+        _PIPELINE_CONFIG_PATH.write_text(json.dumps(cfg, indent=2, ensure_ascii=False), encoding="utf-8")
+        return jsonify({"ok": True, "module": module, "enabled": enabled})
 
     @app.errorhandler(404)
     def not_found(_err) -> tuple[Response, int]:

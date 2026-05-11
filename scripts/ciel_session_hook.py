@@ -488,8 +488,8 @@ def main():
         + (f"\n--- CIEL_memories: kontekst sesji ---\n{ciel_memories_ctx}\n" if ciel_memories_ctx else "")
         + "=================================\n"
         "Interpretuj ten stan przy każdej decyzji: "
-        "closure_penalty > 5.8 → tryb safe (nie modyfikuj), "
-        "5.2–5.8 → standard, < 5.2 → deep. "
+        "closure_penalty > 0.35 → tryb safe (nie modyfikuj), "
+        "0.15–0.35 → standard, < 0.15 → deep. "
         "system_health < 0.5 → podwyższona ostrożność. "
         "ethical_score < 0.4 → weryfikuj etyczność działań.\n"
     )

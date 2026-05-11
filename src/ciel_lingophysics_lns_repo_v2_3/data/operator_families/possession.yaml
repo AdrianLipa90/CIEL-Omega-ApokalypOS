@@ -1,0 +1,16 @@
+family_id: family:possession
+description: Possession, attachment, parts, properties, states and relations.
+operators:
+- op:core:have
+canonical_axes:
+- ownership
+- part_whole
+- property_assignment
+- state_attachment
+- relation_attachment
+formal_modes:
+  alienable_possession: Own(owner, object)
+  inherent_part: HasPart(whole, part)
+  property_assignment: HasProperty(entity, property)
+  state_attachment: HasState(entity, state)
+  relational_role: HasRelation(entity, relation)

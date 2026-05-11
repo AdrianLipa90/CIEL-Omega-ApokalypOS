@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS TAM-E Operator System",
+  "type": "object",
+  "required": [
+    "version",
+    "layer",
+    "dimensions"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "layer": {
+      "const": "TAM-E"
+    },
+    "dimensions": {
+      "type": "object"
+    },
+    "event_templates": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

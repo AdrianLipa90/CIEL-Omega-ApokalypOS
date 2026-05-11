@@ -1,0 +1,55 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:with
+family: association_accompaniment_instrument
+class:
+- relation_operator
+- instrument_operator
+- co_presence
+symbol: With(x,y)
+arity: '2'
+dual: op:core:without
+inverse: null
+description: co-presence, accompaniment, instrumentality or association
+equations:
+- With(x,y)
+- Associate(x,y)
+- Instrument(action,y)
+surfaces:
+  pl:
+    lemma: z / ze
+    forms:
+    - z
+    - ze
+    examples:
+    - Idę z przyjacielem.
+    - Piszę piórem.
+    notes: co-presence/instrument may split by case/context
+  en:
+    lemma: with
+    forms:
+    - with
+    examples:
+    - I go with a friend.
+    - I write with a pen.
+    notes: association/instrument
+  de:
+    lemma: mit
+    forms:
+    - mit
+    examples:
+    - Ich gehe mit einem Freund.
+    notes: dative association/instrument
+  fr:
+    lemma: avec
+    forms:
+    - avec
+    examples:
+    - Je vais avec un ami.
+    notes: association/instrument
+  es:
+    lemma: con
+    forms:
+    - con
+    examples:
+    - Voy con un amigo.
+    notes: association/instrument

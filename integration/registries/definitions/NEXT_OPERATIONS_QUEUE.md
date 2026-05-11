@@ -218,6 +218,64 @@ Prepare the actual documentation repair / expansion sequence.
 
 ### C2. Priority map
 - [ ] define P0: dangerous mismatches
+
+---
+
+# QUEUED OPERATION 03 — CODEX MEDIUM + NOEMA BRIDGE
+
+## Status
+- [ ] QUEUED
+- [ ] NOT ACTIVE
+- [ ] blocked until predecessor operation status is explicit
+
+## Objective
+Make Codex CLI the primary communication medium for CIEL1 while preserving:
+1) full append-only raw logs in `~/Pulpit/CIEL_memories/raw_logs/`
+2) live M0–M8 + SUB inference updates during Codex conversation
+3) NOEMA-facing traceability (subsystem cards + projection)
+
+## Scope
+- [ ] Codex transcript importer/watcher (rollout JSONL → raw_logs + memories_index.db)
+- [ ] Optional live hook execution: user → `ciel_message_step.run_step()`, assistant → `ciel_response_step.process_response_text()`
+- [ ] Register Codex-medium as a NOEMA subsystem card and project it via NOEMA SoT (orbital_bridge attaches it)
+
+## Required predecessor conditions
+- [ ] `ORBITAL CARD SYSTEM` status explicit
+
+## Outputs
+- [ ] `integration/subsystems/codex_medium/noema_card.json` + defaults/state stub
+- [ ] stable source tag for Codex logs (`codex_tui`)
+- [ ] documented runbook: start/stop bridge + how portal consumes it
+
+---
+
+# QUEUED OPERATION 04 — API AGENTS (LIVE INFERENCE): SUBCONSCIOUSNESS, CONSOLIDATOR, CIELINGO
+
+## Status
+- [ ] QUEUED
+- [ ] NOT ACTIVE
+- [ ] blocked until predecessor operation status is explicit
+
+## Objective
+Give each subsystem its own API agent surface and keep it alive in inference
+(no more "batch scripts only"):
+- subconsciousness agent: status/start/query
+- memory consolidator agent: status/start/stop/queue/results
+- cielingo agent: frame/summary/metrics endpoints
+
+## NOEMA Bridge Requirement
+Each agent becomes a NOEMA subsystem with its own `noema_card.json`, and exposes
+key metrics for NOEMA SoT projection.
+
+## Required predecessor conditions
+- [ ] `ORBITAL CARD SYSTEM` status explicit
+
+## Outputs
+- [ ] stable `/api/agents/*` contract (or per-agent ports if split into processes later)
+- [ ] NOEMA cards:
+  - [ ] `integration/subsystems/subconscious_agent/noema_card.json`
+  - [ ] `integration/subsystems/consolidator_agent/noema_card.json`
+  - [ ] `integration/subsystems/cielingo_agent/noema_card.json`
 - [ ] define P1: runtime / operator confusion
 - [ ] define P2: completeness / readability gaps
 

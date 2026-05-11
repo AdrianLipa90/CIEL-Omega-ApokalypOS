@@ -1,0 +1,166 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:body
+canonical_label_en: body
+batch_id: batch01_foundational_36x5
+domain: embodiment
+semantic_axes:
+- organism
+- matter
+- boundary
+semantic_mass_seed: 0.55
+phase_seed_rad: 1.396263
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: ciało
+    brief_description: materialna forma organizmu lub nośnik działania
+    near_synonyms_seed:
+    - organizm
+    - postać
+    antonyms_seed:
+    - umysł
+    - duch
+    forms_seed:
+    - ciało
+    - ciało jako hasło
+    - ciało w kontekście
+    context_examples_seed:
+    - Ciało tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - has_part
+    - inside
+    - contains
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: body
+    brief_description: material form of an organism or carrier of action
+    near_synonyms_seed:
+    - organism
+    - form
+    antonyms_seed:
+    - mind
+    - spirit
+    forms_seed:
+    - body
+    - bodys
+    - body as concept
+    context_examples_seed:
+    - Body forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Körper
+    brief_description: materielle Form eines Organismus oder Träger des Handelns
+    near_synonyms_seed:
+    - Leib
+    - Organismus
+    antonyms_seed:
+    - Geist
+    - Seele
+    forms_seed:
+    - Körper
+    - Körper als Begriff
+    - Körper im Kontext
+    context_examples_seed:
+    - Körper bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: corps
+    brief_description: forme matérielle d’un organisme ou porteur d’action
+    near_synonyms_seed:
+    - organisme
+    - forme
+    antonyms_seed:
+    - esprit
+    - âme
+    forms_seed:
+    - corps
+    - corps comme concept
+    - corps en contexte
+    context_examples_seed:
+    - Corps forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: cuerpo
+    brief_description: forma material de un organismo o soporte de acción
+    near_synonyms_seed:
+    - organismo
+    - forma
+    antonyms_seed:
+    - mente
+    - espíritu
+    forms_seed:
+    - cuerpo
+    - cuerpo como concepto
+    - cuerpo en contexto
+    context_examples_seed:
+    - Cuerpo forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: paired_with
+  target: concept:mind
+  status: draft_seed
+- type: contains
+  target: concept:pain
+  status: draft_seed
+- type: supports
+  target: concept:motion
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

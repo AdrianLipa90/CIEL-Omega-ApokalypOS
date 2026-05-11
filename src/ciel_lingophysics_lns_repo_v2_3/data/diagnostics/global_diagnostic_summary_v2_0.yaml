@@ -1,0 +1,79 @@
+version: '2.0'
+created_utc: '2026-05-10T13:55:38.744572+00:00'
+cards_total: 72
+languages:
+- pl
+- en
+- de
+- fr
+- es
+language_panel_estimate: 360
+relation_edges_total: 525
+operator_links_total: 257
+relation_type_counts:
+  opposes: 32
+  supports: 28
+  has_state: 1
+  transforms: 2
+  anchors: 1
+  contains: 9
+  reveals: 1
+  increases: 6
+  hides: 1
+  requires: 6
+  includes: 1
+  bounds: 4
+  paired_with: 3
+  seeks: 2
+  orders: 1
+  has_boundary: 1
+  occurs_in: 1
+  causes: 2
+  acts_on: 1
+  receives: 1
+  patterns: 1
+  reduces: 5
+  harms: 1
+  attracts: 1
+  stabilizes: 1
+  stores: 2
+  connects: 3
+  responds_to: 2
+  caused_by: 1
+  signals: 2
+  uses: 5
+  antonym_surface:pl: 72
+  antonym_surface:en: 72
+  antonym_surface:de: 72
+  antonym_surface:fr: 72
+  antonym_surface:es: 72
+  part_of: 6
+  enables: 4
+  expresses: 1
+  symbol_of: 2
+  inside: 3
+  relates_to: 8
+  can_transform_into: 1
+  marks: 1
+  is_a: 1
+  has: 1
+  relation_to: 2
+  stage_of: 1
+  is_other: 1
+  may_become: 1
+  bounded_by: 1
+  can_create: 2
+  constrains: 1
+grammar_features:
+- article_system
+- aspect_marking
+- case_marking
+- fixed_word_order
+- gender_marking
+- inflection_load
+- preposition_load
+- topic_focus_particles
+max_cross_language_cost: 1.624808
+mean_cross_language_cost: 0.771284
+registered_diagnostic_issues: 3
+status: diagnostic_seed_no_external_dictionary_import

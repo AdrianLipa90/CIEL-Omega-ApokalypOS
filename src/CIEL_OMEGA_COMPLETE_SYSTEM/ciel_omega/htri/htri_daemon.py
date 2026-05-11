@@ -41,27 +41,7 @@ def _write_state(result: dict) -> None:
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(result, indent=2), encoding="utf-8")
 
-    # Zapisz też do state_db jeśli dostępne
-    try:
-        from ciel_sot_agent.state_db import get_db
-        import time as _t
-        conn = get_db()
-        comb = result.get("combined", {})
-        conn.execute(
-            "INSERT INTO metrics_history (timestamp, cycle_index, identity_phase, "
-            "ethical_score, system_health, coherence_index, closure_penalty, mood, dominant_emotion) "
-            "VALUES (?,?,?,?,?,?,?,?,?)",
-            (_t.time(), result.get("cycle", 0),
-             None,
-             0.0,
-             comb.get("coherence", 0.0),
-             comb.get("coherence", 0.0),
-             0.0, 0.0, "htri")
-        )
-        conn.commit()
-        conn.close()
-    except Exception:
-        pass
+    # htri_daemon nie pisze do metrics_history — pipeline jest jedynym autorytetem dla dominant_emotion i system_health
 
 
 def run_daemon(steps_per_cycle: int = 300) -> None:

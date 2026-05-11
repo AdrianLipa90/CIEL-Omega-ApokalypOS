@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel-lns.local/schemas/ciel_lns_inference_gate.schema.json",
+  "title": "CIEL-LNS Inference Gate Policy",
+  "type": "object",
+  "required": [
+    "policy_version",
+    "canonicality_rule",
+    "gate_levels"
+  ],
+  "properties": {
+    "policy_version": {
+      "type": "string"
+    },
+    "canonicality_rule": {
+      "type": "string"
+    },
+    "gate_levels": {
+      "type": "object"
+    },
+    "decision_rules": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:outside
+family: exteriority_location
+class:
+- spatial_relation
+- topological_relation
+- localizer
+symbol: Outside(x,y)
+arity: '2'
+dual: op:core:inside
+inverse: null
+description: x is outside the boundary/interior of y
+equations:
+- Outside(x,y)
+- x ∉ Int(y)
+surfaces:
+  pl:
+    lemma: na zewnątrz / poza
+    forms:
+    - na zewnątrz
+    - poza
+    - zewnątrz
+    examples:
+    - Kot jest poza domem.
+    notes: exterior relative to boundary
+  en:
+    lemma: outside / beyond
+    forms:
+    - outside
+    - beyond
+    examples:
+    - The cat is outside the house.
+    notes: exterior relation
+  de:
+    lemma: außerhalb
+    forms:
+    - außerhalb
+    - draußen
+    examples:
+    - Die Katze ist außerhalb des Hauses.
+    notes: exterior relation
+  fr:
+    lemma: dehors / hors de
+    forms:
+    - dehors
+    - hors de
+    - à l’extérieur de
+    examples:
+    - Le chat est hors de la maison.
+    notes: exterior relation
+  es:
+    lemma: fuera de
+    forms:
+    - fuera de
+    - afuera
+    examples:
+    - El gato está fuera de la casa.
+    notes: exterior relation

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<graph edgedefault="directed">
+<node id="case:Nom"><data key="label">Nom / mianownik</data><data key="type">CASE_ROLE</data></node>
+<node id="op:SubjectOrIdentity"><data key="label">SubjectOrIdentity(x)</data><data key="type">CASE_OPERATOR</data></node>
+<node id="strategy:en:Nom"><data key="label">subject position before finite verb; nominative pronouns he/she/they/I/we</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:de:Nom"><data key="label">nominative articles/pronouns plus subject agreement; flexible order with case marking</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:fr:Nom"><data key="label">subject position and clitic/tonic subject pronouns</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:es:Nom"><data key="label">subject agreement on verb, optional explicit subject, word order/pragmatics</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="case:Acc"><data key="label">Acc / biernik</data><data key="type">CASE_ROLE</data></node>
+<node id="op:DirectPatient"><data key="label">DirectPatient(x)</data><data key="type">CASE_OPERATOR</data></node>
+<node id="strategy:en:Acc"><data key="label">direct object position after transitive verb; object pronouns him/her/them/me/us</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:de:Acc"><data key="label">accusative articles/pronouns; direct object role</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:fr:Acc"><data key="label">direct object NP after verb or object clitic position before finite verb</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:es:Acc"><data key="label">direct object NP, personal a for human/animate specific objects, clitics</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="case:Gen"><data key="label">Gen / dopełniacz</data><data key="type">CASE_ROLE</data></node>
+<node id="op:OfPossessionSourcePartitive"><data key="label">OfPossessionSourcePartitive(x,y)</data><data key="type">CASE_OPERATOR</data></node>
+<node id="strategy:en:Gen"><data key="label">of-phrase, possessive 's, from, some/any/no, partitive expressions; sometimes word order</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:de:Gen"><data key="label">genitive for possession/formal register; von + dative in colloquial; governed prepositions</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:fr:Gen"><data key="label">de phrase for possession/source/partitive; articles du/de la/des; negation often de</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:es:Gen"><data key="label">de phrase for possession/source/partitive; partitive/negative expressed lexically</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="case:Dat"><data key="label">Dat / celownik</data><data key="type">CASE_ROLE</data></node>
+<node id="op:RecipientBeneficiaryTarget"><data key="label">RecipientBeneficiaryTarget(x)</data><data key="type">CASE_OPERATOR</data></node>
+<node id="strategy:en:Dat"><data key="label">to/for phrase or double-object construction</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:de:Dat"><data key="label">dative articles/pronouns; indirect object; governed prepositions</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:fr:Dat"><data key="label">à phrase or indirect object clitics lui/leur</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:es:Dat"><data key="label">a/para phrase or indirect object clitics le/les</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="case:Ins"><data key="label">Ins / narzędnik</data><data key="type">CASE_ROLE</data></node>
+<node id="op:InstrumentMeansComitativeRole"><data key="label">InstrumentMeansComitativeRole(x)</data><data key="type">CASE_OPERATOR</data></node>
+<node id="strategy:en:Ins"><data key="label">with/by/using/as phrases depending on role</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:de:Ins"><data key="label">mit/durch/von/als phrases, often dative after prepositions</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:fr:Ins"><data key="label">avec/par/en/comme phrases depending on role</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:es:Ins"><data key="label">con/por/usando/como phrases depending on role</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="case:Loc"><data key="label">Loc / miejscownik</data><data key="type">CASE_ROLE</data></node>
+<node id="op:LocationTopicFrame"><data key="label">LocationTopicFrame(x)</data><data key="type">CASE_OPERATOR</data></node>
+<node id="strategy:en:Loc"><data key="label">in/on/at/about/after/near phrases selected by lexical operator</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:de:Loc"><data key="label">in/an/auf/über/bei plus dative or accusative depending on static/directional role</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:fr:Loc"><data key="label">dans/sur/à/de/au sujet de phrases</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:es:Loc"><data key="label">en/sobre/a/cerca de phrases</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="case:Voc"><data key="label">Voc / wołacz</data><data key="type">CASE_ROLE</data></node>
+<node id="op:Address"><data key="label">Address(x)</data><data key="type">CASE_OPERATOR</data></node>
+<node id="strategy:en:Voc"><data key="label">bare name/noun with comma, intonation, O/hey in marked registers</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:de:Voc"><data key="label">bare name/noun with comma/intonation; no productive vocative morphology</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:fr:Voc"><data key="label">name/noun with comma/intonation; ô in literary register</data><data key="type">SURFACE_STRATEGY</data></node>
+<node id="strategy:es:Voc"><data key="label">name/noun with comma/intonation; oye/oh in marked contexts</data><data key="type">SURFACE_STRATEGY</data></node>
+<edge id="e0" source="case:Nom" target="op:SubjectOrIdentity"><data key="type">realizes_operator</data></edge>
+<edge id="e1" source="case:Nom" target="strategy:en:Nom"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e2" source="case:Nom" target="strategy:de:Nom"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e3" source="case:Nom" target="strategy:fr:Nom"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e4" source="case:Nom" target="strategy:es:Nom"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e5" source="case:Acc" target="op:DirectPatient"><data key="type">realizes_operator</data></edge>
+<edge id="e6" source="case:Acc" target="strategy:en:Acc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e7" source="case:Acc" target="strategy:de:Acc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e8" source="case:Acc" target="strategy:fr:Acc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e9" source="case:Acc" target="strategy:es:Acc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e10" source="case:Gen" target="op:OfPossessionSourcePartitive"><data key="type">realizes_operator</data></edge>
+<edge id="e11" source="case:Gen" target="strategy:en:Gen"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e12" source="case:Gen" target="strategy:de:Gen"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e13" source="case:Gen" target="strategy:fr:Gen"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e14" source="case:Gen" target="strategy:es:Gen"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e15" source="case:Dat" target="op:RecipientBeneficiaryTarget"><data key="type">realizes_operator</data></edge>
+<edge id="e16" source="case:Dat" target="strategy:en:Dat"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e17" source="case:Dat" target="strategy:de:Dat"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e18" source="case:Dat" target="strategy:fr:Dat"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e19" source="case:Dat" target="strategy:es:Dat"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e20" source="case:Ins" target="op:InstrumentMeansComitativeRole"><data key="type">realizes_operator</data></edge>
+<edge id="e21" source="case:Ins" target="strategy:en:Ins"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e22" source="case:Ins" target="strategy:de:Ins"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e23" source="case:Ins" target="strategy:fr:Ins"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e24" source="case:Ins" target="strategy:es:Ins"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e25" source="case:Loc" target="op:LocationTopicFrame"><data key="type">realizes_operator</data></edge>
+<edge id="e26" source="case:Loc" target="strategy:en:Loc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e27" source="case:Loc" target="strategy:de:Loc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e28" source="case:Loc" target="strategy:fr:Loc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e29" source="case:Loc" target="strategy:es:Loc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e30" source="case:Voc" target="op:Address"><data key="type">realizes_operator</data></edge>
+<edge id="e31" source="case:Voc" target="strategy:en:Voc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e32" source="case:Voc" target="strategy:de:Voc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e33" source="case:Voc" target="strategy:fr:Voc"><data key="type">maps_to_surface_strategy</data></edge>
+<edge id="e34" source="case:Voc" target="strategy:es:Voc"><data key="type">maps_to_surface_strategy</data></edge>
+</graph>
+</graphml>

@@ -1,0 +1,4406 @@
+{
+  "generated_at": "2026-05-07T01:20:47.436065+00:00",
+  "nodes": 332,
+  "files": [
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/memory.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 49,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/runtime.py",
+      "package": "ciel_omega",
+      "phi": 0.6732,
+      "spin": 1,
+      "closure_defect": 0.33232,
+      "in_degree": 14,
+      "out_degree": 6,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.glyphs": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.loops": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.phase_field": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.scheduler": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.scars": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/base.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 14,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.paths",
+      "path": "src/ciel_sot_agent/paths.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 12,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bootstrap_runtime",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bootstrap_runtime.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 6,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 6,
+      "out_degree": 1,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bootstrap_runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.model",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/model.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 6,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.satellite_authority",
+      "path": "src/ciel_sot_agent/satellite_authority.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.76937,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 6,
+      "out_degree": 1,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.loops",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/loops.py",
+      "package": "ciel_omega",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 5,
+      "out_degree": 1,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.glyphs": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.phase_equation_of_motion",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/phase_equation_of_motion.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 5,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.repo_phase",
+      "path": "src/ciel_sot_agent/repo_phase.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 5,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.state_db",
+      "path": "src/ciel_sot_agent/state_db.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 5,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.language_backend",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/language_backend.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 4,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.coupling",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/coupling.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 4,
+      "out_degree": 1,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.episodic",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/episodic.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 4,
+      "out_degree": 1,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.metrics",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/metrics.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 4,
+      "out_degree": 1,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.model": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.core_concepts",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/core_concepts.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 4,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_geometry.disk",
+      "path": "src/ciel_geometry/disk.py",
+      "package": "ciel_geometry",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 4,
+      "out_degree": 0,
+      "horizon_class": "POROUS",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_geometry.semantic_mass",
+      "path": "src/ciel_geometry/semantic_mass.py",
+      "package": "ciel_geometry",
+      "phi": 0.2244,
+      "spin": 1,
+      "closure_defect": 0.00051,
+      "in_degree": 4,
+      "out_degree": 2,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:ciel_geometry.loader": 0.7,
+        "file:ciel_geometry.disk": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.orbital_bridge",
+      "path": "src/ciel_sot_agent/orbital_bridge.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.32057,
+      "spin": 1,
+      "closure_defect": 0.03754,
+      "in_degree": 4,
+      "out_degree": 4,
+      "horizon_class": "POROUS",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7,
+        "file:ciel_sot_agent.ciel_pipeline": 0.7,
+        "file:ciel_sot_agent.state_db": 0.7,
+        "file:ciel_sot_agent.local_nonlocality_fallback": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.memory_prompt_context",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/memory_prompt_context.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 3,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_client",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_client.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": 1,
+      "closure_defect": 0.0,
+      "in_degree": 3,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bootstrap_runtime": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_orchestrator": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.glyphs",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/glyphs.py",
+      "package": "ciel_omega",
+      "phi": 1.73108,
+      "spin": 1,
+      "closure_defect": 0.8404,
+      "in_degree": 3,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.loops": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.holonomy",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/holonomy.py",
+      "package": "ciel_omega",
+      "phi": 0.57703,
+      "spin": 1,
+      "closure_defect": 0.05094,
+      "in_degree": 3,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.coupling": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.dynamics",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/dynamics.py",
+      "package": "ciel_omega",
+      "phi": 0.32057,
+      "spin": 1,
+      "closure_defect": 0.00205,
+      "in_degree": 3,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.model": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.metrics": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.extract_geometry",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/extract_geometry.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 3,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_geometry.layout",
+      "path": "src/ciel_geometry/layout.py",
+      "package": "ciel_geometry",
+      "phi": 0.17097,
+      "spin": -1,
+      "closure_defect": 0.00319,
+      "in_degree": 3,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_geometry.loader": 0.7,
+        "file:ciel_geometry.disk": 0.7,
+        "file:ciel_geometry.edges": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_geometry.loader",
+      "path": "src/ciel_geometry/loader.py",
+      "package": "ciel_geometry",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 3,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.htri_scheduler",
+      "path": "src/ciel_sot_agent/htri_scheduler.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.12823,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 3,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.spreadsheet_db": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_client",
+      "path": "src/ciel_sot_agent/sapiens_client.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.47017,
+      "spin": -1,
+      "closure_defect": 0.02361,
+      "in_degree": 3,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.orbital_bridge": 0.7,
+        "file:ciel_sot_agent.paths": 0.7,
+        "file:ciel_sot_agent.satellite_authority": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_panel.models",
+      "path": "src/ciel_sot_agent/sapiens_panel/models.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 3,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.phase_field",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/phase_field.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 2,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.scars",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/scars.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 2,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.scheduler",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/scheduler.py",
+      "package": "ciel_omega",
+      "phi": 0.32057,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 2,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.loops": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.registry",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/registry.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 2,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.model": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.rh_control",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/rh_control.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 2,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.relational_formalism",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/relational_formalism.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 2,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent._gh_utils",
+      "path": "src/ciel_sot_agent/_gh_utils.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.32057,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 2,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.repo_phase": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.ciel_pipeline",
+      "path": "src/ciel_sot_agent/ciel_pipeline.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.23241,
+      "spin": 1,
+      "closure_defect": 0.02419,
+      "in_degree": 2,
+      "out_degree": 8,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7,
+        "file:ciel_sot_agent.htri_scheduler": 0.7,
+        "file:ciel_sot_agent.holonomic_normalizer": 0.7,
+        "file:ciel_sot_agent.state_db": 0.7,
+        "file:ciel_sot_agent.spreadsheet_db": 0.7,
+        "file:ciel_sot_agent.subconsciousness": 0.7,
+        "file:ciel_geometry.subjective_time": 0.7,
+        "file:ciel_sot_agent.orbital_bridge": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.spreadsheet_db",
+      "path": "src/ciel_sot_agent/spreadsheet_db.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 2,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.gguf_backends",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/gguf_backends.py",
+      "package": "ciel_omega",
+      "phi": 0.2244,
+      "spin": 1,
+      "closure_defect": 0.00051,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.language_backend": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.memory_prompt_context": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.hf_backends",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/hf_backends.py",
+      "package": "ciel_omega",
+      "phi": 0.2244,
+      "spin": 1,
+      "closure_defect": 0.00051,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.language_backend": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.memory_prompt_context": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_inference_surface",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_inference_surface.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": 1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bootstrap_runtime": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_orchestrator": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.intention_field",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/intention_field.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.holonomy_cosmic_seismic",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/holonomy_cosmic_seismic.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.htri.htri_matrix",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/htri/htri_matrix.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.inference.topology_api",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/topology_api.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bootstrap_runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.affective_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/affective_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.40606,
+      "spin": -1,
+      "closure_defect": 0.06248,
+      "in_degree": 1,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.episodic": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.affective_types": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.affective_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/affective_types.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.audit_journal",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/audit_journal.py",
+      "package": "ciel_omega",
+      "phi": 0.25646,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.coupling": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.braid_invariant",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/braid_invariant.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.ciel_encoder",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_encoder.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.holonomic_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/holonomic_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.06411,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.ciel_encoder": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.identity_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/identity_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.48086,
+      "spin": 1,
+      "closure_defect": 0.08559,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.identity_types": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.identity_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/identity_types.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.linguistic_coupling",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/linguistic_coupling.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.orbital_shell",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orbital_shell.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.orchestrator_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator_types.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.perceptual_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/perceptual_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.48086,
+      "spin": 1,
+      "closure_defect": 0.08559,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.perceptual_types": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.perceptual_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/perceptual_types.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.potential",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/potential.py",
+      "package": "ciel_omega",
+      "phi": 0.4488,
+      "spin": -1,
+      "closure_defect": 0.05005,
+      "in_degree": 1,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.coupling": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.holonomy": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.procedural_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/procedural_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.40606,
+      "spin": -1,
+      "closure_defect": 0.06248,
+      "in_degree": 1,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.episodic": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.procedural_types": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.procedural_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/procedural_types.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.semantic_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/semantic_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.32057,
+      "spin": 1,
+      "closure_defect": 0.05732,
+      "in_degree": 1,
+      "out_degree": 4,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.episodic": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.semantic_types": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.linguistic_coupling": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.semantic_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/semantic_types.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.working_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/working_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.48086,
+      "spin": 1,
+      "closure_defect": 0.08559,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.working_types": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.working_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/working_types.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.resonance.multiresonance_tensor",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/resonance/multiresonance_tensor.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.unified_system",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/unified_system.py",
+      "package": "ciel_omega",
+      "phi": 0.32057,
+      "spin": -1,
+      "closure_defect": 0.00411,
+      "in_degree": 1,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bootstrap_runtime": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_client": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_orchestrator": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.extended_concepts",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/extended_concepts.py",
+      "package": "ciel_omega",
+      "phi": 0.25646,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.core_concepts": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.field_dynamics",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/field_dynamics.py",
+      "package": "ciel_omega",
+      "phi": 0.25646,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.core_concepts": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.planetary_archetypes",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/planetary_archetypes.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.transcendent",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/transcendent.py",
+      "package": "ciel_omega",
+      "phi": 0.25646,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.core_concepts": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary_tools.resolver",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary_tools/resolver.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_geometry.edges",
+      "path": "src/ciel_geometry/edges.py",
+      "package": "ciel_geometry",
+      "phi": 0.25646,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_geometry.disk": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_geometry.subjective_time",
+      "path": "src/ciel_geometry/subjective_time.py",
+      "package": "ciel_geometry",
+      "phi": 0.23509,
+      "spin": -1,
+      "closure_defect": 0.00046,
+      "in_degree": 1,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_geometry.loader": 0.7,
+        "file:ciel_geometry.disk": 0.7,
+        "file:ciel_geometry.semantic_mass": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.consolidation_resonator",
+      "path": "src/ciel_sot_agent/consolidation_resonator.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.gguf_manager.manager",
+      "path": "src/ciel_sot_agent/gguf_manager/manager.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.gui.routes",
+      "path": "src/ciel_sot_agent/gui/routes.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.16029,
+      "spin": 1,
+      "closure_defect": 0.00666,
+      "in_degree": 1,
+      "out_degree": 6,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.satellite_authority": 0.7,
+        "file:ciel_sot_agent.local_ciel_surface": 0.7,
+        "file:ciel_sot_agent.htri_resource_gate": 0.7,
+        "file:ciel_sot_agent.htri_scheduler": 0.7,
+        "file:ciel_geometry.layout": 0.7,
+        "file:ciel_sot_agent.memory_rag": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.holonomic_normalizer",
+      "path": "src/ciel_sot_agent/holonomic_normalizer.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.32057,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.state_db": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.htri_resource_gate",
+      "path": "src/ciel_sot_agent/htri_resource_gate.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.local_ciel_surface",
+      "path": "src/ciel_sot_agent/local_ciel_surface.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.17631,
+      "spin": 1,
+      "closure_defect": 0.00858,
+      "in_degree": 1,
+      "out_degree": 4,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_client": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_orchestrator": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.unified_system": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_inference_surface": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.local_nonlocality_fallback",
+      "path": "src/ciel_sot_agent/local_nonlocality_fallback.py",
+      "package": "ciel_sot_agent",
+      "phi": 1.41051,
+      "spin": -1,
+      "closure_defect": 0.59625,
+      "in_degree": 1,
+      "out_degree": 3,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7,
+        "file:ciel_sot_agent.state_db": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.memory_rag",
+      "path": "src/ciel_sot_agent/memory_rag.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.orbital_db_orchestrator",
+      "path": "src/ciel_sot_agent/orbital_db_orchestrator.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.25646,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_geometry.semantic_mass": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.orch_orbital",
+      "path": "src/ciel_sot_agent/orch_orbital.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 1,
+      "out_degree": 0,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_panel.communication",
+      "path": "src/ciel_sot_agent/sapiens_panel/communication.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.28851,
+      "spin": 1,
+      "closure_defect": 0.00462,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.sapiens_client": 0.7,
+        "file:ciel_sot_agent.satellite_authority": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_panel.reduction",
+      "path": "src/ciel_sot_agent/sapiens_panel/reduction.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.sapiens_client": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_panel.settings_store",
+      "path": "src/ciel_sot_agent/sapiens_panel/settings_store.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.sapiens_panel.models": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_panel.support",
+      "path": "src/ciel_sot_agent/sapiens_panel/support.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 1,
+      "out_degree": 1,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.satellite_authority": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.subconsciousness",
+      "path": "src/ciel_sot_agent/subconsciousness.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.12823,
+      "spin": 1,
+      "closure_defect": 0.00205,
+      "in_degree": 1,
+      "out_degree": 2,
+      "horizon_class": "TRANSMISSIVE",
+      "W_ij": {
+        "file:ciel_sot_agent.htri_scheduler": 0.7,
+        "file:ciel_sot_agent.consolidation_resonator": 0.7
+      }
+    },
+    {
+      "id": "file:integration.Orbital.main.bootstrap",
+      "path": "integration/Orbital/main/bootstrap.py",
+      "package": "main",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.extract_geometry": 0.7
+      }
+    },
+    {
+      "id": "file:integration.Orbital.main.dynamics",
+      "path": "integration/Orbital/main/dynamics.py",
+      "package": "main",
+      "phi": 0.32057,
+      "spin": 1,
+      "closure_defect": 0.00205,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.model": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.metrics": 0.7
+      }
+    },
+    {
+      "id": "file:integration.Orbital.main.extract_geometry",
+      "path": "integration/Orbital/main/extract_geometry.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.global_pass",
+      "path": "integration/Orbital/main/global_pass.py",
+      "package": "main",
+      "phi": 0.1667,
+      "spin": -1,
+      "closure_defect": 0.00214,
+      "in_degree": 0,
+      "out_degree": 5,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.dynamics": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.extract_geometry": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.metrics": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.registry": 0.7,
+        "file:ciel_sot_agent.orch_orbital": 0.7
+      }
+    },
+    {
+      "id": "file:integration.Orbital.main.metrics",
+      "path": "integration/Orbital/main/metrics.py",
+      "package": "main",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.model": 0.7
+      }
+    },
+    {
+      "id": "file:integration.Orbital.main.model",
+      "path": "integration/Orbital/main/model.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.phase_control",
+      "path": "integration/Orbital/main/phase_control.py",
+      "package": "main",
+      "phi": 0.12823,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.rh_control": 0.7
+      }
+    },
+    {
+      "id": "file:integration.Orbital.main.references.manual_uploads.paradoxes",
+      "path": "integration/Orbital/main/references/manual_uploads/paradoxes.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.references.manual_uploads.parlie4",
+      "path": "integration/Orbital/main/references/manual_uploads/parlie4.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.registry",
+      "path": "integration/Orbital/main/registry.py",
+      "package": "main",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.model": 0.7
+      }
+    },
+    {
+      "id": "file:integration.Orbital.main.rh_control",
+      "path": "integration/Orbital/main/rh_control.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.scripts.build_runtime_inventory",
+      "path": "integration/Orbital/main/scripts/build_runtime_inventory.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.scripts.run_toy_sim",
+      "path": "integration/Orbital/main/scripts/run_toy_sim.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.scripts.seed_formal_symbols",
+      "path": "integration/Orbital/main/scripts/seed_formal_symbols.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:integration.Orbital.main.src.ciel_relational_mechanism.sim.phase_toy",
+      "path": "integration/Orbital/main/src/ciel_relational_mechanism/sim/phase_toy.py",
+      "package": "main",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.axioms",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/axioms.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bio.crystal_receiver",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/crystal_receiver.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bio.eeg_emotion_mapper",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/eeg_emotion_mapper.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bio.eeg_processor",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/eeg_processor.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bio.schumann",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bio/schumann.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bridge.memory_core_phase_bridge",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/bridge/memory_core_phase_bridge.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.calibration.rcde",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/calibration/rcde.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.__main__",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/__main__.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_orchestrator": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.cli",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/cli.py",
+      "package": "ciel_omega",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_client": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/engine.py",
+      "package": "ciel_omega",
+      "phi": 1.73108,
+      "spin": 1,
+      "closure_defect": 0.8404,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.phase_equation_of_motion": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.llama_server_backends",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/llama_server_backends.py",
+      "package": "ciel_omega",
+      "phi": 0.2244,
+      "spin": 1,
+      "closure_defect": 0.00051,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.language_backend": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.memory_prompt_context": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.llm_registry",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/llm_registry.py",
+      "package": "ciel_omega",
+      "phi": 0.12823,
+      "spin": -1,
+      "closure_defect": 0.00411,
+      "in_degree": 0,
+      "out_degree": 3,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.language_backend": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.hf_backends": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.gguf_backends": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.orbital_memory_governor",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_governor.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.orbital_memory_loop",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_loop.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.orbital_memory_persistence",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_persistence.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.orbital_memory_retrieval",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_retrieval.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel.orbital_sector_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_sector_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_io.bootstrap",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_io/bootstrap.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_io.reality_logger",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_io/reality_logger.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_io.simple_loader",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_io/simple_loader.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_kernel_v11",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_kernel_v11.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_kernel_v12",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_kernel_v12.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_wave.fourier_kernel",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel_wave/fourier_kernel.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.cognition.decision",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/decision.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.cognition.dissociation",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/dissociation.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.cognition.introspection",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/introspection.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.cognition.intuition",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/intuition.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.cognition.orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.cognition.perception",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/perception.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.cognition.prediction",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/cognition/prediction.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.compute.gpu_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/compute/gpu_engine.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.config.ciel_config",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/config/ciel_config.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.config.constants",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/config/constants.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.config.reality_layers",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/config/reality_layers.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.conftest",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/conftest.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.constraints.euler_constraint",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/constraints/euler_constraint.py",
+      "package": "ciel_omega",
+      "phi": 0.28851,
+      "spin": 1,
+      "closure_defect": 0.00051,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.phase_equation_of_motion": 0.7,
+        "file:ciel_geometry.semantic_mass": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.base",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/base.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.adapter",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/adapter.py",
+      "package": "ciel_omega",
+      "phi": 0.60908,
+      "spin": 1,
+      "closure_defect": 0.04133,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.loops": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.defaults",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/defaults.py",
+      "package": "ciel_omega",
+      "phi": 0.70526,
+      "spin": -1,
+      "closure_defect": 0.31027,
+      "in_degree": 0,
+      "out_degree": 7,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.glyphs": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.phase_field": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.scars": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.scheduler": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.loops": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.nonlocal_coupling",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/braid/nonlocal_coupling.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.math_utils",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/math_utils.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.physics.ciel0_framework",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/ciel0_framework.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.physics.csf_simulator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/csf_simulator.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.physics.definite_kernel",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/definite_kernel.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.physics.reality_expander",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/reality_expander.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.physics.reality_laws",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/physics/reality_laws.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.quantum.quantum_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/quantum/quantum_engine.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.quantum.quantum_optimiser",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/quantum/quantum_optimiser.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.quantum.resonance_kernel",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/core/quantum/resonance_kernel.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.coriolis_cymatics",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/coriolis_cymatics.py",
+      "package": "ciel_omega",
+      "phi": 0.12823,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.relational_formalism": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_ciel_omega_complete",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_ciel_omega_complete.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_full_pipeline",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_full_pipeline.py",
+      "package": "ciel_omega",
+      "phi": 2.0196,
+      "spin": 1,
+      "closure_defect": 0.56612,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_holonomic_orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_holonomic_orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_holonomy_eba",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_holonomy_eba.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_m0_perceptual_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m0_perceptual_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_m1_working_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m1_working_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_m3_semantic_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m3_semantic_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_m4_procedural_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m4_procedural_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_m5_affective_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m5_affective_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_m6_identity_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_m6_identity_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_memory_system",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_memory_system.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_unified_euler",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_unified_euler.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_validation_fixes",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_validation_fixes.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.demo_vocabulary_resolve",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/demo_vocabulary_resolve.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.affective_orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/affective_orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.cqcl.cqcl_compiler",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/cqcl_compiler.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.cqcl.cqcl_program",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/cqcl_program.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.cqcl.emotional_collatz",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/emotional_collatz.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.cqcl.quantum_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/cqcl/quantum_engine.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.emotion_core",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/emotion_core.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.empathic_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/empathic_engine.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.feeling_field",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/feeling_field.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.emotion.utils",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/emotion/utils.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ethics.ethical_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ethics/ethical_engine.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ethics.ethics_guard",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ethics/ethics_guard.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.experiments.intentional_tetra_or.dual_tetra_or",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/experiments/intentional_tetra_or/dual_tetra_or.py",
+      "package": "ciel_omega",
+      "phi": 0.2244,
+      "spin": 1,
+      "closure_defect": 0.00462,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.relational_formalism": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.phase_equation_of_motion": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.experiments.lab_registry",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/experiments/lab_registry.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext1",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext1.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext10",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext10.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext17",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext17.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext18",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext18.py",
+      "package": "ciel_omega",
+      "phi": 2.0196,
+      "spin": 1,
+      "closure_defect": 0.56612,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext19",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext19.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext2",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext2.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext20",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext20.py",
+      "package": "ciel_omega",
+      "phi": 2.0196,
+      "spin": 1,
+      "closure_defect": 0.56612,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext21",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext21.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext3",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext3.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext4",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext4.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext5",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext5.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext6",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext6.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext7",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext7.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext8",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext8.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.ext9",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/ext9.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.extemot",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/extemot.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ext.extfwcku",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ext/extfwcku.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.aether_field",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/aether_field.py",
+      "package": "ciel_omega",
+      "phi": 0.06411,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.intention_field": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.psych_field",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/psych_field.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.resonance_operator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/resonance_operator.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.sigma_series",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/sigma_series.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.soul_invariant",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/soul_invariant.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.fields.unified_sigma_field",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/fields/unified_sigma_field.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.bio_manuscript_glyphs",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/bio_manuscript_glyphs.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_biosymphony",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_biosymphony.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_coherence",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_coherence.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_cosmic",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_cosmic.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_fractal_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_fractal_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_helix",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_helix.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_lang_life",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_lang_life.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_rhythms_replication_color (1)",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_rhythms_replication_color (1).py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_rhythms_replication_color",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_rhythms_replication_color.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_symphony",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_symphony.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.glyph_node_transcription_translation",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/glyph_node_transcription_translation.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.glyphs.voynich_kernel",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/glyphs/voynich_kernel.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.htri.htri_daemon",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/htri/htri_daemon.py",
+      "package": "ciel_omega",
+      "phi": 0.32057,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.state_db": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.htri.htri_local",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/htri/htri_local.py",
+      "package": "ciel_omega",
+      "phi": 0.06411,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.htri.htri_matrix": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.inference.gguf_backend",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/gguf_backend.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.inference.middleware",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/inference/middleware.py",
+      "package": "ciel_omega",
+      "phi": 0.2244,
+      "spin": 1,
+      "closure_defect": 0.01282,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.bootstrap_runtime": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.inference.topology_api": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.integration.information_flow",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/integration/information_flow.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.lie4_algebra",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/lie4_algebra.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.main",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/main.py",
+      "package": "ciel_omega",
+      "phi": 0.38468,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.ciel_orchestrator": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.mathematics.lie4.collatz_lie4",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/lie4/collatz_lie4.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.mathematics.lie4.lie4_full",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/lie4/lie4_full.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.mathematics.lie4.matrix_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/lie4/matrix_engine.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.mathematics.paradoxes.paradox_operators",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/paradoxes/paradox_operators.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.mathematics.paradoxes.ultimate_operators",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/paradoxes/ultimate_operators.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.mathematics.safe_operations",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/safe_operations.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.mathematics.universal_law.universal_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/mathematics/universal_law/universal_engine.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory._registry",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/_registry.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.affective_lexicon",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/affective_lexicon.py",
+      "package": "ciel_omega",
+      "phi": 0.06411,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.holonomic_memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.brain_topology",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/brain_topology.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.ciel_bloch_encoder",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_bloch_encoder.py",
+      "package": "ciel_omega",
+      "phi": 0.16029,
+      "spin": 1,
+      "closure_defect": 0.00462,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_geometry.semantic_mass": 0.7,
+        "file:ciel_sot_agent.orbital_db_orchestrator": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.ciel_calibration",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_calibration.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.ciel_doc_ingest",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_doc_ingest.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.ciel_unified_core",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/ciel_unified_core.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.dynamics",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/dynamics.py",
+      "package": "ciel_omega",
+      "phi": 0.40606,
+      "spin": -1,
+      "closure_defect": 0.06248,
+      "in_degree": 0,
+      "out_degree": 3,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.coupling": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.potential": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.long_term",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/long_term.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.memory_log",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/memory_log.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.cli",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/cli.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.data_types",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/data_types.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.defaults",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/defaults.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.rules_engine",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/rules_engine.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.tmp_processor",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/tmp_processor.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.tsm_storage",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/tsm_storage.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.unified_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/unified_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.monolith.wpm_storage",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/monolith/wpm_storage.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.object_cards",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/object_cards.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.orbital_holonomy",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orbital_holonomy.py",
+      "package": "ciel_omega",
+      "phi": 0.54497,
+      "spin": 1,
+      "closure_defect": 0.06153,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.holonomy": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 0.15571,
+      "spin": 1,
+      "closure_defect": 0.02221,
+      "in_degree": 0,
+      "out_degree": 14,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.base": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.perceptual_memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.working_memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.episodic": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.semantic_memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.procedural_memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.affective_memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.identity_memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.braid_invariant": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.audit_journal": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.dynamics": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.holonomy": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.orbital_shell": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.orchestrator_types": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.phase_geometry",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/phase_geometry.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.semantic_scorer",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/semantic_scorer.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.soul_invariant",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/soul_invariant.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.memory.synchronizer",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/synchronizer.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.monolit",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/monolit.py",
+      "package": "ciel_omega",
+      "phi": 0.19234,
+      "spin": 1,
+      "closure_defect": 0.00821,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.holonomy_cosmic_seismic": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.phase_equation_of_motion": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.global_pass",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/global_pass.py",
+      "package": "ciel_omega",
+      "phi": 0.19234,
+      "spin": 1,
+      "closure_defect": 0.00103,
+      "in_degree": 0,
+      "out_degree": 4,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.extract_geometry": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.registry": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.dynamics": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.metrics": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.phase_control",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/orbital/phase_control.py",
+      "package": "ciel_omega",
+      "phi": 0.12823,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.orbital.rh_control": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.paradox_operators",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/paradox_operators.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.phase_sweep_analysis",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/phase_sweep_analysis.py",
+      "package": "ciel_omega",
+      "phi": 0.32057,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.phase_equation_of_motion": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.resonance.resonance_operator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/resonance/resonance_operator.py",
+      "package": "ciel_omega",
+      "phi": 0.06411,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.resonance.multiresonance_tensor": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.resonance.resonance_parallel",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/resonance/resonance_parallel.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.agent.adam_core",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/agent/adam_core.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.agent.adam_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/agent/adam_memory.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.agent.resonance_optimizer",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/agent/resonance_optimizer.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.backend_adapter",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/backend_adapter.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.controller",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/controller.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.omega.boot_ritual",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/omega/boot_ritual.py",
+      "package": "ciel_omega",
+      "phi": 0.8976,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.omega.drift_core",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/omega/drift_core.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.omega.omega_runtime",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/runtime/omega/omega_runtime.py",
+      "package": "ciel_omega",
+      "phi": 2.0196,
+      "spin": 1,
+      "closure_defect": 0.56612,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.runtime": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.scripts.run_local_gguf_pipeline",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/scripts/run_local_gguf_pipeline.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.setup",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/setup.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.symbolic.glyph_dataset",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/glyph_dataset.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.symbolic.glyph_interpreter",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/glyph_interpreter.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.symbolic.glyph_pipeline",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/glyph_pipeline.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.symbolic.symbolic_bridge",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/symbolic/symbolic_bridge.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_affective_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_affective_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_affective_memory_consolidation",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_affective_memory_consolidation.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_alignment_strengthening",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_alignment_strengthening.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_defect_minimization",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_defect_minimization.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_grid_stability",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_grid_stability.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_holonomic_orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_holonomic_orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_llama_server_backends",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_llama_server_backends.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_m6_1_acceptance",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_m6_1_acceptance.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_memory_governor_and_prompt",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_memory_governor_and_prompt.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_memory_sector_integration",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_memory_sector_integration.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_orbital_memory_consolidation_governor",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_consolidation_governor.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_orbital_memory_persistence",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_persistence.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_orbital_memory_retrieval",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_retrieval.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_orbital_rh_control",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_rh_control.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_orbital_runtime_loop",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_runtime_loop.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_orbital_sector_memory_integration",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_sector_memory_integration.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_perceptual_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_perceptual_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_perceptual_memory_consolidation",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_perceptual_memory_consolidation.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_procedural_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_procedural_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_procedural_memory_consolidation",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_procedural_memory_consolidation.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_runtime_policy_integration",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_runtime_policy_integration.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_semantic_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_semantic_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_semantic_memory_consolidation",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_semantic_memory_consolidation.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_working_memory",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_working_memory.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.test_working_memory_consolidation",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_working_memory_consolidation.py",
+      "package": "ciel_omega",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.visualization.color_map",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/visualization/color_map.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.visualization.visual_core",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/visualization/visual_core.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.demo_core_concepts",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/demo_core_concepts.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.orchestrator",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/orchestrator.py",
+      "package": "ciel_omega",
+      "phi": 0.10258,
+      "spin": -1,
+      "closure_defect": 0.00295,
+      "in_degree": 0,
+      "out_degree": 5,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.core_concepts": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.field_dynamics": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.planetary_archetypes": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.extended_concepts": 0.7,
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.transcendent": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.test_comprehensive",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/test_comprehensive.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.test_gguf_pipeline",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary/test_gguf_pipeline.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary_tools.symbol_extractor",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/vocabulary_tools/symbol_extractor.py",
+      "package": "ciel_omega",
+      "phi": 0.06411,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary_tools.resolver": 0.7
+      }
+    },
+    {
+      "id": "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.wave_ethics",
+      "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/wave_ethics.py",
+      "package": "ciel_omega",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_geometry.renderer_ascii",
+      "path": "src/ciel_geometry/renderer_ascii.py",
+      "package": "ciel_geometry",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_geometry.layout": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_geometry.renderer_mpl",
+      "path": "src/ciel_geometry/renderer_mpl.py",
+      "package": "ciel_geometry",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_geometry.layout": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.__main__",
+      "path": "src/ciel_sot_agent/__main__.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.bench_cli",
+      "path": "src/ciel_sot_agent/bench_cli.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.19234,
+      "spin": 1,
+      "closure_defect": 0.00205,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.orbital_bridge": 0.7,
+        "file:ciel_sot_agent.ciel_pipeline": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.capture_cli",
+      "path": "src/ciel_sot_agent/capture_cli.py",
+      "package": "ciel_sot_agent",
+      "phi": 3.14159,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.core.braid.memory": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.chat_archive",
+      "path": "src/ciel_sot_agent/chat_archive.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.gguf_manager.cli",
+      "path": "src/ciel_sot_agent/gguf_manager/cli.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.06411,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.gguf_manager.manager": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.gh_coupling",
+      "path": "src/ciel_sot_agent/gh_coupling.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.40606,
+      "spin": -1,
+      "closure_defect": 0.03576,
+      "in_degree": 0,
+      "out_degree": 3,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.8483,
+        "file:ciel_sot_agent.repo_phase": 0.8483,
+        "file:ciel_sot_agent._gh_utils": 0.8483
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.gh_coupling_v2",
+      "path": "src/ciel_sot_agent/gh_coupling_v2.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.40606,
+      "spin": -1,
+      "closure_defect": 0.03576,
+      "in_degree": 0,
+      "out_degree": 3,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7,
+        "file:ciel_sot_agent.repo_phase": 0.7,
+        "file:ciel_sot_agent._gh_utils": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.gui.app",
+      "path": "src/ciel_sot_agent/gui/app.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.2244,
+      "spin": 1,
+      "closure_defect": 0.01282,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.gui.routes": 0.7,
+        "file:ciel_sot_agent.satellite_authority": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.index_validator",
+      "path": "src/ciel_sot_agent/index_validator.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.76937,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 1.0
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.index_validator_v2",
+      "path": "src/ciel_sot_agent/index_validator_v2.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.76937,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.phased_state",
+      "path": "src/ciel_sot_agent/phased_state.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.runtime_evidence_ingest",
+      "path": "src/ciel_sot_agent/runtime_evidence_ingest.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.76937,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_panel.controller",
+      "path": "src/ciel_sot_agent/sapiens_panel/controller.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.16029,
+      "spin": 1,
+      "closure_defect": 0.00615,
+      "in_degree": 0,
+      "out_degree": 8,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.orbital_bridge": 0.7,
+        "file:ciel_sot_agent.sapiens_client": 0.7,
+        "file:ciel_sot_agent.satellite_authority": 0.7,
+        "file:ciel_sot_agent.sapiens_panel.communication": 0.7,
+        "file:ciel_sot_agent.sapiens_panel.models": 0.7,
+        "file:ciel_sot_agent.sapiens_panel.reduction": 0.7,
+        "file:ciel_sot_agent.sapiens_panel.settings_store": 0.7,
+        "file:ciel_sot_agent.sapiens_panel.support": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_panel.render_schema",
+      "path": "src/ciel_sot_agent/sapiens_panel/render_schema.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.19234,
+      "spin": -1,
+      "closure_defect": 0.0,
+      "in_degree": 0,
+      "out_degree": 1,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.sapiens_panel.models": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.sapiens_surface_policy",
+      "path": "src/ciel_sot_agent/sapiens_surface_policy.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    },
+    {
+      "id": "file:ciel_sot_agent.synchronize",
+      "path": "src/ciel_sot_agent/synchronize.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.54497,
+      "spin": 1,
+      "closure_defect": 0.02507,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7,
+        "file:ciel_sot_agent.repo_phase": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.synchronize_v2",
+      "path": "src/ciel_sot_agent/synchronize_v2.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.54497,
+      "spin": 1,
+      "closure_defect": 0.02507,
+      "in_degree": 0,
+      "out_degree": 2,
+      "horizon_class": "SEALED",
+      "W_ij": {
+        "file:ciel_sot_agent.paths": 0.7,
+        "file:ciel_sot_agent.repo_phase": 0.7
+      }
+    },
+    {
+      "id": "file:ciel_sot_agent.wpm_cli",
+      "path": "src/ciel_sot_agent/wpm_cli.py",
+      "package": "ciel_sot_agent",
+      "phi": 0.0,
+      "spin": 1,
+      "closure_defect": 1.0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "horizon_class": "SEALED",
+      "W_ij": {}
+    }
+  ]
+}

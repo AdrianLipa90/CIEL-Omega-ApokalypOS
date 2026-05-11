@@ -1,0 +1,200 @@
+[
+  {
+    "id": "rel:en:truth:falsehood",
+    "source": "en:lex:truth",
+    "target": "en:lex:falsehood",
+    "type": "antonym",
+    "axis": "truth",
+    "weight": 0.95,
+    "phase_delta": 3.141592653589793,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:pl:prawda:falsz",
+    "source": "pl:lex:prawda",
+    "target": "pl:lex:fałsz",
+    "type": "antonym",
+    "axis": "truth",
+    "weight": 0.95,
+    "phase_delta": 3.141592653589793,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:xlat:truth:prawda",
+    "source": "en:lex:truth",
+    "target": "pl:lex:prawda",
+    "type": "translates",
+    "axis": "truth",
+    "weight": 0.92,
+    "phase_delta": 0.0,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:xlat:falsehood:falsz",
+    "source": "en:lex:falsehood",
+    "target": "pl:lex:fałsz",
+    "type": "translates",
+    "axis": "truth",
+    "weight": 0.9,
+    "phase_delta": 0.0,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:en:love:harm",
+    "source": "en:lex:love",
+    "target": "en:lex:harm",
+    "type": "antonym",
+    "axis": "care",
+    "weight": 0.82,
+    "phase_delta": 3.141592653589793,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:pl:milosc:krzywda",
+    "source": "pl:lex:miłość",
+    "target": "pl:lex:krzywda",
+    "type": "antonym",
+    "axis": "care",
+    "weight": 0.82,
+    "phase_delta": 3.141592653589793,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:xlat:love:milosc",
+    "source": "en:lex:love",
+    "target": "pl:lex:miłość",
+    "type": "translates",
+    "axis": "care",
+    "weight": 0.87,
+    "phase_delta": 0.0,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:xlat:harm:krzywda",
+    "source": "en:lex:harm",
+    "target": "pl:lex:krzywda",
+    "type": "translates",
+    "axis": "care",
+    "weight": 0.84,
+    "phase_delta": 0.0,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:en:create:destroy",
+    "source": "en:lex:create",
+    "target": "en:lex:destroy",
+    "type": "antonym",
+    "axis": "creation",
+    "weight": 0.88,
+    "phase_delta": 3.141592653589793,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:pl:tworzyc:niszczyc",
+    "source": "pl:lex:tworzyć",
+    "target": "pl:lex:niszczyć",
+    "type": "antonym",
+    "axis": "creation",
+    "weight": 0.88,
+    "phase_delta": 3.141592653589793,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rel:xlat:create:tworzyc",
+    "source": "en:lex:create",
+    "target": "pl:lex:tworzyć",
+    "type": "translates",
+    "axis": "creation",
+    "weight": 0.9,
+    "phase_delta": 0.0,
+    "epistemic": {
+      "status": "draft"
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  }
+]

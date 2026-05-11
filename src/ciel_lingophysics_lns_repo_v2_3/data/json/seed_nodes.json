@@ -1,0 +1,459 @@
+[
+  {
+    "id": "en:lex:truth",
+    "type": "Lexeme",
+    "language": "en",
+    "surface": {
+      "label": "truth",
+      "forms": [
+        "truth"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.6,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.72
+    },
+    "phase": {
+      "truth": 0.0,
+      "value": 0.1
+    },
+    "affect": {
+      "valence": 0.6,
+      "trust": 0.8,
+      "harm": 0.0
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "en:lex:falsehood",
+    "type": "Lexeme",
+    "language": "en",
+    "surface": {
+      "label": "falsehood",
+      "forms": [
+        "falsehood",
+        "falsity"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.6,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.68
+    },
+    "phase": {
+      "truth": 3.141592653589793,
+      "value": 3.0
+    },
+    "affect": {
+      "valence": -0.5,
+      "trust": -0.8,
+      "harm": 0.4
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "pl:lex:prawda",
+    "type": "Lexeme",
+    "language": "pl",
+    "surface": {
+      "label": "prawda",
+      "forms": [
+        "prawda"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN",
+      "case_sensitive": true
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.6,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.72
+    },
+    "phase": {
+      "truth": 0.0,
+      "value": 0.1
+    },
+    "affect": {
+      "valence": 0.6,
+      "trust": 0.8,
+      "harm": 0.0
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "pl:lex:fałsz",
+    "type": "Lexeme",
+    "language": "pl",
+    "surface": {
+      "label": "fałsz",
+      "forms": [
+        "fałsz",
+        "falsz"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN",
+      "case_sensitive": true
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.6,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.68
+    },
+    "phase": {
+      "truth": 3.141592653589793,
+      "value": 3.0
+    },
+    "affect": {
+      "valence": -0.5,
+      "trust": -0.8,
+      "harm": 0.4
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "en:lex:love",
+    "type": "Lexeme",
+    "language": "en",
+    "surface": {
+      "label": "love",
+      "forms": [
+        "love"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN/VERB"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.8
+    },
+    "phase": {
+      "care": 0.0,
+      "value": 0.0
+    },
+    "affect": {
+      "valence": 0.9,
+      "care": 0.9,
+      "trust": 0.75
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "en:lex:harm",
+    "type": "Lexeme",
+    "language": "en",
+    "surface": {
+      "label": "harm",
+      "forms": [
+        "harm"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN/VERB"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.77
+    },
+    "phase": {
+      "care": 3.141592653589793,
+      "value": 3.141592653589793
+    },
+    "affect": {
+      "valence": -0.9,
+      "care": -0.9,
+      "harm": 0.95
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "pl:lex:miłość",
+    "type": "Lexeme",
+    "language": "pl",
+    "surface": {
+      "label": "miłość",
+      "forms": [
+        "miłość",
+        "milosc"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.8
+    },
+    "phase": {
+      "care": 0.0,
+      "value": 0.0
+    },
+    "affect": {
+      "valence": 0.9,
+      "care": 0.9,
+      "trust": 0.75
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "pl:lex:krzywda",
+    "type": "Lexeme",
+    "language": "pl",
+    "surface": {
+      "label": "krzywda",
+      "forms": [
+        "krzywda"
+      ]
+    },
+    "grammar": {
+      "pos": "NOUN"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.77
+    },
+    "phase": {
+      "care": 3.141592653589793,
+      "value": 3.141592653589793
+    },
+    "affect": {
+      "valence": -0.9,
+      "care": -0.9,
+      "harm": 0.95
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "en:lex:create",
+    "type": "Lexeme",
+    "language": "en",
+    "surface": {
+      "label": "create",
+      "forms": [
+        "create",
+        "creates",
+        "created",
+        "creating"
+      ]
+    },
+    "grammar": {
+      "pos": "VERB",
+      "equation_role": "T_create"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.74
+    },
+    "phase": {
+      "creation": 0.0
+    },
+    "affect": {
+      "valence": 0.45,
+      "causal_power": 0.75
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "pl:lex:tworzyć",
+    "type": "Lexeme",
+    "language": "pl",
+    "surface": {
+      "label": "tworzyć",
+      "forms": [
+        "tworzyć",
+        "tworzy",
+        "stworzył",
+        "tworzę"
+      ]
+    },
+    "grammar": {
+      "pos": "VERB",
+      "equation_role": "T_create"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.74
+    },
+    "phase": {
+      "creation": 0.0
+    },
+    "affect": {
+      "valence": 0.45,
+      "causal_power": 0.75
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "en:lex:destroy",
+    "type": "Lexeme",
+    "language": "en",
+    "surface": {
+      "label": "destroy",
+      "forms": [
+        "destroy",
+        "destroys",
+        "destroyed"
+      ]
+    },
+    "grammar": {
+      "pos": "VERB",
+      "equation_role": "T_destroy"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.74
+    },
+    "phase": {
+      "creation": 3.141592653589793
+    },
+    "affect": {
+      "valence": -0.7,
+      "harm": 0.65,
+      "causal_power": 0.75
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  },
+  {
+    "id": "pl:lex:niszczyć",
+    "type": "Lexeme",
+    "language": "pl",
+    "surface": {
+      "label": "niszczyć",
+      "forms": [
+        "niszczyć",
+        "niszczy",
+        "zniszczył"
+      ]
+    },
+    "grammar": {
+      "pos": "VERB",
+      "equation_role": "T_destroy"
+    },
+    "epistemic": {
+      "status": "draft",
+      "confidence": 0.55,
+      "provenance_strength": 0.1
+    },
+    "semantic_mass": {
+      "m_s": 0.74
+    },
+    "phase": {
+      "creation": 3.141592653589793
+    },
+    "affect": {
+      "valence": -0.7,
+      "harm": 0.65,
+      "causal_power": 0.75
+    },
+    "audit": [
+      {
+        "event": "seeded",
+        "at": "2026-05-10T00:36:33.852952+00:00"
+      }
+    ]
+  }
+]

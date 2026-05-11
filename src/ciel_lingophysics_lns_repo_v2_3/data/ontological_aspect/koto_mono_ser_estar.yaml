@@ -1,0 +1,152 @@
+version: '1.3'
+status: curated_seed
+principle: Languages split objecthood, conceptuality, identity-being, state-being,
+  and event/fact nominalization differently. These are ontological-aspect operators,
+  not merely vocabulary differences.
+axes:
+  objecthood:
+  - concrete_object
+  - substance
+  - person
+  - place
+  - artifact
+  conceptuality:
+  - abstract_concept
+  - event_fact
+  - proposition
+  - memory_content
+  being_mode:
+  - identity_class
+  - role_essence
+  - transient_state
+  - result_state
+  - location_state
+  stability:
+  - stable_identity
+  - contextual_role
+  - temporary_state
+  - episodic_event
+operators:
+- operator_id: onto:ja:mono
+  canonical_operator: MonoConcreteThing
+  language: ja
+  surfaces:
+  - 物
+  - もの
+  - mono
+  equation: Mono(x) -> ConcreteOrObjectLikeThing(x)
+  semantic_mode: objecthood
+  notes: Japanese mono/物 tends toward concrete thing, object, material, or object-like
+    entity. It can extend, but its default pull is objecthood.
+- operator_id: onto:ja:koto
+  canonical_operator: KotoAbstractEventFact
+  language: ja
+  surfaces:
+  - 事
+  - こと
+  - koto
+  equation: Koto(p/e) -> AbstractEventFactOrProposition(p/e)
+  semantic_mode: conceptuality
+  notes: Japanese koto/事 tends toward event, fact, situation, nominalized proposition,
+    or abstract matter.
+- operator_id: onto:es:ser
+  canonical_operator: SerIdentityBe
+  language: es
+  surfaces:
+  - ser
+  - soy
+  - eres
+  - es
+  - somos
+  - son
+  equation: Ser(x,y) -> IdentityBe(x,y)
+  semantic_mode: identity_class_role_origin
+  notes: Spanish ser marks identity, class, origin, role, kind, or essential/defining
+    predication. It is not simply permanent-being.
+- operator_id: onto:es:estar
+  canonical_operator: EstarStateBe
+  language: es
+  surfaces:
+  - estar
+  - estoy
+  - estás
+  - está
+  - estamos
+  - están
+  equation: Estar(x,s,t?) -> StateBe(x,s,t?)
+  semantic_mode: state_location_result
+  notes: Spanish estar marks state, location, condition, or result-state. It is not
+    merely temporary-being.
+- operator_id: onto:en:be
+  canonical_operator: EnglishBePolyfunctional
+  language: en
+  surfaces:
+  - be
+  - am
+  - is
+  - are
+  - was
+  - were
+  equation: Be(x,y) -> Resolve(IdentityBe | StateBe | LocationBe | ExistenceBe)
+  semantic_mode: polyfunctional_be
+  notes: English be collapses identity, state, location, and existence into a polyfunctional
+    operator.
+- operator_id: onto:pl:byc
+  canonical_operator: PolishBycPolyfunctional
+  language: pl
+  surfaces:
+  - być
+  - jestem
+  - jesteś
+  - jest
+  - jesteśmy
+  - są
+  equation: Byc(x,y) -> Resolve(IdentityBe | StateBe | LocationBe | ExistenceBe)
+  semantic_mode: polyfunctional_be_with_case_and_adjective_resolution
+  notes: Polish być is polyfunctional; instrumental/NOM predicates, adjectives, locative/prepositional
+    phrases, and context disambiguate.
+resolution_rules:
+- condition: language=es and surface in ser_forms
+  resolve_to: IdentityBe
+  confidence: 0.95
+- condition: language=es and surface in estar_forms
+  resolve_to: StateBe
+  confidence: 0.95
+- condition: language=en/pl and complement_type in {class,role,origin,identity}
+  resolve_to: IdentityBe
+  confidence: 0.75
+- condition: language=en/pl and complement_type in {state,location,result_state,condition}
+  resolve_to: StateBe
+  confidence: 0.75
+- condition: language=ja and surface=koto
+  resolve_to: AbstractEventFact
+  confidence: 0.85
+- condition: language=ja and surface=mono
+  resolve_to: ConcreteThing
+  confidence: 0.85
+cross_language_examples:
+- mode: identity
+  pl: Ona jest lekarką.
+  en: She is a doctor.
+  es: Ella es médica.
+  canonical: IdentityBe(she, doctor-role)
+- mode: state
+  pl: Ona jest zmęczona.
+  en: She is tired.
+  es: Ella está cansada.
+  canonical: StateBe(she, tired)
+- mode: location
+  pl: Woda jest w szklance.
+  en: Water is in the glass.
+  es: El agua está en el vaso.
+  canonical: LocationBe(water, glass-interior)
+- mode: abstract_event_fact
+  ja: 泳ぐこと
+  en: the act/fact of swimming
+  pl: pływanie / fakt pływania
+  canonical: Koto(swim-event/fact)
+- mode: concrete_object
+  ja: 水のもの
+  en: a water-related thing/object
+  pl: rzecz związana z wodą
+  canonical: Mono(object-like thing)

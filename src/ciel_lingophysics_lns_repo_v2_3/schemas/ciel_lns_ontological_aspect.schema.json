@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Ontological Aspect Operators",
+  "type": "object",
+  "required": [
+    "version",
+    "operators"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "operator_id",
+          "canonical_operator",
+          "language",
+          "surfaces",
+          "equation",
+          "semantic_mode"
+        ],
+        "properties": {
+          "operator_id": {
+            "type": "string"
+          },
+          "canonical_operator": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "surfaces": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "equation": {
+            "type": "string"
+          },
+          "semantic_mode": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+language_code: de
+language: German
+grammar_as_gauge:
+  connection: A_gram^(de)
+  surface_to_equation: Surface_l -> Grammar_l -> Equation -> Knot -> Invariant
+  local_vector_axes:
+  - inflection
+  - word_order_fixedness
+  - topic_focus
+  - particle_density
+  - case_marking
+  - agreement
+  - honorificity
+  - context_reliance
+  local_vector:
+  - 0.7
+  - 0.55
+  - 0.66
+  - 0.2
+  - 0.62
+  - 0.55
+  - 0.25
+  - 0.5
+  curvature_estimate: 0.1723
+  gauge_notes:
+    word_order: V2/SOV-subordinate
+    case_system_strength: 0.75
+    inflection_density: 0.7
+operator_mapping:
+  noun_mass: x
+  case_operator: K_case
+  article_operator: D
+  verb_second_constraint: V2
+  compound_operator: ⊗
+water_sentence_equation_examples:
+  canonical: Flow(A=water_equivalent, Path=river_equivalent)
+  need_context: Need(Agent=speaker, Patient=water)

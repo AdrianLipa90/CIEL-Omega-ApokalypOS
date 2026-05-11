@@ -1,0 +1,227 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:fear",
+  "canonical_label_en": "fear",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "affective",
+  "semantic_axes": [
+    "threat",
+    "avoidance",
+    "arousal"
+  ],
+  "semantic_mass_seed": 0.7688,
+  "phase_seed_rad": 5.410521,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "strach",
+      "brief_description": "reakcja na zagrożenie, ryzyko lub niepewność szkody",
+      "near_synonyms_seed": [
+        "lęk",
+        "obawa"
+      ],
+      "antonyms_seed": [
+        "odwaga",
+        "zaufanie"
+      ],
+      "forms_seed": [
+        "strach",
+        "strach jako hasło",
+        "strach w kontekście"
+      ],
+      "context_examples_seed": [
+        "Strach tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "avoids",
+        "because",
+        "not"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "fear",
+      "brief_description": "response to threat, risk or uncertainty of harm",
+      "near_synonyms_seed": [
+        "anxiety",
+        "worry"
+      ],
+      "antonyms_seed": [
+        "courage",
+        "trust"
+      ],
+      "forms_seed": [
+        "fear",
+        "fears",
+        "fear as concept"
+      ],
+      "context_examples_seed": [
+        "Fear forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "avoids",
+        "because",
+        "not"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Angst",
+      "brief_description": "Reaktion auf Bedrohung, Risiko oder Unsicherheit von Schaden",
+      "near_synonyms_seed": [
+        "Furcht",
+        "Sorge"
+      ],
+      "antonyms_seed": [
+        "Mut",
+        "Vertrauen"
+      ],
+      "forms_seed": [
+        "Angst",
+        "Angst als Begriff",
+        "Angst im Kontext"
+      ],
+      "context_examples_seed": [
+        "Angst bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "avoids",
+        "because",
+        "not"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "peur",
+      "brief_description": "réponse à menace, risque ou incertitude de dommage",
+      "near_synonyms_seed": [
+        "crainte",
+        "angoisse"
+      ],
+      "antonyms_seed": [
+        "courage",
+        "confiance"
+      ],
+      "forms_seed": [
+        "peur",
+        "peur comme concept",
+        "peur en contexte"
+      ],
+      "context_examples_seed": [
+        "Peur forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "avoids",
+        "because",
+        "not"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "miedo",
+      "brief_description": "respuesta a amenaza, riesgo o incertidumbre de daño",
+      "near_synonyms_seed": [
+        "temor",
+        "ansiedad"
+      ],
+      "antonyms_seed": [
+        "valor",
+        "confianza"
+      ],
+      "forms_seed": [
+        "miedo",
+        "miedo como concepto",
+        "miedo en contexto"
+      ],
+      "context_examples_seed": [
+        "Miedo forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "avoids",
+        "because",
+        "not"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "avoids",
+    "because",
+    "not"
+  ],
+  "relations": [
+    {
+      "type": "reduces",
+      "target": "concept:trust",
+      "status": "draft_seed"
+    },
+    {
+      "type": "increases",
+      "target": "concept:pain",
+      "status": "draft_seed"
+    },
+    {
+      "type": "responds_to",
+      "target": "concept:harm",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

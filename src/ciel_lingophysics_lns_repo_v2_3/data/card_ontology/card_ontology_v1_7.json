@@ -1,0 +1,255 @@
+{
+  "version": "1.7.0",
+  "name": "CIELingo Card Ontology Refactor",
+  "principle": "Not every word is a concept. Some words are operators, gauges, scopes, anchors, frames, or storage/control artifacts.",
+  "canonical_formula": "Library = Concepts + Operators + Relations + Grammar",
+  "card_types": {
+    "CONCEPT_CARD": {
+      "storage_root": "data/concept_cards/",
+      "semantic_role": "semantic mass / attractor",
+      "primary_payload": [
+        "concept_id",
+        "languages",
+        "relations",
+        "operator_hooks"
+      ],
+      "forbidden_payload": [
+        "formal_modes",
+        "arity",
+        "scope_rules"
+      ],
+      "canonical_examples": [
+        "water",
+        "fire",
+        "truth",
+        "memory"
+      ],
+      "status_default": "seed",
+      "notes": "Names things, ideas, processes, states, or attractor concepts. Does not execute transformations by itself."
+    },
+    "OPERATOR_CARD": {
+      "storage_root": "data/operator_cards/",
+      "semantic_role": "function / force / transformation",
+      "primary_payload": [
+        "operator_id",
+        "canonical_operator",
+        "arity",
+        "formal_modes",
+        "argument_types"
+      ],
+      "forbidden_payload": [
+        "concept_mass_only"
+      ],
+      "canonical_examples": [
+        "inside",
+        "contains",
+        "have",
+        "how/as/like",
+        "not"
+      ],
+      "status_default": "draft",
+      "notes": "Functional words and operator surfaces. Acts on concept cards or predicates."
+    },
+    "OPERATOR_FAMILY": {
+      "storage_root": "data/operator_families/",
+      "semantic_role": "operator class / algebraic family",
+      "primary_payload": [
+        "family_id",
+        "members",
+        "composition_rules",
+        "dual_pairs"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "containment",
+        "possession",
+        "logical",
+        "tame"
+      ],
+      "status_default": "draft",
+      "notes": "Groups operators into reusable algebraic families."
+    },
+    "OPERATOR_COMPOSITION": {
+      "storage_root": "data/operator_compositions/",
+      "semantic_role": "composition law",
+      "primary_payload": [
+        "rule_id",
+        "lhs",
+        "rhs",
+        "constraints"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "Inside(x,y) iff Contains(y,x)"
+      ],
+      "status_default": "draft",
+      "notes": "Defines duals, inverses, negation interactions, and higher-order operator rules."
+    },
+    "GRAMMAR_CARD": {
+      "storage_root": "data/grammar/",
+      "semantic_role": "local grammar gauge",
+      "primary_payload": [
+        "language",
+        "grammar_vector",
+        "surface_strategy"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "pl_grammar_math",
+        "en_grammar_math"
+      ],
+      "status_default": "draft",
+      "notes": "Language-specific realization geometry: word order, morphology, agreement, particles."
+    },
+    "CASE_GAUGE_CARD": {
+      "storage_root": "data/case_systems/",
+      "semantic_role": "hidden role operator encoded morphologically",
+      "primary_payload": [
+        "case",
+        "role_operator",
+        "realization_strategies"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "nominative",
+        "accusative",
+        "genitive",
+        "dative"
+      ],
+      "status_default": "draft",
+      "notes": "Represents Slavic-style case semantics and reconstruction strategies in weak-case languages."
+    },
+    "CASE_MAPPING": {
+      "storage_root": "data/case_mappings/",
+      "semantic_role": "cross-language realization map",
+      "primary_payload": [
+        "source_case",
+        "target_language",
+        "strategy",
+        "cost"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "pl_case_to_5lang_surface_strategies"
+      ],
+      "status_default": "generated",
+      "notes": "Maps case-gauge roles to word order, preposition, clitic, or verb-valency strategies."
+    },
+    "EVENT_FRAME": {
+      "storage_root": "data/event_frames/",
+      "semantic_role": "predicate valency skeleton",
+      "primary_payload": [
+        "predicate",
+        "roles",
+        "required_roles",
+        "optional_roles"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "Give(Agent,Theme,Recipient)",
+        "Bite(Agent,Patient)"
+      ],
+      "status_default": "draft",
+      "notes": "Defines which roles a predicate allows before grammar realizes them."
+    },
+    "ONTOLOGICAL_ASPECT": {
+      "storage_root": "data/ontological_aspect/",
+      "semantic_role": "object/concept/being mode split",
+      "primary_payload": [
+        "axis",
+        "modes",
+        "language_realizations"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "koto/mono",
+        "ser/estar"
+      ],
+      "status_default": "draft",
+      "notes": "Handles thing/concept and identity/state distinctions."
+    },
+    "TAME_CARD": {
+      "storage_root": "data/tame/",
+      "semantic_role": "time/aspect/mood/modality/evidentiality operator",
+      "primary_payload": [
+        "tense",
+        "aspect",
+        "mood",
+        "modality",
+        "evidentiality"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "past",
+        "perfective",
+        "must",
+        "reported"
+      ],
+      "status_default": "draft",
+      "notes": "Encodes temporal and epistemic orientation of propositions."
+    },
+    "DEICTIC_CARD": {
+      "storage_root": "data/operator_cards/",
+      "semantic_role": "unresolved dynamic anchor",
+      "primary_payload": [
+        "anchor_domain",
+        "resolution_policy",
+        "unresolved_state"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "somewhere",
+        "sometime",
+        "somehow",
+        "from somewhere"
+      ],
+      "status_default": "draft",
+      "notes": "Dynamic operators such as somewhere/sometime remain unresolved until context binds them."
+    },
+    "SCOPE_CARD": {
+      "storage_root": "data/scope/",
+      "semantic_role": "scope and quantifier control",
+      "primary_payload": [
+        "scope_stack",
+        "quantifiers",
+        "negation_rules"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "not all",
+        "none",
+        "some not"
+      ],
+      "status_default": "draft",
+      "notes": "Prevents false equivalence between different quantifier-negation scopes."
+    },
+    "JSON_FALLBACK": {
+      "storage_root": "data/json/",
+      "semantic_role": "safe degraded persistence",
+      "primary_payload": [
+        "fallback_reason",
+        "preferred_backend",
+        "json_payload"
+      ],
+      "forbidden_payload": [],
+      "canonical_examples": [
+        "fallback_manifest_v1_6"
+      ],
+      "status_default": "generated",
+      "notes": "Ensures pipeline continues with explicit JSON/JSONL fallback when richer storage fails."
+    }
+  },
+  "separation_axioms": [
+    "Concept cards carry semantic mass; operator cards carry transformation power.",
+    "Case is a hidden role operator, not merely inflection.",
+    "Deictic expressions may remain legally unresolved.",
+    "Scope ambiguity must be represented, not guessed.",
+    "Storage fallback must be explicit and auditable."
+  ],
+  "migration_policy": {
+    "from_v1_6": "classify all repository data paths into explicit card ontology layers",
+    "unclassified": "ROOT_OR_MISC with explicit review status",
+    "binary_generated": "generated artifact, not canonical source of truth",
+    "yaml_without_json": "warning unless marked curated_seed_human_readable"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:harm",
+  "canonical_label_en": "harm",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "ethical",
+  "semantic_axes": [
+    "damage",
+    "risk",
+    "injury"
+  ],
+  "semantic_mass_seed": 0.725,
+  "phase_seed_rad": 3.665191,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "krzywda",
+      "brief_description": "uszkodzenie, strata lub naruszenie dobra podmiotu",
+      "near_synonyms_seed": [
+        "szkoda",
+        "rana"
+      ],
+      "antonyms_seed": [
+        "dobro",
+        "opieka"
+      ],
+      "forms_seed": [
+        "krzywda",
+        "krzywda jako hasło",
+        "krzywda w kontekście"
+      ],
+      "context_examples_seed": [
+        "Krzywda tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "harms",
+        "without",
+        "causes"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "harm",
+      "brief_description": "damage, loss or violation of a subject’s good",
+      "near_synonyms_seed": [
+        "damage",
+        "injury"
+      ],
+      "antonyms_seed": [
+        "good",
+        "care"
+      ],
+      "forms_seed": [
+        "harm",
+        "harms",
+        "harm as concept"
+      ],
+      "context_examples_seed": [
+        "Harm forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "harms",
+        "without",
+        "causes"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Schaden",
+      "brief_description": "Beschädigung, Verlust oder Verletzung eines Wohls",
+      "near_synonyms_seed": [
+        "Verletzung",
+        "Nachteil"
+      ],
+      "antonyms_seed": [
+        "Gut",
+        "Fürsorge"
+      ],
+      "forms_seed": [
+        "Schaden",
+        "Schaden als Begriff",
+        "Schaden im Kontext"
+      ],
+      "context_examples_seed": [
+        "Schaden bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "harms",
+        "without",
+        "causes"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "dommage",
+      "brief_description": "dommage, perte ou violation du bien d’un sujet",
+      "near_synonyms_seed": [
+        "préjudice",
+        "blessure"
+      ],
+      "antonyms_seed": [
+        "bien",
+        "soin"
+      ],
+      "forms_seed": [
+        "dommage",
+        "dommage comme concept",
+        "dommage en contexte"
+      ],
+      "context_examples_seed": [
+        "Dommage forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "harms",
+        "without",
+        "causes"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "daño",
+      "brief_description": "daño, pérdida o violación del bien de un sujeto",
+      "near_synonyms_seed": [
+        "perjuicio",
+        "lesión"
+      ],
+      "antonyms_seed": [
+        "bien",
+        "cuidado"
+      ],
+      "forms_seed": [
+        "daño",
+        "daño como concepto",
+        "daño en contexto"
+      ],
+      "context_examples_seed": [
+        "Daño forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "harms",
+        "without",
+        "causes"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "harms",
+    "without",
+    "causes"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:good",
+      "status": "draft_seed"
+    },
+    {
+      "type": "causes",
+      "target": "concept:pain",
+      "status": "draft_seed"
+    },
+    {
+      "type": "reduces",
+      "target": "concept:trust",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

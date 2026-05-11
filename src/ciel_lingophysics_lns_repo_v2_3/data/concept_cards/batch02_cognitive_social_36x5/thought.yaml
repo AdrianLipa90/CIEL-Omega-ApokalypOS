@@ -1,0 +1,153 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:thought
+canonical_label_en: thought
+batch_id: batch02_cognitive_social_36x5
+domain: cognition
+semantic_axes:
+- mind
+- information
+- inner
+semantic_mass_seed: 0.768
+phase_seed_rad: 1.047198
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: myśl
+    brief_description: karta pojęciowa 'myśl' jako ręcznie kuratorowany seed lingofizyczny
+    near_synonyms_seed:
+    - refleksja
+    antonyms_seed: []
+    forms_seed:
+    - myśl
+    - myśl as lemma
+    - myśl in context
+    context_examples_seed:
+    - myśl participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - inside
+    - about
+    - think
+    - not
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: thought
+    brief_description: concept card 'thought' as a hand-curated lingophysics seed
+    near_synonyms_seed:
+    - reflection
+    antonyms_seed: []
+    forms_seed:
+    - thought
+    - thought as lemma
+    - thought in context
+    context_examples_seed:
+    - thought participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Gedanke
+    brief_description: Begriffskarte 'Gedanke' als handkuratiertes Lingophysik-Seed
+    near_synonyms_seed:
+    - Überlegung
+    antonyms_seed: []
+    forms_seed:
+    - Gedanke
+    - Gedanke as lemma
+    - Gedanke in context
+    context_examples_seed:
+    - Gedanke participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: pensée
+    brief_description: carte conceptuelle 'pensée' comme graine lingophysique curée
+      manuellement
+    near_synonyms_seed:
+    - réflexion
+    antonyms_seed: []
+    forms_seed:
+    - pensée
+    - pensée as lemma
+    - pensée in context
+    context_examples_seed:
+    - pensée participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: pensamiento
+    brief_description: tarjeta conceptual 'pensamiento' como semilla lingofísica curada
+      manualmente
+    near_synonyms_seed:
+    - reflexión
+    antonyms_seed: []
+    forms_seed:
+    - pensamiento
+    - pensamiento as lemma
+    - pensamiento in context
+    context_examples_seed:
+    - pensamiento participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: inside
+  target: concept:mind
+  status: draft_seed
+- type: relates_to
+  target: concept:idea
+  status: draft_seed
+quality_flags:
+- CURATED_SEED
+- BATCH02
+- REQUIRES_HUMAN_REVIEW

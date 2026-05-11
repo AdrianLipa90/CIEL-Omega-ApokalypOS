@@ -1,0 +1,16 @@
+schema,schema_key,candidate_covered_count,coverage_status
+schemas/ciel_lns_case_gauge.schema.json,case_gauge,7,CANDIDATE
+schemas/ciel_lns_concept_card.schema.json,concept_card,124,CANDIDATE
+schemas/ciel_lns_dynamic_deictic_operator.schema.json,dynamic_deictic_operator,9,CANDIDATE
+schemas/ciel_lns_event_frame.schema.json,event_frame,4,CANDIDATE
+schemas/ciel_lns_language_profile.schema.json,language_profile,2,CANDIDATE
+schemas/ciel_lns_object.schema.json,object,0,NEEDS_MAPPING
+schemas/ciel_lns_ontological_aspect.schema.json,ontological_aspect,6,CANDIDATE
+schemas/ciel_lns_operator_algebra.schema.json,operator_algebra,83,CANDIDATE
+schemas/ciel_lns_operator_card.schema.json,operator_card,165,CANDIDATE
+schemas/ciel_lns_operator_family.schema.json,operator_family,83,CANDIDATE
+schemas/ciel_lns_pattern.schema.json,pattern,1,CANDIDATE
+schemas/ciel_lns_relation.schema.json,relation,4,CANDIDATE
+schemas/ciel_lns_scope_quantifier.schema.json,scope_quantifier,10,CANDIDATE
+schemas/ciel_lns_storage_fallback.schema.json,storage_fallback,3,CANDIDATE
+schemas/ciel_lns_tame.schema.json,tame,10,CANDIDATE

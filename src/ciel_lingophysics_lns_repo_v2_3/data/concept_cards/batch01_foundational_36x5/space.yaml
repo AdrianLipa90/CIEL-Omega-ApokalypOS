@@ -1,0 +1,168 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:space
+canonical_label_en: space
+batch_id: batch01_foundational_36x5
+domain: spacetime
+semantic_axes:
+- extension
+- location
+- geometry
+semantic_mass_seed: 0.6813
+phase_seed_rad: 1.919862
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: przestrzeń
+    brief_description: pole rozciągłości, położenia i relacji geometrycznych
+    near_synonyms_seed:
+    - miejsce
+    - obszar
+    antonyms_seed:
+    - punkt
+    - brak miejsca
+    forms_seed:
+    - przestrzeń
+    - przestrzeń jako hasło
+    - przestrzeń w kontekście
+    context_examples_seed:
+    - Przestrzeń tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - inside
+    - outside
+    - 'on'
+    - under
+    - through
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: space
+    brief_description: field of extension, location and geometric relations
+    near_synonyms_seed:
+    - place
+    - area
+    antonyms_seed:
+    - point
+    - no-space
+    forms_seed:
+    - space
+    - spaces
+    - space as concept
+    context_examples_seed:
+    - Space forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Raum
+    brief_description: Feld von Ausdehnung, Lage und geometrischen Beziehungen
+    near_synonyms_seed:
+    - Ort
+    - Bereich
+    antonyms_seed:
+    - Punkt
+    - Raumlosigkeit
+    forms_seed:
+    - Raum
+    - Raum als Begriff
+    - Raum im Kontext
+    context_examples_seed:
+    - Raum bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: espace
+    brief_description: champ d’extension, localisation et relations géométriques
+    near_synonyms_seed:
+    - lieu
+    - zone
+    antonyms_seed:
+    - point
+    - absence d’espace
+    forms_seed:
+    - espace
+    - espace comme concept
+    - espace en contexte
+    context_examples_seed:
+    - Espace forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: espacio
+    brief_description: campo de extensión, ubicación y relaciones geométricas
+    near_synonyms_seed:
+    - lugar
+    - área
+    antonyms_seed:
+    - punto
+    - sin espacio
+    forms_seed:
+    - espacio
+    - espacio como concepto
+    - espacio en contexto
+    context_examples_seed:
+    - Espacio forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: contains
+  target: concept:motion
+  status: draft_seed
+- type: bounds
+  target: concept:center
+  status: draft_seed
+- type: has_boundary
+  target: concept:boundary
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

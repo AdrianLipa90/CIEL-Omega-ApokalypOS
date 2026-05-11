@@ -1,0 +1,158 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:enemy
+canonical_label_en: enemy
+batch_id: batch02_cognitive_social_36x5
+domain: social_relation
+semantic_axes:
+- conflict
+- harm
+- relation
+semantic_mass_seed: 0.551
+phase_seed_rad: 2.96706
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: wróg
+    brief_description: karta pojęciowa 'wróg' jako ręcznie kuratorowany seed lingofizyczny
+    near_synonyms_seed:
+    - przeciwnik
+    antonyms_seed:
+    - przyjaciel
+    forms_seed:
+    - wróg
+    - wróg as lemma
+    - wróg in context
+    context_examples_seed:
+    - wróg participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - with
+    - against
+    - trust
+    - not
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: enemy
+    brief_description: concept card 'enemy' as a hand-curated lingophysics seed
+    near_synonyms_seed:
+    - foe
+    antonyms_seed:
+    - friend
+    forms_seed:
+    - enemy
+    - enemy as lemma
+    - enemy in context
+    context_examples_seed:
+    - enemy participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Feind
+    brief_description: Begriffskarte 'Feind' als handkuratiertes Lingophysik-Seed
+    near_synonyms_seed:
+    - Gegner
+    antonyms_seed:
+    - Freund
+    forms_seed:
+    - Feind
+    - Feind as lemma
+    - Feind in context
+    context_examples_seed:
+    - Feind participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: ennemi
+    brief_description: carte conceptuelle 'ennemi' comme graine lingophysique curée
+      manuellement
+    near_synonyms_seed:
+    - adversaire
+    antonyms_seed:
+    - ami
+    forms_seed:
+    - ennemi
+    - ennemi as lemma
+    - ennemi in context
+    context_examples_seed:
+    - ennemi participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: enemigo
+    brief_description: tarjeta conceptual 'enemigo' como semilla lingofísica curada
+      manualmente
+    near_synonyms_seed:
+    - adversario
+    antonyms_seed:
+    - amigo
+    forms_seed:
+    - enemigo
+    - enemigo as lemma
+    - enemigo in context
+    context_examples_seed:
+    - enemigo participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: opposes
+  target: concept:friend
+  status: draft_seed
+- type: supports
+  target: concept:conflict
+  status: draft_seed
+quality_flags:
+- CURATED_SEED
+- BATCH02
+- REQUIRES_HUMAN_REVIEW

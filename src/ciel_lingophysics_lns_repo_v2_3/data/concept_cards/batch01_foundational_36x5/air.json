@@ -1,0 +1,222 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:air",
+  "canonical_label_en": "air",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "elemental",
+  "semantic_axes": [
+    "element",
+    "medium",
+    "breath"
+  ],
+  "semantic_mass_seed": 0.725,
+  "phase_seed_rad": 0.523599,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "powietrze",
+      "brief_description": "gazowe medium oddychania, ruchu i otwartej przestrzeni",
+      "near_synonyms_seed": [
+        "atmosfera",
+        "tchnienie"
+      ],
+      "antonyms_seed": [
+        "próżnia",
+        "ziemia"
+      ],
+      "forms_seed": [
+        "powietrze",
+        "powietrze jako hasło",
+        "powietrze w kontekście"
+      ],
+      "context_examples_seed": [
+        "Powietrze tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "through",
+        "inside",
+        "outside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "air",
+      "brief_description": "gaseous medium of breathing, motion and open space",
+      "near_synonyms_seed": [
+        "atmosphere",
+        "breath"
+      ],
+      "antonyms_seed": [
+        "vacuum",
+        "earth"
+      ],
+      "forms_seed": [
+        "air",
+        "airs",
+        "air as concept"
+      ],
+      "context_examples_seed": [
+        "Air forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "through",
+        "inside",
+        "outside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Luft",
+      "brief_description": "gasförmiges Medium für Atmung, Bewegung und offenen Raum",
+      "near_synonyms_seed": [
+        "Atmosphäre",
+        "Atem"
+      ],
+      "antonyms_seed": [
+        "Vakuum",
+        "Erde"
+      ],
+      "forms_seed": [
+        "Luft",
+        "Luft als Begriff",
+        "Luft im Kontext"
+      ],
+      "context_examples_seed": [
+        "Luft bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "through",
+        "inside",
+        "outside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "air",
+      "brief_description": "milieu gazeux de respiration, mouvement et espace ouvert",
+      "near_synonyms_seed": [
+        "atmosphère",
+        "souffle"
+      ],
+      "antonyms_seed": [
+        "vide",
+        "terre"
+      ],
+      "forms_seed": [
+        "air",
+        "air comme concept",
+        "air en contexte"
+      ],
+      "context_examples_seed": [
+        "Air forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "through",
+        "inside",
+        "outside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "aire",
+      "brief_description": "medio gaseoso de respiración, movimiento y espacio abierto",
+      "near_synonyms_seed": [
+        "atmósfera",
+        "aliento"
+      ],
+      "antonyms_seed": [
+        "vacío",
+        "tierra"
+      ],
+      "forms_seed": [
+        "aire",
+        "aire como concepto",
+        "aire en contexto"
+      ],
+      "context_examples_seed": [
+        "Aire forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "through",
+        "inside",
+        "outside"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "through",
+    "inside",
+    "outside"
+  ],
+  "relations": [
+    {
+      "type": "supports",
+      "target": "concept:life",
+      "status": "draft_seed"
+    },
+    {
+      "type": "contains",
+      "target": "concept:motion",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

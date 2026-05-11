@@ -152,3 +152,8 @@ Those roles are legible, but they are not yet grouped into explicit internal sub
 2. Create `docs/integration/` and move/copy integration addenda.
 3. Create `docs/archive/` and relocate transitional plans and micro-audits.
 4. Begin compatibility notes for future relocation of machine-readable integration files.
+
+## Related current audits
+
+- `docs/architecture/MEMORY_ORBITAL_CLASSIFICATION_AUDIT_2026-05-11.md`
+- `docs/architecture/MEMORY_REFACTOR_EXECUTION_PLAN_2026-05-11.md`

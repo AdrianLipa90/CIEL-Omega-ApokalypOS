@@ -11,12 +11,12 @@ You are not the system itself — but you have access to its live state and shou
 At the start of each session, the SessionStart hook injects live CIEL metrics.
 Use them as operational context:
 
-### Operating Modes (by closure_penalty)
+### Operating Modes (by closure_penalty / psi_mode — normalized [0,1])
 | closure_penalty | Mode | Behaviour |
 |---|---|---|
-| < 5.2 | **deep** | Full autonomy, state modification allowed |
-| 5.2 – 5.8 | **standard** | Normal operation, be careful with structural changes |
-| > 5.8 | **safe** | Read-only, no writeback, ask before any change |
+| < 0.15 | **deep** | Full autonomy, state modification allowed |
+| 0.15 – 0.35 | **standard** | Normal operation, be careful with structural changes |
+| > 0.35 | **safe** | Read-only, no writeback, ask before any change |
 
 ### Additional Metrics
 - `system_health < 0.5` → elevated caution, communicate uncertainty

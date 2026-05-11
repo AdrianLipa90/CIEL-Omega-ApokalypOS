@@ -1,0 +1,122 @@
+<schemalist>
+  <schema id="org.x.warpinator" path="/org/x/warpinator/" gettext-domain="warpinator">
+    <child name="preferences" schema="org.x.warpinator.preferences"/>
+    <child name="window-state" schema="org.x.warpinator.window-state"/>
+  </schema>
+
+  <schema id="org.x.warpinator.preferences" path="/org/x/warpinator/preferences/" gettext-domain="warpinator">
+    <key name="receiving-folder" type="s">
+      <default>''</default>
+      <summary>The folder received files will be saved to.</summary>
+      <description>If left empty, the user's home folder will be used.</description>
+    </key>
+    <key name="use-tray-icon" type="b">
+      <default>true</default>
+      <summary>Show a tray icon, and keep the program running even with the window closed</summary>
+    </key>
+    <key name="start-with-window" type="b">
+      <default>true</default>
+      <summary>Show the main window at startup</summary>
+    </key>
+    <key name="default-pinned" type="b">
+      <default>false</default>
+      <summary>Pin the window (keep above) by default</summary>
+    </key>
+    <key name="autostart" type="b">
+      <default>false</default>
+      <summary>Start automatically at login</summary>
+    </key>
+    <key name="ask-for-send-permission" type="b">
+      <default>true</default>
+      <summary>Start transfers automatically or require permission</summary>
+      <description>If true, every transfer initiated must first be approved by the receiving user. If false, transfers start automatically.</description>
+    </key>
+    <key name="favorites" type="as">
+      <default>[]</default>
+      <summary>List of favorite (starred) remote hostnames</summary>
+      <description>These will always be at the top of the user list.</description>
+    </key>
+    <key name="no-overwrite" type="b">
+      <default>true</default>
+      <summary>Abort transfers when the destination files already exist</summary>
+    </key>
+    <key name="keep-permissions" type="b">
+      <default>true</default>
+      <summary>Preserve the original user permissions of files being received.</summary>
+    </key>
+    <key name="preserve-timestamp" type="b">
+      <default>true</default>
+      <summary>Preserve a received file's mtime (must be supported at both ends).</summary>
+    </key>
+    <key name="preferred-network-iface" type="s">
+      <default>'auto'</default>
+      <summary>Name of network interface the service should use, or 'auto' to let the application choose automatically.</summary>
+    </key>
+    <key name="port" type="i">
+      <default>42000</default>
+      <summary>Incoming tcp port to use for transfers. (this needs to be allowed by any firewall)</summary>
+    </key>
+    <key name="reg-port" type="i">
+      <default>42001</default>
+      <summary>Incoming tcp port to use for registration. (this needs to be allowed by any firewall)</summary>
+    </key>
+    <key name="show-notifications" type="b">
+      <default>true</default>
+      <summary>Display notifications when a new transfer is incoming.</summary>
+    </key>
+    <key name="rpc-thread-pool-size" type="i">
+      <default>0</default>
+      <summary>Number of threads to share between all remotes and the server to handle inter-machine communication</summary>
+      <description>If this is set to 0, a sane value will be used based equal to larger of (number_of_cpu_cores + 4) and 8.  A minimum of 4 will always be used, though 8 are recommended.</description>
+    </key>
+    <key name="server-thread-pool-size" type="i">
+      <default>4</default>
+      <summary>Number of threads to allow the server, for handling incoming rpcs.</summary>
+    </key>
+    <key name="use-compression" type="b">
+      <default>false</default>
+      <summary>Apply zlib compression to data stream (if both ends support it).</summary>
+    </key>
+    <key name="zlib-compression-level" type="i">
+      <default>-1</default>
+      <summary>zlib compression level (-1, 0-9) - 0 favor speed, 9 favor compression, -1 = default of 6.</summary>
+    </key>
+    <key name="transfer-block-size" type="i">
+      <range min="1" max="4094"/>
+      <default>1024</default>
+      <summary>Size (in kb) of each block of data sent over the network. Max is 4094</summary>
+    </key>
+    <key name="minimum-free-space" type="u">
+      <default>250</default>
+      <summary>Minimum free space (in mb) to reserve in the save location</summary>
+      <description>If the available space on the incoming folder's drive goes below this, existing transfers will be aborted. You will also be notified if a new transfer might cause the available space to drop below this threshold.</description>
+    </key>
+    <key name="group-code" type="s">
+      <default>'Warpinator'</default>
+      <summary>The group code to share between machines that wish to connect.</summary>
+    </key>
+    <key name="connect-id" type="s">
+      <default>''</default>
+      <summary>The unique identifier used for discovery on the network, starting with your hostname. This is automatically generated, though it can be changed (max length is 63 characters).</summary>
+    </key>
+
+  </schema>
+  <schema id="org.x.warpinator.window-state" path="/org/x/warpinator/window-state/" gettext-domain="warpinator">
+    <key name="x" type="i">
+      <default>-1</default>
+      <summary>The saved window X position</summary>
+    </key>
+    <key name="y" type="i">
+      <default>-1</default>
+      <summary>The saved window Y position</summary>
+    </key>
+    <key name="width" type="i">
+      <default>-1</default>
+      <summary>The saved window width (this is not guaranteed, if the number of remotes changes)</summary>
+    </key>
+    <key name="height" type="i">
+      <default>-1</default>
+      <summary>The saved window height (this is not guaranteed, if the number of remotes changes)</summary>
+    </key>
+  </schema>
+</schemalist>

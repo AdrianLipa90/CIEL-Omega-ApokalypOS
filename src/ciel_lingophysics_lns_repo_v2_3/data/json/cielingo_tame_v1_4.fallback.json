@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "preferred_format": "hdf5",
+    "fallback_format": "json",
+    "used_fallback": true,
+    "target_path": "/mnt/data/ciel_lingophysics_lns_repo_v1_4/data/hdf5/cielingo_tame_v1_4.h5",
+    "error_type": "RuntimeError",
+    "error_message": "simulated HDF5 failure",
+    "timestamp_utc": "2026-05-10T02:33:52.945750+00:00"
+  },
+  "data": {
+    "version": "1.4",
+    "layer": "fallback_seed",
+    "objects": [
+      "tame_operator_system"
+    ],
+    "matrix": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  }
+}

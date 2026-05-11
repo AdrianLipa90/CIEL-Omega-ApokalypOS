@@ -1,0 +1,167 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:error
+canonical_label_en: error
+batch_id: batch01_foundational_36x5
+domain: epistemic
+semantic_axes:
+- mistake
+- mismatch
+- defect
+semantic_mass_seed: 0.55
+phase_seed_rad: 6.108652
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: błąd
+    brief_description: rozjazd między stanem, opisem, celem lub regułą
+    near_synonyms_seed:
+    - pomyłka
+    - usterka
+    antonyms_seed:
+    - poprawność
+    - prawda
+    forms_seed:
+    - błąd
+    - błąd jako hasło
+    - błąd w kontekście
+    context_examples_seed:
+    - Błąd tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - not
+    - contradicts
+    - repairs
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: error
+    brief_description: mismatch between state, description, goal or rule
+    near_synonyms_seed:
+    - mistake
+    - fault
+    antonyms_seed:
+    - correctness
+    - truth
+    forms_seed:
+    - error
+    - errors
+    - error as concept
+    context_examples_seed:
+    - Error forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Fehler
+    brief_description: Nichtübereinstimmung zwischen Zustand, Beschreibung, Ziel oder
+      Regel
+    near_synonyms_seed:
+    - Irrtum
+    - Mangel
+    antonyms_seed:
+    - Richtigkeit
+    - Wahrheit
+    forms_seed:
+    - Fehler
+    - Fehler als Begriff
+    - Fehler im Kontext
+    context_examples_seed:
+    - Fehler bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: erreur
+    brief_description: écart entre état, description, but ou règle
+    near_synonyms_seed:
+    - faute
+    - défaut
+    antonyms_seed:
+    - exactitude
+    - vérité
+    forms_seed:
+    - erreur
+    - erreur comme concept
+    - erreur en contexte
+    context_examples_seed:
+    - Erreur forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: error
+    brief_description: desajuste entre estado, descripción, objetivo o regla
+    near_synonyms_seed:
+    - equivocación
+    - falla
+    antonyms_seed:
+    - corrección
+    - verdad
+    forms_seed:
+    - error
+    - error como concepto
+    - error en contexto
+    context_examples_seed:
+    - Error forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: opposes
+  target: concept:knowledge
+  status: draft_seed
+- type: opposes
+  target: concept:truth
+  status: draft_seed
+- type: increases
+  target: concept:chaos
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

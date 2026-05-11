@@ -1,0 +1,21 @@
+dimension,value,phase,meaning,pl,en,de,fr,es
+tense,Past,-0.35,event prior to reference time,-ł/-ła/-ło; był,past tense; did,Präteritum; Perfekt,passé composé; imparfait,pretérito; imperfecto
+tense,Present,0.0,event simultaneous with reference time,czas teraźniejszy,present,Präsens,présent,presente
+tense,Future,0.35,event after reference time,będzie; zrobi,will; going to,werden,futur; aller + infinitif,futuro; ir a + infinitivo
+tense,Atemporal,0.05,generic or definition-like temporal state,jest w definicji,is generally,ist allgemein,est en général,es en general
+aspect,Perfective,0.22,bounded completed event contour,zrobić; napisać,complete/write down,fertigstellen,achever,terminar
+aspect,Imperfective,-0.08,unbounded ongoing/habitual event contour,robić; pisać,be doing; write habitually,machen/schreiben,être en train de; imparfait,estar + gerundio; imperfecto
+aspect,Progressive,-0.02,event in progress,właśnie robi,be + -ing,gerade dabei sein,être en train de,estar + gerundio
+aspect,Habitual,0.11,regular repeated event,zwykle; ma zwyczaj,usually; used to,gewöhnlich,habituellement,habitualmente
+mood,Indicative,0.0,asserted event,tryb oznajmujący,indicative,Indikativ,indicatif,indicativo
+mood,Imperative,0.48,command/request event,zrób,do!,mach!,fais!,haz!
+mood,Conditional,0.31,conditioned or hypothetical event,by; gdyby,would; if,würde,conditionnel,condicional
+mood,Subjunctive,0.27,non-asserted desired/possible/subordinate event,żeby,that he be,Konjunktiv,subjonctif,subjuntivo
+modality,Possible,0.18,event can occur,może,may/can,kann,peut,puede
+modality,Necessary,0.44,event must occur,musi,must,muss,doit,debe
+modality,Obligatory,0.5,normatively required event,powinien; trzeba,should/ought,sollte,devrait,debería
+modality,Permitted,0.14,event is allowed,wolno; można,may/allowed to,darf,a le droit de,puede/tiene permiso
+evidentiality,Direct,0.0,speaker has direct evidence,widziałem; słyszałem,I saw/heard,ich sah/hörte,j’ai vu/entendu,vi/oí
+evidentiality,Inferential,0.23,speaker infers event,widocznie; pewnie,apparently/must have,offenbar,apparemment,al parecer
+evidentiality,Reportative,0.37,event is reported by another source,podobno; mówią że,reportedly/they say,angeblich,on dit que,según dicen
+evidentiality,Unknown,0.61,source of evidence is not specified,brak źródła,unspecified,unspezifiziert,non spécifié,no especificado

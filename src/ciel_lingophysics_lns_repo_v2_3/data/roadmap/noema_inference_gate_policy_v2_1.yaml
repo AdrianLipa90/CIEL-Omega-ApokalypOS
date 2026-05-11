@@ -1,0 +1,15 @@
+gate_version: '2.1'
+name: NOEMA retrieval and inference gate
+sequence:
+- parse input surface
+- classify card/operator/scope/deixis/TAM-E needs
+- retrieve local concept/operator/event-frame subgraph
+- construct CIEL feature tensor
+- run local validator
+- estimate confidence and unresolved density
+- choose no_model, small_model, gguf_validator, or human_review
+- write audit record and fallback JSON if storage fails
+energy_logic: Reduce generation cost by narrowing context and avoiding large-model
+  calls when structural validation is sufficient.
+non_claim: The gate does not make dense GGUF execute only a subset of its internal
+  weights unless a separate sparse/MoE/adapter mechanism is implemented.

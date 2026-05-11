@@ -1,0 +1,17 @@
+family_id: family:consensus
+description: Agreement, denial, confirmation, dispute and consensus inference.
+operators:
+- op:future:agree
+- op:future:deny
+- op:future:confirm
+- op:future:question
+canonical_axes:
+- agreement
+- denial
+- confirmation
+- questioning
+core_equations:
+- Agree(q,p)
+- Deny(q,p)
+- Confirm(q,p)
+- Question(q,p)

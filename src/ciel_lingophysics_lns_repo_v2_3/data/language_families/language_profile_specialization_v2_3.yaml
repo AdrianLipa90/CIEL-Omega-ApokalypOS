@@ -1,0 +1,87 @@
+schema_version: '2.3'
+status: draft_seed
+profiles:
+  language:pl:standard:
+    family: family:slavic
+    language: pl
+    variant: standard
+    priority: active
+    grammar_strategy: case_first_then_word_order_information_structure
+    required_modules:
+    - case_gauge
+    - predicate_valency
+    - aspect_pair_resolver
+    - scope_quantifier
+    - tame
+    fine_tuning_units:
+    - case_role_samples
+    - aspect_pair_samples
+    - free_word_order_pairs
+    - negation_quantifier_pairs
+    dialect_adapter_policy: variant_adapter_optional_until_dialect_data_exists
+  language:en:standard:
+    family: family:germanic
+    language: en
+    variant: standard
+    priority: active
+    grammar_strategy: word_order_first_with_preposition_and_auxiliary_reconstruction
+    required_modules:
+    - word_order_role_mapper
+    - preposition_role_mapper
+    - auxiliary_stack_parser
+    - scope_quantifier
+    - tame
+    fine_tuning_units:
+    - word_order_role_pairs
+    - preposition_dual_pairs
+    - auxiliary_tense_aspect_samples
+    - scope_minimal_pairs
+    dialect_adapter_policy: variant_adapter_required_for_nonstandard_syntax_or_lexicon
+  language:de:standard:
+    family: family:germanic
+    language: de
+    variant: standard
+    priority: active
+    grammar_strategy: hybrid_case_and_word_order
+    required_modules:
+    - reduced_case_bridge
+    - agreement_checker
+    - verb_second_order_mapper
+    - article_definiteness_mapper
+    fine_tuning_units:
+    - case_article_pairs
+    - verb_position_samples
+    - compound_noun_samples
+    dialect_adapter_policy: variant_adapter_required_for_major_regional_forms
+  language:fr:standard:
+    family: family:romance
+    language: fr
+    variant: standard
+    priority: active
+    grammar_strategy: fixed_order_with_clitic_and_preposition_reconstruction
+    required_modules:
+    - clitic_resolver
+    - article_definiteness_mapper
+    - prepositional_role_mapper
+    - subjunctive_mood_detector
+    fine_tuning_units:
+    - clitic_role_pairs
+    - article_contraction_samples
+    - subjunctive_samples
+    dialect_adapter_policy: variant_adapter_later
+  language:es:standard:
+    family: family:romance
+    language: es
+    variant: standard
+    priority: active
+    grammar_strategy: prepositional_role_with_ser_estar_and_pro_drop
+    required_modules:
+    - being_operator_split
+    - pro_drop_reconstruction
+    - clitic_resolver
+    - subjunctive_mood_detector
+    fine_tuning_units:
+    - ser_estar_minimal_pairs
+    - pro_drop_samples
+    - clitic_role_pairs
+    dialect_adapter_policy: variant_adapter_required_for_regional_lexicon_and_pronoun_systems

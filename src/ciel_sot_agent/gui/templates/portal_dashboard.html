@@ -437,7 +437,7 @@
     <div class="db-card" id="card-closure">
       <div class="db-card-val" id="dc-closure">{{ '%.3f'|format(status.closure_penalty or 0) }}</div>
       <div class="db-card-label">closure_penalty</div>
-      <div class="db-card-sub">safe &gt; 5.8</div>
+      <div class="db-card-sub">safe &gt; 0.35</div>
     </div>
     <div class="db-card" id="card-ethical">
       <div class="db-card-val" id="dc-ethical">{{ '%.3f'|format(status.ethical_score or 0) }}</div>
@@ -603,7 +603,7 @@
         <div class="db-guide-item">
           <div class="db-guide-key">closure_penalty</div>
           <div class="db-guide-desc">Koszt niezamkniętych pętli — suma defektów domknięcia w space fazowej. Wyższy = więcej "otwartych spraw".</div>
-          <div class="db-guide-threshold"><span class="t-ok">&lt; 5.2</span> deep · <span class="t-warn">5.2–5.8</span> standard · <span class="t-bad">&gt; 5.8</span> safe (tylko odczyt)</div>
+          <div class="db-guide-threshold"><span class="t-ok">&lt; 0.15</span> deep · <span class="t-warn">0.15–0.35</span> standard · <span class="t-bad">&gt; 0.35</span> safe (tylko odczyt)</div>
         </div>
         <div class="db-guide-item">
           <div class="db-guide-key">ethical_score</div>
@@ -791,7 +791,7 @@
     if (cn) cn.textContent = (s.closure_penalty ?? 0).toFixed(3);
 
     // mode chip
-    const mode = s.system_mode || (s.closure_penalty < 5.2 ? 'deep' : s.closure_penalty < 5.8 ? 'standard' : 'safe');
+    const mode = s.system_mode || (s.closure_penalty < 0.15 ? 'deep' : s.closure_penalty < 0.35 ? 'standard' : 'safe');
     const chip = document.getElementById('dc-mode');
     if (chip) { chip.textContent = mode; chip.className = 'db-mode-chip chip-' + mode; }
 

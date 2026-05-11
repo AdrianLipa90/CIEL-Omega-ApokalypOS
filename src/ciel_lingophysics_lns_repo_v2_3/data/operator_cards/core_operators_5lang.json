@@ -1,0 +1,1940 @@
+{
+  "ciel_lns": "0.8-operator-card-draft",
+  "library_type": "OPERATOR_LIBRARY",
+  "license_note": "Hand-curated seed data. No proprietary dictionary definitions copied.",
+  "languages": {
+    "pl": "Polish",
+    "en": "English",
+    "de": "German",
+    "fr": "French",
+    "es": "Spanish"
+  },
+  "operator_count": 24,
+  "principle": "Concept cards store semantic bodies; operator cards store functions/relations that transform, bind, localize or phase-shift concept cards.",
+  "operator_cards": [
+    {
+      "id": "op:core:be",
+      "family": "identity_existence_copula",
+      "class": [
+        "copula",
+        "identity",
+        "existence",
+        "state_binding"
+      ],
+      "symbol": "≡ / Is(x,y) / Exists(x)",
+      "arity": "1-2",
+      "dual": null,
+      "inverse": null,
+      "description": "binds an entity to identity, state, class, location or existence",
+      "equations": [
+        "Is(x,y)",
+        "Exists(x)",
+        "HasState(x,s)",
+        "Located(x,l)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "być / jest",
+          "forms": [
+            "być",
+            "jest",
+            "są",
+            "był",
+            "była",
+            "będzie"
+          ],
+          "examples": [
+            "Woda jest cieczą.",
+            "Człowiek jest w domu."
+          ],
+          "notes": "copula can mark class, identity, location or state"
+        },
+        "en": {
+          "lemma": "be / is",
+          "forms": [
+            "be",
+            "is",
+            "are",
+            "was",
+            "were",
+            "will be"
+          ],
+          "examples": [
+            "Water is a liquid.",
+            "The person is at home."
+          ],
+          "notes": "copula/state/existence helper"
+        },
+        "de": {
+          "lemma": "sein / ist",
+          "forms": [
+            "sein",
+            "ist",
+            "sind",
+            "war",
+            "waren"
+          ],
+          "examples": [
+            "Wasser ist eine Flüssigkeit.",
+            "Der Mensch ist zu Hause."
+          ],
+          "notes": "copula with case/articles"
+        },
+        "fr": {
+          "lemma": "être / est",
+          "forms": [
+            "être",
+            "est",
+            "sont",
+            "était",
+            "sera"
+          ],
+          "examples": [
+            "L’eau est un liquide.",
+            "La personne est à la maison."
+          ],
+          "notes": "copula and state binding"
+        },
+        "es": {
+          "lemma": "ser/estar / es/está",
+          "forms": [
+            "ser",
+            "estar",
+            "es",
+            "está",
+            "son",
+            "están",
+            "fue"
+          ],
+          "examples": [
+            "El agua es un líquido.",
+            "La persona está en casa."
+          ],
+          "notes": "ser/estar split: identity vs state/location"
+        }
+      }
+    },
+    {
+      "id": "op:core:have",
+      "family": "possession_property_part_state",
+      "class": [
+        "possession",
+        "property_attachment",
+        "part_relation",
+        "state_attachment"
+      ],
+      "symbol": "Have(x,y)",
+      "arity": "2",
+      "dual": null,
+      "inverse": null,
+      "description": "broad operator for ownership, parts, attributes, states and relational attachment",
+      "equations": [
+        "Have(possessor, possessed)",
+        "HasPart(whole, part)",
+        "HasProperty(entity, property)",
+        "HasState(entity, state)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "mieć / ma",
+          "forms": [
+            "mieć",
+            "ma",
+            "mam",
+            "masz",
+            "miał",
+            "miała"
+          ],
+          "examples": [
+            "Jan ma psa.",
+            "Dom ma dach.",
+            "Woda ma temperaturę."
+          ],
+          "notes": "highly polyfunctional possession operator"
+        },
+        "en": {
+          "lemma": "have / has",
+          "forms": [
+            "have",
+            "has",
+            "had",
+            "having"
+          ],
+          "examples": [
+            "John has a dog.",
+            "The house has a roof.",
+            "Water has temperature."
+          ],
+          "notes": "possession/property/part/state"
+        },
+        "de": {
+          "lemma": "haben / hat",
+          "forms": [
+            "haben",
+            "hat",
+            "habe",
+            "hast",
+            "hatte"
+          ],
+          "examples": [
+            "Jan hat einen Hund.",
+            "Das Haus hat ein Dach."
+          ],
+          "notes": "possession and auxiliary"
+        },
+        "fr": {
+          "lemma": "avoir / a",
+          "forms": [
+            "avoir",
+            "a",
+            "ai",
+            "as",
+            "avait"
+          ],
+          "examples": [
+            "Jean a un chien.",
+            "La maison a un toit."
+          ],
+          "notes": "possession and auxiliary"
+        },
+        "es": {
+          "lemma": "tener / tiene",
+          "forms": [
+            "tener",
+            "tiene",
+            "tengo",
+            "tienes",
+            "tuvo"
+          ],
+          "examples": [
+            "Juan tiene un perro.",
+            "La casa tiene un techo."
+          ],
+          "notes": "possession/state/property"
+        }
+      }
+    },
+    {
+      "id": "op:core:contain",
+      "family": "containment_inclusion",
+      "class": [
+        "spatial_relation",
+        "set_inclusion",
+        "topological_relation"
+      ],
+      "symbol": "Contains(y,x) ⇔ Inside(x,y)",
+      "arity": "2",
+      "dual": "op:core:inside",
+      "inverse": "op:core:inside",
+      "description": "container-oriented inclusion: y contains x",
+      "equations": [
+        "Contains(y,x)",
+        "x ⊂ Int(y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "zawiera",
+          "forms": [
+            "zawiera",
+            "zawierają",
+            "zawierał",
+            "zawierający"
+          ],
+          "examples": [
+            "Szklanka zawiera wodę."
+          ],
+          "notes": "container-focused dual of inside"
+        },
+        "en": {
+          "lemma": "contain / contains",
+          "forms": [
+            "contain",
+            "contains",
+            "contained",
+            "containing"
+          ],
+          "examples": [
+            "The glass contains water."
+          ],
+          "notes": "container-focused"
+        },
+        "de": {
+          "lemma": "enthalten / enthält",
+          "forms": [
+            "enthalten",
+            "enthält",
+            "enthielt"
+          ],
+          "examples": [
+            "Das Glas enthält Wasser."
+          ],
+          "notes": "container/content relation"
+        },
+        "fr": {
+          "lemma": "contenir / contient",
+          "forms": [
+            "contenir",
+            "contient",
+            "contenait"
+          ],
+          "examples": [
+            "Le verre contient de l’eau."
+          ],
+          "notes": "container-focused"
+        },
+        "es": {
+          "lemma": "contener / contiene",
+          "forms": [
+            "contener",
+            "contiene",
+            "contenía"
+          ],
+          "examples": [
+            "El vaso contiene agua."
+          ],
+          "notes": "container-focused"
+        }
+      }
+    },
+    {
+      "id": "op:core:inside",
+      "family": "interiority_location",
+      "class": [
+        "spatial_relation",
+        "topological_relation",
+        "localizer"
+      ],
+      "symbol": "Inside(x,y) ⇔ Contains(y,x)",
+      "arity": "2",
+      "dual": "op:core:contain",
+      "inverse": "op:core:contain",
+      "description": "object-oriented interior relation: x is inside y",
+      "equations": [
+        "Inside(x,y)",
+        "x ∈ Int(y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "w / wewnątrz / w środku",
+          "forms": [
+            "w",
+            "wewnątrz",
+            "w środku",
+            "we wnętrzu"
+          ],
+          "examples": [
+            "Woda jest w szklance."
+          ],
+          "notes": "maps to interior relation"
+        },
+        "en": {
+          "lemma": "in / inside",
+          "forms": [
+            "in",
+            "inside",
+            "within"
+          ],
+          "examples": [
+            "Water is in the glass."
+          ],
+          "notes": "object-in-container relation"
+        },
+        "de": {
+          "lemma": "in / innerhalb",
+          "forms": [
+            "in",
+            "im",
+            "innerhalb"
+          ],
+          "examples": [
+            "Wasser ist im Glas."
+          ],
+          "notes": "dative/accusative split may mark state vs motion"
+        },
+        "fr": {
+          "lemma": "dans / à l’intérieur",
+          "forms": [
+            "dans",
+            "à l’intérieur de"
+          ],
+          "examples": [
+            "L’eau est dans le verre."
+          ],
+          "notes": "interior localizer"
+        },
+        "es": {
+          "lemma": "en / dentro de",
+          "forms": [
+            "en",
+            "dentro de"
+          ],
+          "examples": [
+            "El agua está en el vaso."
+          ],
+          "notes": "interior localizer"
+        }
+      }
+    },
+    {
+      "id": "op:core:outside",
+      "family": "exteriority_location",
+      "class": [
+        "spatial_relation",
+        "topological_relation",
+        "localizer"
+      ],
+      "symbol": "Outside(x,y)",
+      "arity": "2",
+      "dual": "op:core:inside",
+      "inverse": null,
+      "description": "x is outside the boundary/interior of y",
+      "equations": [
+        "Outside(x,y)",
+        "x ∉ Int(y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "na zewnątrz / poza",
+          "forms": [
+            "na zewnątrz",
+            "poza",
+            "zewnątrz"
+          ],
+          "examples": [
+            "Kot jest poza domem."
+          ],
+          "notes": "exterior relative to boundary"
+        },
+        "en": {
+          "lemma": "outside / beyond",
+          "forms": [
+            "outside",
+            "beyond"
+          ],
+          "examples": [
+            "The cat is outside the house."
+          ],
+          "notes": "exterior relation"
+        },
+        "de": {
+          "lemma": "außerhalb",
+          "forms": [
+            "außerhalb",
+            "draußen"
+          ],
+          "examples": [
+            "Die Katze ist außerhalb des Hauses."
+          ],
+          "notes": "exterior relation"
+        },
+        "fr": {
+          "lemma": "dehors / hors de",
+          "forms": [
+            "dehors",
+            "hors de",
+            "à l’extérieur de"
+          ],
+          "examples": [
+            "Le chat est hors de la maison."
+          ],
+          "notes": "exterior relation"
+        },
+        "es": {
+          "lemma": "fuera de",
+          "forms": [
+            "fuera de",
+            "afuera"
+          ],
+          "examples": [
+            "El gato está fuera de la casa."
+          ],
+          "notes": "exterior relation"
+        }
+      }
+    },
+    {
+      "id": "op:core:on",
+      "family": "surface_contact_support",
+      "class": [
+        "spatial_relation",
+        "support_relation"
+      ],
+      "symbol": "On(x,y)",
+      "arity": "2",
+      "dual": "op:core:under",
+      "inverse": "op:core:under",
+      "description": "surface contact or support relation",
+      "equations": [
+        "On(x,y)",
+        "Contact(x, Surface(y))"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "na",
+          "forms": [
+            "na"
+          ],
+          "examples": [
+            "Książka leży na stole."
+          ],
+          "notes": "surface/support localizer"
+        },
+        "en": {
+          "lemma": "on",
+          "forms": [
+            "on",
+            "upon"
+          ],
+          "examples": [
+            "The book is on the table."
+          ],
+          "notes": "surface/support"
+        },
+        "de": {
+          "lemma": "auf",
+          "forms": [
+            "auf"
+          ],
+          "examples": [
+            "Das Buch liegt auf dem Tisch."
+          ],
+          "notes": "case may encode state/motion"
+        },
+        "fr": {
+          "lemma": "sur",
+          "forms": [
+            "sur"
+          ],
+          "examples": [
+            "Le livre est sur la table."
+          ],
+          "notes": "surface localizer"
+        },
+        "es": {
+          "lemma": "sobre / en",
+          "forms": [
+            "sobre",
+            "en"
+          ],
+          "examples": [
+            "El libro está sobre la mesa."
+          ],
+          "notes": "surface/support"
+        }
+      }
+    },
+    {
+      "id": "op:core:under",
+      "family": "below_covered_by",
+      "class": [
+        "spatial_relation",
+        "vertical_relation"
+      ],
+      "symbol": "Under(x,y)",
+      "arity": "2",
+      "dual": "op:core:on",
+      "inverse": "op:core:above",
+      "description": "x is below or beneath y",
+      "equations": [
+        "Under(x,y)",
+        "z(x)<z(y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "pod",
+          "forms": [
+            "pod"
+          ],
+          "examples": [
+            "Kot jest pod stołem."
+          ],
+          "notes": "below relation"
+        },
+        "en": {
+          "lemma": "under",
+          "forms": [
+            "under",
+            "beneath",
+            "below"
+          ],
+          "examples": [
+            "The cat is under the table."
+          ],
+          "notes": "below relation"
+        },
+        "de": {
+          "lemma": "unter",
+          "forms": [
+            "unter"
+          ],
+          "examples": [
+            "Die Katze ist unter dem Tisch."
+          ],
+          "notes": "below relation"
+        },
+        "fr": {
+          "lemma": "sous",
+          "forms": [
+            "sous"
+          ],
+          "examples": [
+            "Le chat est sous la table."
+          ],
+          "notes": "below relation"
+        },
+        "es": {
+          "lemma": "debajo de / bajo",
+          "forms": [
+            "debajo de",
+            "bajo"
+          ],
+          "examples": [
+            "El gato está debajo de la mesa."
+          ],
+          "notes": "below relation"
+        }
+      }
+    },
+    {
+      "id": "op:core:above",
+      "family": "above_vertical_superposition",
+      "class": [
+        "spatial_relation",
+        "vertical_relation"
+      ],
+      "symbol": "Above(x,y)",
+      "arity": "2",
+      "dual": "op:core:under",
+      "inverse": "op:core:under",
+      "description": "x is above y along a vertical or hierarchy axis",
+      "equations": [
+        "Above(x,y)",
+        "z(x)>z(y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "nad / powyżej",
+          "forms": [
+            "nad",
+            "powyżej"
+          ],
+          "examples": [
+            "Lampa jest nad stołem."
+          ],
+          "notes": "above relation; may be spatial or hierarchical"
+        },
+        "en": {
+          "lemma": "above / over",
+          "forms": [
+            "above",
+            "over"
+          ],
+          "examples": [
+            "The lamp is above the table."
+          ],
+          "notes": "above relation"
+        },
+        "de": {
+          "lemma": "über",
+          "forms": [
+            "über",
+            "oberhalb"
+          ],
+          "examples": [
+            "Die Lampe ist über dem Tisch."
+          ],
+          "notes": "above relation"
+        },
+        "fr": {
+          "lemma": "au-dessus de",
+          "forms": [
+            "au-dessus de",
+            "sur"
+          ],
+          "examples": [
+            "La lampe est au-dessus de la table."
+          ],
+          "notes": "above relation"
+        },
+        "es": {
+          "lemma": "encima de / sobre",
+          "forms": [
+            "encima de",
+            "sobre"
+          ],
+          "examples": [
+            "La lámpara está encima de la mesa."
+          ],
+          "notes": "above relation"
+        }
+      }
+    },
+    {
+      "id": "op:core:before",
+      "family": "temporal_precedence",
+      "class": [
+        "temporal_relation",
+        "ordering_operator"
+      ],
+      "symbol": "Before(x,y)",
+      "arity": "2",
+      "dual": "op:core:after",
+      "inverse": "op:core:after",
+      "description": "x precedes y in time, sequence or priority",
+      "equations": [
+        "Before(x,y)",
+        "t(x)<t(y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "przed",
+          "forms": [
+            "przed",
+            "wcześniej niż"
+          ],
+          "examples": [
+            "Świt jest przed południem."
+          ],
+          "notes": "temporal/spatial depending on arguments"
+        },
+        "en": {
+          "lemma": "before",
+          "forms": [
+            "before",
+            "prior to"
+          ],
+          "examples": [
+            "Dawn is before noon."
+          ],
+          "notes": "temporal precedence"
+        },
+        "de": {
+          "lemma": "vor",
+          "forms": [
+            "vor"
+          ],
+          "examples": [
+            "Die Morgendämmerung ist vor dem Mittag."
+          ],
+          "notes": "temporal/spatial"
+        },
+        "fr": {
+          "lemma": "avant",
+          "forms": [
+            "avant",
+            "avant que"
+          ],
+          "examples": [
+            "L’aube est avant midi."
+          ],
+          "notes": "temporal precedence"
+        },
+        "es": {
+          "lemma": "antes de",
+          "forms": [
+            "antes de"
+          ],
+          "examples": [
+            "El amanecer es antes del mediodía."
+          ],
+          "notes": "temporal precedence"
+        }
+      }
+    },
+    {
+      "id": "op:core:after",
+      "family": "temporal_succession",
+      "class": [
+        "temporal_relation",
+        "ordering_operator"
+      ],
+      "symbol": "After(x,y)",
+      "arity": "2",
+      "dual": "op:core:before",
+      "inverse": "op:core:before",
+      "description": "x follows y in time, sequence or consequence",
+      "equations": [
+        "After(x,y)",
+        "t(x)>t(y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "po",
+          "forms": [
+            "po",
+            "później niż"
+          ],
+          "examples": [
+            "Noc jest po dniu."
+          ],
+          "notes": "temporal/spatial ordering"
+        },
+        "en": {
+          "lemma": "after",
+          "forms": [
+            "after",
+            "following"
+          ],
+          "examples": [
+            "Night is after day."
+          ],
+          "notes": "temporal succession"
+        },
+        "de": {
+          "lemma": "nach",
+          "forms": [
+            "nach"
+          ],
+          "examples": [
+            "Die Nacht ist nach dem Tag."
+          ],
+          "notes": "temporal succession"
+        },
+        "fr": {
+          "lemma": "après",
+          "forms": [
+            "après"
+          ],
+          "examples": [
+            "La nuit est après le jour."
+          ],
+          "notes": "temporal succession"
+        },
+        "es": {
+          "lemma": "después de",
+          "forms": [
+            "después de",
+            "tras"
+          ],
+          "examples": [
+            "La noche es después del día."
+          ],
+          "notes": "temporal succession"
+        }
+      }
+    },
+    {
+      "id": "op:core:with",
+      "family": "association_accompaniment_instrument",
+      "class": [
+        "relation_operator",
+        "instrument_operator",
+        "co_presence"
+      ],
+      "symbol": "With(x,y)",
+      "arity": "2",
+      "dual": "op:core:without",
+      "inverse": null,
+      "description": "co-presence, accompaniment, instrumentality or association",
+      "equations": [
+        "With(x,y)",
+        "Associate(x,y)",
+        "Instrument(action,y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "z / ze",
+          "forms": [
+            "z",
+            "ze"
+          ],
+          "examples": [
+            "Idę z przyjacielem.",
+            "Piszę piórem."
+          ],
+          "notes": "co-presence/instrument may split by case/context"
+        },
+        "en": {
+          "lemma": "with",
+          "forms": [
+            "with"
+          ],
+          "examples": [
+            "I go with a friend.",
+            "I write with a pen."
+          ],
+          "notes": "association/instrument"
+        },
+        "de": {
+          "lemma": "mit",
+          "forms": [
+            "mit"
+          ],
+          "examples": [
+            "Ich gehe mit einem Freund."
+          ],
+          "notes": "dative association/instrument"
+        },
+        "fr": {
+          "lemma": "avec",
+          "forms": [
+            "avec"
+          ],
+          "examples": [
+            "Je vais avec un ami."
+          ],
+          "notes": "association/instrument"
+        },
+        "es": {
+          "lemma": "con",
+          "forms": [
+            "con"
+          ],
+          "examples": [
+            "Voy con un amigo."
+          ],
+          "notes": "association/instrument"
+        }
+      }
+    },
+    {
+      "id": "op:core:without",
+      "family": "absence_deprivation",
+      "class": [
+        "relation_operator",
+        "absence_operator",
+        "negated_association"
+      ],
+      "symbol": "Without(x,y)",
+      "arity": "2",
+      "dual": "op:core:with",
+      "inverse": null,
+      "description": "absence of association, possession or accompanying entity",
+      "equations": [
+        "Without(x,y)",
+        "¬With(x,y)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "bez",
+          "forms": [
+            "bez"
+          ],
+          "examples": [
+            "Kawa bez cukru."
+          ],
+          "notes": "absence/deprivation"
+        },
+        "en": {
+          "lemma": "without",
+          "forms": [
+            "without"
+          ],
+          "examples": [
+            "Coffee without sugar."
+          ],
+          "notes": "absence of associated item"
+        },
+        "de": {
+          "lemma": "ohne",
+          "forms": [
+            "ohne"
+          ],
+          "examples": [
+            "Kaffee ohne Zucker."
+          ],
+          "notes": "absence"
+        },
+        "fr": {
+          "lemma": "sans",
+          "forms": [
+            "sans"
+          ],
+          "examples": [
+            "Café sans sucre."
+          ],
+          "notes": "absence"
+        },
+        "es": {
+          "lemma": "sin",
+          "forms": [
+            "sin"
+          ],
+          "examples": [
+            "Café sin azúcar."
+          ],
+          "notes": "absence"
+        }
+      }
+    },
+    {
+      "id": "op:core:from",
+      "family": "source_origin_separation",
+      "class": [
+        "source_operator",
+        "path_operator"
+      ],
+      "symbol": "From(x,source)",
+      "arity": "2",
+      "dual": "op:core:to",
+      "inverse": "op:core:to",
+      "description": "origin, source, extraction or separation",
+      "equations": [
+        "From(x,s)",
+        "Origin(x)=s"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "od / z",
+          "forms": [
+            "od",
+            "z"
+          ],
+          "examples": [
+            "Wracam z domu.",
+            "List od matki."
+          ],
+          "notes": "source/origin split"
+        },
+        "en": {
+          "lemma": "from",
+          "forms": [
+            "from",
+            "out of"
+          ],
+          "examples": [
+            "I return from home.",
+            "A letter from mother."
+          ],
+          "notes": "source/origin"
+        },
+        "de": {
+          "lemma": "von / aus",
+          "forms": [
+            "von",
+            "aus"
+          ],
+          "examples": [
+            "Ich komme aus dem Haus."
+          ],
+          "notes": "source distinction"
+        },
+        "fr": {
+          "lemma": "de / depuis",
+          "forms": [
+            "de",
+            "depuis"
+          ],
+          "examples": [
+            "Je reviens de la maison."
+          ],
+          "notes": "source/origin"
+        },
+        "es": {
+          "lemma": "de / desde",
+          "forms": [
+            "de",
+            "desde"
+          ],
+          "examples": [
+            "Vuelvo de casa."
+          ],
+          "notes": "source/origin"
+        }
+      }
+    },
+    {
+      "id": "op:core:to",
+      "family": "target_destination_direction",
+      "class": [
+        "target_operator",
+        "path_operator"
+      ],
+      "symbol": "To(x,target)",
+      "arity": "2",
+      "dual": "op:core:from",
+      "inverse": "op:core:from",
+      "description": "destination, target, receiver or direction",
+      "equations": [
+        "To(x,t)",
+        "Target(x)=t"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "do / ku",
+          "forms": [
+            "do",
+            "ku"
+          ],
+          "examples": [
+            "Idę do domu."
+          ],
+          "notes": "destination/goal"
+        },
+        "en": {
+          "lemma": "to / toward",
+          "forms": [
+            "to",
+            "toward",
+            "towards"
+          ],
+          "examples": [
+            "I go to the house."
+          ],
+          "notes": "target/destination"
+        },
+        "de": {
+          "lemma": "zu / nach",
+          "forms": [
+            "zu",
+            "nach"
+          ],
+          "examples": [
+            "Ich gehe nach Hause."
+          ],
+          "notes": "destination distinction"
+        },
+        "fr": {
+          "lemma": "à / vers",
+          "forms": [
+            "à",
+            "vers"
+          ],
+          "examples": [
+            "Je vais à la maison."
+          ],
+          "notes": "target/destination"
+        },
+        "es": {
+          "lemma": "a / hacia",
+          "forms": [
+            "a",
+            "hacia"
+          ],
+          "examples": [
+            "Voy a casa."
+          ],
+          "notes": "target/destination"
+        }
+      }
+    },
+    {
+      "id": "op:core:through",
+      "family": "path_traversal_mediation",
+      "class": [
+        "path_operator",
+        "channel_operator",
+        "mediation"
+      ],
+      "symbol": "Through(x,medium)",
+      "arity": "2",
+      "dual": null,
+      "inverse": null,
+      "description": "movement, causation or communication through a medium/channel",
+      "equations": [
+        "Through(path,medium)",
+        "MediatedBy(action,medium)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "przez",
+          "forms": [
+            "przez"
+          ],
+          "examples": [
+            "Idę przez las.",
+            "Wiadomość przyszła przez telefon."
+          ],
+          "notes": "path/agency/mediation"
+        },
+        "en": {
+          "lemma": "through",
+          "forms": [
+            "through",
+            "via"
+          ],
+          "examples": [
+            "I walk through the forest.",
+            "The message came via phone."
+          ],
+          "notes": "path/channel"
+        },
+        "de": {
+          "lemma": "durch",
+          "forms": [
+            "durch"
+          ],
+          "examples": [
+            "Ich gehe durch den Wald."
+          ],
+          "notes": "path/causal channel"
+        },
+        "fr": {
+          "lemma": "par / à travers",
+          "forms": [
+            "par",
+            "à travers"
+          ],
+          "examples": [
+            "Je marche à travers la forêt."
+          ],
+          "notes": "path/agency"
+        },
+        "es": {
+          "lemma": "por / a través de",
+          "forms": [
+            "por",
+            "a través de"
+          ],
+          "examples": [
+            "Camino por el bosque."
+          ],
+          "notes": "path/mediation"
+        }
+      }
+    },
+    {
+      "id": "op:core:and",
+      "family": "conjunction_coupling",
+      "class": [
+        "logic_operator",
+        "graph_coupling"
+      ],
+      "symbol": "x ∧ y / x ⊗ y",
+      "arity": "2+",
+      "dual": "op:core:or",
+      "inverse": null,
+      "description": "joins structures conjunctively; can tensor-couple semantic bodies",
+      "equations": [
+        "And(x,y)",
+        "x ∧ y",
+        "x ⊗ y"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "i / oraz",
+          "forms": [
+            "i",
+            "oraz"
+          ],
+          "examples": [
+            "Woda i ogień."
+          ],
+          "notes": "conjunction"
+        },
+        "en": {
+          "lemma": "and",
+          "forms": [
+            "and"
+          ],
+          "examples": [
+            "Water and fire."
+          ],
+          "notes": "conjunction"
+        },
+        "de": {
+          "lemma": "und",
+          "forms": [
+            "und"
+          ],
+          "examples": [
+            "Wasser und Feuer."
+          ],
+          "notes": "conjunction"
+        },
+        "fr": {
+          "lemma": "et",
+          "forms": [
+            "et"
+          ],
+          "examples": [
+            "L’eau et le feu."
+          ],
+          "notes": "conjunction"
+        },
+        "es": {
+          "lemma": "y / e",
+          "forms": [
+            "y",
+            "e"
+          ],
+          "examples": [
+            "Agua y fuego."
+          ],
+          "notes": "conjunction"
+        }
+      }
+    },
+    {
+      "id": "op:core:or",
+      "family": "disjunction_alternative",
+      "class": [
+        "logic_operator",
+        "branching_operator"
+      ],
+      "symbol": "x ∨ y / x ⊕ y",
+      "arity": "2+",
+      "dual": "op:core:and",
+      "inverse": null,
+      "description": "introduces alternatives, branches or option-space",
+      "equations": [
+        "Or(x,y)",
+        "x ∨ y",
+        "x ⊕ y"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "albo / lub",
+          "forms": [
+            "albo",
+            "lub"
+          ],
+          "examples": [
+            "Woda albo sok."
+          ],
+          "notes": "inclusive/exclusive distinction may be context-dependent"
+        },
+        "en": {
+          "lemma": "or",
+          "forms": [
+            "or"
+          ],
+          "examples": [
+            "Water or juice."
+          ],
+          "notes": "alternative"
+        },
+        "de": {
+          "lemma": "oder",
+          "forms": [
+            "oder"
+          ],
+          "examples": [
+            "Wasser oder Saft."
+          ],
+          "notes": "alternative"
+        },
+        "fr": {
+          "lemma": "ou",
+          "forms": [
+            "ou"
+          ],
+          "examples": [
+            "De l’eau ou du jus."
+          ],
+          "notes": "alternative"
+        },
+        "es": {
+          "lemma": "o / u",
+          "forms": [
+            "o",
+            "u"
+          ],
+          "examples": [
+            "Agua o jugo."
+          ],
+          "notes": "alternative"
+        }
+      }
+    },
+    {
+      "id": "op:core:not",
+      "family": "negation_phase_inversion",
+      "class": [
+        "logic_operator",
+        "phase_operator",
+        "polarity_operator"
+      ],
+      "symbol": "¬x / e^{iπ}",
+      "arity": "1",
+      "dual": null,
+      "inverse": null,
+      "description": "negates proposition or flips polarity/phase on selected scope",
+      "equations": [
+        "Not(P)",
+        "¬P",
+        "phase(P)+π"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "nie",
+          "forms": [
+            "nie"
+          ],
+          "examples": [
+            "To nie jest woda."
+          ],
+          "notes": "scope sensitive"
+        },
+        "en": {
+          "lemma": "not / no",
+          "forms": [
+            "not",
+            "no"
+          ],
+          "examples": [
+            "This is not water."
+          ],
+          "notes": "scope sensitive negation"
+        },
+        "de": {
+          "lemma": "nicht / kein",
+          "forms": [
+            "nicht",
+            "kein"
+          ],
+          "examples": [
+            "Das ist kein Wasser."
+          ],
+          "notes": "nicht/kein split"
+        },
+        "fr": {
+          "lemma": "ne...pas / non",
+          "forms": [
+            "ne...pas",
+            "pas",
+            "non"
+          ],
+          "examples": [
+            "Ce n’est pas de l’eau."
+          ],
+          "notes": "discontinuous negation"
+        },
+        "es": {
+          "lemma": "no",
+          "forms": [
+            "no"
+          ],
+          "examples": [
+            "Esto no es agua."
+          ],
+          "notes": "pre-verbal negation"
+        }
+      }
+    },
+    {
+      "id": "op:core:if_then",
+      "family": "conditional_implication",
+      "class": [
+        "logic_operator",
+        "condition_operator",
+        "causal_structure"
+      ],
+      "symbol": "If(P)⇒Q",
+      "arity": "2",
+      "dual": null,
+      "inverse": null,
+      "description": "conditional relation linking antecedent to consequent",
+      "equations": [
+        "If(P,Q)",
+        "P ⇒ Q"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "jeśli...to / gdy...to",
+          "forms": [
+            "jeśli",
+            "gdy",
+            "to",
+            "wtedy"
+          ],
+          "examples": [
+            "Jeśli pada, to ziemia moknie."
+          ],
+          "notes": "conditional-temporal overlap"
+        },
+        "en": {
+          "lemma": "if...then",
+          "forms": [
+            "if",
+            "then",
+            "when"
+          ],
+          "examples": [
+            "If it rains, then the ground gets wet."
+          ],
+          "notes": "condition/result"
+        },
+        "de": {
+          "lemma": "wenn...dann",
+          "forms": [
+            "wenn",
+            "dann"
+          ],
+          "examples": [
+            "Wenn es regnet, dann wird der Boden nass."
+          ],
+          "notes": "condition/result"
+        },
+        "fr": {
+          "lemma": "si...alors",
+          "forms": [
+            "si",
+            "alors"
+          ],
+          "examples": [
+            "S’il pleut, alors le sol devient humide."
+          ],
+          "notes": "condition/result"
+        },
+        "es": {
+          "lemma": "si...entonces",
+          "forms": [
+            "si",
+            "entonces"
+          ],
+          "examples": [
+            "Si llueve, entonces el suelo se moja."
+          ],
+          "notes": "condition/result"
+        }
+      }
+    },
+    {
+      "id": "op:core:because",
+      "family": "causal_explanation",
+      "class": [
+        "causal_operator",
+        "explanation_operator"
+      ],
+      "symbol": "Because(Q,P) => Cause(P,Q)",
+      "arity": "2",
+      "dual": null,
+      "inverse": null,
+      "description": "links outcome/explanation to a cause or reason",
+      "equations": [
+        "Because(Q,P)",
+        "Cause(P,Q)",
+        "Reason(P,Q)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "bo / ponieważ",
+          "forms": [
+            "bo",
+            "ponieważ",
+            "gdyż"
+          ],
+          "examples": [
+            "Ziemia moknie, bo pada."
+          ],
+          "notes": "causal/explanatory"
+        },
+        "en": {
+          "lemma": "because",
+          "forms": [
+            "because",
+            "since"
+          ],
+          "examples": [
+            "The ground gets wet because it rains."
+          ],
+          "notes": "cause/reason"
+        },
+        "de": {
+          "lemma": "weil / denn",
+          "forms": [
+            "weil",
+            "denn"
+          ],
+          "examples": [
+            "Der Boden wird nass, weil es regnet."
+          ],
+          "notes": "causal; syntax shift in weil"
+        },
+        "fr": {
+          "lemma": "parce que / car",
+          "forms": [
+            "parce que",
+            "car"
+          ],
+          "examples": [
+            "Le sol devient humide parce qu’il pleut."
+          ],
+          "notes": "cause/reason"
+        },
+        "es": {
+          "lemma": "porque",
+          "forms": [
+            "porque",
+            "ya que"
+          ],
+          "examples": [
+            "El suelo se moja porque llueve."
+          ],
+          "notes": "cause/reason"
+        }
+      }
+    },
+    {
+      "id": "op:core:how",
+      "family": "manner_similarity_pattern_polyfunction",
+      "class": [
+        "query_operator",
+        "manner_operator",
+        "comparison_operator",
+        "pattern_mapping"
+      ],
+      "symbol": "How(T) / Like(x,y) / As(x,y)",
+      "arity": "1-2",
+      "dual": null,
+      "inverse": null,
+      "description": "polyfunctional manner question, comparison or pattern-mapping operator",
+      "equations": [
+        "How(T)->ask(Manner(T))",
+        "Like(x,y)->Sim(x,y)",
+        "As(x,y)->MapPattern(y→x)"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "jak",
+          "forms": [
+            "jak",
+            "jako"
+          ],
+          "examples": [
+            "Jak to działa?",
+            "To działa jak silnik.",
+            "Zrób to jak wcześniej."
+          ],
+          "notes": "manner/similarity/pattern/conditional overlap"
+        },
+        "en": {
+          "lemma": "how / as / like",
+          "forms": [
+            "how",
+            "as",
+            "like"
+          ],
+          "examples": [
+            "How does it work?",
+            "It works like an engine.",
+            "Do it as before."
+          ],
+          "notes": "split across how/as/like"
+        },
+        "de": {
+          "lemma": "wie / als",
+          "forms": [
+            "wie",
+            "als"
+          ],
+          "examples": [
+            "Wie funktioniert das?",
+            "Es funktioniert wie ein Motor."
+          ],
+          "notes": "wie/als split"
+        },
+        "fr": {
+          "lemma": "comment / comme",
+          "forms": [
+            "comment",
+            "comme"
+          ],
+          "examples": [
+            "Comment ça marche?",
+            "Ça marche comme un moteur."
+          ],
+          "notes": "comment/comme split"
+        },
+        "es": {
+          "lemma": "cómo / como",
+          "forms": [
+            "cómo",
+            "como"
+          ],
+          "examples": [
+            "¿Cómo funciona?",
+            "Funciona como un motor."
+          ],
+          "notes": "accent distinguishes query in writing"
+        }
+      }
+    },
+    {
+      "id": "op:core:where",
+      "family": "location_query",
+      "class": [
+        "query_operator",
+        "spatial_operator"
+      ],
+      "symbol": "Where(x)->ask(Location(x))",
+      "arity": "1",
+      "dual": null,
+      "inverse": null,
+      "description": "queries or marks location of an entity/event",
+      "equations": [
+        "Where(x)->ask(Location(x))"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "gdzie",
+          "forms": [
+            "gdzie"
+          ],
+          "examples": [
+            "Gdzie jest woda?"
+          ],
+          "notes": "location query"
+        },
+        "en": {
+          "lemma": "where",
+          "forms": [
+            "where"
+          ],
+          "examples": [
+            "Where is the water?"
+          ],
+          "notes": "location query"
+        },
+        "de": {
+          "lemma": "wo / wohin",
+          "forms": [
+            "wo",
+            "wohin"
+          ],
+          "examples": [
+            "Wo ist das Wasser?"
+          ],
+          "notes": "location vs direction split"
+        },
+        "fr": {
+          "lemma": "où",
+          "forms": [
+            "où"
+          ],
+          "examples": [
+            "Où est l’eau?"
+          ],
+          "notes": "location query"
+        },
+        "es": {
+          "lemma": "dónde",
+          "forms": [
+            "dónde",
+            "adónde"
+          ],
+          "examples": [
+            "¿Dónde está el agua?"
+          ],
+          "notes": "location vs direction split"
+        }
+      }
+    },
+    {
+      "id": "op:core:when",
+      "family": "temporal_query_marker",
+      "class": [
+        "query_operator",
+        "temporal_operator"
+      ],
+      "symbol": "When(e)->ask(Time(e))",
+      "arity": "1",
+      "dual": null,
+      "inverse": null,
+      "description": "queries or marks time of an event/state",
+      "equations": [
+        "When(e)->ask(Time(e))"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "kiedy / gdy",
+          "forms": [
+            "kiedy",
+            "gdy"
+          ],
+          "examples": [
+            "Kiedy pada deszcz?"
+          ],
+          "notes": "temporal query/subordinator"
+        },
+        "en": {
+          "lemma": "when",
+          "forms": [
+            "when"
+          ],
+          "examples": [
+            "When does it rain?"
+          ],
+          "notes": "time query/subordinator"
+        },
+        "de": {
+          "lemma": "wann / wenn / als",
+          "forms": [
+            "wann",
+            "wenn",
+            "als"
+          ],
+          "examples": [
+            "Wann regnet es?"
+          ],
+          "notes": "query/conditional/past split"
+        },
+        "fr": {
+          "lemma": "quand / lorsque",
+          "forms": [
+            "quand",
+            "lorsque"
+          ],
+          "examples": [
+            "Quand pleut-il?"
+          ],
+          "notes": "time query/subordinator"
+        },
+        "es": {
+          "lemma": "cuándo / cuando",
+          "forms": [
+            "cuándo",
+            "cuando"
+          ],
+          "examples": [
+            "¿Cuándo llueve?"
+          ],
+          "notes": "accent distinguishes query"
+        }
+      }
+    },
+    {
+      "id": "op:core:like_as",
+      "family": "similarity_role_mapping",
+      "class": [
+        "comparison_operator",
+        "analogy_operator",
+        "role_mapping"
+      ],
+      "symbol": "Like(x,y) / AsRole(x,r)",
+      "arity": "2",
+      "dual": null,
+      "inverse": null,
+      "description": "maps similarity, analogy, role or function between entities/actions",
+      "equations": [
+        "Like(x,y)->Sim(x,y)",
+        "AsRole(x,r)->Role(x)=r"
+      ],
+      "surfaces": {
+        "pl": {
+          "lemma": "jak / jako",
+          "forms": [
+            "jak",
+            "jako",
+            "podobnie do"
+          ],
+          "examples": [
+            "On pracuje jako lekarz.",
+            "To jest jak woda."
+          ],
+          "notes": "similarity vs role must be disambiguated"
+        },
+        "en": {
+          "lemma": "like / as",
+          "forms": [
+            "like",
+            "as"
+          ],
+          "examples": [
+            "He works as a doctor.",
+            "This is like water."
+          ],
+          "notes": "like=similarity, as=role/pattern often"
+        },
+        "de": {
+          "lemma": "wie / als",
+          "forms": [
+            "wie",
+            "als"
+          ],
+          "examples": [
+            "Er arbeitet als Arzt.",
+            "Das ist wie Wasser."
+          ],
+          "notes": "wie/als distinction"
+        },
+        "fr": {
+          "lemma": "comme / en tant que",
+          "forms": [
+            "comme",
+            "en tant que"
+          ],
+          "examples": [
+            "Il travaille comme médecin."
+          ],
+          "notes": "similarity/role"
+        },
+        "es": {
+          "lemma": "como",
+          "forms": [
+            "como",
+            "en calidad de"
+          ],
+          "examples": [
+            "Trabaja como médico."
+          ],
+          "notes": "similarity/role by context"
+        }
+      }
+    }
+  ],
+  "dual_pairs": [
+    {
+      "operator_id": "op:core:contain",
+      "dual": "op:core:inside",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:inside",
+      "dual": "op:core:contain",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:outside",
+      "dual": "op:core:inside",
+      "relation_type": "dual"
+    },
+    {
+      "operator_id": "op:core:on",
+      "dual": "op:core:under",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:under",
+      "dual": "op:core:on",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:above",
+      "dual": "op:core:under",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:before",
+      "dual": "op:core:after",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:after",
+      "dual": "op:core:before",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:with",
+      "dual": "op:core:without",
+      "relation_type": "dual"
+    },
+    {
+      "operator_id": "op:core:without",
+      "dual": "op:core:with",
+      "relation_type": "dual"
+    },
+    {
+      "operator_id": "op:core:from",
+      "dual": "op:core:to",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:to",
+      "dual": "op:core:from",
+      "relation_type": "dual/inverse"
+    },
+    {
+      "operator_id": "op:core:and",
+      "dual": "op:core:or",
+      "relation_type": "dual"
+    },
+    {
+      "operator_id": "op:core:or",
+      "dual": "op:core:and",
+      "relation_type": "dual"
+    }
+  ],
+  "created_at": "2026-05-10T01:03:43Z"
+}

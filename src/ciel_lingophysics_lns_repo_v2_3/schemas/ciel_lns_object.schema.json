@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_object.schema.json",
+  "title": "CIEL-LNS Object",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "language",
+    "surface",
+    "epistemic",
+    "semantic_mass",
+    "phase",
+    "audit"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Glyph",
+        "Lexeme",
+        "Sentence",
+        "Memory",
+        "Concept",
+        "Claim",
+        "Protocol",
+        "Agent",
+        "Artifact"
+      ]
+    },
+    "language": {
+      "type": "string"
+    },
+    "surface": {
+      "type": "object",
+      "required": [
+        "label"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "forms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "grammar": {
+      "type": "object"
+    },
+    "glyph": {
+      "type": "object"
+    },
+    "knot": {
+      "type": "object"
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "epistemic": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "placeholder",
+            "draft",
+            "hypothesis",
+            "derived",
+            "verified",
+            "canonical",
+            "deprecated",
+            "contradicted",
+            "quarantined"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "provenance_strength": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "semantic_mass": {
+      "type": "object",
+      "properties": {
+        "m_s": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "phase": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      }
+    },
+    "affect": {
+      "type": "object"
+    },
+    "orbit": {
+      "type": "object"
+    },
+    "memory": {
+      "type": "object"
+    },
+    "audit": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

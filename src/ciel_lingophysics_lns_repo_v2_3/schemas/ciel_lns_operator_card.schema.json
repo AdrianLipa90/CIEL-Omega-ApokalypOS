@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_operator_card.schema.json",
+  "title": "CIEL-LNS Operator Card",
+  "type": "object",
+  "required": [
+    "id",
+    "family",
+    "class",
+    "symbol",
+    "arity",
+    "description",
+    "equations",
+    "surfaces"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^op:"
+    },
+    "family": {
+      "type": "string"
+    },
+    "class": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "arity": {
+      "type": "string"
+    },
+    "dual": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "inverse": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "equations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "surfaces": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]{2}$": {
+          "type": "object",
+          "required": [
+            "lemma",
+            "forms",
+            "examples",
+            "notes"
+          ],
+          "properties": {
+            "lemma": {
+              "type": "string"
+            },
+            "forms": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "examples": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

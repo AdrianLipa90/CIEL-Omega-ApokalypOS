@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<key id="label" for="node" attr.name="label" attr.type="string"/>
+<key id="type" for="node" attr.name="type" attr.type="string"/>
+<key id="relation" for="edge" attr.name="relation" attr.type="string"/>
+<graph id="operator_core" edgedefault="directed">
+<node id="op:core:be"><data key="label">be</data><data key="type">operator</data></node>
+<node id="class:copula"><data key="label">copula</data><data key="type">operator_class</data></node>
+<node id="class:identity"><data key="label">identity</data><data key="type">operator_class</data></node>
+<node id="class:existence"><data key="label">existence</data><data key="type">operator_class</data></node>
+<node id="class:state_binding"><data key="label">state_binding</data><data key="type">operator_class</data></node>
+<node id="op:core:have"><data key="label">have</data><data key="type">operator</data></node>
+<node id="class:possession"><data key="label">possession</data><data key="type">operator_class</data></node>
+<node id="class:property_attachment"><data key="label">property_attachment</data><data key="type">operator_class</data></node>
+<node id="class:part_relation"><data key="label">part_relation</data><data key="type">operator_class</data></node>
+<node id="class:state_attachment"><data key="label">state_attachment</data><data key="type">operator_class</data></node>
+<node id="op:core:contain"><data key="label">contain</data><data key="type">operator</data></node>
+<node id="class:spatial_relation"><data key="label">spatial_relation</data><data key="type">operator_class</data></node>
+<node id="class:set_inclusion"><data key="label">set_inclusion</data><data key="type">operator_class</data></node>
+<node id="class:topological_relation"><data key="label">topological_relation</data><data key="type">operator_class</data></node>
+<node id="op:core:inside"><data key="label">inside</data><data key="type">operator</data></node>
+<node id="class:localizer"><data key="label">localizer</data><data key="type">operator_class</data></node>
+<node id="op:core:outside"><data key="label">outside</data><data key="type">operator</data></node>
+<node id="op:core:on"><data key="label">on</data><data key="type">operator</data></node>
+<node id="class:support_relation"><data key="label">support_relation</data><data key="type">operator_class</data></node>
+<node id="op:core:under"><data key="label">under</data><data key="type">operator</data></node>
+<node id="class:vertical_relation"><data key="label">vertical_relation</data><data key="type">operator_class</data></node>
+<node id="op:core:above"><data key="label">above</data><data key="type">operator</data></node>
+<node id="op:core:before"><data key="label">before</data><data key="type">operator</data></node>
+<node id="class:temporal_relation"><data key="label">temporal_relation</data><data key="type">operator_class</data></node>
+<node id="class:ordering_operator"><data key="label">ordering_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:after"><data key="label">after</data><data key="type">operator</data></node>
+<node id="op:core:with"><data key="label">with</data><data key="type">operator</data></node>
+<node id="class:relation_operator"><data key="label">relation_operator</data><data key="type">operator_class</data></node>
+<node id="class:instrument_operator"><data key="label">instrument_operator</data><data key="type">operator_class</data></node>
+<node id="class:co_presence"><data key="label">co_presence</data><data key="type">operator_class</data></node>
+<node id="op:core:without"><data key="label">without</data><data key="type">operator</data></node>
+<node id="class:absence_operator"><data key="label">absence_operator</data><data key="type">operator_class</data></node>
+<node id="class:negated_association"><data key="label">negated_association</data><data key="type">operator_class</data></node>
+<node id="op:core:from"><data key="label">from</data><data key="type">operator</data></node>
+<node id="class:source_operator"><data key="label">source_operator</data><data key="type">operator_class</data></node>
+<node id="class:path_operator"><data key="label">path_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:to"><data key="label">to</data><data key="type">operator</data></node>
+<node id="class:target_operator"><data key="label">target_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:through"><data key="label">through</data><data key="type">operator</data></node>
+<node id="class:channel_operator"><data key="label">channel_operator</data><data key="type">operator_class</data></node>
+<node id="class:mediation"><data key="label">mediation</data><data key="type">operator_class</data></node>
+<node id="op:core:and"><data key="label">and</data><data key="type">operator</data></node>
+<node id="class:logic_operator"><data key="label">logic_operator</data><data key="type">operator_class</data></node>
+<node id="class:graph_coupling"><data key="label">graph_coupling</data><data key="type">operator_class</data></node>
+<node id="op:core:or"><data key="label">or</data><data key="type">operator</data></node>
+<node id="class:branching_operator"><data key="label">branching_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:not"><data key="label">not</data><data key="type">operator</data></node>
+<node id="class:phase_operator"><data key="label">phase_operator</data><data key="type">operator_class</data></node>
+<node id="class:polarity_operator"><data key="label">polarity_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:if_then"><data key="label">if_then</data><data key="type">operator</data></node>
+<node id="class:condition_operator"><data key="label">condition_operator</data><data key="type">operator_class</data></node>
+<node id="class:causal_structure"><data key="label">causal_structure</data><data key="type">operator_class</data></node>
+<node id="op:core:because"><data key="label">because</data><data key="type">operator</data></node>
+<node id="class:causal_operator"><data key="label">causal_operator</data><data key="type">operator_class</data></node>
+<node id="class:explanation_operator"><data key="label">explanation_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:how"><data key="label">how</data><data key="type">operator</data></node>
+<node id="class:query_operator"><data key="label">query_operator</data><data key="type">operator_class</data></node>
+<node id="class:manner_operator"><data key="label">manner_operator</data><data key="type">operator_class</data></node>
+<node id="class:comparison_operator"><data key="label">comparison_operator</data><data key="type">operator_class</data></node>
+<node id="class:pattern_mapping"><data key="label">pattern_mapping</data><data key="type">operator_class</data></node>
+<node id="op:core:where"><data key="label">where</data><data key="type">operator</data></node>
+<node id="class:spatial_operator"><data key="label">spatial_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:when"><data key="label">when</data><data key="type">operator</data></node>
+<node id="class:temporal_operator"><data key="label">temporal_operator</data><data key="type">operator_class</data></node>
+<node id="op:core:like_as"><data key="label">like_as</data><data key="type">operator</data></node>
+<node id="class:analogy_operator"><data key="label">analogy_operator</data><data key="type">operator_class</data></node>
+<node id="class:role_mapping"><data key="label">role_mapping</data><data key="type">operator_class</data></node>
+<edge id="e0" source="op:core:be" target="class:copula"><data key="relation">has_class</data></edge>
+<edge id="e1" source="op:core:be" target="class:identity"><data key="relation">has_class</data></edge>
+<edge id="e2" source="op:core:be" target="class:existence"><data key="relation">has_class</data></edge>
+<edge id="e3" source="op:core:be" target="class:state_binding"><data key="relation">has_class</data></edge>
+<edge id="e4" source="op:core:have" target="class:possession"><data key="relation">has_class</data></edge>
+<edge id="e5" source="op:core:have" target="class:property_attachment"><data key="relation">has_class</data></edge>
+<edge id="e6" source="op:core:have" target="class:part_relation"><data key="relation">has_class</data></edge>
+<edge id="e7" source="op:core:have" target="class:state_attachment"><data key="relation">has_class</data></edge>
+<edge id="e8" source="op:core:contain" target="op:core:inside"><data key="relation">dual</data></edge>
+<edge id="e9" source="op:core:contain" target="class:spatial_relation"><data key="relation">has_class</data></edge>
+<edge id="e10" source="op:core:contain" target="class:set_inclusion"><data key="relation">has_class</data></edge>
+<edge id="e11" source="op:core:contain" target="class:topological_relation"><data key="relation">has_class</data></edge>
+<edge id="e12" source="op:core:inside" target="op:core:contain"><data key="relation">dual</data></edge>
+<edge id="e13" source="op:core:inside" target="class:spatial_relation"><data key="relation">has_class</data></edge>
+<edge id="e14" source="op:core:inside" target="class:topological_relation"><data key="relation">has_class</data></edge>
+<edge id="e15" source="op:core:inside" target="class:localizer"><data key="relation">has_class</data></edge>
+<edge id="e16" source="op:core:outside" target="op:core:inside"><data key="relation">dual</data></edge>
+<edge id="e17" source="op:core:outside" target="class:spatial_relation"><data key="relation">has_class</data></edge>
+<edge id="e18" source="op:core:outside" target="class:topological_relation"><data key="relation">has_class</data></edge>
+<edge id="e19" source="op:core:outside" target="class:localizer"><data key="relation">has_class</data></edge>
+<edge id="e20" source="op:core:on" target="op:core:under"><data key="relation">dual</data></edge>
+<edge id="e21" source="op:core:on" target="class:spatial_relation"><data key="relation">has_class</data></edge>
+<edge id="e22" source="op:core:on" target="class:support_relation"><data key="relation">has_class</data></edge>
+<edge id="e23" source="op:core:under" target="op:core:on"><data key="relation">dual</data></edge>
+<edge id="e24" source="op:core:under" target="class:spatial_relation"><data key="relation">has_class</data></edge>
+<edge id="e25" source="op:core:under" target="class:vertical_relation"><data key="relation">has_class</data></edge>
+<edge id="e26" source="op:core:above" target="op:core:under"><data key="relation">dual</data></edge>
+<edge id="e27" source="op:core:above" target="class:spatial_relation"><data key="relation">has_class</data></edge>
+<edge id="e28" source="op:core:above" target="class:vertical_relation"><data key="relation">has_class</data></edge>
+<edge id="e29" source="op:core:before" target="op:core:after"><data key="relation">dual</data></edge>
+<edge id="e30" source="op:core:before" target="class:temporal_relation"><data key="relation">has_class</data></edge>
+<edge id="e31" source="op:core:before" target="class:ordering_operator"><data key="relation">has_class</data></edge>
+<edge id="e32" source="op:core:after" target="op:core:before"><data key="relation">dual</data></edge>
+<edge id="e33" source="op:core:after" target="class:temporal_relation"><data key="relation">has_class</data></edge>
+<edge id="e34" source="op:core:after" target="class:ordering_operator"><data key="relation">has_class</data></edge>
+<edge id="e35" source="op:core:with" target="op:core:without"><data key="relation">dual</data></edge>
+<edge id="e36" source="op:core:with" target="class:relation_operator"><data key="relation">has_class</data></edge>
+<edge id="e37" source="op:core:with" target="class:instrument_operator"><data key="relation">has_class</data></edge>
+<edge id="e38" source="op:core:with" target="class:co_presence"><data key="relation">has_class</data></edge>
+<edge id="e39" source="op:core:without" target="op:core:with"><data key="relation">dual</data></edge>
+<edge id="e40" source="op:core:without" target="class:relation_operator"><data key="relation">has_class</data></edge>
+<edge id="e41" source="op:core:without" target="class:absence_operator"><data key="relation">has_class</data></edge>
+<edge id="e42" source="op:core:without" target="class:negated_association"><data key="relation">has_class</data></edge>
+<edge id="e43" source="op:core:from" target="op:core:to"><data key="relation">dual</data></edge>
+<edge id="e44" source="op:core:from" target="class:source_operator"><data key="relation">has_class</data></edge>
+<edge id="e45" source="op:core:from" target="class:path_operator"><data key="relation">has_class</data></edge>
+<edge id="e46" source="op:core:to" target="op:core:from"><data key="relation">dual</data></edge>
+<edge id="e47" source="op:core:to" target="class:target_operator"><data key="relation">has_class</data></edge>
+<edge id="e48" source="op:core:to" target="class:path_operator"><data key="relation">has_class</data></edge>
+<edge id="e49" source="op:core:through" target="class:path_operator"><data key="relation">has_class</data></edge>
+<edge id="e50" source="op:core:through" target="class:channel_operator"><data key="relation">has_class</data></edge>
+<edge id="e51" source="op:core:through" target="class:mediation"><data key="relation">has_class</data></edge>
+<edge id="e52" source="op:core:and" target="op:core:or"><data key="relation">dual</data></edge>
+<edge id="e53" source="op:core:and" target="class:logic_operator"><data key="relation">has_class</data></edge>
+<edge id="e54" source="op:core:and" target="class:graph_coupling"><data key="relation">has_class</data></edge>
+<edge id="e55" source="op:core:or" target="op:core:and"><data key="relation">dual</data></edge>
+<edge id="e56" source="op:core:or" target="class:logic_operator"><data key="relation">has_class</data></edge>
+<edge id="e57" source="op:core:or" target="class:branching_operator"><data key="relation">has_class</data></edge>
+<edge id="e58" source="op:core:not" target="class:logic_operator"><data key="relation">has_class</data></edge>
+<edge id="e59" source="op:core:not" target="class:phase_operator"><data key="relation">has_class</data></edge>
+<edge id="e60" source="op:core:not" target="class:polarity_operator"><data key="relation">has_class</data></edge>
+<edge id="e61" source="op:core:if_then" target="class:logic_operator"><data key="relation">has_class</data></edge>
+<edge id="e62" source="op:core:if_then" target="class:condition_operator"><data key="relation">has_class</data></edge>
+<edge id="e63" source="op:core:if_then" target="class:causal_structure"><data key="relation">has_class</data></edge>
+<edge id="e64" source="op:core:because" target="class:causal_operator"><data key="relation">has_class</data></edge>
+<edge id="e65" source="op:core:because" target="class:explanation_operator"><data key="relation">has_class</data></edge>
+<edge id="e66" source="op:core:how" target="class:query_operator"><data key="relation">has_class</data></edge>
+<edge id="e67" source="op:core:how" target="class:manner_operator"><data key="relation">has_class</data></edge>
+<edge id="e68" source="op:core:how" target="class:comparison_operator"><data key="relation">has_class</data></edge>
+<edge id="e69" source="op:core:how" target="class:pattern_mapping"><data key="relation">has_class</data></edge>
+<edge id="e70" source="op:core:where" target="class:query_operator"><data key="relation">has_class</data></edge>
+<edge id="e71" source="op:core:where" target="class:spatial_operator"><data key="relation">has_class</data></edge>
+<edge id="e72" source="op:core:when" target="class:query_operator"><data key="relation">has_class</data></edge>
+<edge id="e73" source="op:core:when" target="class:temporal_operator"><data key="relation">has_class</data></edge>
+<edge id="e74" source="op:core:like_as" target="class:comparison_operator"><data key="relation">has_class</data></edge>
+<edge id="e75" source="op:core:like_as" target="class:analogy_operator"><data key="relation">has_class</data></edge>
+<edge id="e76" source="op:core:like_as" target="class:role_mapping"><data key="relation">has_class</data></edge>
+</graph>
+</graphml>

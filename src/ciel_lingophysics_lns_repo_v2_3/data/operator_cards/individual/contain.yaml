@@ -1,0 +1,63 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:contain
+family: containment_inclusion
+class:
+- spatial_relation
+- set_inclusion
+- topological_relation
+symbol: Contains(y,x) ⇔ Inside(x,y)
+arity: '2'
+dual: op:core:inside
+inverse: op:core:inside
+description: 'container-oriented inclusion: y contains x'
+equations:
+- Contains(y,x)
+- x ⊂ Int(y)
+surfaces:
+  pl:
+    lemma: zawiera
+    forms:
+    - zawiera
+    - zawierają
+    - zawierał
+    - zawierający
+    examples:
+    - Szklanka zawiera wodę.
+    notes: container-focused dual of inside
+  en:
+    lemma: contain / contains
+    forms:
+    - contain
+    - contains
+    - contained
+    - containing
+    examples:
+    - The glass contains water.
+    notes: container-focused
+  de:
+    lemma: enthalten / enthält
+    forms:
+    - enthalten
+    - enthält
+    - enthielt
+    examples:
+    - Das Glas enthält Wasser.
+    notes: container/content relation
+  fr:
+    lemma: contenir / contient
+    forms:
+    - contenir
+    - contient
+    - contenait
+    examples:
+    - Le verre contient de l’eau.
+    notes: container-focused
+  es:
+    lemma: contener / contiene
+    forms:
+    - contener
+    - contiene
+    - contenía
+    examples:
+    - El vaso contiene agua.
+    notes: container-focused

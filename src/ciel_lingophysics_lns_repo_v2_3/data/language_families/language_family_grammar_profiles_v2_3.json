@@ -1,0 +1,198 @@
+{
+  "schema_version": "2.3",
+  "status": "draft_seed",
+  "principle": "Grammar algorithms are defined at family level, specialized at language level, and adapted at dialect/variant level.",
+  "families": [
+    {
+      "id": "family:slavic",
+      "label": "Slavic",
+      "default_priority": 1,
+      "core_axes": [
+        "rich_case_gauge",
+        "aspectual_verb_pairs",
+        "free_word_order_with_information_structure",
+        "gender_number_agreement",
+        "negation_scope_interactions"
+      ],
+      "languages": [
+        {
+          "code": "pl",
+          "name": "Polish",
+          "profile": "language:pl:standard",
+          "adapter_required": true
+        },
+        {
+          "code": "cs",
+          "name": "Czech",
+          "profile": "language:cs:planned",
+          "adapter_required": true
+        },
+        {
+          "code": "uk",
+          "name": "Ukrainian",
+          "profile": "language:uk:planned",
+          "adapter_required": true
+        }
+      ],
+      "algorithm_modules": [
+        "case_gauge",
+        "aspect_pair_resolver",
+        "agreement_checker",
+        "information_structure_ordering",
+        "scope_quantifier"
+      ],
+      "risk_notes": [
+        "family-level draft seed; validate before canonical use"
+      ]
+    },
+    {
+      "id": "family:germanic",
+      "label": "Germanic",
+      "default_priority": 2,
+      "core_axes": [
+        "word_order_role_recovery",
+        "auxiliary_chain",
+        "phrasal_particle_verbs",
+        "article_definiteness",
+        "reduced_case_gauge"
+      ],
+      "languages": [
+        {
+          "code": "en",
+          "name": "English",
+          "profile": "language:en:standard",
+          "adapter_required": true
+        },
+        {
+          "code": "de",
+          "name": "German",
+          "profile": "language:de:standard",
+          "adapter_required": true
+        },
+        {
+          "code": "nl",
+          "name": "Dutch",
+          "profile": "language:nl:planned",
+          "adapter_required": true
+        }
+      ],
+      "algorithm_modules": [
+        "word_order_role_mapper",
+        "auxiliary_stack_parser",
+        "article_definiteness_mapper",
+        "particle_verb_resolver",
+        "reduced_case_bridge"
+      ],
+      "risk_notes": [
+        "family-level draft seed; validate before canonical use"
+      ]
+    },
+    {
+      "id": "family:romance",
+      "label": "Romance",
+      "default_priority": 3,
+      "core_axes": [
+        "clitic_pronouns",
+        "ser_estar_or_equivalent_being_split",
+        "prepositional_role_marking",
+        "gender_number_agreement",
+        "subjunctive_mood"
+      ],
+      "languages": [
+        {
+          "code": "es",
+          "name": "Spanish",
+          "profile": "language:es:standard",
+          "adapter_required": true
+        },
+        {
+          "code": "fr",
+          "name": "French",
+          "profile": "language:fr:standard",
+          "adapter_required": true
+        },
+        {
+          "code": "it",
+          "name": "Italian",
+          "profile": "language:it:planned",
+          "adapter_required": true
+        }
+      ],
+      "algorithm_modules": [
+        "clitic_resolver",
+        "being_operator_split",
+        "prepositional_role_mapper",
+        "subjunctive_mood_detector",
+        "agreement_checker"
+      ],
+      "risk_notes": [
+        "family-level draft seed; validate before canonical use"
+      ]
+    },
+    {
+      "id": "family:japonic",
+      "label": "Japonic",
+      "default_priority": 4,
+      "core_axes": [
+        "particle_case_marking",
+        "topic_comment_structure",
+        "koto_mono_distinction",
+        "honorific_register",
+        "pro_drop"
+      ],
+      "languages": [
+        {
+          "code": "ja",
+          "name": "Japanese",
+          "profile": "language:ja:planned",
+          "adapter_required": true
+        }
+      ],
+      "algorithm_modules": [
+        "particle_role_mapper",
+        "topic_comment_resolver",
+        "koto_mono_classifier",
+        "honorific_register_mapper",
+        "pro_drop_reconstruction"
+      ],
+      "risk_notes": [
+        "family-level draft seed; validate before canonical use"
+      ]
+    },
+    {
+      "id": "family:semitic",
+      "label": "Semitic",
+      "default_priority": 5,
+      "core_axes": [
+        "root_pattern_morphology",
+        "templatic_derivation",
+        "state_construct",
+        "agreement",
+        "definiteness"
+      ],
+      "languages": [
+        {
+          "code": "ar",
+          "name": "Arabic",
+          "profile": "language:ar:planned",
+          "adapter_required": true
+        },
+        {
+          "code": "he",
+          "name": "Hebrew",
+          "profile": "language:he:planned",
+          "adapter_required": true
+        }
+      ],
+      "algorithm_modules": [
+        "root_pattern_analyzer",
+        "templatic_derivation_mapper",
+        "construct_state_parser",
+        "agreement_checker"
+      ],
+      "risk_notes": [
+        "family-level draft seed; validate before canonical use"
+      ]
+    }
+  ]
+}

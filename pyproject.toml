@@ -53,6 +53,7 @@ ciel-sot-local-nonlocality = "ciel_sot_agent.local_nonlocality_fallback:main"
 ciel-sot-wpm     = "ciel_sot_agent.wpm_cli:main"
 ciel-sot-bench   = "ciel_sot_agent.bench_cli:main"
 ciel-sot-capture = "ciel_sot_agent.capture_cli:main"
+ciel-sot-jokeheal = "ciel_sot_agent.jokeheal:main"
 
 [tool.setuptools]
 include-package-data = true

@@ -8,8 +8,8 @@
     "memory_policy": "session-first"
   },
   "session": {
-    "created_at": "2026-05-01T20:19:04.595812+00:00",
-    "updated_at": "2026-05-01T20:19:04.596100+00:00",
+    "created_at": "2026-05-09T02:36:07.513725+00:00",
+    "updated_at": "2026-05-09T02:36:07.514017+00:00",
     "turn_count": 1
   },
   "state_geometry": {
@@ -19,38 +19,38 @@
       "export_boundary_mode": "PROJECTED_ONLY"
     },
     "internal_cymatics": {
-      "coherence_index": 0.9113975986363565,
-      "closure_penalty": 5.019130708889034,
-      "system_health": 0.5857970551497929,
+      "coherence_index": 0.6765543900196206,
+      "closure_penalty": 0.7786277892119351,
+      "system_health": 0.5438751266408527,
       "board_count": 763,
       "tau_system_count": 1
     },
-    "spin": -0.01780631230750903,
+    "spin": -0.6413298823217688,
     "axis": "truth",
     "attractor": "orbital-holonomic-stability"
   },
   "control_profile": {
     "mode": "standard",
-    "psi_mode": 0.182711,
+    "psi_mode": 0.338045,
     "phase_lock_enable": true,
-    "target_phase_shift": 0.006677390181784179,
-    "target_phase_memory": 0.04456002892039556,
-    "dt_override": 0.019912,
-    "zeta_coupling_scale": 0.338237,
+    "target_phase_shift": 0.007930852380047506,
+    "target_phase_memory": 0.031228850510360562,
+    "dt_override": 0.018137,
+    "zeta_coupling_scale": 0.302733,
     "mu_phi": 0.18,
     "epsilon_hom": 0.22,
     "nonlocal_gate": true,
     "euler_memory_lock": true,
     "writeback_gate": true,
-    "rh_mode": "normal_operation",
-    "rh_severity": "low",
-    "rh_effective": 0.1548951548042653,
+    "rh_mode": "slow_execution_local_correction",
+    "rh_severity": "medium",
+    "rh_effective": 0.6051465025017524,
     "rh_drivers": {
-      "raw_rh": 0.06436512648582558,
-      "eba_defect": 0.04956895762689741,
+      "raw_rh": 0.5117438870165272,
+      "eba_defect": 0.0558147881051216,
       "coherent_fraction": 1.0,
-      "closure_score": 0.5423376184759512,
-      "phase_gap": 0.045315359204182885
+      "closure_score": 0.5346747037629884,
+      "phase_gap": 0.040686452128809635
     },
     "notes": "Stable but not deep-merge safe."
   },
@@ -178,8 +178,9 @@
     },
     "nonlocal_card_manifest": {
       "registry_present": true,
-      "card_count": 5,
+      "card_count": 6,
       "active_statuses": [
+        "ACTIVE_CANONICAL",
         "ACTIVE_CANONICAL_COUPLING_OPTIMIZER",
         "ACTIVE_CANONICAL_NONLOCAL_BRIDGE",
         "ACTIVE_CANONICAL_NONLOCAL_CARD_SET",
@@ -187,6 +188,7 @@
         "ACTIVE_CANONICAL_PHASE_RUNTIME"
       ],
       "classes": [
+        "holonomy_persistence",
         "nonlocal_memory_orchestrator",
         "nonlocal_phase_memory_card_set",
         "nonlocal_reduction_bridge",
@@ -194,9 +196,10 @@
         "phase_dynamics_runtime"
       ],
       "card_ids": [
-        "NL-HOLOMEM-0001",
-        "NL-EBA-0002",
+        "NL-BERRY-ACC-0005",
         "NL-BRIDGE-0003",
+        "NL-EBA-0002",
+        "NL-HOLOMEM-0001",
         "NL-PHASE-0004",
         "NL-WIJ-0005"
       ]
@@ -259,10 +262,10 @@
     {
       "role": "sapiens",
       "content": "Hello panel",
-      "timestamp": "2026-05-01T20:19:04.596087+00:00",
+      "timestamp": "2026-05-09T02:36:07.514005+00:00",
       "orbital_mode": "standard",
-      "coherence_index": 0.9113975986363565,
-      "closure_penalty": 5.019130708889034
+      "coherence_index": 0.6765543900196206,
+      "closure_penalty": 0.7786277892119351
     }
   ],
   "inference_contract": {

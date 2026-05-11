@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Case Gauge Mapping",
+  "type": "object",
+  "required": [
+    "version",
+    "layer",
+    "languages",
+    "case_roles",
+    "formal_maps"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "principle": {
+      "type": "string"
+    },
+    "languages": {
+      "type": "object"
+    },
+    "case_roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "ud",
+          "pl_name",
+          "canonical_operator",
+          "core_roles",
+          "equation"
+        ]
+      }
+    },
+    "formal_maps": {
+      "type": "object"
+    }
+  }
+}

@@ -9,7 +9,7 @@ LOG_DIR="$PROJECT/integration/logs"
 mkdir -p "$LOG_DIR"
 
 PORTAL_PORT=7481
-GUI_PORT=5050
+GUI_PORT=2435
 LLAMA_PORT=18520
 
 MODEL_TINY="$HOME/.local/share/ciel/models/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"
@@ -101,7 +101,7 @@ else
 fi
 echo ""
 
-# ── 4. GUI Flask (port 5050) ──────────────────────────────────
+# ── 4. GUI Flask (port 2435) ──────────────────────────────────
 echo "▶ [4/4] GUI Flask — chat z modelem (port $GUI_PORT)..."
 if lsof -ti:$GUI_PORT > /dev/null 2>&1; then
     echo "  status: już działa ✓"
