@@ -1,27 +1,27 @@
 {
-  "generated": "2026-05-11T16:13:43.224816+00:00",
-  "total_files": 781,
+  "generated": "2026-05-12T06:11:36.013133+00:00",
+  "total_files": 790,
   "by_level": {
-    "1": 79,
+    "1": 81,
     "2": 330,
-    "3": 153,
-    "4": 219
+    "3": 154,
+    "4": 225
   },
   "by_what_tag": {
     "registry": 32,
     "executor": 10,
     "bridge": 9,
-    "algorithm": 218,
-    "support": 184,
+    "algorithm": 219,
+    "support": 185,
     "satellite": 15,
     "db": 7,
     "diagnostics": 13,
     "memory": 63,
-    "interface": 34,
-    "config": 81,
+    "interface": 36,
+    "config": 82,
     "builder": 25,
-    "runner": 46,
-    "test": 104,
+    "runner": 47,
+    "test": 109,
     "affective": 11,
     "constant": 7
   },
@@ -41,6 +41,14 @@
       ],
       "count": 7,
       "mean_M_sem": 0.41714
+    },
+    {
+      "tags": [
+        "test",
+        "interface"
+      ],
+      "count": 6,
+      "mean_M_sem": 0.35
     },
     {
       "tags": [
@@ -70,14 +78,6 @@
       "tags": [
         "diagnostics",
         "test"
-      ],
-      "count": 4,
-      "mean_M_sem": 0.35
-    },
-    {
-      "tags": [
-        "test",
-        "interface"
       ],
       "count": 4,
       "mean_M_sem": 0.35
@@ -122,7 +122,7 @@
       "path": "src/ciel_sot_agent/ciel_pipeline.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.97,
-      "lines_of_code": 849,
+      "lines_of_code": 939,
       "tag_what": [
         "executor"
       ],
@@ -352,7 +352,7 @@
       "path": "src/ciel_sot_agent/chat_archive.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 242,
+      "lines_of_code": 256,
       "tag_what": [
         "interface"
       ],
@@ -523,7 +523,7 @@
       "path": "src/ciel_sot_agent/gui/routes.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 2353,
+      "lines_of_code": 2743,
       "tag_what": [
         "support"
       ],
@@ -733,7 +733,7 @@
       "path": "integration/Orbital/main/extract_geometry.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 421,
+      "lines_of_code": 422,
       "tag_what": [
         "algorithm"
       ],
@@ -881,6 +881,26 @@
       "subsystem": "ciel_sot_agent"
     },
     {
+      "path": "src/ciel_sot_agent/phase_snapshots.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 106,
+      "tag_what": [
+        "algorithm"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
+      "path": "src/ciel_sot_agent/thought_fragments.py",
+      "orbital_level": 1,
+      "M_sem_proxy": 0.9,
+      "lines_of_code": 337,
+      "tag_what": [
+        "support"
+      ],
+      "subsystem": "ciel_sot_agent"
+    },
+    {
       "path": "src/ciel_sot_agent/orch_orbital.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.88,
@@ -904,7 +924,7 @@
       "path": "src/ciel_geometry/subjective_time.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.82,
-      "lines_of_code": 153,
+      "lines_of_code": 154,
       "tag_what": [
         "support"
       ],
@@ -934,7 +954,7 @@
       "path": "src/ciel_geometry/semantic_mass.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.82,
-      "lines_of_code": 338,
+      "lines_of_code": 340,
       "tag_what": [
         "support"
       ],
@@ -984,7 +1004,7 @@
       "path": "src/ciel_geometry/disk.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.82,
-      "lines_of_code": 109,
+      "lines_of_code": 111,
       "tag_what": [
         "algorithm"
       ],
@@ -1054,7 +1074,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_sector_memory_integration.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 54,
+      "lines_of_code": 56,
       "tag_what": [
         "memory",
         "test"
@@ -1356,7 +1376,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_memory_governor_and_prompt.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 40,
+      "lines_of_code": 74,
       "tag_what": [
         "memory",
         "test"
@@ -1407,7 +1427,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_persistence.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 29,
+      "lines_of_code": 31,
       "tag_what": [
         "memory",
         "test"
@@ -1479,7 +1499,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/test_orbital_memory_retrieval.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 101,
+      "lines_of_code": 184,
       "tag_what": [
         "memory",
         "test"
@@ -2267,7 +2287,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/memory_prompt_context.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 193,
+      "lines_of_code": 198,
       "tag_what": [
         "memory"
       ],
@@ -2287,7 +2307,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_sector_memory.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 180,
+      "lines_of_code": 208,
       "tag_what": [
         "memory"
       ],
@@ -2327,7 +2347,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_governor.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 158,
+      "lines_of_code": 160,
       "tag_what": [
         "memory"
       ],
@@ -2337,7 +2357,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_persistence.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 93,
+      "lines_of_code": 95,
       "tag_what": [
         "memory"
       ],
@@ -2377,7 +2397,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/orbital_memory_retrieval.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 156,
+      "lines_of_code": 207,
       "tag_what": [
         "memory"
       ],
@@ -2387,7 +2407,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/engine.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 310,
+      "lines_of_code": 399,
       "tag_what": [
         "algorithm"
       ],
@@ -2657,7 +2677,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/integration/information_flow.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 76,
+      "lines_of_code": 85,
       "tag_what": [
         "algorithm"
       ],
@@ -3259,7 +3279,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/holonomic_memory.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 771,
+      "lines_of_code": 870,
       "tag_what": [
         "memory"
       ],
@@ -3430,7 +3450,7 @@
       "path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/memory/orchestrator.py",
       "orbital_level": 2,
       "M_sem_proxy": 0.8,
-      "lines_of_code": 496,
+      "lines_of_code": 589,
       "tag_what": [
         "algorithm"
       ],
@@ -4250,7 +4270,7 @@
       "path": "scripts/ciel_proxy.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 548,
+      "lines_of_code": 550,
       "tag_what": [
         "runner"
       ],
@@ -4381,7 +4401,7 @@
       "path": "scripts/ciel_subconscious.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 353,
+      "lines_of_code": 393,
       "tag_what": [
         "runner"
       ],
@@ -4594,7 +4614,7 @@
       "path": "scripts/ciel_response_step.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 195,
+      "lines_of_code": 198,
       "tag_what": [
         "runner"
       ],
@@ -4739,7 +4759,7 @@
       "path": "scripts/ciel_session_hook.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 511,
+      "lines_of_code": 596,
       "tag_what": [
         "runner"
       ],
@@ -4820,7 +4840,7 @@
       "path": "scripts/ciel_memory_consolidator.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 762,
+      "lines_of_code": 1034,
       "tag_what": [
         "memory"
       ],
@@ -4925,7 +4945,7 @@
       "path": "scripts/ciel_message_step.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 711,
+      "lines_of_code": 729,
       "tag_what": [
         "runner"
       ],
@@ -5756,7 +5776,7 @@
       "path": "scripts/ciel_subconscious_supervisor.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 62,
+      "lines_of_code": 121,
       "tag_what": [
         "runner"
       ],
@@ -5766,7 +5786,17 @@
       "path": "scripts/codex_bridge_to_ciel.py",
       "orbital_level": 3,
       "M_sem_proxy": 0.65,
-      "lines_of_code": 261,
+      "lines_of_code": 260,
+      "tag_what": [
+        "runner"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "scripts/ciel_secret_loader.py",
+      "orbital_level": 3,
+      "M_sem_proxy": 0.65,
+      "lines_of_code": 30,
       "tag_what": [
         "runner"
       ],
@@ -5846,7 +5876,7 @@
       "path": "tests/test_ciel_geometry.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.82,
-      "lines_of_code": 239,
+      "lines_of_code": 289,
       "tag_what": [
         "algorithm",
         "test"
@@ -5992,7 +6022,7 @@
       "path": "tests/test_gui.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 242,
+      "lines_of_code": 274,
       "tag_what": [
         "test",
         "interface"
@@ -6234,7 +6264,7 @@
       "path": "tests/test_ciel_pipeline.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 112,
+      "lines_of_code": 322,
       "tag_what": [
         "executor",
         "test"
@@ -7139,7 +7169,7 @@
       "path": "tests/test_ciel_message_step.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 43,
+      "lines_of_code": 60,
       "tag_what": [
         "test"
       ],
@@ -7149,7 +7179,7 @@
       "path": "tests/test_ciel_memory_consolidator.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 113,
+      "lines_of_code": 256,
       "tag_what": [
         "memory",
         "test"
@@ -7884,7 +7914,7 @@
       "path": "tests/test_ciel_response_step.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 24,
+      "lines_of_code": 48,
       "tag_what": [
         "test"
       ],
@@ -7993,6 +8023,68 @@
       "lines_of_code": 66,
       "tag_what": [
         "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_chat_archive_codex.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 18,
+      "tag_what": [
+        "test",
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_ciel_subconscious_supervisor.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 48,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_ciel_session_hook.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 55,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_gui_status_cache.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 40,
+      "tag_what": [
+        "test",
+        "interface"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "tests/test_ciel_subconscious.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 27,
+      "tag_what": [
+        "test"
+      ],
+      "subsystem": null
+    },
+    {
+      "path": "src/CIEL_InfoHub/.local/skills/canvas/__init__.py",
+      "orbital_level": 4,
+      "M_sem_proxy": 0.35,
+      "lines_of_code": 1,
+      "tag_what": [
+        "config"
       ],
       "subsystem": null
     }

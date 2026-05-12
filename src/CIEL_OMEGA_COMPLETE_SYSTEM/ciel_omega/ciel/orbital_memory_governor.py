@@ -129,6 +129,7 @@ def build_memory_governor(
 
     return {
         "retrieval_top_k": int(retrieval_top_k),
+        "coherence_surface_top_k": 200,
         "retrieval_scope": retrieval_scope,
         "write_mode": write_mode,
         "consolidation_mode": consolidation_mode,
@@ -149,6 +150,7 @@ def build_memory_governor(
         "notes": [
             f"orbital_mode={mode}",
             f"rh_severity={severity}",
+            "coherence_surface_top_k=200",
             f"R_H={r_h:.4f}",
             f"closure_penalty={closure:.4f}",
             f"memory_defect={d_mem:.4f}",

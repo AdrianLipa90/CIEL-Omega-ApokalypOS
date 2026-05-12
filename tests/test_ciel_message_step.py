@@ -41,3 +41,20 @@ def test_write_raw_prompt_log_creates_codex_raw_log(tmp_path: Path, monkeypatch)
     files = list((tmp_path / "raw_logs" / "codex").rglob("*.md"))
     assert files
     assert "hello raw" in files[0].read_text(encoding="utf-8")
+
+
+def test_format_context_emits_sub_calibration_alarm() -> None:
+    metrics = {
+        "cycle": 3,
+        "affective_key": "focus",
+        "identity_phase": 0.12,
+        "sub_affect": "frustrated",
+        "sub_impulse": "repeated failure erodes confidence",
+        "sub_confidence": 0.42,
+        "sub_mode": "freeform",
+        "sub_flags": ["freeform_fallback"],
+    }
+    context = message_step.format_context(metrics, rel=None)
+    assert "subq=0.42" in context
+    assert "freeform" in context
+    assert "⚠ sub_confidence=0.42" in context

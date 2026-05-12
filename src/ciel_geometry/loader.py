@@ -35,7 +35,7 @@ class SectorGeom:
 class EntityGeom:
     id: str
     noun: str
-    coupling_ciel: float  # used as rho on Poincaré disk
+    coupling_ciel: float  # strength of coupling to CIEL [0,1]; mapped to radius by geometry helpers
     phase: float          # used as phi angle
     horizon_class: str
     adjectives: list[str] = field(default_factory=list)

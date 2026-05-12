@@ -24,7 +24,6 @@ export PYTHONPATH="$PROJECT/src:${PYTHONPATH:-}"
 
 exec "$PY" "$PROJECT/scripts/codex_bridge_to_ciel.py" \
   --sessions-dir "$HOME/.codex/sessions" \
-  --source "codex_tui" \
+  --source "codex" \
   --follow \
   --run-hooks
-

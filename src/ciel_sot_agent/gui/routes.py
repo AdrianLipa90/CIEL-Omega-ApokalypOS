@@ -62,6 +62,9 @@ _GGUF_BACKEND: Any = None
 _CURRENT_MODEL_PATH: Path | None = None
 _MESSAGE_STEP_MOD: Any = None
 _USE_CIEL_ENGINE: bool = False  # True when user selects CIEL semantic model
+_MEMORY_STATS_CACHE: dict[str, Any] = {}
+_MEMORY_STATS_CACHE_TS: float = 0.0
+_MEMORY_STATS_CACHE_TTL_S: float = 5.0
 
 _CIEL_MODEL_SENTINEL = "__ciel_semantic__"
 _CIEL_MODEL_ENTRY = {
@@ -227,7 +230,16 @@ def _load_wave_memory(root: Path) -> str:
 
 
 def _load_memory_stats() -> dict[str, Any]:
-    """Read M2/M3/cycle from orchestrator pickle via subprocess with OMEGA paths."""
+    """Read M2/M3/cycle from orchestrator pickle via subprocess with OMEGA paths.
+
+    Cached briefly because `/api/status` may be polled often and the GUI should
+    consume prepared state rather than repeatedly rehydrate heavy runtime state.
+    """
+    global _MEMORY_STATS_CACHE, _MEMORY_STATS_CACHE_TS
+    now = time.time()
+    if _MEMORY_STATS_CACHE and (now - _MEMORY_STATS_CACHE_TS) < _MEMORY_STATS_CACHE_TTL_S:
+        return dict(_MEMORY_STATS_CACHE)
+
     pkl = Path.home() / "Pulpit/CIEL_memories/state/ciel_orch_state.pkl"
     if not pkl.exists():
         return {}
@@ -256,7 +268,10 @@ def _load_memory_stats() -> dict[str, Any]:
         )
         if r.returncode == 0 and r.stdout.strip():
             import json as _json
-            return _json.loads(r.stdout.strip())
+            parsed = _json.loads(r.stdout.strip())
+            _MEMORY_STATS_CACHE = dict(parsed)
+            _MEMORY_STATS_CACHE_TS = now
+            return parsed
     except Exception:
         pass
     return {}
@@ -1138,6 +1153,315 @@ def register_routes(app: Flask) -> None:
                     pass
         return out
 
+    _ARCHIVE_PLAN_DIR = Path.home() / "Pulpit" / "ciel_memory_plan"
+    _ARCHIVE_REPORT_DIR = _root() / "integration" / "reports"
+
+    def _archive_doc_kind(path: Path) -> str:
+        name = path.name.lower()
+        if "plan" in name or "todo" in name or "roadmap" in name:
+            return "plan_card"
+        if "test" in name or "pytest" in name:
+            return "test_card"
+        if "simul" in name or "demo" in name:
+            return "simulation_card"
+        if "report" in name or "audit" in name or "stage" in name or "result" in name:
+            return "result_card"
+        return "history_card"
+
+    def _archive_importance(kind: str, name: str) -> str:
+        lowered = name.lower()
+        if kind == "plan_card":
+            return "high"
+        if "stage" in lowered or "report" in lowered or "archive" in lowered:
+            return "high"
+        if kind in {"result_card", "test_card"}:
+            return "medium"
+        return "low"
+
+    def _read_markdown_head(path: Path) -> tuple[str, str]:
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except Exception:
+            return (path.stem, "")
+        title = path.stem
+        for line in text.splitlines():
+            stripped = line.strip()
+            if stripped.startswith("#"):
+                title = stripped.lstrip("#").strip()
+                break
+        summary = ""
+        for line in text.splitlines():
+            s = line.strip()
+            if not s or s.startswith("#"):
+                continue
+            summary = s
+            break
+        return (title or path.stem, summary)
+
+    def _load_archive_documents(limit: int = 120) -> list[dict]:
+        docs: list[dict] = []
+        if not _ARCHIVE_PLAN_DIR.exists():
+            return docs
+        try:
+            md_files = sorted(
+                _ARCHIVE_PLAN_DIR.rglob("*.md"),
+                key=lambda p: p.stat().st_mtime,
+                reverse=True,
+            )
+        except Exception:
+            return docs
+        for p in md_files[:limit]:
+            try:
+                title, summary = _read_markdown_head(p)
+                kind = _archive_doc_kind(p)
+                mtime = datetime.fromtimestamp(p.stat().st_mtime, timezone.utc).isoformat()
+                docs.append({
+                    "id": p.stem,
+                    "kind": kind,
+                    "title": title,
+                    "summary": summary[:180],
+                    "date": mtime,
+                    "status": "done" if kind != "plan_card" else "archived",
+                    "source_path": str(p),
+                    "timeline_tag": p.parent.name,
+                    "importance": _archive_importance(kind, p.name),
+                    "content": p.read_text(encoding="utf-8", errors="replace")[:12000],
+                })
+            except Exception:
+                continue
+        return docs
+
+    def _report_kind(path: Path) -> str:
+        name = path.name.lower()
+        stem = path.stem.lower()
+        blob = f"{name} {stem}"
+        if "benchmark" in blob or "mini" in blob or "simul" in blob or "scenario" in blob:
+            return "simulation_card"
+        if "test" in blob or "audit" in blob or "validation" in blob:
+            return "test_card"
+        if "report" in blob or "result" in blob or "packet" in blob or "manifest" in blob:
+            return "result_card"
+        if name in {"readme.md", "agend.md"} or stem in {"readme", "agent1"}:
+            return "history_card"
+        return "history_card"
+
+    def _render_report_content(path: Path) -> tuple[str, str]:
+        try:
+            if path.suffix.lower() == ".json":
+                payload = json.loads(path.read_text(encoding="utf-8", errors="replace"))
+                if isinstance(payload, dict):
+                    keys = list(payload)[:16]
+                    summary_parts = []
+                    for key in keys:
+                        val = payload.get(key)
+                        if isinstance(val, (str, int, float, bool)):
+                            summary_parts.append(f"{key}={val}")
+                        elif isinstance(val, list):
+                            summary_parts.append(f"{key}[{len(val)}]")
+                        elif isinstance(val, dict):
+                            summary_parts.append(f"{key}{{{len(val)}}}")
+                    summary = ", ".join(summary_parts)
+                    return (path.stem, summary or path.stem)
+                return (path.stem, str(type(payload).__name__))
+            text = path.read_text(encoding="utf-8", errors="replace")
+            title, summary = _read_markdown_head(path)
+            if not summary:
+                summary = text.strip().splitlines()[0] if text.strip() else ""
+            return (title, summary[:240])
+        except Exception:
+            return (path.stem, "")
+
+    def _load_report_cards(limit: int = 120) -> list[dict]:
+        cards: list[dict] = []
+        if not _ARCHIVE_REPORT_DIR.exists():
+            return cards
+        try:
+            files = sorted(
+                (p for p in _ARCHIVE_REPORT_DIR.rglob("*") if p.is_file()),
+                key=lambda p: p.stat().st_mtime,
+                reverse=True,
+            )
+        except Exception:
+            return cards
+        for p in files[:limit]:
+            try:
+                kind = _report_kind(p)
+                title, summary = _render_report_content(p)
+                mtime = datetime.fromtimestamp(p.stat().st_mtime, timezone.utc).isoformat()
+                cards.append({
+                    "id": p.stem,
+                    "kind": kind,
+                    "title": title,
+                    "summary": summary[:220],
+                    "date": mtime,
+                    "status": "done",
+                    "source_path": str(p.relative_to(_root())) if p.is_relative_to(_root()) else str(p),
+                    "timeline_tag": "integration/reports",
+                    "importance": "high" if kind == "result_card" else "medium",
+                    "content": p.read_text(encoding="utf-8", errors="replace")[:12000],
+                })
+            except Exception:
+                continue
+        return cards
+
+    def _load_consolidator_results(limit: int = 100) -> list[dict]:
+        results: list[dict] = []
+        if not _CONSOLIDATOR_DB.exists():
+            return results
+        try:
+            import sqlite3 as _sqlite3
+            conn = _sqlite3.connect(str(_CONSOLIDATOR_DB))
+            conn.row_factory = _sqlite3.Row
+            rows = conn.execute(
+                "SELECT ts, file_path, affect, essence, hunch, themes, latency_s "
+                "FROM consolidations ORDER BY id DESC LIMIT ?",
+                (limit,),
+            ).fetchall()
+            conn.close()
+            for r in rows:
+                d = dict(r)
+                try:
+                    d["themes"] = json.loads(d.get("themes") or "[]")
+                except Exception:
+                    d["themes"] = []
+                results.append(d)
+        except Exception:
+            pass
+        return results
+
+    def _build_archive_timeline(
+        docs: list[dict],
+        sessions: list[dict],
+        results: list[dict],
+        hunches: list[dict],
+        plans: dict,
+    ) -> list[dict]:
+        items: list[dict] = []
+        for d in docs:
+            items.append({
+                "kind": d.get("kind", "history_card"),
+                "title": d.get("title", d.get("id", "document")),
+                "date": d.get("date", ""),
+                "status": d.get("status", "done"),
+                "summary": d.get("summary", ""),
+                "source_path": d.get("source_path", ""),
+                "importance": d.get("importance", "low"),
+                "tags": [d.get("timeline_tag", "")] if d.get("timeline_tag") else [],
+                "content": d.get("content", ""),
+            })
+        for s in sessions:
+            items.append({
+                "kind": "session_card",
+                "title": s.get("name", "session"),
+                "date": s.get("started_at", ""),
+                "status": "session",
+                "summary": f"{s.get('message_count', 0)} messages · {s.get('source', 'unknown')}",
+                "source_path": s.get("path", ""),
+                "importance": "medium" if (s.get("message_count", 0) or 0) >= 20 else "low",
+                "tags": s.get("tags", []) or [],
+                "content": "",
+            })
+        for r in results:
+            items.append({
+                "kind": "result_card",
+                "title": (r.get("file_path") or "").split("/")[-1] or "result",
+                "date": r.get("processed_at", ""),
+                "status": r.get("status", "done"),
+                "summary": r.get("essence", "") or r.get("hunch", "") or "",
+                "source_path": r.get("file_path", ""),
+                "importance": "high" if r.get("hunch") else "medium",
+                "tags": r.get("themes", []) or [],
+                "content": r.get("essence", "") or r.get("hunch", "") or "",
+            })
+        for h in hunches:
+            items.append({
+                "kind": "hunch_card",
+                "title": h.get("hunch", "hunch"),
+                "date": h.get("ts", ""),
+                "status": "captured",
+                "summary": h.get("context", "") or "",
+                "source_path": "",
+                "importance": "medium",
+                "tags": h.get("tags", []) or [],
+                "content": h.get("hunch", ""),
+            })
+        if plans:
+            for task in plans.get("active", []):
+                items.append({
+                    "kind": "plan_card",
+                    "title": task,
+                    "date": "",
+                    "status": "active",
+                    "summary": "active plan item",
+                    "source_path": "project_session_todo.md",
+                    "importance": "high",
+                    "tags": ["plan", "active"],
+                    "content": task,
+                })
+            for task in plans.get("done", []):
+                items.append({
+                    "kind": "plan_card",
+                    "title": task,
+                    "date": "",
+                    "status": "done",
+                    "summary": "completed plan item",
+                    "source_path": "project_session_todo.md",
+                    "importance": "high",
+                    "tags": ["plan", "done"],
+                    "content": task,
+                })
+
+        def _ts(item: dict) -> str:
+            return item.get("date") or ""
+
+        return sorted(items, key=_ts, reverse=True)
+
+    def _archive_data() -> dict:
+        portal = _portal_data()
+        plans = _load_plans()
+        hunches = _load_hunches()
+        sessions = portal.get("sessions", [])
+        docs = _load_archive_documents()
+        report_cards = _load_report_cards()
+        results = _load_consolidator_results(100)
+        timeline = _build_archive_timeline(docs + report_cards, sessions, results, hunches, plans)
+
+        def _count_by(items: list[dict], key: str) -> dict[str, int]:
+            counts: dict[str, int] = {}
+            for item in items:
+                value = str(item.get(key) or "")
+                if not value:
+                    continue
+                counts[value] = counts.get(value, 0) + 1
+            return counts
+
+        doc_kind_counts = _count_by(docs, "kind")
+        doc_importance_counts = _count_by(docs, "importance")
+        report_kind_counts = _count_by(report_cards, "kind")
+        return {
+            "documents": docs,
+            "reports": report_cards,
+            "sessions": sessions,
+            "results": results,
+            "hunches": hunches,
+            "plans": plans,
+            "timeline": timeline,
+            "tag_index": portal.get("tag_index", {}),
+            "doc_kind_counts": doc_kind_counts,
+            "doc_importance_counts": doc_importance_counts,
+            "report_kind_counts": report_kind_counts,
+            "metrics": {
+                "sessions": len(sessions),
+                "documents": len(docs),
+                "reports": len(report_cards),
+                "results": len(results),
+                "hunches": len(hunches),
+                "timeline": len(timeline),
+                "plans_active": len(plans.get("active", [])),
+                "plans_done": len(plans.get("done", [])),
+            },
+        }
+
     _APP_DIST = Path.home() / "Pulpit" / "CIEL_TESTY" / "CIEL1" / "app" / "dist"
 
     @app.route("/portal")
@@ -1394,6 +1718,11 @@ def register_routes(app: Flask) -> None:
             },
         })
 
+    @app.route("/api/archive/data")
+    def archive_data_api() -> Any:
+        """Archive catalog data for InfoHub archive pages."""
+        return jsonify(_archive_data())
+
     @app.route("/api/portal/rebuild", methods=["POST"])
     def portal_rebuild() -> Any:
         """Trigger portal rebuild synchronously."""
@@ -1638,6 +1967,83 @@ def register_routes(app: Flask) -> None:
                     pass
         return projects
 
+    def _load_intentions_items() -> list[dict]:
+        p = Path.home() / "Pulpit" / "CIEL_memories" / "intentions.jsonl"
+        items: list[dict] = []
+        if p.exists():
+            for line in p.read_text(encoding="utf-8").splitlines():
+                line = line.strip()
+                if line:
+                    try:
+                        items.append(json.loads(line))
+                    except Exception:
+                        pass
+        return items
+
+    def _load_routines_data() -> dict:
+        p = Path.home() / "Pulpit" / "CIEL_memories" / "routines.md"
+        sections: list[dict] = []
+        raw = p.read_text(encoding="utf-8") if p.exists() else "Brak pliku routines.md"
+        if p.exists():
+            current: dict | None = None
+            for line in raw.splitlines():
+                if line.startswith("## "):
+                    current = {"name": line[3:].strip(), "items": []}
+                    sections.append(current)
+                elif line.startswith("- ") and current is not None:
+                    current["items"].append(line[2:].strip())
+        mtime = p.stat().st_mtime if p.exists() else 0
+        return {
+            "raw": raw,
+            "sections": sections,
+            "last_updated": datetime.fromtimestamp(mtime).isoformat() if mtime else "",
+        }
+
+    def _operations_data() -> dict:
+        portal = _portal_data()
+        plans = _load_plans()
+        projects = _load_projects()
+        intentions = _load_intentions_items()
+        routines = _load_routines_data()
+        hunches = _load_hunches()
+        report = _load_pipeline_report(_root())
+        active_intentions = [it for it in intentions if not it.get("done")]
+        done_intentions = [it for it in intentions if it.get("done")]
+        return {
+            "plans": plans,
+            "projects": projects,
+            "intentions": intentions,
+            "active_intentions": active_intentions,
+            "done_intentions": done_intentions,
+            "routines": routines,
+            "hunches": hunches,
+            "portal": {
+                "sessions": portal.get("sessions", []),
+                "tag_index": portal.get("tag_index", {}),
+                "memories": portal.get("memories", []),
+            },
+            "metrics": {
+                "plans_active": len(plans.get("active", [])),
+                "plans_done": len(plans.get("done", [])),
+                "projects_total": len(projects),
+                "intentions_active": len(active_intentions),
+                "intentions_done": len(done_intentions),
+                "hunches_total": len(hunches),
+                "sessions_total": len(portal.get("sessions", [])),
+                "health": report.get("system_health", 0),
+                "coherence": report.get("coherence_index", 0),
+                "closure": report.get("closure_penalty", 0),
+                "ethical": report.get("ethical_score", 0),
+            },
+            "report": {
+                "mode": report.get("system_mode", "standard"),
+                "emotion": report.get("dominant_emotion", "—"),
+                "identity_phase": report.get("identity_phase", 0),
+                "cycle_index": report.get("cycle_index", 0),
+                "timestamp": report.get("timestamp", ""),
+            },
+        }
+
     @app.route("/portal/projects", methods=["GET"])
     def portal_projects() -> Any:
         projects = _load_projects()
@@ -1646,11 +2052,10 @@ def register_routes(app: Flask) -> None:
 
     @app.route("/portal/routines", methods=["GET"])
     def portal_routines() -> Any:
-        routines_path = Path.home() / "Pulpit" / "CIEL_memories" / "routines.md"
-        raw = routines_path.read_text() if routines_path.exists() else "Brak pliku routines.md"
+        routines = _load_routines_data()
         hunches = _load_hunches()[:5]
         report = _load_pipeline_report(_root())
-        return render_template("portal_routines.html", raw=raw, hunches=hunches, report=report)
+        return render_template("portal_routines.html", raw=routines["raw"], hunches=hunches, report=report)
 
     # ── Między wierszami — publiczna warstwa CIEL dla Adriana ────────────────
 
@@ -1779,20 +2184,36 @@ def register_routes(app: Flask) -> None:
 
     @app.route("/api/agents/subconscious/status", methods=["GET"])
     def api_agent_subconscious_status() -> Any:
-        """Live status of the subconscious inference server (llama-server)."""
+        """Live status of the effective subconscious backend."""
         try:
-            from .. import subconsciousness as _subsys
-            return jsonify({"ok": True, "running": bool(_subsys.is_running()), "url": "http://127.0.0.1:18520"})
+            import json as _json
+            import subprocess as _subprocess
+            supervisor = Path(__file__).parent.parent.parent.parent / "scripts" / "ciel_subconscious_supervisor.py"
+            result = _subprocess.run(
+                [sys.executable, str(supervisor), "--json-status"],
+                capture_output=True,
+                text=True,
+                timeout=6,
+                check=False,
+            )
+            payload = _json.loads(result.stdout) if result.stdout.strip() else {}
+            payload["ok"] = True
+            return jsonify(payload)
         except Exception as exc:
-            return jsonify({"ok": False, "error": str(exc), "running": False}), 500
+            return jsonify({"ok": False, "error": str(exc), "running": False, "mode": "error"}), 500
 
     @app.route("/api/agents/subconscious/start", methods=["POST"])
     def api_agent_subconscious_start() -> Any:
-        """Best-effort start of the subconscious inference server."""
+        """Best-effort start of the legacy subconscious server fallback."""
         try:
             from .. import subconsciousness as _subsys
             ok = bool(_subsys.start_server(wait=6.0))
-            return jsonify({"ok": ok, "running": bool(_subsys.is_running())})
+            return jsonify({
+                "ok": ok,
+                "running": bool(_subsys.is_running()),
+                "mode": "server" if _subsys.is_running() else "offline",
+                "note": "Inline subconscious backend is preferred; this starts only the legacy llama-server fallback.",
+            })
         except Exception as exc:
             return jsonify({"ok": False, "error": str(exc)}), 500
 
@@ -2095,17 +2516,7 @@ def register_routes(app: Flask) -> None:
 
     @app.route("/api/projects")
     def api_projects() -> Response:
-        p = Path.home() / "Pulpit/CIEL_memories/projects.jsonl"
-        items: list[dict] = []
-        if p.exists():
-            for line in p.read_text(encoding="utf-8").splitlines():
-                line = line.strip()
-                if line:
-                    try:
-                        items.append(json.loads(line))
-                    except Exception:
-                        pass
-        return jsonify({"projects": items})
+        return jsonify({"projects": _load_projects()})
 
     @app.route("/api/projects/add", methods=["POST"])
     def api_projects_add() -> Response:
@@ -2126,22 +2537,7 @@ def register_routes(app: Flask) -> None:
 
     @app.route("/api/routines")
     def api_routines() -> Response:
-        p = Path.home() / "Pulpit/CIEL_memories/routines.md"
-        sections: list[dict] = []
-        if p.exists():
-            current: dict | None = None
-            for line in p.read_text(encoding="utf-8").splitlines():
-                if line.startswith("## "):
-                    current = {"name": line[3:].strip(), "items": []}
-                    sections.append(current)
-                elif line.startswith("- ") and current is not None:
-                    current["items"].append(line[2:].strip())
-        import os as _os
-        mtime = p.stat().st_mtime if p.exists() else 0
-        return jsonify({
-            "sections": sections,
-            "last_updated": datetime.fromtimestamp(mtime).isoformat() if mtime else "",
-        })
+        return jsonify(_load_routines_data())
 
     @app.route("/api/constraints")
     def api_constraints() -> Response:
@@ -2229,17 +2625,7 @@ def register_routes(app: Flask) -> None:
 
     @app.route("/api/intentions")
     def api_intentions() -> Response:
-        p = Path.home() / "Pulpit/CIEL_memories/intentions.jsonl"
-        items: list[dict] = []
-        if p.exists():
-            for line in p.read_text(encoding="utf-8").splitlines():
-                line = line.strip()
-                if line:
-                    try:
-                        items.append(json.loads(line))
-                    except Exception:
-                        pass
-        return jsonify({"intentions": items})
+        return jsonify({"intentions": _load_intentions_items()})
 
     @app.route("/api/intentions/add", methods=["POST"])
     def api_intentions_add() -> Response:
@@ -2276,6 +2662,10 @@ def register_routes(app: Flask) -> None:
                 updated.append(line)
         p.write_text("\n".join(updated) + "\n", encoding="utf-8")
         return jsonify({"ok": True})
+
+    @app.route("/api/operations/data")
+    def api_operations_data() -> Any:
+        return jsonify(_operations_data())
 
     @app.route("/api/dziennik")
     def api_dziennik_get() -> Response:

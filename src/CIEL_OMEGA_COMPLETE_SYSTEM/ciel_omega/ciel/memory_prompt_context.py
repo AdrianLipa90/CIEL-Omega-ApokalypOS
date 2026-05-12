@@ -22,7 +22,9 @@ def summarize_sector_retrieval(ciel_state: Dict[str, Any], *, max_items_per_chan
     governed = sector_memory.get("governed_retrieval") if isinstance(sector_memory.get("governed_retrieval"), dict) else {}
     summary: Dict[str, List[str]] = {}
 
-    ranked = governed.get("ranked") if isinstance(governed.get("ranked"), list) else []
+    ranked = governed.get("coherence_surface") if isinstance(governed.get("coherence_surface"), list) else []
+    if not ranked:
+        ranked = governed.get("ranked") if isinstance(governed.get("ranked"), list) else []
     ranked_lines: List[str] = []
     for row in ranked[: max(1, max_items_per_channel * 2)]:
         if not isinstance(row, dict):
@@ -40,6 +42,9 @@ def summarize_sector_retrieval(ciel_state: Dict[str, Any], *, max_items_per_chan
             tags.append(f"hq={float(hq):.2f}")
         if isinstance(pa, (int, float)):
             tags.append(f"pa={float(pa):.2f}")
+        cs = row.get("coherence_surface_score")
+        if isinstance(cs, (int, float)):
+            tags.append(f"cs={float(cs):.2f}")
         ranked_lines.append(f"[{', '.join(tags)}] {txt[:200]}")
     if ranked_lines:
         summary["ranked"] = ranked_lines

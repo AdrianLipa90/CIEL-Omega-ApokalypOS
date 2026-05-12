@@ -6,42 +6,42 @@
 - steps: 20
 
 ## State Manifest
-- coherence_index: 0.6786728089605609
-- topological_charge_global: -0.6423144045545851
-- phase_lock_error: 0.7749401837743755
-- psi_mode: 0.335857
+- coherence_index: 0.6780214570192565
+- topological_charge_global: -0.7018584949794882
+- phase_lock_error: 0.7758296251704943
+- psi_mode: 0.336525
 - beat_frequency_target_hz: 7.83
-- spectral_radius_A: 3.6091176806382377
+- spectral_radius_A: 3.5903833016631888
 - fiedler_L: 0.0
 - zeta_enabled: True
-- nonlocal_phi_ab_mean: 0.0061450813706672245
-- nonlocal_phi_berry_mean: -0.10522246491313345
-- nonlocal_eba_defect_mean: 0.047313519979032374
+- nonlocal_phi_ab_mean: 0.007912761784455834
+- nonlocal_phi_berry_mean: -0.10509075921146899
+- nonlocal_eba_defect_mean: 0.05047916350478747
 - nonlocal_coherent_fraction: 1.0
 - euler_bridge_closure_score: 0.5358115119620404
 - euler_bridge_target_phase: 0.05273857672116136
-- effective_rh: 0.6042863990644215
-- timestamp: 2026-05-11T16:13:48.055576+00:00
+- effective_rh: 0.6050692630440341
+- timestamp: 2026-05-12T06:11:42.771919+00:00
 
 ## Health Manifest
-- system_health: 0.5455398852406407
+- system_health: 0.5449817491015722
 - risk_level: low
-- closure_penalty: 0.7749401837743755
-- R_H: 25.624363588290997
-- T_glob: 4.4606705938291284
-- Lambda_glob: -0.6423144045545851
-- effective_rh: 0.6042863990644215
-- rh_drivers: {'raw_rh': 0.5130703377476576, 'eba_defect': 0.047313519979032374, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.050280561184085436}
+- closure_penalty: 0.7758296251704943
+- R_H: 25.657300055744688
+- T_glob: 3.8044903066780713
+- Lambda_glob: -0.7018584949794882
+- effective_rh: 0.6050692630440341
+- rh_drivers: {'raw_rh': 0.5127494188159466, 'eba_defect': 0.05047916350478747, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.05023863795717877}
 - recommended_action: deep diagnostics allowed
 
 ## Recommended Control
 - mode: standard
-- psi_mode: 0.335857
+- psi_mode: 0.336525
 - phase_lock_enable: True
-- target_phase_shift: 0.01243724384655126
+- target_phase_shift: 0.012353137016061805
 - target_phase_memory: 0.05273857672116136
-- dt_override: 0.018162
-- zeta_coupling_scale: 0.303233
+- dt_override: 0.018154
+- zeta_coupling_scale: 0.30308
 - mu_phi: 0.18
 - epsilon_hom: 0.22
 - nonlocal_gate: True
@@ -49,15 +49,15 @@
 - writeback_gate: True
 - rh_mode: slow_execution_local_correction
 - rh_severity: medium
-- rh_effective: 0.6042863990644215
-- rh_drivers: {'raw_rh': 0.5130703377476576, 'eba_defect': 0.047313519979032374, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.050280561184085436}
+- rh_effective: 0.6050692630440341
+- rh_drivers: {'raw_rh': 0.5127494188159466, 'eba_defect': 0.05047916350478747, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.05023863795717877}
 - notes: Stable but not deep-merge safe.
 
 ## Bridge Metrics
-- orbital_R_H: 25.624363588290997
-- orbital_closure_penalty: 0.7749401837743755
+- orbital_R_H: 25.657300055744688
+- orbital_closure_penalty: 0.7758296251704943
 - integration_closure_defect_proxy: 0.0
-- topological_charge_global: -0.6423144045545851
+- topological_charge_global: -0.7018584949794882
 - subsystem_board_count: 763
 - tau_system_count: 1
 - nonlocal_card_count: 6
@@ -83,14 +83,14 @@
 - status: ok
 - dominant_emotion: love
 - mood: 0.9009715898917049
-- soul_invariant: 0.929661787484682
+- soul_invariant: 0.7526838168473944
 - ethical_score: 0.7977991858439318
-- orbital_context: orbital|mode=standard|R_H=25.6244|closure=0.7749|chirality=-0.6423
-- identity_phase: 0.024740302064812772
-- cycle_index: 658
-- phi_ab_mean: 0.0061450813706672245
-- phi_berry_mean: -0.10522246491313345
-- eba_defect_mean: 0.047313519979032374
+- orbital_context: orbital|mode=standard|R_H=25.6573|closure=0.7758|chirality=-0.7019
+- identity_phase: 0.03104504454801859
+- cycle_index: 863
+- phi_ab_mean: 0.007912761784455834
+- phi_berry_mean: -0.10509075921146899
+- eba_defect_mean: 0.05047916350478747
 - nonlocal_coherent_fraction: 1.0
 - bridge_closure_score: 0.5358115119620404
 - bridge_target_phase: 0.05273857672116136

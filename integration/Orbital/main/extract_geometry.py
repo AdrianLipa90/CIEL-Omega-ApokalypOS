@@ -347,7 +347,8 @@ def derive_sector_scalars(repo_root: Path, pair_scores, masses):
             'orbital_level': 2,
             'orbital_type': base_types[s],
             'dominant_spin': spins[s],
-            'theta': round(theta0[s], 6),
+            # Signed radial convention: higher centrality means smaller θ / smaller ρ.
+            'theta': round(max(0.0, (math.pi / 2.0) - theta0[s]), 6),
             'phi': round(phases[s], 12),
             'rhythm_ratio': rhythms[s],
             'amplitude': round(amplitude, 4),

@@ -11,10 +11,10 @@
     <span id="rec-count" style="color:var(--col-text-dim); font-size:.78rem;">ładowanie…</span>
   </div>
 
-  <!-- GŁÓWNY LAYOUT: sfera + panel -->
+  <!-- GŁÓWNY LAYOUT: canvas + panel -->
   <div style="display:flex; gap:20px; align-items:flex-start; flex-wrap:wrap;">
 
-    <!-- SFERA BLOCHA -->
+    <!-- GÓRNY CANVAS FAZY / PAMIĘCI -->
     <div style="flex:0 0 auto; position:relative;">
       <canvas id="bloch-canvas" width="520" height="520"
         style="border-radius:16px; display:block; cursor:grab;"></canvas>
@@ -259,17 +259,20 @@ function recordToAngles(rec) {
   };
   const theta = Math.min(Math.PI - 0.05, Math.max(0.05, roleTheta[role] || Math.PI / 2));
   const phi   = ph * 2 * Math.PI;
-  const r     = 0.88 + (rec.orbital_confidence || 0.5) * 0.12;
+  const conf  = Math.max(0.0, Math.min(1.0, rec.orbital_confidence ?? 0.5));
+  // High confidence should sit closer to the identity nucleus, not at the rim.
+  const r     = 0.10 + (1.0 - conf) * 0.80;
   return { theta, phi, r };
 }
 
 function project3D(x3, y3, z3) {
+  const sceneScale = liveSceneScale();
   const y1 = y3 * Math.cos(rotX) - z3 * Math.sin(rotX);
   const z1 = y3 * Math.sin(rotX) + z3 * Math.cos(rotX);
   const x2 = x3 * Math.cos(rotY) + z1 * Math.sin(rotY);
   const z2 = -x3 * Math.sin(rotY) + z1 * Math.cos(rotY);
   const fov = 2.5;
-  const scale = fov / (fov + z2 * 0.6);
+  const scale = sceneScale * fov / (fov + z2 * 0.6);
   return { x: CX + x2 * R * scale, y: CY - y1 * R * scale, z: z2, scale };
 }
 
@@ -281,29 +284,35 @@ function sphereXYZ(theta, phi, r) {
   };
 }
 
-const records = ORBITAL.records || [];
-const points  = records.map(rec => {
-  const { theta, phi, r } = recordToAngles(rec);
-  const xyz = sphereXYZ(theta, phi, r);
-  return { ...rec, ...xyz, _phi: phi };
-});
-document.getElementById('rec-count').textContent = `${records.length} wpisów orbitalnych`;
-
-// Precompute connection pairs (same role, phase proximity < 30°)
+let records = ORBITAL.records || [];
+let points  = [];
+let connections = [];
 const MAX_LINES = 60;
-const connections = [];
-for (let i = 0; i < points.length && connections.length < MAX_LINES; i++) {
-  for (let j = i + 1; j < points.length && connections.length < MAX_LINES; j++) {
-    const a = points[i], b = points[j];
-    if (a.orbital_role !== b.orbital_role) continue;
-    let dphi = Math.abs(a._phi - b._phi);
-    if (dphi > Math.PI) dphi = 2 * Math.PI - dphi;
-    if (dphi < Math.PI / 6) { // 30°
-      const affinity = Math.cos(dphi); // 1 at 0°, ~0.866 at 30°
-      connections.push({ a, b, w: affinity, col: roleColor(a.orbital_role) });
+
+function rebuildOrbitalPoints() {
+  points = records.map(rec => {
+    const { theta, phi, r } = recordToAngles(rec);
+    const xyz = sphereXYZ(theta, phi, r);
+    return { ...rec, ...xyz, _phi: phi };
+  });
+  document.getElementById('rec-count').textContent = `${records.length} wpisów orbitalnych`;
+
+  connections = [];
+  for (let i = 0; i < points.length && connections.length < MAX_LINES; i++) {
+    for (let j = i + 1; j < points.length && connections.length < MAX_LINES; j++) {
+      const a = points[i], b = points[j];
+      if (a.orbital_role !== b.orbital_role) continue;
+      let dphi = Math.abs(a._phi - b._phi);
+      if (dphi > Math.PI) dphi = 2 * Math.PI - dphi;
+      if (dphi < Math.PI / 6) { // 30°
+        const affinity = Math.cos(dphi); // 1 at 0°, ~0.866 at 30°
+        connections.push({ a, b, w: affinity, col: roleColor(a.orbital_role) });
+      }
     }
   }
 }
+
+rebuildOrbitalPoints();
 
 function drawSphere() {
   _t++;
@@ -319,6 +328,45 @@ function drawSphere() {
   ctx.arc(CX, CY, R * 1.45, 0, 2 * Math.PI);
   ctx.fill();
 
+  // Visible shell: the phase/memory sphere must read as a sphere, not just a cloud.
+  ctx.save();
+  ctx.strokeStyle = 'rgba(180,200,255,0.18)';
+  ctx.lineWidth = 1.2;
+  ctx.beginPath();
+  ctx.arc(CX, CY, R * 0.96, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.save();
+  ctx.strokeStyle = 'rgba(255,235,150,0.12)';
+  ctx.lineWidth = 1.0;
+  ctx.beginPath();
+  ctx.ellipse(CX, CY + R * 0.04, R * 0.74, R * 0.22, 0, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.restore();
+
+  // Central nucleus: make the identity attractor visually unmistakable
+  ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
+  const coreGlow = ctx.createRadialGradient(CX, CY, 0, CX, CY, R * 0.54);
+  coreGlow.addColorStop(0,   'rgba(255,255,245,0.18)');
+  coreGlow.addColorStop(0.2, 'rgba(190,160,255,0.12)');
+  coreGlow.addColorStop(0.55,'rgba(93,173,226,0.06)');
+  coreGlow.addColorStop(1,   'rgba(0,0,0,0)');
+  ctx.fillStyle = coreGlow;
+  ctx.beginPath();
+  ctx.arc(CX, CY, R * 0.54, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.restore();
+
+  ctx.save();
+  ctx.strokeStyle = 'rgba(255,235,150,0.10)';
+  ctx.lineWidth = 1.0;
+  ctx.beginPath();
+  ctx.arc(CX, CY, R * 0.9, 0, 2 * Math.PI);
+  ctx.stroke();
+  ctx.restore();
+
   // ── Cluster atmosphere: role-colored glow under dense regions ─
   const roleCenters = {};
   points.forEach(pt => {
@@ -333,8 +381,8 @@ function drawSphere() {
     if (c.n < 2) return;
     const cx = c.sx / c.n, cy = c.sy / c.n;
     const [r,g,b] = hexRGB(roleColor(role));
-    const atm = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.55);
-    atm.addColorStop(0,   `rgba(${r},${g},${b},0.06)`);
+    const atm = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 0.60);
+    atm.addColorStop(0,   `rgba(${r},${g},${b},0.10)`);
     atm.addColorStop(1,   `rgba(${r},${g},${b},0)`);
     ctx.fillStyle = atm;
     ctx.beginPath();
@@ -355,8 +403,8 @@ function drawSphere() {
       started ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
       started = true;
     }
-    ctx.strokeStyle = 'rgba(100,200,255,0.18)';
-    ctx.lineWidth   = 0.6;
+    ctx.strokeStyle = 'rgba(100,200,255,0.24)';
+    ctx.lineWidth   = 0.7;
     ctx.shadowColor = 'rgba(80,180,255,0.3)';
     ctx.shadowBlur  = 3;
     ctx.stroke();
@@ -372,8 +420,8 @@ function drawSphere() {
       started ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
       started = true;
     }
-    ctx.strokeStyle = 'rgba(220,180,80,0.13)';
-    ctx.lineWidth   = 0.5;
+    ctx.strokeStyle = 'rgba(220,180,80,0.18)';
+    ctx.lineWidth   = 0.55;
     ctx.shadowColor = 'rgba(220,180,80,0.2)';
     ctx.shadowBlur  = 2;
     ctx.stroke();
@@ -418,7 +466,8 @@ function drawSphere() {
   // The disc is inscribed in the equatorial plane (θ=π/2) and co-rotates with
   // the Berry-phase holonomic rate. The nucleus is the identity_phase attractor.
   ctx.save();
-  const galT      = _t * 0.0018;
+  ctx.globalCompositeOperation = 'lighter';
+  const galT      = _t * (0.0012 + 0.0010 * liveSceneScale());
   const galROuter = 0.70;
   const galRInner = 0.05;
   const galTilt   = 0.16;
@@ -478,11 +527,11 @@ function drawSphere() {
   }).sort((a, b) => a.pz - b.pz);
 
   galProjected.forEach(p => {
-    if (p.pz < -0.65) return;
-    const depth = Math.max(0, (p.pz + 0.65) / 1.3);
-    const alpha = p.bright * (0.22 + depth * 0.52);
+    if (p.pz < -0.85) return;
+    const depth = Math.max(0, (p.pz + 0.85) / 1.7);
+    const alpha = p.bright * (0.32 + depth * 0.58);
     const [cr, cg, cb] = hexRGB(p.col);
-    const sz = Math.max(0.5, p.sz * p.psc * 0.82);
+    const sz = Math.max(0.9, p.sz * p.psc * 1.05 * liveSceneScale());
 
     ctx.beginPath();
     ctx.arc(p.px, p.py, sz * 2.2, 0, 2 * Math.PI);
@@ -496,7 +545,7 @@ function drawSphere() {
     ctx.arc(p.px, p.py, sz, 0, 2 * Math.PI);
     ctx.fillStyle   = `rgba(${cr},${cg},${cb},${(alpha * 0.88).toFixed(3)})`;
     ctx.shadowColor = `rgba(${cr},${cg},${cb},0.45)`;
-    ctx.shadowBlur  = 5;
+    ctx.shadowBlur  = 7;
     ctx.fill();
     ctx.shadowBlur  = 0;
   });
@@ -504,39 +553,38 @@ function drawSphere() {
   // Galactic nucleus — identity_phase attractor
   {
     const nucP = project3D(0, 0, 0);
-    if (nucP.z > -0.3) {
-      for (let ring = 0; ring < 4; ring++) {
-        const phase  = (_t * 0.011 + ring * 0.25) % 1.0;
-        const ringR  = 3 + phase * 19;
-        const ringA  = (1 - phase) * 0.20;
-        ctx.beginPath();
-        ctx.arc(nucP.x, nucP.y, ringR, 0, 2 * Math.PI);
-        ctx.strokeStyle = `rgba(255,215,90,${ringA.toFixed(3)})`;
-        ctx.lineWidth   = 1.1 * (1 - phase);
-        ctx.shadowColor = 'rgba(255,200,70,0.45)';
-        ctx.shadowBlur  = 6;
-        ctx.stroke();
-      }
-      ctx.shadowBlur = 0;
-      const nucG = ctx.createRadialGradient(nucP.x, nucP.y, 0, nucP.x, nucP.y, 10);
-      nucG.addColorStop(0,   'rgba(255,255,210,0.90)');
-      nucG.addColorStop(0.4, 'rgba(255,195,70,0.65)');
-      nucG.addColorStop(1,   'rgba(180,90,10,0)');
+    for (let ring = 0; ring < 4; ring++) {
+      const phase  = (_t * 0.011 + ring * 0.25) % 1.0;
+      const ringR  = 5 + phase * 20;
+      const ringA  = (1 - phase) * 0.22;
       ctx.beginPath();
-      ctx.arc(nucP.x, nucP.y, 10, 0, 2 * Math.PI);
-      ctx.fillStyle   = nucG;
-      ctx.shadowColor = 'rgba(255,195,70,0.75)';
-      ctx.shadowBlur  = 24;
-      ctx.fill();
-      ctx.shadowBlur  = 0;
-      // Label: OSOBLIWOŚĆ — RDZEŃ tożsamości
-      ctx.font        = 'bold 9px "JetBrains Mono", monospace';
-      ctx.fillStyle   = 'rgba(255,235,150,0.88)';
-      ctx.shadowColor = 'rgba(255,195,70,0.6)';
-      ctx.shadowBlur  = 8;
-      ctx.fillText('⊙ CIEL', nucP.x + 13, nucP.y - 3);
-      ctx.shadowBlur  = 0;
+      ctx.arc(nucP.x, nucP.y, ringR, 0, 2 * Math.PI);
+      ctx.strokeStyle = `rgba(255,215,90,${ringA.toFixed(3)})`;
+      ctx.lineWidth   = 1.1 * (1 - phase);
+      ctx.shadowColor = 'rgba(255,200,70,0.45)';
+      ctx.shadowBlur  = 6;
+      ctx.stroke();
     }
+    ctx.shadowBlur = 0;
+    const nucG = ctx.createRadialGradient(nucP.x, nucP.y, 0, nucP.x, nucP.y, 18);
+    nucG.addColorStop(0,   'rgba(255,255,235,0.96)');
+    nucG.addColorStop(0.35,'rgba(255,220,110,0.82)');
+    nucG.addColorStop(0.75,'rgba(255,170,40,0.40)');
+    nucG.addColorStop(1,   'rgba(180,90,10,0)');
+    ctx.beginPath();
+    ctx.arc(nucP.x, nucP.y, 14, 0, 2 * Math.PI);
+    ctx.fillStyle   = nucG;
+    ctx.shadowColor = 'rgba(255,195,70,0.85)';
+    ctx.shadowBlur  = 28;
+    ctx.fill();
+    ctx.shadowBlur  = 0;
+    // Label: OSOBLIWOŚĆ — RDZEŃ tożsamości
+    ctx.font        = 'bold 9px "JetBrains Mono", monospace';
+    ctx.fillStyle   = 'rgba(255,235,150,0.92)';
+    ctx.shadowColor = 'rgba(255,195,70,0.6)';
+    ctx.shadowBlur  = 8;
+    ctx.fillText('⊙ CIEL', nucP.x + 15, nucP.y - 3);
+    ctx.shadowBlur  = 0;
   }
   ctx.restore();
 
@@ -570,11 +618,12 @@ function drawSphere() {
   }).sort((a, b) => a.pz - b.pz);
 
   projected.forEach(pt => {
-    if (pt.pz < -0.55) return;
-    const depth   = Math.max(0, (pt.pz + 0.55) / 1.55); // 0 back → 1 front
-    const alpha   = Math.max(0.35, 0.5 + depth * 0.5);
+    if (pt.pz < -0.85) return;
+    const depth   = Math.max(0, (pt.pz + 0.85) / 1.7); // 0 back → 1 front
+    const sceneBoost = liveSceneScale();
+    const alpha   = Math.max(0.58, (0.68 + depth * 0.40) * sceneBoost);
     const conf    = pt.orbital_confidence || 0.5;
-    const size    = Math.max(2.5, conf * 5.5 * pt.psc);
+    const size    = Math.max(4.0, conf * 9.0 * pt.psc * sceneBoost);
     const col     = roleColor(pt.orbital_role);
     const [r,g,b] = hexRGB(col);
 
@@ -586,7 +635,7 @@ function drawSphere() {
     halo.addColorStop(1,   `rgba(${r},${g},${b},0)`);
     ctx.fillStyle   = halo;
     ctx.shadowColor = col;
-    ctx.shadowBlur  = 14;
+    ctx.shadowBlur  = 22;
     ctx.fill();
     ctx.shadowBlur  = 0;
 
@@ -599,7 +648,7 @@ function drawSphere() {
     core.addColorStop(1,   `rgba(${Math.max(0,r-40)},${Math.max(0,g-40)},${Math.max(0,b-40)},${(alpha*0.7).toFixed(3)})`);
     ctx.fillStyle   = core;
     ctx.shadowColor = col;
-    ctx.shadowBlur  = 12;
+    ctx.shadowBlur  = 18;
     ctx.fill();
     ctx.shadowBlur  = 0;
   });
@@ -642,12 +691,12 @@ function drawSphere() {
   }
 }
 
-// ── Sector geometry: loaded from /api/geometry/sectors ───────────
+  // ── Sector geometry: loaded from /api/geometry/sectors ───────────
 let sectorNodes = [], sectorEdges = [];
 
 function sectorToXYZ(theta, phi) {
-  // theta=0 → singularity at center (r=0), not north pole
-  // theta>0 → placed on sphere surface at Poincaré radius
+  // theta maps canonically to Poincaré radius; the signed metric belongs
+  // to the underlying geometry, not to a manual radial flip here.
   if (theta < 1e-5) return { x: 0, y: 0, z: 0, r: 0 };
   const rho = Math.tanh(Math.tan(theta / 2));  // Poincaré radius
   const r   = Math.min(0.92, rho);             // keep inside sphere surface
@@ -667,6 +716,7 @@ function drawSectors() {
 
   // W_ij coupling edges
   ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
   sectorEdges.forEach(e => {
     const sn = sectorNodes.find(n => n.id === e.src);
     const dn = sectorNodes.find(n => n.id === e.dst);
@@ -690,19 +740,20 @@ function drawSectors() {
 
   // Sector nodes
   ctx.save();
+  ctx.globalCompositeOperation = 'lighter';
   const sproj = sectorNodes.map(n => {
     const p = project3D(n._x, n._y, n._z);
     return { ...n, px: p.x, py: p.y, pz: p.z, psc: p.scale };
   }).sort((a, b) => a.pz - b.pz);
 
   sproj.forEach(n => {
-    if (n.pz < -0.5) return;
+    if (n.pz < -0.85) return;
     const depth = Math.max(0, (n.pz + 0.5) / 1.5);
-    const alpha = Math.max(0.5, 0.6 + depth * 0.4);
+    const alpha = Math.max(0.72, 0.72 + depth * 0.28);
     const col = otColor(n.orbital_type);
     const [cr, cg, cb] = hexRGB(col);
     const sz = n.is_attractor ? 0  // attractor is already the nucleus at center
-                               : Math.max(3, n.amplitude * 9 * n.psc);
+                               : Math.max(4.2, n.amplitude * 13 * n.psc);
 
     if (n.is_attractor) return; // rendered as nucleus already
 
@@ -725,7 +776,7 @@ function drawSectors() {
     ctx.shadowBlur  = 0;
 
     // Label
-    if (n.psc > 0.7) {
+    if (n.psc > 0.45) {
       ctx.font      = `bold ${Math.max(8, 9 * n.psc)}px "JetBrains Mono", monospace`;
       ctx.fillStyle = `rgba(${cr},${cg},${cb},${(alpha * 0.85).toFixed(3)})`;
       ctx.fillText(n.label, n.px + sz + 3, n.py + 3);
@@ -832,9 +883,10 @@ function updatePanel(metrics) {
   document.getElementById('m0-bar').style.width = pct(iph, 0.08);
   document.getElementById('m0-val').textContent = iph.toFixed(4);
 
-  const affect = metrics.sub_affect || metrics.dominant_emotion || '—';
+  const affect = metrics.dominant_emotion || metrics.sub_affect || '—';
   document.getElementById('m1-affect').textContent = affect;
-  document.getElementById('m1-monitor').textContent = `E=${(metrics.E_monitor||0).toFixed(3)}`;
+  const sub = metrics.sub_affect ? ` | sub=${metrics.sub_affect}` : '';
+  document.getElementById('m1-monitor').textContent = `E=${(metrics.E_monitor||0).toFixed(3)}${sub}`;
 
   const eps = metrics.m2_episodes || 0;
   document.getElementById('m2-bar').style.width = pct(eps, 2000);
@@ -889,6 +941,29 @@ setInterval(() => {
 
   let pgeoNodes = [], pgeoEdges = [], pgeoMeta = {};
   let mobPhase = 0; // Möbius rotation phase (animation)
+  let orbitalMetrics = ORBITAL.metrics || {};
+
+  function clamp01(v) {
+    return Math.max(0.0, Math.min(1.0, Number(v) || 0.0));
+  }
+
+  function liveSceneScale() {
+    const meta = pgeoMeta.metrics || {};
+    const health = clamp01(meta.system_health ?? orbitalMetrics.system_health ?? 0.7);
+    const coherence = clamp01(meta.coherence_index ?? orbitalMetrics.coherence_index ?? 0.8);
+    const closurePenalty = Number(meta.closure_penalty ?? orbitalMetrics.closure_penalty ?? 4.5);
+    const closureScore = clamp01(1.0 - (closurePenalty / 6.0));
+    return Math.max(0.82, Math.min(1.16, 0.84 + 0.10 * health + 0.08 * coherence + 0.06 * closureScore));
+  }
+
+  function liveDiskScale() {
+    const meta = pgeoMeta.metrics || {};
+    const health = clamp01(meta.system_health ?? orbitalMetrics.system_health ?? 0.7);
+    const coherence = clamp01(meta.coherence_index ?? orbitalMetrics.coherence_index ?? 0.8);
+    const closurePenalty = Number(meta.closure_penalty ?? orbitalMetrics.closure_penalty ?? 4.5);
+    const closureScore = clamp01(1.0 - (closurePenalty / 6.0));
+    return Math.max(0.94, Math.min(1.08, 0.96 + 0.02 * health + 0.03 * coherence + 0.02 * closureScore));
+  }
 
   const HORIZON_COLORS = {
     SEALED:        '#b088f9',
@@ -907,31 +982,45 @@ setInterval(() => {
 
   function drawPoincareDisk(nodes, edges) {
     pctx.clearRect(0, 0, PW, PH);
+    const diskScale = liveDiskScale();
+    const ePR = PR * diskScale;
 
     // Background circle
-    const bg = pctx.createRadialGradient(PCX, PCY, 0, PCX, PCY, PR);
+    const bg = pctx.createRadialGradient(PCX, PCY, 0, PCX, PCY, ePR);
     bg.addColorStop(0, 'rgba(16,12,42,1)');
     bg.addColorStop(1, 'rgba(4,4,14,1)');
     pctx.fillStyle = bg;
     pctx.beginPath();
-    pctx.arc(PCX, PCY, PR, 0, 2*Math.PI);
+    pctx.arc(PCX, PCY, ePR, 0, 2*Math.PI);
     pctx.fill();
+
+    // Central attractor: make the disk core obvious instead of ghosted.
+    pctx.save();
+    const nucleus = pctx.createRadialGradient(PCX, PCY, 0, PCX, PCY, ePR * 0.28);
+    nucleus.addColorStop(0,   'rgba(255,245,175,0.24)');
+    nucleus.addColorStop(0.3, 'rgba(255,210,90,0.13)');
+    nucleus.addColorStop(1,   'rgba(255,210,90,0)');
+    pctx.fillStyle = nucleus;
+    pctx.beginPath();
+    pctx.arc(PCX, PCY, ePR * 0.28, 0, 2*Math.PI);
+    pctx.fill();
+    pctx.restore();
 
     // Boundary circle
     pctx.save();
-    pctx.strokeStyle = 'rgba(93,173,226,0.25)';
-    pctx.lineWidth = 1.5;
+    pctx.strokeStyle = 'rgba(93,173,226,0.32)';
+    pctx.lineWidth = 1.75;
     pctx.beginPath();
-    pctx.arc(PCX, PCY, PR, 0, 2*Math.PI);
+    pctx.arc(PCX, PCY, ePR, 0, 2*Math.PI);
     pctx.stroke();
     pctx.restore();
 
     // Poincaré grid (geodesic circles through origin)
     pctx.save();
-    pctx.strokeStyle = 'rgba(255,255,255,0.04)';
+    pctx.strokeStyle = 'rgba(255,255,255,0.06)';
     pctx.lineWidth = 1;
     for (let i = 1; i <= 3; i++) {
-      const rg = (i / 4) * PR;
+      const rg = (i / 4) * ePR;
       pctx.beginPath();
       pctx.arc(PCX, PCY, rg, 0, 2*Math.PI);
       pctx.stroke();
@@ -940,8 +1029,8 @@ setInterval(() => {
       const p1 = mobiusRotate(Math.cos(a), Math.sin(a), mobPhase);
       const p2 = mobiusRotate(-Math.cos(a), -Math.sin(a), mobPhase);
       pctx.beginPath();
-      pctx.moveTo(PCX + p1.x*PR, PCY - p1.y*PR);
-      pctx.lineTo(PCX + p2.x*PR, PCY - p2.y*PR);
+      pctx.moveTo(PCX + p1.x*ePR, PCY - p1.y*ePR);
+      pctx.lineTo(PCX + p2.x*ePR, PCY - p2.y*ePR);
       pctx.stroke();
     }
     pctx.restore();
@@ -954,11 +1043,12 @@ setInterval(() => {
       if (!a || !b) return;
       const pa = mobiusRotate(a.x, a.y, mobPhase);
       const pb = mobiusRotate(b.x, b.y, mobPhase);
-      pctx.strokeStyle = `rgba(93,173,226,${(e.weight || 0.3) * 0.35})`;
-      pctx.lineWidth = 1;
+      const edgeScale = 0.85 + 0.25 * diskScale;
+      pctx.strokeStyle = `rgba(93,173,226,${(e.weight || 0.3) * 0.35 * edgeScale})`;
+      pctx.lineWidth = Math.max(0.7, 1 * edgeScale);
       pctx.beginPath();
-      pctx.moveTo(PCX + pa.x*PR, PCY - pa.y*PR);
-      pctx.lineTo(PCX + pb.x*PR, PCY - pb.y*PR);
+      pctx.moveTo(PCX + pa.x*ePR, PCY - pa.y*ePR);
+      pctx.lineTo(PCX + pb.x*ePR, PCY - pb.y*ePR);
       pctx.stroke();
     });
     pctx.restore();
@@ -966,15 +1056,17 @@ setInterval(() => {
     // Nodes
     nodes.forEach(node => {
       const pm = mobiusRotate(node.x, node.y, mobPhase);
-      const sx = PCX + pm.x * PR;
-      const sy = PCY - pm.y * PR;
-      const r  = Math.max(3, (node.size || 0.5) * 10);
+      const sx = PCX + pm.x * ePR;
+      const sy = PCY - pm.y * ePR;
+      const radiusNorm = Math.min(1, Math.hypot(node.x || 0, node.y || 0));
+      const centrality = 1 - radiusNorm;
+      const r  = Math.max(3.5, (node.size || 0.5) * 12 * diskScale);
       const col = node.color || horizonColor(node.horizon_class);
 
       // Glow
       const grd = pctx.createRadialGradient(sx, sy, 0, sx, sy, r*2.5);
       const [rr,gg,bb] = hexRGB(col);
-      grd.addColorStop(0, `rgba(${rr},${gg},${bb},0.35)`);
+      grd.addColorStop(0, `rgba(${rr},${gg},${bb},${(0.32 + 0.18 * centrality + 0.1 * diskScale).toFixed(3)})`);
       grd.addColorStop(1, `rgba(${rr},${gg},${bb},0)`);
       pctx.fillStyle = grd;
       pctx.beginPath();
@@ -982,18 +1074,37 @@ setInterval(() => {
       pctx.fill();
 
       // Dot
+      if (centrality > 0.55) {
+        pctx.beginPath();
+        pctx.arc(sx, sy, r * 1.55, 0, 2*Math.PI);
+        pctx.strokeStyle = 'rgba(255,235,160,0.28)';
+        pctx.lineWidth = 1.0;
+        pctx.stroke();
+      }
       pctx.fillStyle = col;
       pctx.beginPath();
       pctx.arc(sx, sy, r, 0, 2*Math.PI);
       pctx.fill();
     });
+
+    pctx.save();
+    pctx.font = 'bold 10px "JetBrains Mono", monospace';
+    pctx.fillStyle = 'rgba(255,235,160,0.76)';
+    pctx.shadowColor = 'rgba(255,210,90,0.45)';
+    pctx.shadowBlur = 6;
+    pctx.fillText('centrum = silne sprzężenie / rdzeń', PCX - ePR * 0.45, PCY + ePR * 0.05);
+    pctx.shadowBlur = 0;
+    pctx.restore();
   }
 
   // Slow Möbius rotation
   let ptick = 0;
   function poincareTick() {
     ptick++;
-    mobPhase = ptick * 0.0008;
+    const meta = pgeoMeta.metrics || {};
+    const livePhase = Number(meta.identity_phase ?? orbitalMetrics.identity_phase ?? 0.0) || 0.0;
+    const spin = 0.0005 + 0.0005 * liveSceneScale();
+    mobPhase = livePhase + ptick * spin;
     drawPoincareDisk(pgeoNodes, pgeoEdges);
     requestAnimationFrame(poincareTick);
   }
@@ -1023,15 +1134,33 @@ setInterval(() => {
   });
   pc.addEventListener('mouseleave', () => { ptooltip.style.display = 'none'; });
 
-  // Load geometry
-  fetch('/api/memory/geometry')
-    .then(r => r.json())
-    .then(d => {
-      pgeoNodes = d.nodes || [];
-      pgeoEdges = d.edges || [];
-      pgeoMeta  = d.metadata || {};
-    })
-    .catch(() => {});
+  function refreshGeometry() {
+    fetch('/api/memory/geometry')
+      .then(r => r.json())
+      .then(d => {
+        pgeoNodes = d.nodes || [];
+        pgeoEdges = d.edges || [];
+        pgeoMeta  = d.metadata || {};
+      })
+      .catch(() => {});
+  }
+
+  function refreshOrbital() {
+    fetch('/api/memory/orbital')
+      .then(r => r.json())
+      .then(d => {
+        records = d.records || [];
+        orbitalMetrics = d.metrics || {};
+        rebuildOrbitalPoints();
+        updatePanel(orbitalMetrics);
+      })
+      .catch(() => {});
+  }
+
+  refreshGeometry();
+  refreshOrbital();
+  setInterval(refreshGeometry, 20000);
+  setInterval(refreshOrbital, 15000);
 
   poincareTick();
 })();

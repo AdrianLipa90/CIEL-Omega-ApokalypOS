@@ -652,7 +652,7 @@ def import_ciel_memories(memories_dir: Path | None = None,
     """Import ciel_entries.jsonl and hunches.jsonl into TSM with holonomic stamps.
 
     Only imports entries not already in the DB (by memorise_id = entry id).
-    Returns counts: {"entries": N, "hunches": N, "skipped": N}
+    Returns counts: {"entries": N, "hunches": N, "durable": N, "skipped": N}
     """
     import hashlib as _hashlib
 
@@ -660,9 +660,11 @@ def import_ciel_memories(memories_dir: Path | None = None,
     phi = float((pipeline_report or {}).get("phi_berry_mean", 0.0))
     closure = float((pipeline_report or {}).get("bridge_closure_score", 0.0))
     target = float((pipeline_report or {}).get("bridge_target_phase", 0.0))
+    durable_obj = (pipeline_report or {}).get("durable_memory_object")
+    noema_link_obj = (pipeline_report or {}).get("noema_memory_link")
 
     hm = HolonomicMemory(db_path)
-    counts = {"entries": 0, "hunches": 0, "skipped": 0}
+    counts = {"entries": 0, "hunches": 0, "durable": 0, "noema_links": 0, "skipped": 0}
 
     def _text_phase(text: str) -> float:
         """Derive semantic phase via CIELEncoder; fallback to SHA-256 hash."""
@@ -705,6 +707,84 @@ VALUES (?,?,?,?,?,?,?,?,?,0,?,?)
             conn.commit()
         return True
 
+    def _insert_durable(obj: dict[str, Any]) -> bool:
+        mid = str(obj.get("durable_id") or obj.get("candidate_id") or "")
+        if not mid:
+            return False
+        with hm._connect() as conn:
+            exists = conn.execute(
+                "SELECT 1 FROM memories WHERE memorise_id = ?", (mid,)
+            ).fetchone()
+            if exists:
+                return False
+            sense = str(obj.get("summary", "") or obj.get("semantic_summary", "") or "")[:2000]
+            context = "ciel_pipeline/durable_memory"
+            d_meta = json.dumps(obj, ensure_ascii=False)
+            entry_phi = _blend_phase(_text_phase(sense or d_meta), phi, alpha=0.4)
+            w_s = _text_w_semantic(sense or d_meta)
+            conn.execute("""
+INSERT INTO memories (memorise_id, created_at, D_id, D_context, D_sense, D_associations, D_meta, D_type,
+                      W_S,
+                      phi_berry, closure_score, winding_n, target_phase, holonomy_ts)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+""", (
+                mid,
+                str(obj.get("ts_created") or obj.get("ts_updated") or datetime.now(timezone.utc).isoformat()),
+                mid,
+                context,
+                sense,
+                json.dumps(obj.get("crosslink_refs", []), ensure_ascii=False),
+                d_meta,
+                "durable_memory",
+                w_s,
+                entry_phi,
+                closure,
+                0,
+                target,
+                datetime.now(timezone.utc).isoformat(),
+            ))
+            conn.commit()
+        return True
+
+    def _insert_noema_link(obj: dict[str, Any]) -> bool:
+        link_id = str(obj.get("link_id") or "")
+        if not link_id:
+            return False
+        with hm._connect() as conn:
+            exists = conn.execute(
+                "SELECT 1 FROM memories WHERE memorise_id = ?", (link_id,)
+            ).fetchone()
+            if exists:
+                return False
+            sense = f"{obj.get('memory_id', '')} -> {obj.get('noema_object_id', '')}"
+            context = "ciel_pipeline/noema_memory_link"
+            d_meta = json.dumps(obj, ensure_ascii=False)
+            entry_phi = _blend_phase(_text_phase(sense or d_meta), phi, alpha=0.45)
+            w_s = _text_w_semantic(sense or d_meta)
+            conn.execute("""
+INSERT INTO memories (memorise_id, created_at, D_id, D_context, D_sense, D_associations, D_meta, D_type,
+                      W_S,
+                      phi_berry, closure_score, winding_n, target_phase, holonomy_ts)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+""", (
+                link_id,
+                str(obj.get("ts") or datetime.now(timezone.utc).isoformat()),
+                link_id,
+                context,
+                sense,
+                json.dumps(obj.get("provenance_refs", []), ensure_ascii=False),
+                d_meta,
+                "noema_memory_link",
+                w_s,
+                entry_phi,
+                closure,
+                0,
+                target,
+                datetime.now(timezone.utc).isoformat(),
+            ))
+            conn.commit()
+        return True
+
     # ciel_entries.jsonl — my observations/diary
     entries_path = memories_dir / "ciel_entries.jsonl"
     if entries_path.exists():
@@ -744,6 +824,25 @@ VALUES (?,?,?,?,?,?,?,?,?,0,?,?)
                     counts["skipped"] += 1
             except Exception:
                 continue
+
+    # pipeline durable memory — promoted candidate from the current runtime step
+    if isinstance(durable_obj, dict) and durable_obj:
+        try:
+            if _insert_durable(durable_obj):
+                counts["durable"] += 1
+            else:
+                counts["skipped"] += 1
+        except Exception:
+            pass
+
+    if isinstance(noema_link_obj, dict) and noema_link_obj:
+        try:
+            if _insert_noema_link(noema_link_obj):
+                counts["noema_links"] += 1
+            else:
+                counts["skipped"] += 1
+        except Exception:
+            pass
 
     return counts
 
