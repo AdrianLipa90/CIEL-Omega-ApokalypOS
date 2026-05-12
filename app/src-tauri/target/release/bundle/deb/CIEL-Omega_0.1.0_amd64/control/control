@@ -1,9 +1,0 @@
-Package: ciel-omega
-Version: 0.1.0
-Architecture: amd64
-Installed-Size: 11820
-Maintainer: Adrian Lipa
-Priority: optional
-Depends: libwebkit2gtk-4.1-0, libgtk-3-0
-Description: CIEL/Ω — Consciousness Integrated Emergent Lattice
- (none)

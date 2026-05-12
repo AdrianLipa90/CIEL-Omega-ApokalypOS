@@ -1,1 +1,0 @@
-{"default":{"identifier":"default","description":"CIEL default capabilities","local":true,"windows":["main"],"permissions":["core:default","http:default","shell:default"]}}
