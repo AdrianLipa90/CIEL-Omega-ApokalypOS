@@ -12,8 +12,6 @@ These tests do NOT perform real network downloads.  They verify:
 
 from __future__ import annotations
 
-import json
-from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -197,7 +195,6 @@ class TestGGUFManagerEnsureModel:
             calls.append((done, total))
 
         mgr = GGUFManager(models_dir=tmp_path, progress_callback=cb)
-        spec = KNOWN_MODELS[mgr.default_model_key]
 
         def fake_download(s, dest):
             dest.parent.mkdir(parents=True, exist_ok=True)
@@ -279,7 +276,7 @@ class TestModuleHelpers:
     def test_download_default_model_calls_ensure(self, tmp_path):
         with patch.object(GGUFManager, "ensure_model") as mock_ensure:
             mock_ensure.return_value = tmp_path / "model.gguf"
-            result = download_default_model(models_dir=tmp_path)
+            download_default_model(models_dir=tmp_path)
             mock_ensure.assert_called_once()
 
     def test_default_models_dir_env_var(self, monkeypatch, tmp_path):

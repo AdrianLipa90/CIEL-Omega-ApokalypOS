@@ -3,7 +3,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pytest
 import sqlite3
 
 from src.ciel_sot_agent.ciel_pipeline import (
