@@ -56,6 +56,11 @@ integration/registries/definitions/db_library/*-journal
 integration/registries/definitions/db_library/*.sqlite-wal
 integration/registries/definitions/db_library/*.sqlite-shm
 
+# Private holonomic/object card snapshots
+docs/object_cards/satellites/
+docs/architecture/MEMORY_ORBITAL_CLASSIFICATION_AUDIT_*.md
+docs/operations/WIJ_OPTIMIZATION_SESSION_HANDOFF.md
+
 # Coverage artifacts
 *.cover
 
