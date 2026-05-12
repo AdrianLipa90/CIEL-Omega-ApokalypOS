@@ -1,0 +1,29 @@
+version: '1.2'
+name: dynamic deictic resolution rules
+rules:
+- id: resolve_spatial_somewhere
+  input: Somewhere(E)+spatial_frame
+  output: Located(E,x) where x∈Place
+  loss_if_forced: false precision
+- id: resolve_temporal_sometime
+  input: Sometime(E)+tense+aspect+memory
+  output: Occurs(E,t) where t∈Time
+  loss_if_forced: false timeline
+- id: resolve_manner_somehow
+  input: Somehow(T)+goal+method_context
+  output: RealizedBy(T,m) where m∈Manner
+  loss_if_forced: false method
+- id: negative_spatial_collapse
+  input: Nowhere(E)
+  output: '¬∃x∈Place: Located(E,x)'
+  requires: active_search_domain
+- id: negative_temporal_collapse
+  input: Never(E)
+  output: '¬∃t∈Time: Occurs(E,t)'
+  requires: active_temporal_domain
+- id: free_choice_scope
+  input: Anywhere/Anytime + modal_scope
+  output: free-choice variable over place/time
+  requires: modal or permission scope
+composition_notes: Dynamic deictics interact strongly with negation, modality, tense/aspect,
+  and case/preposition gauge.

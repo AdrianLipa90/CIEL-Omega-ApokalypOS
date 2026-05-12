@@ -1,0 +1,346 @@
+version: '1.4'
+layer: TAM-E
+description: Tense, aspect, mood, modality and evidentiality operators for event-state
+  phase encoding.
+dimensions:
+  tense:
+    Past:
+      phase: -0.35
+      meaning: event prior to reference time
+      operators:
+        pl:
+        - -ł/-ła/-ło
+        - był
+        en:
+        - past tense
+        - did
+        de:
+        - Präteritum
+        - Perfekt
+        fr:
+        - passé composé
+        - imparfait
+        es:
+        - pretérito
+        - imperfecto
+    Present:
+      phase: 0.0
+      meaning: event simultaneous with reference time
+      operators:
+        pl:
+        - czas teraźniejszy
+        en:
+        - present
+        de:
+        - Präsens
+        fr:
+        - présent
+        es:
+        - presente
+    Future:
+      phase: 0.35
+      meaning: event after reference time
+      operators:
+        pl:
+        - będzie
+        - zrobi
+        en:
+        - will
+        - going to
+        de:
+        - werden
+        fr:
+        - futur
+        - aller + infinitif
+        es:
+        - futuro
+        - ir a + infinitivo
+    Atemporal:
+      phase: 0.05
+      meaning: generic or definition-like temporal state
+      operators:
+        pl:
+        - jest w definicji
+        en:
+        - is generally
+        de:
+        - ist allgemein
+        fr:
+        - est en général
+        es:
+        - es en general
+  aspect:
+    Perfective:
+      phase: 0.22
+      meaning: bounded completed event contour
+      operators:
+        pl:
+        - zrobić
+        - napisać
+        en:
+        - complete/write down
+        de:
+        - fertigstellen
+        fr:
+        - achever
+        es:
+        - terminar
+    Imperfective:
+      phase: -0.08
+      meaning: unbounded ongoing/habitual event contour
+      operators:
+        pl:
+        - robić
+        - pisać
+        en:
+        - be doing
+        - write habitually
+        de:
+        - machen/schreiben
+        fr:
+        - être en train de
+        - imparfait
+        es:
+        - estar + gerundio
+        - imperfecto
+    Progressive:
+      phase: -0.02
+      meaning: event in progress
+      operators:
+        pl:
+        - właśnie robi
+        en:
+        - be + -ing
+        de:
+        - gerade dabei sein
+        fr:
+        - être en train de
+        es:
+        - estar + gerundio
+    Habitual:
+      phase: 0.11
+      meaning: regular repeated event
+      operators:
+        pl:
+        - zwykle
+        - ma zwyczaj
+        en:
+        - usually
+        - used to
+        de:
+        - gewöhnlich
+        fr:
+        - habituellement
+        es:
+        - habitualmente
+  mood:
+    Indicative:
+      phase: 0.0
+      meaning: asserted event
+      operators:
+        pl:
+        - tryb oznajmujący
+        en:
+        - indicative
+        de:
+        - Indikativ
+        fr:
+        - indicatif
+        es:
+        - indicativo
+    Imperative:
+      phase: 0.48
+      meaning: command/request event
+      operators:
+        pl:
+        - zrób
+        en:
+        - do!
+        de:
+        - mach!
+        fr:
+        - fais!
+        es:
+        - haz!
+    Conditional:
+      phase: 0.31
+      meaning: conditioned or hypothetical event
+      operators:
+        pl:
+        - by
+        - gdyby
+        en:
+        - would
+        - if
+        de:
+        - würde
+        fr:
+        - conditionnel
+        es:
+        - condicional
+    Subjunctive:
+      phase: 0.27
+      meaning: non-asserted desired/possible/subordinate event
+      operators:
+        pl:
+        - żeby
+        en:
+        - that he be
+        de:
+        - Konjunktiv
+        fr:
+        - subjonctif
+        es:
+        - subjuntivo
+  modality:
+    Possible:
+      phase: 0.18
+      meaning: event can occur
+      operators:
+        pl:
+        - może
+        en:
+        - may/can
+        de:
+        - kann
+        fr:
+        - peut
+        es:
+        - puede
+    Necessary:
+      phase: 0.44
+      meaning: event must occur
+      operators:
+        pl:
+        - musi
+        en:
+        - must
+        de:
+        - muss
+        fr:
+        - doit
+        es:
+        - debe
+    Obligatory:
+      phase: 0.5
+      meaning: normatively required event
+      operators:
+        pl:
+        - powinien
+        - trzeba
+        en:
+        - should/ought
+        de:
+        - sollte
+        fr:
+        - devrait
+        es:
+        - debería
+    Permitted:
+      phase: 0.14
+      meaning: event is allowed
+      operators:
+        pl:
+        - wolno
+        - można
+        en:
+        - may/allowed to
+        de:
+        - darf
+        fr:
+        - a le droit de
+        es:
+        - puede/tiene permiso
+  evidentiality:
+    Direct:
+      phase: 0.0
+      meaning: speaker has direct evidence
+      operators:
+        pl:
+        - widziałem
+        - słyszałem
+        en:
+        - I saw/heard
+        de:
+        - ich sah/hörte
+        fr:
+        - j’ai vu/entendu
+        es:
+        - vi/oí
+    Inferential:
+      phase: 0.23
+      meaning: speaker infers event
+      operators:
+        pl:
+        - widocznie
+        - pewnie
+        en:
+        - apparently/must have
+        de:
+        - offenbar
+        fr:
+        - apparemment
+        es:
+        - al parecer
+    Reportative:
+      phase: 0.37
+      meaning: event is reported by another source
+      operators:
+        pl:
+        - podobno
+        - mówią że
+        en:
+        - reportedly/they say
+        de:
+        - angeblich
+        fr:
+        - on dit que
+        es:
+        - según dicen
+    Unknown:
+      phase: 0.61
+      meaning: source of evidence is not specified
+      operators:
+        pl:
+        - brak źródła
+        en:
+        - unspecified
+        de:
+        - unspezifiziert
+        fr:
+        - non spécifié
+        es:
+        - no especificado
+event_templates:
+- id: asserted_past_completed
+  signature:
+    tense: Past
+    aspect: Perfective
+    mood: Indicative
+    modality: null
+    evidentiality: Unknown
+  equation: E · exp(i φ_past_perfective_asserted_unknown)
+- id: direct_present_progressive
+  signature:
+    tense: Present
+    aspect: Progressive
+    mood: Indicative
+    modality: null
+    evidentiality: Direct
+  equation: E · exp(i φ_present_progressive_direct)
+- id: reported_conditional_possible
+  signature:
+    tense: Future
+    aspect: Imperfective
+    mood: Conditional
+    modality: Possible
+    evidentiality: Reportative
+  equation: E · exp(i φ_future_conditional_possible_reported)
+- id: imperative_obligatory
+  signature:
+    tense: Future
+    aspect: Perfective
+    mood: Imperative
+    modality: Obligatory
+    evidentiality: Direct
+  equation: Command(E) · exp(i φ_imperative_obligatory)

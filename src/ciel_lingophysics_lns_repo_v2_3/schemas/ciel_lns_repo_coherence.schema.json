@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ciel_lns_repo_coherence.schema.json",
+  "title": "CIEL-LNS Repository Coherence Report",
+  "type": "object",
+  "required": [
+    "version",
+    "created_utc",
+    "file_count_before_v1_6_additions",
+    "counts_by_registry_type",
+    "integrity_blockers"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "created_utc": {
+      "type": "string"
+    },
+    "file_count_before_v1_6_additions": {
+      "type": "integer"
+    },
+    "counts_by_registry_type": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "yaml_missing_json_count": {
+      "type": "integer"
+    },
+    "schema_count": {
+      "type": "integer"
+    },
+    "integrity_blockers": {
+      "type": "integer"
+    },
+    "integrity_warns": {
+      "type": "integer"
+    },
+    "note": {
+      "type": "string"
+    }
+  }
+}

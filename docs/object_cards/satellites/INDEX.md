@@ -14,3 +14,5 @@ These cards refresh and formalize the satellite subsystems beyond the main Omega
 - [SAT-CONSOLIDATOR-0001 — CIEL Memory Consolidator](./SAT-CONSOLIDATOR-0001.md) — podświadomość holonomiczna, Claude Haiku API
 - [SAT-MEMDUMP-0001 — CIEL Memory Dump](./SAT-MEMDUMP-0001.md) — Stop hook snapshot (pkl + sesje + hunchy)
 - [SAT-CIELCONTEXT-0001 — CIEL Message Context](./SAT-CIELCONTEXT-0001.md) — format_context 1-linia + pkl mtime fix
+- [SAT-JOKEHEAL-0001 — CIEL JokeHeal Subsystem](./SAT-JOKEHEAL-0001.md) — scar-aware humor / cognitive tension relief
+- [SAT-NOEMA-FILESENSE-0001 — NOEMA File Sense Layer](./SAT-NOEMA-FILESENSE-0001.md) — semantyczna klasyfikacja plików pod inspekcję i sprzątanie

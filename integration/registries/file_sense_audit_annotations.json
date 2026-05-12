@@ -1,0 +1,81 @@
+{
+  "schema": "ciel/noema-file-sense-audit-annotations/v0.1",
+  "generated_at": "2026-05-11T00:00:00Z",
+  "annotations": [
+    {
+      "path": "integration/db/ciel_cards.xlsx",
+      "audit_stage": "operacja_piekny_umysl",
+      "audit_source": "manual_audit",
+      "audit_flags": [
+        "broken_xlsx_surface",
+        "operational_shadow_not_canonical",
+        "blocked_unification_with_nonlocal_registry"
+      ],
+      "audit_comment": "Plik istnieje, ale openpyxl zwraca BadZipFile; nie traktować jako kanonicznego źródła prawdy ani nie scalać teraz z nonlocal_cards_registry."
+    },
+    {
+      "path": "src/ciel_sot_agent/spreadsheet_db.py",
+      "audit_stage": "operacja_piekny_umysl",
+      "audit_source": "manual_audit",
+      "audit_flags": [
+        "depends_on_broken_xlsx_surface",
+        "operational_shadow_not_canonical"
+      ],
+      "audit_comment": "Warstwa operational shadow zależna od uszkodzonego integration/db/ciel_cards.xlsx; wymaga naprawy lub wycofania z planów unifikacji na tym etapie."
+    },
+    {
+      "path": "integration/registries/file_catalog.json",
+      "audit_stage": "operacja_piekny_umysl",
+      "audit_source": "manual_audit",
+      "audit_flags": [
+        "python_subset_registry",
+        "narrower_than_file_universal_catalog",
+        "candidate_for_derived_specialized_view"
+      ],
+      "audit_comment": "Registry obejmuje tylko 332 pliki Pythona z warstw wykonawczych/orbitalnych; nie jest równoważny file_universal_catalog i wygląda raczej na wyspecjalizowany widok zależności niż pełny katalog plików."
+    },
+    {
+      "path": "integration/registries/file_universal_catalog.json",
+      "audit_stage": "operacja_piekny_umysl",
+      "audit_source": "manual_audit",
+      "audit_flags": [
+        "broad_all_files_registry",
+        "consumed_by_noema_sot",
+        "current_primary_catalog_surface"
+      ],
+      "audit_comment": "Szeroki katalog 3224 plików z metrykami M_sem i agregatami; aktualnie konsumowany przez NOEMA summary i pełni rolę głównej powierzchni katalogu semantycznego."
+    },
+    {
+      "path": "scripts/build_file_wij.py",
+      "audit_stage": "operacja_piekny_umysl",
+      "audit_source": "manual_audit",
+      "audit_flags": [
+        "specialized_python_dependency_builder",
+        "output_contract_may_be_stale"
+      ],
+      "audit_comment": "Generator opisuje file_catalog jako katalog per-file plus W_ij dla podzbioru Python/orbital. Deklarowany format file_wij_graph w skrypcie nie zgadza się wprost z aktualnym artefaktem v0.2, więc kontrakt wyjścia wymaga osobnej weryfikacji przed scalaniem."
+    },
+    {
+      "path": "src/ciel_sot_agent/semantic_calculator.py",
+      "audit_stage": "operacja_piekny_umysl",
+      "audit_source": "manual_audit",
+      "audit_flags": [
+        "overlaps_with_semantic_calculator_v2",
+        "writes_shared_catalog_target",
+        "likely_legacy_v1_surface"
+      ],
+      "audit_comment": "Wersja v0.1 zapisująca do tego samego file_universal_catalog.json co v2 oraz budująca file_wij_graph. Funkcyjnie nakłada się z semantic_calculator_v2.py i wygląda na starszą warstwę, którą trzeba najpierw rozdzielić kontraktowo przed ewentualnym scaleniem."
+    },
+    {
+      "path": "src/ciel_sot_agent/semantic_calculator_v2.py",
+      "audit_stage": "operacja_piekny_umysl",
+      "audit_source": "manual_audit",
+      "audit_flags": [
+        "current_primary_catalog_builder",
+        "consumes_file_wij_graph",
+        "shares_output_path_with_v1"
+      ],
+      "audit_comment": "Obecny builder file_universal_catalog schema v0.2 z geometrią i M_sem. Wygląda na główny generator szerokiego katalogu, ale współdzieli ścieżkę wyjścia z semantic_calculator.py, więc istnieje ryzyko nadpisania i niejawnego driftu wersji."
+    }
+  ]
+}

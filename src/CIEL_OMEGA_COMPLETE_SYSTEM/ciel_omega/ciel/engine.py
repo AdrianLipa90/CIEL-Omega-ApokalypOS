@@ -14,23 +14,46 @@ from typing import Any, Dict, List, Optional
 
 import numpy as np
 
-from config.ciel_config import CielConfig
-from fields.intention_field import IntentionField
-from integration.information_flow import InformationFlow
-from inference.middleware import build_orbital_ethical_inference_surface
-from fields.soul_invariant import SoulInvariant
-from ciel_wave.fourier_kernel import SpectralWaveField12D
-from ciel.language_backend import AuxiliaryBackend, LanguageBackend
-from emotion.emotion_core import EmotionCore
-from emotion.cqcl.emotional_collatz import EmotionalCollatzEngine
-from ethics.ethics_guard import EthicsGuard
-from ethics.ethical_engine import EthicalEngine
-from memory.monolith.orchestrator import UnifiedMemoryOrchestrator
-from memory.orchestrator import HolonomicMemoryOrchestrator
-from bridge.memory_core_phase_bridge import MemoryCorePhaseBridge
-from calibration.rcde import RCDECalibratorPro
-from phase_equation_of_motion import PhaseInfoSystem, make_zeta_wt_fn, collatz_sequence, collatz_rhythm
-from mathematics.lie4.collatz_lie4 import ColatzLie4Engine
+try:  # support both `ciel_omega.ciel.engine` and legacy `ciel.engine`
+    from ..config.ciel_config import CielConfig
+    from ..fields.intention_field import IntentionField
+    from ..integration.information_flow import InformationFlow
+    from ..inference.middleware import build_orbital_ethical_inference_surface
+    from ..fields.soul_invariant import SoulInvariant
+    from ..ciel_wave.fourier_kernel import SpectralWaveField12D
+    from ..ciel.language_backend import AuxiliaryBackend, LanguageBackend
+    from ..emotion.emotion_core import EmotionCore
+    from ..emotion.cqcl.emotional_collatz import EmotionalCollatzEngine
+    from ..ethics.ethics_guard import EthicsGuard
+    from ..ethics.ethical_engine import EthicalEngine
+    from ..memory.monolith.orchestrator import UnifiedMemoryOrchestrator
+    from ..memory.orchestrator import HolonomicMemoryOrchestrator
+    from ..ciel.orbital_memory_loop import OrbitalLoopConfig, RuntimeOrbitalSignals, build_runtime_policy, run_orbital_loop
+    from ..ciel.orbital_memory_persistence import PersistentOrbitalSectorMemory
+    from ..bridge.memory_core_phase_bridge import MemoryCorePhaseBridge
+    from ..calibration.rcde import RCDECalibratorPro
+    from ..phase_equation_of_motion import PhaseInfoSystem, make_zeta_wt_fn, collatz_sequence, collatz_rhythm
+    from ..mathematics.lie4.collatz_lie4 import ColatzLie4Engine
+except ImportError:  # pragma: no cover - compatibility for top-level path loading
+    from config.ciel_config import CielConfig
+    from fields.intention_field import IntentionField
+    from integration.information_flow import InformationFlow
+    from inference.middleware import build_orbital_ethical_inference_surface
+    from fields.soul_invariant import SoulInvariant
+    from ciel_wave.fourier_kernel import SpectralWaveField12D
+    from ciel.language_backend import AuxiliaryBackend, LanguageBackend
+    from emotion.emotion_core import EmotionCore
+    from emotion.cqcl.emotional_collatz import EmotionalCollatzEngine
+    from ethics.ethics_guard import EthicsGuard
+    from ethics.ethical_engine import EthicalEngine
+    from memory.monolith.orchestrator import UnifiedMemoryOrchestrator
+    from memory.orchestrator import HolonomicMemoryOrchestrator
+    from ciel.orbital_memory_loop import OrbitalLoopConfig, RuntimeOrbitalSignals, build_runtime_policy, run_orbital_loop
+    from ciel.orbital_memory_persistence import PersistentOrbitalSectorMemory
+    from bridge.memory_core_phase_bridge import MemoryCorePhaseBridge
+    from calibration.rcde import RCDECalibratorPro
+    from phase_equation_of_motion import PhaseInfoSystem, make_zeta_wt_fn, collatz_sequence, collatz_rhythm
+    from mathematics.lie4.collatz_lie4 import ColatzLie4Engine
 
 log = logging.getLogger("CIEL.Engine")
 
@@ -56,6 +79,7 @@ class CielEngine:
     memory: UnifiedMemoryOrchestrator = field(default_factory=UnifiedMemoryOrchestrator)
     information_flow: InformationFlow = field(default_factory=InformationFlow)
     nonlocal_memory: HolonomicMemoryOrchestrator = field(default_factory=HolonomicMemoryOrchestrator)
+    sector_memory_store: PersistentOrbitalSectorMemory = field(default_factory=lambda: PersistentOrbitalSectorMemory(HolonomicMemoryOrchestrator()))
     bridge: MemoryCorePhaseBridge = field(default_factory=MemoryCorePhaseBridge)
     emotion: EmotionCore = field(default_factory=EmotionCore)
     cqcl: EmotionalCollatzEngine = field(default_factory=EmotionalCollatzEngine)
@@ -262,6 +286,68 @@ class CielEngine:
             "euler_metrics": bridge_cycle.euler_metrics,
         }
 
+        memory_governor: Dict[str, Any] = {}
+        sector_memory: Dict[str, Any] = {}
+        try:
+            try:
+                from ciel_omega.ciel.orbital_memory_loop import (
+                    OrbitalLoopConfig,
+                    RuntimeOrbitalSignals,
+                    build_runtime_policy,
+                    run_orbital_loop,
+                )
+                from ciel_omega.ciel.orbital_memory_governor import build_memory_governor
+                from ciel_omega.ciel.orbital_sector_memory import record_orbital_sector_memory
+            except ImportError:  # pragma: no cover - alternate loader layout
+                from .orbital_memory_loop import (
+                    OrbitalLoopConfig,
+                    RuntimeOrbitalSignals,
+                    build_runtime_policy,
+                    run_orbital_loop,
+                )
+                from .orbital_memory_governor import build_memory_governor
+                from .orbital_sector_memory import record_orbital_sector_memory
+
+            runtime_signals = RuntimeOrbitalSignals(
+                text_length=len(cleaned),
+                context=context,
+                mood=float(mood),
+                ethical_score=float(ethical_score),
+                soul_invariant=float(sigma),
+                simulation_coherence=float(nonlocal_runtime.get("coherent_fraction", braid_runtime.get("coherence", 0.0))),
+                intention_norm=float(np.linalg.norm(np.asarray(intention_vector, dtype=float))) if len(np.asarray(intention_vector).shape) else float(np.linalg.norm(np.asarray(intention_vector, dtype=float))),
+            )
+            orbital = run_orbital_loop(
+                OrbitalLoopConfig(
+                    steps=1,
+                    write_reports=False,
+                    pass_label=context,
+                    runtime_signals=runtime_signals,
+                )
+            )
+            runtime_policy = build_runtime_policy(orbital)
+            memory_governor = build_memory_governor(
+                orbital=orbital.to_dict(),
+                runtime_policy=runtime_policy,
+                sector_snapshot=self.nonlocal_memory.snapshot() if hasattr(self.nonlocal_memory, "snapshot") else None,
+                sector_memory=self.nonlocal_memory,
+                event_phase=float(orbital.final.get("zeta_effective_phase", 0.0) or 0.0),
+            )
+            sector_memory = record_orbital_sector_memory(
+                sector_memory=self.sector_memory_store,
+                text=cleaned,
+                context=context,
+                mood=float(mood),
+                ethical_score=float(ethical_score),
+                soul_invariant=float(sigma),
+                orbital=orbital,
+                runtime_policy=runtime_policy,
+                memory_governor=memory_governor,
+            )
+        except Exception:
+            memory_governor = memory_governor or {}
+            sector_memory = sector_memory or {}
+
         return {
             "status": "ok",
             "intention_vector": intention_vector,
@@ -282,6 +368,9 @@ class CielEngine:
             "nonlocal_runtime": nonlocal_runtime,
             "inference_runtime": inference_runtime,
             "euler_bridge": euler_bridge,
+            "memory_governor": memory_governor,
+            "sector_memory": sector_memory,
+            "runtime_policy": runtime_policy if "runtime_policy" in locals() else {},
         }
 
     def interact(

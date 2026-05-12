@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel.local/schemas/ciel_lns_operator_family.schema.json",
+  "title": "CIEL-LNS Operator Family",
+  "type": "object",
+  "required": [
+    "family_id",
+    "description",
+    "operators",
+    "canonical_axes"
+  ],
+  "properties": {
+    "family_id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "operators": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "canonical_axes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "core_equations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "duals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "inverses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "formal_modes": {
+      "type": "object"
+    }
+  }
+}

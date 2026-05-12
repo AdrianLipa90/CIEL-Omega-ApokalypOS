@@ -1,0 +1,428 @@
+{
+  "version": "1.1",
+  "name": "case_gauge_cross_language_mapping_graph",
+  "nodes": [
+    {
+      "id": "case:Nom",
+      "type": "CASE_ROLE",
+      "label": "Nom / mianownik",
+      "operator": "SubjectOrIdentity(x)"
+    },
+    {
+      "id": "op:SubjectOrIdentity",
+      "type": "CASE_OPERATOR",
+      "label": "SubjectOrIdentity(x)"
+    },
+    {
+      "id": "strategy:en:Nom",
+      "type": "SURFACE_STRATEGY",
+      "language": "en",
+      "label": "subject position before finite verb; nominative pronouns he/she/they/I/we"
+    },
+    {
+      "id": "strategy:de:Nom",
+      "type": "SURFACE_STRATEGY",
+      "language": "de",
+      "label": "nominative articles/pronouns plus subject agreement; flexible order with case marking"
+    },
+    {
+      "id": "strategy:fr:Nom",
+      "type": "SURFACE_STRATEGY",
+      "language": "fr",
+      "label": "subject position and clitic/tonic subject pronouns"
+    },
+    {
+      "id": "strategy:es:Nom",
+      "type": "SURFACE_STRATEGY",
+      "language": "es",
+      "label": "subject agreement on verb, optional explicit subject, word order/pragmatics"
+    },
+    {
+      "id": "case:Acc",
+      "type": "CASE_ROLE",
+      "label": "Acc / biernik",
+      "operator": "DirectPatient(x)"
+    },
+    {
+      "id": "op:DirectPatient",
+      "type": "CASE_OPERATOR",
+      "label": "DirectPatient(x)"
+    },
+    {
+      "id": "strategy:en:Acc",
+      "type": "SURFACE_STRATEGY",
+      "language": "en",
+      "label": "direct object position after transitive verb; object pronouns him/her/them/me/us"
+    },
+    {
+      "id": "strategy:de:Acc",
+      "type": "SURFACE_STRATEGY",
+      "language": "de",
+      "label": "accusative articles/pronouns; direct object role"
+    },
+    {
+      "id": "strategy:fr:Acc",
+      "type": "SURFACE_STRATEGY",
+      "language": "fr",
+      "label": "direct object NP after verb or object clitic position before finite verb"
+    },
+    {
+      "id": "strategy:es:Acc",
+      "type": "SURFACE_STRATEGY",
+      "language": "es",
+      "label": "direct object NP, personal a for human/animate specific objects, clitics"
+    },
+    {
+      "id": "case:Gen",
+      "type": "CASE_ROLE",
+      "label": "Gen / dopełniacz",
+      "operator": "OfPossessionSourcePartitive(x,y)"
+    },
+    {
+      "id": "op:OfPossessionSourcePartitive",
+      "type": "CASE_OPERATOR",
+      "label": "OfPossessionSourcePartitive(x,y)"
+    },
+    {
+      "id": "strategy:en:Gen",
+      "type": "SURFACE_STRATEGY",
+      "language": "en",
+      "label": "of-phrase, possessive 's, from, some/any/no, partitive expressions; sometimes word order"
+    },
+    {
+      "id": "strategy:de:Gen",
+      "type": "SURFACE_STRATEGY",
+      "language": "de",
+      "label": "genitive for possession/formal register; von + dative in colloquial; governed prepositions"
+    },
+    {
+      "id": "strategy:fr:Gen",
+      "type": "SURFACE_STRATEGY",
+      "language": "fr",
+      "label": "de phrase for possession/source/partitive; articles du/de la/des; negation often de"
+    },
+    {
+      "id": "strategy:es:Gen",
+      "type": "SURFACE_STRATEGY",
+      "language": "es",
+      "label": "de phrase for possession/source/partitive; partitive/negative expressed lexically"
+    },
+    {
+      "id": "case:Dat",
+      "type": "CASE_ROLE",
+      "label": "Dat / celownik",
+      "operator": "RecipientBeneficiaryTarget(x)"
+    },
+    {
+      "id": "op:RecipientBeneficiaryTarget",
+      "type": "CASE_OPERATOR",
+      "label": "RecipientBeneficiaryTarget(x)"
+    },
+    {
+      "id": "strategy:en:Dat",
+      "type": "SURFACE_STRATEGY",
+      "language": "en",
+      "label": "to/for phrase or double-object construction"
+    },
+    {
+      "id": "strategy:de:Dat",
+      "type": "SURFACE_STRATEGY",
+      "language": "de",
+      "label": "dative articles/pronouns; indirect object; governed prepositions"
+    },
+    {
+      "id": "strategy:fr:Dat",
+      "type": "SURFACE_STRATEGY",
+      "language": "fr",
+      "label": "à phrase or indirect object clitics lui/leur"
+    },
+    {
+      "id": "strategy:es:Dat",
+      "type": "SURFACE_STRATEGY",
+      "language": "es",
+      "label": "a/para phrase or indirect object clitics le/les"
+    },
+    {
+      "id": "case:Ins",
+      "type": "CASE_ROLE",
+      "label": "Ins / narzędnik",
+      "operator": "InstrumentMeansComitativeRole(x)"
+    },
+    {
+      "id": "op:InstrumentMeansComitativeRole",
+      "type": "CASE_OPERATOR",
+      "label": "InstrumentMeansComitativeRole(x)"
+    },
+    {
+      "id": "strategy:en:Ins",
+      "type": "SURFACE_STRATEGY",
+      "language": "en",
+      "label": "with/by/using/as phrases depending on role"
+    },
+    {
+      "id": "strategy:de:Ins",
+      "type": "SURFACE_STRATEGY",
+      "language": "de",
+      "label": "mit/durch/von/als phrases, often dative after prepositions"
+    },
+    {
+      "id": "strategy:fr:Ins",
+      "type": "SURFACE_STRATEGY",
+      "language": "fr",
+      "label": "avec/par/en/comme phrases depending on role"
+    },
+    {
+      "id": "strategy:es:Ins",
+      "type": "SURFACE_STRATEGY",
+      "language": "es",
+      "label": "con/por/usando/como phrases depending on role"
+    },
+    {
+      "id": "case:Loc",
+      "type": "CASE_ROLE",
+      "label": "Loc / miejscownik",
+      "operator": "LocationTopicFrame(x)"
+    },
+    {
+      "id": "op:LocationTopicFrame",
+      "type": "CASE_OPERATOR",
+      "label": "LocationTopicFrame(x)"
+    },
+    {
+      "id": "strategy:en:Loc",
+      "type": "SURFACE_STRATEGY",
+      "language": "en",
+      "label": "in/on/at/about/after/near phrases selected by lexical operator"
+    },
+    {
+      "id": "strategy:de:Loc",
+      "type": "SURFACE_STRATEGY",
+      "language": "de",
+      "label": "in/an/auf/über/bei plus dative or accusative depending on static/directional role"
+    },
+    {
+      "id": "strategy:fr:Loc",
+      "type": "SURFACE_STRATEGY",
+      "language": "fr",
+      "label": "dans/sur/à/de/au sujet de phrases"
+    },
+    {
+      "id": "strategy:es:Loc",
+      "type": "SURFACE_STRATEGY",
+      "language": "es",
+      "label": "en/sobre/a/cerca de phrases"
+    },
+    {
+      "id": "case:Voc",
+      "type": "CASE_ROLE",
+      "label": "Voc / wołacz",
+      "operator": "Address(x)"
+    },
+    {
+      "id": "op:Address",
+      "type": "CASE_OPERATOR",
+      "label": "Address(x)"
+    },
+    {
+      "id": "strategy:en:Voc",
+      "type": "SURFACE_STRATEGY",
+      "language": "en",
+      "label": "bare name/noun with comma, intonation, O/hey in marked registers"
+    },
+    {
+      "id": "strategy:de:Voc",
+      "type": "SURFACE_STRATEGY",
+      "language": "de",
+      "label": "bare name/noun with comma/intonation; no productive vocative morphology"
+    },
+    {
+      "id": "strategy:fr:Voc",
+      "type": "SURFACE_STRATEGY",
+      "language": "fr",
+      "label": "name/noun with comma/intonation; ô in literary register"
+    },
+    {
+      "id": "strategy:es:Voc",
+      "type": "SURFACE_STRATEGY",
+      "language": "es",
+      "label": "name/noun with comma/intonation; oye/oh in marked contexts"
+    }
+  ],
+  "edges": [
+    {
+      "source": "case:Nom",
+      "target": "op:SubjectOrIdentity",
+      "type": "realizes_operator"
+    },
+    {
+      "source": "case:Nom",
+      "target": "strategy:en:Nom",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Nom",
+      "target": "strategy:de:Nom",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Nom",
+      "target": "strategy:fr:Nom",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Nom",
+      "target": "strategy:es:Nom",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Acc",
+      "target": "op:DirectPatient",
+      "type": "realizes_operator"
+    },
+    {
+      "source": "case:Acc",
+      "target": "strategy:en:Acc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Acc",
+      "target": "strategy:de:Acc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Acc",
+      "target": "strategy:fr:Acc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Acc",
+      "target": "strategy:es:Acc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Gen",
+      "target": "op:OfPossessionSourcePartitive",
+      "type": "realizes_operator"
+    },
+    {
+      "source": "case:Gen",
+      "target": "strategy:en:Gen",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Gen",
+      "target": "strategy:de:Gen",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Gen",
+      "target": "strategy:fr:Gen",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Gen",
+      "target": "strategy:es:Gen",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Dat",
+      "target": "op:RecipientBeneficiaryTarget",
+      "type": "realizes_operator"
+    },
+    {
+      "source": "case:Dat",
+      "target": "strategy:en:Dat",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Dat",
+      "target": "strategy:de:Dat",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Dat",
+      "target": "strategy:fr:Dat",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Dat",
+      "target": "strategy:es:Dat",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Ins",
+      "target": "op:InstrumentMeansComitativeRole",
+      "type": "realizes_operator"
+    },
+    {
+      "source": "case:Ins",
+      "target": "strategy:en:Ins",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Ins",
+      "target": "strategy:de:Ins",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Ins",
+      "target": "strategy:fr:Ins",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Ins",
+      "target": "strategy:es:Ins",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Loc",
+      "target": "op:LocationTopicFrame",
+      "type": "realizes_operator"
+    },
+    {
+      "source": "case:Loc",
+      "target": "strategy:en:Loc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Loc",
+      "target": "strategy:de:Loc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Loc",
+      "target": "strategy:fr:Loc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Loc",
+      "target": "strategy:es:Loc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Voc",
+      "target": "op:Address",
+      "type": "realizes_operator"
+    },
+    {
+      "source": "case:Voc",
+      "target": "strategy:en:Voc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Voc",
+      "target": "strategy:de:Voc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Voc",
+      "target": "strategy:fr:Voc",
+      "type": "maps_to_surface_strategy"
+    },
+    {
+      "source": "case:Voc",
+      "target": "strategy:es:Voc",
+      "type": "maps_to_surface_strategy"
+    }
+  ]
+}

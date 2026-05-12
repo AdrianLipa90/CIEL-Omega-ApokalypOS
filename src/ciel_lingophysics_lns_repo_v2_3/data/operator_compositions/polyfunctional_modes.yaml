@@ -1,0 +1,19 @@
+polyfunctional:
+  Have:
+  - Own(owner,object)
+  - HasPart(whole,part)
+  - HasProperty(entity,property)
+  - HasState(entity,state)
+  - HasRelation(entity,relation)
+  HowLikeAs:
+  - How(T)->Ask(Manner(T))
+  - Like(x,y)->Sim(x,y)
+  - As(x,role)->AssignRole(x,role)
+  - AsBefore(x)->MapPattern(previous->x)
+  - WhenIf(S1,S2)
+  In:
+  - Inside(x,y)
+  - InTime(event,interval)
+  - InMedium(x,medium)
+  - InDomain(x,domain)
+  - InState(x,state)

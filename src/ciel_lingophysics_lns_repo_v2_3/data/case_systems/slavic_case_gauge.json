@@ -1,0 +1,211 @@
+{
+  "version": "1.1",
+  "layer": "Case Gauge Layer",
+  "principle": "Morphological case is an explicit local gauge of semantic role; case-less languages encode the same role through word order, adpositions, clitics, agreement, and verb valency.",
+  "languages": {
+    "pl": {
+      "type": "rich_case_slavic",
+      "cases": [
+        "Nom",
+        "Acc",
+        "Gen",
+        "Dat",
+        "Ins",
+        "Loc",
+        "Voc"
+      ],
+      "notes": "Polish case morphology carries role and operator information directly on nominal forms."
+    },
+    "en": {
+      "type": "mostly_caseless_fixed_order",
+      "cases": [
+        "pronoun_direct_oblique_residue"
+      ],
+      "notes": "English maps many case roles to position and prepositions."
+    },
+    "de": {
+      "type": "partial_case_germanic",
+      "cases": [
+        "Nom",
+        "Acc",
+        "Dat",
+        "Gen"
+      ],
+      "notes": "German is not case-less; it is a bridge language with reduced but active case morphology."
+    },
+    "fr": {
+      "type": "mostly_caseless_romance",
+      "cases": [
+        "clitic_residue"
+      ],
+      "notes": "French maps case roles to prepositions, clitics and rigid syntax."
+    },
+    "es": {
+      "type": "mostly_caseless_romance",
+      "cases": [
+        "clitic_residue",
+        "personal_a"
+      ],
+      "notes": "Spanish uses prepositions, clitics, agreement and differential object marking for some role distinctions."
+    }
+  },
+  "case_roles": [
+    {
+      "ud": "Nom",
+      "pl_name": "mianownik",
+      "canonical_operator": "SubjectOrIdentity(x)",
+      "core_roles": [
+        "agent_subject",
+        "theme_subject",
+        "identity_complement"
+      ],
+      "semantic_axis": "role_prominence",
+      "phase": 0.0,
+      "pl_marking": "morphological case ending; adjective/determiner agreement; often lemma/citation form",
+      "en_strategy": "subject position before finite verb; nominative pronouns he/she/they/I/we",
+      "de_strategy": "nominative articles/pronouns plus subject agreement; flexible order with case marking",
+      "fr_strategy": "subject position and clitic/tonic subject pronouns",
+      "es_strategy": "subject agreement on verb, optional explicit subject, word order/pragmatics",
+      "example_pl": "Pies gryzie kota.",
+      "example_en": "The dog bites the cat.",
+      "equation": "Bite(Agent=dog, Patient=cat)",
+      "loss_risk": 0.1
+    },
+    {
+      "ud": "Acc",
+      "pl_name": "biernik",
+      "canonical_operator": "DirectPatient(x)",
+      "core_roles": [
+        "direct_object",
+        "patient",
+        "theme_under_transformation"
+      ],
+      "semantic_axis": "patienthood",
+      "phase": 0.25,
+      "pl_marking": "morphological case ending; animacy/gender interactions; verb valency",
+      "en_strategy": "direct object position after transitive verb; object pronouns him/her/them/me/us",
+      "de_strategy": "accusative articles/pronouns; direct object role",
+      "fr_strategy": "direct object NP after verb or object clitic position before finite verb",
+      "es_strategy": "direct object NP, personal a for human/animate specific objects, clitics",
+      "example_pl": "Widzę wodę.",
+      "example_en": "I see the water.",
+      "equation": "See(Experiencer=I, Patient=water)",
+      "loss_risk": 0.15
+    },
+    {
+      "ud": "Gen",
+      "pl_name": "dopełniacz",
+      "canonical_operator": "OfPossessionSourcePartitive(x,y)",
+      "core_roles": [
+        "possessor",
+        "source",
+        "partitive",
+        "absence_or_negated_object",
+        "measure"
+      ],
+      "semantic_axis": "belonging_source_absence",
+      "phase": 0.5,
+      "pl_marking": "morphological case ending; governed by many prepositions, numerals, negation, possession",
+      "en_strategy": "of-phrase, possessive 's, from, some/any/no, partitive expressions; sometimes word order",
+      "de_strategy": "genitive for possession/formal register; von + dative in colloquial; governed prepositions",
+      "fr_strategy": "de phrase for possession/source/partitive; articles du/de la/des; negation often de",
+      "es_strategy": "de phrase for possession/source/partitive; partitive/negative expressed lexically",
+      "example_pl": "Nie mam wody.",
+      "example_en": "I do not have water / I have no water.",
+      "equation": "Not(Have(I, water)) + Absence(water)",
+      "loss_risk": 0.35
+    },
+    {
+      "ud": "Dat",
+      "pl_name": "celownik",
+      "canonical_operator": "RecipientBeneficiaryTarget(x)",
+      "core_roles": [
+        "recipient",
+        "beneficiary",
+        "experiencer",
+        "target_of_transfer"
+      ],
+      "semantic_axis": "directed_benefit_transfer",
+      "phase": 0.75,
+      "pl_marking": "morphological case ending; verb/adjective valency; recipient/beneficiary roles",
+      "en_strategy": "to/for phrase or double-object construction",
+      "de_strategy": "dative articles/pronouns; indirect object; governed prepositions",
+      "fr_strategy": "à phrase or indirect object clitics lui/leur",
+      "es_strategy": "a/para phrase or indirect object clitics le/les",
+      "example_pl": "Daję dziecku wodę.",
+      "example_en": "I give water to the child / I give the child water.",
+      "equation": "Give(Agent=I, Theme=water, Recipient=child)",
+      "loss_risk": 0.2
+    },
+    {
+      "ud": "Ins",
+      "pl_name": "narzędnik",
+      "canonical_operator": "InstrumentMeansComitativeRole(x)",
+      "core_roles": [
+        "instrument",
+        "means",
+        "comitative",
+        "passive_agent",
+        "role_complement"
+      ],
+      "semantic_axis": "means_agency_accompaniment",
+      "phase": 1.0,
+      "pl_marking": "morphological case ending; with/means/role/passive-agent patterns",
+      "en_strategy": "with/by/using/as phrases depending on role",
+      "de_strategy": "mit/durch/von/als phrases, often dative after prepositions",
+      "fr_strategy": "avec/par/en/comme phrases depending on role",
+      "es_strategy": "con/por/usando/como phrases depending on role",
+      "example_pl": "Piszę piórem.",
+      "example_en": "I write with a pen / using a pen.",
+      "equation": "Write(Agent=I, Instrument=pen)",
+      "loss_risk": 0.25
+    },
+    {
+      "ud": "Loc",
+      "pl_name": "miejscownik",
+      "canonical_operator": "LocationTopicFrame(x)",
+      "core_roles": [
+        "location",
+        "topic_frame",
+        "state_frame"
+      ],
+      "semantic_axis": "location_topic_frame",
+      "phase": 1.25,
+      "pl_marking": "morphological case ending; normally appears with prepositions such as w, na, o, po, przy",
+      "en_strategy": "in/on/at/about/after/near phrases selected by lexical operator",
+      "de_strategy": "in/an/auf/über/bei plus dative or accusative depending on static/directional role",
+      "fr_strategy": "dans/sur/à/de/au sujet de phrases",
+      "es_strategy": "en/sobre/a/cerca de phrases",
+      "example_pl": "Mówię o wodzie.",
+      "example_en": "I speak about water.",
+      "equation": "Speak(Agent=I, Topic=water)",
+      "loss_risk": 0.3
+    },
+    {
+      "ud": "Voc",
+      "pl_name": "wołacz",
+      "canonical_operator": "Address(x)",
+      "core_roles": [
+        "addressee",
+        "summoning",
+        "direct_social_orientation"
+      ],
+      "semantic_axis": "address_relation",
+      "phase": 1.5,
+      "pl_marking": "morphological case ending; often proper names/animate nouns; speech act role",
+      "en_strategy": "bare name/noun with comma, intonation, O/hey in marked registers",
+      "de_strategy": "bare name/noun with comma/intonation; no productive vocative morphology",
+      "fr_strategy": "name/noun with comma/intonation; ô in literary register",
+      "es_strategy": "name/noun with comma/intonation; oye/oh in marked contexts",
+      "example_pl": "Mario, chodź tutaj!",
+      "example_en": "Maria, come here!",
+      "equation": "Address(Maria) + Imperative(ComeHere(Maria))",
+      "loss_risk": 0.15
+    }
+  ],
+  "formal_maps": {
+    "decode": "CaseForm_l(token) -> RoleOperator(token, role, valency_context)",
+    "encode": "RoleOperator(x, role) -> Surface_l(x, word_order, adposition, clitic, agreement)",
+    "cross_language_equivalence": "Equivalent(S_l1,S_l2) iff CaseRoleInvariant(S_l1) == CaseRoleInvariant(S_l2) and predicate-argument structure is preserved."
+  }
+}

@@ -1,0 +1,14 @@
+family_id,description,operators,canonical_axes
+family:containment,"Topological interior, inclusion and container/contained relations.",op:core:inside;op:core:contain;op:core:outside,spatial_containment;set_inclusion;conceptual_interior
+family:possession,"Possession, attachment, parts, properties, states and relations.",op:core:have,ownership;part_whole;property_assignment;state_attachment;relation_attachment
+family:identity,"Being, identity, equality, classification and predication.",op:core:be,identity;classification;existence;predication
+family:spatial,Relative spatial location and orientation.,op:core:on;op:core:under;op:core:above;op:core:through,verticality;support;path;relative_position
+family:temporal,"Temporal order, simultaneity and event binding.",op:core:before;op:core:after;op:core:when,temporal_order;event_condition
+family:logical,Logical gates and polarity manipulation.,op:core:and;op:core:or;op:core:not;op:core:if_then,conjunction;disjunction;negation;implication
+family:causal,"Causal explanation, reason and consequence.",op:core:because,cause;reason;explanation
+family:modal,"Possibility, necessity, obligation and permission.",op:future:may;op:future:must;op:future:should,possibility;necessity;obligation;permission
+family:comparison,"Similarity, manner, role assignment and pattern mapping.",op:core:how;op:core:like_as,manner;similarity;role;pattern
+family:transformation,"Creation, destruction, becoming and state transitions.",op:future:create;op:future:destroy;op:future:become,creation;destruction;state_transition
+family:epistemic,"Knowledge, belief, doubt, proof and uncertainty.",op:future:know;op:future:believe;op:future:doubt;op:future:prove,knowledge;belief;doubt;proof
+family:affective,Affective relation operators.,op:future:love;op:future:fear;op:future:trust;op:future:hate,care;fear;trust;harm
+family:consensus,"Agreement, denial, confirmation, dispute and consensus inference.",op:future:agree;op:future:deny;op:future:confirm;op:future:question,agreement;denial;confirmation;questioning

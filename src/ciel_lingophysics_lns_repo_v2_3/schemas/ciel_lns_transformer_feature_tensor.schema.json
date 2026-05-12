@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL Transformer Feature Tensor",
+  "type": "object",
+  "required": [
+    "version",
+    "sentence",
+    "tokens"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "sentence": {
+      "type": "string"
+    },
+    "tokens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "surface",
+          "card_type"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "surface": {
+            "type": "string"
+          },
+          "card_type": {
+            "type": "string"
+          },
+          "features": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "invariant": {
+      "type": "string"
+    },
+    "validator_expectations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

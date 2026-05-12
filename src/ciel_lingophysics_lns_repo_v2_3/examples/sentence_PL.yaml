@@ -1,0 +1,18 @@
+id: pl:sent:adrian_tworzy_ciel
+language: pl
+surface: "Adrian tworzy CIEL."
+grammar:
+  subject: {token: "Adrian", role: "Agent"}
+  predicate: {token: "tworzy", role: "T_create"}
+  object: {token: "CIEL", role: "Patient"}
+equation: "Create(Agent=Adrian, Patient=CIEL)"
+knot:
+  type: oriented_semantic_link
+  crossings:
+    - operator: T_create
+      over: Agent
+      under: Patient
+invariants:
+  predicate_argument_core: "Create(Adrian, CIEL)"
+  polarity: affirmative
+  tense: present

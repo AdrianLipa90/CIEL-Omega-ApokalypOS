@@ -15,7 +15,6 @@ from core.braid.nonlocal_coupling import (
     build_orbital_braid_diagnostics,
     compute_trace_to_nonlocal_coupling,
     compute_summary_to_nonlocal_coupling,
-    domain_profile_for,
 )
 
 

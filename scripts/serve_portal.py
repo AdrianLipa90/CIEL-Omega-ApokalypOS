@@ -91,7 +91,7 @@ def read_live_state() -> dict:
             state["dominant_emotion"]= rg.get("dominant_emotion", "?")
             state["mood"]            = round(float(rg.get("mood", 0)), 4)
             state["coherence_index"] = round(float(sm.get("coherence_index", 0)), 4)
-            state["mode"]            = rc.get("mode", "?")
+            state["system_mode"]     = rc.get("mode", "?")
         except Exception:
             pass
 
@@ -102,7 +102,8 @@ def read_live_state() -> dict:
             conn = sqlite3.connect(STATE_DB)
             row = conn.execute(
                 "SELECT ethical_score, system_health, dominant_emotion, mood, cycle_index "
-                "FROM metrics_history ORDER BY rowid DESC LIMIT 1"
+                "FROM metrics_history WHERE dominant_emotion != 'htri' OR dominant_emotion IS NULL "
+                "ORDER BY rowid DESC LIMIT 1"
             ).fetchone()
             conn.close()
             if row:
@@ -374,13 +375,13 @@ LIVE_JS = """
   <svg id="lv-spark" width="80" height="16" style="vertical-align:middle;margin:0 0.3rem"></svg>
   <span class="lv" id="lv-phase" style="font-size:0.72rem">—</span>
   <span class="ts" id="lv-ts">—</span>
-  <a href="http://localhost:5050/portal" target="_blank" style="color:#5dade2;opacity:.6;font-size:.7rem;text-decoration:none;margin-left:.5rem;" title="Portal Flask">⇗ :5050</a>
+  <a href="http://127.0.0.1:2435/portal" target="_blank" style="color:#5dade2;opacity:.6;font-size:.7rem;text-decoration:none;margin-left:.5rem;" title="Portal Flask">⇗ :2435</a>
 </div>
 <script>
 (function() {
   function color_health(v) { return v >= 0.5 ? "lv" : v >= 0.35 ? "lw" : "lr"; }
   function color_ethical(v) { return v >= 0.6 ? "lv" : v >= 0.4 ? "lw" : "lr"; }
-  function color_closure(v) { return v < 5.2 ? "lv" : v < 5.8 ? "lw" : "lr"; }
+  function color_closure(v) { return v < 0.15 ? "lv" : v < 0.35 ? "lw" : "lr"; }
   function set(id, val, cls) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -538,10 +539,10 @@ class CIELHandler(BaseHTTPRequestHandler):
             self.wfile.write(body)
             return
 
-        # ── /proxy/flask/* → proxy to localhost:5050 ──────────────────────
+        # ── /proxy/flask/* → proxy to 127.0.0.1:2435 ─────────────────────
         if path.startswith("/proxy/flask/"):
             import urllib.request, urllib.error
-            target = "http://localhost:5050/" + path[len("/proxy/flask/"):]
+            target = "http://127.0.0.1:2435/" + path[len("/proxy/flask/"):]
             try:
                 with urllib.request.urlopen(target, timeout=10) as resp:
                     body = resp.read()
@@ -613,7 +614,7 @@ class CIELHandler(BaseHTTPRequestHandler):
             self.wfile.write(body)
         elif path.startswith("/proxy/flask/"):
             import urllib.request, urllib.error
-            target = "http://localhost:5050/" + path[len("/proxy/flask/"):]
+            target = "http://127.0.0.1:2435/" + path[len("/proxy/flask/"):]
             try:
                 length = int(self.headers.get("Content-Length", 0))
                 post_data = self.rfile.read(length) if length else None

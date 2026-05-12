@@ -30,11 +30,11 @@
       </div>
       <div class="pm-item">
         <span class="pm-label">Closure</span>
-        <span id="pm-closure" class="pm-val {{ 'warn' if cl > 5.2 else 'ok' }}">{{ "%.3f" | format(cl) }}</span>
+        <span id="pm-closure" class="pm-val {{ 'warn' if cl > 0.35 else 'ok' }}">{{ "%.3f" | format(cl) }}</span>
       </div>
       <div class="pm-item">
         <span class="pm-label">Mode</span>
-        <span id="pm-mode" class="pm-val ok">{{ 'deep' if cl < 5.2 else ('standard' if cl < 5.8 else 'safe') }}</span>
+        <span id="pm-mode" class="pm-val ok">{{ 'deep' if cl < 0.15 else ('standard' if cl < 0.35 else 'safe') }}</span>
       </div>
       <div class="pm-item">
         <span class="pm-label">Emotion</span>
@@ -175,11 +175,11 @@ async function refreshMetrics() {
     if (document.getElementById('pm-emotion'))
       document.getElementById('pm-emotion').textContent = d.dominant_emotion || '—';
     const cl = d.closure_penalty || 0;
-    const mode = d.system_mode || (cl < 5.2 ? 'deep' : cl < 5.8 ? 'standard' : 'safe');
+    const mode = d.system_mode || (cl < 0.15 ? 'deep' : cl < 0.35 ? 'standard' : 'safe');
     if (document.getElementById('pm-mode')) document.getElementById('pm-mode').textContent = mode;
     cls('pm-health', d.system_health >= 0.5);
     cls('pm-ethical', d.ethical_score >= 0.7);
-    cls('pm-closure', cl <= 5.2);
+    cls('pm-closure', cl <= 0.15);
     // Blink live dot
     const dot = document.getElementById('pm-live-dot');
     if (dot) { dot.style.opacity = '1'; setTimeout(() => dot.style.opacity = '.3', 600); }

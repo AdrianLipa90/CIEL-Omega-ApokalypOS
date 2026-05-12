@@ -1,0 +1,12 @@
+{
+  "version": "2.0",
+  "patch": "Diagnostic Geometry Layer",
+  "added": [
+    "diagnostics",
+    "metric_registry",
+    "conflict_registry",
+    "diagnostic_geometry.py",
+    "tests/test_diagnostic_geometry.py"
+  ],
+  "source_zip": "ciel_lingophysics_lns_repo_v1_9.zip"
+}

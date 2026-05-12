@@ -1,0 +1,36 @@
+language_code: fr
+language: French
+grammar_as_gauge:
+  connection: A_gram^(fr)
+  surface_to_equation: Surface_l -> Grammar_l -> Equation -> Knot -> Invariant
+  local_vector_axes:
+  - inflection
+  - word_order_fixedness
+  - topic_focus
+  - particle_density
+  - case_marking
+  - agreement
+  - honorificity
+  - context_reliance
+  local_vector:
+  - 0.38
+  - 0.82
+  - 0.72
+  - 0.18
+  - 0.1
+  - 0.35
+  - 0.2
+  - 0.54
+  curvature_estimate: 0.2446
+  gauge_notes:
+    word_order: SVO-fixed
+    case_system_strength: 0.05
+    inflection_density: 0.38
+operator_mapping:
+  noun_mass: x
+  article_operator: D
+  partitive_operator: Part
+  prepositional_channel: f:x->y
+water_sentence_equation_examples:
+  canonical: Flow(A=water_equivalent, Path=river_equivalent)
+  need_context: Need(Agent=speaker, Patient=water)

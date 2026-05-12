@@ -433,14 +433,107 @@ class HolonomicMemoryOrchestrator:
                 'content': str(orec.content.content) if hasattr(orec.content, 'content') else str(orec.content),
             })
 
+        perceptual = self.m0.retrieve(query, top_k=top_k, include_decayed=True)
+        working = self.m1.retrieve(query, top_k=top_k, include_decayed=True)
+        episodic = self.m2.retrieve({'recent': top_k})
+        semantic = self.m3.retrieve(query, self.identity_field, top_k=top_k)
+
         return {
             'orbital': orbital_episodes,
             'shell_summary': self.orbital_index.shell_summary(),
             # Legacy channels — still useful for structured queries
-            'perceptual': self.m0.retrieve(query, top_k=top_k, include_decayed=True),
-            'working': self.m1.retrieve(query, top_k=top_k, include_decayed=True),
-            'semantic': self.m3.retrieve(query, self.identity_field, top_k=top_k),
+            'perceptual': perceptual,
+            'working': working,
+            'episodic': episodic,
+            'semantic': semantic,
+            'coherence_surface': self._build_coherence_surface(
+                {
+                    'orbital': orbital_episodes,
+                    'perceptual': perceptual,
+                    'working': working,
+                    'episodic': episodic,
+                    'semantic': semantic,
+                },
+                top_k=200,
+            ),
+            'coherence_surface_top_k': 200,
         }
+
+    @staticmethod
+    def _coherence_score(channel: str, entry: Any) -> float:
+        if isinstance(entry, dict):
+            score = float(entry.get('score', 0.0) or 0.0)
+            confidence = float(entry.get('confidence', 0.0) or 0.0)
+            identity_alignment = float(entry.get('identity_alignment', 0.0) or 0.0)
+            r_phase = float(entry.get('r_phase', 0.0) or 0.0)
+            shell = float(entry.get('shell', 0.0) or 0.0)
+            channel_bonus = {
+                'orbital': 0.20,
+                'semantic': 0.15,
+                'working': 0.10,
+                'perceptual': 0.08,
+            }.get(channel, 0.0)
+            return float(
+                0.40 * score
+                + 0.22 * confidence
+                + 0.18 * identity_alignment
+                + 0.10 * (1.0 / (1.0 + abs(r_phase)))
+                + 0.05 * (1.0 / (1.0 + shell))
+                + channel_bonus
+            )
+        return 0.0
+
+    def _build_coherence_surface(self, bundles: Dict[str, Any], *, top_k: int = 200) -> List[Dict[str, Any]]:
+        rows: List[Dict[str, Any]] = []
+        for channel, items in bundles.items():
+            if not isinstance(items, list):
+                continue
+            for entry in items:
+                if not isinstance(entry, dict):
+                    continue
+                payload = entry.get('item') if isinstance(entry.get('item'), dict) else entry
+                text = (
+                    payload.get('content')
+                    or payload.get('canonical_text')
+                    or payload.get('canonical_action')
+                    or payload.get('summary')
+                    or str(payload)
+                )
+                row = {
+                    'channel': channel,
+                    'text': text,
+                    'score': float(entry.get('score', 0.0) or 0.0),
+                    'coherence_score': self._coherence_score(channel, entry),
+                }
+                if isinstance(payload, dict):
+                    if 'confidence' in payload:
+                        row['confidence'] = payload.get('confidence')
+                    if 'identity_alignment' in payload:
+                        row['identity_alignment'] = payload.get('identity_alignment')
+                    if 'phase' in payload:
+                        row['phase'] = payload.get('phase')
+                rows.append(row)
+
+        rows.sort(key=lambda x: x['coherence_score'], reverse=True)
+        surface: List[Dict[str, Any]] = []
+        counts: Dict[str, int] = {}
+        channel_cap = max(1, top_k // 12)
+        for row in rows:
+            channel = str(row['channel'])
+            if counts.get(channel, 0) >= channel_cap and len(surface) < top_k:
+                continue
+            surface.append(row)
+            counts[channel] = counts.get(channel, 0) + 1
+            if len(surface) >= top_k:
+                break
+        if len(surface) < top_k:
+            for row in rows:
+                if row in surface:
+                    continue
+                surface.append(row)
+                if len(surface) >= top_k:
+                    break
+        return surface
 
     def retrieve_legacy(self, query: str, top_k: int = 5) -> Dict[str, Any]:
         """Full sequential retrieve across all channels (pre-orbital)."""

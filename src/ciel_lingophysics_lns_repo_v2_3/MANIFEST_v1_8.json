@@ -1,0 +1,60 @@
+{
+  "version": "v1.8",
+  "batch02": {
+    "batch_id": "batch02_cognitive_social_36x5",
+    "version": "v1.8",
+    "card_count": 36,
+    "language_count": 5,
+    "language_panels": 180,
+    "concept_ids": [
+      "concept:eye",
+      "concept:hand",
+      "concept:voice",
+      "concept:name",
+      "concept:face",
+      "concept:blood",
+      "concept:thought",
+      "concept:idea",
+      "concept:question",
+      "concept:answer",
+      "concept:reason",
+      "concept:doubt",
+      "concept:person",
+      "concept:child",
+      "concept:parent",
+      "concept:friend",
+      "concept:stranger",
+      "concept:enemy",
+      "concept:house",
+      "concept:door",
+      "concept:road",
+      "concept:city",
+      "concept:country",
+      "concept:border",
+      "concept:gift",
+      "concept:debt",
+      "concept:promise",
+      "concept:law",
+      "concept:work",
+      "concept:money",
+      "concept:word",
+      "concept:sign",
+      "concept:sound",
+      "concept:silence",
+      "concept:story",
+      "concept:song"
+    ],
+    "source_policy": "hand_curated_seed_no_external_dictionary_import",
+    "depends_on": [
+      "batch01_foundational_36x5",
+      "operator_algebra_v0_9",
+      "card_ontology_v1_7"
+    ],
+    "quality_status": "draft_seed_needs_human_validation"
+  },
+  "generated_files": [
+    "data/concept_cards/batch02_cognitive_social_36x5",
+    "data/sqlite/cielingo_batch02_v1_8.sqlite",
+    "data/hdf5/cielingo_batch02_v1_8.h5"
+  ]
+}

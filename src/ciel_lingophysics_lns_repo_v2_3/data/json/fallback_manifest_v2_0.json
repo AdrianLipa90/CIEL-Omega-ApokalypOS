@@ -1,0 +1,16 @@
+{
+  "version": "2.0",
+  "preferred_outputs": [
+    "PNG heatmaps",
+    "GraphML graph",
+    "CSV matrices",
+    "JSON summaries"
+  ],
+  "fallback_policy": "If binary or graph export fails, preserve JSON and CSV diagnostics with explicit report entry.",
+  "fallback_outputs": [
+    "data/diagnostics/global_diagnostic_summary_v2_0.json",
+    "data/diagnostics/cross_language_reconstruction_costs.json",
+    "data/graphs/global_diagnostic_graph.json"
+  ],
+  "status": "active"
+}

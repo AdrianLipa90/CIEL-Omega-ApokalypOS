@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIELingo roadmap schema",
+  "type": "object",
+  "required": [
+    "cielingo_roadmap_version",
+    "status",
+    "principles",
+    "phases"
+  ],
+  "properties": {
+    "cielingo_roadmap_version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "principles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "current_state": {
+      "type": "object"
+    },
+    "batch_policy": {
+      "type": "object"
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "target_version",
+          "status",
+          "objective",
+          "deliverables",
+          "exit_criteria"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "target_version": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          },
+          "deliverables": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "exit_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "risk_register": {
+      "type": "array"
+    }
+  }
+}

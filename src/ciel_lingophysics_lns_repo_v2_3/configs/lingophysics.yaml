@@ -1,0 +1,41 @@
+ciel_lns_version: 0.6.0-draft
+runtime:
+  default_languages:
+  - en
+  - pl
+  hdf5_store: data/hdf5/ciel_lingophysics_seed.h5
+weights:
+  semantic_mass:
+    frequency: 0.1
+    relation_degree: 0.18
+    provenance_strength: 0.14
+    memory_persistence: 0.14
+    coherence: 0.16
+    affective_charge: 0.1
+    causal_power: 0.12
+    contradiction_penalty: 0.06
+  distance:
+    lexical: 0.12
+    syntax: 0.16
+    semantic: 0.28
+    memory: 0.14
+    epistemic: 0.12
+    phase: 0.18
+thresholds:
+  epsilon_ant: 0.15
+  epsilon_syn: 0.15
+  epsilon_cross: 0.25
+  theta_surface: 0.82
+  theta_path: 0.45
+  theta_consensus: 0.7
+  theta_provenance: 0.5
+  theta_contradiction: 0.2
+axes:
+- truth
+- care
+- creation
+- value
+- agency
+- polarity
+- temporality
+- identity

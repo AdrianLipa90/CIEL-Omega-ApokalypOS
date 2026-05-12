@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <graph edgedefault="directed">
+    <node id="concept:water"><data key="label">water/woda</data><data key="kind">concept</data></node>
+    <node id="axis:life"><data key="label">life/życie</data><data key="kind">axis</data></node>
+    <node id="axis:flow"><data key="label">flow/przepływ</data><data key="kind">axis</data></node>
+    <node id="axis:cleansing"><data key="label">cleansing/oczyszczanie</data><data key="kind">axis</data></node>
+    <node id="axis:danger"><data key="label">danger/zagrożenie</data><data key="kind">axis</data></node>
+    <node id="ant:drought"><data key="label">drought/susza</data><data key="kind">antonym</data></node>
+    <node id="ant:fire"><data key="label">fire/ogień</data><data key="kind">contextual_antonym</data></node>
+    <edge id="e1" source="concept:water" target="axis:life"><data key="type">supports</data><data key="weight">0.96</data></edge>
+    <edge id="e2" source="concept:water" target="axis:flow"><data key="type">embodies</data><data key="weight">0.94</data></edge>
+    <edge id="e3" source="concept:water" target="axis:cleansing"><data key="type">symbolizes</data><data key="weight">0.74</data></edge>
+    <edge id="e4" source="concept:water" target="ant:drought"><data key="type">antonym_axis</data><data key="weight">0.91</data></edge>
+    <edge id="e5" source="concept:water" target="ant:fire"><data key="type">oppositional_contextual</data><data key="weight">0.66</data></edge>
+    <edge id="e6" source="concept:water" target="axis:danger"><data key="type">danger_potential</data><data key="weight">0.48</data></edge>
+  </graph>
+</graphml>

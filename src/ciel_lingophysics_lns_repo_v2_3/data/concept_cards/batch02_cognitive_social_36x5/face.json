@@ -1,0 +1,206 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:face",
+  "canonical_label_en": "face",
+  "batch_id": "batch02_cognitive_social_36x5",
+  "domain": "body_identity",
+  "semantic_axes": [
+    "body",
+    "identity",
+    "relation"
+  ],
+  "semantic_mass_seed": 0.706,
+  "phase_seed_rad": 0.698132,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "twarz",
+      "brief_description": "karta pojęciowa 'twarz' jako ręcznie kuratorowany seed lingofizyczny",
+      "near_synonyms_seed": [
+        "oblicze"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "twarz",
+        "twarz as lemma",
+        "twarz in context"
+      ],
+      "context_examples_seed": [
+        "twarz participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "see",
+        "has_part",
+        "as"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "face",
+      "brief_description": "concept card 'face' as a hand-curated lingophysics seed",
+      "near_synonyms_seed": [
+        "visage"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "face",
+        "face as lemma",
+        "face in context"
+      ],
+      "context_examples_seed": [
+        "face participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "see",
+        "has_part",
+        "as"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Gesicht",
+      "brief_description": "Begriffskarte 'Gesicht' als handkuratiertes Lingophysik-Seed",
+      "near_synonyms_seed": [
+        "Antlitz"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "Gesicht",
+        "Gesicht as lemma",
+        "Gesicht in context"
+      ],
+      "context_examples_seed": [
+        "Gesicht participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "see",
+        "has_part",
+        "as"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "visage",
+      "brief_description": "carte conceptuelle 'visage' comme graine lingophysique curée manuellement",
+      "near_synonyms_seed": [
+        "figure"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "visage",
+        "visage as lemma",
+        "visage in context"
+      ],
+      "context_examples_seed": [
+        "visage participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "see",
+        "has_part",
+        "as"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "rostro",
+      "brief_description": "tarjeta conceptual 'rostro' como semilla lingofísica curada manualmente",
+      "near_synonyms_seed": [
+        "cara"
+      ],
+      "antonyms_seed": [],
+      "forms_seed": [
+        "rostro",
+        "rostro as lemma",
+        "rostro in context"
+      ],
+      "context_examples_seed": [
+        "rostro participates in a CIELingo relation graph."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "see",
+        "has_part",
+        "as"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "see",
+    "has_part",
+    "as"
+  ],
+  "relations": [
+    {
+      "type": "part_of",
+      "target": "concept:body",
+      "status": "draft_seed"
+    },
+    {
+      "type": "signals",
+      "target": "concept:identity",
+      "status": "draft_seed"
+    }
+  ],
+  "quality_flags": [
+    "CURATED_SEED",
+    "BATCH02",
+    "REQUIRES_HUMAN_REVIEW"
+  ]
+}

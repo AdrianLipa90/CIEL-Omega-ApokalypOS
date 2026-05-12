@@ -1,0 +1,36 @@
+language_code: es
+language: Spanish
+grammar_as_gauge:
+  connection: A_gram^(es)
+  surface_to_equation: Surface_l -> Grammar_l -> Equation -> Knot -> Invariant
+  local_vector_axes:
+  - inflection
+  - word_order_fixedness
+  - topic_focus
+  - particle_density
+  - case_marking
+  - agreement
+  - honorificity
+  - context_reliance
+  local_vector:
+  - 0.46
+  - 0.78
+  - 0.7
+  - 0.18
+  - 0.12
+  - 0.4
+  - 0.2
+  - 0.55
+  curvature_estimate: 0.2299
+  gauge_notes:
+    word_order: SVO-flexible
+    case_system_strength: 0.05
+    inflection_density: 0.46
+operator_mapping:
+  noun_mass: x
+  article_operator: D
+  gender_exception_operator: G_ex
+  prepositional_channel: f:x->y
+water_sentence_equation_examples:
+  canonical: Flow(A=water_equivalent, Path=river_equivalent)
+  need_context: Need(Agent=speaker, Patient=water)

@@ -60,6 +60,19 @@ def weighted_euler_vector(states: Iterable[RepositoryState]) -> complex:
     return total
 
 
+def weighted_euler_vector_numpy(states: Iterable[RepositoryState]) -> complex:
+    """Vectorized weighted Euler sum for larger state batches."""
+    states = list(states)
+    if not states:
+        return 0j
+    import numpy as np
+
+    mass = np.array([max(0.0, s.mass) for s in states], dtype=float)
+    phi = np.array([s.phi for s in states], dtype=float)
+    vec = np.sum(mass * np.exp(1j * phi))
+    return complex(vec)
+
+
 def closure_defect(states: Iterable[RepositoryState]) -> float:
     states = list(states)
     total_mass = sum(max(0.0, s.mass) for s in states)
@@ -67,6 +80,63 @@ def closure_defect(states: Iterable[RepositoryState]) -> float:
         return 1.0
     vec = weighted_euler_vector(states)
     return max(0.0, min(1.0, 1.0 - abs(vec) / total_mass))
+
+
+def euler_residual(states: Iterable[RepositoryState]) -> float:
+    """Normalize the Euler closure residual to [0, 1]."""
+    states = list(states)
+    if not states:
+        return 1.0
+    total_mass = sum(max(0.0, s.mass) for s in states)
+    if total_mass <= 0.0:
+        return 1.0
+    vec = weighted_euler_vector_numpy(states)
+    return max(0.0, min(1.0, abs(vec) / total_mass))
+
+
+def pairwise_tension_matrix(
+    states: dict[str, RepositoryState],
+    couplings: dict[str, dict[str, float]],
+) -> list[list[float]]:
+    """Build a dense pairwise tension matrix aligned to the sorted state keys."""
+    keys = sorted(states.keys())
+    n = len(keys)
+    if n == 0:
+        return []
+    index = {k: i for i, k in enumerate(keys)}
+    mat = [[0.0] * n for _ in range(n)]
+    for src, neighbors in couplings.items():
+        i = index.get(src)
+        if i is None:
+            continue
+        for dst, coupling in neighbors.items():
+            j = index.get(dst)
+            if j is None:
+                continue
+            if i == j:
+                continue
+            mat[i][j] = pairwise_tension(states[src], states[dst], float(coupling))
+    return mat
+
+
+def j_repo(
+    states: Iterable[RepositoryState],
+    couplings: dict[str, dict[str, float]] | None = None,
+) -> float:
+    """Compact repo-level cost functional combining closure and pairwise tension."""
+    states = list(states)
+    if not states:
+        return 1.0
+    defect = closure_defect(states)
+    if not couplings:
+        return float(defect)
+    state_map = {s.key: s for s in states}
+    tensions = all_pairwise_tensions(state_map, couplings)
+    if not tensions:
+        return float(defect)
+    mean_tension = sum(float(row["tension"]) for row in tensions) / len(tensions)
+    max_tension = max(float(row["tension"]) for row in tensions)
+    return float(max(0.0, min(1.0, 0.55 * defect + 0.30 * mean_tension + 0.15 * max_tension)))
 
 
 def pairwise_tension(a: RepositoryState, b: RepositoryState, coupling: float) -> float:
@@ -103,8 +173,10 @@ def build_sync_report(
     states = load_registry(registry_path)
     couplings = load_couplings(couplings_path)
     defect = closure_defect(states.values())
+    residual = euler_residual(states.values())
     vec = weighted_euler_vector(states.values())
     tensions = all_pairwise_tensions(states, couplings)
+    tension_values = [float(row["tension"]) for row in tensions]
     return {
         'repository_count': len(states),
         'weighted_euler_vector': {
@@ -113,5 +185,9 @@ def build_sync_report(
             'abs': abs(vec),
         },
         'closure_defect': defect,
+        'euler_residual': residual,
         'pairwise_tensions': tensions,
+        'mean_pairwise_tension': sum(tension_values) / len(tension_values) if tension_values else 0.0,
+        'max_pairwise_tension': max(tension_values) if tension_values else 0.0,
+        'j_repo': j_repo(states.values(), couplings),
     }

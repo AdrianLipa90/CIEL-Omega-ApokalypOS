@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL-LNS Predicate Valency Frame",
+  "type": "object",
+  "required": [
+    "version",
+    "frames"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "frames": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "frame_id",
+          "canonical_operator",
+          "arity",
+          "equation",
+          "required_roles"
+        ],
+        "properties": {
+          "frame_id": {
+            "type": "string"
+          },
+          "canonical_operator": {
+            "type": "string"
+          },
+          "arity": {
+            "type": "integer"
+          },
+          "equation": {
+            "type": "string"
+          },
+          "required_roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "optional_roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pl_case_realization": {
+            "type": "object"
+          },
+          "language_realization": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}

@@ -22,7 +22,9 @@ def summarize_sector_retrieval(ciel_state: Dict[str, Any], *, max_items_per_chan
     governed = sector_memory.get("governed_retrieval") if isinstance(sector_memory.get("governed_retrieval"), dict) else {}
     summary: Dict[str, List[str]] = {}
 
-    ranked = governed.get("ranked") if isinstance(governed.get("ranked"), list) else []
+    ranked = governed.get("coherence_surface") if isinstance(governed.get("coherence_surface"), list) else []
+    if not ranked:
+        ranked = governed.get("ranked") if isinstance(governed.get("ranked"), list) else []
     ranked_lines: List[str] = []
     for row in ranked[: max(1, max_items_per_channel * 2)]:
         if not isinstance(row, dict):
@@ -40,6 +42,9 @@ def summarize_sector_retrieval(ciel_state: Dict[str, Any], *, max_items_per_chan
             tags.append(f"hq={float(hq):.2f}")
         if isinstance(pa, (int, float)):
             tags.append(f"pa={float(pa):.2f}")
+        cs = row.get("coherence_surface_score")
+        if isinstance(cs, (int, float)):
+            tags.append(f"cs={float(cs):.2f}")
         ranked_lines.append(f"[{', '.join(tags)}] {txt[:200]}")
     if ranked_lines:
         summary["ranked"] = ranked_lines
@@ -111,6 +116,62 @@ def _semantic_state_snippets(ciel_state: Dict[str, Any], *, max_items_per_channe
         mem_key = euler_bridge.get("memory_semantic_key")
         if _is_nonempty_text(mem_key):
             snippets.append(f"Euler bridge memory key: {mem_key}")
+
+    lingo_frame = ciel_state.get("lingo_frame") if isinstance(ciel_state.get("lingo_frame"), dict) else {}
+    if lingo_frame:
+        summary = lingo_frame.get("summary")
+        if _is_nonempty_text(summary):
+            snippets.append(f"CIELingo summary: {summary}")
+        concept_tokens = lingo_frame.get("concept_tokens")
+        if isinstance(concept_tokens, list) and concept_tokens:
+            snippets.append("CIELingo concepts: " + ", ".join(str(x) for x in concept_tokens[:6] if str(x).strip()))
+        operator_tokens = lingo_frame.get("operator_tokens")
+        if isinstance(operator_tokens, list) and operator_tokens:
+            snippets.append("CIELingo operators: " + ", ".join(str(x) for x in operator_tokens[:6] if str(x).strip()))
+        deictic_frame = lingo_frame.get("deictic_frame") if isinstance(lingo_frame.get("deictic_frame"), dict) else {}
+        if deictic_frame:
+            unresolved = lingo_frame.get("unresolved") if isinstance(lingo_frame.get("unresolved"), list) else []
+            if unresolved:
+                snippets.append("CIELingo unresolved anchors: " + ", ".join(str(x) for x in unresolved[:6]))
+            anchors = deictic_frame.get("anchors") if isinstance(deictic_frame.get("anchors"), list) else []
+            relative = deictic_frame.get("relative_anchors") if isinstance(deictic_frame.get("relative_anchors"), list) else []
+            if anchors or relative:
+                parts: List[str] = []
+                for item in (anchors + relative)[:6]:
+                    if not isinstance(item, dict):
+                        continue
+                    parts.append(f"{item.get('operator', '?')}:{item.get('resolution_state', '?')}")
+                if parts:
+                    snippets.append("CIELingo deictics: " + ", ".join(parts))
+        noema_route = lingo_frame.get("noema_route") if isinstance(lingo_frame.get("noema_route"), dict) else {}
+        if noema_route:
+            confidence = noema_route.get("confidence")
+            if isinstance(confidence, (int, float)):
+                snippets.append(f"CIELingo NOEMA confidence: {float(confidence):.3f}")
+            if bool(noema_route.get("factual_validation_required", False)):
+                snippets.append("CIELingo factual validation required: true")
+        phase_projection = lingo_frame.get("phase_projection") if isinstance(lingo_frame.get("phase_projection"), dict) else {}
+        if phase_projection:
+            target = phase_projection.get("target_phase")
+            shift = phase_projection.get("target_phase_shift")
+            confidence = phase_projection.get("phase_confidence")
+            if isinstance(target, (int, float)):
+                snippets.append(f"CIELingo phase target: {float(target):.3f}")
+            if isinstance(shift, (int, float)):
+                snippets.append(f"CIELingo phase shift: {float(shift):.3f}")
+            if isinstance(confidence, (int, float)):
+                snippets.append(f"CIELingo phase confidence: {float(confidence):.3f}")
+        tau_bridge = lingo_frame.get("tau_bridge") if isinstance(lingo_frame.get("tau_bridge"), dict) else {}
+        if tau_bridge:
+            gradient = tau_bridge.get("tau_gradient_mean")
+            imaginal_drive = tau_bridge.get("imaginal_drive")
+            curvature = tau_bridge.get("tau_curvature_rms")
+            if isinstance(gradient, (int, float)):
+                snippets.append(f"CIELingo tau gradient: {float(gradient):.3f}")
+            if isinstance(imaginal_drive, (int, float)):
+                snippets.append(f"CIELingo imaginal drive: {float(imaginal_drive):.3f}")
+            if isinstance(curvature, (int, float)):
+                snippets.append(f"CIELingo tau curvature rms: {float(curvature):.3f}")
 
     runtime_policy = ciel_state.get("runtime_policy") if isinstance(ciel_state.get("runtime_policy"), dict) else {}
     if runtime_policy:

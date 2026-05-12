@@ -1,0 +1,25 @@
+operator_id,family,classes,symbol,arity,dual,inverse,description,equations
+op:core:be,identity_existence_copula,copula|identity|existence|state_binding,"≡ / Is(x,y) / Exists(x)",1-2,,,"binds an entity to identity, state, class, location or existence","Is(x,y)|Exists(x)|HasState(x,s)|Located(x,l)"
+op:core:have,possession_property_part_state,possession|property_attachment|part_relation|state_attachment,"Have(x,y)",2,,,"broad operator for ownership, parts, attributes, states and relational attachment","Have(possessor, possessed)|HasPart(whole, part)|HasProperty(entity, property)|HasState(entity, state)"
+op:core:contain,containment_inclusion,spatial_relation|set_inclusion|topological_relation,"Contains(y,x) ⇔ Inside(x,y)",2,op:core:inside,op:core:inside,container-oriented inclusion: y contains x,"Contains(y,x)|x ⊂ Int(y)"
+op:core:inside,interiority_location,spatial_relation|topological_relation|localizer,"Inside(x,y) ⇔ Contains(y,x)",2,op:core:contain,op:core:contain,object-oriented interior relation: x is inside y,"Inside(x,y)|x ∈ Int(y)"
+op:core:outside,exteriority_location,spatial_relation|topological_relation|localizer,"Outside(x,y)",2,op:core:inside,,x is outside the boundary/interior of y,"Outside(x,y)|x ∉ Int(y)"
+op:core:on,surface_contact_support,spatial_relation|support_relation,"On(x,y)",2,op:core:under,op:core:under,surface contact or support relation,"On(x,y)|Contact(x, Surface(y))"
+op:core:under,below_covered_by,spatial_relation|vertical_relation,"Under(x,y)",2,op:core:on,op:core:above,x is below or beneath y,"Under(x,y)|z(x)<z(y)"
+op:core:above,above_vertical_superposition,spatial_relation|vertical_relation,"Above(x,y)",2,op:core:under,op:core:under,x is above y along a vertical or hierarchy axis,"Above(x,y)|z(x)>z(y)"
+op:core:before,temporal_precedence,temporal_relation|ordering_operator,"Before(x,y)",2,op:core:after,op:core:after,"x precedes y in time, sequence or priority","Before(x,y)|t(x)<t(y)"
+op:core:after,temporal_succession,temporal_relation|ordering_operator,"After(x,y)",2,op:core:before,op:core:before,"x follows y in time, sequence or consequence","After(x,y)|t(x)>t(y)"
+op:core:with,association_accompaniment_instrument,relation_operator|instrument_operator|co_presence,"With(x,y)",2,op:core:without,,"co-presence, accompaniment, instrumentality or association","With(x,y)|Associate(x,y)|Instrument(action,y)"
+op:core:without,absence_deprivation,relation_operator|absence_operator|negated_association,"Without(x,y)",2,op:core:with,,"absence of association, possession or accompanying entity","Without(x,y)|¬With(x,y)"
+op:core:from,source_origin_separation,source_operator|path_operator,"From(x,source)",2,op:core:to,op:core:to,"origin, source, extraction or separation","From(x,s)|Origin(x)=s"
+op:core:to,target_destination_direction,target_operator|path_operator,"To(x,target)",2,op:core:from,op:core:from,"destination, target, receiver or direction","To(x,t)|Target(x)=t"
+op:core:through,path_traversal_mediation,path_operator|channel_operator|mediation,"Through(x,medium)",2,,,"movement, causation or communication through a medium/channel","Through(path,medium)|MediatedBy(action,medium)"
+op:core:and,conjunction_coupling,logic_operator|graph_coupling,x ∧ y / x ⊗ y,2+,op:core:or,,joins structures conjunctively; can tensor-couple semantic bodies,"And(x,y)|x ∧ y|x ⊗ y"
+op:core:or,disjunction_alternative,logic_operator|branching_operator,x ∨ y / x ⊕ y,2+,op:core:and,,"introduces alternatives, branches or option-space","Or(x,y)|x ∨ y|x ⊕ y"
+op:core:not,negation_phase_inversion,logic_operator|phase_operator|polarity_operator,¬x / e^{iπ},1,,,negates proposition or flips polarity/phase on selected scope,Not(P)|¬P|phase(P)+π
+op:core:if_then,conditional_implication,logic_operator|condition_operator|causal_structure,If(P)⇒Q,2,,,conditional relation linking antecedent to consequent,"If(P,Q)|P ⇒ Q"
+op:core:because,causal_explanation,causal_operator|explanation_operator,"Because(Q,P) => Cause(P,Q)",2,,,links outcome/explanation to a cause or reason,"Because(Q,P)|Cause(P,Q)|Reason(P,Q)"
+op:core:how,manner_similarity_pattern_polyfunction,query_operator|manner_operator|comparison_operator|pattern_mapping,"How(T) / Like(x,y) / As(x,y)",1-2,,,"polyfunctional manner question, comparison or pattern-mapping operator","How(T)->ask(Manner(T))|Like(x,y)->Sim(x,y)|As(x,y)->MapPattern(y→x)"
+op:core:where,location_query,query_operator|spatial_operator,Where(x)->ask(Location(x)),1,,,queries or marks location of an entity/event,Where(x)->ask(Location(x))
+op:core:when,temporal_query_marker,query_operator|temporal_operator,When(e)->ask(Time(e)),1,,,queries or marks time of an event/state,When(e)->ask(Time(e))
+op:core:like_as,similarity_role_mapping,comparison_operator|analogy_operator|role_mapping,"Like(x,y) / AsRole(x,r)",2,,,"maps similarity, analogy, role or function between entities/actions","Like(x,y)->Sim(x,y)|AsRole(x,r)->Role(x)=r"

@@ -1,0 +1,4 @@
+{
+  "version": "2.3",
+  "fallback_policy": "if preferred artifact generation fails, write JSON/JSONL with explicit report"
+}

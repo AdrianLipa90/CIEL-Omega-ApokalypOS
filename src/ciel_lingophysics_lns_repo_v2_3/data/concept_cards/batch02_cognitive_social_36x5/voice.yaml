@@ -1,0 +1,152 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:voice
+canonical_label_en: voice
+batch_id: batch02_cognitive_social_36x5
+domain: body_expression
+semantic_axes:
+- sound
+- expression
+- identity
+semantic_mass_seed: 0.644
+phase_seed_rad: 0.349066
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: głos
+    brief_description: karta pojęciowa 'głos' jako ręcznie kuratorowany seed lingofizyczny
+    near_synonyms_seed:
+    - brzmienie
+    antonyms_seed: []
+    forms_seed:
+    - głos
+    - głos as lemma
+    - głos in context
+    context_examples_seed:
+    - głos participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - emit
+    - with
+    - about
+    - as
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: voice
+    brief_description: concept card 'voice' as a hand-curated lingophysics seed
+    near_synonyms_seed:
+    - vocal sound
+    antonyms_seed: []
+    forms_seed:
+    - voice
+    - voice as lemma
+    - voice in context
+    context_examples_seed:
+    - voice participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Stimme
+    brief_description: Begriffskarte 'Stimme' als handkuratiertes Lingophysik-Seed
+    near_synonyms_seed:
+    - Stimmklang
+    antonyms_seed: []
+    forms_seed:
+    - Stimme
+    - Stimme as lemma
+    - Stimme in context
+    context_examples_seed:
+    - Stimme participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: voix
+    brief_description: carte conceptuelle 'voix' comme graine lingophysique curée
+      manuellement
+    near_synonyms_seed:
+    - voix
+    antonyms_seed: []
+    forms_seed:
+    - voix
+    - voix as lemma
+    - voix in context
+    context_examples_seed:
+    - voix participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: voz
+    brief_description: tarjeta conceptual 'voz' como semilla lingofísica curada manualmente
+    near_synonyms_seed:
+    - voz
+    antonyms_seed: []
+    forms_seed:
+    - voz
+    - voz as lemma
+    - voz in context
+    context_examples_seed:
+    - voz participates in a CIELingo relation graph.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: uses
+  target: concept:sound
+  status: draft_seed
+- type: expresses
+  target: concept:self
+  status: draft_seed
+quality_flags:
+- CURATED_SEED
+- BATCH02
+- REQUIRES_HUMAN_REVIEW

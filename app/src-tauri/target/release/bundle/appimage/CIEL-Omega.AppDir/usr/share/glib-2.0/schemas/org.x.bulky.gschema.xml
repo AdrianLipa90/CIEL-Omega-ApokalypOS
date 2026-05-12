@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.x.bulky" path="/org/x/bulky/">
+    <key type="s" name="mru-operation">
+      <default>"replace"</default>
+      <summary>"replace, remove, insert, case"</summary>
+      <description></description>
+    </key>
+    <key type="s" name="mru-scope">
+      <default>"name"</default>
+      <summary>"name, extension, all"</summary>
+      <description></description>
+    </key>
+  </schema>
+</schemalist>

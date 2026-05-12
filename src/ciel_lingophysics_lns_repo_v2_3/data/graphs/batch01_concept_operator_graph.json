@@ -1,0 +1,1549 @@
+{
+  "nodes": [
+    {
+      "id": "concept:water",
+      "label": "water",
+      "type": "concept",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:fire",
+      "label": "fire",
+      "type": "concept",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:earth",
+      "label": "earth",
+      "type": "concept",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:air",
+      "label": "air",
+      "type": "concept",
+      "domain": "elemental"
+    },
+    {
+      "id": "concept:light",
+      "label": "light",
+      "type": "concept",
+      "domain": "perception"
+    },
+    {
+      "id": "concept:dark",
+      "label": "darkness",
+      "type": "concept",
+      "domain": "perception"
+    },
+    {
+      "id": "concept:life",
+      "label": "life",
+      "type": "concept",
+      "domain": "biological"
+    },
+    {
+      "id": "concept:death",
+      "label": "death",
+      "type": "concept",
+      "domain": "biological"
+    },
+    {
+      "id": "concept:body",
+      "label": "body",
+      "type": "concept",
+      "domain": "embodiment"
+    },
+    {
+      "id": "concept:mind",
+      "label": "mind",
+      "type": "concept",
+      "domain": "cognitive"
+    },
+    {
+      "id": "concept:time",
+      "label": "time",
+      "type": "concept",
+      "domain": "spacetime"
+    },
+    {
+      "id": "concept:space",
+      "label": "space",
+      "type": "concept",
+      "domain": "spacetime"
+    },
+    {
+      "id": "concept:motion",
+      "label": "motion",
+      "type": "concept",
+      "domain": "dynamics"
+    },
+    {
+      "id": "concept:rest",
+      "label": "rest",
+      "type": "concept",
+      "domain": "dynamics"
+    },
+    {
+      "id": "concept:force",
+      "label": "force",
+      "type": "concept",
+      "domain": "physics"
+    },
+    {
+      "id": "concept:energy",
+      "label": "energy",
+      "type": "concept",
+      "domain": "physics"
+    },
+    {
+      "id": "concept:matter",
+      "label": "matter",
+      "type": "concept",
+      "domain": "physics"
+    },
+    {
+      "id": "concept:information",
+      "label": "information",
+      "type": "concept",
+      "domain": "informational"
+    },
+    {
+      "id": "concept:truth",
+      "label": "truth",
+      "type": "concept",
+      "domain": "epistemic"
+    },
+    {
+      "id": "concept:lie",
+      "label": "lie",
+      "type": "concept",
+      "domain": "epistemic"
+    },
+    {
+      "id": "concept:good",
+      "label": "good",
+      "type": "concept",
+      "domain": "ethical"
+    },
+    {
+      "id": "concept:harm",
+      "label": "harm",
+      "type": "concept",
+      "domain": "ethical"
+    },
+    {
+      "id": "concept:order",
+      "label": "order",
+      "type": "concept",
+      "domain": "structure"
+    },
+    {
+      "id": "concept:chaos",
+      "label": "chaos",
+      "type": "concept",
+      "domain": "structure"
+    },
+    {
+      "id": "concept:center",
+      "label": "center",
+      "type": "concept",
+      "domain": "geometry"
+    },
+    {
+      "id": "concept:boundary",
+      "label": "boundary",
+      "type": "concept",
+      "domain": "geometry"
+    },
+    {
+      "id": "concept:self",
+      "label": "self",
+      "type": "concept",
+      "domain": "relational"
+    },
+    {
+      "id": "concept:other",
+      "label": "other",
+      "type": "concept",
+      "domain": "relational"
+    },
+    {
+      "id": "concept:relation",
+      "label": "relation",
+      "type": "concept",
+      "domain": "relational"
+    },
+    {
+      "id": "concept:memory",
+      "label": "memory",
+      "type": "concept",
+      "domain": "cognitive"
+    },
+    {
+      "id": "concept:love",
+      "label": "love",
+      "type": "concept",
+      "domain": "affective"
+    },
+    {
+      "id": "concept:fear",
+      "label": "fear",
+      "type": "concept",
+      "domain": "affective"
+    },
+    {
+      "id": "concept:trust",
+      "label": "trust",
+      "type": "concept",
+      "domain": "affective_social"
+    },
+    {
+      "id": "concept:pain",
+      "label": "pain",
+      "type": "concept",
+      "domain": "affective_body"
+    },
+    {
+      "id": "concept:knowledge",
+      "label": "knowledge",
+      "type": "concept",
+      "domain": "epistemic"
+    },
+    {
+      "id": "concept:error",
+      "label": "error",
+      "type": "concept",
+      "domain": "epistemic"
+    },
+    {
+      "id": "op:after",
+      "label": "after",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:around",
+      "label": "around",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:arranges",
+      "label": "arranges",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:avoids",
+      "label": "avoids",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:be",
+      "label": "be",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:because",
+      "label": "because",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:before",
+      "label": "before",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:believes",
+      "label": "believes",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:between",
+      "label": "between",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:cares_for",
+      "label": "cares_for",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:caused_by",
+      "label": "caused_by",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:causes",
+      "label": "causes",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:contains",
+      "label": "contains",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:contradicts",
+      "label": "contradicts",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:creates",
+      "label": "creates",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:deceives",
+      "label": "deceives",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:destroys",
+      "label": "destroys",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:disrupts",
+      "label": "disrupts",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:doubts",
+      "label": "doubts",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:flow",
+      "label": "flow",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:from",
+      "label": "from",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:harms",
+      "label": "harms",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:has",
+      "label": "has",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:has_part",
+      "label": "has_part",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:has_property",
+      "label": "has_property",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:has_state",
+      "label": "has_state",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:hides",
+      "label": "hides",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:inside",
+      "label": "inside",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:is",
+      "label": "is",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:knows",
+      "label": "knows",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:maps",
+      "label": "maps",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:means",
+      "label": "means",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:not",
+      "label": "not",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:on",
+      "label": "on",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:outside",
+      "label": "outside",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:proves",
+      "label": "proves",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:relation",
+      "label": "relation",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:repairs",
+      "label": "repairs",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:reveals",
+      "label": "reveals",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:supports",
+      "label": "supports",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:through",
+      "label": "through",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:to",
+      "label": "to",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:transforms",
+      "label": "transforms",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:under",
+      "label": "under",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:when",
+      "label": "when",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:with",
+      "label": "with",
+      "type": "operator",
+      "domain": "operator"
+    },
+    {
+      "id": "op:without",
+      "label": "without",
+      "type": "operator",
+      "domain": "operator"
+    }
+  ],
+  "edges": [
+    {
+      "source": "concept:water",
+      "target": "concept:fire",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:water",
+      "target": "concept:life",
+      "type": "supports"
+    },
+    {
+      "source": "concept:water",
+      "target": "concept:motion",
+      "type": "has_state"
+    },
+    {
+      "source": "concept:water",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:water",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:water",
+      "target": "op:flow",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:water",
+      "target": "op:with",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:water",
+      "target": "op:without",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:fire",
+      "target": "concept:water",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:fire",
+      "target": "concept:light",
+      "type": "supports"
+    },
+    {
+      "source": "concept:fire",
+      "target": "concept:matter",
+      "type": "transforms"
+    },
+    {
+      "source": "concept:fire",
+      "target": "op:transforms",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:fire",
+      "target": "op:destroys",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:fire",
+      "target": "op:creates",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:fire",
+      "target": "op:because",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:earth",
+      "target": "concept:body",
+      "type": "supports"
+    },
+    {
+      "source": "concept:earth",
+      "target": "concept:space",
+      "type": "anchors"
+    },
+    {
+      "source": "concept:earth",
+      "target": "op:under",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:earth",
+      "target": "op:on",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:earth",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:air",
+      "target": "concept:life",
+      "type": "supports"
+    },
+    {
+      "source": "concept:air",
+      "target": "concept:motion",
+      "type": "contains"
+    },
+    {
+      "source": "concept:air",
+      "target": "op:through",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:air",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:air",
+      "target": "op:outside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:light",
+      "target": "concept:dark",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:light",
+      "target": "concept:knowledge",
+      "type": "supports"
+    },
+    {
+      "source": "concept:light",
+      "target": "concept:truth",
+      "type": "reveals"
+    },
+    {
+      "source": "concept:light",
+      "target": "op:reveals",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:light",
+      "target": "op:through",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:light",
+      "target": "op:before",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:dark",
+      "target": "concept:light",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:dark",
+      "target": "concept:fear",
+      "type": "increases"
+    },
+    {
+      "source": "concept:dark",
+      "target": "concept:knowledge",
+      "type": "hides"
+    },
+    {
+      "source": "concept:dark",
+      "target": "op:hides",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:dark",
+      "target": "op:not",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:dark",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:life",
+      "target": "concept:death",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:life",
+      "target": "concept:water",
+      "type": "requires"
+    },
+    {
+      "source": "concept:life",
+      "target": "concept:body",
+      "type": "includes"
+    },
+    {
+      "source": "concept:life",
+      "target": "op:be",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:life",
+      "target": "op:with",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:life",
+      "target": "op:before",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:life",
+      "target": "op:after",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:death",
+      "target": "concept:life",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:death",
+      "target": "concept:time",
+      "type": "bounds"
+    },
+    {
+      "source": "concept:death",
+      "target": "op:after",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:death",
+      "target": "op:not",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:death",
+      "target": "op:without",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:body",
+      "target": "concept:mind",
+      "type": "paired_with"
+    },
+    {
+      "source": "concept:body",
+      "target": "concept:pain",
+      "type": "contains"
+    },
+    {
+      "source": "concept:body",
+      "target": "concept:motion",
+      "type": "supports"
+    },
+    {
+      "source": "concept:body",
+      "target": "op:has_part",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:body",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:body",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:mind",
+      "target": "concept:body",
+      "type": "paired_with"
+    },
+    {
+      "source": "concept:mind",
+      "target": "concept:memory",
+      "type": "contains"
+    },
+    {
+      "source": "concept:mind",
+      "target": "concept:truth",
+      "type": "seeks"
+    },
+    {
+      "source": "concept:mind",
+      "target": "op:knows",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:mind",
+      "target": "op:believes",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:mind",
+      "target": "op:doubts",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:time",
+      "target": "concept:motion",
+      "type": "orders"
+    },
+    {
+      "source": "concept:time",
+      "target": "concept:memory",
+      "type": "bounds"
+    },
+    {
+      "source": "concept:time",
+      "target": "op:before",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:time",
+      "target": "op:after",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:time",
+      "target": "op:when",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:space",
+      "target": "concept:motion",
+      "type": "contains"
+    },
+    {
+      "source": "concept:space",
+      "target": "concept:center",
+      "type": "bounds"
+    },
+    {
+      "source": "concept:space",
+      "target": "concept:boundary",
+      "type": "has_boundary"
+    },
+    {
+      "source": "concept:space",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:space",
+      "target": "op:outside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:space",
+      "target": "op:on",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:space",
+      "target": "op:under",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:space",
+      "target": "op:through",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:motion",
+      "target": "concept:rest",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:motion",
+      "target": "concept:time",
+      "type": "requires"
+    },
+    {
+      "source": "concept:motion",
+      "target": "concept:space",
+      "type": "occurs_in"
+    },
+    {
+      "source": "concept:motion",
+      "target": "op:through",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:motion",
+      "target": "op:from",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:motion",
+      "target": "op:to",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:motion",
+      "target": "op:after",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:rest",
+      "target": "concept:motion",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:rest",
+      "target": "concept:order",
+      "type": "supports"
+    },
+    {
+      "source": "concept:rest",
+      "target": "op:not",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:rest",
+      "target": "op:after",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:rest",
+      "target": "op:before",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:force",
+      "target": "concept:motion",
+      "type": "causes"
+    },
+    {
+      "source": "concept:force",
+      "target": "concept:matter",
+      "type": "acts_on"
+    },
+    {
+      "source": "concept:force",
+      "target": "op:causes",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:force",
+      "target": "op:transforms",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:force",
+      "target": "op:through",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:energy",
+      "target": "concept:matter",
+      "type": "transforms"
+    },
+    {
+      "source": "concept:energy",
+      "target": "concept:motion",
+      "type": "supports"
+    },
+    {
+      "source": "concept:energy",
+      "target": "op:transforms",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:energy",
+      "target": "op:has_property",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:energy",
+      "target": "op:causes",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:matter",
+      "target": "concept:information",
+      "type": "paired_with"
+    },
+    {
+      "source": "concept:matter",
+      "target": "concept:energy",
+      "type": "receives"
+    },
+    {
+      "source": "concept:matter",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:matter",
+      "target": "op:has_property",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:matter",
+      "target": "op:transforms",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:information",
+      "target": "concept:error",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:information",
+      "target": "concept:knowledge",
+      "type": "supports"
+    },
+    {
+      "source": "concept:information",
+      "target": "concept:matter",
+      "type": "patterns"
+    },
+    {
+      "source": "concept:information",
+      "target": "op:means",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:information",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:information",
+      "target": "op:reveals",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:truth",
+      "target": "concept:lie",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:truth",
+      "target": "concept:knowledge",
+      "type": "supports"
+    },
+    {
+      "source": "concept:truth",
+      "target": "concept:error",
+      "type": "reduces"
+    },
+    {
+      "source": "concept:truth",
+      "target": "op:is",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:truth",
+      "target": "op:knows",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:truth",
+      "target": "op:proves",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:lie",
+      "target": "concept:truth",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:lie",
+      "target": "concept:error",
+      "type": "increases"
+    },
+    {
+      "source": "concept:lie",
+      "target": "concept:trust",
+      "type": "harms"
+    },
+    {
+      "source": "concept:lie",
+      "target": "op:not",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:lie",
+      "target": "op:hides",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:lie",
+      "target": "op:deceives",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:good",
+      "target": "concept:harm",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:good",
+      "target": "concept:trust",
+      "type": "supports"
+    },
+    {
+      "source": "concept:good",
+      "target": "concept:life",
+      "type": "supports"
+    },
+    {
+      "source": "concept:good",
+      "target": "op:supports",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:good",
+      "target": "op:with",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:good",
+      "target": "op:because",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:harm",
+      "target": "concept:good",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:harm",
+      "target": "concept:pain",
+      "type": "causes"
+    },
+    {
+      "source": "concept:harm",
+      "target": "concept:trust",
+      "type": "reduces"
+    },
+    {
+      "source": "concept:harm",
+      "target": "op:harms",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:harm",
+      "target": "op:without",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:harm",
+      "target": "op:causes",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:order",
+      "target": "concept:chaos",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:order",
+      "target": "concept:knowledge",
+      "type": "supports"
+    },
+    {
+      "source": "concept:order",
+      "target": "op:arranges",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:order",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:order",
+      "target": "op:because",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "concept:order",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "concept:error",
+      "type": "increases"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "op:not",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "op:disrupts",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:chaos",
+      "target": "op:through",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:center",
+      "target": "concept:boundary",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:center",
+      "target": "concept:relation",
+      "type": "attracts"
+    },
+    {
+      "source": "concept:center",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:center",
+      "target": "op:around",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:center",
+      "target": "op:to",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "concept:center",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "concept:space",
+      "type": "bounds"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "op:outside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:boundary",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:self",
+      "target": "concept:other",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:self",
+      "target": "concept:identity",
+      "type": "stabilizes"
+    },
+    {
+      "source": "concept:self",
+      "target": "concept:memory",
+      "type": "stores"
+    },
+    {
+      "source": "concept:self",
+      "target": "op:is",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:self",
+      "target": "op:has",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:self",
+      "target": "op:knows",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:other",
+      "target": "concept:self",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:other",
+      "target": "concept:relation",
+      "type": "requires"
+    },
+    {
+      "source": "concept:other",
+      "target": "op:with",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:other",
+      "target": "op:without",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:other",
+      "target": "op:relation",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:relation",
+      "target": "concept:self",
+      "type": "connects"
+    },
+    {
+      "source": "concept:relation",
+      "target": "concept:other",
+      "type": "connects"
+    },
+    {
+      "source": "concept:relation",
+      "target": "concept:memory",
+      "type": "supports"
+    },
+    {
+      "source": "concept:relation",
+      "target": "op:with",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:relation",
+      "target": "op:between",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:relation",
+      "target": "op:maps",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:memory",
+      "target": "concept:identity",
+      "type": "supports"
+    },
+    {
+      "source": "concept:memory",
+      "target": "concept:information",
+      "type": "stores"
+    },
+    {
+      "source": "concept:memory",
+      "target": "op:after",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:memory",
+      "target": "op:contains",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:memory",
+      "target": "op:has_state",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:love",
+      "target": "concept:fear",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:love",
+      "target": "concept:trust",
+      "type": "supports"
+    },
+    {
+      "source": "concept:love",
+      "target": "concept:harm",
+      "type": "reduces"
+    },
+    {
+      "source": "concept:love",
+      "target": "op:with",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:love",
+      "target": "op:cares_for",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:love",
+      "target": "op:supports",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:fear",
+      "target": "concept:trust",
+      "type": "reduces"
+    },
+    {
+      "source": "concept:fear",
+      "target": "concept:pain",
+      "type": "increases"
+    },
+    {
+      "source": "concept:fear",
+      "target": "concept:harm",
+      "type": "responds_to"
+    },
+    {
+      "source": "concept:fear",
+      "target": "op:avoids",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:fear",
+      "target": "op:because",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:fear",
+      "target": "op:not",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:trust",
+      "target": "concept:fear",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:trust",
+      "target": "concept:relation",
+      "type": "supports"
+    },
+    {
+      "source": "concept:trust",
+      "target": "concept:truth",
+      "type": "requires"
+    },
+    {
+      "source": "concept:trust",
+      "target": "op:believes",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:trust",
+      "target": "op:with",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:trust",
+      "target": "op:supports",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:pain",
+      "target": "concept:harm",
+      "type": "caused_by"
+    },
+    {
+      "source": "concept:pain",
+      "target": "concept:body",
+      "type": "signals"
+    },
+    {
+      "source": "concept:pain",
+      "target": "concept:fear",
+      "type": "increases"
+    },
+    {
+      "source": "concept:pain",
+      "target": "op:has_state",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:pain",
+      "target": "op:caused_by",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:pain",
+      "target": "op:inside",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "concept:truth",
+      "type": "requires"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "concept:information",
+      "type": "uses"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "concept:error",
+      "type": "reduces"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "op:knows",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "op:proves",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:knowledge",
+      "target": "op:because",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:error",
+      "target": "concept:knowledge",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:error",
+      "target": "concept:truth",
+      "type": "opposes"
+    },
+    {
+      "source": "concept:error",
+      "target": "concept:chaos",
+      "type": "increases"
+    },
+    {
+      "source": "concept:error",
+      "target": "op:not",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:error",
+      "target": "op:contradicts",
+      "type": "operator_hook"
+    },
+    {
+      "source": "concept:error",
+      "target": "op:repairs",
+      "type": "operator_hook"
+    }
+  ]
+}

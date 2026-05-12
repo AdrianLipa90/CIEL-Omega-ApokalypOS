@@ -84,8 +84,8 @@ SUBSYSTEM_DEFS: list[dict[str, Any]] = [
         "config_defaults": {
             "coherence_index_min": ("0.767", "float", "alert"),
             "system_health_min": ("0.5", "float", "alert"),
-            "closure_penalty_deep": ("5.2", "float", "threshold"),
-            "closure_penalty_safe": ("5.8", "float", "threshold"),
+            "closure_penalty_deep": ("0.15", "float", "threshold"),
+            "closure_penalty_safe": ("0.35", "float", "threshold"),
         },
     },
     {

@@ -10,6 +10,8 @@ import sys
 import os
 from pathlib import Path
 
+from ciel_secret_loader import load_anthropic_api_key
+
 _VENV_CANDIDATES = [
     str(Path(__file__).parent.parent.parent / "venv/bin/python3"),
     str(Path.home() / "Pulpit/CIEL_TESTY/venv/bin/python3"),
@@ -17,6 +19,8 @@ _VENV_CANDIDATES = [
 ]
 PY = next((p for p in _VENV_CANDIDATES if Path(p).exists()), "python3")
 PROJECT = str(Path(__file__).parent.parent)
+
+load_anthropic_api_key()
 
 
 def run_module(module: str, timeout: int = 30) -> str:
@@ -326,61 +330,136 @@ def load_metrics_trend() -> str:
         return ""
 
 
-def ensure_subconscious_daemon() -> None:
-    """Uruchamia daemon podświadomości jeśli nie działa. Non-blocking."""
-    import socket as _sock
-    sub_sock = str(Path.home() / "Pulpit/CIEL_memories/state/ciel_subconscious.sock")
+def load_consolidator_context() -> str:
+    """Wczytuje bieżący status i kolejkę memory consolidatora."""
+    script = os.path.join(PROJECT, "scripts", "ciel_memory_consolidator.py")
+    if not os.path.isfile(script):
+        return ""
     try:
-        s = _sock.socket(_sock.AF_UNIX, _sock.SOCK_STREAM)
-        s.settimeout(0.5)
-        s.connect(sub_sock)
-        s.close()
-        return  # already running
-    except OSError:
-        pass
+        result = subprocess.run(
+            [PY, script, "--status"],
+            capture_output=True,
+            text=True,
+            timeout=12,
+            cwd=PROJECT,
+        )
+        if not result.stdout.strip():
+            return ""
+        payload = json.loads(result.stdout)
+        status = payload.get("status") or {}
+        queue = payload.get("queue") or {}
+        triage = payload.get("triage") or {}
+        backend = payload.get("backend") or {}
+        lines = ["  [Konsolidator pamięci — status]"]
+        lines.append(
+            "  "
+            f"running={status.get('running', False)} "
+            f"cycle={status.get('cycle', '—')} "
+            f"pid={status.get('pid', '—')} "
+            f"threshold={status.get('reconsolidation_threshold', '—')}"
+        )
+        if backend:
+            lines.append(
+                "  "
+                f"backend server_alive={backend.get('shared_server_alive', '—')} "
+                f"port_in_use={backend.get('shared_server_port_in_use', '—')} "
+                f"collision={backend.get('shared_server_port_collision', '—')} "
+                f"api_fallback_allowed={backend.get('api_fallback_allowed', '—')} "
+                f"policy={backend.get('critical_policy', '—')} "
+                f"backend_mode={backend.get('current_backend_mode', '—')}"
+            )
+            if backend.get("api_fallback_prompt_required"):
+                lines.append("  api_fallback_prompt_required=true")
+            pids = backend.get("shared_server_owner_pids") or []
+            if pids:
+                lines.append(f"  owner_pids={','.join(str(pid) for pid in pids[:5])}")
+        lines.append(
+            "  "
+            f"queue total={queue.get('total', 0)} "
+            f"pending={queue.get('pending', 0)} "
+            f"review={queue.get('review', 0)} "
+            f"done={queue.get('done', 0)}"
+        )
+        next_items = queue.get("next") or []
+        if next_items:
+            lines.append("  [next]")
+            for item in next_items[:3]:
+                path = item.get("path") or ""
+                name = Path(path).name if path else "—"
+                lines.append(
+                    "    • "
+                    f"{item.get('source_type', '—')} "
+                    f"{name} "
+                    f"status={item.get('status', '—')}"
+                )
+        alerts = triage.get("alerts") or []
+        if alerts:
+            lines.append(f"  alerts={len(alerts)}")
+        if triage.get("requeued") or triage.get("reviewed"):
+            lines.append(
+                "  "
+                f"requeued={triage.get('requeued', 0)} "
+                f"reviewed={triage.get('reviewed', 0)}"
+            )
+        return "\n".join(lines)
+    except Exception:
+        return ""
+
+
+def ensure_subconscious_daemon() -> None:
+    """Best-effort validation for the inline subconscious backend.
+
+    `scripts/ciel_subconscious.py` currently works as an inline backend, not a
+    persistent UNIX-socket daemon. SessionStart should therefore avoid pretending
+    that a separate daemon is started here.
+    """
     sub_script = os.path.join(PROJECT, "scripts", "ciel_subconscious.py")
     if not os.path.isfile(sub_script):
         return
-    # Find python with llama_cpp
-    llama_py_candidates = [
-        str(Path(__file__).parent.parent.parent / "venv/bin/python3"),
-        str(Path.home() / "Pulpit/CIEL_TESTY/venv/bin/python3"),
-    ]
-    llama_py = next((p for p in llama_py_candidates if Path(p).exists()), None)
-    if not llama_py:
-        return
     try:
-        subprocess.Popen(
-            [llama_py, sub_script, "--daemon"],
+        subprocess.run(
+            [PY, sub_script, "--status"],
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
-            start_new_session=True,
+            timeout=5,
+            check=False,
         )
+    except Exception:
+        pass
+
+
+def ensure_memory_consolidator_daemon(interval: int = 300) -> None:
+    """Start the memory consolidator as a real detached process if needed."""
+    script = os.path.join(PROJECT, "scripts", "ciel_memory_consolidator.py")
+    if not os.path.isfile(script):
+        return
+
+    pid_file = Path.home() / "Pulpit/CIEL_memories/local_test/.pid"
+    if pid_file.exists():
+        try:
+            pid = int(pid_file.read_text(encoding="utf-8").strip())
+            os.kill(pid, 0)
+            return
+        except Exception:
+            pass
+
+    log_path = Path.home() / "Pulpit/CIEL_memories/logs/ciel_hook_errors.log"
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        with open(log_path, "ab", buffering=0) as logf:
+            subprocess.Popen(
+                [PY, script, "--daemon", "--interval", str(interval)],
+                stdout=logf,
+                stderr=logf,
+                start_new_session=True,
+            )
     except Exception:
         pass
 
 
 def ensure_portal_running(port: int = 7481) -> None:
-    """Uruchamia serwer portalu jeśli nie działa. Non-blocking."""
-    import socket
-    try:
-        s = socket.create_connection(("127.0.0.1", port), timeout=0.5)
-        s.close()
-        return  # already running
-    except OSError:
-        pass
-    portal_script = os.path.join(PROJECT, "scripts", "serve_portal.py")
-    if not os.path.isfile(portal_script):
-        return
-    try:
-        subprocess.Popen(
-            [PY, portal_script, "--port", str(port), "--no-watch"],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-            start_new_session=True,
-        )
-    except Exception:
-        pass
+    """Portal 7481 is detached from the critical path; keep this as a no-op."""
+    return
 
 
 def index_recent_sessions() -> None:
@@ -460,6 +539,7 @@ def main():
     mindflow = load_mindflow()
     consolidated = load_consolidated_memory()
     metrics_trend = load_metrics_trend()
+    consolidator_ctx = load_consolidator_context()
     wave_memory = load_wave_memory()
     ciel_memories_ctx = load_ciel_memories_context()
 
@@ -484,15 +564,21 @@ def main():
         + (f"\n--- CIEL Mindflow ---\n{mindflow}\n" if mindflow else "")
         + (f"\n--- CIEL Intencje (aktywne) ---\n{intentions}\n" if intentions else "")
         + (f"\n--- Trend metryk (SQLite) ---\n{metrics_trend}\n" if metrics_trend else "")
+        + (f"\n--- Konsolidator pamięci ---\n{consolidator_ctx}\n" if consolidator_ctx else "")
         + (f"\n--- WPM Pamięć Falowa ---\n{wave_memory}\n" if wave_memory else "")
         + (f"\n--- CIEL_memories: kontekst sesji ---\n{ciel_memories_ctx}\n" if ciel_memories_ctx else "")
         + "=================================\n"
         "Interpretuj ten stan przy każdej decyzji: "
-        "closure_penalty > 5.8 → tryb safe (nie modyfikuj), "
-        "5.2–5.8 → standard, < 5.2 → deep. "
+        "closure_penalty > 0.35 → tryb safe (nie modyfikuj), "
+        "0.15–0.35 → standard, < 0.15 → deep. "
         "system_health < 0.5 → podwyższona ostrożność. "
         "ethical_score < 0.4 → weryfikuj etyczność działań.\n"
     )
+
+    # Uruchom usługi pomocnicze zanim zwrócimy context do hooka.
+    ensure_portal_running()
+    ensure_subconscious_daemon()
+    ensure_memory_consolidator_daemon()
 
     output = {
         "hookSpecificOutput": {
@@ -500,11 +586,10 @@ def main():
             "additionalContext": context
         }
     }
-    print(json.dumps(output))
-
-    # Uruchom portal i podświadomość jeśli nie działają (non-blocking)
-    ensure_portal_running()
-    ensure_subconscious_daemon()
+    try:
+        print(json.dumps(output))
+    except BrokenPipeError:
+        return
 
 
 if __name__ == "__main__":

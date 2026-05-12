@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import cmath
 import json
 import math
 from pathlib import Path
@@ -12,9 +11,12 @@ from src.ciel_sot_agent.repo_phase import (
     all_pairwise_tensions,
     build_sync_report,
     closure_defect,
+    euler_residual,
     load_couplings,
     load_registry,
     pairwise_tension,
+    pairwise_tension_matrix,
+    j_repo,
     weighted_euler_vector,
 )
 
@@ -124,6 +126,38 @@ def test_weighted_euler_vector_opposite_phases_cancel() -> None:
 
 def test_weighted_euler_vector_empty_is_zero() -> None:
     assert weighted_euler_vector([]) == 0j
+
+
+def test_euler_residual_matches_closure_defect_complement() -> None:
+    states = [
+        RepositoryState('a', 'A', 0.0, 0.5, 1.0, 'x', 'u'),
+        RepositoryState('b', 'B', math.pi / 2, 0.5, 1.0, 'x', 'u'),
+    ]
+    defect = closure_defect(states)
+    residual = euler_residual(states)
+    assert 0.0 <= residual <= 1.0
+    assert residual <= 1.0
+    assert abs((defect + residual) - 1.0) < 1e-9
+
+
+def test_pairwise_tension_matrix_aligns_with_keys() -> None:
+    states = {
+        'a': RepositoryState('a', 'A', 0.0, 0.5, 1.0, 'x', 'u'),
+        'b': RepositoryState('b', 'B', math.pi / 2, 0.5, 1.0, 'x', 'u'),
+    }
+    couplings = {'a': {'b': 0.5}, 'b': {'a': 0.5}}
+    mat = pairwise_tension_matrix(states, couplings)
+    assert len(mat) == 2
+    assert mat[0][1] == pytest.approx(pairwise_tension(states['a'], states['b'], 0.5))
+    assert mat[1][0] == pytest.approx(pairwise_tension(states['b'], states['a'], 0.5))
+
+
+def test_j_repo_is_bounded() -> None:
+    states = [
+        RepositoryState('a', 'A', 0.0, 0.5, 1.0, 'x', 'u'),
+        RepositoryState('b', 'B', math.pi / 2, 0.5, 1.0, 'x', 'u'),
+    ]
+    assert 0.0 <= j_repo(states, {'a': {'b': 0.5}, 'b': {'a': 0.5}}) <= 1.0
 
 
 # ---------------------------------------------------------------------------

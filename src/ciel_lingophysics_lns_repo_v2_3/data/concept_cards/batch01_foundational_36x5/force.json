@@ -1,0 +1,222 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:force",
+  "canonical_label_en": "force",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "physics",
+  "semantic_axes": [
+    "interaction",
+    "change",
+    "causation"
+  ],
+  "semantic_mass_seed": 0.8125,
+  "phase_seed_rad": 2.443461,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "siła",
+      "brief_description": "wpływ powodujący zmianę ruchu, stanu lub struktury",
+      "near_synonyms_seed": [
+        "moc",
+        "nacisk"
+      ],
+      "antonyms_seed": [
+        "słabość",
+        "bezsilność"
+      ],
+      "forms_seed": [
+        "siła",
+        "siła jako hasło",
+        "siła w kontekście"
+      ],
+      "context_examples_seed": [
+        "Siła tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "causes",
+        "transforms",
+        "through"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "force",
+      "brief_description": "influence causing change of motion, state or structure",
+      "near_synonyms_seed": [
+        "power",
+        "pressure"
+      ],
+      "antonyms_seed": [
+        "weakness",
+        "powerlessness"
+      ],
+      "forms_seed": [
+        "force",
+        "forces",
+        "force as concept"
+      ],
+      "context_examples_seed": [
+        "Force forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "causes",
+        "transforms",
+        "through"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Kraft",
+      "brief_description": "Einfluss, der Bewegung, Zustand oder Struktur verändert",
+      "near_synonyms_seed": [
+        "Macht",
+        "Druck"
+      ],
+      "antonyms_seed": [
+        "Schwäche",
+        "Ohnmacht"
+      ],
+      "forms_seed": [
+        "Kraft",
+        "Kraft als Begriff",
+        "Kraft im Kontext"
+      ],
+      "context_examples_seed": [
+        "Kraft bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "causes",
+        "transforms",
+        "through"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "force",
+      "brief_description": "influence causant changement de mouvement, état ou structure",
+      "near_synonyms_seed": [
+        "puissance",
+        "pression"
+      ],
+      "antonyms_seed": [
+        "faiblesse",
+        "impuissance"
+      ],
+      "forms_seed": [
+        "force",
+        "force comme concept",
+        "force en contexte"
+      ],
+      "context_examples_seed": [
+        "Force forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "causes",
+        "transforms",
+        "through"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "fuerza",
+      "brief_description": "influencia que cambia movimiento, estado o estructura",
+      "near_synonyms_seed": [
+        "potencia",
+        "presión"
+      ],
+      "antonyms_seed": [
+        "debilidad",
+        "impotencia"
+      ],
+      "forms_seed": [
+        "fuerza",
+        "fuerza como concepto",
+        "fuerza en contexto"
+      ],
+      "context_examples_seed": [
+        "Fuerza forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "causes",
+        "transforms",
+        "through"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "causes",
+    "transforms",
+    "through"
+  ],
+  "relations": [
+    {
+      "type": "causes",
+      "target": "concept:motion",
+      "status": "draft_seed"
+    },
+    {
+      "type": "acts_on",
+      "target": "concept:matter",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

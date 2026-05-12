@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ciel-lns.local/schemas/ciel_lns_noema_index.schema.json",
+  "title": "CIEL-LNS NOEMA Index",
+  "type": "object",
+  "required": [
+    "noema_index_version",
+    "cards"
+  ],
+  "properties": {
+    "noema_index_version": {
+      "type": "string"
+    },
+    "created_at_utc": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "non_claim": {
+      "type": "string"
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "canonical_ref",
+          "card_type",
+          "labels",
+          "domains",
+          "operator_hooks",
+          "confidence",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "canonical_ref": {
+            "type": "string"
+          },
+          "card_type": {
+            "type": "string"
+          },
+          "labels": {
+            "type": "object"
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "operator_hooks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "relations": {
+            "type": "array"
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "status": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

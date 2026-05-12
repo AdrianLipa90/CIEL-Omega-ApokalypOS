@@ -14,6 +14,8 @@ import math
 from typing import Any, Dict, Optional
 
 from ciel_omega.ciel.orbital_memory_loop import OrbitalLoopResult
+from ciel_omega.ciel.orbital_memory_governor import build_memory_governor
+from ciel_omega.ciel.orbital_memory_retrieval import govern_sector_retrieval
 from ciel_omega.memory import HolonomicMemoryOrchestrator
 from ciel_omega.ciel.orbital_memory_persistence import PersistentOrbitalSectorMemory
 
@@ -155,19 +157,45 @@ def record_orbital_sector_memory(
         cycle = recorded.get("cycle")
         snapshot = recorded.get("snapshot")
         retrieval = recorded.get("retrieval")
+        governed_retrieval = recorded.get("governed_retrieval")
+        coherence_surface = recorded.get("coherence_surface")
+        coherence_surface_top_k = recorded.get("coherence_surface_top_k")
         store_path = recorded.get("store_path")
         restored_events = int(recorded.get("restored_events", 0) or 0)
     else:
         cycle = sector_memory.process_input(event["content"], metadata={k: v for k, v in event.items() if k != "content"})
         snapshot = sector_memory.snapshot()
         retrieval = sector_memory.retrieve(text, top_k=3)
+        governed_retrieval = None
+        coherence_surface = retrieval.get("coherence_surface") if isinstance(retrieval, dict) else []
+        coherence_surface_top_k = retrieval.get("coherence_surface_top_k") if isinstance(retrieval, dict) else None
         store_path = None
         restored_events = 0
+    if governed_retrieval is None:
+        try:
+            governed_retrieval = govern_sector_retrieval(
+                sector_memory=sector_memory,
+                query=text,
+                governor=memory_governor or build_memory_governor(
+                    orbital=orbital.to_dict() if hasattr(orbital, "to_dict") else {},
+                    runtime_policy=runtime_policy,
+                    sector_snapshot=snapshot if isinstance(snapshot, dict) else None,
+                    sector_memory=sector_memory,
+                    event_phase=float(getattr(orbital, "final", {}).get("zeta_effective_phase", 0.0) or 0.0),
+                ),
+                orbital=orbital.to_dict() if hasattr(orbital, "to_dict") else {},
+            )
+        except Exception:
+            governed_retrieval = {}
     return {
         "event": event,
         "cycle": asdict(cycle) if hasattr(cycle, "__dataclass_fields__") else cycle,
         "snapshot": asdict(snapshot) if hasattr(snapshot, "__dataclass_fields__") else snapshot,
         "retrieval": retrieval,
+        "governed_retrieval": governed_retrieval or {},
+        "applied_memory_governor": memory_governor or {},
+        "coherence_surface": coherence_surface or [],
+        "coherence_surface_top_k": coherence_surface_top_k if coherence_surface_top_k is not None else 0,
         "store_path": store_path,
         "restored_events": restored_events,
     }

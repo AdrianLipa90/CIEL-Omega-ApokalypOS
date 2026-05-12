@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ciel_lns_language_family_grammar.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "families"
+  ]
+}

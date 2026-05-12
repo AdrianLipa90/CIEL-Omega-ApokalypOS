@@ -1,0 +1,59 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:if_then
+family: conditional_implication
+class:
+- logic_operator
+- condition_operator
+- causal_structure
+symbol: If(P)⇒Q
+arity: '2'
+dual: null
+inverse: null
+description: conditional relation linking antecedent to consequent
+equations:
+- If(P,Q)
+- P ⇒ Q
+surfaces:
+  pl:
+    lemma: jeśli...to / gdy...to
+    forms:
+    - jeśli
+    - gdy
+    - to
+    - wtedy
+    examples:
+    - Jeśli pada, to ziemia moknie.
+    notes: conditional-temporal overlap
+  en:
+    lemma: if...then
+    forms:
+    - if
+    - then
+    - when
+    examples:
+    - If it rains, then the ground gets wet.
+    notes: condition/result
+  de:
+    lemma: wenn...dann
+    forms:
+    - wenn
+    - dann
+    examples:
+    - Wenn es regnet, dann wird der Boden nass.
+    notes: condition/result
+  fr:
+    lemma: si...alors
+    forms:
+    - si
+    - alors
+    examples:
+    - S’il pleut, alors le sol devient humide.
+    notes: condition/result
+  es:
+    lemma: si...entonces
+    forms:
+    - si
+    - entonces
+    examples:
+    - Si llueve, entonces el suelo se moja.
+    notes: condition/result

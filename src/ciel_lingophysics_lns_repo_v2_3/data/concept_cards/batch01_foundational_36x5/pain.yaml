@@ -1,0 +1,166 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:pain
+canonical_label_en: pain
+batch_id: batch01_foundational_36x5
+domain: affective_body
+semantic_axes:
+- damage_signal
+- suffering
+- alarm
+semantic_mass_seed: 0.8562
+phase_seed_rad: 5.759587
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: ból
+    brief_description: sygnał cierpienia, uszkodzenia lub naruszenia stanu
+    near_synonyms_seed:
+    - cierpienie
+    - rana
+    antonyms_seed:
+    - ulga
+    - przyjemność
+    forms_seed:
+    - ból
+    - ból jako hasło
+    - ból w kontekście
+    context_examples_seed:
+    - Ból tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - has_state
+    - caused_by
+    - inside
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: pain
+    brief_description: signal of suffering, damage or disturbed state
+    near_synonyms_seed:
+    - suffering
+    - ache
+    antonyms_seed:
+    - relief
+    - pleasure
+    forms_seed:
+    - pain
+    - pains
+    - pain as concept
+    context_examples_seed:
+    - Pain forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Schmerz
+    brief_description: Signal von Leiden, Schaden oder gestörtem Zustand
+    near_synonyms_seed:
+    - Leiden
+    - Weh
+    antonyms_seed:
+    - Erleichterung
+    - Freude
+    forms_seed:
+    - Schmerz
+    - Schmerz als Begriff
+    - Schmerz im Kontext
+    context_examples_seed:
+    - Schmerz bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: douleur
+    brief_description: signal de souffrance, dommage ou état perturbé
+    near_synonyms_seed:
+    - souffrance
+    - mal
+    antonyms_seed:
+    - soulagement
+    - plaisir
+    forms_seed:
+    - douleur
+    - douleur comme concept
+    - douleur en contexte
+    context_examples_seed:
+    - Douleur forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: dolor
+    brief_description: señal de sufrimiento, daño o estado alterado
+    near_synonyms_seed:
+    - sufrimiento
+    - dolencia
+    antonyms_seed:
+    - alivio
+    - placer
+    forms_seed:
+    - dolor
+    - dolor como concepto
+    - dolor en contexto
+    context_examples_seed:
+    - Dolor forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: caused_by
+  target: concept:harm
+  status: draft_seed
+- type: signals
+  target: concept:body
+  status: draft_seed
+- type: increases
+  target: concept:fear
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

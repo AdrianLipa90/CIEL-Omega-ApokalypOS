@@ -1,0 +1,10 @@
+operator_id,spatial,temporal,manner,directional,negative_scope,free_choice,needs_context,false_precision_risk
+op:dyn:somewhere,1,0,0,0,0,0,1,0.9
+op:dyn:anywhere,1,0,0,0,0,1,1,0.9
+op:dyn:nowhere,1,0,0,0,1,0,1,0.6
+op:dyn:sometime,0,1,0,0,0,0,1,0.9
+op:dyn:anytime,0,1,0,0,0,1,1,0.9
+op:dyn:never,0,1,0,0,1,0,1,0.6
+op:dyn:somehow,0,0,1,0,0,0,1,0.9
+op:dyn:somewhere_to,1,0,0,1,0,0,1,0.9
+op:dyn:somewhere_from,1,0,0,1,0,0,1,0.9

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CIEL Attention Bias Rules",
+  "type": "object",
+  "required": [
+    "version",
+    "weights",
+    "conflict_rules"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "weights": {
+      "type": "object"
+    },
+    "conflict_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

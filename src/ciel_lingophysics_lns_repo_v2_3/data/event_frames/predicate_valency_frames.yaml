@@ -1,0 +1,246 @@
+version: '1.3'
+status: curated_seed
+principle: Predicate valency defines allowed semantic roles before case, word order,
+  preposition, or clitic realizes them on a surface.
+roles:
+  Agent: intentional or causal initiator of an event
+  Patient: entity directly affected or transformed by an event
+  Theme: entity moved, transferred, perceived, known, or located
+  Recipient: receiver or beneficiary target
+  Experiencer: subjective experiencer of perception, emotion, or state
+  Stimulus: entity or situation causing experience
+  Instrument: means by which an event is performed
+  Source: origin point of motion, transfer, or information
+  Goal: destination point of motion, transfer, or purpose
+  Location: spatial or contextual frame
+  Identity: class, role, essence, or identifying predicate
+  State: transient condition, result-state, or location-state
+  Content: propositional or informational object
+frames:
+- frame_id: frame:transfer:give
+  canonical_operator: Give
+  arity: 3
+  equation: Give(Agent, Theme, Recipient)
+  required_roles:
+  - Agent
+  - Theme
+  - Recipient
+  optional_roles:
+  - Instrument
+  - Time
+  - Location
+  pl_case_realization:
+    Agent: Nom
+    Theme: Acc
+    Recipient: Dat
+  language_realization:
+    pl: Agent-Nom + dać + Recipient-Dat + Theme-Acc
+    en: Agent + give + Recipient + Theme OR Agent + give + Theme + to Recipient
+    de: Agent-Nom + geben + Recipient-Dat + Theme-Acc
+    fr: Agent + donner + Theme + à Recipient
+    es: Agent + dar + Theme + a Recipient
+  examples:
+    pl: Jan daje Marii wodę.
+    en: John gives Mary water.
+    de: Johann gibt Maria Wasser.
+    fr: Jean donne de l'eau à Marie.
+    es: Juan da agua a María.
+  case_gauge_notes: Polish dative compresses recipient/beneficiary. English usually
+    reconstructs it via word order or to-PP.
+- frame_id: frame:action:bite
+  canonical_operator: Bite
+  arity: 2
+  equation: Bite(Agent, Patient)
+  required_roles:
+  - Agent
+  - Patient
+  optional_roles:
+  - Instrument
+  - Time
+  - Location
+  pl_case_realization:
+    Agent: Nom
+    Patient: Acc
+  language_realization:
+    pl: Agent-Nom + gryźć + Patient-Acc
+    en: Agent + bite + Patient
+    de: Agent-Nom + beißen + Patient-Acc
+    fr: Agent + mordre + Patient
+    es: Agent + morder + Patient
+  examples:
+    pl: Pies gryzie kota.
+    en: The dog bites the cat.
+    de: Der Hund beißt die Katze.
+    fr: Le chien mord le chat.
+    es: El perro muerde al gato.
+  case_gauge_notes: Polish accusative permits more word-order freedom while preserving
+    Patient.
+- frame_id: frame:affect:fear
+  canonical_operator: Fear
+  arity: 2
+  equation: Fear(Experiencer, Stimulus)
+  required_roles:
+  - Experiencer
+  - Stimulus
+  optional_roles:
+  - Reason
+  - Intensity
+  - Time
+  pl_case_realization:
+    Experiencer: Nom
+    Stimulus: Gen
+  language_realization:
+    pl: Experiencer-Nom + bać się + Stimulus-Gen
+    en: Experiencer + fear/be afraid of + Stimulus
+    de: Experiencer-Nom + Angst haben vor + Stimulus-Dat
+    fr: Experiencer + avoir peur de + Stimulus
+    es: Experiencer + tener miedo de + Stimulus
+  examples:
+    pl: Dziecko boi się ciemności.
+    en: The child is afraid of the dark.
+    de: Das Kind hat Angst vor der Dunkelheit.
+    fr: L'enfant a peur du noir.
+    es: El niño tiene miedo de la oscuridad.
+  case_gauge_notes: Polish genitive encodes stimulus in this lexical frame; target
+    languages often reconstruct via prepositional marking.
+- frame_id: frame:motion:move
+  canonical_operator: Move
+  arity: 4
+  equation: Move(Theme, Source?, Path?, Goal?)
+  required_roles:
+  - Theme
+  optional_roles:
+  - Source
+  - Path
+  - Goal
+  - Manner
+  - Time
+  pl_case_realization:
+    Theme: Nom
+    Source: Gen/Prep
+    Path: Acc/Prep
+    Goal: Acc/Prep
+  language_realization:
+    pl: Theme + iść/poruszać się + od/z/przez/do + role surface
+    en: Theme + move/go + from/through/to + role surface
+    de: Theme + gehen/bewegen + von/durch/zu/nach
+    fr: Theme + aller/se déplacer + de/par/vers/à
+    es: Theme + ir/moverse + de/por/hacia/a
+  examples:
+    pl: Człowiek idzie z domu do miasta.
+    en: A person goes from home to the city.
+    de: Ein Mensch geht von zu Hause in die Stadt.
+    fr: Une personne va de la maison à la ville.
+    es: Una persona va de casa a la ciudad.
+  case_gauge_notes: Motion splits into source/path/goal operators; case-only mapping
+    is insufficient without path predicates.
+- frame_id: frame:being:identity
+  canonical_operator: IdentityBe
+  arity: 2
+  equation: IdentityBe(Entity, Identity)
+  required_roles:
+  - Theme
+  - Identity
+  optional_roles:
+  - Context
+  - Time
+  pl_case_realization:
+    Theme: Nom
+    Identity: Nom/Ins
+  language_realization:
+    pl: Theme-Nom + być + Identity-Nom/Ins
+    en: Theme + be + Identity/Class
+    de: Theme + sein + Identity/Class
+    fr: Theme + être + Identity/Class
+    es: Theme + ser + Identity/Class
+  examples:
+    pl: Ona jest lekarką.
+    en: She is a doctor.
+    de: Sie ist Ärztin.
+    fr: Elle est médecin.
+    es: Ella es médica.
+  case_gauge_notes: Spanish ser disambiguates identity/class; English/Polish be remains
+    polyfunctional and needs complement typing.
+- frame_id: frame:being:state
+  canonical_operator: StateBe
+  arity: 2
+  equation: StateBe(Entity, State, Time?)
+  required_roles:
+  - Theme
+  - State
+  optional_roles:
+  - Time
+  - Location
+  - Cause
+  pl_case_realization:
+    Theme: Nom
+    State: Adj/Adv/LocativePP
+  language_realization:
+    pl: Theme-Nom + być + State/Location
+    en: Theme + be + State/Location
+    de: Theme + sein + State/Location
+    fr: Theme + être + State/Location
+    es: Theme + estar + State/Location
+  examples:
+    pl: Ona jest zmęczona.
+    en: She is tired.
+    de: Sie ist müde.
+    fr: Elle est fatiguée.
+    es: Ella está cansada.
+  case_gauge_notes: Spanish estar disambiguates state/location; English/Polish be
+    requires state-vs-identity resolution.
+- frame_id: frame:cognition:know
+  canonical_operator: Know
+  arity: 2
+  equation: Know(Knower, Content)
+  required_roles:
+  - Experiencer
+  - Content
+  optional_roles:
+  - Source
+  - Confidence
+  - Time
+  pl_case_realization:
+    Experiencer: Nom
+    Content: Acc/Clause
+  language_realization:
+    pl: Knower-Nom + wiedzieć/znać + Content
+    en: Knower + know + Content
+    de: Knower + wissen/kennen + Content
+    fr: Knower + savoir/connaître + Content
+    es: Knower + saber/conocer + Content
+  examples:
+    pl: Ona zna prawdę.
+    en: She knows the truth.
+    de: Sie kennt die Wahrheit.
+    fr: Elle connaît la vérité.
+    es: Ella conoce la verdad.
+  case_gauge_notes: Many target languages split factual knowing and acquaintance knowing
+    lexically.
+- frame_id: frame:containment:contains_inside
+  canonical_operator: ContainsInsideDual
+  arity: 2
+  equation: Contains(Container, Content) ⇔ Inside(Content, Container)
+  required_roles:
+  - Location
+  - Theme
+  optional_roles:
+  - State
+  - Quantity
+  pl_case_realization:
+    Location: Loc/Prep
+    Theme: Nom/Acc
+  language_realization:
+    pl: Container zawiera Content OR Content jest w Container-Loc
+    en: Container contains Content OR Content is inside/in Container
+    de: Container enthält Content OR Content ist in Container
+    fr: Container contient Content OR Content est dans Container
+    es: Container contiene Content OR Content está en/dentro de Container
+  examples:
+    pl: Szklanka zawiera wodę. / Woda jest w szklance.
+    en: The glass contains water. / Water is in the glass.
+    de: Das Glas enthält Wasser. / Wasser ist im Glas.
+    fr: Le verre contient de l'eau. / L'eau est dans le verre.
+    es: El vaso contiene agua. / El agua está en el vaso.
+  case_gauge_notes: Dual operator pair changes focus while preserving containment
+    invariant.

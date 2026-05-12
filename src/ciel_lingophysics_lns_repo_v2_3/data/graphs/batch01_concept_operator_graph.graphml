@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+<key id="label" for="node" attr.name="label" attr.type="string"/>
+<key id="type" for="all" attr.name="type" attr.type="string"/>
+<graph id="CIELingoBatch01" edgedefault="directed">
+<node id="concept:water"><data key="label">water</data><data key="type">concept</data></node>
+<node id="concept:fire"><data key="label">fire</data><data key="type">concept</data></node>
+<node id="concept:earth"><data key="label">earth</data><data key="type">concept</data></node>
+<node id="concept:air"><data key="label">air</data><data key="type">concept</data></node>
+<node id="concept:light"><data key="label">light</data><data key="type">concept</data></node>
+<node id="concept:dark"><data key="label">darkness</data><data key="type">concept</data></node>
+<node id="concept:life"><data key="label">life</data><data key="type">concept</data></node>
+<node id="concept:death"><data key="label">death</data><data key="type">concept</data></node>
+<node id="concept:body"><data key="label">body</data><data key="type">concept</data></node>
+<node id="concept:mind"><data key="label">mind</data><data key="type">concept</data></node>
+<node id="concept:time"><data key="label">time</data><data key="type">concept</data></node>
+<node id="concept:space"><data key="label">space</data><data key="type">concept</data></node>
+<node id="concept:motion"><data key="label">motion</data><data key="type">concept</data></node>
+<node id="concept:rest"><data key="label">rest</data><data key="type">concept</data></node>
+<node id="concept:force"><data key="label">force</data><data key="type">concept</data></node>
+<node id="concept:energy"><data key="label">energy</data><data key="type">concept</data></node>
+<node id="concept:matter"><data key="label">matter</data><data key="type">concept</data></node>
+<node id="concept:information"><data key="label">information</data><data key="type">concept</data></node>
+<node id="concept:truth"><data key="label">truth</data><data key="type">concept</data></node>
+<node id="concept:lie"><data key="label">lie</data><data key="type">concept</data></node>
+<node id="concept:good"><data key="label">good</data><data key="type">concept</data></node>
+<node id="concept:harm"><data key="label">harm</data><data key="type">concept</data></node>
+<node id="concept:order"><data key="label">order</data><data key="type">concept</data></node>
+<node id="concept:chaos"><data key="label">chaos</data><data key="type">concept</data></node>
+<node id="concept:center"><data key="label">center</data><data key="type">concept</data></node>
+<node id="concept:boundary"><data key="label">boundary</data><data key="type">concept</data></node>
+<node id="concept:self"><data key="label">self</data><data key="type">concept</data></node>
+<node id="concept:other"><data key="label">other</data><data key="type">concept</data></node>
+<node id="concept:relation"><data key="label">relation</data><data key="type">concept</data></node>
+<node id="concept:memory"><data key="label">memory</data><data key="type">concept</data></node>
+<node id="concept:love"><data key="label">love</data><data key="type">concept</data></node>
+<node id="concept:fear"><data key="label">fear</data><data key="type">concept</data></node>
+<node id="concept:trust"><data key="label">trust</data><data key="type">concept</data></node>
+<node id="concept:pain"><data key="label">pain</data><data key="type">concept</data></node>
+<node id="concept:knowledge"><data key="label">knowledge</data><data key="type">concept</data></node>
+<node id="concept:error"><data key="label">error</data><data key="type">concept</data></node>
+<node id="op:after"><data key="label">after</data><data key="type">operator</data></node>
+<node id="op:around"><data key="label">around</data><data key="type">operator</data></node>
+<node id="op:arranges"><data key="label">arranges</data><data key="type">operator</data></node>
+<node id="op:avoids"><data key="label">avoids</data><data key="type">operator</data></node>
+<node id="op:be"><data key="label">be</data><data key="type">operator</data></node>
+<node id="op:because"><data key="label">because</data><data key="type">operator</data></node>
+<node id="op:before"><data key="label">before</data><data key="type">operator</data></node>
+<node id="op:believes"><data key="label">believes</data><data key="type">operator</data></node>
+<node id="op:between"><data key="label">between</data><data key="type">operator</data></node>
+<node id="op:cares_for"><data key="label">cares_for</data><data key="type">operator</data></node>
+<node id="op:caused_by"><data key="label">caused_by</data><data key="type">operator</data></node>
+<node id="op:causes"><data key="label">causes</data><data key="type">operator</data></node>
+<node id="op:contains"><data key="label">contains</data><data key="type">operator</data></node>
+<node id="op:contradicts"><data key="label">contradicts</data><data key="type">operator</data></node>
+<node id="op:creates"><data key="label">creates</data><data key="type">operator</data></node>
+<node id="op:deceives"><data key="label">deceives</data><data key="type">operator</data></node>
+<node id="op:destroys"><data key="label">destroys</data><data key="type">operator</data></node>
+<node id="op:disrupts"><data key="label">disrupts</data><data key="type">operator</data></node>
+<node id="op:doubts"><data key="label">doubts</data><data key="type">operator</data></node>
+<node id="op:flow"><data key="label">flow</data><data key="type">operator</data></node>
+<node id="op:from"><data key="label">from</data><data key="type">operator</data></node>
+<node id="op:harms"><data key="label">harms</data><data key="type">operator</data></node>
+<node id="op:has"><data key="label">has</data><data key="type">operator</data></node>
+<node id="op:has_part"><data key="label">has_part</data><data key="type">operator</data></node>
+<node id="op:has_property"><data key="label">has_property</data><data key="type">operator</data></node>
+<node id="op:has_state"><data key="label">has_state</data><data key="type">operator</data></node>
+<node id="op:hides"><data key="label">hides</data><data key="type">operator</data></node>
+<node id="op:inside"><data key="label">inside</data><data key="type">operator</data></node>
+<node id="op:is"><data key="label">is</data><data key="type">operator</data></node>
+<node id="op:knows"><data key="label">knows</data><data key="type">operator</data></node>
+<node id="op:maps"><data key="label">maps</data><data key="type">operator</data></node>
+<node id="op:means"><data key="label">means</data><data key="type">operator</data></node>
+<node id="op:not"><data key="label">not</data><data key="type">operator</data></node>
+<node id="op:on"><data key="label">on</data><data key="type">operator</data></node>
+<node id="op:outside"><data key="label">outside</data><data key="type">operator</data></node>
+<node id="op:proves"><data key="label">proves</data><data key="type">operator</data></node>
+<node id="op:relation"><data key="label">relation</data><data key="type">operator</data></node>
+<node id="op:repairs"><data key="label">repairs</data><data key="type">operator</data></node>
+<node id="op:reveals"><data key="label">reveals</data><data key="type">operator</data></node>
+<node id="op:supports"><data key="label">supports</data><data key="type">operator</data></node>
+<node id="op:through"><data key="label">through</data><data key="type">operator</data></node>
+<node id="op:to"><data key="label">to</data><data key="type">operator</data></node>
+<node id="op:transforms"><data key="label">transforms</data><data key="type">operator</data></node>
+<node id="op:under"><data key="label">under</data><data key="type">operator</data></node>
+<node id="op:when"><data key="label">when</data><data key="type">operator</data></node>
+<node id="op:with"><data key="label">with</data><data key="type">operator</data></node>
+<node id="op:without"><data key="label">without</data><data key="type">operator</data></node>
+<edge id="e0" source="concept:water" target="concept:fire"><data key="type">opposes</data></edge>
+<edge id="e1" source="concept:water" target="concept:life"><data key="type">supports</data></edge>
+<edge id="e2" source="concept:water" target="concept:motion"><data key="type">has_state</data></edge>
+<edge id="e3" source="concept:water" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e4" source="concept:water" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e5" source="concept:water" target="op:flow"><data key="type">operator_hook</data></edge>
+<edge id="e6" source="concept:water" target="op:with"><data key="type">operator_hook</data></edge>
+<edge id="e7" source="concept:water" target="op:without"><data key="type">operator_hook</data></edge>
+<edge id="e8" source="concept:fire" target="concept:water"><data key="type">opposes</data></edge>
+<edge id="e9" source="concept:fire" target="concept:light"><data key="type">supports</data></edge>
+<edge id="e10" source="concept:fire" target="concept:matter"><data key="type">transforms</data></edge>
+<edge id="e11" source="concept:fire" target="op:transforms"><data key="type">operator_hook</data></edge>
+<edge id="e12" source="concept:fire" target="op:destroys"><data key="type">operator_hook</data></edge>
+<edge id="e13" source="concept:fire" target="op:creates"><data key="type">operator_hook</data></edge>
+<edge id="e14" source="concept:fire" target="op:because"><data key="type">operator_hook</data></edge>
+<edge id="e15" source="concept:earth" target="concept:body"><data key="type">supports</data></edge>
+<edge id="e16" source="concept:earth" target="concept:space"><data key="type">anchors</data></edge>
+<edge id="e17" source="concept:earth" target="op:under"><data key="type">operator_hook</data></edge>
+<edge id="e18" source="concept:earth" target="op:on"><data key="type">operator_hook</data></edge>
+<edge id="e19" source="concept:earth" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e20" source="concept:air" target="concept:life"><data key="type">supports</data></edge>
+<edge id="e21" source="concept:air" target="concept:motion"><data key="type">contains</data></edge>
+<edge id="e22" source="concept:air" target="op:through"><data key="type">operator_hook</data></edge>
+<edge id="e23" source="concept:air" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e24" source="concept:air" target="op:outside"><data key="type">operator_hook</data></edge>
+<edge id="e25" source="concept:light" target="concept:dark"><data key="type">opposes</data></edge>
+<edge id="e26" source="concept:light" target="concept:knowledge"><data key="type">supports</data></edge>
+<edge id="e27" source="concept:light" target="concept:truth"><data key="type">reveals</data></edge>
+<edge id="e28" source="concept:light" target="op:reveals"><data key="type">operator_hook</data></edge>
+<edge id="e29" source="concept:light" target="op:through"><data key="type">operator_hook</data></edge>
+<edge id="e30" source="concept:light" target="op:before"><data key="type">operator_hook</data></edge>
+<edge id="e31" source="concept:dark" target="concept:light"><data key="type">opposes</data></edge>
+<edge id="e32" source="concept:dark" target="concept:fear"><data key="type">increases</data></edge>
+<edge id="e33" source="concept:dark" target="concept:knowledge"><data key="type">hides</data></edge>
+<edge id="e34" source="concept:dark" target="op:hides"><data key="type">operator_hook</data></edge>
+<edge id="e35" source="concept:dark" target="op:not"><data key="type">operator_hook</data></edge>
+<edge id="e36" source="concept:dark" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e37" source="concept:life" target="concept:death"><data key="type">opposes</data></edge>
+<edge id="e38" source="concept:life" target="concept:water"><data key="type">requires</data></edge>
+<edge id="e39" source="concept:life" target="concept:body"><data key="type">includes</data></edge>
+<edge id="e40" source="concept:life" target="op:be"><data key="type">operator_hook</data></edge>
+<edge id="e41" source="concept:life" target="op:with"><data key="type">operator_hook</data></edge>
+<edge id="e42" source="concept:life" target="op:before"><data key="type">operator_hook</data></edge>
+<edge id="e43" source="concept:life" target="op:after"><data key="type">operator_hook</data></edge>
+<edge id="e44" source="concept:death" target="concept:life"><data key="type">opposes</data></edge>
+<edge id="e45" source="concept:death" target="concept:time"><data key="type">bounds</data></edge>
+<edge id="e46" source="concept:death" target="op:after"><data key="type">operator_hook</data></edge>
+<edge id="e47" source="concept:death" target="op:not"><data key="type">operator_hook</data></edge>
+<edge id="e48" source="concept:death" target="op:without"><data key="type">operator_hook</data></edge>
+<edge id="e49" source="concept:body" target="concept:mind"><data key="type">paired_with</data></edge>
+<edge id="e50" source="concept:body" target="concept:pain"><data key="type">contains</data></edge>
+<edge id="e51" source="concept:body" target="concept:motion"><data key="type">supports</data></edge>
+<edge id="e52" source="concept:body" target="op:has_part"><data key="type">operator_hook</data></edge>
+<edge id="e53" source="concept:body" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e54" source="concept:body" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e55" source="concept:mind" target="concept:body"><data key="type">paired_with</data></edge>
+<edge id="e56" source="concept:mind" target="concept:memory"><data key="type">contains</data></edge>
+<edge id="e57" source="concept:mind" target="concept:truth"><data key="type">seeks</data></edge>
+<edge id="e58" source="concept:mind" target="op:knows"><data key="type">operator_hook</data></edge>
+<edge id="e59" source="concept:mind" target="op:believes"><data key="type">operator_hook</data></edge>
+<edge id="e60" source="concept:mind" target="op:doubts"><data key="type">operator_hook</data></edge>
+<edge id="e61" source="concept:time" target="concept:motion"><data key="type">orders</data></edge>
+<edge id="e62" source="concept:time" target="concept:memory"><data key="type">bounds</data></edge>
+<edge id="e63" source="concept:time" target="op:before"><data key="type">operator_hook</data></edge>
+<edge id="e64" source="concept:time" target="op:after"><data key="type">operator_hook</data></edge>
+<edge id="e65" source="concept:time" target="op:when"><data key="type">operator_hook</data></edge>
+<edge id="e66" source="concept:space" target="concept:motion"><data key="type">contains</data></edge>
+<edge id="e67" source="concept:space" target="concept:center"><data key="type">bounds</data></edge>
+<edge id="e68" source="concept:space" target="concept:boundary"><data key="type">has_boundary</data></edge>
+<edge id="e69" source="concept:space" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e70" source="concept:space" target="op:outside"><data key="type">operator_hook</data></edge>
+<edge id="e71" source="concept:space" target="op:on"><data key="type">operator_hook</data></edge>
+<edge id="e72" source="concept:space" target="op:under"><data key="type">operator_hook</data></edge>
+<edge id="e73" source="concept:space" target="op:through"><data key="type">operator_hook</data></edge>
+<edge id="e74" source="concept:motion" target="concept:rest"><data key="type">opposes</data></edge>
+<edge id="e75" source="concept:motion" target="concept:time"><data key="type">requires</data></edge>
+<edge id="e76" source="concept:motion" target="concept:space"><data key="type">occurs_in</data></edge>
+<edge id="e77" source="concept:motion" target="op:through"><data key="type">operator_hook</data></edge>
+<edge id="e78" source="concept:motion" target="op:from"><data key="type">operator_hook</data></edge>
+<edge id="e79" source="concept:motion" target="op:to"><data key="type">operator_hook</data></edge>
+<edge id="e80" source="concept:motion" target="op:after"><data key="type">operator_hook</data></edge>
+<edge id="e81" source="concept:rest" target="concept:motion"><data key="type">opposes</data></edge>
+<edge id="e82" source="concept:rest" target="concept:order"><data key="type">supports</data></edge>
+<edge id="e83" source="concept:rest" target="op:not"><data key="type">operator_hook</data></edge>
+<edge id="e84" source="concept:rest" target="op:after"><data key="type">operator_hook</data></edge>
+<edge id="e85" source="concept:rest" target="op:before"><data key="type">operator_hook</data></edge>
+<edge id="e86" source="concept:force" target="concept:motion"><data key="type">causes</data></edge>
+<edge id="e87" source="concept:force" target="concept:matter"><data key="type">acts_on</data></edge>
+<edge id="e88" source="concept:force" target="op:causes"><data key="type">operator_hook</data></edge>
+<edge id="e89" source="concept:force" target="op:transforms"><data key="type">operator_hook</data></edge>
+<edge id="e90" source="concept:force" target="op:through"><data key="type">operator_hook</data></edge>
+<edge id="e91" source="concept:energy" target="concept:matter"><data key="type">transforms</data></edge>
+<edge id="e92" source="concept:energy" target="concept:motion"><data key="type">supports</data></edge>
+<edge id="e93" source="concept:energy" target="op:transforms"><data key="type">operator_hook</data></edge>
+<edge id="e94" source="concept:energy" target="op:has_property"><data key="type">operator_hook</data></edge>
+<edge id="e95" source="concept:energy" target="op:causes"><data key="type">operator_hook</data></edge>
+<edge id="e96" source="concept:matter" target="concept:information"><data key="type">paired_with</data></edge>
+<edge id="e97" source="concept:matter" target="concept:energy"><data key="type">receives</data></edge>
+<edge id="e98" source="concept:matter" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e99" source="concept:matter" target="op:has_property"><data key="type">operator_hook</data></edge>
+<edge id="e100" source="concept:matter" target="op:transforms"><data key="type">operator_hook</data></edge>
+<edge id="e101" source="concept:information" target="concept:error"><data key="type">opposes</data></edge>
+<edge id="e102" source="concept:information" target="concept:knowledge"><data key="type">supports</data></edge>
+<edge id="e103" source="concept:information" target="concept:matter"><data key="type">patterns</data></edge>
+<edge id="e104" source="concept:information" target="op:means"><data key="type">operator_hook</data></edge>
+<edge id="e105" source="concept:information" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e106" source="concept:information" target="op:reveals"><data key="type">operator_hook</data></edge>
+<edge id="e107" source="concept:truth" target="concept:lie"><data key="type">opposes</data></edge>
+<edge id="e108" source="concept:truth" target="concept:knowledge"><data key="type">supports</data></edge>
+<edge id="e109" source="concept:truth" target="concept:error"><data key="type">reduces</data></edge>
+<edge id="e110" source="concept:truth" target="op:is"><data key="type">operator_hook</data></edge>
+<edge id="e111" source="concept:truth" target="op:knows"><data key="type">operator_hook</data></edge>
+<edge id="e112" source="concept:truth" target="op:proves"><data key="type">operator_hook</data></edge>
+<edge id="e113" source="concept:lie" target="concept:truth"><data key="type">opposes</data></edge>
+<edge id="e114" source="concept:lie" target="concept:error"><data key="type">increases</data></edge>
+<edge id="e115" source="concept:lie" target="concept:trust"><data key="type">harms</data></edge>
+<edge id="e116" source="concept:lie" target="op:not"><data key="type">operator_hook</data></edge>
+<edge id="e117" source="concept:lie" target="op:hides"><data key="type">operator_hook</data></edge>
+<edge id="e118" source="concept:lie" target="op:deceives"><data key="type">operator_hook</data></edge>
+<edge id="e119" source="concept:good" target="concept:harm"><data key="type">opposes</data></edge>
+<edge id="e120" source="concept:good" target="concept:trust"><data key="type">supports</data></edge>
+<edge id="e121" source="concept:good" target="concept:life"><data key="type">supports</data></edge>
+<edge id="e122" source="concept:good" target="op:supports"><data key="type">operator_hook</data></edge>
+<edge id="e123" source="concept:good" target="op:with"><data key="type">operator_hook</data></edge>
+<edge id="e124" source="concept:good" target="op:because"><data key="type">operator_hook</data></edge>
+<edge id="e125" source="concept:harm" target="concept:good"><data key="type">opposes</data></edge>
+<edge id="e126" source="concept:harm" target="concept:pain"><data key="type">causes</data></edge>
+<edge id="e127" source="concept:harm" target="concept:trust"><data key="type">reduces</data></edge>
+<edge id="e128" source="concept:harm" target="op:harms"><data key="type">operator_hook</data></edge>
+<edge id="e129" source="concept:harm" target="op:without"><data key="type">operator_hook</data></edge>
+<edge id="e130" source="concept:harm" target="op:causes"><data key="type">operator_hook</data></edge>
+<edge id="e131" source="concept:order" target="concept:chaos"><data key="type">opposes</data></edge>
+<edge id="e132" source="concept:order" target="concept:knowledge"><data key="type">supports</data></edge>
+<edge id="e133" source="concept:order" target="op:arranges"><data key="type">operator_hook</data></edge>
+<edge id="e134" source="concept:order" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e135" source="concept:order" target="op:because"><data key="type">operator_hook</data></edge>
+<edge id="e136" source="concept:chaos" target="concept:order"><data key="type">opposes</data></edge>
+<edge id="e137" source="concept:chaos" target="concept:error"><data key="type">increases</data></edge>
+<edge id="e138" source="concept:chaos" target="op:not"><data key="type">operator_hook</data></edge>
+<edge id="e139" source="concept:chaos" target="op:disrupts"><data key="type">operator_hook</data></edge>
+<edge id="e140" source="concept:chaos" target="op:through"><data key="type">operator_hook</data></edge>
+<edge id="e141" source="concept:center" target="concept:boundary"><data key="type">opposes</data></edge>
+<edge id="e142" source="concept:center" target="concept:relation"><data key="type">attracts</data></edge>
+<edge id="e143" source="concept:center" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e144" source="concept:center" target="op:around"><data key="type">operator_hook</data></edge>
+<edge id="e145" source="concept:center" target="op:to"><data key="type">operator_hook</data></edge>
+<edge id="e146" source="concept:boundary" target="concept:center"><data key="type">opposes</data></edge>
+<edge id="e147" source="concept:boundary" target="concept:space"><data key="type">bounds</data></edge>
+<edge id="e148" source="concept:boundary" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e149" source="concept:boundary" target="op:outside"><data key="type">operator_hook</data></edge>
+<edge id="e150" source="concept:boundary" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e151" source="concept:self" target="concept:other"><data key="type">opposes</data></edge>
+<edge id="e152" source="concept:self" target="concept:identity"><data key="type">stabilizes</data></edge>
+<edge id="e153" source="concept:self" target="concept:memory"><data key="type">stores</data></edge>
+<edge id="e154" source="concept:self" target="op:is"><data key="type">operator_hook</data></edge>
+<edge id="e155" source="concept:self" target="op:has"><data key="type">operator_hook</data></edge>
+<edge id="e156" source="concept:self" target="op:knows"><data key="type">operator_hook</data></edge>
+<edge id="e157" source="concept:other" target="concept:self"><data key="type">opposes</data></edge>
+<edge id="e158" source="concept:other" target="concept:relation"><data key="type">requires</data></edge>
+<edge id="e159" source="concept:other" target="op:with"><data key="type">operator_hook</data></edge>
+<edge id="e160" source="concept:other" target="op:without"><data key="type">operator_hook</data></edge>
+<edge id="e161" source="concept:other" target="op:relation"><data key="type">operator_hook</data></edge>
+<edge id="e162" source="concept:relation" target="concept:self"><data key="type">connects</data></edge>
+<edge id="e163" source="concept:relation" target="concept:other"><data key="type">connects</data></edge>
+<edge id="e164" source="concept:relation" target="concept:memory"><data key="type">supports</data></edge>
+<edge id="e165" source="concept:relation" target="op:with"><data key="type">operator_hook</data></edge>
+<edge id="e166" source="concept:relation" target="op:between"><data key="type">operator_hook</data></edge>
+<edge id="e167" source="concept:relation" target="op:maps"><data key="type">operator_hook</data></edge>
+<edge id="e168" source="concept:memory" target="concept:identity"><data key="type">supports</data></edge>
+<edge id="e169" source="concept:memory" target="concept:information"><data key="type">stores</data></edge>
+<edge id="e170" source="concept:memory" target="op:after"><data key="type">operator_hook</data></edge>
+<edge id="e171" source="concept:memory" target="op:contains"><data key="type">operator_hook</data></edge>
+<edge id="e172" source="concept:memory" target="op:has_state"><data key="type">operator_hook</data></edge>
+<edge id="e173" source="concept:love" target="concept:fear"><data key="type">opposes</data></edge>
+<edge id="e174" source="concept:love" target="concept:trust"><data key="type">supports</data></edge>
+<edge id="e175" source="concept:love" target="concept:harm"><data key="type">reduces</data></edge>
+<edge id="e176" source="concept:love" target="op:with"><data key="type">operator_hook</data></edge>
+<edge id="e177" source="concept:love" target="op:cares_for"><data key="type">operator_hook</data></edge>
+<edge id="e178" source="concept:love" target="op:supports"><data key="type">operator_hook</data></edge>
+<edge id="e179" source="concept:fear" target="concept:trust"><data key="type">reduces</data></edge>
+<edge id="e180" source="concept:fear" target="concept:pain"><data key="type">increases</data></edge>
+<edge id="e181" source="concept:fear" target="concept:harm"><data key="type">responds_to</data></edge>
+<edge id="e182" source="concept:fear" target="op:avoids"><data key="type">operator_hook</data></edge>
+<edge id="e183" source="concept:fear" target="op:because"><data key="type">operator_hook</data></edge>
+<edge id="e184" source="concept:fear" target="op:not"><data key="type">operator_hook</data></edge>
+<edge id="e185" source="concept:trust" target="concept:fear"><data key="type">opposes</data></edge>
+<edge id="e186" source="concept:trust" target="concept:relation"><data key="type">supports</data></edge>
+<edge id="e187" source="concept:trust" target="concept:truth"><data key="type">requires</data></edge>
+<edge id="e188" source="concept:trust" target="op:believes"><data key="type">operator_hook</data></edge>
+<edge id="e189" source="concept:trust" target="op:with"><data key="type">operator_hook</data></edge>
+<edge id="e190" source="concept:trust" target="op:supports"><data key="type">operator_hook</data></edge>
+<edge id="e191" source="concept:pain" target="concept:harm"><data key="type">caused_by</data></edge>
+<edge id="e192" source="concept:pain" target="concept:body"><data key="type">signals</data></edge>
+<edge id="e193" source="concept:pain" target="concept:fear"><data key="type">increases</data></edge>
+<edge id="e194" source="concept:pain" target="op:has_state"><data key="type">operator_hook</data></edge>
+<edge id="e195" source="concept:pain" target="op:caused_by"><data key="type">operator_hook</data></edge>
+<edge id="e196" source="concept:pain" target="op:inside"><data key="type">operator_hook</data></edge>
+<edge id="e197" source="concept:knowledge" target="concept:truth"><data key="type">requires</data></edge>
+<edge id="e198" source="concept:knowledge" target="concept:information"><data key="type">uses</data></edge>
+<edge id="e199" source="concept:knowledge" target="concept:error"><data key="type">reduces</data></edge>
+<edge id="e200" source="concept:knowledge" target="op:knows"><data key="type">operator_hook</data></edge>
+<edge id="e201" source="concept:knowledge" target="op:proves"><data key="type">operator_hook</data></edge>
+<edge id="e202" source="concept:knowledge" target="op:because"><data key="type">operator_hook</data></edge>
+<edge id="e203" source="concept:error" target="concept:knowledge"><data key="type">opposes</data></edge>
+<edge id="e204" source="concept:error" target="concept:truth"><data key="type">opposes</data></edge>
+<edge id="e205" source="concept:error" target="concept:chaos"><data key="type">increases</data></edge>
+<edge id="e206" source="concept:error" target="op:not"><data key="type">operator_hook</data></edge>
+<edge id="e207" source="concept:error" target="op:contradicts"><data key="type">operator_hook</data></edge>
+<edge id="e208" source="concept:error" target="op:repairs"><data key="type">operator_hook</data></edge>
+</graph>
+</graphml>

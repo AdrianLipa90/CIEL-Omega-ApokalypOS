@@ -1,0 +1,9 @@
+quantifier,symbol,operator,class,phase,force
+ALL,∀,ForAll,universal,0.1,1.0
+EACH,∀_each,ForEach,distributive_universal,0.12,1.0
+SOME,∃,Exists,existential,0.35,0.72
+MANY,∃many,Many,vague_quantity,0.42,0.62
+FEW,∃few,Few,vague_quantity,0.48,0.55
+ONE,∃=1,ExactlyOne,cardinal,0.55,0.82
+NO,¬∃,No,negative_quantifier,3.141593,1.0
+ANY,∃/∀?,Any,polarity_sensitive,0.7,0.45

@@ -1,17 +1,17 @@
 {
-  "system_health": 0.5955617573679859,
+  "system_health": 0.5446624528023167,
   "risk_level": "low",
-  "closure_penalty": 5.424056929375785,
-  "R_H": 0.00045367947834456536,
-  "T_glob": 0.7739080693668933,
-  "Lambda_glob": -0.003718153274084362,
-  "effective_rh": 0.09212317406462389,
+  "closure_penalty": 0.7758294414601319,
+  "R_H": 25.657287382708894,
+  "T_glob": 3.8044913348196006,
+  "Lambda_glob": -0.7018656217911824,
+  "effective_rh": 0.605757392785782,
   "rh_drivers": {
-    "raw_rh": 0.00045367947834456536,
-    "eba_defect": 0.050707762174271934,
+    "raw_rh": 0.5127495422194119,
+    "eba_defect": 0.05250494241910321,
     "coherent_fraction": 1.0,
-    "closure_score": 0.5346747037629884,
-    "phase_gap": 0.041229833897324236
+    "closure_score": 0.5358115119620404,
+    "phase_gap": 0.05002847513989917
   },
   "recommended_action": "deep diagnostics allowed"
 }

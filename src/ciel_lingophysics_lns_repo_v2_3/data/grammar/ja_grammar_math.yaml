@@ -1,0 +1,37 @@
+language_code: ja
+language: Japanese
+grammar_as_gauge:
+  connection: A_gram^(ja)
+  surface_to_equation: Surface_l -> Grammar_l -> Equation -> Knot -> Invariant
+  local_vector_axes:
+  - inflection
+  - word_order_fixedness
+  - topic_focus
+  - particle_density
+  - case_marking
+  - agreement
+  - honorificity
+  - context_reliance
+  local_vector:
+  - 0.42
+  - 0.35
+  - 0.78
+  - 0.88
+  - 0.25
+  - 0.45
+  - 0.75
+  - 0.52
+  curvature_estimate: 0.212
+  gauge_notes:
+    word_order: SOV-topic-prominent
+    case_system_strength: 0.35
+    inflection_density: 0.42
+operator_mapping:
+  glyph_microknot: G_kanji
+  topic_particle: は
+  case_particle: が/を/に
+  SOV_binding: T_final
+  contextual_number: μ_ctx
+water_sentence_equation_examples:
+  canonical: Flow(A=water_equivalent, Path=river_equivalent)
+  need_context: Need(Agent=speaker, Patient=water)

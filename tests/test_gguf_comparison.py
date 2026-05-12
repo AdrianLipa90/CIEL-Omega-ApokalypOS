@@ -21,7 +21,6 @@ import json
 import math
 import time
 from pathlib import Path
-from unittest.mock import patch
 
 import pytest
 
@@ -297,7 +296,7 @@ class TestGGUFComparison:
     ) -> None:
         """Repeat-call throughput of build_sync_report must be the same with/without GGUF."""
         from src.ciel_sot_agent.repo_phase import build_sync_report
-        from src.ciel_sot_agent.gguf_manager.manager import GGUFManager, KNOWN_MODELS
+        from src.ciel_sot_agent.gguf_manager.manager import KNOWN_MODELS
 
         n = 10
         reg = _make_registry(n)

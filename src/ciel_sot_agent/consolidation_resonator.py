@@ -574,7 +574,7 @@ def update_encoder_from_kuramoto(
         enc._WO /= np.maximum(norms, 1e-9)
         np.savez(str(mod._WEIGHTS_FILE), WO=enc._WO.astype(np.float32))
         return updated
-    except Exception as exc:
+    except Exception:
         return 0
 
 

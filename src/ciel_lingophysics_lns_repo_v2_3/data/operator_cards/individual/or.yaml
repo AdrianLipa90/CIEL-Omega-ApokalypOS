@@ -1,0 +1,53 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:or
+family: disjunction_alternative
+class:
+- logic_operator
+- branching_operator
+symbol: x ∨ y / x ⊕ y
+arity: 2+
+dual: op:core:and
+inverse: null
+description: introduces alternatives, branches or option-space
+equations:
+- Or(x,y)
+- x ∨ y
+- x ⊕ y
+surfaces:
+  pl:
+    lemma: albo / lub
+    forms:
+    - albo
+    - lub
+    examples:
+    - Woda albo sok.
+    notes: inclusive/exclusive distinction may be context-dependent
+  en:
+    lemma: or
+    forms:
+    - or
+    examples:
+    - Water or juice.
+    notes: alternative
+  de:
+    lemma: oder
+    forms:
+    - oder
+    examples:
+    - Wasser oder Saft.
+    notes: alternative
+  fr:
+    lemma: ou
+    forms:
+    - ou
+    examples:
+    - De l’eau ou du jus.
+    notes: alternative
+  es:
+    lemma: o / u
+    forms:
+    - o
+    - u
+    examples:
+    - Agua o jugo.
+    notes: alternative

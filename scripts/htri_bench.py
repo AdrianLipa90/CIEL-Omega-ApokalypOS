@@ -8,7 +8,7 @@ Metodologia:
 Mierzy: czas odpowiedzi (ms), długość odpowiedzi (chars), chars/ms.
 Wynik: tabela A vs B z avg ± std.
 
-Wymagania: serwis ciel-gui aktywny (port 5050), model załadowany.
+Wymagania: serwis ciel-gui aktywny (port 2435), model załadowany.
 """
 from __future__ import annotations
 
@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 import urllib.request
 
-GUI_URL    = "http://127.0.0.1:5050"
+GUI_URL    = "http://127.0.0.1:2435"
 N_ROUNDS   = 5
 PROMPTS    = [
     "kim jesteś?",

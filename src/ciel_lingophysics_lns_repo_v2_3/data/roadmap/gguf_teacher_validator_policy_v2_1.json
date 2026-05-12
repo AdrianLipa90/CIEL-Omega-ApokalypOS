@@ -1,0 +1,40 @@
+{
+  "policy_version": "2.1",
+  "name": "NOEMA-first, GGUF teacher-validator policy",
+  "gguf_role": "advisory_teacher_validator",
+  "canonicality_rule": "GGUF verdict alone cannot promote an object to canonical status.",
+  "routing_policy": [
+    {
+      "condition": "local_confidence >= 0.85 and validator_pass and no_noema_conflict",
+      "action": "do_not_call_gguf"
+    },
+    {
+      "condition": "0.55 <= local_confidence < 0.85 or unresolved_scope_or_case",
+      "action": "call_small_or_medium_validator_if_available"
+    },
+    {
+      "condition": "local_confidence < 0.55 or factual_claim or cross_language_conflict",
+      "action": "call_gguf_as_teacher_validator"
+    },
+    {
+      "condition": "validator_conflict_between_CIELingo_and_GGUF",
+      "action": "mark_needs_review_or_conflict"
+    }
+  ],
+  "verdict_states": [
+    "agree",
+    "disagree",
+    "uncertain",
+    "out_of_scope",
+    "needs_human_review"
+  ],
+  "audit_fields": [
+    "prompt_hash",
+    "retrieved_noema_cards",
+    "local_verdict",
+    "gguf_verdict",
+    "fusion_verdict",
+    "final_status",
+    "timestamp"
+  ]
+}

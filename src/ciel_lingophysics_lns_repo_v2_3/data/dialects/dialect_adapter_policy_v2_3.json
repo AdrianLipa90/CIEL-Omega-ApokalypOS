@@ -1,0 +1,57 @@
+{
+  "schema_version": "2.3",
+  "status": "draft_policy",
+  "principle": "Dialects and variants are local adapter layers over language profiles; they must never overwrite canonical language profiles.",
+  "adapter_levels": [
+    {
+      "level": "L0",
+      "name": "lexical_variant",
+      "description": "surface synonyms, spellings, regional vocabulary; no grammar override"
+    },
+    {
+      "level": "L1",
+      "name": "morphological_variant",
+      "description": "inflectional or agreement differences; local morphology hooks"
+    },
+    {
+      "level": "L2",
+      "name": "syntax_variant",
+      "description": "word-order, negation, clitic, auxiliary, or case-realization differences"
+    },
+    {
+      "level": "L3",
+      "name": "pragmatic_register_variant",
+      "description": "honorifics, politeness, discourse particles, social-indexing rules"
+    },
+    {
+      "level": "L4",
+      "name": "separate_language_candidate",
+      "description": "variant requires independent profile and review"
+    }
+  ],
+  "activation_rule": "Activate a dialect adapter only when a prompt, corpus source, user setting, or card metadata explicitly declares the variant or when detector confidence exceeds threshold.",
+  "canonicality_rule": "Dialect outputs are advisory until validated by profile-specific tests or human review.",
+  "sample_adapters": [
+    {
+      "id": "dialect:pl:silesian:planned",
+      "base_profile": "language:pl:standard",
+      "level": "L2",
+      "status": "planned",
+      "notes": "Do not implement claims without curated data."
+    },
+    {
+      "id": "dialect:en:uk:active_seed",
+      "base_profile": "language:en:standard",
+      "level": "L0",
+      "status": "draft_seed",
+      "notes": "Lexical/spelling variant layer only at this stage."
+    },
+    {
+      "id": "dialect:es:latam:planned",
+      "base_profile": "language:es:standard",
+      "level": "L1",
+      "status": "planned",
+      "notes": "Regional pronoun/lexicon adapters need curated data."
+    }
+  ]
+}

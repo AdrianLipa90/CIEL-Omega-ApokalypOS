@@ -1,0 +1,38 @@
+{
+  "version": "1.6",
+  "created_utc": "2026-05-10T13:08:13.520802+00:00",
+  "fallback_records": [
+    {
+      "path": "data/json/cielingo_tame_v1_4.fallback.json",
+      "status": "PASS",
+      "keys": [
+        "metadata",
+        "data"
+      ]
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_4.json",
+      "status": "PASS",
+      "keys": [
+        "preferred_format",
+        "fallback_format",
+        "used_fallback",
+        "target_path",
+        "result_path",
+        "error_type",
+        "error_message",
+        "timestamp_utc"
+      ]
+    },
+    {
+      "path": "data/json/fallback_manifest_v1_5.json",
+      "status": "PASS",
+      "keys": [
+        "version",
+        "fallback_policy",
+        "new_json_artifacts"
+      ]
+    }
+  ],
+  "policy": "JSON fallback is a legal persistence layer whenever HDF5, SQLite, XLSX, graph or image generation fails."
+}

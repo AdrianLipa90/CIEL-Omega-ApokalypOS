@@ -1,0 +1,13 @@
+higher_order_operators:
+- operator: Very(P)
+  acts_on: property or adjective
+  effect: intensifies scalar magnitude
+- operator: Quickly(T)
+  acts_on: event/operator
+  effect: modifies temporal profile of action
+- operator: Must(T)
+  acts_on: event/proposition
+  effect: adds necessity or obligation
+- operator: Not(P)
+  acts_on: proposition/operator
+  effect: inverts polarity under scope

@@ -1,0 +1,84 @@
+version: '1.6'
+name: CIELingo card/data type registry
+created_utc: '2026-05-10T13:08:13.520802+00:00'
+principle: Every linguistic object must be typed before it can enter relation, operator,
+  grammar, scope, or graph layers.
+card_classes:
+- type: CONCEPT_CARD
+  path_prefix: data/concept_cards/
+  description: semantic mass / attractor cards
+- type: OPERATOR_CARD
+  path_prefix: data/operator_cards/
+  description: catalogued functional words / operator cards
+- type: OPERATOR_FAMILY
+  path_prefix: data/operator_families/
+  description: operator families
+- type: OPERATOR_COMPOSITION
+  path_prefix: data/operator_compositions/
+  description: duals, inverses, negations, higher order composition
+- type: OPERATOR_ALGEBRA
+  path_prefix: data/operator_algebra/
+  description: operator algebra indexes
+- type: GRAMMAR_CARD
+  path_prefix: data/grammar/
+  description: per-language grammar mathematization
+- type: CASE_GAUGE_CARD
+  path_prefix: data/case_systems/
+  description: case systems as hidden role operators
+- type: CASE_MAPPING
+  path_prefix: data/case_mappings/
+  description: case reconstruction strategies into weak-case languages
+- type: EVENT_FRAME
+  path_prefix: data/event_frames/
+  description: predicate valency and event frames
+- type: ONTOLOGICAL_ASPECT
+  path_prefix: data/ontological_aspect/
+  description: thing/concept and ser/estar/koto/mono distinctions
+- type: TAME_CARD
+  path_prefix: data/tame/
+  description: tense/aspect/mood/modality/evidentiality
+- type: DYNAMIC_DEICTIC_CARD
+  path_prefix: data/operator_cards/dynamic_deictic
+  description: dynamic deictic operator surfaces
+- type: SCOPE_CARD
+  path_prefix: data/scope/
+  description: scope, quantifier and negation rules
+- type: GRAPH_ARTIFACT
+  path_prefix: data/graphs/
+  description: machine-readable graph exports
+- type: HEATMAP_DATA
+  path_prefix: data/heatmaps/
+  description: CSV heatmap source data
+- type: JSON_FALLBACK
+  path_prefix: data/json/
+  description: fallback and degraded structured storage
+- type: SCHEMA
+  path_prefix: schemas/
+  description: JSON Schema definitions
+- type: DOC
+  path_prefix: docs/
+  description: specification and documentation
+- type: TEST
+  path_prefix: tests/
+  description: test suite
+- type: SOURCE
+  path_prefix: src/
+  description: implementation modules
+- type: REPORT
+  path_prefix: reports/
+  description: patch reports and audit outputs
+valid_epistemic_statuses:
+- unknown
+- placeholder
+- draft
+- draft_seed
+- derived
+- verified
+- canonical
+- deprecated
+- contradicted
+- quarantined
+- unresolved
+- needs_review
+fallback_policy: if preferred storage fails, write JSON/JSONL fallback and explicit
+  report

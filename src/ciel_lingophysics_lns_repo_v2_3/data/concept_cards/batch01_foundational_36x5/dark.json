@@ -1,0 +1,227 @@
+{
+  "schema": "ciel_lns_concept_card_v1",
+  "card_type": "CONCEPT_CARD",
+  "concept_id": "concept:dark",
+  "canonical_label_en": "darkness",
+  "batch_id": "batch01_foundational_36x5",
+  "domain": "perception",
+  "semantic_axes": [
+    "absence",
+    "hidden",
+    "uncertainty"
+  ],
+  "semantic_mass_seed": 0.8125,
+  "phase_seed_rad": 0.872665,
+  "epistemic_status": "draft_seed",
+  "source_policy": "hand_curated_seed_no_external_dictionary_import",
+  "languages": {
+    "pl": {
+      "language_name": "Polish",
+      "lemma": "ciemność",
+      "brief_description": "brak światła, zasłonięcie lub pole niepewności",
+      "near_synonyms_seed": [
+        "mrok",
+        "cień"
+      ],
+      "antonyms_seed": [
+        "światło",
+        "jasność"
+      ],
+      "forms_seed": [
+        "ciemność",
+        "ciemność jako hasło",
+        "ciemność w kontekście"
+      ],
+      "context_examples_seed": [
+        "Ciemność tworzy lokalny atraktor sensu."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.95,
+        "fixed_word_order": 0.35,
+        "gender_marking": 0.85,
+        "article_system": 0.05,
+        "aspect_marking": 0.9,
+        "preposition_load": 0.7,
+        "inflection_load": 0.9,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "hides",
+        "not",
+        "inside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "en": {
+      "language_name": "English",
+      "lemma": "darkness",
+      "brief_description": "absence of light, concealment or uncertainty field",
+      "near_synonyms_seed": [
+        "shadow",
+        "gloom"
+      ],
+      "antonyms_seed": [
+        "light",
+        "brightness"
+      ],
+      "forms_seed": [
+        "darkness",
+        "darknesss",
+        "darkness as concept"
+      ],
+      "context_examples_seed": [
+        "Darkness forms a local semantic attractor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.15,
+        "fixed_word_order": 0.9,
+        "gender_marking": 0.15,
+        "article_system": 0.85,
+        "aspect_marking": 0.55,
+        "preposition_load": 0.85,
+        "inflection_load": 0.25,
+        "topic_focus_particles": 0.2
+      },
+      "operator_tags": [
+        "hides",
+        "not",
+        "inside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "de": {
+      "language_name": "German",
+      "lemma": "Dunkelheit",
+      "brief_description": "Abwesenheit von Licht, Verhüllung oder Unsicherheit",
+      "near_synonyms_seed": [
+        "Schatten",
+        "Finsternis"
+      ],
+      "antonyms_seed": [
+        "Licht",
+        "Helligkeit"
+      ],
+      "forms_seed": [
+        "Dunkelheit",
+        "Dunkelheit als Begriff",
+        "Dunkelheit im Kontext"
+      ],
+      "context_examples_seed": [
+        "Dunkelheit bildet einen lokalen Bedeutungsattraktor."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.65,
+        "fixed_word_order": 0.55,
+        "gender_marking": 0.85,
+        "article_system": 0.85,
+        "aspect_marking": 0.4,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "hides",
+        "not",
+        "inside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "fr": {
+      "language_name": "French",
+      "lemma": "obscurité",
+      "brief_description": "absence de lumière, dissimulation ou incertitude",
+      "near_synonyms_seed": [
+        "ombre",
+        "ténèbres"
+      ],
+      "antonyms_seed": [
+        "lumière",
+        "clarté"
+      ],
+      "forms_seed": [
+        "obscurité",
+        "obscurité comme concept",
+        "obscurité en contexte"
+      ],
+      "context_examples_seed": [
+        "Obscurité forme un attracteur sémantique local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.05,
+        "fixed_word_order": 0.75,
+        "gender_marking": 0.75,
+        "article_system": 0.9,
+        "aspect_marking": 0.45,
+        "preposition_load": 0.8,
+        "inflection_load": 0.55,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "hides",
+        "not",
+        "inside"
+      ],
+      "review_status": "needs_human_validation"
+    },
+    "es": {
+      "language_name": "Spanish",
+      "lemma": "oscuridad",
+      "brief_description": "ausencia de luz, ocultamiento o incertidumbre",
+      "near_synonyms_seed": [
+        "sombra",
+        "tiniebla"
+      ],
+      "antonyms_seed": [
+        "luz",
+        "claridad"
+      ],
+      "forms_seed": [
+        "oscuridad",
+        "oscuridad como concepto",
+        "oscuridad en contexto"
+      ],
+      "context_examples_seed": [
+        "Oscuridad forma un atractor semántico local."
+      ],
+      "grammar_vector": {
+        "case_marking": 0.1,
+        "fixed_word_order": 0.6,
+        "gender_marking": 0.8,
+        "article_system": 0.85,
+        "aspect_marking": 0.75,
+        "preposition_load": 0.75,
+        "inflection_load": 0.7,
+        "topic_focus_particles": 0.25
+      },
+      "operator_tags": [
+        "hides",
+        "not",
+        "inside"
+      ],
+      "review_status": "needs_human_validation"
+    }
+  },
+  "operator_hooks": [
+    "hides",
+    "not",
+    "inside"
+  ],
+  "relations": [
+    {
+      "type": "opposes",
+      "target": "concept:light",
+      "status": "draft_seed"
+    },
+    {
+      "type": "increases",
+      "target": "concept:fear",
+      "status": "draft_seed"
+    },
+    {
+      "type": "hides",
+      "target": "concept:knowledge",
+      "status": "draft_seed"
+    }
+  ],
+  "notes": "This is a seed card. Lexical variants are working tags, not authoritative dictionary claims."
+}

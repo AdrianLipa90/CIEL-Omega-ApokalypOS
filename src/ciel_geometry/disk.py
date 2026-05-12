@@ -38,10 +38,12 @@ def sector_to_disk(theta: float, phi: float) -> tuple[float, float]:
 def entity_to_disk(coupling: float, phase: float) -> tuple[float, float]:
     """Convert entity (coupling_ciel, phase) to Poincaré disk (x, y).
 
-    coupling_ciel is already in [0, 1] — used directly as ρ.
+    coupling_ciel is a strength-to-identity value in [0, 1]:
+    strong coupling should sit near the identity center, so we invert
+    it into a radial distance ρ.
     phase is the azimuthal angle φ.
     """
-    rho = min(0.999, max(0.0, coupling))
+    rho = min(0.999999, max(0.0, 1.0 - coupling))
     return rho * math.cos(phase), rho * math.sin(phase)
 
 

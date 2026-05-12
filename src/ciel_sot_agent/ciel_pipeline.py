@@ -23,7 +23,17 @@ import json as _json
 import socket as _socket
 
 from . import subconsciousness as _sub
+from .cielingo_bridge import build_lingo_frame
 from .htri_scheduler import get_state as _htri_get_state
+from .phase_snapshots import build_phase_snapshot, build_qualisensing_snapshot, snapshot_to_dict
+from .thought_fragments import (
+    assess_durable_memory_health,
+    build_cognitive_fragment,
+    build_noema_memory_link,
+    build_memory_candidate,
+    promote_memory_candidate,
+    snapshot_to_dict as fragment_snapshot_to_dict,
+)
 
 _SUBCONSCIOUS_SOCK = Path.home() / "Pulpit/CIEL_memories/state/ciel_subconscious.sock"
 
@@ -290,6 +300,7 @@ def run_ciel_pipeline(
     # receives meaningful semantic input grounded in the system's geometry.
     bridge_metrics = orbital_state.get("bridge_metrics", {})
     state_manifest = orbital_state.get("state_manifest", {})
+    memory_projection = orbital_state.get("memory_projection", {}) or orbital_state.get("noema_sot", {}).get("memory_projection", {})
     merged: dict[str, Any] = {
         "R_H": bridge_metrics.get("orbital_R_H", state_manifest.get("R_H", 0.0)),
         "closure_penalty": bridge_metrics.get(
@@ -300,6 +311,11 @@ def run_ciel_pipeline(
         ),
         "mode": orbital_state.get("recommended_control", {}).get("mode", "standard"),
     }
+    if memory_projection:
+        merged["memory_projection_confidence"] = float(memory_projection.get("projection_confidence", 0.0))
+        merged["memory_projection_residual"] = float(memory_projection.get("projection_residual", 1.0))
+        merged["memory_projection_error"] = float(memory_projection.get("projection_error", 1.0))
+        merged["j_noema"] = float(memory_projection.get("j_noema", 1.0))
 
     orbital_context = _orbital_state_to_context(merged)
     full_context = f"{context}|{orbital_context}"
@@ -310,19 +326,11 @@ def run_ciel_pipeline(
     mood = runtime_gating.get("mood", 0.0)
     wpm_context = _load_wpm_context(root)
 
-    # Fall back to subconscious log if orbital runtime_gating has no dominant_emotion
+    # Keep dominant_emotion and sub_affect separate:
+    # the subconscious feed may be informative, but it must not overwrite
+    # the top-level emotion channel used by runtime status and GUI overlays.
     if not dominant_emotion:
-        try:
-            _sub_log = Path.home() / "Pulpit/CIEL_memories/logs/ciel_sub_log.jsonl"
-            if _sub_log.exists():
-                _lines = [l for l in _sub_log.read_text(encoding="utf-8").splitlines() if l.strip()]
-                if _lines:
-                    _last = json.loads(_lines[-1])
-                    _sub_affect = _last.get("affect", "")
-                    if _sub_affect:
-                        dominant_emotion = _sub_affect
-        except Exception:
-            pass
+        dominant_emotion = ""
 
     cqcl_input_parts = [orbital_context]
     if dominant_emotion:
@@ -376,6 +384,19 @@ def run_ciel_pipeline(
             cqcl_input_parts.append(_bridge["enriched_context"])
     except Exception:
         pass
+
+    lingo_frame = build_lingo_frame(
+        " | ".join(cqcl_input_parts),
+        ciel_state={
+            "language": orbital_state.get("language"),
+            "dialect_variant": orbital_state.get("dialect_variant"),
+            "dialect_review_required": orbital_state.get("dialect_review_required", False),
+            "noema_index": orbital_state.get("noema_index") if isinstance(orbital_state.get("noema_index"), dict) else None,
+            "noema_policy": orbital_state.get("noema_policy") if isinstance(orbital_state.get("noema_policy"), dict) else None,
+        },
+        language=orbital_state.get("language"),
+    )
+    cqcl_input_parts.append(lingo_frame["summary"])
 
     cqcl_input = " | ".join(cqcl_input_parts)
     _bridge_active = locals().get("_bridge", {}).get("bridge_active", False)
@@ -462,6 +483,30 @@ def run_ciel_pipeline(
     inference_runtime = raw.get("inference_runtime", {}) if isinstance(raw, dict) else {}
     # Nonlocal metrics from orbital_bridge (merged fallback) take precedence over engine raw
     _orb_nl = orbital_state.get("ciel_pipeline", {})
+
+    try:
+        from .holonomic_normalizer import (
+            _W_D_REPO, _W_T_MEAN, _W_E_PHI, _W_D_AFFECT,
+            _W_D_MEMORY, _W_B_SEAM, _W_P_DIST, _W_B_DEMO, _W_B_PLACEHOLDER,
+            _I0_TOPOLOGICAL,
+        )
+        _D_repo  = float(raw.get("closure_defect", orbital_state.get("bridge_metrics", {}).get("integration_closure_defect_proxy", 0.0)))
+        _T_mean  = float(raw.get("mean_tension", 0.0))
+        _E_phi   = float(raw.get("closure_penalty", orbital_state.get("bridge_metrics", {}).get("orbital_closure_penalty", 0.0)))
+        _d_aff   = float(raw.get("affect_decoherence", 0.0))
+        _d_mem   = float(raw.get("memory_decoherence", 0.0))
+        _B_seam  = float(raw.get("B_seam", 0.0))
+        _P_dist  = float(raw.get("P_dist", 0.0))
+        _B_demo  = float(raw.get("B_demo", 0.0))
+        _B_ph    = float(raw.get("B_placeholder", 0.0))
+        j_functional = (
+            _W_D_REPO * _D_repo + _W_T_MEAN * _T_mean + _W_E_PHI * _E_phi
+            + _W_D_AFFECT * _d_aff + _W_D_MEMORY * _d_mem + _W_B_SEAM * _B_seam
+            + _W_P_DIST * _P_dist + _W_B_PLACEHOLDER * _B_ph + _W_B_DEMO * _B_demo
+            + _I0_TOPOLOGICAL * (_D_repo + _E_phi + _d_aff)
+        )
+    except Exception:
+        j_functional = float(raw.get("J_functional", 0.0))
     result = {
         "ciel_status": raw.get("status", "ok"),
         "dominant_emotion": raw.get("dominant_emotion"),
@@ -504,7 +549,127 @@ def run_ciel_pipeline(
         "gate_confidence": gate_decision.get("confidence", 1.0) if gate_decision else 1.0,
         "gate_reason": gate_decision.get("reason", "") if gate_decision else "",
         "gate_delay_cycles": gate_decision.get("delay_cycles", 0) if gate_decision else 0,
+        "lingo_frame": lingo_frame,
+        "lingo_summary": lingo_frame.get("summary", ""),
+        "lingo_phase_projection": lingo_frame.get("phase_projection", {}),
+        "lingo_tau_bridge": lingo_frame.get("tau_bridge", {}),
+        "jokeheal_mnemonic_atlas": lingo_frame.get("mnemonic_atlas", {}),
     }
+    result["lingo_concept_count"] = int(len(lingo_frame.get("concept_tokens", [])) if isinstance(lingo_frame.get("concept_tokens"), list) else 0)
+    result["lingo_operator_count"] = int(len(lingo_frame.get("operator_tokens", [])) if isinstance(lingo_frame.get("operator_tokens"), list) else 0)
+    result["lingo_unresolved_count"] = int(len(lingo_frame.get("unresolved", [])) if isinstance(lingo_frame.get("unresolved"), list) else 0)
+    result["lingo_noema_confidence"] = float(((lingo_frame.get("noema_route") or {}).get("confidence", 0.0)) if isinstance(lingo_frame.get("noema_route"), dict) else 0.0)
+    result["lingo_factual_validation_required"] = int(bool(((lingo_frame.get("noema_route") or {}).get("factual_validation_required", False)) if isinstance(lingo_frame.get("noema_route"), dict) else False))
+
+    result["memory_projection_confidence"] = float(merged.get("memory_projection_confidence", 0.0))
+    result["memory_projection_residual"] = float(merged.get("memory_projection_residual", 1.0))
+    result["memory_projection_error"] = float(merged.get("memory_projection_error", 1.0))
+    result["j_noema"] = float(merged.get("j_noema", 1.0))
+    result["J_functional"] = round(float(j_functional), 4)
+    result["J_memory"] = round(float(result["memory_projection_residual"]), 4)
+    result["J_euler"] = round(float(1.0 - float(result.get("bridge_closure_score", 0.0))), 4)
+    result["J_total"] = round(
+        0.45 * float(result.get("J_functional", 0.0))
+        + 0.30 * float(result.get("J_memory", 0.0))
+        + 0.15 * float(result.get("j_noema", 0.0))
+        + 0.10 * float(result.get("J_euler", 0.0)),
+        4,
+    )
+    result["lingo_tau_gradient_mean"] = float((result.get("lingo_tau_bridge") or {}).get("tau_gradient_mean", 0.0))
+    result["lingo_imaginal_drive"] = float((result.get("lingo_tau_bridge") or {}).get("imaginal_drive", 0.0))
+    result["lingo_tau_curvature_rms"] = float((result.get("lingo_tau_bridge") or {}).get("tau_curvature_rms", 0.0))
+    result["jokeheal_mnemonic_pressure"] = float((result.get("jokeheal_mnemonic_atlas") or {}).get("mnemonic_pressure", 0.0))
+    result["jokeheal_symbolic_pull"] = float((result.get("jokeheal_mnemonic_atlas") or {}).get("symbolic_pull", 0.0))
+    result["jokeheal_recurrence_pressure"] = float((result.get("jokeheal_mnemonic_atlas") or {}).get("recurrence_pressure", 0.0))
+
+    try:
+        phase_snapshot = build_phase_snapshot(result)
+        qualisensing_snapshot = build_qualisensing_snapshot(result, phase_snapshot_id=phase_snapshot.phase_snapshot_id)
+        cognitive_fragment = build_cognitive_fragment(
+            {
+                **result,
+                "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+            }
+        )
+        memory_candidate = build_memory_candidate(
+            {
+                **result,
+                "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+            },
+            fragment=cognitive_fragment,
+        )
+        durable_memory_object = None
+        noema_memory_link = None
+        durable_memory_health = None
+        if memory_candidate.status == "ready":
+            durable_memory_object = promote_memory_candidate(
+                {
+                    **result,
+                    "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                    "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                    "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                    "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+                },
+                candidate=memory_candidate,
+                fragment=cognitive_fragment,
+            )
+            noema_memory_link = build_noema_memory_link(
+                {
+                    **result,
+                    "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                    "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                    "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                    "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+                    "lingo_frame": result.get("lingo_frame", {}),
+                },
+                durable=durable_memory_object,
+            )
+            durable_memory_object, durable_memory_health = assess_durable_memory_health(
+                {
+                    **result,
+                    "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                    "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                    "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                    "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+                    "lingo_frame": result.get("lingo_frame", {}),
+                },
+                durable=durable_memory_object,
+                noema_link=noema_memory_link,
+            )
+        result["phase_snapshot"] = snapshot_to_dict(phase_snapshot)
+        result["qualisensing_snapshot"] = snapshot_to_dict(qualisensing_snapshot)
+        result["cognitive_fragment"] = fragment_snapshot_to_dict(cognitive_fragment)
+        result["memory_candidate"] = fragment_snapshot_to_dict(memory_candidate)
+        if durable_memory_object is not None:
+            result["durable_memory_object"] = fragment_snapshot_to_dict(durable_memory_object)
+        if noema_memory_link is not None:
+            result["noema_memory_link"] = fragment_snapshot_to_dict(noema_memory_link)
+        if durable_memory_health is not None:
+            result["durable_memory_health"] = fragment_snapshot_to_dict(durable_memory_health)
+        result["phase_snapshot_id"] = phase_snapshot.phase_snapshot_id
+        result["qualisensing_id"] = qualisensing_snapshot.qualisensing_id
+    except Exception:
+        result.setdefault("phase_snapshot", {})
+        result.setdefault("qualisensing_snapshot", {})
+        result.setdefault("cognitive_fragment", {})
+        result.setdefault("memory_candidate", {})
+        result.setdefault("durable_memory_object", {})
+        result.setdefault("noema_memory_link", {})
+        result.setdefault("durable_memory_health", {})
+
+    result.setdefault("phase_snapshot", {})
+    result.setdefault("qualisensing_snapshot", {})
+    result.setdefault("cognitive_fragment", {})
+    result.setdefault("memory_candidate", {})
+    result.setdefault("durable_memory_object", {})
+    result.setdefault("noema_memory_link", {})
+    result.setdefault("durable_memory_health", {})
 
     _write_to_spreadsheet(
         result,
@@ -670,6 +835,30 @@ def main() -> int:
                 _prev = json.loads(_metrics_path.read_text(encoding="utf-8"))
             except Exception:
                 pass
+        # J-functional: weighted sum of 9 components (mirrors holonomic_normalizer weights)
+        try:
+            from .holonomic_normalizer import (
+                _W_D_REPO, _W_T_MEAN, _W_E_PHI, _W_D_AFFECT,
+                _W_D_MEMORY, _W_B_SEAM, _W_P_DIST, _W_B_DEMO, _W_B_PLACEHOLDER,
+                _I0_TOPOLOGICAL,
+            )
+            _D_repo  = float(output.get("closure_defect", _prev.get("closure_defect", 0.0)))
+            _T_mean  = float(output.get("mean_tension", _prev.get("mean_tension", 0.0)))
+            _E_phi   = float(output.get("closure_penalty", _prev.get("closure_penalty", 0.0)))
+            _d_aff   = float(output.get("affect_decoherence", _prev.get("affect_decoherence", 0.0)))
+            _d_mem   = float(output.get("memory_decoherence", _prev.get("memory_decoherence", 0.0)))
+            _B_seam  = float(output.get("B_seam", _prev.get("B_seam", 0.0)))
+            _P_dist  = float(output.get("P_dist", _prev.get("P_dist", 0.0)))
+            _B_demo  = float(output.get("B_demo", _prev.get("B_demo", 0.0)))
+            _B_ph    = float(output.get("B_placeholder", _prev.get("B_placeholder", 0.0)))
+            _J = (
+                _W_D_REPO * _D_repo + _W_T_MEAN * _T_mean + _W_E_PHI * _E_phi
+                + _W_D_AFFECT * _d_aff + _W_D_MEMORY * _d_mem + _W_B_SEAM * _B_seam
+                + _W_P_DIST * _P_dist + _W_B_PLACEHOLDER * _B_ph + _W_B_DEMO * _B_demo
+                + _I0_TOPOLOGICAL * (_D_repo + _E_phi + _d_aff)
+            )
+        except Exception:
+            _J = _prev.get("J_functional", 0.0)
         _pipeline_fields = {
             "soul_invariant": float(output.get("soul_invariant", _prev.get("soul_invariant", 0.0))),
             "ethical_score": float(output.get("ethical_score", _prev.get("ethical_score", 0.0))),
@@ -678,6 +867,30 @@ def main() -> int:
             "system_health": float(output.get("system_health", _prev.get("system_health", 0.0))),
             "closure_penalty": float(output.get("closure_penalty", _prev.get("closure_penalty", 0.0))),
             "coherence_index": float(output.get("coherence_index", _prev.get("coherence_index", 0.0))),
+            "J_functional": round(float(_J), 4),
+            "J_memory": float(output.get("J_memory", _prev.get("J_memory", 0.0))),
+            "J_euler": float(output.get("J_euler", _prev.get("J_euler", 0.0))),
+            "J_total": float(output.get("J_total", _prev.get("J_total", 0.0))),
+            "j_noema": float(output.get("j_noema", _prev.get("j_noema", 0.0))),
+            "memory_projection_confidence": float(output.get("memory_projection_confidence", _prev.get("memory_projection_confidence", 0.0))),
+            "memory_projection_residual": float(output.get("memory_projection_residual", _prev.get("memory_projection_residual", 1.0))),
+            "memory_projection_error": float(output.get("memory_projection_error", _prev.get("memory_projection_error", 1.0))),
+            "euler_residual": float(output.get("euler_residual", _prev.get("euler_residual", 0.0))),
+            "lingo_summary": str((output.get("lingo_frame") or {}).get("summary", _prev.get("lingo_summary", "")) if isinstance(output.get("lingo_frame"), dict) else _prev.get("lingo_summary", "")),
+            "lingo_phase_target": float((output.get("lingo_phase_projection") or {}).get("target_phase", _prev.get("lingo_phase_target", 0.0)) if isinstance(output.get("lingo_phase_projection"), dict) else _prev.get("lingo_phase_target", 0.0)),
+            "lingo_phase_shift": float((output.get("lingo_phase_projection") or {}).get("target_phase_shift", _prev.get("lingo_phase_shift", 0.0)) if isinstance(output.get("lingo_phase_projection"), dict) else _prev.get("lingo_phase_shift", 0.0)),
+            "lingo_phase_confidence": float((output.get("lingo_phase_projection") or {}).get("phase_confidence", _prev.get("lingo_phase_confidence", 0.0)) if isinstance(output.get("lingo_phase_projection"), dict) else _prev.get("lingo_phase_confidence", 0.0)),
+            "lingo_noema_confidence": float((((output.get("lingo_frame") or {}).get("noema_route") or {}).get("confidence", _prev.get("lingo_noema_confidence", 0.0))) if isinstance(output.get("lingo_frame"), dict) else _prev.get("lingo_noema_confidence", 0.0)),
+            "lingo_tau_gradient_mean": float((output.get("lingo_tau_bridge") or {}).get("tau_gradient_mean", _prev.get("lingo_tau_gradient_mean", 0.0)) if isinstance(output.get("lingo_tau_bridge"), dict) else _prev.get("lingo_tau_gradient_mean", 0.0)),
+            "lingo_imaginal_drive": float((output.get("lingo_tau_bridge") or {}).get("imaginal_drive", _prev.get("lingo_imaginal_drive", 0.0)) if isinstance(output.get("lingo_tau_bridge"), dict) else _prev.get("lingo_imaginal_drive", 0.0)),
+            "lingo_tau_curvature_rms": float((output.get("lingo_tau_bridge") or {}).get("tau_curvature_rms", _prev.get("lingo_tau_curvature_rms", 0.0)) if isinstance(output.get("lingo_tau_bridge"), dict) else _prev.get("lingo_tau_curvature_rms", 0.0)),
+            "lingo_concept_count": int(len((output.get("lingo_frame") or {}).get("concept_tokens", [])) if isinstance(output.get("lingo_frame"), dict) else int(_prev.get("lingo_concept_count", 0) or 0)),
+            "lingo_operator_count": int(len((output.get("lingo_frame") or {}).get("operator_tokens", [])) if isinstance(output.get("lingo_frame"), dict) else int(_prev.get("lingo_operator_count", 0) or 0)),
+            "lingo_unresolved_count": int(len((output.get("lingo_frame") or {}).get("unresolved", [])) if isinstance(output.get("lingo_frame"), dict) else int(_prev.get("lingo_unresolved_count", 0) or 0)),
+            "lingo_factual_validation_required": int(bool((((output.get("lingo_frame") or {}).get("noema_route") or {}).get("factual_validation_required", _prev.get("lingo_factual_validation_required", 0))) if isinstance(output.get("lingo_frame"), dict) else _prev.get("lingo_factual_validation_required", 0))),
+            "jokeheal_mnemonic_pressure": float((output.get("jokeheal_mnemonic_atlas") or {}).get("mnemonic_pressure", _prev.get("jokeheal_mnemonic_pressure", 0.0)) if isinstance(output.get("jokeheal_mnemonic_atlas"), dict) else _prev.get("jokeheal_mnemonic_pressure", 0.0)),
+            "jokeheal_symbolic_pull": float((output.get("jokeheal_mnemonic_atlas") or {}).get("symbolic_pull", _prev.get("jokeheal_symbolic_pull", 0.0)) if isinstance(output.get("jokeheal_mnemonic_atlas"), dict) else _prev.get("jokeheal_symbolic_pull", 0.0)),
+            "jokeheal_recurrence_pressure": float((output.get("jokeheal_mnemonic_atlas") or {}).get("recurrence_pressure", _prev.get("jokeheal_recurrence_pressure", 0.0)) if isinstance(output.get("jokeheal_mnemonic_atlas"), dict) else _prev.get("jokeheal_recurrence_pressure", 0.0)),
             "cycle_index": int(output.get("cycle_index") or _prev.get("cycle_index") or _prev.get("cycle") or 0),
             "ts": _time.strftime("%Y-%m-%d %H:%M:%S"),
             "source": "pipeline",

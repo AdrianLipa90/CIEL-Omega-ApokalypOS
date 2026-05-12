@@ -1,0 +1,28 @@
+version: '1.6'
+created_utc: '2026-05-10T13:08:13.520802+00:00'
+status_definitions:
+  canonical: curated structure required by the standard and expected to remain stable
+  draft_seed: hand-curated data seed, not authoritative lexicographic source
+  generated: derived artifact such as graph, heatmap, HDF5, SQLite, image or report
+  fallback: safe JSON/JSONL substitute generated after preferred storage failure or
+    for portability
+  needs_review: present but incomplete, heuristic, or lacking full schema mapping
+path_status_rules:
+- prefix: docs/
+  status: canonical_or_draft_spec
+- prefix: schemas/
+  status: canonical_schema
+- prefix: src/
+  status: implementation
+- prefix: tests/
+  status: validation
+- prefix: data/concept_cards/batch01_foundational_36x5/
+  status: draft_seed
+- prefix: data/operator_
+  status: draft_seed_operator_layer
+- prefix: outputs/
+  status: generated
+- prefix: data/json/
+  status: fallback_or_portable_json
+- prefix: reports/
+  status: audit_report

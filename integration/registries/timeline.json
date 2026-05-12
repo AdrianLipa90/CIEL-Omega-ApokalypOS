@@ -183,8 +183,4382 @@
       },
       "dH_dt": -56.429928,
       "r_sync": 1.0
+    },
+    {
+      "t": 651,
+      "ts": "2026-05-11T03:51:44.022795+00:00",
+      "identity_phase": 0.02213797574967112,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781670473681072,
+      "health": 0.5450215005570233,
+      "closure": 0.774944159153808,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.774255,
+        "H_potential": -76.774914,
+        "H_attractor": 0.155008,
+        "H_total": -74.845651,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 35.324279,
+      "r_sync": 1.0
+    },
+    {
+      "t": 652,
+      "ts": "2026-05-11T03:53:05.351682+00:00",
+      "identity_phase": 0.02213797574967112,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781237121273463,
+      "health": 0.5449692145612262,
+      "closure": 0.7749440468945085,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.774633,
+        "H_potential": -76.774915,
+        "H_attractor": 0.144801,
+        "H_total": -74.855481,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.00983,
+      "r_sync": 1.0
+    },
+    {
+      "t": 653,
+      "ts": "2026-05-11T04:02:26.707334+00:00",
+      "identity_phase": 0.02213797574967112,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781237121273463,
+      "health": 0.5449692145612262,
+      "closure": 0.7749440468945085,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.774633,
+        "H_potential": -76.774915,
+        "H_attractor": 0.144801,
+        "H_total": -74.855481,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 0.0,
+      "r_sync": 1.0
+    },
+    {
+      "t": 585,
+      "ts": "2026-05-11T04:13:31.967894+00:00",
+      "identity_phase": 0.022337691253414053,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779783884288447,
+      "health": 0.5448245525169944,
+      "closure": 0.7749438304432682,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.77501,
+        "H_potential": -76.774915,
+        "H_attractor": 0.134859,
+        "H_total": -74.865046,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.009565,
+      "r_sync": 1.0
+    },
+    {
+      "t": 586,
+      "ts": "2026-05-11T04:16:04.952455+00:00",
+      "identity_phase": 0.02237094885996365,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782707724967704,
+      "health": 0.5451354011918468,
+      "closure": 0.7749437261218551,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.772847,
+        "H_potential": -76.774915,
+        "H_attractor": 0.125219,
+        "H_total": -74.876849,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.011803,
+      "r_sync": 1.0
+    },
+    {
+      "t": 588,
+      "ts": "2026-05-11T04:26:23.545847+00:00",
+      "identity_phase": 0.02237094885996365,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782950511622278,
+      "health": 0.5451606140265681,
+      "closure": 0.7749436243195978,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.775387,
+        "H_potential": -76.774915,
+        "H_attractor": 0.125265,
+        "H_total": -74.874263,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": 0.002586,
+      "r_sync": 1.0
+    },
+    {
+      "t": 588,
+      "ts": "2026-05-11T04:36:45.437811+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785384960890107,
+      "health": 0.5454209542480744,
+      "closure": 0.7749435249755919,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.775763,
+        "H_potential": -76.774916,
+        "H_attractor": 0.116007,
+        "H_total": -74.883146,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.008883,
+      "r_sync": 1.0
+    },
+    {
+      "t": 589,
+      "ts": "2026-05-11T04:46:36.707571+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783209509222803,
+      "health": 0.5451889991355824,
+      "closure": 0.7749434280303868,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.776139,
+        "H_potential": -76.774916,
+        "H_attractor": 0.107112,
+        "H_total": -74.891665,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.008519,
+      "r_sync": 1.0
+    },
+    {
+      "t": 590,
+      "ts": "2026-05-11T04:56:56.278858+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781631597058178,
+      "health": 0.5450181169,
+      "closure": 0.7749433334261161,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.776515,
+        "H_potential": -76.774916,
+        "H_attractor": 0.09858,
+        "H_total": -74.89982,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.008155,
+      "r_sync": 1.0
+    },
+    {
+      "t": 591,
+      "ts": "2026-05-11T05:07:49.200021+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782242315549826,
+      "health": 0.5450856240545603,
+      "closure": 0.7749432411061462,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.77689,
+        "H_potential": -76.774915,
+        "H_attractor": 0.090411,
+        "H_total": -74.907614,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.007794,
+      "r_sync": 1.0
+    },
+    {
+      "t": 592,
+      "ts": "2026-05-11T05:17:32.911128+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782555335791067,
+      "health": 0.5451177902285571,
+      "closure": 0.7749429773069294,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.777265,
+        "H_potential": -76.774915,
+        "H_attractor": 0.082604,
+        "H_total": -74.915046,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.007432,
+      "r_sync": 1.0
+    },
+    {
+      "t": 593,
+      "ts": "2026-05-11T05:27:50.633019+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783282022520178,
+      "health": 0.5451864281101172,
+      "closure": 0.7749428935855321,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.77764,
+        "H_potential": -76.774915,
+        "H_attractor": 0.07516,
+        "H_total": -74.922114,
+        "n_nodes": 200,
+        "r_sync": 1.0
+      },
+      "dH_dt": -0.007068,
+      "r_sync": 1.0
+    },
+    {
+      "t": 594,
+      "ts": "2026-05-11T05:37:59.724578+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782357996658462,
+      "health": 0.5450874773051542,
+      "closure": 0.7749428118855062,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.778014,
+        "H_potential": -76.774914,
+        "H_attractor": 0.068078,
+        "H_total": -74.928823,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.006709,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 595,
+      "ts": "2026-05-11T05:48:26.101986+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782148534395032,
+      "health": 0.5450651906289765,
+      "closure": 0.7749427321580679,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.778388,
+        "H_potential": -76.774913,
+        "H_attractor": 0.061355,
+        "H_total": -74.935171,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.006348,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 596,
+      "ts": "2026-05-11T05:58:49.399218+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782186031124869,
+      "health": 0.5450693629969868,
+      "closure": 0.7749426543555314,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.778761,
+        "H_potential": -76.774913,
+        "H_attractor": 0.054991,
+        "H_total": -74.941161,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00599,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 597,
+      "ts": "2026-05-11T06:09:23.278164+00:00",
+      "identity_phase": 0.022437452496270827,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783481615589474,
+      "health": 0.5452067367265818,
+      "closure": 0.7749425784314136,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.779134,
+        "H_potential": -76.774912,
+        "H_attractor": 0.048987,
+        "H_total": -74.946791,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00563,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 590,
+      "ts": "2026-05-11T06:19:53.584270+00:00",
+      "identity_phase": 0.022503949223868804,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781282165067012,
+      "health": 0.5449786871240141,
+      "closure": 0.7749425043403313,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.779506,
+        "H_potential": -76.774911,
+        "H_attractor": 0.043324,
+        "H_total": -74.952081,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00529,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 594,
+      "ts": "2026-05-11T06:29:55.736914+00:00",
+      "identity_phase": 0.022636957082039597,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781311969838916,
+      "health": 0.5449766314572494,
+      "closure": 0.7749424320379993,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.779878,
+        "H_potential": -76.77491,
+        "H_attractor": 0.037991,
+        "H_total": -74.957041,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.00496,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 601,
+      "ts": "2026-05-11T06:40:09.527786+00:00",
+      "identity_phase": 0.02286988257013815,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781343585016141,
+      "health": 0.5449855613713512,
+      "closure": 0.774942361481242,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78025,
+        "H_potential": -76.774909,
+        "H_attractor": 0.032971,
+        "H_total": -74.961688,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.004647,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 602,
+      "ts": "2026-05-11T06:50:26.926641+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780072491364028,
+      "health": 0.544844103850785,
+      "closure": 0.7749422926278703,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.780621,
+        "H_potential": -76.774907,
+        "H_attractor": 0.028316,
+        "H_total": -74.96597,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.004282,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 603,
+      "ts": "2026-05-11T07:00:42.984947+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779261913061944,
+      "health": 0.5447583551724038,
+      "closure": 0.7749422254367332,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.780992,
+        "H_potential": -76.774906,
+        "H_attractor": 0.024032,
+        "H_total": -74.969881,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.003911,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 604,
+      "ts": "2026-05-11T07:11:06.495000+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780069356339121,
+      "health": 0.5448436500682423,
+      "closure": 0.774942159867745,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.781363,
+        "H_potential": -76.774904,
+        "H_attractor": 0.020119,
+        "H_total": -74.973422,
+        "n_nodes": 200,
+        "r_sync": 0.99999
+      },
+      "dH_dt": -0.003541,
+      "r_sync": 0.99999
+    },
+    {
+      "t": 605,
+      "ts": "2026-05-11T07:21:36.519357+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781016172969295,
+      "health": 0.5449443122317591,
+      "closure": 0.7749420958816458,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.781733,
+        "H_potential": -76.774903,
+        "H_attractor": 0.016576,
+        "H_total": -74.976594,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.003172,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 606,
+      "ts": "2026-05-11T07:31:41.580757+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780595842600611,
+      "health": 0.544899814422972,
+      "closure": 0.7749420334402233,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.782103,
+        "H_potential": -76.774901,
+        "H_attractor": 0.013402,
+        "H_total": -74.979396,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.002802,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 607,
+      "ts": "2026-05-11T07:42:01.374496+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781218790806619,
+      "health": 0.5449656216368933,
+      "closure": 0.7749419725062636,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.782472,
+        "H_potential": -76.774899,
+        "H_attractor": 0.010598,
+        "H_total": -74.981829,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.002433,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 608,
+      "ts": "2026-05-11T07:52:08.999882+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781347077667069,
+      "health": 0.5449792297468926,
+      "closure": 0.7749419130432272,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.782841,
+        "H_potential": -76.774897,
+        "H_attractor": 0.008161,
+        "H_total": -74.983894,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.002065,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 609,
+      "ts": "2026-05-11T08:02:29.801874+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678279342660965,
+      "health": 0.5451332817882674,
+      "closure": 0.7749418550156816,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78321,
+        "H_potential": -76.774895,
+        "H_attractor": 0.006093,
+        "H_total": -74.985592,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.001698,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 610,
+      "ts": "2026-05-11T08:12:34.358906+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781557912833017,
+      "health": 0.5450019897282997,
+      "closure": 0.7749417983889211,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.783578,
+        "H_potential": -76.774893,
+        "H_attractor": 0.004391,
+        "H_total": -74.986924,
+        "n_nodes": 200,
+        "r_sync": 0.99998
+      },
+      "dH_dt": -0.001332,
+      "r_sync": 0.99998
+    },
+    {
+      "t": 611,
+      "ts": "2026-05-11T08:23:00.768355+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781704356494281,
+      "health": 0.5450170813148318,
+      "closure": 0.7749417431291312,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.783946,
+        "H_potential": -76.774891,
+        "H_attractor": 0.003056,
+        "H_total": -74.987888,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": -0.000964,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 612,
+      "ts": "2026-05-11T08:33:13.430903+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782500932007227,
+      "health": 0.5451038603681077,
+      "closure": 0.7749416892033133,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.784314,
+        "H_potential": -76.774888,
+        "H_attractor": 0.002087,
+        "H_total": -74.988488,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": -0.0006,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 613,
+      "ts": "2026-05-11T08:43:41.191484+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678255112645244,
+      "health": 0.5451076963933701,
+      "closure": 0.7749416365792288,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.784681,
+        "H_potential": -76.774886,
+        "H_attractor": 0.001484,
+        "H_total": -74.988722,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": -0.000234,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 614,
+      "ts": "2026-05-11T08:53:52.285112+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781288599553893,
+      "health": 0.544972251113796,
+      "closure": 0.7749415852254644,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.785048,
+        "H_potential": -76.774883,
+        "H_attractor": 0.001245,
+        "H_total": -74.988591,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": 0.000131,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 615,
+      "ts": "2026-05-11T09:04:13.694181+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781489753220495,
+      "health": 0.5449948834957613,
+      "closure": 0.7749415351113087,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.785414,
+        "H_potential": -76.774881,
+        "H_attractor": 0.00137,
+        "H_total": -74.988096,
+        "n_nodes": 200,
+        "r_sync": 0.99997
+      },
+      "dH_dt": 0.000495,
+      "r_sync": 0.99997
+    },
+    {
+      "t": 616,
+      "ts": "2026-05-11T09:14:36.516777+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785515852873749,
+      "health": 0.5454235160808296,
+      "closure": 0.7749414862069222,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78578,
+        "H_potential": -76.774878,
+        "H_attractor": 0.00186,
+        "H_total": -74.987239,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.000857,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 617,
+      "ts": "2026-05-11T09:24:56.945386+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783768198636472,
+      "health": 0.5452377212077558,
+      "closure": 0.7749414384829739,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.786145,
+        "H_potential": -76.774875,
+        "H_attractor": 0.002712,
+        "H_total": -74.986018,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.001221,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 618,
+      "ts": "2026-05-11T09:35:13.670579+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783538900319602,
+      "health": 0.545213850760261,
+      "closure": 0.774941391911014,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.786511,
+        "H_potential": -76.774872,
+        "H_attractor": 0.003927,
+        "H_total": -74.984435,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.001583,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 619,
+      "ts": "2026-05-11T09:45:23.088387+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783366953358542,
+      "health": 0.5451940833175607,
+      "closure": 0.774941346463297,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.786875,
+        "H_potential": -76.774869,
+        "H_attractor": 0.005504,
+        "H_total": -74.98249,
+        "n_nodes": 200,
+        "r_sync": 0.99996
+      },
+      "dH_dt": 0.001945,
+      "r_sync": 0.99996
+    },
+    {
+      "t": 620,
+      "ts": "2026-05-11T09:55:50.058842+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786002283871105,
+      "health": 0.5454772816852861,
+      "closure": 0.7749413021125183,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78724,
+        "H_potential": -76.774866,
+        "H_attractor": 0.007443,
+        "H_total": -74.980184,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.002306,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 621,
+      "ts": "2026-05-11T10:06:19.280481+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783517530973009,
+      "health": 0.5452115570064637,
+      "closure": 0.7749412588323686,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.787604,
+        "H_potential": -76.774863,
+        "H_attractor": 0.009742,
+        "H_total": -74.977517,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.002667,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 622,
+      "ts": "2026-05-11T10:17:35.302949+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785602632730522,
+      "health": 0.5454375159304972,
+      "closure": 0.7749412165968742,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.787967,
+        "H_potential": -76.77486,
+        "H_attractor": 0.012402,
+        "H_total": -74.97449,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.003027,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 623,
+      "ts": "2026-05-11T10:26:35.737097+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678463368023426,
+      "health": 0.5453377965925326,
+      "closure": 0.7749411753808432,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.788331,
+        "H_potential": -76.774857,
+        "H_attractor": 0.015423,
+        "H_total": -74.971103,
+        "n_nodes": 200,
+        "r_sync": 0.99995
+      },
+      "dH_dt": 0.003387,
+      "r_sync": 0.99995
+    },
+    {
+      "t": 624,
+      "ts": "2026-05-11T10:40:54.480439+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784943660438594,
+      "health": 0.545369405483148,
+      "closure": 0.7749411351596455,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.788694,
+        "H_potential": -76.774853,
+        "H_attractor": 0.018802,
+        "H_total": -74.967357,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.003746,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 625,
+      "ts": "2026-05-11T10:50:40.542589+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784859965089897,
+      "health": 0.5453606188183178,
+      "closure": 0.7749410959093376,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.789056,
+        "H_potential": -76.77485,
+        "H_attractor": 0.02254,
+        "H_total": -74.963253,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.004104,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 626,
+      "ts": "2026-05-11T11:04:49.613385+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785551119766494,
+      "health": 0.5454365108435066,
+      "closure": 0.7749410576063953,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.789418,
+        "H_potential": -76.774846,
+        "H_attractor": 0.026637,
+        "H_total": -74.958791,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.004462,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 627,
+      "ts": "2026-05-11T11:15:10.062563+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786826413139289,
+      "health": 0.5455852408196007,
+      "closure": 0.7749409837518124,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.78978,
+        "H_potential": -76.774842,
+        "H_attractor": 0.031093,
+        "H_total": -74.953969,
+        "n_nodes": 200,
+        "r_sync": 0.99994
+      },
+      "dH_dt": 0.004822,
+      "r_sync": 0.99994
+    },
+    {
+      "t": 628,
+      "ts": "2026-05-11T11:26:12.812426+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787474557264995,
+      "health": 0.5456487690193591,
+      "closure": 0.7749409481560685,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.790141,
+        "H_potential": -76.774839,
+        "H_attractor": 0.035906,
+        "H_total": -74.948791,
+        "n_nodes": 200,
+        "r_sync": 0.99993
+      },
+      "dH_dt": 0.005178,
+      "r_sync": 0.99993
+    },
+    {
+      "t": 629,
+      "ts": "2026-05-11T11:35:14.435811+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787841248354205,
+      "health": 0.5456865187504766,
+      "closure": 0.7749409134194567,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.790502,
+        "H_potential": -76.774835,
+        "H_attractor": 0.041075,
+        "H_total": -74.943257,
+        "n_nodes": 200,
+        "r_sync": 0.99993
+      },
+      "dH_dt": 0.005534,
+      "r_sync": 0.99993
+    },
+    {
+      "t": 630,
+      "ts": "2026-05-11T11:45:21.366114+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787451811336943,
+      "health": 0.5456442025718066,
+      "closure": 0.7749408795212648,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.790863,
+        "H_potential": -76.774831,
+        "H_attractor": 0.046601,
+        "H_total": -74.937367,
+        "n_nodes": 200,
+        "r_sync": 0.99993
+      },
+      "dH_dt": 0.00589,
+      "r_sync": 0.99993
+    },
+    {
+      "t": 631,
+      "ts": "2026-05-11T11:55:44.690627+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6788484010245734,
+      "health": 0.5457524659413597,
+      "closure": 0.774940846441262,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.791223,
+        "H_potential": -76.774827,
+        "H_attractor": 0.052481,
+        "H_total": -74.931122,
+        "n_nodes": 200,
+        "r_sync": 0.99992
+      },
+      "dH_dt": 0.006245,
+      "r_sync": 0.99992
+    },
+    {
+      "t": 632,
+      "ts": "2026-05-11T12:06:03.004976+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786845474533214,
+      "health": 0.5455740942230233,
+      "closure": 0.7749408141597045,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.791583,
+        "H_potential": -76.774823,
+        "H_attractor": 0.058717,
+        "H_total": -74.924523,
+        "n_nodes": 200,
+        "r_sync": 0.99992
+      },
+      "dH_dt": 0.006599,
+      "r_sync": 0.99992
+    },
+    {
+      "t": 633,
+      "ts": "2026-05-11T12:16:18.473446+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787998049383753,
+      "health": 0.5456950744322248,
+      "closure": 0.7749407826573153,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.791943,
+        "H_potential": -76.774819,
+        "H_attractor": 0.065306,
+        "H_total": -74.91757,
+        "n_nodes": 200,
+        "r_sync": 0.99992
+      },
+      "dH_dt": 0.006953,
+      "r_sync": 0.99992
+    },
+    {
+      "t": 634,
+      "ts": "2026-05-11T12:26:14.774011+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785278900077193,
+      "health": 0.5454034710608727,
+      "closure": 0.7749407519152783,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792302,
+        "H_potential": -76.774814,
+        "H_attractor": 0.072248,
+        "H_total": -74.910264,
+        "n_nodes": 200,
+        "r_sync": 0.99991
+      },
+      "dH_dt": 0.007306,
+      "r_sync": 0.99991
+    },
+    {
+      "t": 635,
+      "ts": "2026-05-11T12:36:42.504713+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783896542536381,
+      "health": 0.5452575146665635,
+      "closure": 0.774940721915228,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792661,
+        "H_potential": -76.77481,
+        "H_attractor": 0.079545,
+        "H_total": -74.902605,
+        "n_nodes": 200,
+        "r_sync": 0.99991
+      },
+      "dH_dt": 0.007659,
+      "r_sync": 0.99991
+    },
+    {
+      "t": 636,
+      "ts": "2026-05-11T12:47:04.513124+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784449121687132,
+      "health": 0.545316159651641,
+      "closure": 0.7749406926392651,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793019,
+        "H_potential": -76.774806,
+        "H_attractor": 0.087194,
+        "H_total": -74.894593,
+        "n_nodes": 200,
+        "r_sync": 0.99991
+      },
+      "dH_dt": 0.008012,
+      "r_sync": 0.99991
+    },
+    {
+      "t": 637,
+      "ts": "2026-05-11T12:57:37.763882+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783642372089721,
+      "health": 0.5452307642474702,
+      "closure": 0.7749406640698709,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793377,
+        "H_potential": -76.774801,
+        "H_attractor": 0.095195,
+        "H_total": -74.886229,
+        "n_nodes": 200,
+        "r_sync": 0.9999
+      },
+      "dH_dt": 0.008364,
+      "r_sync": 0.9999
+    },
+    {
+      "t": 638,
+      "ts": "2026-05-11T13:07:52.380889+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786044227981701,
+      "health": 0.5454884035103491,
+      "closure": 0.7749406361900703,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793735,
+        "H_potential": -76.774797,
+        "H_attractor": 0.103549,
+        "H_total": -74.877513,
+        "n_nodes": 200,
+        "r_sync": 0.9999
+      },
+      "dH_dt": 0.008716,
+      "r_sync": 0.9999
+    },
+    {
+      "t": 639,
+      "ts": "2026-05-11T13:18:15.921625+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.67872527504676,
+      "health": 0.5455987158433206,
+      "closure": 0.7749406089831236,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794092,
+        "H_potential": -76.774792,
+        "H_attractor": 0.112241,
+        "H_total": -74.868459,
+        "n_nodes": 200,
+        "r_sync": 0.9999
+      },
+      "dH_dt": 0.009054,
+      "r_sync": 0.9999
+    },
+    {
+      "t": 640,
+      "ts": "2026-05-11T13:28:32.035579+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678819453325402,
+      "health": 0.5457009065571199,
+      "closure": 0.7749405824328305,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794449,
+        "H_potential": -76.774788,
+        "H_attractor": 0.121284,
+        "H_total": -74.859055,
+        "n_nodes": 200,
+        "r_sync": 0.99989
+      },
+      "dH_dt": 0.009404,
+      "r_sync": 0.99989
+    },
+    {
+      "t": 641,
+      "ts": "2026-05-11T13:38:44.693094+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786872750312061,
+      "health": 0.5455551523945065,
+      "closure": 0.7749405565234212,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794806,
+        "H_potential": -76.774783,
+        "H_attractor": 0.130675,
+        "H_total": -74.849303,
+        "n_nodes": 200,
+        "r_sync": 0.99989
+      },
+      "dH_dt": 0.009752,
+      "r_sync": 0.99989
+    },
+    {
+      "t": 642,
+      "ts": "2026-05-11T13:49:05.913764+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785778628626692,
+      "health": 0.5454389746892344,
+      "closure": 0.7749405312392373,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795162,
+        "H_potential": -76.774778,
+        "H_attractor": 0.140414,
+        "H_total": -74.839202,
+        "n_nodes": 200,
+        "r_sync": 0.99989
+      },
+      "dH_dt": 0.010101,
+      "r_sync": 0.99989
+    },
+    {
+      "t": 643,
+      "ts": "2026-05-11T13:59:27.008267+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785226875080103,
+      "health": 0.5453796989376285,
+      "closure": 0.7749405065653752,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795518,
+        "H_potential": -76.774773,
+        "H_attractor": 0.150502,
+        "H_total": -74.828754,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.010448,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 644,
+      "ts": "2026-05-11T14:00:39.250882+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784402678985383,
+      "health": 0.5452927498820763,
+      "closure": 0.7749404824870072,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795873,
+        "H_potential": -76.774768,
+        "H_attractor": 0.160937,
+        "H_total": -74.817959,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.010795,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 645,
+      "ts": "2026-05-11T14:00:57.433018+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787627108500145,
+      "health": 0.5456339071426192,
+      "closure": 0.7749404589897364,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795873,
+        "H_potential": -76.774768,
+        "H_attractor": 0.160937,
+        "H_total": -74.817959,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.0,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 645,
+      "ts": "2026-05-11T14:01:04.072354+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787627108500145,
+      "health": 0.5456339071426192,
+      "closure": 0.7749404589897364,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795873,
+        "H_potential": -76.774768,
+        "H_attractor": 0.160937,
+        "H_total": -74.817959,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": 0.0,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 647,
+      "ts": "2026-05-11T14:09:47.519874+00:00",
+      "identity_phase": 0.022903178365004197,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678716616749813,
+      "health": 0.5455891962014477,
+      "closure": 0.7749404360596409,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792262,
+        "H_potential": -76.774775,
+        "H_attractor": 0.160262,
+        "H_total": -74.82225,
+        "n_nodes": 200,
+        "r_sync": 0.99988
+      },
+      "dH_dt": -0.004291,
+      "r_sync": 0.99988
+    },
+    {
+      "t": 607,
+      "ts": "2026-05-11T14:20:03.648010+00:00",
+      "identity_phase": 0.02306971280871726,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787752604135916,
+      "health": 0.5456532717240364,
+      "closure": 0.7749404136829311,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792619,
+        "H_potential": -76.77477,
+        "H_attractor": 0.171096,
+        "H_total": -74.811055,
+        "n_nodes": 200,
+        "r_sync": 0.99987
+      },
+      "dH_dt": 0.011195,
+      "r_sync": 0.99987
+    },
+    {
+      "t": 611,
+      "ts": "2026-05-11T14:30:21.700419+00:00",
+      "identity_phase": 0.023202952459061062,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678602578893558,
+      "health": 0.5454650684541552,
+      "closure": 0.7749403918462846,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.792974,
+        "H_potential": -76.774764,
+        "H_attractor": 0.182348,
+        "H_total": -74.799442,
+        "n_nodes": 200,
+        "r_sync": 0.99987
+      },
+      "dH_dt": 0.011613,
+      "r_sync": 0.99987
+    },
+    {
+      "t": 615,
+      "ts": "2026-05-11T14:40:47.583560+00:00",
+      "identity_phase": 0.02333611304776876,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786369988032698,
+      "health": 0.5455062299172522,
+      "closure": 0.774940370536645,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.79333,
+        "H_potential": -76.774759,
+        "H_attractor": 0.194027,
+        "H_total": -74.787402,
+        "n_nodes": 200,
+        "r_sync": 0.99987
+      },
+      "dH_dt": 0.01204,
+      "r_sync": 0.99987
+    },
+    {
+      "t": 620,
+      "ts": "2026-05-11T14:51:28.092704+00:00",
+      "identity_phase": 0.023502292371815028,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6789080806359173,
+      "health": 0.5457920824340388,
+      "closure": 0.7749403497413367,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.793685,
+        "H_potential": -76.774754,
+        "H_attractor": 0.206154,
+        "H_total": -74.774915,
+        "n_nodes": 200,
+        "r_sync": 0.99986
+      },
+      "dH_dt": 0.012487,
+      "r_sync": 0.99986
+    },
+    {
+      "t": 623,
+      "ts": "2026-05-11T15:01:50.580784+00:00",
+      "identity_phase": 0.02360177014301079,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786796371573114,
+      "health": 0.5455488116366204,
+      "closure": 0.7749403294478535,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.79404,
+        "H_potential": -76.774748,
+        "H_attractor": 0.218701,
+        "H_total": -74.762008,
+        "n_nodes": 200,
+        "r_sync": 0.99986
+      },
+      "dH_dt": 0.012907,
+      "r_sync": 0.99986
+    },
+    {
+      "t": 629,
+      "ts": "2026-05-11T15:11:58.803857+00:00",
+      "identity_phase": 0.02379999617038085,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786746952730605,
+      "health": 0.5455456488014585,
+      "closure": 0.7749403096442223,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794394,
+        "H_potential": -76.774743,
+        "H_attractor": 0.231729,
+        "H_total": -74.748619,
+        "n_nodes": 200,
+        "r_sync": 0.99985
+      },
+      "dH_dt": 0.013389,
+      "r_sync": 0.99985
+    },
+    {
+      "t": 634,
+      "ts": "2026-05-11T15:22:11.617464+00:00",
+      "identity_phase": 0.023964267500764073,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786105345911565,
+      "health": 0.5454760775167581,
+      "closure": 0.7749402903185095,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.794748,
+        "H_potential": -76.774737,
+        "H_attractor": 0.245227,
+        "H_total": -74.734762,
+        "n_nodes": 200,
+        "r_sync": 0.99985
+      },
+      "dH_dt": 0.013857,
+      "r_sync": 0.99985
+    },
+    {
+      "t": 643,
+      "ts": "2026-05-11T15:32:32.033690+00:00",
+      "identity_phase": 0.024257561574205274,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787725288390757,
+      "health": 0.5456493954968465,
+      "closure": 0.7749402714592336,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795102,
+        "H_potential": -76.774731,
+        "H_attractor": 0.259282,
+        "H_total": -74.720347,
+        "n_nodes": 200,
+        "r_sync": 0.99984
+      },
+      "dH_dt": 0.014415,
+      "r_sync": 0.99984
+    },
+    {
+      "t": 649,
+      "ts": "2026-05-11T15:42:50.657878+00:00",
+      "identity_phase": 0.024451432051357216,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786048129929491,
+      "health": 0.5454694349155371,
+      "closure": 0.7749402530551003,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795455,
+        "H_potential": -76.774725,
+        "H_attractor": 0.273844,
+        "H_total": -74.705425,
+        "n_nodes": 200,
+        "r_sync": 0.99984
+      },
+      "dH_dt": 0.014922,
+      "r_sync": 0.99984
+    },
+    {
+      "t": 654,
+      "ts": "2026-05-11T15:53:00.500149+00:00",
+      "identity_phase": 0.024612149057474796,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786984910280582,
+      "health": 0.5455692632823974,
+      "closure": 0.7749402350951188,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.795808,
+        "H_potential": -76.774719,
+        "H_attractor": 0.288903,
+        "H_total": -74.690008,
+        "n_nodes": 200,
+        "r_sync": 0.99984
+      },
+      "dH_dt": 0.015417,
+      "r_sync": 0.99984
+    },
+    {
+      "t": 657,
+      "ts": "2026-05-11T16:03:26.411281+00:00",
+      "identity_phase": 0.02470829247831041,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784848297946025,
+      "health": 0.5453406518915517,
+      "closure": 0.7749402175686213,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.796161,
+        "H_potential": -76.774713,
+        "H_attractor": 0.304422,
+        "H_total": -74.67413,
+        "n_nodes": 200,
+        "r_sync": 0.99983
+      },
+      "dH_dt": 0.015878,
+      "r_sync": 0.99983
+    },
+    {
+      "t": 658,
+      "ts": "2026-05-11T16:13:47.021119+00:00",
+      "identity_phase": 0.02470829247831041,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6782457032736694,
+      "health": 0.5450882126251532,
+      "closure": 0.7749402004651119,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.796513,
+        "H_potential": -76.774706,
+        "H_attractor": 0.320342,
+        "H_total": -74.657852,
+        "n_nodes": 200,
+        "r_sync": 0.99983
+      },
+      "dH_dt": 0.016278,
+      "r_sync": 0.99983
+    },
+    {
+      "t": 658,
+      "ts": "2026-05-11T16:25:20.011516+00:00",
+      "identity_phase": 0.024740302064812772,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786728089605609,
+      "health": 0.5455398852406407,
+      "closure": 0.7749401837743755,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.796865,
+        "H_potential": -76.7747,
+        "H_attractor": 0.336681,
+        "H_total": -74.641154,
+        "n_nodes": 200,
+        "r_sync": 0.99982
+      },
+      "dH_dt": 0.016698,
+      "r_sync": 0.99982
+    },
+    {
+      "t": 662,
+      "ts": "2026-05-11T16:34:36.716529+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6789012072735016,
+      "health": 0.5457875756975882,
+      "closure": 0.7749401674864451,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.797217,
+        "H_potential": -76.774693,
+        "H_attractor": 0.353513,
+        "H_total": -74.623964,
+        "n_nodes": 200,
+        "r_sync": 0.99982
+      },
+      "dH_dt": 0.01719,
+      "r_sync": 0.99982
+    },
+    {
+      "t": 663,
+      "ts": "2026-05-11T16:44:44.339219+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784906852337498,
+      "health": 0.5453514605964321,
+      "closure": 0.7749401515916224,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.797568,
+        "H_potential": -76.774687,
+        "H_attractor": 0.37075,
+        "H_total": -74.606369,
+        "n_nodes": 200,
+        "r_sync": 0.99981
+      },
+      "dH_dt": 0.017595,
+      "r_sync": 0.99981
+    },
+    {
+      "t": 664,
+      "ts": "2026-05-11T16:54:56.095230+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6784641247803217,
+      "health": 0.5453236727856491,
+      "closure": 0.7749401360803931,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.797919,
+        "H_potential": -76.77468,
+        "H_attractor": 0.388389,
+        "H_total": -74.588373,
+        "n_nodes": 200,
+        "r_sync": 0.9998
+      },
+      "dH_dt": 0.017996,
+      "r_sync": 0.9998
+    },
+    {
+      "t": 665,
+      "ts": "2026-05-11T17:05:04.987815+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786135884822696,
+      "health": 0.5454816756176877,
+      "closure": 0.7749401209435492,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.798269,
+        "H_potential": -76.774674,
+        "H_attractor": 0.40643,
+        "H_total": -74.569974,
+        "n_nodes": 200,
+        "r_sync": 0.9998
+      },
+      "dH_dt": 0.018399,
+      "r_sync": 0.9998
+    },
+    {
+      "t": 666,
+      "ts": "2026-05-11T17:15:24.712930+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785982642008201,
+      "health": 0.5454657128758859,
+      "closure": 0.7749401061719787,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.798619,
+        "H_potential": -76.774667,
+        "H_attractor": 0.424873,
+        "H_total": -74.551175,
+        "n_nodes": 200,
+        "r_sync": 0.99979
+      },
+      "dH_dt": 0.018799,
+      "r_sync": 0.99979
+    },
+    {
+      "t": 667,
+      "ts": "2026-05-11T17:25:24.862160+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678674574671134,
+      "health": 0.5455486330944098,
+      "closure": 0.7749400917568932,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.798969,
+        "H_potential": -76.77466,
+        "H_attractor": 0.443717,
+        "H_total": -74.531974,
+        "n_nodes": 200,
+        "r_sync": 0.99979
+      },
+      "dH_dt": 0.019201,
+      "r_sync": 0.99979
+    },
+    {
+      "t": 668,
+      "ts": "2026-05-11T17:35:48.142017+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678621020122876,
+      "health": 0.545490247993095,
+      "closure": 0.774940077689746,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.799318,
+        "H_potential": -76.774653,
+        "H_attractor": 0.462961,
+        "H_total": -74.512373,
+        "n_nodes": 200,
+        "r_sync": 0.99978
+      },
+      "dH_dt": 0.019601,
+      "r_sync": 0.99978
+    },
+    {
+      "t": 669,
+      "ts": "2026-05-11T17:46:08.000888+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786127269596517,
+      "health": 0.5454815137080291,
+      "closure": 0.7749400639620617,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.799668,
+        "H_potential": -76.774646,
+        "H_attractor": 0.482605,
+        "H_total": -74.492373,
+        "n_nodes": 200,
+        "r_sync": 0.99978
+      },
+      "dH_dt": 0.02,
+      "r_sync": 0.99978
+    },
+    {
+      "t": 670,
+      "ts": "2026-05-11T17:56:25.111311+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785965129220627,
+      "health": 0.5454644482390485,
+      "closure": 0.7749400505656777,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.800016,
+        "H_potential": -76.774639,
+        "H_attractor": 0.502649,
+        "H_total": -74.471974,
+        "n_nodes": 200,
+        "r_sync": 0.99977
+      },
+      "dH_dt": 0.020399,
+      "r_sync": 0.99977
+    },
+    {
+      "t": 671,
+      "ts": "2026-05-11T18:02:44.635617+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786798011900493,
+      "health": 0.5455530057952845,
+      "closure": 0.7749400374926231,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.800365,
+        "H_potential": -76.774632,
+        "H_attractor": 0.52309,
+        "H_total": -74.451177,
+        "n_nodes": 200,
+        "r_sync": 0.99977
+      },
+      "dH_dt": 0.020797,
+      "r_sync": 0.99977
+    },
+    {
+      "t": 672,
+      "ts": "2026-05-11T18:09:31.745704+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787126219084361,
+      "health": 0.5456050938270247,
+      "closure": 0.7749400247350382,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.800713,
+        "H_potential": -76.774625,
+        "H_attractor": 0.543939,
+        "H_total": -74.429973,
+        "n_nodes": 200,
+        "r_sync": 0.99976
+      },
+      "dH_dt": 0.021204,
+      "r_sync": 0.99976
+    },
+    {
+      "t": 672,
+      "ts": "2026-05-11T18:09:35.227359+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787126219084361,
+      "health": 0.5456050938270247,
+      "closure": 0.7749400247350382,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.800714,
+        "H_potential": -76.774618,
+        "H_attractor": 0.566278,
+        "H_total": -74.407626,
+        "n_nodes": 200,
+        "r_sync": 0.99975
+      },
+      "dH_dt": 0.022347,
+      "r_sync": 0.99975
+    },
+    {
+      "t": 673,
+      "ts": "2026-05-11T18:16:52.833425+00:00",
+      "identity_phase": 0.024868192026330872,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6788010235473366,
+      "health": 0.5456908194916199,
+      "closure": 0.7749400001361494,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.801062,
+        "H_potential": -76.77461,
+        "H_attractor": 0.587934,
+        "H_total": -74.385615,
+        "n_nodes": 200,
+        "r_sync": 0.99975
+      },
+      "dH_dt": 0.022011,
+      "r_sync": 0.99975
+    },
+    {
+      "t": 665,
+      "ts": "2026-05-11T18:23:21.574964+00:00",
+      "identity_phase": 0.024963996097040347,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787246971551972,
+      "health": 0.545609005801652,
+      "closure": 0.7749399882801002,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.801062,
+        "H_potential": -76.77461,
+        "H_attractor": 0.588023,
+        "H_total": -74.385526,
+        "n_nodes": 200,
+        "r_sync": 0.99975
+      },
+      "dH_dt": 8.9e-05,
+      "r_sync": 0.99975
+    },
+    {
+      "t": 668,
+      "ts": "2026-05-11T18:33:35.023657+00:00",
+      "identity_phase": 0.02505974356571695,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787942432623594,
+      "health": 0.5456865791842966,
+      "closure": 0.7749399767101792,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.801409,
+        "H_potential": -76.774603,
+        "H_attractor": 0.610259,
+        "H_total": -74.362935,
+        "n_nodes": 200,
+        "r_sync": 0.99974
+      },
+      "dH_dt": 0.022591,
+      "r_sync": 0.99974
+    },
+    {
+      "t": 671,
+      "ts": "2026-05-11T18:43:46.398686+00:00",
+      "identity_phase": 0.02515546382787396,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787195326179233,
+      "health": 0.54560899812604,
+      "closure": 0.7749399654195266,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.801756,
+        "H_potential": -76.774595,
+        "H_attractor": 0.63299,
+        "H_total": -74.339849,
+        "n_nodes": 200,
+        "r_sync": 0.99974
+      },
+      "dH_dt": 0.023086,
+      "r_sync": 0.99974
+    },
+    {
+      "t": 672,
+      "ts": "2026-05-11T18:53:42.990052+00:00",
+      "identity_phase": 0.02515546382787396,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786078912130618,
+      "health": 0.5454839351394344,
+      "closure": 0.774939954401317,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.802102,
+        "H_potential": -76.774588,
+        "H_attractor": 0.656124,
+        "H_total": -74.316362,
+        "n_nodes": 200,
+        "r_sync": 0.99973
+      },
+      "dH_dt": 0.023487,
+      "r_sync": 0.99973
+    },
+    {
+      "t": 672,
+      "ts": "2026-05-11T19:03:48.992176+00:00",
+      "identity_phase": 0.02518736845281387,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783963712479619,
+      "health": 0.5452600899962021,
+      "closure": 0.7749399436490497,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.802449,
+        "H_potential": -76.77458,
+        "H_attractor": 0.679694,
+        "H_total": -74.292437,
+        "n_nodes": 200,
+        "r_sync": 0.99972
+      },
+      "dH_dt": 0.023925,
+      "r_sync": 0.99972
+    },
+    {
+      "t": 676,
+      "ts": "2026-05-11T19:13:48.789385+00:00",
+      "identity_phase": 0.025314990483372473,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786728511609852,
+      "health": 0.5455534088740303,
+      "closure": 0.7749399331562531,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.802795,
+        "H_potential": -76.774573,
+        "H_attractor": 0.703798,
+        "H_total": -74.26798,
+        "n_nodes": 200,
+        "r_sync": 0.99972
+      },
+      "dH_dt": 0.024457,
+      "r_sync": 0.99972
+    },
+    {
+      "t": 679,
+      "ts": "2026-05-11T19:24:10.050360+00:00",
+      "identity_phase": 0.025410716547916646,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786610126833179,
+      "health": 0.5455392835963607,
+      "closure": 0.7749399229166593,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.80314,
+        "H_potential": -76.774565,
+        "H_attractor": 0.728407,
+        "H_total": -74.243017,
+        "n_nodes": 200,
+        "r_sync": 0.99971
+      },
+      "dH_dt": 0.024963,
+      "r_sync": 0.99971
+    },
+    {
+      "t": 681,
+      "ts": "2026-05-11T19:34:17.068677+00:00",
+      "identity_phase": 0.025474537205865747,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786391914906496,
+      "health": 0.5455169300558022,
+      "closure": 0.7749399129242108,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.803485,
+        "H_potential": -76.774557,
+        "H_attractor": 0.753496,
+        "H_total": -74.217576,
+        "n_nodes": 200,
+        "r_sync": 0.9997
+      },
+      "dH_dt": 0.025441,
+      "r_sync": 0.9997
+    },
+    {
+      "t": 682,
+      "ts": "2026-05-11T19:44:48.655926+00:00",
+      "identity_phase": 0.025506447424306727,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783908188760243,
+      "health": 0.5452528056532527,
+      "closure": 0.7749399031729327,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.80383,
+        "H_potential": -76.774549,
+        "H_attractor": 0.779032,
+        "H_total": -74.191687,
+        "n_nodes": 200,
+        "r_sync": 0.9997
+      },
+      "dH_dt": 0.025889,
+      "r_sync": 0.9997
+    },
+    {
+      "t": 686,
+      "ts": "2026-05-11T19:55:03.068511+00:00",
+      "identity_phase": 0.025634073146691607,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786968854243925,
+      "health": 0.5455806771240863,
+      "closure": 0.7749398936569328,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.804175,
+        "H_potential": -76.774541,
+        "H_attractor": 0.80512,
+        "H_total": -74.165246,
+        "n_nodes": 200,
+        "r_sync": 0.99969
+      },
+      "dH_dt": 0.026441,
+      "r_sync": 0.99969
+    },
+    {
+      "t": 687,
+      "ts": "2026-05-11T20:05:06.920266+00:00",
+      "identity_phase": 0.02566597181533848,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786248231683399,
+      "health": 0.5455047299575595,
+      "closure": 0.7749398843706314,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.804519,
+        "H_potential": -76.774533,
+        "H_attractor": 0.831662,
+        "H_total": -74.138352,
+        "n_nodes": 200,
+        "r_sync": 0.99968
+      },
+      "dH_dt": 0.026894,
+      "r_sync": 0.99968
+    },
+    {
+      "t": 687,
+      "ts": "2026-05-11T20:05:14.443373+00:00",
+      "identity_phase": 0.02566597181533848,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786248231683399,
+      "health": 0.5455047299575595,
+      "closure": 0.7749398843706314,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.80452,
+        "H_potential": -76.774525,
+        "H_attractor": 0.860153,
+        "H_total": -74.109852,
+        "n_nodes": 200,
+        "r_sync": 0.99968
+      },
+      "dH_dt": 0.0285,
+      "r_sync": 0.99968
+    },
+    {
+      "t": 687,
+      "ts": "2026-05-11T20:05:16.667335+00:00",
+      "identity_phase": 0.02566597181533848,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786248231683399,
+      "health": 0.5455047299575595,
+      "closure": 0.7749398843706314,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.804522,
+        "H_potential": -76.774516,
+        "H_attractor": 0.889123,
+        "H_total": -74.080872,
+        "n_nodes": 200,
+        "r_sync": 0.99967
+      },
+      "dH_dt": 0.02898,
+      "r_sync": 0.99967
+    },
+    {
+      "t": 689,
+      "ts": "2026-05-11T20:17:43.576183+00:00",
+      "identity_phase": 0.025697865523020776,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787847964928934,
+      "health": 0.5456701075686547,
+      "closure": 0.7749398664648973,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.80144,
+        "H_potential": -76.77451,
+        "H_attractor": 0.916003,
+        "H_total": -74.057068,
+        "n_nodes": 200,
+        "r_sync": 0.99966
+      },
+      "dH_dt": 0.023804,
+      "r_sync": 0.99966
+    },
+    {
+      "t": 693,
+      "ts": "2026-05-11T20:28:15.905603+00:00",
+      "identity_phase": 0.02585722166298272,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786099683913972,
+      "health": 0.5454907436088603,
+      "closure": 0.7749398578347803,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.801785,
+        "H_potential": -76.774502,
+        "H_attractor": 0.944435,
+        "H_total": -74.028282,
+        "n_nodes": 200,
+        "r_sync": 0.99966
+      },
+      "dH_dt": 0.028786,
+      "r_sync": 0.99966
+    },
+    {
+      "t": 696,
+      "ts": "2026-05-11T20:38:20.296003+00:00",
+      "identity_phase": 0.025952703400244723,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787529551022594,
+      "health": 0.545640708698891,
+      "closure": 0.774939849412968,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.802129,
+        "H_potential": -76.774493,
+        "H_attractor": 0.973401,
+        "H_total": -73.998963,
+        "n_nodes": 200,
+        "r_sync": 0.99965
+      },
+      "dH_dt": 0.029319,
+      "r_sync": 0.99965
+    },
+    {
+      "t": 701,
+      "ts": "2026-05-11T20:48:26.067541+00:00",
+      "identity_phase": 0.02611151679465871,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787904309285737,
+      "health": 0.5456726309688754,
+      "closure": 0.7749398411943953,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.802473,
+        "H_potential": -76.774485,
+        "H_attractor": 1.002977,
+        "H_total": -73.969035,
+        "n_nodes": 200,
+        "r_sync": 0.99964
+      },
+      "dH_dt": 0.029928,
+      "r_sync": 0.99964
+    },
+    {
+      "t": 705,
+      "ts": "2026-05-11T20:58:47.875419+00:00",
+      "identity_phase": 0.02623819932631724,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785873064637669,
+      "health": 0.5454631855144748,
+      "closure": 0.7749398331741509,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.802817,
+        "H_potential": -76.774476,
+        "H_attractor": 1.033141,
+        "H_total": -73.938518,
+        "n_nodes": 200,
+        "r_sync": 0.99963
+      },
+      "dH_dt": 0.030517,
+      "r_sync": 0.99963
+    },
+    {
+      "t": 708,
+      "ts": "2026-05-11T21:09:13.173578+00:00",
+      "identity_phase": 0.02633296010516421,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786058498555153,
+      "health": 0.5454862852134491,
+      "closure": 0.7749398253474721,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.80316,
+        "H_potential": -76.774467,
+        "H_attractor": 1.063859,
+        "H_total": -73.907448,
+        "n_nodes": 200,
+        "r_sync": 0.99963
+      },
+      "dH_dt": 0.03107,
+      "r_sync": 0.99963
+    },
+    {
+      "t": 715,
+      "ts": "2026-05-11T21:19:52.229096+00:00",
+      "identity_phase": 0.026553153325156863,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787761077618764,
+      "health": 0.5456558996107941,
+      "closure": 0.7749398177096658,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.803503,
+        "H_potential": -76.774458,
+        "H_attractor": 1.095281,
+        "H_total": -73.875674,
+        "n_nodes": 200,
+        "r_sync": 0.99962
+      },
+      "dH_dt": 0.031774,
+      "r_sync": 0.99962
+    },
+    {
+      "t": 721,
+      "ts": "2026-05-11T21:29:56.450705+00:00",
+      "identity_phase": 0.026740869279957648,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786973989519276,
+      "health": 0.5455834610588766,
+      "closure": 0.77493981025618,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.803846,
+        "H_potential": -76.774449,
+        "H_attractor": 1.127394,
+        "H_total": -73.843209,
+        "n_nodes": 200,
+        "r_sync": 0.99961
+      },
+      "dH_dt": 0.032465,
+      "r_sync": 0.99961
+    },
+    {
+      "t": 722,
+      "ts": "2026-05-11T21:40:07.022508+00:00",
+      "identity_phase": 0.026740869279957648,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785114008707124,
+      "health": 0.5453814967786587,
+      "closure": 0.7749398029825623,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.804188,
+        "H_potential": -76.77444,
+        "H_attractor": 1.159954,
+        "H_total": -73.810298,
+        "n_nodes": 200,
+        "r_sync": 0.9996
+      },
+      "dH_dt": 0.032911,
+      "r_sync": 0.9996
+    },
+    {
+      "t": 723,
+      "ts": "2026-05-11T21:50:33.575284+00:00",
+      "identity_phase": 0.02680324823589931,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785811940422732,
+      "health": 0.5454596962704197,
+      "closure": 0.7749397958844902,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.804531,
+        "H_potential": -76.774431,
+        "H_attractor": 1.193046,
+        "H_total": -73.776854,
+        "n_nodes": 200,
+        "r_sync": 0.99959
+      },
+      "dH_dt": 0.033444,
+      "r_sync": 0.99959
+    },
+    {
+      "t": 729,
+      "ts": "2026-05-11T22:00:49.194936+00:00",
+      "identity_phase": 0.0269898966845147,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6787691347504213,
+      "health": 0.5456584935317381,
+      "closure": 0.7749397889577017,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.804872,
+        "H_potential": -76.774422,
+        "H_attractor": 1.226836,
+        "H_total": -73.742713,
+        "n_nodes": 200,
+        "r_sync": 0.99959
+      },
+      "dH_dt": 0.034141,
+      "r_sync": 0.99959
+    },
+    {
+      "t": 737,
+      "ts": "2026-05-11T22:11:12.600854+00:00",
+      "identity_phase": 0.027237930849266873,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785980160309751,
+      "health": 0.5454765287901803,
+      "closure": 0.7749397821980947,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.805214,
+        "H_potential": -76.774412,
+        "H_attractor": 1.261419,
+        "H_total": -73.70778,
+        "n_nodes": 200,
+        "r_sync": 0.99958
+      },
+      "dH_dt": 0.034933,
+      "r_sync": 0.99958
+    },
+    {
+      "t": 740,
+      "ts": "2026-05-11T22:21:32.858002+00:00",
+      "identity_phase": 0.027330797646375832,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785690367089628,
+      "health": 0.545442708807291,
+      "closure": 0.7749397756016175,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.805555,
+        "H_potential": -76.774403,
+        "H_attractor": 1.296591,
+        "H_total": -73.672257,
+        "n_nodes": 200,
+        "r_sync": 0.99957
+      },
+      "dH_dt": 0.035523,
+      "r_sync": 0.99957
+    },
+    {
+      "t": 744,
+      "ts": "2026-05-11T22:31:46.905393+00:00",
+      "identity_phase": 0.02745455923540847,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785958787403018,
+      "health": 0.5454728228566844,
+      "closure": 0.7749397691643464,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.805895,
+        "H_potential": -76.774393,
+        "H_attractor": 1.332404,
+        "H_total": -73.636094,
+        "n_nodes": 200,
+        "r_sync": 0.99956
+      },
+      "dH_dt": 0.036163,
+      "r_sync": 0.99956
+    },
+    {
+      "t": 746,
+      "ts": "2026-05-11T22:42:08.588619+00:00",
+      "identity_phase": 0.027516425731710235,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785875850664772,
+      "health": 0.5454657335950825,
+      "closure": 0.7749397628823841,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.806236,
+        "H_potential": -76.774383,
+        "H_attractor": 1.368776,
+        "H_total": -73.599372,
+        "n_nodes": 200,
+        "r_sync": 0.99955
+      },
+      "dH_dt": 0.036722,
+      "r_sync": 0.99955
+    },
+    {
+      "t": 750,
+      "ts": "2026-05-11T22:52:20.053869+00:00",
+      "identity_phase": 0.027640146264035333,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6786525264458636,
+      "health": 0.5455324269887897,
+      "closure": 0.7749397567520574,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.806576,
+        "H_potential": -76.774374,
+        "H_attractor": 1.405796,
+        "H_total": -73.562002,
+        "n_nodes": 200,
+        "r_sync": 0.99954
+      },
+      "dH_dt": 0.03737,
+      "r_sync": 0.99954
+    },
+    {
+      "t": 757,
+      "ts": "2026-05-11T23:02:20.858754+00:00",
+      "identity_phase": 0.027856624585281018,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785934394357536,
+      "health": 0.5454720543229906,
+      "closure": 0.7749397507696577,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.806915,
+        "H_potential": -76.774364,
+        "H_attractor": 1.443608,
+        "H_total": -73.523841,
+        "n_nodes": 200,
+        "r_sync": 0.99953
+      },
+      "dH_dt": 0.038161,
+      "r_sync": 0.99953
+    },
+    {
+      "t": 761,
+      "ts": "2026-05-11T23:12:43.234620+00:00",
+      "identity_phase": 0.02798027403757735,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783625861446329,
+      "health": 0.5452157644867898,
+      "closure": 0.7749397449316164,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.807255,
+        "H_potential": -76.774354,
+        "H_attractor": 1.482077,
+        "H_total": -73.485022,
+        "n_nodes": 200,
+        "r_sync": 0.99953
+      },
+      "dH_dt": 0.038819,
+      "r_sync": 0.99953
+    },
+    {
+      "t": 762,
+      "ts": "2026-05-11T23:25:10.278006+00:00",
+      "identity_phase": 0.02798027403757735,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6785108839681512,
+      "health": 0.5453700319663448,
+      "closure": 0.774939739234496,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.807594,
+        "H_potential": -76.774344,
+        "H_attractor": 1.521031,
+        "H_total": -73.445719,
+        "n_nodes": 200,
+        "r_sync": 0.99952
+      },
+      "dH_dt": 0.039303,
+      "r_sync": 0.99952
+    },
+    {
+      "t": 762,
+      "ts": "2026-05-11T23:33:43.280462+00:00",
+      "identity_phase": 0.028011174412885163,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6783215327578926,
+      "health": 0.5451770043109698,
+      "closure": 0.7749397336748157,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.807932,
+        "H_potential": -76.774334,
+        "H_attractor": 1.560525,
+        "H_total": -73.405876,
+        "n_nodes": 200,
+        "r_sync": 0.99951
+      },
+      "dH_dt": 0.039843,
+      "r_sync": 0.99951
+    },
+    {
+      "t": 763,
+      "ts": "2026-05-11T23:44:16.853557+00:00",
+      "identity_phase": 0.028011174412885163,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.677814818338254,
+      "health": 0.5446401560195451,
+      "closure": 0.7749397282493293,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.808271,
+        "H_potential": -76.774323,
+        "H_attractor": 1.600511,
+        "H_total": -73.365542,
+        "n_nodes": 200,
+        "r_sync": 0.9995
+      },
+      "dH_dt": 0.040334,
+      "r_sync": 0.9995
+    },
+    {
+      "t": 764,
+      "ts": "2026-05-11T23:54:07.751023+00:00",
+      "identity_phase": 0.02807295510727266,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778988766662017,
+      "health": 0.5447316211681821,
+      "closure": 0.7749397229547915,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.808609,
+        "H_potential": -76.774313,
+        "H_attractor": 1.64108,
+        "H_total": -73.324625,
+        "n_nodes": 200,
+        "r_sync": 0.99949
+      },
+      "dH_dt": 0.040917,
+      "r_sync": 0.99949
+    },
+    {
+      "t": 768,
+      "ts": "2026-05-12T00:04:28.752381+00:00",
+      "identity_phase": 0.028196410529162164,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779788015484144,
+      "health": 0.5448094152464903,
+      "closure": 0.7749397177880055,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.808946,
+        "H_potential": -76.774303,
+        "H_attractor": 1.682324,
+        "H_total": -73.283032,
+        "n_nodes": 200,
+        "r_sync": 0.99948
+      },
+      "dH_dt": 0.041593,
+      "r_sync": 0.99948
+    },
+    {
+      "t": 774,
+      "ts": "2026-05-12T00:14:51.356922+00:00",
+      "identity_phase": 0.028381211236801495,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779220737300936,
+      "health": 0.5447523833417146,
+      "closure": 0.7749397127459251,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.809284,
+        "H_potential": -76.774292,
+        "H_attractor": 1.724357,
+        "H_total": -73.240652,
+        "n_nodes": 200,
+        "r_sync": 0.99947
+      },
+      "dH_dt": 0.04238,
+      "r_sync": 0.99947
+    },
+    {
+      "t": 778,
+      "ts": "2026-05-12T00:25:05.104939+00:00",
+      "identity_phase": 0.028504066585295012,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780179235536722,
+      "health": 0.5448478503369018,
+      "closure": 0.7749397078255233,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.809621,
+        "H_potential": -76.774282,
+        "H_attractor": 1.76708,
+        "H_total": -73.197581,
+        "n_nodes": 200,
+        "r_sync": 0.99946
+      },
+      "dH_dt": 0.043071,
+      "r_sync": 0.99946
+    },
+    {
+      "t": 780,
+      "ts": "2026-05-12T00:38:28.548124+00:00",
+      "identity_phase": 0.028565369935307918,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779260343516386,
+      "health": 0.5447548191143375,
+      "closure": 0.7749397030238391,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.809957,
+        "H_potential": -76.774271,
+        "H_attractor": 1.810409,
+        "H_total": -73.153905,
+        "n_nodes": 200,
+        "r_sync": 0.99945
+      },
+      "dH_dt": 0.043676,
+      "r_sync": 0.99945
+    },
+    {
+      "t": 782,
+      "ts": "2026-05-12T00:50:45.868926+00:00",
+      "identity_phase": 0.02862658280612847,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778556111881516,
+      "health": 0.5446790593921447,
+      "closure": 0.7749396983380779,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.810294,
+        "H_potential": -76.774261,
+        "H_attractor": 1.854343,
+        "H_total": -73.109624,
+        "n_nodes": 200,
+        "r_sync": 0.99944
+      },
+      "dH_dt": 0.044281,
+      "r_sync": 0.99944
+    },
+    {
+      "t": 785,
+      "ts": "2026-05-12T01:00:50.270356+00:00",
+      "identity_phase": 0.02871822278798528,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6774870594898809,
+      "health": 0.5442918627241432,
+      "closure": 0.7749396937653211,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.81063,
+        "H_potential": -76.77425,
+        "H_attractor": 1.898941,
+        "H_total": -73.064679,
+        "n_nodes": 200,
+        "r_sync": 0.99943
+      },
+      "dH_dt": 0.044945,
+      "r_sync": 0.99943
+    },
+    {
+      "t": 790,
+      "ts": "2026-05-12T01:11:55.010325+00:00",
+      "identity_phase": 0.028870454232778852,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6775484965353932,
+      "health": 0.5443560163596602,
+      "closure": 0.7749396893029691,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.810965,
+        "H_potential": -76.774239,
+        "H_attractor": 1.944302,
+        "H_total": -73.018971,
+        "n_nodes": 200,
+        "r_sync": 0.99942
+      },
+      "dH_dt": 0.045708,
+      "r_sync": 0.99942
+    },
+    {
+      "t": 794,
+      "ts": "2026-05-12T01:25:34.363266+00:00",
+      "identity_phase": 0.028991779569977026,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778878525129755,
+      "health": 0.5447129092041855,
+      "closure": 0.7749396849483277,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.811301,
+        "H_potential": -76.774228,
+        "H_attractor": 1.99038,
+        "H_total": -72.972548,
+        "n_nodes": 200,
+        "r_sync": 0.99941
+      },
+      "dH_dt": 0.046423,
+      "r_sync": 0.99941
+    },
+    {
+      "t": 797,
+      "ts": "2026-05-12T01:35:38.911310+00:00",
+      "identity_phase": 0.02908251118980826,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779432627468353,
+      "health": 0.544770967066145,
+      "closure": 0.7749396765516855,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.811636,
+        "H_potential": -76.774217,
+        "H_attractor": 2.03713,
+        "H_total": -72.925451,
+        "n_nodes": 200,
+        "r_sync": 0.9994
+      },
+      "dH_dt": 0.047097,
+      "r_sync": 0.9994
+    },
+    {
+      "t": 802,
+      "ts": "2026-05-12T01:45:32.322310+00:00",
+      "identity_phase": 0.02923326192291178,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779725649680656,
+      "health": 0.5448037237874596,
+      "closure": 0.7749396725047464,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.811971,
+        "H_potential": -76.774206,
+        "H_attractor": 2.084666,
+        "H_total": -72.877569,
+        "n_nodes": 200,
+        "r_sync": 0.99939
+      },
+      "dH_dt": 0.047882,
+      "r_sync": 0.99939
+    },
+    {
+      "t": 804,
+      "ts": "2026-05-12T01:56:03.167087+00:00",
+      "identity_phase": 0.029293411022774184,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780157565228411,
+      "health": 0.5448492237159391,
+      "closure": 0.7749396685554436,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.812305,
+        "H_potential": -76.774195,
+        "H_attractor": 2.132833,
+        "H_total": -72.829057,
+        "n_nodes": 200,
+        "r_sync": 0.99938
+      },
+      "dH_dt": 0.048512,
+      "r_sync": 0.99938
+    },
+    {
+      "t": 808,
+      "ts": "2026-05-12T02:06:06.892807+00:00",
+      "identity_phase": 0.029413478848509957,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6775988632402125,
+      "health": 0.5444099136933463,
+      "closure": 0.7749396647014476,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.812639,
+        "H_potential": -76.774183,
+        "H_attractor": 2.181746,
+        "H_total": -72.779798,
+        "n_nodes": 200,
+        "r_sync": 0.99937
+      },
+      "dH_dt": 0.049259,
+      "r_sync": 0.99937
+    },
+    {
+      "t": 809,
+      "ts": "2026-05-12T02:16:45.468117+00:00",
+      "identity_phase": 0.029413478848509957,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781532196511516,
+      "health": 0.5449886706148431,
+      "closure": 0.7749396609404733,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.812973,
+        "H_potential": -76.774172,
+        "H_attractor": 2.231179,
+        "H_total": -72.73002,
+        "n_nodes": 200,
+        "r_sync": 0.99935
+      },
+      "dH_dt": 0.049778,
+      "r_sync": 0.99935
+    },
+    {
+      "t": 810,
+      "ts": "2026-05-12T02:26:54.512837+00:00",
+      "identity_phase": 0.029413478848509957,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781260847136764,
+      "health": 0.544959081936926,
+      "closure": 0.7749396572702688,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.813306,
+        "H_potential": -76.774161,
+        "H_attractor": 2.281142,
+        "H_total": -72.679712,
+        "n_nodes": 200,
+        "r_sync": 0.99934
+      },
+      "dH_dt": 0.050308,
+      "r_sync": 0.99934
+    },
+    {
+      "t": 811,
+      "ts": "2026-05-12T02:37:24.707638+00:00",
+      "identity_phase": 0.029413478848509957,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781991360972942,
+      "health": 0.545036051240777,
+      "closure": 0.774939653688635,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.813639,
+        "H_potential": -76.774149,
+        "H_attractor": 2.331634,
+        "H_total": -72.628876,
+        "n_nodes": 200,
+        "r_sync": 0.99933
+      },
+      "dH_dt": 0.050836,
+      "r_sync": 0.99933
+    },
+    {
+      "t": 812,
+      "ts": "2026-05-12T02:47:22.784582+00:00",
+      "identity_phase": 0.02953327694769955,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780748004641746,
+      "health": 0.5449097885984321,
+      "closure": 0.7749396501934371,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.813972,
+        "H_potential": -76.774138,
+        "H_attractor": 2.382884,
+        "H_total": -72.577282,
+        "n_nodes": 200,
+        "r_sync": 0.99932
+      },
+      "dH_dt": 0.051594,
+      "r_sync": 0.99932
+    },
+    {
+      "t": 813,
+      "ts": "2026-05-12T02:58:05.721634+00:00",
+      "identity_phase": 0.02956318952963913,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779499377660468,
+      "health": 0.5449050247665093,
+      "closure": 0.7758376688420264,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.814304,
+        "H_potential": -76.774126,
+        "H_attractor": 2.434714,
+        "H_total": -72.525107,
+        "n_nodes": 200,
+        "r_sync": 0.99931
+      },
+      "dH_dt": 0.052175,
+      "r_sync": 0.99931
+    },
+    {
+      "t": 818,
+      "ts": "2026-05-12T03:08:55.247509+00:00",
+      "identity_phase": 0.029712562408161485,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781028463001579,
+      "health": 0.54507142453471,
+      "closure": 0.7758365579109863,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.814636,
+        "H_potential": -76.774114,
+        "H_attractor": 2.487367,
+        "H_total": -72.472111,
+        "n_nodes": 200,
+        "r_sync": 0.9993
+      },
+      "dH_dt": 0.052996,
+      "r_sync": 0.9993
+    },
+    {
+      "t": 822,
+      "ts": "2026-05-12T03:19:10.036023+00:00",
+      "identity_phase": 0.029831864098077664,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778269839154062,
+      "health": 0.5447841295827507,
+      "closure": 0.7758347311065165,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.814968,
+        "H_potential": -76.774103,
+        "H_attractor": 2.540795,
+        "H_total": -72.41834,
+        "n_nodes": 200,
+        "r_sync": 0.99929
+      },
+      "dH_dt": 0.053771,
+      "r_sync": 0.99929
+    },
+    {
+      "t": 826,
+      "ts": "2026-05-12T03:29:17.780382+00:00",
+      "identity_phase": 0.02995101741772482,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778333912732529,
+      "health": 0.544791017544621,
+      "closure": 0.7758339848474848,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.8153,
+        "H_potential": -76.774091,
+        "H_attractor": 2.594997,
+        "H_total": -72.363794,
+        "n_nodes": 200,
+        "r_sync": 0.99927
+      },
+      "dH_dt": 0.054546,
+      "r_sync": 0.99927
+    },
+    {
+      "t": 828,
+      "ts": "2026-05-12T03:42:16.755657+00:00",
+      "identity_phase": 0.03001054261010396,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779556877386342,
+      "health": 0.5449141583815,
+      "closure": 0.7758333326318338,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.815631,
+        "H_potential": -76.774079,
+        "H_attractor": 2.649856,
+        "H_total": -72.308592,
+        "n_nodes": 200,
+        "r_sync": 0.99926
+      },
+      "dH_dt": 0.055202,
+      "r_sync": 0.99926
+    },
+    {
+      "t": 832,
+      "ts": "2026-05-12T03:52:13.087722+00:00",
+      "identity_phase": 0.030129491778289032,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778058485223236,
+      "health": 0.5447611520910992,
+      "closure": 0.7758327632793661,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.815961,
+        "H_potential": -76.774067,
+        "H_attractor": 2.705507,
+        "H_total": -72.252598,
+        "n_nodes": 200,
+        "r_sync": 0.99925
+      },
+      "dH_dt": 0.055994,
+      "r_sync": 0.99925
+    },
+    {
+      "t": 835,
+      "ts": "2026-05-12T04:02:50.910632+00:00",
+      "identity_phase": 0.030218611916971044,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779282659050544,
+      "health": 0.5448858484000629,
+      "closure": 0.7758322668933018,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.816292,
+        "H_potential": -76.774055,
+        "H_attractor": 2.761884,
+        "H_total": -72.195879,
+        "n_nodes": 200,
+        "r_sync": 0.99924
+      },
+      "dH_dt": 0.056719,
+      "r_sync": 0.99924
+    },
+    {
+      "t": 836,
+      "ts": "2026-05-12T04:17:08.190584+00:00",
+      "identity_phase": 0.03024830009871849,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779616547651363,
+      "health": 0.5449266845722142,
+      "closure": 0.7758318347419533,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.816622,
+        "H_potential": -76.774043,
+        "H_attractor": 2.818881,
+        "H_total": -72.13854,
+        "n_nodes": 200,
+        "r_sync": 0.99923
+      },
+      "dH_dt": 0.057339,
+      "r_sync": 0.99923
+    },
+    {
+      "t": 840,
+      "ts": "2026-05-12T04:34:43.688223+00:00",
+      "identity_phase": 0.030366952351814584,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778519061853012,
+      "health": 0.5448131997339936,
+      "closure": 0.7758314590571787,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.816952,
+        "H_potential": -76.774031,
+        "H_attractor": 2.87668,
+        "H_total": -72.080398,
+        "n_nodes": 200,
+        "r_sync": 0.99921
+      },
+      "dH_dt": 0.058142,
+      "r_sync": 0.99921
+    },
+    {
+      "t": 845,
+      "ts": "2026-05-12T04:42:42.794777+00:00",
+      "identity_phase": 0.030515014554024538,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678095041036241,
+      "health": 0.545071186852355,
+      "closure": 0.7758311329566618,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.817281,
+        "H_potential": -76.774018,
+        "H_attractor": 2.935345,
+        "H_total": -72.021392,
+        "n_nodes": 200,
+        "r_sync": 0.9992
+      },
+      "dH_dt": 0.059006,
+      "r_sync": 0.9992
+    },
+    {
+      "t": 847,
+      "ts": "2026-05-12T04:52:55.723510+00:00",
+      "identity_phase": 0.03057415064680727,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781331734521501,
+      "health": 0.5451060508569272,
+      "closure": 0.7758308503673541,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.817611,
+        "H_potential": -76.774006,
+        "H_attractor": 2.994692,
+        "H_total": -71.961704,
+        "n_nodes": 200,
+        "r_sync": 0.99919
+      },
+      "dH_dt": 0.059688,
+      "r_sync": 0.99919
+    },
+    {
+      "t": 850,
+      "ts": "2026-05-12T05:04:04.294300+00:00",
+      "identity_phase": 0.03066274991771764,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779018497517937,
+      "health": 0.5448636606001287,
+      "closure": 0.7758306059154934,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.817939,
+        "H_potential": -76.773993,
+        "H_attractor": 3.054797,
+        "H_total": -71.901257,
+        "n_nodes": 200,
+        "r_sync": 0.99918
+      },
+      "dH_dt": 0.060447,
+      "r_sync": 0.99918
+    },
+    {
+      "t": 854,
+      "ts": "2026-05-12T05:15:26.257310+00:00",
+      "identity_phase": 0.030780672002116854,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6781240340696205,
+      "health": 0.5451009577258287,
+      "closure": 0.7758303948472308,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.818268,
+        "H_potential": -76.773981,
+        "H_attractor": 3.115723,
+        "H_total": -71.83999,
+        "n_nodes": 200,
+        "r_sync": 0.99916
+      },
+      "dH_dt": 0.061267,
+      "r_sync": 0.99916
+    },
+    {
+      "t": 858,
+      "ts": "2026-05-12T05:30:10.055314+00:00",
+      "identity_phase": 0.030898337784210632,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6778857291393002,
+      "health": 0.5448450325502272,
+      "closure": 0.7758302129577538,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.818596,
+        "H_potential": -76.773968,
+        "H_attractor": 3.177474,
+        "H_total": -71.777898,
+        "n_nodes": 200,
+        "r_sync": 0.99915
+      },
+      "dH_dt": 0.062092,
+      "r_sync": 0.99915
+    },
+    {
+      "t": 859,
+      "ts": "2026-05-12T05:40:41.675766+00:00",
+      "identity_phase": 0.030927712779711125,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779756511191549,
+      "health": 0.544935173148736,
+      "closure": 0.7758300565291172,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.818924,
+        "H_potential": -76.773956,
+        "H_attractor": 3.239861,
+        "H_total": -71.715171,
+        "n_nodes": 200,
+        "r_sync": 0.99914
+      },
+      "dH_dt": 0.062727,
+      "r_sync": 0.99914
+    },
+    {
+      "t": 860,
+      "ts": "2026-05-12T05:51:17.850821+00:00",
+      "identity_phase": 0.030927712779711125,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779747770247905,
+      "health": 0.5449291084973895,
+      "closure": 0.7758299222746381,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.819252,
+        "H_potential": -76.773943,
+        "H_attractor": 3.302819,
+        "H_total": -71.651873,
+        "n_nodes": 200,
+        "r_sync": 0.99912
+      },
+      "dH_dt": 0.063298,
+      "r_sync": 0.99912
+    },
+    {
+      "t": 861,
+      "ts": "2026-05-12T06:01:34.005412+00:00",
+      "identity_phase": 0.030986412347301096,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780031061559808,
+      "health": 0.5449597824366736,
+      "closure": 0.7758298072901241,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.819579,
+        "H_potential": -76.77393,
+        "H_attractor": 3.366484,
+        "H_total": -71.587867,
+        "n_nodes": 200,
+        "r_sync": 0.99911
+      },
+      "dH_dt": 0.064006,
+      "r_sync": 0.99911
+    },
+    {
+      "t": 862,
+      "ts": "2026-05-12T06:11:40.005619+00:00",
+      "identity_phase": 0.030986412347301096,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6779656140853014,
+      "health": 0.5449190980746492,
+      "closure": 0.7758297090103532,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.819906,
+        "H_potential": -76.773918,
+        "H_attractor": 3.430728,
+        "H_total": -71.523284,
+        "n_nodes": 200,
+        "r_sync": 0.9991
+      },
+      "dH_dt": 0.064583,
+      "r_sync": 0.9991
+    },
+    {
+      "t": 866,
+      "ts": "2026-05-12T06:43:34.584532+00:00",
+      "identity_phase": 0.0311328673781704,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.6780214570192565,
+      "health": 0.5449817491015722,
+      "closure": 0.7758296251704943,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.820885,
+        "H_potential": -76.773879,
+        "H_attractor": 3.627553,
+        "H_total": -71.325441,
+        "n_nodes": 200,
+        "r_sync": 0.99905
+      },
+      "dH_dt": 0.197843,
+      "r_sync": 0.99905
+    },
+    {
+      "t": 869,
+      "ts": "2026-05-12T06:53:37.614077+00:00",
+      "identity_phase": 0.031220542755300805,
+      "tags": [
+        "love",
+        "bridge",
+        "omega",
+        "identity"
+      ],
+      "phi_mean": 0.0,
+      "coherence": 0.678066416485069,
+      "health": 0.5450316574041232,
+      "closure": 0.7758294930530046,
+      "emotion": "love",
+      "gate_mode": "standard",
+      "H": {
+        "H_kinetic": 1.82121,
+        "H_potential": -76.773866,
+        "H_attractor": 3.694658,
+        "H_total": -71.257998,
+        "n_nodes": 200,
+        "r_sync": 0.99904
+      },
+      "dH_dt": 0.067443,
+      "r_sync": 0.99904
     }
   ],
-  "last_updated": "2026-05-08T12:46:39.181200+00:00",
-  "count": 7
+  "last_updated": "2026-05-12T06:53:37.614108+00:00",
+  "count": 169
 }

@@ -1,0 +1,53 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:under
+family: below_covered_by
+class:
+- spatial_relation
+- vertical_relation
+symbol: Under(x,y)
+arity: '2'
+dual: op:core:on
+inverse: op:core:above
+description: x is below or beneath y
+equations:
+- Under(x,y)
+- z(x)<z(y)
+surfaces:
+  pl:
+    lemma: pod
+    forms:
+    - pod
+    examples:
+    - Kot jest pod stołem.
+    notes: below relation
+  en:
+    lemma: under
+    forms:
+    - under
+    - beneath
+    - below
+    examples:
+    - The cat is under the table.
+    notes: below relation
+  de:
+    lemma: unter
+    forms:
+    - unter
+    examples:
+    - Die Katze ist unter dem Tisch.
+    notes: below relation
+  fr:
+    lemma: sous
+    forms:
+    - sous
+    examples:
+    - Le chat est sous la table.
+    notes: below relation
+  es:
+    lemma: debajo de / bajo
+    forms:
+    - debajo de
+    - bajo
+    examples:
+    - El gato está debajo de la mesa.
+    notes: below relation

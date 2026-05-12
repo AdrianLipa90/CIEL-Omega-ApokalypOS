@@ -1,0 +1,41 @@
+{
+  "version": "0.9",
+  "name": "CIEL-LNS/Ω Lingophysical Operator Algebra",
+  "principle": "Concept cards are masses; operator cards are forces; grammar is geometry; sentences are trajectories.",
+  "families": [
+    "containment",
+    "possession",
+    "identity",
+    "spatial",
+    "temporal",
+    "logical",
+    "causal",
+    "modal",
+    "comparison",
+    "transformation",
+    "epistemic",
+    "affective",
+    "consensus"
+  ],
+  "composition_files": [
+    "duals.yaml",
+    "inverses.yaml",
+    "negations.yaml",
+    "higher_order.yaml",
+    "polyfunctional_modes.yaml",
+    "argument_typing_rules.yaml"
+  ],
+  "required_card_types": [
+    "CONCEPT_CARD",
+    "OPERATOR_CARD",
+    "RELATION_CARD",
+    "GRAMMAR_CARD"
+  ],
+  "operator_metrics": [
+    "operator_power",
+    "composition_depth",
+    "ambiguity_power",
+    "cross_language_variance",
+    "argument_typing_strictness"
+  ]
+}

@@ -1,0 +1,11 @@
+/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/deps/tauri_runtime-c4b90514c306378e.d: /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/lib.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/dpi.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/monitor.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/webview.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/window.rs
+
+/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/deps/libtauri_runtime-c4b90514c306378e.rlib: /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/lib.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/dpi.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/monitor.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/webview.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/window.rs
+
+/home/adrian/Pulpit/CIEL_TESTY/CIEL1/app/src-tauri/target/release/deps/libtauri_runtime-c4b90514c306378e.rmeta: /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/lib.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/dpi.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/monitor.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/webview.rs /home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/window.rs
+
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/lib.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/dpi.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/monitor.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/webview.rs:
+/home/adrian/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tauri-runtime-2.11.1/src/window.rs:

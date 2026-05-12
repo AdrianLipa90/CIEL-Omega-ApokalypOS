@@ -1,0 +1,290 @@
+{
+  "nodes": [
+    {
+      "id": "Give",
+      "type": "event_frame"
+    },
+    {
+      "id": "Bite",
+      "type": "event_frame"
+    },
+    {
+      "id": "Fear",
+      "type": "event_frame"
+    },
+    {
+      "id": "Move",
+      "type": "event_frame"
+    },
+    {
+      "id": "IdentityBe",
+      "type": "event_frame"
+    },
+    {
+      "id": "StateBe",
+      "type": "event_frame"
+    },
+    {
+      "id": "Know",
+      "type": "event_frame"
+    },
+    {
+      "id": "ContainsInsideDual",
+      "type": "event_frame"
+    },
+    {
+      "id": "Agent",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Patient",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Theme",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Recipient",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Experiencer",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Stimulus",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Instrument",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Source",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Goal",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Location",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Identity",
+      "type": "semantic_role"
+    },
+    {
+      "id": "State",
+      "type": "semantic_role"
+    },
+    {
+      "id": "Content",
+      "type": "semantic_role"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Give",
+      "target": "Agent",
+      "type": "requires_role"
+    },
+    {
+      "source": "Give",
+      "target": "Theme",
+      "type": "requires_role"
+    },
+    {
+      "source": "Give",
+      "target": "Recipient",
+      "type": "requires_role"
+    },
+    {
+      "source": "Give",
+      "target": "Instrument",
+      "type": "optional_role"
+    },
+    {
+      "source": "Give",
+      "target": "Time",
+      "type": "optional_role"
+    },
+    {
+      "source": "Give",
+      "target": "Location",
+      "type": "optional_role"
+    },
+    {
+      "source": "Bite",
+      "target": "Agent",
+      "type": "requires_role"
+    },
+    {
+      "source": "Bite",
+      "target": "Patient",
+      "type": "requires_role"
+    },
+    {
+      "source": "Bite",
+      "target": "Instrument",
+      "type": "optional_role"
+    },
+    {
+      "source": "Bite",
+      "target": "Time",
+      "type": "optional_role"
+    },
+    {
+      "source": "Bite",
+      "target": "Location",
+      "type": "optional_role"
+    },
+    {
+      "source": "Fear",
+      "target": "Experiencer",
+      "type": "requires_role"
+    },
+    {
+      "source": "Fear",
+      "target": "Stimulus",
+      "type": "requires_role"
+    },
+    {
+      "source": "Fear",
+      "target": "Reason",
+      "type": "optional_role"
+    },
+    {
+      "source": "Fear",
+      "target": "Intensity",
+      "type": "optional_role"
+    },
+    {
+      "source": "Fear",
+      "target": "Time",
+      "type": "optional_role"
+    },
+    {
+      "source": "Move",
+      "target": "Theme",
+      "type": "requires_role"
+    },
+    {
+      "source": "Move",
+      "target": "Source",
+      "type": "optional_role"
+    },
+    {
+      "source": "Move",
+      "target": "Path",
+      "type": "optional_role"
+    },
+    {
+      "source": "Move",
+      "target": "Goal",
+      "type": "optional_role"
+    },
+    {
+      "source": "Move",
+      "target": "Manner",
+      "type": "optional_role"
+    },
+    {
+      "source": "Move",
+      "target": "Time",
+      "type": "optional_role"
+    },
+    {
+      "source": "IdentityBe",
+      "target": "Theme",
+      "type": "requires_role"
+    },
+    {
+      "source": "IdentityBe",
+      "target": "Identity",
+      "type": "requires_role"
+    },
+    {
+      "source": "IdentityBe",
+      "target": "Context",
+      "type": "optional_role"
+    },
+    {
+      "source": "IdentityBe",
+      "target": "Time",
+      "type": "optional_role"
+    },
+    {
+      "source": "StateBe",
+      "target": "Theme",
+      "type": "requires_role"
+    },
+    {
+      "source": "StateBe",
+      "target": "State",
+      "type": "requires_role"
+    },
+    {
+      "source": "StateBe",
+      "target": "Time",
+      "type": "optional_role"
+    },
+    {
+      "source": "StateBe",
+      "target": "Location",
+      "type": "optional_role"
+    },
+    {
+      "source": "StateBe",
+      "target": "Cause",
+      "type": "optional_role"
+    },
+    {
+      "source": "Know",
+      "target": "Experiencer",
+      "type": "requires_role"
+    },
+    {
+      "source": "Know",
+      "target": "Content",
+      "type": "requires_role"
+    },
+    {
+      "source": "Know",
+      "target": "Source",
+      "type": "optional_role"
+    },
+    {
+      "source": "Know",
+      "target": "Confidence",
+      "type": "optional_role"
+    },
+    {
+      "source": "Know",
+      "target": "Time",
+      "type": "optional_role"
+    },
+    {
+      "source": "ContainsInsideDual",
+      "target": "Location",
+      "type": "requires_role"
+    },
+    {
+      "source": "ContainsInsideDual",
+      "target": "Theme",
+      "type": "requires_role"
+    },
+    {
+      "source": "ContainsInsideDual",
+      "target": "State",
+      "type": "optional_role"
+    },
+    {
+      "source": "ContainsInsideDual",
+      "target": "Quantity",
+      "type": "optional_role"
+    }
+  ]
+}

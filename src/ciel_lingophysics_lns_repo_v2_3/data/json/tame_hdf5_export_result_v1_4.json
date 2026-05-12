@@ -1,0 +1,10 @@
+{
+  "preferred_format": "hdf5",
+  "fallback_format": "json",
+  "used_fallback": false,
+  "target_path": "/mnt/data/ciel_lingophysics_lns_repo_v1_4/data/hdf5/cielingo_tame_v1_4.h5",
+  "result_path": "/mnt/data/ciel_lingophysics_lns_repo_v1_4/data/hdf5/cielingo_tame_v1_4.h5",
+  "error_type": null,
+  "error_message": null,
+  "timestamp_utc": "2026-05-10T02:33:52.947603+00:00"
+}

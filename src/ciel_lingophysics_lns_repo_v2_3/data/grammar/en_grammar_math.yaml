@@ -1,0 +1,38 @@
+language_code: en
+language: English
+grammar_as_gauge:
+  connection: A_gram^(en)
+  surface_to_equation: Surface_l -> Grammar_l -> Equation -> Knot -> Invariant
+  local_vector_axes:
+  - inflection
+  - word_order_fixedness
+  - topic_focus
+  - particle_density
+  - case_marking
+  - agreement
+  - honorificity
+  - context_reliance
+  local_vector:
+  - 0.28
+  - 0.85
+  - 0.72
+  - 0.2
+  - 0.1
+  - 0.3
+  - 0.15
+  - 0.58
+  curvature_estimate: 0.2632
+  gauge_notes:
+    word_order: SVO-fixed
+    case_system_strength: 0.15
+    inflection_density: 0.28
+operator_mapping:
+  noun_mass: x
+  article_operator: D
+  prepositional_channel: f:x->y
+  aspect_context: C_aspect
+  negation: not
+  pluralization: μ_n
+water_sentence_equation_examples:
+  canonical: Flow(A=water, Path=river)
+  need_context: Need(Agent=speaker, Patient=water)

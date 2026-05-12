@@ -14,10 +14,13 @@ Usage:
 from __future__ import annotations
 
 import json
+from collections import Counter
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
 from .paths import resolve_project_root
+from .jokeheal_atlas import build_mnemonic_atlas
 from .subsystem_registry import SUBSYSTEM_DEFS, read_latest_metrics
 
 _ROOT = resolve_project_root(__file__)
@@ -26,6 +29,7 @@ _PY_CATALOG_PATH = _ROOT / "integration" / "registries" / "py_library_index.json
 _REPORT_PATH     = _ROOT / "integration" / "reports" / "noema_sot_report.json"
 _PIPELINE_REPORT = _ROOT / "integration" / "reports" / "orbital_bridge" / "orbital_bridge_report.json"
 _CIEL_REPORT     = _ROOT / "integration" / "reports" / "ciel_pipeline_report.json"
+_JOKEHEAL_SCAR_PATH = Path.home() / "Pulpit" / "CIEL_memories" / "jokeheal" / "jokeheal_scars.jsonl"
 
 
 # ── Wagi do global_coherence ważonej przez M_sem ────────────────────────────
@@ -95,6 +99,171 @@ def _load_py_catalog_summary() -> dict[str, Any]:
         "by_level":  doc.get("by_level", {}),
         "top_tags":  doc.get("by_what_tag", {}),
         "top_cooc":  doc.get("top_cooccurrences", [])[:3],
+    }
+
+
+def _load_jokeheal_summary(now_ts: datetime | None = None) -> dict[str, Any]:
+    path = _JOKEHEAL_SCAR_PATH
+    if not path.exists():
+        return {}
+    try:
+        lines = [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    except Exception:
+        return {}
+    if not lines:
+        return {}
+
+    rows: list[dict[str, Any]] = []
+    for line in lines[-200:]:
+        try:
+            rows.append(json.loads(line))
+        except Exception:
+            continue
+    if not rows:
+        return {}
+
+    now = now_ts or datetime.now(timezone.utc)
+    recent_rows: list[dict[str, Any]] = []
+    for row in rows:
+        ts = row.get("timestamp")
+        if ts is None:
+            continue
+        try:
+            age = now.timestamp() - float(ts)
+        except Exception:
+            continue
+        if age <= 86400:
+            recent_rows.append(row)
+    sample = recent_rows or rows[-20:]
+
+    literal_alarm_count = sum(1 for row in sample if row.get("boundary_level") == "literal_alarm")
+    watch_count = sum(1 for row in sample if row.get("boundary_level") == "watch")
+    residuals = [float(row.get("residual_tension", 0.0) or 0.0) for row in sample]
+    closures = [float(row.get("closure_score", 0.0) or 0.0) for row in sample]
+    cognitive = [float(row.get("cognitive_tension", 0.0) or 0.0) for row in sample]
+    objects = Counter(str(row.get("symbolic_object", "")) for row in sample if row.get("symbolic_object"))
+    tags = Counter(
+        str(tag)
+        for row in sample
+        for tag in (row.get("tags") or [])
+        if str(tag)
+    )
+
+    if literal_alarm_count > 0:
+        warning_level = "literal_alarm"
+        warning_reason = "recent_literal_alarm_detected"
+    elif residuals and (sum(residuals) / len(residuals)) >= 0.35:
+        warning_level = "watch"
+        warning_reason = "residual_tension_elevated"
+    elif cognitive and (sum(cognitive) / len(cognitive)) >= 0.55:
+        warning_level = "watch"
+        warning_reason = "cognitive_tension_elevated"
+    else:
+        warning_level = "clear"
+        warning_reason = "no_recent_escalation"
+
+    return {
+        "path": str(path),
+        "total_records": len(rows),
+        "recent_records": len(recent_rows),
+        "sample_size": len(sample),
+        "literal_alarm_count": literal_alarm_count,
+        "watch_count": watch_count,
+        "mean_residual_tension": round(sum(residuals) / len(residuals), 5) if residuals else 0.0,
+        "mean_closure_score": round(sum(closures) / len(closures), 5) if closures else 0.0,
+        "mean_cognitive_tension": round(sum(cognitive) / len(cognitive), 5) if cognitive else 0.0,
+        "top_symbolic_objects": [{"symbolic_object": key, "count": count} for key, count in objects.most_common(5)],
+        "top_tags": [{"tag": key, "count": count} for key, count in tags.most_common(5)],
+        "warning_level": warning_level,
+        "warning_reason": warning_reason,
+    }
+
+
+def _project_memory_field(subsystems: dict[str, Any], pipeline: dict[str, Any]) -> dict[str, Any]:
+    """Project the subsystem memory field into one NOEMA-facing geometry."""
+    if not subsystems:
+        return {
+            "projection_confidence": 0.0,
+            "projection_residual": 1.0,
+            "projection_error": 1.0,
+            "j_noema": 1.0,
+            "projected_centroid": {},
+            "source": "empty",
+        }
+
+    import numpy as np
+
+    weights = []
+    coherence = []
+    health = []
+    closure = []
+    ethical = []
+    soul = []
+    identity = []
+
+    for info in subsystems.values():
+        w = float(info["M_sem"]) * float(_LEVEL_WEIGHT.get(info["orbital_level"], 0.3))
+        metrics = info.get("metrics", {})
+        weights.append(w)
+        coherence.append(float(metrics.get("coherence_index", info["M_sem"])))
+        health.append(float(metrics.get("system_health", info["M_sem"])))
+        closure.append(float(metrics.get("closure_penalty", pipeline.get("closure_penalty", 0.0) or 0.0)))
+        ethical.append(float(metrics.get("ethical_score", pipeline.get("ethical_score", 0.0) or 0.0)))
+        soul.append(float(metrics.get("soul_invariant", pipeline.get("soul_invariant", 0.0) or 0.0)))
+        identity.append(float(metrics.get("identity_phase", pipeline.get("identity_phase", 0.0) or 0.0)))
+
+    w = np.array(weights, dtype=float)
+    w_sum = float(w.sum()) if w.size else 0.0
+    if w_sum <= 0.0:
+        return {
+            "projection_confidence": 0.0,
+            "projection_residual": 1.0,
+            "projection_error": 1.0,
+            "j_noema": 1.0,
+            "projected_centroid": {},
+            "source": "zero-weight",
+        }
+
+    def _weighted_mean(values: list[float]) -> float:
+        arr = np.array(values, dtype=float)
+        return float((arr * w).sum() / w_sum)
+
+    centroid = {
+        "coherence_index": round(_weighted_mean(coherence), 5),
+        "system_health": round(_weighted_mean(health), 5),
+        "closure_penalty": round(_weighted_mean(closure), 5),
+        "ethical_score": round(_weighted_mean(ethical), 5),
+        "soul_invariant": round(_weighted_mean(soul), 5),
+        "identity_phase": round(_weighted_mean(identity), 5),
+    }
+
+    coherence_ref = float(pipeline.get("coherence_index", centroid["coherence_index"]))
+    health_ref = float(pipeline.get("system_health", centroid["system_health"]))
+    closure_ref = float(pipeline.get("closure_penalty", centroid["closure_penalty"]))
+    ethical_ref = float(pipeline.get("ethical_score", centroid["ethical_score"]))
+    soul_ref = float(pipeline.get("soul_invariant", centroid["soul_invariant"]))
+    identity_ref = float(pipeline.get("identity_phase", centroid["identity_phase"]))
+
+    diffs = np.array([
+        abs(centroid["coherence_index"] - coherence_ref),
+        abs(centroid["system_health"] - health_ref),
+        abs(centroid["closure_penalty"] - closure_ref),
+        abs(centroid["ethical_score"] - ethical_ref),
+        abs(centroid["soul_invariant"] - soul_ref),
+        abs(centroid["identity_phase"] - identity_ref),
+    ], dtype=float)
+    projection_error = float(min(1.0, diffs.mean()))
+    projection_confidence = float(max(0.0, min(1.0, 1.0 - projection_error)))
+    projection_residual = float(max(0.0, min(1.0, projection_error)))
+    j_noema = float(max(0.0, min(1.0, 0.45 * projection_error + 0.30 * centroid["closure_penalty"] + 0.25 * (1.0 - centroid["coherence_index"]))))
+
+    return {
+        "projection_confidence": round(projection_confidence, 5),
+        "projection_residual": round(projection_residual, 5),
+        "projection_error": round(projection_error, 5),
+        "j_noema": round(j_noema, 5),
+        "projected_centroid": centroid,
+        "source": "weighted-subsystems",
     }
 
 
@@ -204,6 +373,16 @@ def compute_global(collected: dict[str, Any]) -> dict[str, Any]:
 
     # file_mass_summary
     file_summary = _load_catalog_summary()
+    memory_projection = _project_memory_field(subsystems, pipeline)
+    jokeheal_summary = _load_jokeheal_summary()
+    jokeheal_atlas = build_mnemonic_atlas()
+    if jokeheal_summary:
+        tag_matrix["jokeheal_warning_level"] = jokeheal_summary.get("warning_level")
+        tag_matrix["jokeheal_literal_alarm_count"] = jokeheal_summary.get("literal_alarm_count")
+        tag_matrix["jokeheal_mean_residual_tension"] = jokeheal_summary.get("mean_residual_tension")
+    if jokeheal_atlas:
+        tag_matrix["jokeheal_mnemonic_pressure"] = jokeheal_atlas.get("mnemonic_pressure")
+        tag_matrix["jokeheal_symbolic_pull"] = jokeheal_atlas.get("symbolic_pull")
 
     return {
         "global_coherence": round(global_coherence, 5),
@@ -212,6 +391,9 @@ def compute_global(collected: dict[str, Any]) -> dict[str, Any]:
         "priority_order":   priority,
         "tag_matrix":       tag_matrix,
         "file_mass_summary":file_summary,
+        "memory_projection": memory_projection,
+        "jokeheal_summary": jokeheal_summary,
+        "jokeheal_atlas": jokeheal_atlas,
         "subsystem_count":  len(subsystems),
         "generated":        datetime.now(timezone.utc).isoformat(),
     }
@@ -221,6 +403,7 @@ def export_to_context(report: dict[str, Any]) -> str:
     """Formatuje raport NOEMA jako blok do SessionStart."""
     tm = report.get("tag_matrix", {})
     fs = report.get("file_mass_summary", {})
+    mp = report.get("memory_projection", {})
     lines = [
         "=== NOEMA SoT — Global Matrix ===",
         f"  global_coherence : {report.get('global_coherence', '?')}",
@@ -248,6 +431,33 @@ def export_to_context(report: dict[str, Any]) -> str:
                      f"lv3={py['by_level'].get('3', 0)})")
         top_tags = sorted(py["top_tags"].items(), key=lambda x: -x[1])[:5]
         lines.append("  py_top_tags      : " + ", ".join(f"{k}({v})" for k, v in top_tags))
+    if mp:
+        lines.append(f"  memory_projection: conf={mp.get('projection_confidence','?')} "
+                     f"residual={mp.get('projection_residual','?')} J_noema={mp.get('j_noema','?')}")
+        centroid = mp.get("projected_centroid", {})
+        if centroid:
+            lines.append(
+                "  memory_centroid  : "
+                f"coherence={centroid.get('coherence_index','?')} "
+                f"health={centroid.get('system_health','?')} "
+                f"closure={centroid.get('closure_penalty','?')} "
+                f"identity={centroid.get('identity_phase','?')}"
+            )
+    jh = report.get("jokeheal_summary", {})
+    if jh:
+        lines.append(
+            f"  jokeheal        : warning={jh.get('warning_level','?')} "
+            f"literal={jh.get('literal_alarm_count','?')} "
+            f"residual={jh.get('mean_residual_tension','?')} "
+            f"closure={jh.get('mean_closure_score','?')}"
+        )
+    atlas = report.get("jokeheal_atlas", {})
+    if atlas:
+        lines.append(
+            f"  jokeheal_atlas  : mnemonic={atlas.get('mnemonic_pressure','?')} "
+            f"pull={atlas.get('symbolic_pull','?')} "
+            f"recurrence={atlas.get('recurrence_pressure','?')}"
+        )
     dyn = report.get("dynamics", {})
     if dyn:
         dH = dyn.get("dH_dt")
@@ -358,4 +568,11 @@ if __name__ == "__main__":
             print("  top5 by M_sem :")
             for e in fs.get("top5_by_M_sem", []):
                 print(f"    {e['M_sem']} | {e['path']}")
+    mp = report.get("memory_projection", {})
+    if mp:
+        print("\nmemory_projection:")
+        print(f"  projection_confidence : {mp.get('projection_confidence')}")
+        print(f"  projection_residual   : {mp.get('projection_residual')}")
+        print(f"  projection_error      : {mp.get('projection_error')}")
+        print(f"  j_noema               : {mp.get('j_noema')}")
     sys.exit(0)

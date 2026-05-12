@@ -112,7 +112,8 @@ def compute_subjective_times(
             entities = []
         for entity in entities[:entity_limit]:
             eid = entity.id
-            r   = min(0.999, entity.coupling_ciel)
+            # Strong coupling → closer to identity centre.
+            r   = min(0.999, max(0.0, 1.0 - entity.coupling_ciel))
             C   = coherence_index * entity.coupling_ciel
             Δ   = global_defect
             m   = mass_table.get(eid, None)

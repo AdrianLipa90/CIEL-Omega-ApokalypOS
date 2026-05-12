@@ -1,0 +1,16 @@
+family_id: family:modal
+description: Possibility, necessity, obligation and permission.
+operators:
+- op:future:may
+- op:future:must
+- op:future:should
+canonical_axes:
+- possibility
+- necessity
+- obligation
+- permission
+core_equations:
+- May(T)
+- Must(T)
+- Should(T)
+- Allowed(T)

@@ -1,0 +1,163 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:center
+canonical_label_en: center
+batch_id: batch01_foundational_36x5
+domain: geometry
+semantic_axes:
+- focus
+- middle
+- attractor
+semantic_mass_seed: 0.8562
+phase_seed_rad: 4.18879
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: centrum
+    brief_description: punkt odniesienia, środek lub lokalny atraktor układu
+    near_synonyms_seed:
+    - środek
+    - rdzeń
+    antonyms_seed:
+    - brzeg
+    - peryferia
+    forms_seed:
+    - centrum
+    - centrum jako hasło
+    - centrum w kontekście
+    context_examples_seed:
+    - Centrum tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - inside
+    - around
+    - to
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: center
+    brief_description: reference point, middle or local attractor of a system
+    near_synonyms_seed:
+    - middle
+    - core
+    antonyms_seed:
+    - edge
+    - periphery
+    forms_seed:
+    - center
+    - centers
+    - center as concept
+    context_examples_seed:
+    - Center forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Zentrum
+    brief_description: Bezugspunkt, Mitte oder lokaler Attraktor eines Systems
+    near_synonyms_seed:
+    - Mitte
+    - Kern
+    antonyms_seed:
+    - Rand
+    - Peripherie
+    forms_seed:
+    - Zentrum
+    - Zentrum als Begriff
+    - Zentrum im Kontext
+    context_examples_seed:
+    - Zentrum bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: centre
+    brief_description: point de référence, milieu ou attracteur local d’un système
+    near_synonyms_seed:
+    - milieu
+    - noyau
+    antonyms_seed:
+    - bord
+    - périphérie
+    forms_seed:
+    - centre
+    - centre comme concept
+    - centre en contexte
+    context_examples_seed:
+    - Centre forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: centro
+    brief_description: punto de referencia, medio o atractor local de un sistema
+    near_synonyms_seed:
+    - medio
+    - núcleo
+    antonyms_seed:
+    - borde
+    - periferia
+    forms_seed:
+    - centro
+    - centro como concepto
+    - centro en contexto
+    context_examples_seed:
+    - Centro forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: opposes
+  target: concept:boundary
+  status: draft_seed
+- type: attracts
+  target: concept:relation
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

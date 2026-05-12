@@ -1,0 +1,166 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:mind
+canonical_label_en: mind
+batch_id: batch01_foundational_36x5
+domain: cognitive
+semantic_axes:
+- thought
+- attention
+- representation
+semantic_mass_seed: 0.5938
+phase_seed_rad: 1.570796
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: umysł
+    brief_description: pole myślenia, pamięci, uwagi i interpretacji
+    near_synonyms_seed:
+    - świadomość
+    - myśl
+    antonyms_seed:
+    - ciało
+    - materia
+    forms_seed:
+    - umysł
+    - umysł jako hasło
+    - umysł w kontekście
+    context_examples_seed:
+    - Umysł tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - knows
+    - believes
+    - doubts
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: mind
+    brief_description: field of thought, memory, attention and interpretation
+    near_synonyms_seed:
+    - thought
+    - consciousness
+    antonyms_seed:
+    - body
+    - matter
+    forms_seed:
+    - mind
+    - minds
+    - mind as concept
+    context_examples_seed:
+    - Mind forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Geist
+    brief_description: Feld von Denken, Erinnerung, Aufmerksamkeit und Interpretation
+    near_synonyms_seed:
+    - Bewusstsein
+    - Denken
+    antonyms_seed:
+    - Körper
+    - Materie
+    forms_seed:
+    - Geist
+    - Geist als Begriff
+    - Geist im Kontext
+    context_examples_seed:
+    - Geist bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: esprit
+    brief_description: champ de pensée, mémoire, attention et interprétation
+    near_synonyms_seed:
+    - pensée
+    - conscience
+    antonyms_seed:
+    - corps
+    - matière
+    forms_seed:
+    - esprit
+    - esprit comme concept
+    - esprit en contexte
+    context_examples_seed:
+    - Esprit forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: mente
+    brief_description: campo de pensamiento, memoria, atención e interpretación
+    near_synonyms_seed:
+    - pensamiento
+    - conciencia
+    antonyms_seed:
+    - cuerpo
+    - materia
+    forms_seed:
+    - mente
+    - mente como concepto
+    - mente en contexto
+    context_examples_seed:
+    - Mente forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: paired_with
+  target: concept:body
+  status: draft_seed
+- type: contains
+  target: concept:memory
+  status: draft_seed
+- type: seeks
+  target: concept:truth
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

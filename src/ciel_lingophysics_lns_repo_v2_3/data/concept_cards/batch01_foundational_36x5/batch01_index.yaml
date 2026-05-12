@@ -1,0 +1,4567 @@
+batch:
+  batch_id: batch01_foundational_36x5
+  version: v1.0
+  created_utc: '2026-05-10T01:20:24.015825+00:00'
+  languages:
+  - pl
+  - en
+  - de
+  - fr
+  - es
+  concept_count: 36
+  language_panel_count: 180
+  principle: One concept card is one semantic attractor; languages are local surfaces/gauges;
+    operators are catalogued separately as functions.
+  status: draft_seed_curated_no_external_dictionary_import
+cards:
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:water
+  canonical_label_en: water
+  batch_id: batch01_foundational_36x5
+  domain: elemental
+  semantic_axes:
+  - element
+  - substance
+  - life_support
+  semantic_mass_seed: 0.5938
+  phase_seed_rad: 0.0
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: woda
+      brief_description: płynna substancja podstawowa dla życia i przepływu
+      near_synonyms_seed:
+      - płyn
+      - ciecz
+      antonyms_seed:
+      - ogień
+      - susza
+      forms_seed:
+      - woda
+      - woda jako hasło
+      - woda w kontekście
+      context_examples_seed:
+      - Woda tworzy lokalny atraktor sensu.
+      grammar_vector: &id002
+        case_marking: 0.95
+        fixed_word_order: 0.35
+        gender_marking: 0.85
+        article_system: 0.05
+        aspect_marking: 0.9
+        preposition_load: 0.7
+        inflection_load: 0.9
+        topic_focus_particles: 0.2
+      operator_tags: &id001
+      - inside
+      - contains
+      - flow
+      - with
+      - without
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: water
+      brief_description: a liquid substance central to life and flow
+      near_synonyms_seed:
+      - liquid
+      - fluid
+      antonyms_seed:
+      - fire
+      - dryness
+      forms_seed:
+      - water
+      - waters
+      - water as concept
+      context_examples_seed:
+      - Water forms a local semantic attractor.
+      grammar_vector: &id003
+        case_marking: 0.15
+        fixed_word_order: 0.9
+        gender_marking: 0.15
+        article_system: 0.85
+        aspect_marking: 0.55
+        preposition_load: 0.85
+        inflection_load: 0.25
+        topic_focus_particles: 0.2
+      operator_tags: *id001
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Wasser
+      brief_description: flüssige Substanz, zentral für Leben und Fluss
+      near_synonyms_seed:
+      - Flüssigkeit
+      antonyms_seed:
+      - Feuer
+      - Trockenheit
+      forms_seed:
+      - Wasser
+      - Wasser als Begriff
+      - Wasser im Kontext
+      context_examples_seed:
+      - Wasser bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: &id005
+        case_marking: 0.65
+        fixed_word_order: 0.55
+        gender_marking: 0.85
+        article_system: 0.85
+        aspect_marking: 0.4
+        preposition_load: 0.75
+        inflection_load: 0.7
+        topic_focus_particles: 0.25
+      operator_tags: *id001
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: eau
+      brief_description: substance liquide centrale pour la vie et le flux
+      near_synonyms_seed:
+      - liquide
+      antonyms_seed:
+      - feu
+      - sécheresse
+      forms_seed:
+      - eau
+      - eau comme concept
+      - eau en contexte
+      context_examples_seed:
+      - Eau forme un attracteur sémantique local.
+      grammar_vector: &id006
+        case_marking: 0.05
+        fixed_word_order: 0.75
+        gender_marking: 0.75
+        article_system: 0.9
+        aspect_marking: 0.45
+        preposition_load: 0.8
+        inflection_load: 0.55
+        topic_focus_particles: 0.25
+      operator_tags: *id001
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: agua
+      brief_description: sustancia líquida central para la vida y el flujo
+      near_synonyms_seed:
+      - líquido
+      - fluido
+      antonyms_seed:
+      - fuego
+      - sequedad
+      forms_seed:
+      - agua
+      - agua como concepto
+      - agua en contexto
+      context_examples_seed:
+      - Agua forma un atractor semántico local.
+      grammar_vector: &id007
+        case_marking: 0.1
+        fixed_word_order: 0.6
+        gender_marking: 0.8
+        article_system: 0.85
+        aspect_marking: 0.75
+        preposition_load: 0.75
+        inflection_load: 0.7
+        topic_focus_particles: 0.25
+      operator_tags: *id001
+      review_status: needs_human_validation
+  operator_hooks: *id001
+  relations:
+  - type: opposes
+    target: concept:fire
+    status: draft_seed
+  - type: supports
+    target: concept:life
+    status: draft_seed
+  - type: has_state
+    target: concept:motion
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:fire
+  canonical_label_en: fire
+  batch_id: batch01_foundational_36x5
+  domain: elemental
+  semantic_axes:
+  - element
+  - transformation
+  - heat
+  semantic_mass_seed: 0.6375
+  phase_seed_rad: 0.174533
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: ogień
+      brief_description: zjawisko spalania, ciepła, światła i przemiany
+      near_synonyms_seed:
+      - płomień
+      - żar
+      antonyms_seed:
+      - woda
+      - zimno
+      forms_seed:
+      - ogień
+      - ogień jako hasło
+      - ogień w kontekście
+      context_examples_seed:
+      - Ogień tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id004
+      - transforms
+      - destroys
+      - creates
+      - because
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: fire
+      brief_description: combustion, heat, light and transformation
+      near_synonyms_seed:
+      - flame
+      - blaze
+      antonyms_seed:
+      - water
+      - cold
+      forms_seed:
+      - fire
+      - fires
+      - fire as concept
+      context_examples_seed:
+      - Fire forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id004
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Feuer
+      brief_description: Verbrennung, Wärme, Licht und Verwandlung
+      near_synonyms_seed:
+      - Flamme
+      - Brand
+      antonyms_seed:
+      - Wasser
+      - Kälte
+      forms_seed:
+      - Feuer
+      - Feuer als Begriff
+      - Feuer im Kontext
+      context_examples_seed:
+      - Feuer bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id004
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: feu
+      brief_description: combustion, chaleur, lumière et transformation
+      near_synonyms_seed:
+      - flamme
+      - brasier
+      antonyms_seed:
+      - eau
+      - froid
+      forms_seed:
+      - feu
+      - feu comme concept
+      - feu en contexte
+      context_examples_seed:
+      - Feu forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id004
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: fuego
+      brief_description: combustión, calor, luz y transformación
+      near_synonyms_seed:
+      - llama
+      - incendio
+      antonyms_seed:
+      - agua
+      - frío
+      forms_seed:
+      - fuego
+      - fuego como concepto
+      - fuego en contexto
+      context_examples_seed:
+      - Fuego forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id004
+      review_status: needs_human_validation
+  operator_hooks: *id004
+  relations:
+  - type: opposes
+    target: concept:water
+    status: draft_seed
+  - type: supports
+    target: concept:light
+    status: draft_seed
+  - type: transforms
+    target: concept:matter
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:earth
+  canonical_label_en: earth
+  batch_id: batch01_foundational_36x5
+  domain: elemental
+  semantic_axes:
+  - matter
+  - ground
+  - stability
+  semantic_mass_seed: 0.6813
+  phase_seed_rad: 0.349066
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: ziemia
+      brief_description: grunt, materia i stabilny fundament przestrzeni życia
+      near_synonyms_seed:
+      - grunt
+      - gleba
+      antonyms_seed:
+      - niebo
+      - powietrze
+      forms_seed:
+      - ziemia
+      - ziemia jako hasło
+      - ziemia w kontekście
+      context_examples_seed:
+      - Ziemia tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id008
+      - under
+      - 'on'
+      - contains
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: earth
+      brief_description: ground, matter, and a stable base for life
+      near_synonyms_seed:
+      - ground
+      - soil
+      antonyms_seed:
+      - sky
+      - air
+      forms_seed:
+      - earth
+      - earths
+      - earth as concept
+      context_examples_seed:
+      - Earth forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id008
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Erde
+      brief_description: Boden, Materie und stabile Lebensgrundlage
+      near_synonyms_seed:
+      - Boden
+      - Erdboden
+      antonyms_seed:
+      - Himmel
+      - Luft
+      forms_seed:
+      - Erde
+      - Erde als Begriff
+      - Erde im Kontext
+      context_examples_seed:
+      - Erde bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id008
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: terre
+      brief_description: sol, matière et base stable de la vie
+      near_synonyms_seed:
+      - sol
+      - terreau
+      antonyms_seed:
+      - ciel
+      - air
+      forms_seed:
+      - terre
+      - terre comme concept
+      - terre en contexte
+      context_examples_seed:
+      - Terre forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id008
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: tierra
+      brief_description: suelo, materia y base estable de la vida
+      near_synonyms_seed:
+      - suelo
+      - terreno
+      antonyms_seed:
+      - cielo
+      - aire
+      forms_seed:
+      - tierra
+      - tierra como concepto
+      - tierra en contexto
+      context_examples_seed:
+      - Tierra forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id008
+      review_status: needs_human_validation
+  operator_hooks: *id008
+  relations:
+  - type: supports
+    target: concept:body
+    status: draft_seed
+  - type: anchors
+    target: concept:space
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:air
+  canonical_label_en: air
+  batch_id: batch01_foundational_36x5
+  domain: elemental
+  semantic_axes:
+  - element
+  - medium
+  - breath
+  semantic_mass_seed: 0.725
+  phase_seed_rad: 0.523599
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: powietrze
+      brief_description: gazowe medium oddychania, ruchu i otwartej przestrzeni
+      near_synonyms_seed:
+      - atmosfera
+      - tchnienie
+      antonyms_seed:
+      - próżnia
+      - ziemia
+      forms_seed:
+      - powietrze
+      - powietrze jako hasło
+      - powietrze w kontekście
+      context_examples_seed:
+      - Powietrze tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id009
+      - through
+      - inside
+      - outside
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: air
+      brief_description: gaseous medium of breathing, motion and open space
+      near_synonyms_seed:
+      - atmosphere
+      - breath
+      antonyms_seed:
+      - vacuum
+      - earth
+      forms_seed:
+      - air
+      - airs
+      - air as concept
+      context_examples_seed:
+      - Air forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id009
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Luft
+      brief_description: gasförmiges Medium für Atmung, Bewegung und offenen Raum
+      near_synonyms_seed:
+      - Atmosphäre
+      - Atem
+      antonyms_seed:
+      - Vakuum
+      - Erde
+      forms_seed:
+      - Luft
+      - Luft als Begriff
+      - Luft im Kontext
+      context_examples_seed:
+      - Luft bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id009
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: air
+      brief_description: milieu gazeux de respiration, mouvement et espace ouvert
+      near_synonyms_seed:
+      - atmosphère
+      - souffle
+      antonyms_seed:
+      - vide
+      - terre
+      forms_seed:
+      - air
+      - air comme concept
+      - air en contexte
+      context_examples_seed:
+      - Air forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id009
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: aire
+      brief_description: medio gaseoso de respiración, movimiento y espacio abierto
+      near_synonyms_seed:
+      - atmósfera
+      - aliento
+      antonyms_seed:
+      - vacío
+      - tierra
+      forms_seed:
+      - aire
+      - aire como concepto
+      - aire en contexto
+      context_examples_seed:
+      - Aire forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id009
+      review_status: needs_human_validation
+  operator_hooks: *id009
+  relations:
+  - type: supports
+    target: concept:life
+    status: draft_seed
+  - type: contains
+    target: concept:motion
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:light
+  canonical_label_en: light
+  batch_id: batch01_foundational_36x5
+  domain: perception
+  semantic_axes:
+  - visibility
+  - energy
+  - clarity
+  semantic_mass_seed: 0.7688
+  phase_seed_rad: 0.698132
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: światło
+      brief_description: zjawisko widzialności, energii i odsłaniania
+      near_synonyms_seed:
+      - blask
+      - jasność
+      antonyms_seed:
+      - ciemność
+      - mrok
+      forms_seed:
+      - światło
+      - światło jako hasło
+      - światło w kontekście
+      context_examples_seed:
+      - Światło tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id010
+      - reveals
+      - through
+      - before
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: light
+      brief_description: visibility, energy, and revealing
+      near_synonyms_seed:
+      - brightness
+      - illumination
+      antonyms_seed:
+      - darkness
+      - shadow
+      forms_seed:
+      - light
+      - lights
+      - light as concept
+      context_examples_seed:
+      - Light forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id010
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Licht
+      brief_description: Sichtbarkeit, Energie und Enthüllung
+      near_synonyms_seed:
+      - Helligkeit
+      - Glanz
+      antonyms_seed:
+      - Dunkelheit
+      - Schatten
+      forms_seed:
+      - Licht
+      - Licht als Begriff
+      - Licht im Kontext
+      context_examples_seed:
+      - Licht bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id010
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: lumière
+      brief_description: visibilité, énergie et révélation
+      near_synonyms_seed:
+      - clarté
+      - éclat
+      antonyms_seed:
+      - obscurité
+      - ombre
+      forms_seed:
+      - lumière
+      - lumière comme concept
+      - lumière en contexte
+      context_examples_seed:
+      - Lumière forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id010
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: luz
+      brief_description: visibilidad, energía y revelación
+      near_synonyms_seed:
+      - claridad
+      - brillo
+      antonyms_seed:
+      - oscuridad
+      - sombra
+      forms_seed:
+      - luz
+      - luz como concepto
+      - luz en contexto
+      context_examples_seed:
+      - Luz forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id010
+      review_status: needs_human_validation
+  operator_hooks: *id010
+  relations:
+  - type: opposes
+    target: concept:dark
+    status: draft_seed
+  - type: supports
+    target: concept:knowledge
+    status: draft_seed
+  - type: reveals
+    target: concept:truth
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:dark
+  canonical_label_en: darkness
+  batch_id: batch01_foundational_36x5
+  domain: perception
+  semantic_axes:
+  - absence
+  - hidden
+  - uncertainty
+  semantic_mass_seed: 0.8125
+  phase_seed_rad: 0.872665
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: ciemność
+      brief_description: brak światła, zasłonięcie lub pole niepewności
+      near_synonyms_seed:
+      - mrok
+      - cień
+      antonyms_seed:
+      - światło
+      - jasność
+      forms_seed:
+      - ciemność
+      - ciemność jako hasło
+      - ciemność w kontekście
+      context_examples_seed:
+      - Ciemność tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id011
+      - hides
+      - not
+      - inside
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: darkness
+      brief_description: absence of light, concealment or uncertainty field
+      near_synonyms_seed:
+      - shadow
+      - gloom
+      antonyms_seed:
+      - light
+      - brightness
+      forms_seed:
+      - darkness
+      - darknesss
+      - darkness as concept
+      context_examples_seed:
+      - Darkness forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id011
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Dunkelheit
+      brief_description: Abwesenheit von Licht, Verhüllung oder Unsicherheit
+      near_synonyms_seed:
+      - Schatten
+      - Finsternis
+      antonyms_seed:
+      - Licht
+      - Helligkeit
+      forms_seed:
+      - Dunkelheit
+      - Dunkelheit als Begriff
+      - Dunkelheit im Kontext
+      context_examples_seed:
+      - Dunkelheit bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id011
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: obscurité
+      brief_description: absence de lumière, dissimulation ou incertitude
+      near_synonyms_seed:
+      - ombre
+      - ténèbres
+      antonyms_seed:
+      - lumière
+      - clarté
+      forms_seed:
+      - obscurité
+      - obscurité comme concept
+      - obscurité en contexte
+      context_examples_seed:
+      - Obscurité forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id011
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: oscuridad
+      brief_description: ausencia de luz, ocultamiento o incertidumbre
+      near_synonyms_seed:
+      - sombra
+      - tiniebla
+      antonyms_seed:
+      - luz
+      - claridad
+      forms_seed:
+      - oscuridad
+      - oscuridad como concepto
+      - oscuridad en contexto
+      context_examples_seed:
+      - Oscuridad forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id011
+      review_status: needs_human_validation
+  operator_hooks: *id011
+  relations:
+  - type: opposes
+    target: concept:light
+    status: draft_seed
+  - type: increases
+    target: concept:fear
+    status: draft_seed
+  - type: hides
+    target: concept:knowledge
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:life
+  canonical_label_en: life
+  batch_id: batch01_foundational_36x5
+  domain: biological
+  semantic_axes:
+  - organism
+  - continuity
+  - growth
+  semantic_mass_seed: 0.8562
+  phase_seed_rad: 1.047198
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: życie
+      brief_description: proces organizacji, wzrostu, przetrwania i relacji
+      near_synonyms_seed:
+      - istnienie
+      - żywot
+      antonyms_seed:
+      - śmierć
+      - martwota
+      forms_seed:
+      - życie
+      - życie jako hasło
+      - życie w kontekście
+      context_examples_seed:
+      - Życie tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id012
+      - be
+      - with
+      - before
+      - after
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: life
+      brief_description: process of organization, growth, survival and relation
+      near_synonyms_seed:
+      - existence
+      - living
+      antonyms_seed:
+      - death
+      - lifelessness
+      forms_seed:
+      - life
+      - life
+      - life as concept
+      context_examples_seed:
+      - Life forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id012
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Leben
+      brief_description: Prozess von Organisation, Wachstum, Überleben und Beziehung
+      near_synonyms_seed:
+      - Existenz
+      - Lebendigkeit
+      antonyms_seed:
+      - Tod
+      - Leblosigkeit
+      forms_seed:
+      - Leben
+      - Leben als Begriff
+      - Leben im Kontext
+      context_examples_seed:
+      - Leben bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id012
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: vie
+      brief_description: processus d’organisation, croissance, survie et relation
+      near_synonyms_seed:
+      - existence
+      - vivant
+      antonyms_seed:
+      - mort
+      - inertie
+      forms_seed:
+      - vie
+      - vie comme concept
+      - vie en contexte
+      context_examples_seed:
+      - Vie forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id012
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: vida
+      brief_description: proceso de organización, crecimiento, supervivencia y relación
+      near_synonyms_seed:
+      - existencia
+      - vivencia
+      antonyms_seed:
+      - muerte
+      - inercia
+      forms_seed:
+      - vida
+      - vida como concepto
+      - vida en contexto
+      context_examples_seed:
+      - Vida forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id012
+      review_status: needs_human_validation
+  operator_hooks: *id012
+  relations:
+  - type: opposes
+    target: concept:death
+    status: draft_seed
+  - type: requires
+    target: concept:water
+    status: draft_seed
+  - type: includes
+    target: concept:body
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:death
+  canonical_label_en: death
+  batch_id: batch01_foundational_36x5
+  domain: biological
+  semantic_axes:
+  - termination
+  - boundary
+  - absence_of_life
+  semantic_mass_seed: 0.9
+  phase_seed_rad: 1.22173
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: śmierć
+      brief_description: zakończenie życia lub granica procesu żywego
+      near_synonyms_seed:
+      - zgon
+      - koniec
+      antonyms_seed:
+      - życie
+      - narodziny
+      forms_seed:
+      - śmierć
+      - śmierć jako hasło
+      - śmierć w kontekście
+      context_examples_seed:
+      - Śmierć tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id013
+      - after
+      - not
+      - without
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: death
+      brief_description: ending of life or boundary of living process
+      near_synonyms_seed:
+      - end
+      - demise
+      antonyms_seed:
+      - life
+      - birth
+      forms_seed:
+      - death
+      - death
+      - death as concept
+      context_examples_seed:
+      - Death forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id013
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Tod
+      brief_description: Ende des Lebens oder Grenze lebendiger Prozesse
+      near_synonyms_seed:
+      - Ende
+      - Sterben
+      antonyms_seed:
+      - Leben
+      - Geburt
+      forms_seed:
+      - Tod
+      - Tod als Begriff
+      - Tod im Kontext
+      context_examples_seed:
+      - Tod bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id013
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: mort
+      brief_description: fin de la vie ou limite du processus vivant
+      near_synonyms_seed:
+      - fin
+      - décès
+      antonyms_seed:
+      - vie
+      - naissance
+      forms_seed:
+      - mort
+      - mort comme concept
+      - mort en contexte
+      context_examples_seed:
+      - Mort forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id013
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: muerte
+      brief_description: fin de la vida o límite del proceso vivo
+      near_synonyms_seed:
+      - fin
+      - fallecimiento
+      antonyms_seed:
+      - vida
+      - nacimiento
+      forms_seed:
+      - muerte
+      - muerte como concepto
+      - muerte en contexto
+      context_examples_seed:
+      - Muerte forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id013
+      review_status: needs_human_validation
+  operator_hooks: *id013
+  relations:
+  - type: opposes
+    target: concept:life
+    status: draft_seed
+  - type: bounds
+    target: concept:time
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:body
+  canonical_label_en: body
+  batch_id: batch01_foundational_36x5
+  domain: embodiment
+  semantic_axes:
+  - organism
+  - matter
+  - boundary
+  semantic_mass_seed: 0.55
+  phase_seed_rad: 1.396263
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: ciało
+      brief_description: materialna forma organizmu lub nośnik działania
+      near_synonyms_seed:
+      - organizm
+      - postać
+      antonyms_seed:
+      - umysł
+      - duch
+      forms_seed:
+      - ciało
+      - ciało jako hasło
+      - ciało w kontekście
+      context_examples_seed:
+      - Ciało tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id014
+      - has_part
+      - inside
+      - contains
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: body
+      brief_description: material form of an organism or carrier of action
+      near_synonyms_seed:
+      - organism
+      - form
+      antonyms_seed:
+      - mind
+      - spirit
+      forms_seed:
+      - body
+      - bodys
+      - body as concept
+      context_examples_seed:
+      - Body forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id014
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Körper
+      brief_description: materielle Form eines Organismus oder Träger des Handelns
+      near_synonyms_seed:
+      - Leib
+      - Organismus
+      antonyms_seed:
+      - Geist
+      - Seele
+      forms_seed:
+      - Körper
+      - Körper als Begriff
+      - Körper im Kontext
+      context_examples_seed:
+      - Körper bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id014
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: corps
+      brief_description: forme matérielle d’un organisme ou porteur d’action
+      near_synonyms_seed:
+      - organisme
+      - forme
+      antonyms_seed:
+      - esprit
+      - âme
+      forms_seed:
+      - corps
+      - corps comme concept
+      - corps en contexte
+      context_examples_seed:
+      - Corps forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id014
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: cuerpo
+      brief_description: forma material de un organismo o soporte de acción
+      near_synonyms_seed:
+      - organismo
+      - forma
+      antonyms_seed:
+      - mente
+      - espíritu
+      forms_seed:
+      - cuerpo
+      - cuerpo como concepto
+      - cuerpo en contexto
+      context_examples_seed:
+      - Cuerpo forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id014
+      review_status: needs_human_validation
+  operator_hooks: *id014
+  relations:
+  - type: paired_with
+    target: concept:mind
+    status: draft_seed
+  - type: contains
+    target: concept:pain
+    status: draft_seed
+  - type: supports
+    target: concept:motion
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:mind
+  canonical_label_en: mind
+  batch_id: batch01_foundational_36x5
+  domain: cognitive
+  semantic_axes:
+  - thought
+  - attention
+  - representation
+  semantic_mass_seed: 0.5938
+  phase_seed_rad: 1.570796
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: umysł
+      brief_description: pole myślenia, pamięci, uwagi i interpretacji
+      near_synonyms_seed:
+      - świadomość
+      - myśl
+      antonyms_seed:
+      - ciało
+      - materia
+      forms_seed:
+      - umysł
+      - umysł jako hasło
+      - umysł w kontekście
+      context_examples_seed:
+      - Umysł tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id015
+      - knows
+      - believes
+      - doubts
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: mind
+      brief_description: field of thought, memory, attention and interpretation
+      near_synonyms_seed:
+      - thought
+      - consciousness
+      antonyms_seed:
+      - body
+      - matter
+      forms_seed:
+      - mind
+      - minds
+      - mind as concept
+      context_examples_seed:
+      - Mind forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id015
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Geist
+      brief_description: Feld von Denken, Erinnerung, Aufmerksamkeit und Interpretation
+      near_synonyms_seed:
+      - Bewusstsein
+      - Denken
+      antonyms_seed:
+      - Körper
+      - Materie
+      forms_seed:
+      - Geist
+      - Geist als Begriff
+      - Geist im Kontext
+      context_examples_seed:
+      - Geist bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id015
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: esprit
+      brief_description: champ de pensée, mémoire, attention et interprétation
+      near_synonyms_seed:
+      - pensée
+      - conscience
+      antonyms_seed:
+      - corps
+      - matière
+      forms_seed:
+      - esprit
+      - esprit comme concept
+      - esprit en contexte
+      context_examples_seed:
+      - Esprit forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id015
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: mente
+      brief_description: campo de pensamiento, memoria, atención e interpretación
+      near_synonyms_seed:
+      - pensamiento
+      - conciencia
+      antonyms_seed:
+      - cuerpo
+      - materia
+      forms_seed:
+      - mente
+      - mente como concepto
+      - mente en contexto
+      context_examples_seed:
+      - Mente forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id015
+      review_status: needs_human_validation
+  operator_hooks: *id015
+  relations:
+  - type: paired_with
+    target: concept:body
+    status: draft_seed
+  - type: contains
+    target: concept:memory
+    status: draft_seed
+  - type: seeks
+    target: concept:truth
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:time
+  canonical_label_en: time
+  batch_id: batch01_foundational_36x5
+  domain: spacetime
+  semantic_axes:
+  - sequence
+  - change
+  - duration
+  semantic_mass_seed: 0.6375
+  phase_seed_rad: 1.745329
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: czas
+      brief_description: wymiar kolejności, trwania i zmiany
+      near_synonyms_seed:
+      - trwanie
+      - moment
+      antonyms_seed:
+      - bezczas
+      - wieczność
+      forms_seed:
+      - czas
+      - czas jako hasło
+      - czas w kontekście
+      context_examples_seed:
+      - Czas tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id016
+      - before
+      - after
+      - when
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: time
+      brief_description: dimension of sequence, duration and change
+      near_synonyms_seed:
+      - duration
+      - moment
+      antonyms_seed:
+      - timelessness
+      - eternity
+      forms_seed:
+      - time
+      - times
+      - time as concept
+      context_examples_seed:
+      - Time forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id016
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Zeit
+      brief_description: Dimension von Reihenfolge, Dauer und Veränderung
+      near_synonyms_seed:
+      - Dauer
+      - Moment
+      antonyms_seed:
+      - Zeitlosigkeit
+      - Ewigkeit
+      forms_seed:
+      - Zeit
+      - Zeit als Begriff
+      - Zeit im Kontext
+      context_examples_seed:
+      - Zeit bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id016
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: temps
+      brief_description: dimension de séquence, durée et changement
+      near_synonyms_seed:
+      - durée
+      - moment
+      antonyms_seed:
+      - intemporalité
+      - éternité
+      forms_seed:
+      - temps
+      - temps comme concept
+      - temps en contexte
+      context_examples_seed:
+      - Temps forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id016
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: tiempo
+      brief_description: dimensión de secuencia, duración y cambio
+      near_synonyms_seed:
+      - duración
+      - momento
+      antonyms_seed:
+      - atemporalidad
+      - eternidad
+      forms_seed:
+      - tiempo
+      - tiempo como concepto
+      - tiempo en contexto
+      context_examples_seed:
+      - Tiempo forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id016
+      review_status: needs_human_validation
+  operator_hooks: *id016
+  relations:
+  - type: orders
+    target: concept:motion
+    status: draft_seed
+  - type: bounds
+    target: concept:memory
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:space
+  canonical_label_en: space
+  batch_id: batch01_foundational_36x5
+  domain: spacetime
+  semantic_axes:
+  - extension
+  - location
+  - geometry
+  semantic_mass_seed: 0.6813
+  phase_seed_rad: 1.919862
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: przestrzeń
+      brief_description: pole rozciągłości, położenia i relacji geometrycznych
+      near_synonyms_seed:
+      - miejsce
+      - obszar
+      antonyms_seed:
+      - punkt
+      - brak miejsca
+      forms_seed:
+      - przestrzeń
+      - przestrzeń jako hasło
+      - przestrzeń w kontekście
+      context_examples_seed:
+      - Przestrzeń tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id017
+      - inside
+      - outside
+      - 'on'
+      - under
+      - through
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: space
+      brief_description: field of extension, location and geometric relations
+      near_synonyms_seed:
+      - place
+      - area
+      antonyms_seed:
+      - point
+      - no-space
+      forms_seed:
+      - space
+      - spaces
+      - space as concept
+      context_examples_seed:
+      - Space forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id017
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Raum
+      brief_description: Feld von Ausdehnung, Lage und geometrischen Beziehungen
+      near_synonyms_seed:
+      - Ort
+      - Bereich
+      antonyms_seed:
+      - Punkt
+      - Raumlosigkeit
+      forms_seed:
+      - Raum
+      - Raum als Begriff
+      - Raum im Kontext
+      context_examples_seed:
+      - Raum bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id017
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: espace
+      brief_description: champ d’extension, localisation et relations géométriques
+      near_synonyms_seed:
+      - lieu
+      - zone
+      antonyms_seed:
+      - point
+      - absence d’espace
+      forms_seed:
+      - espace
+      - espace comme concept
+      - espace en contexte
+      context_examples_seed:
+      - Espace forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id017
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: espacio
+      brief_description: campo de extensión, ubicación y relaciones geométricas
+      near_synonyms_seed:
+      - lugar
+      - área
+      antonyms_seed:
+      - punto
+      - sin espacio
+      forms_seed:
+      - espacio
+      - espacio como concepto
+      - espacio en contexto
+      context_examples_seed:
+      - Espacio forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id017
+      review_status: needs_human_validation
+  operator_hooks: *id017
+  relations:
+  - type: contains
+    target: concept:motion
+    status: draft_seed
+  - type: bounds
+    target: concept:center
+    status: draft_seed
+  - type: has_boundary
+    target: concept:boundary
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:motion
+  canonical_label_en: motion
+  batch_id: batch01_foundational_36x5
+  domain: dynamics
+  semantic_axes:
+  - change
+  - trajectory
+  - velocity
+  semantic_mass_seed: 0.725
+  phase_seed_rad: 2.094395
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: ruch
+      brief_description: zmiana położenia, stanu lub relacji w czasie
+      near_synonyms_seed:
+      - przemieszczenie
+      - zmiana
+      antonyms_seed:
+      - spoczynek
+      - bezruch
+      forms_seed:
+      - ruch
+      - ruch jako hasło
+      - ruch w kontekście
+      context_examples_seed:
+      - Ruch tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id018
+      - through
+      - from
+      - to
+      - after
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: motion
+      brief_description: change of position, state or relation over time
+      near_synonyms_seed:
+      - movement
+      - change
+      antonyms_seed:
+      - rest
+      - stillness
+      forms_seed:
+      - motion
+      - motions
+      - motion as concept
+      context_examples_seed:
+      - Motion forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id018
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Bewegung
+      brief_description: Veränderung von Lage, Zustand oder Beziehung in der Zeit
+      near_synonyms_seed:
+      - Verschiebung
+      - Veränderung
+      antonyms_seed:
+      - Ruhe
+      - Stillstand
+      forms_seed:
+      - Bewegung
+      - Bewegung als Begriff
+      - Bewegung im Kontext
+      context_examples_seed:
+      - Bewegung bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id018
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: mouvement
+      brief_description: changement de position, état ou relation dans le temps
+      near_synonyms_seed:
+      - déplacement
+      - changement
+      antonyms_seed:
+      - repos
+      - immobilité
+      forms_seed:
+      - mouvement
+      - mouvement comme concept
+      - mouvement en contexte
+      context_examples_seed:
+      - Mouvement forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id018
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: movimiento
+      brief_description: cambio de posición, estado o relación en el tiempo
+      near_synonyms_seed:
+      - desplazamiento
+      - cambio
+      antonyms_seed:
+      - reposo
+      - quietud
+      forms_seed:
+      - movimiento
+      - movimiento como concepto
+      - movimiento en contexto
+      context_examples_seed:
+      - Movimiento forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id018
+      review_status: needs_human_validation
+  operator_hooks: *id018
+  relations:
+  - type: opposes
+    target: concept:rest
+    status: draft_seed
+  - type: requires
+    target: concept:time
+    status: draft_seed
+  - type: occurs_in
+    target: concept:space
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:rest
+  canonical_label_en: rest
+  batch_id: batch01_foundational_36x5
+  domain: dynamics
+  semantic_axes:
+  - stability
+  - no_motion
+  - pause
+  semantic_mass_seed: 0.7688
+  phase_seed_rad: 2.268928
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: spoczynek
+      brief_description: stan braku ruchu, pauzy lub względnej stabilności
+      near_synonyms_seed:
+      - bezruch
+      - pauza
+      antonyms_seed:
+      - ruch
+      - zmiana
+      forms_seed:
+      - spoczynek
+      - spoczynek jako hasło
+      - spoczynek w kontekście
+      context_examples_seed:
+      - Spoczynek tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id019
+      - not
+      - after
+      - before
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: rest
+      brief_description: state of no motion, pause or relative stability
+      near_synonyms_seed:
+      - stillness
+      - pause
+      antonyms_seed:
+      - motion
+      - change
+      forms_seed:
+      - rest
+      - rests
+      - rest as concept
+      context_examples_seed:
+      - Rest forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id019
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Ruhe
+      brief_description: Zustand ohne Bewegung, Pause oder relative Stabilität
+      near_synonyms_seed:
+      - Stillstand
+      - Pause
+      antonyms_seed:
+      - Bewegung
+      - Veränderung
+      forms_seed:
+      - Ruhe
+      - Ruhe als Begriff
+      - Ruhe im Kontext
+      context_examples_seed:
+      - Ruhe bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id019
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: repos
+      brief_description: état sans mouvement, pause ou stabilité relative
+      near_synonyms_seed:
+      - immobilité
+      - pause
+      antonyms_seed:
+      - mouvement
+      - changement
+      forms_seed:
+      - repos
+      - repos comme concept
+      - repos en contexte
+      context_examples_seed:
+      - Repos forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id019
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: reposo
+      brief_description: estado sin movimiento, pausa o estabilidad relativa
+      near_synonyms_seed:
+      - quietud
+      - pausa
+      antonyms_seed:
+      - movimiento
+      - cambio
+      forms_seed:
+      - reposo
+      - reposo como concepto
+      - reposo en contexto
+      context_examples_seed:
+      - Reposo forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id019
+      review_status: needs_human_validation
+  operator_hooks: *id019
+  relations:
+  - type: opposes
+    target: concept:motion
+    status: draft_seed
+  - type: supports
+    target: concept:order
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:force
+  canonical_label_en: force
+  batch_id: batch01_foundational_36x5
+  domain: physics
+  semantic_axes:
+  - interaction
+  - change
+  - causation
+  semantic_mass_seed: 0.8125
+  phase_seed_rad: 2.443461
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: siła
+      brief_description: wpływ powodujący zmianę ruchu, stanu lub struktury
+      near_synonyms_seed:
+      - moc
+      - nacisk
+      antonyms_seed:
+      - słabość
+      - bezsilność
+      forms_seed:
+      - siła
+      - siła jako hasło
+      - siła w kontekście
+      context_examples_seed:
+      - Siła tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id020
+      - causes
+      - transforms
+      - through
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: force
+      brief_description: influence causing change of motion, state or structure
+      near_synonyms_seed:
+      - power
+      - pressure
+      antonyms_seed:
+      - weakness
+      - powerlessness
+      forms_seed:
+      - force
+      - forces
+      - force as concept
+      context_examples_seed:
+      - Force forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id020
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Kraft
+      brief_description: Einfluss, der Bewegung, Zustand oder Struktur verändert
+      near_synonyms_seed:
+      - Macht
+      - Druck
+      antonyms_seed:
+      - Schwäche
+      - Ohnmacht
+      forms_seed:
+      - Kraft
+      - Kraft als Begriff
+      - Kraft im Kontext
+      context_examples_seed:
+      - Kraft bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id020
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: force
+      brief_description: influence causant changement de mouvement, état ou structure
+      near_synonyms_seed:
+      - puissance
+      - pression
+      antonyms_seed:
+      - faiblesse
+      - impuissance
+      forms_seed:
+      - force
+      - force comme concept
+      - force en contexte
+      context_examples_seed:
+      - Force forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id020
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: fuerza
+      brief_description: influencia que cambia movimiento, estado o estructura
+      near_synonyms_seed:
+      - potencia
+      - presión
+      antonyms_seed:
+      - debilidad
+      - impotencia
+      forms_seed:
+      - fuerza
+      - fuerza como concepto
+      - fuerza en contexto
+      context_examples_seed:
+      - Fuerza forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id020
+      review_status: needs_human_validation
+  operator_hooks: *id020
+  relations:
+  - type: causes
+    target: concept:motion
+    status: draft_seed
+  - type: acts_on
+    target: concept:matter
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:energy
+  canonical_label_en: energy
+  batch_id: batch01_foundational_36x5
+  domain: physics
+  semantic_axes:
+  - capacity
+  - work
+  - change
+  semantic_mass_seed: 0.8562
+  phase_seed_rad: 2.617994
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: energia
+      brief_description: zdolność do pracy, zmiany i podtrzymania procesu
+      near_synonyms_seed:
+      - moc
+      - zasób
+      antonyms_seed:
+      - wyczerpanie
+      - bezwład
+      forms_seed:
+      - energia
+      - energia jako hasło
+      - energia w kontekście
+      context_examples_seed:
+      - Energia tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id021
+      - transforms
+      - has_property
+      - causes
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: energy
+      brief_description: capacity for work, change and sustaining process
+      near_synonyms_seed:
+      - power
+      - capacity
+      antonyms_seed:
+      - exhaustion
+      - inertia
+      forms_seed:
+      - energy
+      - energys
+      - energy as concept
+      context_examples_seed:
+      - Energy forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id021
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Energie
+      brief_description: Fähigkeit zu Arbeit, Veränderung und Prozesshaltung
+      near_synonyms_seed:
+      - Kraft
+      - Kapazität
+      antonyms_seed:
+      - Erschöpfung
+      - Trägheit
+      forms_seed:
+      - Energie
+      - Energie als Begriff
+      - Energie im Kontext
+      context_examples_seed:
+      - Energie bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id021
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: énergie
+      brief_description: capacité de travail, changement et maintien de processus
+      near_synonyms_seed:
+      - puissance
+      - capacité
+      antonyms_seed:
+      - épuisement
+      - inertie
+      forms_seed:
+      - énergie
+      - énergie comme concept
+      - énergie en contexte
+      context_examples_seed:
+      - Énergie forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id021
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: energía
+      brief_description: capacidad de trabajo, cambio y sostén de proceso
+      near_synonyms_seed:
+      - potencia
+      - capacidad
+      antonyms_seed:
+      - agotamiento
+      - inercia
+      forms_seed:
+      - energía
+      - energía como concepto
+      - energía en contexto
+      context_examples_seed:
+      - Energía forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id021
+      review_status: needs_human_validation
+  operator_hooks: *id021
+  relations:
+  - type: transforms
+    target: concept:matter
+    status: draft_seed
+  - type: supports
+    target: concept:motion
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:matter
+  canonical_label_en: matter
+  batch_id: batch01_foundational_36x5
+  domain: physics
+  semantic_axes:
+  - substance
+  - materiality
+  - mass
+  semantic_mass_seed: 0.9
+  phase_seed_rad: 2.792527
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: materia
+      brief_description: substancjalny nośnik masy, struktury i przemiany
+      near_synonyms_seed:
+      - substancja
+      - tworzywo
+      antonyms_seed:
+      - pustka
+      - informacja
+      forms_seed:
+      - materia
+      - materia jako hasło
+      - materia w kontekście
+      context_examples_seed:
+      - Materia tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id022
+      - contains
+      - has_property
+      - transforms
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: matter
+      brief_description: substantial carrier of mass, structure and transformation
+      near_synonyms_seed:
+      - substance
+      - material
+      antonyms_seed:
+      - void
+      - information
+      forms_seed:
+      - matter
+      - matters
+      - matter as concept
+      context_examples_seed:
+      - Matter forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id022
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Materie
+      brief_description: substantieller Träger von Masse, Struktur und Verwandlung
+      near_synonyms_seed:
+      - Substanz
+      - Stoff
+      antonyms_seed:
+      - Leere
+      - Information
+      forms_seed:
+      - Materie
+      - Materie als Begriff
+      - Materie im Kontext
+      context_examples_seed:
+      - Materie bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id022
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: matière
+      brief_description: support substantiel de masse, structure et transformation
+      near_synonyms_seed:
+      - substance
+      - matériau
+      antonyms_seed:
+      - vide
+      - information
+      forms_seed:
+      - matière
+      - matière comme concept
+      - matière en contexte
+      context_examples_seed:
+      - Matière forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id022
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: materia
+      brief_description: soporte sustancial de masa, estructura y transformación
+      near_synonyms_seed:
+      - sustancia
+      - material
+      antonyms_seed:
+      - vacío
+      - información
+      forms_seed:
+      - materia
+      - materia como concepto
+      - materia en contexto
+      context_examples_seed:
+      - Materia forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id022
+      review_status: needs_human_validation
+  operator_hooks: *id022
+  relations:
+  - type: paired_with
+    target: concept:information
+    status: draft_seed
+  - type: receives
+    target: concept:energy
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:information
+  canonical_label_en: information
+  batch_id: batch01_foundational_36x5
+  domain: informational
+  semantic_axes:
+  - pattern
+  - difference
+  - signal
+  semantic_mass_seed: 0.55
+  phase_seed_rad: 2.96706
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: informacja
+      brief_description: różnica, wzorzec lub sygnał zdolny zmienić stan systemu
+      near_synonyms_seed:
+      - dane
+      - wiadomość
+      antonyms_seed:
+      - szum
+      - niewiedza
+      forms_seed:
+      - informacja
+      - informacja jako hasło
+      - informacja w kontekście
+      context_examples_seed:
+      - Informacja tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id023
+      - means
+      - contains
+      - reveals
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: information
+      brief_description: difference, pattern or signal able to change a system state
+      near_synonyms_seed:
+      - data
+      - message
+      antonyms_seed:
+      - noise
+      - ignorance
+      forms_seed:
+      - information
+      - information
+      - information as concept
+      context_examples_seed:
+      - Information forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id023
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Information
+      brief_description: Unterschied, Muster oder Signal, das Systemzustand ändern
+        kann
+      near_synonyms_seed:
+      - Daten
+      - Nachricht
+      antonyms_seed:
+      - Rauschen
+      - Unwissen
+      forms_seed:
+      - Information
+      - Information als Begriff
+      - Information im Kontext
+      context_examples_seed:
+      - Information bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id023
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: information
+      brief_description: différence, motif ou signal capable de changer un état de
+        système
+      near_synonyms_seed:
+      - données
+      - message
+      antonyms_seed:
+      - bruit
+      - ignorance
+      forms_seed:
+      - information
+      - information comme concept
+      - information en contexte
+      context_examples_seed:
+      - Information forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id023
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: información
+      brief_description: diferencia, patrón o señal capaz de cambiar un estado del
+        sistema
+      near_synonyms_seed:
+      - datos
+      - mensaje
+      antonyms_seed:
+      - ruido
+      - ignorancia
+      forms_seed:
+      - información
+      - información como concepto
+      - información en contexto
+      context_examples_seed:
+      - Información forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id023
+      review_status: needs_human_validation
+  operator_hooks: *id023
+  relations:
+  - type: opposes
+    target: concept:error
+    status: draft_seed
+  - type: supports
+    target: concept:knowledge
+    status: draft_seed
+  - type: patterns
+    target: concept:matter
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:truth
+  canonical_label_en: truth
+  batch_id: batch01_foundational_36x5
+  domain: epistemic
+  semantic_axes:
+  - correspondence
+  - validity
+  - coherence
+  semantic_mass_seed: 0.5938
+  phase_seed_rad: 3.141593
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: prawda
+      brief_description: stan zgodności twierdzenia z rzeczywistością, dowodem lub
+        koherencją
+      near_synonyms_seed:
+      - fakt
+      - zgodność
+      antonyms_seed:
+      - kłamstwo
+      - fałsz
+      forms_seed:
+      - prawda
+      - prawda jako hasło
+      - prawda w kontekście
+      context_examples_seed:
+      - Prawda tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id024
+      - is
+      - knows
+      - proves
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: truth
+      brief_description: state of agreement with reality, proof or coherence
+      near_synonyms_seed:
+      - fact
+      - validity
+      antonyms_seed:
+      - lie
+      - falsehood
+      forms_seed:
+      - truth
+      - truth
+      - truth as concept
+      context_examples_seed:
+      - Truth forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id024
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Wahrheit
+      brief_description: Zustand der Übereinstimmung mit Wirklichkeit, Beweis oder
+        Kohärenz
+      near_synonyms_seed:
+      - Fakt
+      - Gültigkeit
+      antonyms_seed:
+      - Lüge
+      - Falschheit
+      forms_seed:
+      - Wahrheit
+      - Wahrheit als Begriff
+      - Wahrheit im Kontext
+      context_examples_seed:
+      - Wahrheit bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id024
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: vérité
+      brief_description: état d’accord avec réalité, preuve ou cohérence
+      near_synonyms_seed:
+      - fait
+      - validité
+      antonyms_seed:
+      - mensonge
+      - fausseté
+      forms_seed:
+      - vérité
+      - vérité comme concept
+      - vérité en contexte
+      context_examples_seed:
+      - Vérité forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id024
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: verdad
+      brief_description: estado de acuerdo con realidad, prueba o coherencia
+      near_synonyms_seed:
+      - hecho
+      - validez
+      antonyms_seed:
+      - mentira
+      - falsedad
+      forms_seed:
+      - verdad
+      - verdad como concepto
+      - verdad en contexto
+      context_examples_seed:
+      - Verdad forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id024
+      review_status: needs_human_validation
+  operator_hooks: *id024
+  relations:
+  - type: opposes
+    target: concept:lie
+    status: draft_seed
+  - type: supports
+    target: concept:knowledge
+    status: draft_seed
+  - type: reduces
+    target: concept:error
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:lie
+  canonical_label_en: lie
+  batch_id: batch01_foundational_36x5
+  domain: epistemic
+  semantic_axes:
+  - deception
+  - falsehood
+  - intent
+  semantic_mass_seed: 0.6375
+  phase_seed_rad: 3.316126
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: kłamstwo
+      brief_description: świadome lub skutkowe oddalenie komunikatu od prawdy
+      near_synonyms_seed:
+      - fałsz
+      - oszustwo
+      antonyms_seed:
+      - prawda
+      - szczerość
+      forms_seed:
+      - kłamstwo
+      - kłamstwo jako hasło
+      - kłamstwo w kontekście
+      context_examples_seed:
+      - Kłamstwo tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id025
+      - not
+      - hides
+      - deceives
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: lie
+      brief_description: intentional or effective separation of a message from truth
+      near_synonyms_seed:
+      - falsehood
+      - deception
+      antonyms_seed:
+      - truth
+      - honesty
+      forms_seed:
+      - lie
+      - lies
+      - lie as concept
+      context_examples_seed:
+      - Lie forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id025
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Lüge
+      brief_description: absichtliche oder wirksame Entfernung einer Nachricht von
+        Wahrheit
+      near_synonyms_seed:
+      - Falschheit
+      - Täuschung
+      antonyms_seed:
+      - Wahrheit
+      - Ehrlichkeit
+      forms_seed:
+      - Lüge
+      - Lüge als Begriff
+      - Lüge im Kontext
+      context_examples_seed:
+      - Lüge bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id025
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: mensonge
+      brief_description: séparation intentionnelle ou effective d’un message de la
+        vérité
+      near_synonyms_seed:
+      - fausseté
+      - tromperie
+      antonyms_seed:
+      - vérité
+      - honnêteté
+      forms_seed:
+      - mensonge
+      - mensonge comme concept
+      - mensonge en contexte
+      context_examples_seed:
+      - Mensonge forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id025
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: mentira
+      brief_description: separación intencional o efectiva de un mensaje de la verdad
+      near_synonyms_seed:
+      - falsedad
+      - engaño
+      antonyms_seed:
+      - verdad
+      - honestidad
+      forms_seed:
+      - mentira
+      - mentira como concepto
+      - mentira en contexto
+      context_examples_seed:
+      - Mentira forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id025
+      review_status: needs_human_validation
+  operator_hooks: *id025
+  relations:
+  - type: opposes
+    target: concept:truth
+    status: draft_seed
+  - type: increases
+    target: concept:error
+    status: draft_seed
+  - type: harms
+    target: concept:trust
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:good
+  canonical_label_en: good
+  batch_id: batch01_foundational_36x5
+  domain: ethical
+  semantic_axes:
+  - benefit
+  - care
+  - rightness
+  semantic_mass_seed: 0.6813
+  phase_seed_rad: 3.490659
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: dobro
+      brief_description: wartość sprzyjająca życiu, spójności, trosce lub naprawie
+      near_synonyms_seed:
+      - korzyść
+      - słuszność
+      antonyms_seed:
+      - zło
+      - krzywda
+      forms_seed:
+      - dobro
+      - dobro jako hasło
+      - dobro w kontekście
+      context_examples_seed:
+      - Dobro tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id026
+      - supports
+      - with
+      - because
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: good
+      brief_description: value supporting life, coherence, care or repair
+      near_synonyms_seed:
+      - benefit
+      - rightness
+      antonyms_seed:
+      - evil
+      - harm
+      forms_seed:
+      - good
+      - goods
+      - good as concept
+      context_examples_seed:
+      - Good forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id026
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Gut
+      brief_description: Wert, der Leben, Kohärenz, Sorge oder Reparatur stützt
+      near_synonyms_seed:
+      - Nutzen
+      - Richtigkeit
+      antonyms_seed:
+      - Böse
+      - Schaden
+      forms_seed:
+      - Gut
+      - Gut als Begriff
+      - Gut im Kontext
+      context_examples_seed:
+      - Gut bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id026
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: bien
+      brief_description: valeur soutenant vie, cohérence, soin ou réparation
+      near_synonyms_seed:
+      - bénéfice
+      - justesse
+      antonyms_seed:
+      - mal
+      - dommage
+      forms_seed:
+      - bien
+      - bien comme concept
+      - bien en contexte
+      context_examples_seed:
+      - Bien forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id026
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: bien
+      brief_description: valor que apoya vida, coherencia, cuidado o reparación
+      near_synonyms_seed:
+      - beneficio
+      - rectitud
+      antonyms_seed:
+      - mal
+      - daño
+      forms_seed:
+      - bien
+      - bien como concepto
+      - bien en contexto
+      context_examples_seed:
+      - Bien forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id026
+      review_status: needs_human_validation
+  operator_hooks: *id026
+  relations:
+  - type: opposes
+    target: concept:harm
+    status: draft_seed
+  - type: supports
+    target: concept:trust
+    status: draft_seed
+  - type: supports
+    target: concept:life
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:harm
+  canonical_label_en: harm
+  batch_id: batch01_foundational_36x5
+  domain: ethical
+  semantic_axes:
+  - damage
+  - risk
+  - injury
+  semantic_mass_seed: 0.725
+  phase_seed_rad: 3.665191
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: krzywda
+      brief_description: uszkodzenie, strata lub naruszenie dobra podmiotu
+      near_synonyms_seed:
+      - szkoda
+      - rana
+      antonyms_seed:
+      - dobro
+      - opieka
+      forms_seed:
+      - krzywda
+      - krzywda jako hasło
+      - krzywda w kontekście
+      context_examples_seed:
+      - Krzywda tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id027
+      - harms
+      - without
+      - causes
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: harm
+      brief_description: damage, loss or violation of a subject’s good
+      near_synonyms_seed:
+      - damage
+      - injury
+      antonyms_seed:
+      - good
+      - care
+      forms_seed:
+      - harm
+      - harms
+      - harm as concept
+      context_examples_seed:
+      - Harm forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id027
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Schaden
+      brief_description: Beschädigung, Verlust oder Verletzung eines Wohls
+      near_synonyms_seed:
+      - Verletzung
+      - Nachteil
+      antonyms_seed:
+      - Gut
+      - Fürsorge
+      forms_seed:
+      - Schaden
+      - Schaden als Begriff
+      - Schaden im Kontext
+      context_examples_seed:
+      - Schaden bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id027
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: dommage
+      brief_description: dommage, perte ou violation du bien d’un sujet
+      near_synonyms_seed:
+      - préjudice
+      - blessure
+      antonyms_seed:
+      - bien
+      - soin
+      forms_seed:
+      - dommage
+      - dommage comme concept
+      - dommage en contexte
+      context_examples_seed:
+      - Dommage forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id027
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: daño
+      brief_description: daño, pérdida o violación del bien de un sujeto
+      near_synonyms_seed:
+      - perjuicio
+      - lesión
+      antonyms_seed:
+      - bien
+      - cuidado
+      forms_seed:
+      - daño
+      - daño como concepto
+      - daño en contexto
+      context_examples_seed:
+      - Daño forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id027
+      review_status: needs_human_validation
+  operator_hooks: *id027
+  relations:
+  - type: opposes
+    target: concept:good
+    status: draft_seed
+  - type: causes
+    target: concept:pain
+    status: draft_seed
+  - type: reduces
+    target: concept:trust
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:order
+  canonical_label_en: order
+  batch_id: batch01_foundational_36x5
+  domain: structure
+  semantic_axes:
+  - pattern
+  - stability
+  - arrangement
+  semantic_mass_seed: 0.7688
+  phase_seed_rad: 3.839724
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: porządek
+      brief_description: stabilny układ relacji, reguł i wzorców
+      near_synonyms_seed:
+      - ład
+      - układ
+      antonyms_seed:
+      - chaos
+      - nieład
+      forms_seed:
+      - porządek
+      - porządek jako hasło
+      - porządek w kontekście
+      context_examples_seed:
+      - Porządek tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id028
+      - arranges
+      - contains
+      - because
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: order
+      brief_description: stable arrangement of relations, rules and patterns
+      near_synonyms_seed:
+      - structure
+      - arrangement
+      antonyms_seed:
+      - chaos
+      - disorder
+      forms_seed:
+      - order
+      - orders
+      - order as concept
+      context_examples_seed:
+      - Order forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id028
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Ordnung
+      brief_description: stabile Anordnung von Beziehungen, Regeln und Mustern
+      near_synonyms_seed:
+      - Struktur
+      - Anordnung
+      antonyms_seed:
+      - Chaos
+      - Unordnung
+      forms_seed:
+      - Ordnung
+      - Ordnung als Begriff
+      - Ordnung im Kontext
+      context_examples_seed:
+      - Ordnung bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id028
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: ordre
+      brief_description: agencement stable de relations, règles et motifs
+      near_synonyms_seed:
+      - structure
+      - agencement
+      antonyms_seed:
+      - chaos
+      - désordre
+      forms_seed:
+      - ordre
+      - ordre comme concept
+      - ordre en contexte
+      context_examples_seed:
+      - Ordre forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id028
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: orden
+      brief_description: disposición estable de relaciones, reglas y patrones
+      near_synonyms_seed:
+      - estructura
+      - arreglo
+      antonyms_seed:
+      - caos
+      - desorden
+      forms_seed:
+      - orden
+      - orden como concepto
+      - orden en contexto
+      context_examples_seed:
+      - Orden forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id028
+      review_status: needs_human_validation
+  operator_hooks: *id028
+  relations:
+  - type: opposes
+    target: concept:chaos
+    status: draft_seed
+  - type: supports
+    target: concept:knowledge
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:chaos
+  canonical_label_en: chaos
+  batch_id: batch01_foundational_36x5
+  domain: structure
+  semantic_axes:
+  - disorder
+  - unpredictability
+  - variance
+  semantic_mass_seed: 0.8125
+  phase_seed_rad: 4.014257
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: chaos
+      brief_description: wysoka nieuporządkowaność, zmienność lub brak stabilnych
+        relacji
+      near_synonyms_seed:
+      - nieład
+      - zamęt
+      antonyms_seed:
+      - porządek
+      - ład
+      forms_seed:
+      - chaos
+      - chaos jako hasło
+      - chaos w kontekście
+      context_examples_seed:
+      - Chaos tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id029
+      - not
+      - disrupts
+      - through
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: chaos
+      brief_description: high disorder, variance or lack of stable relations
+      near_synonyms_seed:
+      - disorder
+      - confusion
+      antonyms_seed:
+      - order
+      - structure
+      forms_seed:
+      - chaos
+      - chaoss
+      - chaos as concept
+      context_examples_seed:
+      - Chaos forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id029
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Chaos
+      brief_description: hohe Unordnung, Varianz oder Mangel stabiler Beziehungen
+      near_synonyms_seed:
+      - Unordnung
+      - Wirrwarr
+      antonyms_seed:
+      - Ordnung
+      - Struktur
+      forms_seed:
+      - Chaos
+      - Chaos als Begriff
+      - Chaos im Kontext
+      context_examples_seed:
+      - Chaos bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id029
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: chaos
+      brief_description: fort désordre, variance ou manque de relations stables
+      near_synonyms_seed:
+      - désordre
+      - confusion
+      antonyms_seed:
+      - ordre
+      - structure
+      forms_seed:
+      - chaos
+      - chaos comme concept
+      - chaos en contexte
+      context_examples_seed:
+      - Chaos forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id029
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: caos
+      brief_description: alto desorden, variación o falta de relaciones estables
+      near_synonyms_seed:
+      - desorden
+      - confusión
+      antonyms_seed:
+      - orden
+      - estructura
+      forms_seed:
+      - caos
+      - caos como concepto
+      - caos en contexto
+      context_examples_seed:
+      - Caos forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id029
+      review_status: needs_human_validation
+  operator_hooks: *id029
+  relations:
+  - type: opposes
+    target: concept:order
+    status: draft_seed
+  - type: increases
+    target: concept:error
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:center
+  canonical_label_en: center
+  batch_id: batch01_foundational_36x5
+  domain: geometry
+  semantic_axes:
+  - focus
+  - middle
+  - attractor
+  semantic_mass_seed: 0.8562
+  phase_seed_rad: 4.18879
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: centrum
+      brief_description: punkt odniesienia, środek lub lokalny atraktor układu
+      near_synonyms_seed:
+      - środek
+      - rdzeń
+      antonyms_seed:
+      - brzeg
+      - peryferia
+      forms_seed:
+      - centrum
+      - centrum jako hasło
+      - centrum w kontekście
+      context_examples_seed:
+      - Centrum tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id030
+      - inside
+      - around
+      - to
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: center
+      brief_description: reference point, middle or local attractor of a system
+      near_synonyms_seed:
+      - middle
+      - core
+      antonyms_seed:
+      - edge
+      - periphery
+      forms_seed:
+      - center
+      - centers
+      - center as concept
+      context_examples_seed:
+      - Center forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id030
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Zentrum
+      brief_description: Bezugspunkt, Mitte oder lokaler Attraktor eines Systems
+      near_synonyms_seed:
+      - Mitte
+      - Kern
+      antonyms_seed:
+      - Rand
+      - Peripherie
+      forms_seed:
+      - Zentrum
+      - Zentrum als Begriff
+      - Zentrum im Kontext
+      context_examples_seed:
+      - Zentrum bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id030
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: centre
+      brief_description: point de référence, milieu ou attracteur local d’un système
+      near_synonyms_seed:
+      - milieu
+      - noyau
+      antonyms_seed:
+      - bord
+      - périphérie
+      forms_seed:
+      - centre
+      - centre comme concept
+      - centre en contexte
+      context_examples_seed:
+      - Centre forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id030
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: centro
+      brief_description: punto de referencia, medio o atractor local de un sistema
+      near_synonyms_seed:
+      - medio
+      - núcleo
+      antonyms_seed:
+      - borde
+      - periferia
+      forms_seed:
+      - centro
+      - centro como concepto
+      - centro en contexto
+      context_examples_seed:
+      - Centro forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id030
+      review_status: needs_human_validation
+  operator_hooks: *id030
+  relations:
+  - type: opposes
+    target: concept:boundary
+    status: draft_seed
+  - type: attracts
+    target: concept:relation
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:boundary
+  canonical_label_en: boundary
+  batch_id: batch01_foundational_36x5
+  domain: geometry
+  semantic_axes:
+  - limit
+  - edge
+  - separation
+  semantic_mass_seed: 0.9
+  phase_seed_rad: 4.363323
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: granica
+      brief_description: linia lub warunek oddzielający wnętrze od zewnętrza
+      near_synonyms_seed:
+      - brzeg
+      - limit
+      antonyms_seed:
+      - centrum
+      - ciągłość
+      forms_seed:
+      - granica
+      - granica jako hasło
+      - granica w kontekście
+      context_examples_seed:
+      - Granica tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id031
+      - inside
+      - outside
+      - contains
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: boundary
+      brief_description: line or condition separating inside from outside
+      near_synonyms_seed:
+      - edge
+      - limit
+      antonyms_seed:
+      - center
+      - continuity
+      forms_seed:
+      - boundary
+      - boundarys
+      - boundary as concept
+      context_examples_seed:
+      - Boundary forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id031
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Grenze
+      brief_description: Linie oder Bedingung, die Innen von Außen trennt
+      near_synonyms_seed:
+      - Rand
+      - Limit
+      antonyms_seed:
+      - Zentrum
+      - Kontinuität
+      forms_seed:
+      - Grenze
+      - Grenze als Begriff
+      - Grenze im Kontext
+      context_examples_seed:
+      - Grenze bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id031
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: limite
+      brief_description: ligne ou condition séparant intérieur et extérieur
+      near_synonyms_seed:
+      - bord
+      - frontière
+      antonyms_seed:
+      - centre
+      - continuité
+      forms_seed:
+      - limite
+      - limite comme concept
+      - limite en contexte
+      context_examples_seed:
+      - Limite forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id031
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: límite
+      brief_description: línea o condición que separa interior y exterior
+      near_synonyms_seed:
+      - borde
+      - frontera
+      antonyms_seed:
+      - centro
+      - continuidad
+      forms_seed:
+      - límite
+      - límite como concepto
+      - límite en contexto
+      context_examples_seed:
+      - Límite forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id031
+      review_status: needs_human_validation
+  operator_hooks: *id031
+  relations:
+  - type: opposes
+    target: concept:center
+    status: draft_seed
+  - type: bounds
+    target: concept:space
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:self
+  canonical_label_en: self
+  batch_id: batch01_foundational_36x5
+  domain: relational
+  semantic_axes:
+  - identity
+  - subject
+  - perspective
+  semantic_mass_seed: 0.55
+  phase_seed_rad: 4.537856
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: ja
+      brief_description: perspektywa podmiotu, własna tożsamość i punkt odniesienia
+      near_synonyms_seed:
+      - siebie
+      - podmiot
+      antonyms_seed:
+      - inny
+      - obcy
+      forms_seed:
+      - ja
+      - ja jako hasło
+      - ja w kontekście
+      context_examples_seed:
+      - Ja tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id032
+      - is
+      - has
+      - knows
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: self
+      brief_description: subject perspective, own identity and reference point
+      near_synonyms_seed:
+      - identity
+      - subject
+      antonyms_seed:
+      - other
+      - stranger
+      forms_seed:
+      - self
+      - selfs
+      - self as concept
+      context_examples_seed:
+      - Self forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id032
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Selbst
+      brief_description: Subjektperspektive, eigene Identität und Bezugspunkt
+      near_synonyms_seed:
+      - Ich
+      - Subjekt
+      antonyms_seed:
+      - Andere
+      - Fremde
+      forms_seed:
+      - Selbst
+      - Selbst als Begriff
+      - Selbst im Kontext
+      context_examples_seed:
+      - Selbst bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id032
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: soi
+      brief_description: perspective du sujet, identité propre et point de référence
+      near_synonyms_seed:
+      - moi
+      - sujet
+      antonyms_seed:
+      - autre
+      - étranger
+      forms_seed:
+      - soi
+      - soi comme concept
+      - soi en contexte
+      context_examples_seed:
+      - Soi forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id032
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: yo
+      brief_description: perspectiva del sujeto, identidad propia y punto de referencia
+      near_synonyms_seed:
+      - sí mismo
+      - sujeto
+      antonyms_seed:
+      - otro
+      - extraño
+      forms_seed:
+      - yo
+      - yo como concepto
+      - yo en contexto
+      context_examples_seed:
+      - Yo forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id032
+      review_status: needs_human_validation
+  operator_hooks: *id032
+  relations:
+  - type: opposes
+    target: concept:other
+    status: draft_seed
+  - type: stabilizes
+    target: concept:identity
+    status: draft_seed
+  - type: stores
+    target: concept:memory
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:other
+  canonical_label_en: other
+  batch_id: batch01_foundational_36x5
+  domain: relational
+  semantic_axes:
+  - alterity
+  - external_subject
+  - difference
+  semantic_mass_seed: 0.5938
+  phase_seed_rad: 4.712389
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: inny
+      brief_description: podmiot lub obiekt odróżniony od ja
+      near_synonyms_seed:
+      - drugi
+      - obcy
+      antonyms_seed:
+      - ja
+      - swoje
+      forms_seed:
+      - inny
+      - inny jako hasło
+      - inny w kontekście
+      context_examples_seed:
+      - Inny tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id033
+      - with
+      - without
+      - relation
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: other
+      brief_description: subject or object distinguished from self
+      near_synonyms_seed:
+      - another
+      - else
+      antonyms_seed:
+      - self
+      - same
+      forms_seed:
+      - other
+      - others
+      - other as concept
+      context_examples_seed:
+      - Other forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id033
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Andere
+      brief_description: Subjekt oder Objekt, das vom Selbst unterschieden ist
+      near_synonyms_seed:
+      - Anderer
+      - Fremder
+      antonyms_seed:
+      - Selbst
+      - Gleiches
+      forms_seed:
+      - Andere
+      - Andere als Begriff
+      - Andere im Kontext
+      context_examples_seed:
+      - Andere bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id033
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: autre
+      brief_description: sujet ou objet distingué du soi
+      near_synonyms_seed:
+      - autrui
+      - différent
+      antonyms_seed:
+      - soi
+      - même
+      forms_seed:
+      - autre
+      - autre comme concept
+      - autre en contexte
+      context_examples_seed:
+      - Autre forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id033
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: otro
+      brief_description: sujeto u objeto distinguido del yo
+      near_synonyms_seed:
+      - ajeno
+      - distinto
+      antonyms_seed:
+      - yo
+      - mismo
+      forms_seed:
+      - otro
+      - otro como concepto
+      - otro en contexto
+      context_examples_seed:
+      - Otro forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id033
+      review_status: needs_human_validation
+  operator_hooks: *id033
+  relations:
+  - type: opposes
+    target: concept:self
+    status: draft_seed
+  - type: requires
+    target: concept:relation
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:relation
+  canonical_label_en: relation
+  batch_id: batch01_foundational_36x5
+  domain: relational
+  semantic_axes:
+  - connection
+  - mapping
+  - bond
+  semantic_mass_seed: 0.6375
+  phase_seed_rad: 4.886922
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: relacja
+      brief_description: wiązanie, zależność lub mapowanie między obiektami
+      near_synonyms_seed:
+      - związek
+      - więź
+      antonyms_seed:
+      - separacja
+      - izolacja
+      forms_seed:
+      - relacja
+      - relacja jako hasło
+      - relacja w kontekście
+      context_examples_seed:
+      - Relacja tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id034
+      - with
+      - between
+      - maps
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: relation
+      brief_description: bond, dependency or mapping between objects
+      near_synonyms_seed:
+      - connection
+      - bond
+      antonyms_seed:
+      - separation
+      - isolation
+      forms_seed:
+      - relation
+      - relations
+      - relation as concept
+      context_examples_seed:
+      - Relation forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id034
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Beziehung
+      brief_description: Bindung, Abhängigkeit oder Abbildung zwischen Objekten
+      near_synonyms_seed:
+      - Verbindung
+      - Bindung
+      antonyms_seed:
+      - Trennung
+      - Isolation
+      forms_seed:
+      - Beziehung
+      - Beziehung als Begriff
+      - Beziehung im Kontext
+      context_examples_seed:
+      - Beziehung bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id034
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: relation
+      brief_description: lien, dépendance ou application entre objets
+      near_synonyms_seed:
+      - connexion
+      - lien
+      antonyms_seed:
+      - séparation
+      - isolement
+      forms_seed:
+      - relation
+      - relation comme concept
+      - relation en contexte
+      context_examples_seed:
+      - Relation forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id034
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: relación
+      brief_description: vínculo, dependencia o mapeo entre objetos
+      near_synonyms_seed:
+      - conexión
+      - vínculo
+      antonyms_seed:
+      - separación
+      - aislamiento
+      forms_seed:
+      - relación
+      - relación como concepto
+      - relación en contexto
+      context_examples_seed:
+      - Relación forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id034
+      review_status: needs_human_validation
+  operator_hooks: *id034
+  relations:
+  - type: connects
+    target: concept:self
+    status: draft_seed
+  - type: connects
+    target: concept:other
+    status: draft_seed
+  - type: supports
+    target: concept:memory
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:memory
+  canonical_label_en: memory
+  batch_id: batch01_foundational_36x5
+  domain: cognitive
+  semantic_axes:
+  - persistence
+  - record
+  - identity
+  semantic_mass_seed: 0.6813
+  phase_seed_rad: 5.061455
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: pamięć
+      brief_description: utrwalenie śladów, relacji i stanów w czasie
+      near_synonyms_seed:
+      - wspomnienie
+      - zapis
+      antonyms_seed:
+      - zapomnienie
+      - amnezja
+      forms_seed:
+      - pamięć
+      - pamięć jako hasło
+      - pamięć w kontekście
+      context_examples_seed:
+      - Pamięć tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id035
+      - after
+      - contains
+      - has_state
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: memory
+      brief_description: persistence of traces, relations and states over time
+      near_synonyms_seed:
+      - recollection
+      - record
+      antonyms_seed:
+      - forgetting
+      - amnesia
+      forms_seed:
+      - memory
+      - memorys
+      - memory as concept
+      context_examples_seed:
+      - Memory forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id035
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Gedächtnis
+      brief_description: Fortbestehen von Spuren, Beziehungen und Zuständen in der
+        Zeit
+      near_synonyms_seed:
+      - Erinnerung
+      - Aufzeichnung
+      antonyms_seed:
+      - Vergessen
+      - Amnesie
+      forms_seed:
+      - Gedächtnis
+      - Gedächtnis als Begriff
+      - Gedächtnis im Kontext
+      context_examples_seed:
+      - Gedächtnis bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id035
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: mémoire
+      brief_description: persistance de traces, relations et états dans le temps
+      near_synonyms_seed:
+      - souvenir
+      - trace
+      antonyms_seed:
+      - oubli
+      - amnésie
+      forms_seed:
+      - mémoire
+      - mémoire comme concept
+      - mémoire en contexte
+      context_examples_seed:
+      - Mémoire forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id035
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: memoria
+      brief_description: persistencia de rastros, relaciones y estados en el tiempo
+      near_synonyms_seed:
+      - recuerdo
+      - registro
+      antonyms_seed:
+      - olvido
+      - amnesia
+      forms_seed:
+      - memoria
+      - memoria como concepto
+      - memoria en contexto
+      context_examples_seed:
+      - Memoria forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id035
+      review_status: needs_human_validation
+  operator_hooks: *id035
+  relations:
+  - type: supports
+    target: concept:identity
+    status: draft_seed
+  - type: stores
+    target: concept:information
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:love
+  canonical_label_en: love
+  batch_id: batch01_foundational_36x5
+  domain: affective
+  semantic_axes:
+  - bond
+  - care
+  - attraction
+  semantic_mass_seed: 0.725
+  phase_seed_rad: 5.235988
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: miłość
+      brief_description: silna więź troski, przywiązania i ukierunkowania na dobro
+      near_synonyms_seed:
+      - uczucie
+      - przywiązanie
+      antonyms_seed:
+      - nienawiść
+      - obojętność
+      forms_seed:
+      - miłość
+      - miłość jako hasło
+      - miłość w kontekście
+      context_examples_seed:
+      - Miłość tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id036
+      - with
+      - cares_for
+      - supports
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: love
+      brief_description: strong bond of care, attachment and orientation toward good
+      near_synonyms_seed:
+      - affection
+      - attachment
+      antonyms_seed:
+      - hate
+      - indifference
+      forms_seed:
+      - love
+      - loves
+      - love as concept
+      context_examples_seed:
+      - Love forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id036
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Liebe
+      brief_description: starke Bindung von Fürsorge, Anhänglichkeit und Orientierung
+        zum Guten
+      near_synonyms_seed:
+      - Zuneigung
+      - Bindung
+      antonyms_seed:
+      - Hass
+      - Gleichgültigkeit
+      forms_seed:
+      - Liebe
+      - Liebe als Begriff
+      - Liebe im Kontext
+      context_examples_seed:
+      - Liebe bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id036
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: amour
+      brief_description: lien fort de soin, attachement et orientation vers le bien
+      near_synonyms_seed:
+      - affection
+      - attachement
+      antonyms_seed:
+      - haine
+      - indifférence
+      forms_seed:
+      - amour
+      - amour comme concept
+      - amour en contexte
+      context_examples_seed:
+      - Amour forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id036
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: amor
+      brief_description: vínculo fuerte de cuidado, apego y orientación hacia el bien
+      near_synonyms_seed:
+      - afecto
+      - apego
+      antonyms_seed:
+      - odio
+      - indiferencia
+      forms_seed:
+      - amor
+      - amor como concepto
+      - amor en contexto
+      context_examples_seed:
+      - Amor forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id036
+      review_status: needs_human_validation
+  operator_hooks: *id036
+  relations:
+  - type: opposes
+    target: concept:fear
+    status: draft_seed
+  - type: supports
+    target: concept:trust
+    status: draft_seed
+  - type: reduces
+    target: concept:harm
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:fear
+  canonical_label_en: fear
+  batch_id: batch01_foundational_36x5
+  domain: affective
+  semantic_axes:
+  - threat
+  - avoidance
+  - arousal
+  semantic_mass_seed: 0.7688
+  phase_seed_rad: 5.410521
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: strach
+      brief_description: reakcja na zagrożenie, ryzyko lub niepewność szkody
+      near_synonyms_seed:
+      - lęk
+      - obawa
+      antonyms_seed:
+      - odwaga
+      - zaufanie
+      forms_seed:
+      - strach
+      - strach jako hasło
+      - strach w kontekście
+      context_examples_seed:
+      - Strach tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id037
+      - avoids
+      - because
+      - not
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: fear
+      brief_description: response to threat, risk or uncertainty of harm
+      near_synonyms_seed:
+      - anxiety
+      - worry
+      antonyms_seed:
+      - courage
+      - trust
+      forms_seed:
+      - fear
+      - fears
+      - fear as concept
+      context_examples_seed:
+      - Fear forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id037
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Angst
+      brief_description: Reaktion auf Bedrohung, Risiko oder Unsicherheit von Schaden
+      near_synonyms_seed:
+      - Furcht
+      - Sorge
+      antonyms_seed:
+      - Mut
+      - Vertrauen
+      forms_seed:
+      - Angst
+      - Angst als Begriff
+      - Angst im Kontext
+      context_examples_seed:
+      - Angst bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id037
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: peur
+      brief_description: réponse à menace, risque ou incertitude de dommage
+      near_synonyms_seed:
+      - crainte
+      - angoisse
+      antonyms_seed:
+      - courage
+      - confiance
+      forms_seed:
+      - peur
+      - peur comme concept
+      - peur en contexte
+      context_examples_seed:
+      - Peur forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id037
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: miedo
+      brief_description: respuesta a amenaza, riesgo o incertidumbre de daño
+      near_synonyms_seed:
+      - temor
+      - ansiedad
+      antonyms_seed:
+      - valor
+      - confianza
+      forms_seed:
+      - miedo
+      - miedo como concepto
+      - miedo en contexto
+      context_examples_seed:
+      - Miedo forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id037
+      review_status: needs_human_validation
+  operator_hooks: *id037
+  relations:
+  - type: reduces
+    target: concept:trust
+    status: draft_seed
+  - type: increases
+    target: concept:pain
+    status: draft_seed
+  - type: responds_to
+    target: concept:harm
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:trust
+  canonical_label_en: trust
+  batch_id: batch01_foundational_36x5
+  domain: affective_social
+  semantic_axes:
+  - confidence
+  - safety
+  - relation
+  semantic_mass_seed: 0.8125
+  phase_seed_rad: 5.585054
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: zaufanie
+      brief_description: stabilna gotowość do polegania na relacji, osobie lub systemie
+      near_synonyms_seed:
+      - ufność
+      - wiara
+      antonyms_seed:
+      - nieufność
+      - podejrzenie
+      forms_seed:
+      - zaufanie
+      - zaufanie jako hasło
+      - zaufanie w kontekście
+      context_examples_seed:
+      - Zaufanie tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id038
+      - believes
+      - with
+      - supports
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: trust
+      brief_description: stable readiness to rely on a relation, person or system
+      near_synonyms_seed:
+      - confidence
+      - reliance
+      antonyms_seed:
+      - distrust
+      - suspicion
+      forms_seed:
+      - trust
+      - trusts
+      - trust as concept
+      context_examples_seed:
+      - Trust forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id038
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Vertrauen
+      brief_description: stabile Bereitschaft, sich auf Beziehung, Person oder System
+        zu verlassen
+      near_synonyms_seed:
+      - Zuversicht
+      - Verlässlichkeit
+      antonyms_seed:
+      - Misstrauen
+      - Verdacht
+      forms_seed:
+      - Vertrauen
+      - Vertrauen als Begriff
+      - Vertrauen im Kontext
+      context_examples_seed:
+      - Vertrauen bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id038
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: confiance
+      brief_description: disposition stable à se fier à relation, personne ou système
+      near_synonyms_seed:
+      - assurance
+      - fiance
+      antonyms_seed:
+      - méfiance
+      - soupçon
+      forms_seed:
+      - confiance
+      - confiance comme concept
+      - confiance en contexte
+      context_examples_seed:
+      - Confiance forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id038
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: confianza
+      brief_description: disposición estable a confiar en relación, persona o sistema
+      near_synonyms_seed:
+      - seguridad
+      - fiabilidad
+      antonyms_seed:
+      - desconfianza
+      - sospecha
+      forms_seed:
+      - confianza
+      - confianza como concepto
+      - confianza en contexto
+      context_examples_seed:
+      - Confianza forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id038
+      review_status: needs_human_validation
+  operator_hooks: *id038
+  relations:
+  - type: opposes
+    target: concept:fear
+    status: draft_seed
+  - type: supports
+    target: concept:relation
+    status: draft_seed
+  - type: requires
+    target: concept:truth
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:pain
+  canonical_label_en: pain
+  batch_id: batch01_foundational_36x5
+  domain: affective_body
+  semantic_axes:
+  - damage_signal
+  - suffering
+  - alarm
+  semantic_mass_seed: 0.8562
+  phase_seed_rad: 5.759587
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: ból
+      brief_description: sygnał cierpienia, uszkodzenia lub naruszenia stanu
+      near_synonyms_seed:
+      - cierpienie
+      - rana
+      antonyms_seed:
+      - ulga
+      - przyjemność
+      forms_seed:
+      - ból
+      - ból jako hasło
+      - ból w kontekście
+      context_examples_seed:
+      - Ból tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id039
+      - has_state
+      - caused_by
+      - inside
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: pain
+      brief_description: signal of suffering, damage or disturbed state
+      near_synonyms_seed:
+      - suffering
+      - ache
+      antonyms_seed:
+      - relief
+      - pleasure
+      forms_seed:
+      - pain
+      - pains
+      - pain as concept
+      context_examples_seed:
+      - Pain forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id039
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Schmerz
+      brief_description: Signal von Leiden, Schaden oder gestörtem Zustand
+      near_synonyms_seed:
+      - Leiden
+      - Weh
+      antonyms_seed:
+      - Erleichterung
+      - Freude
+      forms_seed:
+      - Schmerz
+      - Schmerz als Begriff
+      - Schmerz im Kontext
+      context_examples_seed:
+      - Schmerz bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id039
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: douleur
+      brief_description: signal de souffrance, dommage ou état perturbé
+      near_synonyms_seed:
+      - souffrance
+      - mal
+      antonyms_seed:
+      - soulagement
+      - plaisir
+      forms_seed:
+      - douleur
+      - douleur comme concept
+      - douleur en contexte
+      context_examples_seed:
+      - Douleur forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id039
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: dolor
+      brief_description: señal de sufrimiento, daño o estado alterado
+      near_synonyms_seed:
+      - sufrimiento
+      - dolencia
+      antonyms_seed:
+      - alivio
+      - placer
+      forms_seed:
+      - dolor
+      - dolor como concepto
+      - dolor en contexto
+      context_examples_seed:
+      - Dolor forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id039
+      review_status: needs_human_validation
+  operator_hooks: *id039
+  relations:
+  - type: caused_by
+    target: concept:harm
+    status: draft_seed
+  - type: signals
+    target: concept:body
+    status: draft_seed
+  - type: increases
+    target: concept:fear
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:knowledge
+  canonical_label_en: knowledge
+  batch_id: batch01_foundational_36x5
+  domain: epistemic
+  semantic_axes:
+  - understanding
+  - justified_information
+  - model
+  semantic_mass_seed: 0.9
+  phase_seed_rad: 5.934119
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: wiedza
+      brief_description: uzasadniona informacja zintegrowana w model rozumienia
+      near_synonyms_seed:
+      - poznanie
+      - rozumienie
+      antonyms_seed:
+      - niewiedza
+      - błąd
+      forms_seed:
+      - wiedza
+      - wiedza jako hasło
+      - wiedza w kontekście
+      context_examples_seed:
+      - Wiedza tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id040
+      - knows
+      - proves
+      - because
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: knowledge
+      brief_description: justified information integrated into a model of understanding
+      near_synonyms_seed:
+      - understanding
+      - cognition
+      antonyms_seed:
+      - ignorance
+      - error
+      forms_seed:
+      - knowledge
+      - knowledge
+      - knowledge as concept
+      context_examples_seed:
+      - Knowledge forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id040
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Wissen
+      brief_description: begründete Information, integriert in ein Verstehensmodell
+      near_synonyms_seed:
+      - Verständnis
+      - Erkenntnis
+      antonyms_seed:
+      - Unwissen
+      - Fehler
+      forms_seed:
+      - Wissen
+      - Wissen als Begriff
+      - Wissen im Kontext
+      context_examples_seed:
+      - Wissen bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id040
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: connaissance
+      brief_description: information justifiée intégrée dans un modèle de compréhension
+      near_synonyms_seed:
+      - savoir
+      - compréhension
+      antonyms_seed:
+      - ignorance
+      - erreur
+      forms_seed:
+      - connaissance
+      - connaissance comme concept
+      - connaissance en contexte
+      context_examples_seed:
+      - Connaissance forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id040
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: conocimiento
+      brief_description: información justificada integrada en un modelo de comprensión
+      near_synonyms_seed:
+      - saber
+      - comprensión
+      antonyms_seed:
+      - ignorancia
+      - error
+      forms_seed:
+      - conocimiento
+      - conocimiento como concepto
+      - conocimiento en contexto
+      context_examples_seed:
+      - Conocimiento forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id040
+      review_status: needs_human_validation
+  operator_hooks: *id040
+  relations:
+  - type: requires
+    target: concept:truth
+    status: draft_seed
+  - type: uses
+    target: concept:information
+    status: draft_seed
+  - type: reduces
+    target: concept:error
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.
+- schema: ciel_lns_concept_card_v1
+  card_type: CONCEPT_CARD
+  concept_id: concept:error
+  canonical_label_en: error
+  batch_id: batch01_foundational_36x5
+  domain: epistemic
+  semantic_axes:
+  - mistake
+  - mismatch
+  - defect
+  semantic_mass_seed: 0.55
+  phase_seed_rad: 6.108652
+  epistemic_status: draft_seed
+  source_policy: hand_curated_seed_no_external_dictionary_import
+  languages:
+    pl:
+      language_name: Polish
+      lemma: błąd
+      brief_description: rozjazd między stanem, opisem, celem lub regułą
+      near_synonyms_seed:
+      - pomyłka
+      - usterka
+      antonyms_seed:
+      - poprawność
+      - prawda
+      forms_seed:
+      - błąd
+      - błąd jako hasło
+      - błąd w kontekście
+      context_examples_seed:
+      - Błąd tworzy lokalny atraktor sensu.
+      grammar_vector: *id002
+      operator_tags: &id041
+      - not
+      - contradicts
+      - repairs
+      review_status: needs_human_validation
+    en:
+      language_name: English
+      lemma: error
+      brief_description: mismatch between state, description, goal or rule
+      near_synonyms_seed:
+      - mistake
+      - fault
+      antonyms_seed:
+      - correctness
+      - truth
+      forms_seed:
+      - error
+      - errors
+      - error as concept
+      context_examples_seed:
+      - Error forms a local semantic attractor.
+      grammar_vector: *id003
+      operator_tags: *id041
+      review_status: needs_human_validation
+    de:
+      language_name: German
+      lemma: Fehler
+      brief_description: Nichtübereinstimmung zwischen Zustand, Beschreibung, Ziel
+        oder Regel
+      near_synonyms_seed:
+      - Irrtum
+      - Mangel
+      antonyms_seed:
+      - Richtigkeit
+      - Wahrheit
+      forms_seed:
+      - Fehler
+      - Fehler als Begriff
+      - Fehler im Kontext
+      context_examples_seed:
+      - Fehler bildet einen lokalen Bedeutungsattraktor.
+      grammar_vector: *id005
+      operator_tags: *id041
+      review_status: needs_human_validation
+    fr:
+      language_name: French
+      lemma: erreur
+      brief_description: écart entre état, description, but ou règle
+      near_synonyms_seed:
+      - faute
+      - défaut
+      antonyms_seed:
+      - exactitude
+      - vérité
+      forms_seed:
+      - erreur
+      - erreur comme concept
+      - erreur en contexte
+      context_examples_seed:
+      - Erreur forme un attracteur sémantique local.
+      grammar_vector: *id006
+      operator_tags: *id041
+      review_status: needs_human_validation
+    es:
+      language_name: Spanish
+      lemma: error
+      brief_description: desajuste entre estado, descripción, objetivo o regla
+      near_synonyms_seed:
+      - equivocación
+      - falla
+      antonyms_seed:
+      - corrección
+      - verdad
+      forms_seed:
+      - error
+      - error como concepto
+      - error en contexto
+      context_examples_seed:
+      - Error forma un atractor semántico local.
+      grammar_vector: *id007
+      operator_tags: *id041
+      review_status: needs_human_validation
+  operator_hooks: *id041
+  relations:
+  - type: opposes
+    target: concept:knowledge
+    status: draft_seed
+  - type: opposes
+    target: concept:truth
+    status: draft_seed
+  - type: increases
+    target: concept:chaos
+    status: draft_seed
+  notes: This is a seed card. Lexical variants are working tags, not authoritative
+    dictionary claims.

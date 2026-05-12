@@ -29,6 +29,20 @@ def repo_relative(repo_root: Path, path: Path) -> str:
 
 DEFAULT_ROOTS = ["src", "scripts", "integration"]
 SCAN_SUFFIXES = {".py", ".sh", ".md", ".json", ".yaml", ".yml", ".toml"}
+SKIP_DIR_PARTS = {
+    "__pycache__",
+    ".pytest_cache",
+    "node_modules",
+    ".git",
+}
+SKIP_PATH_PREFIXES = (
+    "integration/registries/",
+    "integration/reports/",
+    "integration/logs/",
+    "integration/imports/noema_sapiens_orbital/generated/",
+    "integration/Orbital/main/reports/",
+    "integration/Orbital/main/data/source/",
+)
 
 
 def module_name_from_path(path: Path) -> str:
@@ -39,8 +53,18 @@ def module_name_from_path(path: Path) -> str:
 def short_doc(text: str | None) -> str:
     if not text:
         return ""
-    line = text.strip().splitlines()[0].strip()
+    stripped = text.strip()
+    if not stripped:
+        return ""
+    line = stripped.splitlines()[0].strip()
     return line[:180]
+
+
+def should_skip(rel_path: str) -> bool:
+    normalized = rel_path.replace("\\", "/")
+    if any(part in SKIP_DIR_PARTS for part in Path(normalized).parts):
+        return True
+    return any(normalized.startswith(prefix) for prefix in SKIP_PATH_PREFIXES)
 
 
 def record_id(kind: str, rel_path: str, qualname: str) -> str:
@@ -194,6 +218,8 @@ def main() -> int:
             if not path.is_file() or path.suffix not in SCAN_SUFFIXES:
                 continue
             rel_path = str(path.relative_to(repo_root)).replace('\\', '/')
+            if should_skip(rel_path):
+                continue
             try:
                 source = path.read_text(encoding="utf-8")
             except UnicodeDecodeError:

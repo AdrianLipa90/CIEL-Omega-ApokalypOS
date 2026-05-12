@@ -1,0 +1,51 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:without
+family: absence_deprivation
+class:
+- relation_operator
+- absence_operator
+- negated_association
+symbol: Without(x,y)
+arity: '2'
+dual: op:core:with
+inverse: null
+description: absence of association, possession or accompanying entity
+equations:
+- Without(x,y)
+- ¬With(x,y)
+surfaces:
+  pl:
+    lemma: bez
+    forms:
+    - bez
+    examples:
+    - Kawa bez cukru.
+    notes: absence/deprivation
+  en:
+    lemma: without
+    forms:
+    - without
+    examples:
+    - Coffee without sugar.
+    notes: absence of associated item
+  de:
+    lemma: ohne
+    forms:
+    - ohne
+    examples:
+    - Kaffee ohne Zucker.
+    notes: absence
+  fr:
+    lemma: sans
+    forms:
+    - sans
+    examples:
+    - Café sans sucre.
+    notes: absence
+  es:
+    lemma: sin
+    forms:
+    - sin
+    examples:
+    - Café sin azúcar.
+    notes: absence

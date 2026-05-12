@@ -17,16 +17,16 @@
     "BOARD_ROOT": 763
   },
   "privacy_constraint_counts": {
-    "STRICT_NONDISCLOSURE": 375,
-    "GRADIENT_LIMITED_DISCLOSURE": 4113,
-    "BROKER_GATED_DISCLOSURE": 91,
-    "SNAPSHOT_SANITIZED_DISCLOSURE": 53
+    "GRADIENT_LIMITED_DISCLOSURE": 4501,
+    "SNAPSHOT_SANITIZED_DISCLOSURE": 46,
+    "BROKER_GATED_DISCLOSURE": 78,
+    "STRICT_NONDISCLOSURE": 7
   },
   "horizon_class_counts": {
-    "SEALED": 375,
-    "POROUS": 4113,
-    "TRANSMISSIVE": 91,
-    "OBSERVATIONAL": 53
+    "POROUS": 4501,
+    "OBSERVATIONAL": 46,
+    "TRANSMISSIVE": 78,
+    "SEALED": 7
   },
   "export_boundary_policy": {
     "SEALED": {

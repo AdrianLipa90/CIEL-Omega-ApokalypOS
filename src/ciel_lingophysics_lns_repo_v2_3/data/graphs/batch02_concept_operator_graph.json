@@ -1,0 +1,1761 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "eye",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:eye"
+    },
+    {
+      "label": "see",
+      "type": "operator",
+      "id": "operator:see"
+    },
+    {
+      "label": "has_part",
+      "type": "operator",
+      "id": "operator:has_part"
+    },
+    {
+      "label": "inside",
+      "type": "operator",
+      "id": "operator:inside"
+    },
+    {
+      "label": "with",
+      "type": "operator",
+      "id": "operator:with"
+    },
+    {
+      "label": "body",
+      "type": "concept_or_external",
+      "id": "concept:body"
+    },
+    {
+      "label": "knowledge",
+      "type": "concept_or_external",
+      "id": "concept:knowledge"
+    },
+    {
+      "label": "hand",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:hand"
+    },
+    {
+      "label": "make",
+      "type": "operator",
+      "id": "operator:make"
+    },
+    {
+      "label": "give",
+      "type": "operator",
+      "id": "operator:give"
+    },
+    {
+      "label": "work",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:work"
+    },
+    {
+      "label": "voice",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:voice"
+    },
+    {
+      "label": "emit",
+      "type": "operator",
+      "id": "operator:emit"
+    },
+    {
+      "label": "about",
+      "type": "operator",
+      "id": "operator:about"
+    },
+    {
+      "label": "as",
+      "type": "operator",
+      "id": "operator:as"
+    },
+    {
+      "label": "sound",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:sound"
+    },
+    {
+      "label": "self",
+      "type": "concept_or_external",
+      "id": "concept:self"
+    },
+    {
+      "label": "name",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:name"
+    },
+    {
+      "label": "is",
+      "type": "operator",
+      "id": "operator:is"
+    },
+    {
+      "label": "call",
+      "type": "operator",
+      "id": "operator:call"
+    },
+    {
+      "label": "word",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:word"
+    },
+    {
+      "label": "face",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:face"
+    },
+    {
+      "label": "identity",
+      "type": "concept_or_external",
+      "id": "concept:identity"
+    },
+    {
+      "label": "blood",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:blood"
+    },
+    {
+      "label": "flow",
+      "type": "operator",
+      "id": "operator:flow"
+    },
+    {
+      "label": "supports",
+      "type": "operator",
+      "id": "operator:supports"
+    },
+    {
+      "label": "life",
+      "type": "concept_or_external",
+      "id": "concept:life"
+    },
+    {
+      "label": "thought",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:thought"
+    },
+    {
+      "label": "think",
+      "type": "operator",
+      "id": "operator:think"
+    },
+    {
+      "label": "not",
+      "type": "operator",
+      "id": "operator:not"
+    },
+    {
+      "label": "mind",
+      "type": "concept_or_external",
+      "id": "concept:mind"
+    },
+    {
+      "label": "idea",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:idea"
+    },
+    {
+      "label": "question",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:question"
+    },
+    {
+      "label": "ask",
+      "type": "operator",
+      "id": "operator:ask"
+    },
+    {
+      "label": "answer",
+      "type": "operator",
+      "id": "operator:answer"
+    },
+    {
+      "label": "how",
+      "type": "operator",
+      "id": "operator:how"
+    },
+    {
+      "label": "because",
+      "type": "operator",
+      "id": "operator:because"
+    },
+    {
+      "label": "answer",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:answer"
+    },
+    {
+      "label": "unknown",
+      "type": "concept_or_external",
+      "id": "concept:unknown"
+    },
+    {
+      "label": "reason",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:reason"
+    },
+    {
+      "label": "if_then",
+      "type": "operator",
+      "id": "operator:if_then"
+    },
+    {
+      "label": "prove",
+      "type": "operator",
+      "id": "operator:prove"
+    },
+    {
+      "label": "chaos",
+      "type": "concept_or_external",
+      "id": "concept:chaos"
+    },
+    {
+      "label": "doubt",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:doubt"
+    },
+    {
+      "label": "maybe",
+      "type": "operator",
+      "id": "operator:maybe"
+    },
+    {
+      "label": "question",
+      "type": "operator",
+      "id": "operator:question"
+    },
+    {
+      "label": "scope",
+      "type": "operator",
+      "id": "operator:scope"
+    },
+    {
+      "label": "proof",
+      "type": "concept_or_external",
+      "id": "concept:proof"
+    },
+    {
+      "label": "error",
+      "type": "concept_or_external",
+      "id": "concept:error"
+    },
+    {
+      "label": "person",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:person"
+    },
+    {
+      "label": "has",
+      "type": "operator",
+      "id": "operator:has"
+    },
+    {
+      "label": "human",
+      "type": "concept_or_external",
+      "id": "concept:human"
+    },
+    {
+      "label": "child",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:child"
+    },
+    {
+      "label": "from",
+      "type": "operator",
+      "id": "operator:from"
+    },
+    {
+      "label": "to",
+      "type": "operator",
+      "id": "operator:to"
+    },
+    {
+      "label": "care",
+      "type": "operator",
+      "id": "operator:care"
+    },
+    {
+      "label": "parent",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:parent"
+    },
+    {
+      "label": "care",
+      "type": "concept_or_external",
+      "id": "concept:care"
+    },
+    {
+      "label": "friend",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:friend"
+    },
+    {
+      "label": "against",
+      "type": "operator",
+      "id": "operator:against"
+    },
+    {
+      "label": "trust",
+      "type": "operator",
+      "id": "operator:trust"
+    },
+    {
+      "label": "trust",
+      "type": "concept_or_external",
+      "id": "concept:trust"
+    },
+    {
+      "label": "enemy",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:enemy"
+    },
+    {
+      "label": "stranger",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:stranger"
+    },
+    {
+      "label": "conflict",
+      "type": "concept_or_external",
+      "id": "concept:conflict"
+    },
+    {
+      "label": "house",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:house"
+    },
+    {
+      "label": "contains",
+      "type": "operator",
+      "id": "operator:contains"
+    },
+    {
+      "label": "boundary",
+      "type": "operator",
+      "id": "operator:boundary"
+    },
+    {
+      "label": "door",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:door"
+    },
+    {
+      "label": "home",
+      "type": "concept_or_external",
+      "id": "concept:home"
+    },
+    {
+      "label": "between",
+      "type": "operator",
+      "id": "operator:between"
+    },
+    {
+      "label": "through",
+      "type": "operator",
+      "id": "operator:through"
+    },
+    {
+      "label": "inside_outside",
+      "type": "operator",
+      "id": "operator:inside_outside"
+    },
+    {
+      "label": "road",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:road"
+    },
+    {
+      "label": "path",
+      "type": "operator",
+      "id": "operator:path"
+    },
+    {
+      "label": "motion",
+      "type": "concept_or_external",
+      "id": "concept:motion"
+    },
+    {
+      "label": "city",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:city"
+    },
+    {
+      "label": "country",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:country"
+    },
+    {
+      "label": "law",
+      "type": "operator",
+      "id": "operator:law"
+    },
+    {
+      "label": "border",
+      "type": "operator",
+      "id": "operator:border"
+    },
+    {
+      "label": "border",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:border"
+    },
+    {
+      "label": "center",
+      "type": "concept_or_external",
+      "id": "concept:center"
+    },
+    {
+      "label": "gift",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:gift"
+    },
+    {
+      "label": "have",
+      "type": "operator",
+      "id": "operator:have"
+    },
+    {
+      "label": "for",
+      "type": "operator",
+      "id": "operator:for"
+    },
+    {
+      "label": "debt",
+      "type": "concept_or_external",
+      "batch": "batch02",
+      "id": "concept:debt"
+    },
+    {
+      "label": "promise",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:promise"
+    },
+    {
+      "label": "will",
+      "type": "operator",
+      "id": "operator:will"
+    },
+    {
+      "label": "must",
+      "type": "operator",
+      "id": "operator:must"
+    },
+    {
+      "label": "promise",
+      "type": "operator",
+      "id": "operator:promise"
+    },
+    {
+      "label": "law",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:law"
+    },
+    {
+      "label": "order",
+      "type": "concept_or_external",
+      "id": "concept:order"
+    },
+    {
+      "label": "freedom",
+      "type": "concept_or_external",
+      "id": "concept:freedom"
+    },
+    {
+      "label": "do",
+      "type": "operator",
+      "id": "operator:do"
+    },
+    {
+      "label": "money",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:money"
+    },
+    {
+      "label": "means",
+      "type": "operator",
+      "id": "operator:means"
+    },
+    {
+      "label": "language",
+      "type": "concept_or_external",
+      "id": "concept:language"
+    },
+    {
+      "label": "meaning",
+      "type": "concept_or_external",
+      "id": "concept:meaning"
+    },
+    {
+      "label": "sign",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:sign"
+    },
+    {
+      "label": "points_to",
+      "type": "operator",
+      "id": "operator:points_to"
+    },
+    {
+      "label": "signifies",
+      "type": "operator",
+      "id": "operator:signifies"
+    },
+    {
+      "label": "hear",
+      "type": "operator",
+      "id": "operator:hear"
+    },
+    {
+      "label": "sound",
+      "type": "operator",
+      "id": "operator:sound"
+    },
+    {
+      "label": "silence",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:silence"
+    },
+    {
+      "label": "without",
+      "type": "operator",
+      "id": "operator:without"
+    },
+    {
+      "label": "state_be",
+      "type": "operator",
+      "id": "operator:state_be"
+    },
+    {
+      "label": "silence",
+      "type": "operator",
+      "id": "operator:silence"
+    },
+    {
+      "label": "rest",
+      "type": "concept_or_external",
+      "id": "concept:rest"
+    },
+    {
+      "label": "story",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:story"
+    },
+    {
+      "label": "tell",
+      "type": "operator",
+      "id": "operator:tell"
+    },
+    {
+      "label": "before_after",
+      "type": "operator",
+      "id": "operator:before_after"
+    },
+    {
+      "label": "memory",
+      "type": "operator",
+      "id": "operator:memory"
+    },
+    {
+      "label": "event",
+      "type": "concept_or_external",
+      "id": "concept:event"
+    },
+    {
+      "label": "memory",
+      "type": "concept_or_external",
+      "id": "concept:memory"
+    },
+    {
+      "label": "song",
+      "type": "concept",
+      "batch": "batch02",
+      "id": "concept:song"
+    },
+    {
+      "label": "sing",
+      "type": "operator",
+      "id": "operator:sing"
+    }
+  ],
+  "edges": [
+    {
+      "type": "operator_hook",
+      "source": "concept:eye",
+      "target": "operator:see"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:eye",
+      "target": "operator:has_part"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:eye",
+      "target": "operator:inside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:eye",
+      "target": "operator:with"
+    },
+    {
+      "type": "part_of",
+      "status": "draft_seed",
+      "source": "concept:eye",
+      "target": "concept:body"
+    },
+    {
+      "type": "enables",
+      "status": "draft_seed",
+      "source": "concept:eye",
+      "target": "concept:knowledge"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:hand",
+      "target": "operator:has_part"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:hand",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:hand",
+      "target": "operator:make"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:hand",
+      "target": "operator:give"
+    },
+    {
+      "type": "part_of",
+      "status": "draft_seed",
+      "source": "concept:hand",
+      "target": "concept:body"
+    },
+    {
+      "type": "enables",
+      "status": "draft_seed",
+      "source": "concept:hand",
+      "target": "concept:work"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:work",
+      "target": "operator:do"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:work",
+      "target": "operator:make"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:work",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:work",
+      "target": "operator:for"
+    },
+    {
+      "type": "uses",
+      "status": "draft_seed",
+      "source": "concept:work",
+      "target": "concept:hand"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:work",
+      "target": "concept:money"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:voice",
+      "target": "operator:emit"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:voice",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:voice",
+      "target": "operator:about"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:voice",
+      "target": "operator:as"
+    },
+    {
+      "type": "uses",
+      "status": "draft_seed",
+      "source": "concept:voice",
+      "target": "concept:sound"
+    },
+    {
+      "type": "expresses",
+      "status": "draft_seed",
+      "source": "concept:voice",
+      "target": "concept:self"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sound",
+      "target": "operator:emit"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sound",
+      "target": "operator:hear"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sound",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sound",
+      "target": "operator:sound"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:sound",
+      "target": "concept:voice"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:sound",
+      "target": "concept:silence"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:name",
+      "target": "operator:is"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:name",
+      "target": "operator:as"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:name",
+      "target": "operator:call"
+    },
+    {
+      "type": "symbol_of",
+      "status": "draft_seed",
+      "source": "concept:name",
+      "target": "concept:self"
+    },
+    {
+      "type": "uses",
+      "status": "draft_seed",
+      "source": "concept:name",
+      "target": "concept:word"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:word",
+      "target": "operator:is"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:word",
+      "target": "operator:as"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:word",
+      "target": "operator:means"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:word",
+      "target": "operator:contains"
+    },
+    {
+      "type": "part_of",
+      "status": "draft_seed",
+      "source": "concept:word",
+      "target": "concept:language"
+    },
+    {
+      "type": "contains",
+      "status": "draft_seed",
+      "source": "concept:word",
+      "target": "concept:meaning"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:face",
+      "target": "operator:see"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:face",
+      "target": "operator:has_part"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:face",
+      "target": "operator:as"
+    },
+    {
+      "type": "part_of",
+      "status": "draft_seed",
+      "source": "concept:face",
+      "target": "concept:body"
+    },
+    {
+      "type": "signals",
+      "status": "draft_seed",
+      "source": "concept:face",
+      "target": "concept:identity"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:blood",
+      "target": "operator:inside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:blood",
+      "target": "operator:flow"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:blood",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:blood",
+      "target": "operator:supports"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:blood",
+      "target": "concept:life"
+    },
+    {
+      "type": "inside",
+      "status": "draft_seed",
+      "source": "concept:blood",
+      "target": "concept:body"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:thought",
+      "target": "operator:inside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:thought",
+      "target": "operator:about"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:thought",
+      "target": "operator:think"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:thought",
+      "target": "operator:not"
+    },
+    {
+      "type": "inside",
+      "status": "draft_seed",
+      "source": "concept:thought",
+      "target": "concept:mind"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:thought",
+      "target": "concept:idea"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:idea",
+      "target": "operator:inside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:idea",
+      "target": "operator:about"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:idea",
+      "target": "operator:think"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:idea",
+      "target": "operator:not"
+    },
+    {
+      "type": "inside",
+      "status": "draft_seed",
+      "source": "concept:idea",
+      "target": "concept:mind"
+    },
+    {
+      "type": "can_transform_into",
+      "status": "draft_seed",
+      "source": "concept:idea",
+      "target": "concept:work"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:question",
+      "target": "operator:ask"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:question",
+      "target": "operator:answer"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:question",
+      "target": "operator:how"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:question",
+      "target": "operator:because"
+    },
+    {
+      "type": "seeks",
+      "status": "draft_seed",
+      "source": "concept:question",
+      "target": "concept:answer"
+    },
+    {
+      "type": "marks",
+      "status": "draft_seed",
+      "source": "concept:question",
+      "target": "concept:unknown"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:answer",
+      "target": "operator:ask"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:answer",
+      "target": "operator:answer"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:answer",
+      "target": "operator:how"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:answer",
+      "target": "operator:because"
+    },
+    {
+      "type": "responds_to",
+      "status": "draft_seed",
+      "source": "concept:answer",
+      "target": "concept:question"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:answer",
+      "target": "concept:knowledge"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:reason",
+      "target": "operator:because"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:reason",
+      "target": "operator:if_then"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:reason",
+      "target": "operator:not"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:reason",
+      "target": "operator:prove"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:reason",
+      "target": "concept:knowledge"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:reason",
+      "target": "concept:chaos"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:doubt",
+      "target": "operator:maybe"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:doubt",
+      "target": "operator:not"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:doubt",
+      "target": "operator:question"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:doubt",
+      "target": "operator:scope"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:doubt",
+      "target": "concept:proof"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:doubt",
+      "target": "concept:error"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:person",
+      "target": "operator:is"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:person",
+      "target": "operator:has"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:person",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:person",
+      "target": "operator:as"
+    },
+    {
+      "type": "is_a",
+      "status": "draft_seed",
+      "source": "concept:person",
+      "target": "concept:human"
+    },
+    {
+      "type": "has",
+      "status": "draft_seed",
+      "source": "concept:person",
+      "target": "concept:self"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:child",
+      "target": "operator:has"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:child",
+      "target": "operator:from"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:child",
+      "target": "operator:to"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:child",
+      "target": "operator:care"
+    },
+    {
+      "type": "relation_to",
+      "status": "draft_seed",
+      "source": "concept:child",
+      "target": "concept:parent"
+    },
+    {
+      "type": "stage_of",
+      "status": "draft_seed",
+      "source": "concept:child",
+      "target": "concept:life"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:parent",
+      "target": "operator:has"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:parent",
+      "target": "operator:from"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:parent",
+      "target": "operator:to"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:parent",
+      "target": "operator:care"
+    },
+    {
+      "type": "relation_to",
+      "status": "draft_seed",
+      "source": "concept:parent",
+      "target": "concept:child"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:parent",
+      "target": "concept:care"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:friend",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:friend",
+      "target": "operator:against"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:friend",
+      "target": "operator:trust"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:friend",
+      "target": "operator:not"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:friend",
+      "target": "concept:trust"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:friend",
+      "target": "concept:enemy"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:enemy",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:enemy",
+      "target": "operator:against"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:enemy",
+      "target": "operator:trust"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:enemy",
+      "target": "operator:not"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:enemy",
+      "target": "concept:friend"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:enemy",
+      "target": "concept:conflict"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:stranger",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:stranger",
+      "target": "operator:against"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:stranger",
+      "target": "operator:trust"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:stranger",
+      "target": "operator:not"
+    },
+    {
+      "type": "is_other",
+      "status": "draft_seed",
+      "source": "concept:stranger",
+      "target": "concept:self"
+    },
+    {
+      "type": "may_become",
+      "status": "draft_seed",
+      "source": "concept:stranger",
+      "target": "concept:friend"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:house",
+      "target": "operator:inside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:house",
+      "target": "operator:contains"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:house",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:house",
+      "target": "operator:boundary"
+    },
+    {
+      "type": "contains",
+      "status": "draft_seed",
+      "source": "concept:house",
+      "target": "concept:door"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:house",
+      "target": "concept:home"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:door",
+      "target": "operator:between"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:door",
+      "target": "operator:through"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:door",
+      "target": "operator:inside_outside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:door",
+      "target": "operator:not"
+    },
+    {
+      "type": "part_of",
+      "status": "draft_seed",
+      "source": "concept:door",
+      "target": "concept:house"
+    },
+    {
+      "type": "enables",
+      "status": "draft_seed",
+      "source": "concept:door",
+      "target": "concept:road"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:road",
+      "target": "operator:from"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:road",
+      "target": "operator:to"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:road",
+      "target": "operator:through"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:road",
+      "target": "operator:path"
+    },
+    {
+      "type": "enables",
+      "status": "draft_seed",
+      "source": "concept:road",
+      "target": "concept:motion"
+    },
+    {
+      "type": "connects",
+      "status": "draft_seed",
+      "source": "concept:road",
+      "target": "concept:city"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:city",
+      "target": "operator:inside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:city",
+      "target": "operator:contains"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:city",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:city",
+      "target": "operator:boundary"
+    },
+    {
+      "type": "contains",
+      "status": "draft_seed",
+      "source": "concept:city",
+      "target": "concept:house"
+    },
+    {
+      "type": "part_of",
+      "status": "draft_seed",
+      "source": "concept:city",
+      "target": "concept:country"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:country",
+      "target": "operator:inside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:country",
+      "target": "operator:contains"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:country",
+      "target": "operator:law"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:country",
+      "target": "operator:border"
+    },
+    {
+      "type": "contains",
+      "status": "draft_seed",
+      "source": "concept:country",
+      "target": "concept:city"
+    },
+    {
+      "type": "bounded_by",
+      "status": "draft_seed",
+      "source": "concept:country",
+      "target": "concept:border"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:border",
+      "target": "operator:between"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:border",
+      "target": "operator:through"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:border",
+      "target": "operator:inside_outside"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:border",
+      "target": "operator:not"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:border",
+      "target": "concept:country"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:border",
+      "target": "concept:center"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:gift",
+      "target": "operator:give"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:gift",
+      "target": "operator:to"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:gift",
+      "target": "operator:have"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:gift",
+      "target": "operator:for"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:gift",
+      "target": "concept:debt"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:gift",
+      "target": "concept:care"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:debt",
+      "target": "operator:give"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:debt",
+      "target": "operator:to"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:debt",
+      "target": "operator:have"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:debt",
+      "target": "operator:for"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:debt",
+      "target": "concept:gift"
+    },
+    {
+      "type": "requires",
+      "status": "draft_seed",
+      "source": "concept:debt",
+      "target": "concept:promise"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:promise",
+      "target": "operator:will"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:promise",
+      "target": "operator:must"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:promise",
+      "target": "operator:promise"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:promise",
+      "target": "operator:to"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:promise",
+      "target": "concept:trust"
+    },
+    {
+      "type": "can_create",
+      "status": "draft_seed",
+      "source": "concept:promise",
+      "target": "concept:debt"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:law",
+      "target": "operator:must"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:law",
+      "target": "operator:not"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:law",
+      "target": "operator:if_then"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:law",
+      "target": "operator:because"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:law",
+      "target": "concept:order"
+    },
+    {
+      "type": "constrains",
+      "status": "draft_seed",
+      "source": "concept:law",
+      "target": "concept:freedom"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:money",
+      "target": "operator:give"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:money",
+      "target": "operator:to"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:money",
+      "target": "operator:have"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:money",
+      "target": "operator:for"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:money",
+      "target": "concept:work"
+    },
+    {
+      "type": "can_create",
+      "status": "draft_seed",
+      "source": "concept:money",
+      "target": "concept:debt"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sign",
+      "target": "operator:means"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sign",
+      "target": "operator:as"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sign",
+      "target": "operator:points_to"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:sign",
+      "target": "operator:signifies"
+    },
+    {
+      "type": "symbol_of",
+      "status": "draft_seed",
+      "source": "concept:sign",
+      "target": "concept:meaning"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:sign",
+      "target": "concept:name"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:silence",
+      "target": "operator:not"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:silence",
+      "target": "operator:without"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:silence",
+      "target": "operator:state_be"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:silence",
+      "target": "operator:silence"
+    },
+    {
+      "type": "opposes",
+      "status": "draft_seed",
+      "source": "concept:silence",
+      "target": "concept:sound"
+    },
+    {
+      "type": "relates_to",
+      "status": "draft_seed",
+      "source": "concept:silence",
+      "target": "concept:rest"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:story",
+      "target": "operator:tell"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:story",
+      "target": "operator:about"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:story",
+      "target": "operator:before_after"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:story",
+      "target": "operator:memory"
+    },
+    {
+      "type": "contains",
+      "status": "draft_seed",
+      "source": "concept:story",
+      "target": "concept:event"
+    },
+    {
+      "type": "supports",
+      "status": "draft_seed",
+      "source": "concept:story",
+      "target": "concept:memory"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:song",
+      "target": "operator:sing"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:song",
+      "target": "operator:with"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:song",
+      "target": "operator:about"
+    },
+    {
+      "type": "operator_hook",
+      "source": "concept:song",
+      "target": "operator:sound"
+    },
+    {
+      "type": "uses",
+      "status": "draft_seed",
+      "source": "concept:song",
+      "target": "concept:sound"
+    }
+  ]
+}

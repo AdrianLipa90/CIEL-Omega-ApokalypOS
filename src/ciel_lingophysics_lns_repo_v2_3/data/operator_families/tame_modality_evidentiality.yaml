@@ -1,0 +1,17 @@
+version: '1.4'
+family_id: operator_family:tame_modality_evidentiality
+name: TAM-E event phase operators
+operator_kind: higher_order_event_modifier
+dimensions:
+- tense
+- aspect
+- mood
+- modality
+- evidentiality
+formal_signature: TAME(Event) -> EventState
+phase_rule: φ_event = φ_tense + φ_aspect + φ_mood + φ_modality + φ_evidentiality
+equivalence_rule: Event equivalence requires compatible predicate frame, roles, polarity
+  and TAM-E signature.
+cross_language_note: Surface realization differs by language. Polish strongly encodes
+  aspect in verb pairs. English uses auxiliaries. Spanish and French use rich tense/mood
+  morphology. German uses auxiliaries and modal verbs.

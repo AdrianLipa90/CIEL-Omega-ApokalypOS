@@ -1,0 +1,57 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:from
+family: source_origin_separation
+class:
+- source_operator
+- path_operator
+symbol: From(x,source)
+arity: '2'
+dual: op:core:to
+inverse: op:core:to
+description: origin, source, extraction or separation
+equations:
+- From(x,s)
+- Origin(x)=s
+surfaces:
+  pl:
+    lemma: od / z
+    forms:
+    - od
+    - z
+    examples:
+    - Wracam z domu.
+    - List od matki.
+    notes: source/origin split
+  en:
+    lemma: from
+    forms:
+    - from
+    - out of
+    examples:
+    - I return from home.
+    - A letter from mother.
+    notes: source/origin
+  de:
+    lemma: von / aus
+    forms:
+    - von
+    - aus
+    examples:
+    - Ich komme aus dem Haus.
+    notes: source distinction
+  fr:
+    lemma: de / depuis
+    forms:
+    - de
+    - depuis
+    examples:
+    - Je reviens de la maison.
+    notes: source/origin
+  es:
+    lemma: de / desde
+    forms:
+    - de
+    - desde
+    examples:
+    - Vuelvo de casa.
+    notes: source/origin

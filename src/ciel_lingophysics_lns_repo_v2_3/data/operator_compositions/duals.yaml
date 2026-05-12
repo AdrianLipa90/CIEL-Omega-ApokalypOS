@@ -1,0 +1,18 @@
+duals:
+- id: dual:inside_contains
+  left: Inside(x,y)
+  right: Contains(y,x)
+  invariant: Containment(x,y)
+- id: dual:before_after
+  left: Before(x,y)
+  right: After(y,x)
+  invariant: TemporalOrder(x,y)
+- id: dual:from_to
+  left: From(x,y)
+  right: To(y,x)
+  invariant: DirectedPath(x,y)
+- id: dual:with_without
+  left: With(x,y)
+  right: Without(x,y)
+  invariant: AssociationPresence(x,y)
+  note: antiphase-like, not strict dual in all contexts

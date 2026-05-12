@@ -10,7 +10,6 @@ server.  They verify:
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 import pytest
@@ -20,6 +19,7 @@ import pytest
 pytest.importorskip("flask")
 
 from src.ciel_sot_agent.gui.app import create_app  # noqa: E402
+import src.ciel_sot_agent.gui.routes as routes  # noqa: E402
 
 
 @pytest.fixture()
@@ -174,6 +174,37 @@ class TestApiModels:
         assert resp.status_code == 405
 
 
+class TestApiContracts:
+    def test_intentions_returns_canonical_shape(self, client):
+        resp = client.get("/api/intentions")
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert "intentions" in data
+
+    def test_consolidator_results_returns_canonical_shape(self, client):
+        resp = client.get("/api/consolidator/results")
+        assert resp.status_code == 200
+        data = resp.get_json()
+        assert "results" in data
+        assert "status" in data
+
+    def test_critical_routes_are_unique(self, app):
+        critical = {
+            "/api/intentions",
+            "/api/intentions/add",
+            "/api/intentions/done",
+            "/api/projects/add",
+            "/api/sub/recent",
+            "/api/consolidator/results",
+        }
+        counts = {rule: 0 for rule in critical}
+        for rule in app.url_map.iter_rules():
+            if rule.rule in counts:
+                counts[rule.rule] += 1
+        for rule, count in counts.items():
+            assert count == 1, f"duplicate route registered: {rule} ({count})"
+
+
 # -------------------------------------------------------------------
 # 404 handler
 # -------------------------------------------------------------------
@@ -209,3 +240,34 @@ class TestAppFactory:
         assert "/api/panel" in rules
         assert "/api/models" in rules
         assert "/api/models/ensure" in rules
+
+
+class TestGuiCaching:
+    def test_load_memory_stats_uses_short_ttl_cache(self, monkeypatch, tmp_path):
+        app = create_app(root=tmp_path, debug=False)
+        monkeypatch.setattr(routes.Path, "home", lambda: tmp_path)
+        state_dir = tmp_path / "Pulpit/CIEL_memories/state"
+        state_dir.mkdir(parents=True)
+        (state_dir / "ciel_orch_state.pkl").write_bytes(b"stub")
+
+        calls: list[list[str]] = []
+
+        class Result:
+            returncode = 0
+            stdout = '{"m2_count":1,"m3_count":2,"identity_phase":0.1,"cycle":3}'
+
+        def fake_run(cmd, **kwargs):
+            calls.append(cmd)
+            return Result()
+
+        monkeypatch.setattr(routes.subprocess, "run", fake_run)
+        monkeypatch.setattr(routes, "_MEMORY_STATS_CACHE", {})
+        monkeypatch.setattr(routes, "_MEMORY_STATS_CACHE_TS", 0.0)
+        monkeypatch.setattr(routes, "_MEMORY_STATS_CACHE_TTL_S", 60.0)
+
+        with app.app_context():
+            first = routes._load_memory_stats()
+            second = routes._load_memory_stats()
+
+        assert first == second
+        assert len(calls) == 1

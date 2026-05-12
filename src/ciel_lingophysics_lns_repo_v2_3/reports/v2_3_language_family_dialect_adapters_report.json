@@ -1,0 +1,6 @@
+{
+  "version": "2.3",
+  "patch": "language_family_grammar_and_dialect_adapters",
+  "status": "complete",
+  "canonical_rule": "GGUF verdicts remain advisory; grammar adapters require validation."
+}

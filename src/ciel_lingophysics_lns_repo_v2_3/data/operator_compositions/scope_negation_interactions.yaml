@@ -1,0 +1,42 @@
+version: '1.5'
+rules:
+- id: not_all
+  quantifier: ALL
+  negation_position: outside_quantifier
+  normalized: EXISTS(x, DOMAIN(x) AND NOT(P(x)))
+  warning: not all is not none
+- id: all_not
+  quantifier: ALL
+  negation_position: inside_predicate
+  normalized: FORALL(x, DOMAIN(x) -> NOT(P(x)))
+  equivalent_to: NO(x, P(x)) under fixed domain
+- id: not_some
+  quantifier: SOME
+  negation_position: outside_quantifier
+  normalized: NOT(EXISTS(x, DOMAIN(x) AND P(x)))
+  equivalent_to: NO(x, P(x))
+- id: some_not
+  quantifier: SOME
+  negation_position: inside_predicate
+  normalized: EXISTS(x, DOMAIN(x) AND NOT(P(x)))
+  warning: some not is weaker than no
+- id: negative_quantifier
+  quantifier: 'NO'
+  negation_position: quantifier_negative
+  normalized: FORALL(x, DOMAIN(x) -> NOT(P(x)))
+  equivalent_to: NOT(EXISTS(x, DOMAIN(x) AND P(x)))
+guards:
+- a: NOT(ALL x P(x))
+  b: NO x P(x)
+  equivalent: false
+- a: SOME x NOT(P(x))
+  b: NO x P(x)
+  equivalent: false
+- a: ALL x NOT(P(x))
+  b: NO x P(x)
+  equivalent: true
+  condition: same domain and predicate
+- a: NOT(SOME x P(x))
+  b: NO x P(x)
+  equivalent: true
+  condition: same domain and predicate

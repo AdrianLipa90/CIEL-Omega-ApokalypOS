@@ -96,8 +96,56 @@ def _entry_score(channel: str, entry: Any, *, sector_memory: Any, orbital: Dict[
     return float(score), payload, holonomic, float(base_score)
 
 
+def _coherence_surface_score(row: Dict[str, Any]) -> float:
+    score = float(row.get("score", 0.0) or 0.0)
+    phase_alignment = float(row.get("phase_alignment", 0.0) or 0.0)
+    identity_attractor_score = float(row.get("identity_attractor_score", 0.0) or 0.0)
+    holonomy_quality = float(row.get("holonomy_quality", 0.0) or 0.0)
+    loop_coherent = 1.0 if bool(row.get("loop_coherent", False)) else 0.0
+    return float(
+        0.30 * score
+        + 0.25 * phase_alignment
+        + 0.25 * identity_attractor_score
+        + 0.18 * holonomy_quality
+        + 0.02 * loop_coherent
+    )
+
+
+def _build_coherence_surface(ranked: List[Dict[str, Any]], *, top_k: int) -> List[Dict[str, Any]]:
+    if top_k <= 0 or not ranked:
+        return []
+
+    by_channel: Dict[str, List[Dict[str, Any]]] = {}
+    for row in ranked:
+        channel = str(row.get("channel", "memory"))
+        enriched = dict(row)
+        enriched["coherence_surface_score"] = _coherence_surface_score(row)
+        by_channel.setdefault(channel, []).append(enriched)
+
+    for channel_rows in by_channel.values():
+        channel_rows.sort(key=lambda x: x["coherence_surface_score"], reverse=True)
+
+    channels = sorted(by_channel.keys())
+    surface: List[Dict[str, Any]] = []
+    cursor = 0
+    while len(surface) < top_k and any(by_channel.values()):
+        progress = False
+        for channel in channels:
+            channel_rows = by_channel.get(channel) or []
+            if cursor < len(channel_rows):
+                surface.append(channel_rows[cursor])
+                progress = True
+                if len(surface) >= top_k:
+                    break
+        if not progress:
+            break
+        cursor += 1
+    return surface
+
+
 def govern_sector_retrieval(*, sector_memory: Any, query: str, governor: Dict[str, Any], orbital: Dict[str, Any]) -> Dict[str, Any]:
     top_k = int(governor.get("retrieval_top_k", 3) or 3)
+    coherence_surface_top_k = int(governor.get("coherence_surface_top_k", 200) or 200)
     scope = str(governor.get("retrieval_scope", "focused"))
     channel_limit = 1 if scope == "stabilize" else (2 if scope in {"narrow", "focused"} else 3)
     raw = sector_memory.retrieve(query, top_k=max(top_k, 6))
@@ -140,11 +188,14 @@ def govern_sector_retrieval(*, sector_memory: Any, query: str, governor: Dict[st
                 }
             )
     ranked.sort(key=lambda x: x["score"], reverse=True)
+    coherence_surface = _build_coherence_surface(ranked, top_k=coherence_surface_top_k)
     return {
         "scope": scope,
         "selected_channels": list(selected.keys()),
         "by_channel": selected,
         "ranked": ranked[:top_k],
+        "coherence_surface": coherence_surface,
+        "coherence_surface_top_k": coherence_surface_top_k,
         "raw": raw,
         "holonomic_context": {
             "identity_phase": snapshot.get("identity_phase"),

@@ -7,12 +7,13 @@ from pathlib import Path
 from typing import Any
 
 ORBIT_RULES = [
-    ("IDENTITY", ["identity", "profile", "soul", "self", "state_geometry", "omega"]),
-    ("CONSTITUTIVE", ["memory", "registry", "archive", "log", "manifest", "schema", "contract"]),
-    ("DYNAMIC", ["runtime", "step", "evolve", "field", "phase", "coherence", "update", "loop"]),
-    ("INTERACTION", ["client", "bridge", "adapter", "chat", "audio", "voice", "packet", "panel"]),
-    ("OBSERVATION", ["ui", "view", "cockpit", "probe", "report", "diagnostic", "telemetry", "observe"]),
-    ("BOUNDARY", ["policy", "guard", "boundary", "ethic", "validate", "check", "rule"]),
+    ("IDENTITY", ["identity", "profile", "soul", "self", "state_geometry", "omega", "ciel_pipeline", "pipeline", "engine", "ciel_engine", "bootstrap", "init", "agent", "canon"]),
+    ("CONSTITUTIVE", ["memory", "registry", "archive", "log", "manifest", "schema", "contract", "index", "catalog", "coupling", "couplings", "registry", "hyperspace", "noema", "jsonl", "json", "yaml"]),
+    ("DYNAMIC", ["runtime", "step", "evolve", "field", "phase", "coherence", "update", "loop", "dynamics", "global_pass", "orbital", "synchronize", "synchronize", "holonomic", "normalizer", "scheduler", "htri", "resonator", "consolidation"]),
+    ("INTERACTION", ["client", "bridge", "adapter", "chat", "audio", "voice", "packet", "panel", "cli", "controller", "communication", "capture", "bench", "local_ciel", "surface"]),
+    ("OBSERVATION", ["ui", "view", "cockpit", "probe", "report", "diagnostic", "telemetry", "observe", "routes", "app", "gui", "portal", "dashboard", "metrics", "monitor"]),
+    ("BOUNDARY", ["policy", "guard", "boundary", "ethic", "validate", "check", "rule", "gh_coupling", "gh_utils", "upstreams", "coupling_matrix", "index_validator"]),
+    ("CONSTITUTIVE", ["documentation", "architecture", "formalism", "blueprint", "master_plan", "invariants", "canonical", "how_ai", "readme", "index", "plan", "binding", "tables"]),
     ("EDUCATION", ["learn", "education", "tutorial", "curriculum", "teacher", "training"]),
 ]
 

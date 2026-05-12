@@ -1,0 +1,16 @@
+inverses:
+- id: inv:inside_outside
+  left: Inside(x,y)
+  right: Outside(x,y)
+  axis: spatial_containment
+  boundary_warning: true
+- id: inv:on_under
+  left: On(x,y)
+  right: Under(x,y)
+  axis: vertical_support
+  context_dependent: true
+- id: inv:and_or
+  left: And(p,q)
+  right: Or(p,q)
+  axis: logical_binding
+  note: not antonyms; different composition operators

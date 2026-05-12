@@ -1,0 +1,57 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:because
+family: causal_explanation
+class:
+- causal_operator
+- explanation_operator
+symbol: Because(Q,P) => Cause(P,Q)
+arity: '2'
+dual: null
+inverse: null
+description: links outcome/explanation to a cause or reason
+equations:
+- Because(Q,P)
+- Cause(P,Q)
+- Reason(P,Q)
+surfaces:
+  pl:
+    lemma: bo / ponieważ
+    forms:
+    - bo
+    - ponieważ
+    - gdyż
+    examples:
+    - Ziemia moknie, bo pada.
+    notes: causal/explanatory
+  en:
+    lemma: because
+    forms:
+    - because
+    - since
+    examples:
+    - The ground gets wet because it rains.
+    notes: cause/reason
+  de:
+    lemma: weil / denn
+    forms:
+    - weil
+    - denn
+    examples:
+    - Der Boden wird nass, weil es regnet.
+    notes: causal; syntax shift in weil
+  fr:
+    lemma: parce que / car
+    forms:
+    - parce que
+    - car
+    examples:
+    - Le sol devient humide parce qu’il pleut.
+    notes: cause/reason
+  es:
+    lemma: porque
+    forms:
+    - porque
+    - ya que
+    examples:
+    - El suelo se moja porque llueve.
+    notes: cause/reason

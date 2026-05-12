@@ -1,0 +1,17 @@
+principle: Fine-tune only adapter layers or auxiliary classifiers until enough curated
+  examples exist; never overwrite canonical CIEL structures from model output alone.
+units:
+- minimal_pairs
+- operator_duals
+- case_role_samples
+- scope_ambiguity_pairs
+- dialect_variant_pairs
+- validator_failures
+promotion_thresholds:
+  draft_to_reviewed: 0.8
+  reviewed_to_canonical: 0.95
+requires_human_review_for:
+- dialect_level_L3_or_higher
+- high_impact_semantics
+- factual_claims
+- unresolved_scope_with_negation

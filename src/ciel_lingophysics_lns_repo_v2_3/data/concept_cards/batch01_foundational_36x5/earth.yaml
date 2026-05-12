@@ -1,0 +1,163 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:earth
+canonical_label_en: earth
+batch_id: batch01_foundational_36x5
+domain: elemental
+semantic_axes:
+- matter
+- ground
+- stability
+semantic_mass_seed: 0.6813
+phase_seed_rad: 0.349066
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: ziemia
+    brief_description: grunt, materia i stabilny fundament przestrzeni życia
+    near_synonyms_seed:
+    - grunt
+    - gleba
+    antonyms_seed:
+    - niebo
+    - powietrze
+    forms_seed:
+    - ziemia
+    - ziemia jako hasło
+    - ziemia w kontekście
+    context_examples_seed:
+    - Ziemia tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - under
+    - 'on'
+    - contains
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: earth
+    brief_description: ground, matter, and a stable base for life
+    near_synonyms_seed:
+    - ground
+    - soil
+    antonyms_seed:
+    - sky
+    - air
+    forms_seed:
+    - earth
+    - earths
+    - earth as concept
+    context_examples_seed:
+    - Earth forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Erde
+    brief_description: Boden, Materie und stabile Lebensgrundlage
+    near_synonyms_seed:
+    - Boden
+    - Erdboden
+    antonyms_seed:
+    - Himmel
+    - Luft
+    forms_seed:
+    - Erde
+    - Erde als Begriff
+    - Erde im Kontext
+    context_examples_seed:
+    - Erde bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: terre
+    brief_description: sol, matière et base stable de la vie
+    near_synonyms_seed:
+    - sol
+    - terreau
+    antonyms_seed:
+    - ciel
+    - air
+    forms_seed:
+    - terre
+    - terre comme concept
+    - terre en contexte
+    context_examples_seed:
+    - Terre forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: tierra
+    brief_description: suelo, materia y base estable de la vida
+    near_synonyms_seed:
+    - suelo
+    - terreno
+    antonyms_seed:
+    - cielo
+    - aire
+    forms_seed:
+    - tierra
+    - tierra como concepto
+    - tierra en contexto
+    context_examples_seed:
+    - Tierra forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: supports
+  target: concept:body
+  status: draft_seed
+- type: anchors
+  target: concept:space
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

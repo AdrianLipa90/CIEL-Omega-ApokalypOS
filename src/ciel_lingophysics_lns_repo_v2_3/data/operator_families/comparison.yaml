@@ -1,0 +1,16 @@
+family_id: family:comparison
+description: Similarity, manner, role assignment and pattern mapping.
+operators:
+- op:core:how
+- op:core:like_as
+canonical_axes:
+- manner
+- similarity
+- role
+- pattern
+formal_modes:
+  manner_query: How(T)->Ask(Manner(T))
+  similarity: Like(x,y)->Sim(x,y)
+  role_mapping: As(x,role)->AssignRole(x,role)
+  pattern_mapping: AsBefore(x)->MapPattern(previous->x)
+  conditional_temporal: WhenIf(S1,S2)

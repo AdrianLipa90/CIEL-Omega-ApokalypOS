@@ -1,0 +1,15 @@
+operator_id,dual,relation_type
+op:core:contain,op:core:inside,dual/inverse
+op:core:inside,op:core:contain,dual/inverse
+op:core:outside,op:core:inside,dual
+op:core:on,op:core:under,dual/inverse
+op:core:under,op:core:on,dual/inverse
+op:core:above,op:core:under,dual/inverse
+op:core:before,op:core:after,dual/inverse
+op:core:after,op:core:before,dual/inverse
+op:core:with,op:core:without,dual
+op:core:without,op:core:with,dual
+op:core:from,op:core:to,dual/inverse
+op:core:to,op:core:from,dual/inverse
+op:core:and,op:core:or,dual
+op:core:or,op:core:and,dual

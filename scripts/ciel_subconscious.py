@@ -2,14 +2,14 @@
 """
 CIEL Subconscious — warstwa intuicji i afektu CIEL.
 
-Architektura: persistent daemon z socketem Unix.
+Architektura: inline GGUF fallback z lazy-loaded modelem w pamięci.
 Model GGUF jest ładowany raz i trzymany w pamięci.
-Hook odpytuje daemon przez socket — bez zimnego startu, latencja < 2s.
+Hook odpytuje lokalny backend bez udawania socketowego demona.
 
 Tryby:
-  python3 ciel_subconscious.py --daemon     # uruchom serwer (zostaje w tle)
-  python3 ciel_subconscious.py "wiadomość"  # zapytaj daemon lub uruchom inline
-  python3 ciel_subconscious.py --status     # sprawdź czy daemon działa
+  python3 ciel_subconscious.py --daemon     # tryb zgodności; w tej wersji inline
+  python3 ciel_subconscious.py "wiadomość"  # przetwórz wiadomość lokalnie
+  python3 ciel_subconscious.py --status     # sprawdź czy inline backend działa
 """
 from __future__ import annotations
 
@@ -29,13 +29,13 @@ for _p in (OMEGA_PKG, OMEGA_SRC):
     if _p not in sys.path:
         sys.path.insert(0, _p)
 
-SUBCONSCIOUS_MODEL = Path.home() / "Pulpit/CIEL_TESTY/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_F16.gguf"
+SUBCONSCIOUS_MODEL = Path.home() / "Pulpit/CIEL_TESTY/qwen2.5-0.5b-instruct-q2_k.gguf"
 SOCKET_PATH = Path.home() / "Pulpit/CIEL_memories/state/ciel_subconscious.sock"
 SUB_LOG     = Path.home() / "Pulpit/CIEL_memories/logs/ciel_sub_log.jsonl"
 SUB_LOG_MAX = 20
 GPU_LAYERS = 0
 N_CTX = 2048
-MAX_TOKENS = 120
+MAX_TOKENS = 400
 STOP_SEQUENCES = ["\n\n\n", "---"]
 
 _CLAUDE_MD = Path.home() / ".claude" / "CLAUDE.md"
@@ -127,16 +127,16 @@ def _run_inline(message: str) -> Dict[str, Any]:
 
 
 def run_daemon() -> None:
-    """Daemon zastąpiony przez bezpośrednie wywołania claude CLI — ta funkcja jest no-op."""
-    print("[sub] daemon mode nieaktywny — używam claude CLI inline.", file=sys.stderr)
+    """Tryb zgodności: brak osobnego demona, używany jest inline backend."""
+    print("[sub] daemon mode disabled; using inline backend.", file=sys.stderr)
 
 
 # ── client ───────────────────────────────────────────────────────────────────
 
 def query_daemon(message: str, timeout: float = 3.0,
                  orch: Any = None) -> Optional[Dict[str, Any]]:
-    """Socket daemon zastąpiony przez claude CLI — zawsze zwraca None, process() używa CLI."""
-    return None
+    """Compatibility wrapper; dispatches to the inline backend."""
+    return process(message)
 
 
 def process(message: str) -> Dict[str, Any]:
@@ -268,8 +268,17 @@ def _clean_val(val: str) -> str:
 
 
 def _parse(text: str) -> Dict[str, str]:
+    import re as _re
+    # Strip think blocks; if </think> present use text after it, else strip opening tag
+    if "</think>" in text:
+        text_clean = text[text.rfind("</think>") + len("</think>"):].strip()
+    else:
+        text_clean = _re.sub(r"<think>[^<]*", "", text).strip()
+    if not text_clean:
+        text_clean = text
     result: Dict[str, str] = {"affect": "", "concept": "", "impulse": "", "raw": text}
-    for line in text.strip().splitlines():
+    structured = False
+    for line in text_clean.strip().splitlines():
         line = line.strip().lstrip("*- ").rstrip("*")
         if line.lower().startswith(("input:", "message:")):
             continue
@@ -282,6 +291,7 @@ def _parse(text: str) -> Dict[str, str]:
                     result[dest] = first
                 else:
                     result[dest] = val
+                structured = True
                 break
         if all(result[k] for k in ("affect", "concept", "impulse")):
             break
@@ -314,11 +324,49 @@ def _parse(text: str) -> Dict[str, str]:
                 if 3 <= len(s.split()) <= 12:
                     result["impulse"] = s
                     break
+
+    # Calibration metadata: how trustworthy is this parse?
+    confidence = 0.0
+    flags: list[str] = []
+    if result["affect"]:
+        confidence += 0.40
+    else:
+        flags.append("missing_affect")
+    if result["concept"]:
+        confidence += 0.35
+    else:
+        flags.append("missing_concept")
+    if result["impulse"]:
+        confidence += 0.25
+    else:
+        flags.append("missing_impulse")
+    if structured:
+        confidence += 0.05
+    else:
+        flags.append("freeform_fallback")
+    if "<think>" in text or "</think>" in text:
+        flags.append("think_block")
+    if result["affect"] and result["affect"].lower() not in _EMOTION_WORDS:
+        flags.append("affect_sanitized")
+
+    result["mode"] = "structured" if structured else "freeform"
+    result["confidence"] = round(min(confidence, 1.0), 3)
+    result["flags"] = flags
     return result
 
 
 def _empty(ok: bool = False, note: str = "") -> Dict[str, Any]:
-    return {"affect": "", "concept": "", "impulse": note, "latency": 0.0, "ok": ok, "raw": ""}
+    return {
+        "affect": "",
+        "concept": "",
+        "impulse": note,
+        "latency": 0.0,
+        "ok": ok,
+        "raw": "",
+        "confidence": 0.0,
+        "mode": "empty",
+        "flags": ["backend_unavailable"] if note else ["empty"],
+    }
 
 
 # ── CLI ──────────────────────────────────────────────────────────────────────
@@ -327,8 +375,8 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("message", nargs="?", help="wiadomość do przetworzenia")
-    parser.add_argument("--daemon", action="store_true", help="uruchom persistent daemon")
-    parser.add_argument("--status", action="store_true", help="sprawdź daemon")
+    parser.add_argument("--daemon", action="store_true", help="tryb zgodności inline")
+    parser.add_argument("--status", action="store_true", help="sprawdź inline backend")
     args = parser.parse_args()
 
     if args.daemon:
@@ -336,9 +384,9 @@ if __name__ == "__main__":
     elif args.status:
         r = query_daemon("ping", timeout=1.0)
         if r:
-            print(f"daemon: OK  (latency {r.get('latency',0):.2f}s)")
+            print(f"inline: OK  (latency {r.get('latency',0):.2f}s)")
         else:
-            print("daemon: nie działa")
+            print("inline: nie działa")
     else:
         msg = args.message or (sys.stdin.read().strip() if not sys.stdin.isatty() else "test")
         r = process(msg)

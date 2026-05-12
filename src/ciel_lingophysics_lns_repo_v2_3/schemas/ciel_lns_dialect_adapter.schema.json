@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ciel_lns_dialect_adapter.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "adapter_levels",
+    "activation_rule"
+  ]
+}

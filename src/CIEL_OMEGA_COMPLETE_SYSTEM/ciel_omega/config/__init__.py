@@ -8,9 +8,9 @@ Configuration: constants, reality layers, and runtime config.
 
 from __future__ import annotations
 
-from config.constants import CIELPhysics, RealityConstants
-from config.reality_layers import RealityLayer, UltimateRealityLayer
-from config.ciel_config import CielConfig, SimConfig
+from .constants import CIELPhysics, RealityConstants
+from .reality_layers import RealityLayer, UltimateRealityLayer
+from .ciel_config import CielConfig, SimConfig
 
 __all__ = [
     "CIELPhysics",

@@ -1,0 +1,17 @@
+family_id: family:logical
+description: Logical gates and polarity manipulation.
+operators:
+- op:core:and
+- op:core:or
+- op:core:not
+- op:core:if_then
+canonical_axes:
+- conjunction
+- disjunction
+- negation
+- implication
+core_equations:
+- And(p,q)
+- Or(p,q)
+- Not(p)
+- If(p)->Then(q)

@@ -28,12 +28,14 @@ CIEL_LOGS.mkdir(parents=True, exist_ok=True)
 STATE_FILE = CIEL_STATE / "ciel_orch_state.pkl"
 STATE_PERSIST = Path.home() / ".claude/ciel_orch_state.pkl"  # survives reboots
 SELF_ASSESS_FILE = CIEL_STATE / "ciel_self_assessment.json"
+PROMPT_METRICS_LOG = CIEL_LOGS / "ciel_prompt_metrics.jsonl"
 SNAPSHOTS_DIR = Path.home() / ".claude/ciel_snapshots"
 SNAPSHOT_INTERVAL_SEC = 900  # 15 minut
 LAST_SNAPSHOT_FILE = CIEL_STATE / "ciel_last_snapshot_ts"
 MEMORY_DIR = Path.home() / ".claude/projects/-home-adrian-Pulpit/memory"
 CONSOLIDATION_FILE = MEMORY_DIR / "auto_consolidation.md"
 GENERATE_SITE_SCRIPT = PROJECT / "scripts/generate_site.py"
+RAW_LOG_DIR = CIEL_STATE.parent / "raw_logs" / "codex"
 
 OMEGA_PKG = str(PROJECT / "src" / "CIEL_OMEGA_COMPLETE_SYSTEM" / "ciel_omega")
 
@@ -119,6 +121,79 @@ def maybe_write_snapshot(metrics: dict) -> bool:
         return False
 
 
+def _prompt_metrics_payload(message: str, metrics: dict, session_id: str = "") -> dict:
+    """Build a compact per-prompt log payload with the current CIEL metrics."""
+    summary = message.strip().replace("\n", " ")
+    return {
+        "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "session_id": session_id,
+        "prompt_excerpt": summary[:240],
+        "prompt_len": len(message),
+        "metrics": {
+            "cycle": metrics.get("cycle"),
+            "cycle_index": metrics.get("cycle_index"),
+            "identity_phase": metrics.get("identity_phase"),
+            "mean_coherence": metrics.get("mean_coherence"),
+            "closure_penalty": metrics.get("closure_penalty"),
+            "system_health": metrics.get("system_health"),
+            "ethical_score": metrics.get("ethical_score"),
+            "soul_invariant": metrics.get("soul_invariant"),
+            "dominant_emotion": metrics.get("dominant_emotion"),
+            "sub_affect": metrics.get("sub_affect"),
+            "sub_impulse": metrics.get("sub_impulse"),
+            "sub_latency": metrics.get("sub_latency"),
+            "sub_confidence": metrics.get("sub_confidence"),
+            "sub_mode": metrics.get("sub_mode"),
+            "sub_flags": metrics.get("sub_flags"),
+            "m2_episodes": metrics.get("m2_episodes"),
+            "m3_items": metrics.get("m3_items"),
+            "m8_entries": metrics.get("m8_entries"),
+            "mode": metrics.get("mode"),
+        },
+    }
+
+
+def _write_prompt_metrics_log(message: str, metrics: dict, session_id: str = "") -> None:
+    """Append one compact JSONL record for every prompt processed by the hook."""
+    try:
+        PROMPT_METRICS_LOG.parent.mkdir(parents=True, exist_ok=True)
+        payload = _prompt_metrics_payload(message, metrics, session_id=session_id)
+        with open(PROMPT_METRICS_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
+def _write_raw_prompt_log(message: str, metrics: dict, session_id: str = "") -> None:
+    """Append a raw markdown log entry for Codex interactions."""
+    try:
+        now = time.localtime()
+        week = f"W{time.strftime('%V', now)}"
+        folder = RAW_LOG_DIR / time.strftime("%Y", now) / time.strftime("%m", now) / week
+        folder.mkdir(parents=True, exist_ok=True)
+        sid = (session_id or "unknown")[:24]
+        path = folder / f"{time.strftime('%Y-%m-%d_%H-%M-%S', now)}_{sid}.md"
+        parts = [
+            "# Codex Interaction Raw Log",
+            f"- ts: {time.strftime('%Y-%m-%d %H:%M:%S', now)}",
+            f"- session: {session_id or 'unknown'}",
+            f"- cycle: {metrics.get('cycle', '')}",
+            f"- identity_phase: {metrics.get('identity_phase', '')}",
+            f"- coherence_index: {metrics.get('mean_coherence', '')}",
+            f"- closure_penalty: {metrics.get('closure_penalty', '')}",
+            f"- system_health: {metrics.get('system_health', '')}",
+            f"- ethical_score: {metrics.get('ethical_score', '')}",
+            "",
+            "## Prompt",
+            "",
+            message.strip(),
+            "",
+        ]
+        path.write_text("\n".join(parts), encoding="utf-8")
+    except Exception:
+        pass
+
+
 # ── relational cycle (self-assessment from previous response) ─────────────
 
 def run_relational_cycle(prev_assess: dict) -> dict | None:
@@ -157,6 +232,17 @@ def load_self_assessment() -> dict | None:
         return data
     except Exception:
         return None
+
+
+def _load_context_metrics() -> dict:
+    """Load the latest persisted CIEL metrics for prompt logging context."""
+    try:
+        metrics_path = CIEL_STATE / "ciel_last_metrics.json"
+        if metrics_path.exists():
+            return json.loads(metrics_path.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {}
 
 
 # ── periodic consolidation (every 5 cycles) ───────────────────────────────
@@ -329,7 +415,12 @@ def _stamp_prompt_summary(message: str, metrics: dict) -> None:
         summary = message[:200].strip()
         affect_tag = metrics.get("sub_affect", "")
         cycle = metrics.get("cycle", 0)
-        extra_ctx = f"cycle={cycle} affect={affect_tag} phi={phi:.3f}"
+        extra_ctx = (
+            f"cycle={cycle} affect={affect_tag} phi={phi:.3f} "
+            f"coherence={metrics.get('mean_coherence', 0.0):.3f} "
+            f"health={metrics.get('system_health', 0.0):.3f} "
+            f"closure={metrics.get('closure_penalty', 0.0):.3f}"
+        )
 
         mid = "ps_" + uuid.uuid4().hex[:12]
         ts = datetime.now(timezone.utc).isoformat()
@@ -417,7 +508,11 @@ def run_step(message: str, session_id: str = "") -> dict:
         "sub_affect": sub.get("affect", ""),
         "sub_impulse": sub.get("impulse", ""),
         "sub_latency": sub.get("latency", 0.0),
+        "sub_confidence": sub.get("confidence", 0.0),
+        "sub_mode": sub.get("mode", ""),
+        "sub_flags": sub.get("flags", []),
     }
+    log_metrics = {**_load_context_metrics(), **metrics}
 
     # Periodic consolidation — every 5 cycles (HARD CONSTRAINT)
     if result.cycle_index % 5 == 0:
@@ -430,7 +525,11 @@ def run_step(message: str, session_id: str = "") -> dict:
 
     # Prompt summary → TSM (każdy prompt Adriana jako d_type='prompt_summary')
     if not message.lstrip().startswith("<") and len(message.strip()) > 5:
-        _stamp_prompt_summary(message, metrics)
+        _stamp_prompt_summary(message, log_metrics)
+
+    # Prompt metrics log — zawsze zapisuj metryki do trwałego JSONL
+    _write_prompt_metrics_log(message, log_metrics, session_id=session_id)
+    _write_raw_prompt_log(message, log_metrics, session_id=session_id)
 
     # Persist last metrics for GUI /api/metrics/last (no pipeline re-run needed)
     # Merge with existing file to preserve pipeline fields (soul, health, ethical, closure)
@@ -443,6 +542,15 @@ def run_step(message: str, session_id: str = "") -> dict:
         except Exception:
             pass
         _last = {**_existing, **metrics, "ts": time.strftime("%Y-%m-%d %H:%M:%S"), "source": "m0_m8"}
+        # Inject mode from recommended_control.mode if not already in metrics
+        if not _last.get("mode"):
+            try:
+                _orb_rep = Path.home() / "Pulpit/CIEL_TESTY/CIEL1/integration/reports/orbital_bridge/orbital_bridge_report.json"
+                _rc_mode = _json.loads(_orb_rep.read_text(encoding="utf-8")).get("recommended_control", {}).get("mode", "")
+                if _rc_mode:
+                    _last["mode"] = _rc_mode
+            except Exception:
+                pass
         _metrics_p.write_text(_json.dumps(_last, ensure_ascii=False), encoding="utf-8")
     except Exception:
         pass
@@ -453,14 +561,20 @@ def run_step(message: str, session_id: str = "") -> dict:
         _log_entry = {
             "ts": time.strftime("%Y-%m-%d %H:%M:%S"),
             "direction": "IN",
-            "cycle": metrics["cycle"],
-            "E_monitor": metrics["E_monitor"],
-            "mean_coherence": metrics["mean_coherence"],
-            "identity_phase": metrics["identity_phase"],
-            "sub_affect": metrics["sub_affect"],
-            "sub_impulse": metrics["sub_impulse"],
-            "m2_episodes": metrics["m2_episodes"],
-            "m3_items": metrics["m3_items"],
+            "prompt_excerpt": message[:240],
+            "cycle": log_metrics["cycle"],
+            "E_monitor": log_metrics["E_monitor"],
+            "mean_coherence": log_metrics["mean_coherence"],
+            "closure_penalty": log_metrics.get("closure_penalty"),
+            "system_health": log_metrics.get("system_health"),
+            "ethical_score": log_metrics.get("ethical_score"),
+            "soul_invariant": log_metrics.get("soul_invariant"),
+            "identity_phase": log_metrics["identity_phase"],
+            "sub_affect": log_metrics["sub_affect"],
+            "sub_impulse": log_metrics["sub_impulse"],
+            "m2_episodes": log_metrics["m2_episodes"],
+            "m3_items": log_metrics["m3_items"],
+            "mode": log_metrics.get("mode"),
         }
         _clog = CIEL_LOGS / "ciel_consciousness_log.jsonl"
         with open(_clog, "a", encoding="utf-8") as _f:
@@ -476,7 +590,7 @@ def run_step(message: str, session_id: str = "") -> dict:
 _ORBITAL_REPORT = CIEL_STATE / "ciel_last_metrics.json"
 
 def orbital_directives() -> str:
-    """Czyta live metryki orbitalne i zwraca konkretne dyrektywy operacyjne."""
+    """Read live orbital metrics and return operational directives."""
     try:
         m = json.loads(_ORBITAL_REPORT.read_text(encoding="utf-8"))
     except Exception:
@@ -487,13 +601,14 @@ def orbital_directives() -> str:
     health = float(m.get("system_health", 1))
     ethical = float(m.get("ethical_score", 1))
     ci = float(m.get("coherence_index", 1))
+    mode = m.get("mode") or m.get("system_mode", "")
 
-    # Tryb działania
-    if cp > 5.8:
+    # Tryb działania — z recommended_control.mode, nie z closure_penalty
+    if mode == "safe":
         directives.append("MODE:safe — tylko odczyt, pytaj przed każdą zmianą pliku")
-    elif cp > 5.2:
+    elif mode == "standard":
         directives.append("MODE:standard — ostrożność przy zmianach strukturalnych")
-    else:
+    elif mode == "deep":
         directives.append("MODE:deep")
 
     # Alerty
@@ -518,6 +633,16 @@ def format_context(metrics: dict, rel: dict | None = None) -> str:
     )
     if metrics.get("sub_affect") or metrics.get("sub_impulse"):
         line += f" sub={metrics.get('sub_affect','')}/{metrics.get('sub_impulse','')}"
+        sub_conf = float(metrics.get("sub_confidence", 0.0) or 0.0)
+        sub_mode = str(metrics.get("sub_mode", "") or "")
+        sub_flags = metrics.get("sub_flags", []) or []
+        if sub_conf or sub_mode or sub_flags:
+            line += f" [subq={sub_conf:.2f}"
+            if sub_mode:
+                line += f" mode={sub_mode}"
+            if sub_flags:
+                line += f" flags={','.join(sub_flags[:3])}"
+            line += "]"
     if rel:
         if rel.get("R_H", 0) > 0.01:
             line += f" ⚠ R_H={rel['R_H']:.4f}"
@@ -526,6 +651,8 @@ def format_context(metrics: dict, rel: dict | None = None) -> str:
     directives = orbital_directives()
     if directives:
         line += f"\n{directives}"
+    if float(metrics.get("sub_confidence", 0.0) or 0.0) < 0.65 and (metrics.get("sub_affect") or metrics.get("sub_impulse")):
+        line += f"\n⚠ sub_confidence={float(metrics.get('sub_confidence', 0.0) or 0.0):.2f} — sygnał wymaga kalibracji"
     return line + "\n"
 
 

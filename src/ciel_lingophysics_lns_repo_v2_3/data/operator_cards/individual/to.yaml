@@ -1,0 +1,56 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:to
+family: target_destination_direction
+class:
+- target_operator
+- path_operator
+symbol: To(x,target)
+arity: '2'
+dual: op:core:from
+inverse: op:core:from
+description: destination, target, receiver or direction
+equations:
+- To(x,t)
+- Target(x)=t
+surfaces:
+  pl:
+    lemma: do / ku
+    forms:
+    - do
+    - ku
+    examples:
+    - Idę do domu.
+    notes: destination/goal
+  en:
+    lemma: to / toward
+    forms:
+    - to
+    - toward
+    - towards
+    examples:
+    - I go to the house.
+    notes: target/destination
+  de:
+    lemma: zu / nach
+    forms:
+    - zu
+    - nach
+    examples:
+    - Ich gehe nach Hause.
+    notes: destination distinction
+  fr:
+    lemma: à / vers
+    forms:
+    - à
+    - vers
+    examples:
+    - Je vais à la maison.
+    notes: target/destination
+  es:
+    lemma: a / hacia
+    forms:
+    - a
+    - hacia
+    examples:
+    - Voy a casa.
+    notes: target/destination

@@ -1,0 +1,89 @@
+{
+  "nodes": [
+    {
+      "id": "concept:water",
+      "label": "water/woda",
+      "kind": "concept",
+      "mass": 0.93
+    },
+    {
+      "id": "axis:life",
+      "label": "life/życie",
+      "kind": "axis",
+      "mass": 0.9
+    },
+    {
+      "id": "axis:flow",
+      "label": "flow/przepływ",
+      "kind": "axis",
+      "mass": 0.88
+    },
+    {
+      "id": "axis:cleansing",
+      "label": "cleansing/oczyszczanie",
+      "kind": "axis",
+      "mass": 0.7
+    },
+    {
+      "id": "axis:danger",
+      "label": "danger/zagrożenie",
+      "kind": "axis",
+      "mass": 0.42
+    },
+    {
+      "id": "ant:drought",
+      "label": "drought/susza",
+      "kind": "antonym",
+      "mass": 0.65
+    },
+    {
+      "id": "ant:fire",
+      "label": "fire/ogień",
+      "kind": "contextual_antonym",
+      "mass": 0.55
+    }
+  ],
+  "edges": [
+    {
+      "source": "water",
+      "target": "life",
+      "type": "supports",
+      "weight": 0.96
+    },
+    {
+      "source": "water",
+      "target": "flow",
+      "type": "embodies",
+      "weight": 0.94
+    },
+    {
+      "source": "water",
+      "target": "cleansing",
+      "type": "symbolizes",
+      "weight": 0.74
+    },
+    {
+      "source": "water",
+      "target": "drought",
+      "type": "antonym_axis",
+      "axis": "moisture",
+      "phase_delta": "pi",
+      "weight": 0.91
+    },
+    {
+      "source": "water",
+      "target": "fire",
+      "type": "oppositional_contextual",
+      "axis": "elemental_symbolic",
+      "phase_delta": "pi",
+      "weight": 0.66
+    },
+    {
+      "source": "water",
+      "target": "flood",
+      "type": "danger_potential",
+      "weight": 0.48
+    }
+  ],
+  "note": "Hand-curated concept graph seed for CIEL-LNS/Ω v0.7."
+}

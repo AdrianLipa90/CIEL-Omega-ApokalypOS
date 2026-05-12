@@ -1,0 +1,166 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:water
+canonical_label_en: water
+batch_id: batch01_foundational_36x5
+domain: elemental
+semantic_axes:
+- element
+- substance
+- life_support
+semantic_mass_seed: 0.5938
+phase_seed_rad: 0.0
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: woda
+    brief_description: płynna substancja podstawowa dla życia i przepływu
+    near_synonyms_seed:
+    - płyn
+    - ciecz
+    antonyms_seed:
+    - ogień
+    - susza
+    forms_seed:
+    - woda
+    - woda jako hasło
+    - woda w kontekście
+    context_examples_seed:
+    - Woda tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - inside
+    - contains
+    - flow
+    - with
+    - without
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: water
+    brief_description: a liquid substance central to life and flow
+    near_synonyms_seed:
+    - liquid
+    - fluid
+    antonyms_seed:
+    - fire
+    - dryness
+    forms_seed:
+    - water
+    - waters
+    - water as concept
+    context_examples_seed:
+    - Water forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Wasser
+    brief_description: flüssige Substanz, zentral für Leben und Fluss
+    near_synonyms_seed:
+    - Flüssigkeit
+    antonyms_seed:
+    - Feuer
+    - Trockenheit
+    forms_seed:
+    - Wasser
+    - Wasser als Begriff
+    - Wasser im Kontext
+    context_examples_seed:
+    - Wasser bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: eau
+    brief_description: substance liquide centrale pour la vie et le flux
+    near_synonyms_seed:
+    - liquide
+    antonyms_seed:
+    - feu
+    - sécheresse
+    forms_seed:
+    - eau
+    - eau comme concept
+    - eau en contexte
+    context_examples_seed:
+    - Eau forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: agua
+    brief_description: sustancia líquida central para la vida y el flujo
+    near_synonyms_seed:
+    - líquido
+    - fluido
+    antonyms_seed:
+    - fuego
+    - sequedad
+    forms_seed:
+    - agua
+    - agua como concepto
+    - agua en contexto
+    context_examples_seed:
+    - Agua forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: opposes
+  target: concept:fire
+  status: draft_seed
+- type: supports
+  target: concept:life
+  status: draft_seed
+- type: has_state
+  target: concept:motion
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

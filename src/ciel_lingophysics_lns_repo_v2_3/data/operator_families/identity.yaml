@@ -1,0 +1,14 @@
+family_id: family:identity
+description: Being, identity, equality, classification and predication.
+operators:
+- op:core:be
+canonical_axes:
+- identity
+- classification
+- existence
+- predication
+core_equations:
+- Be(x)
+- Equals(x,y)
+- Classify(x,C)
+- Predicate(x,P)

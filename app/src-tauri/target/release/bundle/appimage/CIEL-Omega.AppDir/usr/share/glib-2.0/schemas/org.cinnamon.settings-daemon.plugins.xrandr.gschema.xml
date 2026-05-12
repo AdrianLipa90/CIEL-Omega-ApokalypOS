@@ -1,0 +1,12 @@
+<schemalist>
+  <schema gettext-domain="cinnamon-settings-daemon" id="org.cinnamon.settings-daemon.plugins.xrandr" path="/org/cinnamon/settings-daemon/plugins/xrandr/">
+    <key name="default-configuration-file" type="s">
+      <default>'/etc/cinnamon-settings-daemon/xrandr/monitors.xml'</default>
+      <summary>deprecated - handled by muffin</summary>
+    </key>
+    <key name="default-monitors-setup" enum="org.cinnamon.settings-daemon.CsdXrandrBootBehaviour">
+      <default>'follow-lid'</default>
+      <summary>deprecated - handled by muffin</summary>
+    </key>
+  </schema>
+</schemalist>

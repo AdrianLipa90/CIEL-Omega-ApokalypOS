@@ -1,0 +1,1048 @@
+{
+  "version": "1.6",
+  "created_utc": "2026-05-10T13:08:13.520802+00:00",
+  "pairs": [
+    {
+      "yaml": "data/patterns.yaml",
+      "expected_json": "data/patterns.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/seed_lexemes/en.yaml",
+      "expected_json": "data/seed_lexemes/en.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/seed_lexemes/pl.yaml",
+      "expected_json": "data/seed_lexemes/pl.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/concept_cards/water.yaml",
+      "expected_json": "data/concept_cards/water.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/grammar/pl_grammar_math.yaml",
+      "expected_json": "data/grammar/pl_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/en_grammar_math.yaml",
+      "expected_json": "data/grammar/en_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/de_grammar_math.yaml",
+      "expected_json": "data/grammar/de_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/fr_grammar_math.yaml",
+      "expected_json": "data/grammar/fr_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/es_grammar_math.yaml",
+      "expected_json": "data/grammar/es_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/ja_grammar_math.yaml",
+      "expected_json": "data/grammar/ja_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/core_operators_5lang.yaml",
+      "expected_json": "data/operator_cards/core_operators_5lang.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_cards/dynamic_deictic_operators_5lang.yaml",
+      "expected_json": "data/operator_cards/dynamic_deictic_operators_5lang.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_families/containment.yaml",
+      "expected_json": "data/operator_families/containment.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/possession.yaml",
+      "expected_json": "data/operator_families/possession.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/identity.yaml",
+      "expected_json": "data/operator_families/identity.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/spatial.yaml",
+      "expected_json": "data/operator_families/spatial.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/temporal.yaml",
+      "expected_json": "data/operator_families/temporal.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/logical.yaml",
+      "expected_json": "data/operator_families/logical.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/causal.yaml",
+      "expected_json": "data/operator_families/causal.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/modal.yaml",
+      "expected_json": "data/operator_families/modal.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/comparison.yaml",
+      "expected_json": "data/operator_families/comparison.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/transformation.yaml",
+      "expected_json": "data/operator_families/transformation.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/epistemic.yaml",
+      "expected_json": "data/operator_families/epistemic.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/affective.yaml",
+      "expected_json": "data/operator_families/affective.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/consensus.yaml",
+      "expected_json": "data/operator_families/consensus.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/deictic_dynamic.yaml",
+      "expected_json": "data/operator_families/deictic_dynamic.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_families/being_ontological.yaml",
+      "expected_json": "data/operator_families/being_ontological.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_families/tame_modality_evidentiality.yaml",
+      "expected_json": "data/operator_families/tame_modality_evidentiality.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_families/quantifier_scope_negation.yaml",
+      "expected_json": "data/operator_families/quantifier_scope_negation.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_compositions/duals.yaml",
+      "expected_json": "data/operator_compositions/duals.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/inverses.yaml",
+      "expected_json": "data/operator_compositions/inverses.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/negations.yaml",
+      "expected_json": "data/operator_compositions/negations.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/higher_order.yaml",
+      "expected_json": "data/operator_compositions/higher_order.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/polyfunctional_modes.yaml",
+      "expected_json": "data/operator_compositions/polyfunctional_modes.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/argument_typing_rules.yaml",
+      "expected_json": "data/operator_compositions/argument_typing_rules.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/dynamic_deictic_resolution.yaml",
+      "expected_json": "data/operator_compositions/dynamic_deictic_resolution.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/tame_scope_interactions.yaml",
+      "expected_json": "data/operator_compositions/tame_scope_interactions.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_compositions/scope_negation_interactions.yaml",
+      "expected_json": "data/operator_compositions/scope_negation_interactions.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_algebra/operator_algebra_index.yaml",
+      "expected_json": "data/operator_algebra/operator_algebra_index.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/case_systems/slavic_case_gauge.yaml",
+      "expected_json": "data/case_systems/slavic_case_gauge.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/event_frames/predicate_valency_frames.yaml",
+      "expected_json": "data/event_frames/predicate_valency_frames.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/ontological_aspect/koto_mono_ser_estar.yaml",
+      "expected_json": "data/ontological_aspect/koto_mono_ser_estar.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/tame/tame_operator_system.yaml",
+      "expected_json": "data/tame/tame_operator_system.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/scope/scope_quantifier_negation.yaml",
+      "expected_json": "data/scope/scope_quantifier_negation.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/operator_cards/individual/be.yaml",
+      "expected_json": "data/operator_cards/individual/be.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/have.yaml",
+      "expected_json": "data/operator_cards/individual/have.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/contain.yaml",
+      "expected_json": "data/operator_cards/individual/contain.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/inside.yaml",
+      "expected_json": "data/operator_cards/individual/inside.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/outside.yaml",
+      "expected_json": "data/operator_cards/individual/outside.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/on.yaml",
+      "expected_json": "data/operator_cards/individual/on.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/under.yaml",
+      "expected_json": "data/operator_cards/individual/under.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/above.yaml",
+      "expected_json": "data/operator_cards/individual/above.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/before.yaml",
+      "expected_json": "data/operator_cards/individual/before.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/after.yaml",
+      "expected_json": "data/operator_cards/individual/after.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/with.yaml",
+      "expected_json": "data/operator_cards/individual/with.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/without.yaml",
+      "expected_json": "data/operator_cards/individual/without.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/from.yaml",
+      "expected_json": "data/operator_cards/individual/from.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/to.yaml",
+      "expected_json": "data/operator_cards/individual/to.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/through.yaml",
+      "expected_json": "data/operator_cards/individual/through.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/and.yaml",
+      "expected_json": "data/operator_cards/individual/and.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/or.yaml",
+      "expected_json": "data/operator_cards/individual/or.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/not.yaml",
+      "expected_json": "data/operator_cards/individual/not.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/if_then.yaml",
+      "expected_json": "data/operator_cards/individual/if_then.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/because.yaml",
+      "expected_json": "data/operator_cards/individual/because.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/how.yaml",
+      "expected_json": "data/operator_cards/individual/how.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/where.yaml",
+      "expected_json": "data/operator_cards/individual/where.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/when.yaml",
+      "expected_json": "data/operator_cards/individual/when.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/like_as.yaml",
+      "expected_json": "data/operator_cards/individual/like_as.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/water.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/water.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/fire.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/fire.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/earth.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/earth.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/air.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/air.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/light.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/light.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/dark.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/dark.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/life.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/life.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/death.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/death.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/body.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/body.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/mind.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/mind.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/time.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/time.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/space.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/space.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/motion.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/motion.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/rest.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/rest.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/force.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/force.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/energy.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/energy.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/matter.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/matter.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/information.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/information.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/truth.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/truth.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/lie.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/lie.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/good.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/good.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/harm.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/harm.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/order.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/order.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/chaos.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/chaos.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/center.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/center.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/boundary.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/boundary.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/self.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/self.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/other.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/other.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/relation.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/relation.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/memory.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/memory.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/love.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/love.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/fear.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/fear.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/trust.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/trust.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/pain.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/pain.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/knowledge.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/knowledge.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/error.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/error.json",
+      "has_json": true,
+      "severity": "PASS"
+    },
+    {
+      "yaml": "data/concept_cards/batch01_foundational_36x5/batch01_index.yaml",
+      "expected_json": "data/concept_cards/batch01_foundational_36x5/batch01_index.json",
+      "has_json": true,
+      "severity": "PASS"
+    }
+  ],
+  "missing_json": [
+    {
+      "yaml": "data/patterns.yaml",
+      "expected_json": "data/patterns.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/seed_lexemes/en.yaml",
+      "expected_json": "data/seed_lexemes/en.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/seed_lexemes/pl.yaml",
+      "expected_json": "data/seed_lexemes/pl.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/pl_grammar_math.yaml",
+      "expected_json": "data/grammar/pl_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/en_grammar_math.yaml",
+      "expected_json": "data/grammar/en_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/de_grammar_math.yaml",
+      "expected_json": "data/grammar/de_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/fr_grammar_math.yaml",
+      "expected_json": "data/grammar/fr_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/es_grammar_math.yaml",
+      "expected_json": "data/grammar/es_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/grammar/ja_grammar_math.yaml",
+      "expected_json": "data/grammar/ja_grammar_math.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/containment.yaml",
+      "expected_json": "data/operator_families/containment.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/possession.yaml",
+      "expected_json": "data/operator_families/possession.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/identity.yaml",
+      "expected_json": "data/operator_families/identity.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/spatial.yaml",
+      "expected_json": "data/operator_families/spatial.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/temporal.yaml",
+      "expected_json": "data/operator_families/temporal.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/logical.yaml",
+      "expected_json": "data/operator_families/logical.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/causal.yaml",
+      "expected_json": "data/operator_families/causal.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/modal.yaml",
+      "expected_json": "data/operator_families/modal.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/comparison.yaml",
+      "expected_json": "data/operator_families/comparison.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/transformation.yaml",
+      "expected_json": "data/operator_families/transformation.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/epistemic.yaml",
+      "expected_json": "data/operator_families/epistemic.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/affective.yaml",
+      "expected_json": "data/operator_families/affective.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_families/consensus.yaml",
+      "expected_json": "data/operator_families/consensus.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/duals.yaml",
+      "expected_json": "data/operator_compositions/duals.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/inverses.yaml",
+      "expected_json": "data/operator_compositions/inverses.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/negations.yaml",
+      "expected_json": "data/operator_compositions/negations.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/higher_order.yaml",
+      "expected_json": "data/operator_compositions/higher_order.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/polyfunctional_modes.yaml",
+      "expected_json": "data/operator_compositions/polyfunctional_modes.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/argument_typing_rules.yaml",
+      "expected_json": "data/operator_compositions/argument_typing_rules.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/dynamic_deictic_resolution.yaml",
+      "expected_json": "data/operator_compositions/dynamic_deictic_resolution.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_compositions/scope_negation_interactions.yaml",
+      "expected_json": "data/operator_compositions/scope_negation_interactions.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/be.yaml",
+      "expected_json": "data/operator_cards/individual/be.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/have.yaml",
+      "expected_json": "data/operator_cards/individual/have.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/contain.yaml",
+      "expected_json": "data/operator_cards/individual/contain.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/inside.yaml",
+      "expected_json": "data/operator_cards/individual/inside.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/outside.yaml",
+      "expected_json": "data/operator_cards/individual/outside.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/on.yaml",
+      "expected_json": "data/operator_cards/individual/on.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/under.yaml",
+      "expected_json": "data/operator_cards/individual/under.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/above.yaml",
+      "expected_json": "data/operator_cards/individual/above.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/before.yaml",
+      "expected_json": "data/operator_cards/individual/before.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/after.yaml",
+      "expected_json": "data/operator_cards/individual/after.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/with.yaml",
+      "expected_json": "data/operator_cards/individual/with.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/without.yaml",
+      "expected_json": "data/operator_cards/individual/without.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/from.yaml",
+      "expected_json": "data/operator_cards/individual/from.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/to.yaml",
+      "expected_json": "data/operator_cards/individual/to.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/through.yaml",
+      "expected_json": "data/operator_cards/individual/through.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/and.yaml",
+      "expected_json": "data/operator_cards/individual/and.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/or.yaml",
+      "expected_json": "data/operator_cards/individual/or.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/not.yaml",
+      "expected_json": "data/operator_cards/individual/not.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/if_then.yaml",
+      "expected_json": "data/operator_cards/individual/if_then.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/because.yaml",
+      "expected_json": "data/operator_cards/individual/because.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/how.yaml",
+      "expected_json": "data/operator_cards/individual/how.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/where.yaml",
+      "expected_json": "data/operator_cards/individual/where.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/when.yaml",
+      "expected_json": "data/operator_cards/individual/when.json",
+      "has_json": false,
+      "severity": "WARN"
+    },
+    {
+      "yaml": "data/operator_cards/individual/like_as.yaml",
+      "expected_json": "data/operator_cards/individual/like_as.json",
+      "has_json": false,
+      "severity": "WARN"
+    }
+  ],
+  "json_without_yaml": [
+    {
+      "json": "data/json/seed_nodes.json",
+      "expected_yaml": "data/json/seed_nodes.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/json/seed_relations.json",
+      "expected_yaml": "data/json/seed_relations.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/json/cielingo_tame_v1_4.fallback.json",
+      "expected_yaml": "data/json/cielingo_tame_v1_4.fallback.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/json/fallback_manifest_v1_4.json",
+      "expected_yaml": "data/json/fallback_manifest_v1_4.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/json/tame_hdf5_export_result_v1_4.json",
+      "expected_yaml": "data/json/tame_hdf5_export_result_v1_4.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/json/fallback_manifest_v1_5.json",
+      "expected_yaml": "data/json/fallback_manifest_v1_5.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/water_concept_graph.json",
+      "expected_yaml": "data/graphs/water_concept_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/operator_core_graph.json",
+      "expected_yaml": "data/graphs/operator_core_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/batch01_concept_operator_graph.json",
+      "expected_yaml": "data/graphs/batch01_concept_operator_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/case_gauge_mapping_graph.json",
+      "expected_yaml": "data/graphs/case_gauge_mapping_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/dynamic_deictic_operator_graph.json",
+      "expected_yaml": "data/graphs/dynamic_deictic_operator_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/predicate_valency_frame_graph.json",
+      "expected_yaml": "data/graphs/predicate_valency_frame_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/ontological_aspect_graph.json",
+      "expected_yaml": "data/graphs/ontological_aspect_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    },
+    {
+      "json": "data/graphs/scope_quantifier_operator_graph.json",
+      "expected_yaml": "data/graphs/scope_quantifier_operator_graph.yaml",
+      "has_yaml": false,
+      "severity": "INFO"
+    }
+  ]
+}

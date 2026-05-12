@@ -1,0 +1,163 @@
+schema: ciel_lns_concept_card_v1
+card_type: CONCEPT_CARD
+concept_id: concept:boundary
+canonical_label_en: boundary
+batch_id: batch01_foundational_36x5
+domain: geometry
+semantic_axes:
+- limit
+- edge
+- separation
+semantic_mass_seed: 0.9
+phase_seed_rad: 4.363323
+epistemic_status: draft_seed
+source_policy: hand_curated_seed_no_external_dictionary_import
+languages:
+  pl:
+    language_name: Polish
+    lemma: granica
+    brief_description: linia lub warunek oddzielający wnętrze od zewnętrza
+    near_synonyms_seed:
+    - brzeg
+    - limit
+    antonyms_seed:
+    - centrum
+    - ciągłość
+    forms_seed:
+    - granica
+    - granica jako hasło
+    - granica w kontekście
+    context_examples_seed:
+    - Granica tworzy lokalny atraktor sensu.
+    grammar_vector:
+      case_marking: 0.95
+      fixed_word_order: 0.35
+      gender_marking: 0.85
+      article_system: 0.05
+      aspect_marking: 0.9
+      preposition_load: 0.7
+      inflection_load: 0.9
+      topic_focus_particles: 0.2
+    operator_tags: &id001
+    - inside
+    - outside
+    - contains
+    review_status: needs_human_validation
+  en:
+    language_name: English
+    lemma: boundary
+    brief_description: line or condition separating inside from outside
+    near_synonyms_seed:
+    - edge
+    - limit
+    antonyms_seed:
+    - center
+    - continuity
+    forms_seed:
+    - boundary
+    - boundarys
+    - boundary as concept
+    context_examples_seed:
+    - Boundary forms a local semantic attractor.
+    grammar_vector:
+      case_marking: 0.15
+      fixed_word_order: 0.9
+      gender_marking: 0.15
+      article_system: 0.85
+      aspect_marking: 0.55
+      preposition_load: 0.85
+      inflection_load: 0.25
+      topic_focus_particles: 0.2
+    operator_tags: *id001
+    review_status: needs_human_validation
+  de:
+    language_name: German
+    lemma: Grenze
+    brief_description: Linie oder Bedingung, die Innen von Außen trennt
+    near_synonyms_seed:
+    - Rand
+    - Limit
+    antonyms_seed:
+    - Zentrum
+    - Kontinuität
+    forms_seed:
+    - Grenze
+    - Grenze als Begriff
+    - Grenze im Kontext
+    context_examples_seed:
+    - Grenze bildet einen lokalen Bedeutungsattraktor.
+    grammar_vector:
+      case_marking: 0.65
+      fixed_word_order: 0.55
+      gender_marking: 0.85
+      article_system: 0.85
+      aspect_marking: 0.4
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  fr:
+    language_name: French
+    lemma: limite
+    brief_description: ligne ou condition séparant intérieur et extérieur
+    near_synonyms_seed:
+    - bord
+    - frontière
+    antonyms_seed:
+    - centre
+    - continuité
+    forms_seed:
+    - limite
+    - limite comme concept
+    - limite en contexte
+    context_examples_seed:
+    - Limite forme un attracteur sémantique local.
+    grammar_vector:
+      case_marking: 0.05
+      fixed_word_order: 0.75
+      gender_marking: 0.75
+      article_system: 0.9
+      aspect_marking: 0.45
+      preposition_load: 0.8
+      inflection_load: 0.55
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+  es:
+    language_name: Spanish
+    lemma: límite
+    brief_description: línea o condición que separa interior y exterior
+    near_synonyms_seed:
+    - borde
+    - frontera
+    antonyms_seed:
+    - centro
+    - continuidad
+    forms_seed:
+    - límite
+    - límite como concepto
+    - límite en contexto
+    context_examples_seed:
+    - Límite forma un atractor semántico local.
+    grammar_vector:
+      case_marking: 0.1
+      fixed_word_order: 0.6
+      gender_marking: 0.8
+      article_system: 0.85
+      aspect_marking: 0.75
+      preposition_load: 0.75
+      inflection_load: 0.7
+      topic_focus_particles: 0.25
+    operator_tags: *id001
+    review_status: needs_human_validation
+operator_hooks: *id001
+relations:
+- type: opposes
+  target: concept:center
+  status: draft_seed
+- type: bounds
+  target: concept:space
+  status: draft_seed
+notes: This is a seed card. Lexical variants are working tags, not authoritative dictionary
+  claims.

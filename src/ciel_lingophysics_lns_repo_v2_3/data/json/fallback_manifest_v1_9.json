@@ -1,0 +1,15 @@
+{
+  "version": "1.9",
+  "preferred_outputs": [
+    "feature_tensor_hdf5",
+    "model_adapter_weights",
+    "attention_bias_binary_cache"
+  ],
+  "fallback_outputs": [
+    "json",
+    "jsonl",
+    "csv"
+  ],
+  "rule": "if binary/model serialization fails, write JSON/JSONL sidecar and explicit error report",
+  "current_patch": "no binary model artifacts generated"
+}

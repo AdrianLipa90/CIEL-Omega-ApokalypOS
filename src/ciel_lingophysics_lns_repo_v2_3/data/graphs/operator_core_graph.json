@@ -1,0 +1,751 @@
+{
+  "nodes": [
+    {
+      "id": "op:core:be",
+      "label": "be",
+      "type": "operator",
+      "family": "identity_existence_copula"
+    },
+    {
+      "id": "class:copula",
+      "label": "copula",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:identity",
+      "label": "identity",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:existence",
+      "label": "existence",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:state_binding",
+      "label": "state_binding",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:have",
+      "label": "have",
+      "type": "operator",
+      "family": "possession_property_part_state"
+    },
+    {
+      "id": "class:possession",
+      "label": "possession",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:property_attachment",
+      "label": "property_attachment",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:part_relation",
+      "label": "part_relation",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:state_attachment",
+      "label": "state_attachment",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:contain",
+      "label": "contain",
+      "type": "operator",
+      "family": "containment_inclusion"
+    },
+    {
+      "id": "class:spatial_relation",
+      "label": "spatial_relation",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:set_inclusion",
+      "label": "set_inclusion",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:topological_relation",
+      "label": "topological_relation",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:inside",
+      "label": "inside",
+      "type": "operator",
+      "family": "interiority_location"
+    },
+    {
+      "id": "class:localizer",
+      "label": "localizer",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:outside",
+      "label": "outside",
+      "type": "operator",
+      "family": "exteriority_location"
+    },
+    {
+      "id": "op:core:on",
+      "label": "on",
+      "type": "operator",
+      "family": "surface_contact_support"
+    },
+    {
+      "id": "class:support_relation",
+      "label": "support_relation",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:under",
+      "label": "under",
+      "type": "operator",
+      "family": "below_covered_by"
+    },
+    {
+      "id": "class:vertical_relation",
+      "label": "vertical_relation",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:above",
+      "label": "above",
+      "type": "operator",
+      "family": "above_vertical_superposition"
+    },
+    {
+      "id": "op:core:before",
+      "label": "before",
+      "type": "operator",
+      "family": "temporal_precedence"
+    },
+    {
+      "id": "class:temporal_relation",
+      "label": "temporal_relation",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:ordering_operator",
+      "label": "ordering_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:after",
+      "label": "after",
+      "type": "operator",
+      "family": "temporal_succession"
+    },
+    {
+      "id": "op:core:with",
+      "label": "with",
+      "type": "operator",
+      "family": "association_accompaniment_instrument"
+    },
+    {
+      "id": "class:relation_operator",
+      "label": "relation_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:instrument_operator",
+      "label": "instrument_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:co_presence",
+      "label": "co_presence",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:without",
+      "label": "without",
+      "type": "operator",
+      "family": "absence_deprivation"
+    },
+    {
+      "id": "class:absence_operator",
+      "label": "absence_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:negated_association",
+      "label": "negated_association",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:from",
+      "label": "from",
+      "type": "operator",
+      "family": "source_origin_separation"
+    },
+    {
+      "id": "class:source_operator",
+      "label": "source_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:path_operator",
+      "label": "path_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:to",
+      "label": "to",
+      "type": "operator",
+      "family": "target_destination_direction"
+    },
+    {
+      "id": "class:target_operator",
+      "label": "target_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:through",
+      "label": "through",
+      "type": "operator",
+      "family": "path_traversal_mediation"
+    },
+    {
+      "id": "class:channel_operator",
+      "label": "channel_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:mediation",
+      "label": "mediation",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:and",
+      "label": "and",
+      "type": "operator",
+      "family": "conjunction_coupling"
+    },
+    {
+      "id": "class:logic_operator",
+      "label": "logic_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:graph_coupling",
+      "label": "graph_coupling",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:or",
+      "label": "or",
+      "type": "operator",
+      "family": "disjunction_alternative"
+    },
+    {
+      "id": "class:branching_operator",
+      "label": "branching_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:not",
+      "label": "not",
+      "type": "operator",
+      "family": "negation_phase_inversion"
+    },
+    {
+      "id": "class:phase_operator",
+      "label": "phase_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:polarity_operator",
+      "label": "polarity_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:if_then",
+      "label": "if_then",
+      "type": "operator",
+      "family": "conditional_implication"
+    },
+    {
+      "id": "class:condition_operator",
+      "label": "condition_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:causal_structure",
+      "label": "causal_structure",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:because",
+      "label": "because",
+      "type": "operator",
+      "family": "causal_explanation"
+    },
+    {
+      "id": "class:causal_operator",
+      "label": "causal_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:explanation_operator",
+      "label": "explanation_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:how",
+      "label": "how",
+      "type": "operator",
+      "family": "manner_similarity_pattern_polyfunction"
+    },
+    {
+      "id": "class:query_operator",
+      "label": "query_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:manner_operator",
+      "label": "manner_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:comparison_operator",
+      "label": "comparison_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:pattern_mapping",
+      "label": "pattern_mapping",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:where",
+      "label": "where",
+      "type": "operator",
+      "family": "location_query"
+    },
+    {
+      "id": "class:spatial_operator",
+      "label": "spatial_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:when",
+      "label": "when",
+      "type": "operator",
+      "family": "temporal_query_marker"
+    },
+    {
+      "id": "class:temporal_operator",
+      "label": "temporal_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "op:core:like_as",
+      "label": "like_as",
+      "type": "operator",
+      "family": "similarity_role_mapping"
+    },
+    {
+      "id": "class:analogy_operator",
+      "label": "analogy_operator",
+      "type": "operator_class"
+    },
+    {
+      "id": "class:role_mapping",
+      "label": "role_mapping",
+      "type": "operator_class"
+    }
+  ],
+  "edges": [
+    {
+      "source": "op:core:be",
+      "target": "class:copula",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:be",
+      "target": "class:identity",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:be",
+      "target": "class:existence",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:be",
+      "target": "class:state_binding",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:have",
+      "target": "class:possession",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:have",
+      "target": "class:property_attachment",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:have",
+      "target": "class:part_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:have",
+      "target": "class:state_attachment",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:contain",
+      "target": "op:core:inside",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:contain",
+      "target": "class:spatial_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:contain",
+      "target": "class:set_inclusion",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:contain",
+      "target": "class:topological_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:inside",
+      "target": "op:core:contain",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:inside",
+      "target": "class:spatial_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:inside",
+      "target": "class:topological_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:inside",
+      "target": "class:localizer",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:outside",
+      "target": "op:core:inside",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:outside",
+      "target": "class:spatial_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:outside",
+      "target": "class:topological_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:outside",
+      "target": "class:localizer",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:on",
+      "target": "op:core:under",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:on",
+      "target": "class:spatial_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:on",
+      "target": "class:support_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:under",
+      "target": "op:core:on",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:under",
+      "target": "class:spatial_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:under",
+      "target": "class:vertical_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:above",
+      "target": "op:core:under",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:above",
+      "target": "class:spatial_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:above",
+      "target": "class:vertical_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:before",
+      "target": "op:core:after",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:before",
+      "target": "class:temporal_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:before",
+      "target": "class:ordering_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:after",
+      "target": "op:core:before",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:after",
+      "target": "class:temporal_relation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:after",
+      "target": "class:ordering_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:with",
+      "target": "op:core:without",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:with",
+      "target": "class:relation_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:with",
+      "target": "class:instrument_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:with",
+      "target": "class:co_presence",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:without",
+      "target": "op:core:with",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:without",
+      "target": "class:relation_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:without",
+      "target": "class:absence_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:without",
+      "target": "class:negated_association",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:from",
+      "target": "op:core:to",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:from",
+      "target": "class:source_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:from",
+      "target": "class:path_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:to",
+      "target": "op:core:from",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:to",
+      "target": "class:target_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:to",
+      "target": "class:path_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:through",
+      "target": "class:path_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:through",
+      "target": "class:channel_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:through",
+      "target": "class:mediation",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:and",
+      "target": "op:core:or",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:and",
+      "target": "class:logic_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:and",
+      "target": "class:graph_coupling",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:or",
+      "target": "op:core:and",
+      "relation": "dual"
+    },
+    {
+      "source": "op:core:or",
+      "target": "class:logic_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:or",
+      "target": "class:branching_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:not",
+      "target": "class:logic_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:not",
+      "target": "class:phase_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:not",
+      "target": "class:polarity_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:if_then",
+      "target": "class:logic_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:if_then",
+      "target": "class:condition_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:if_then",
+      "target": "class:causal_structure",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:because",
+      "target": "class:causal_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:because",
+      "target": "class:explanation_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:how",
+      "target": "class:query_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:how",
+      "target": "class:manner_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:how",
+      "target": "class:comparison_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:how",
+      "target": "class:pattern_mapping",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:where",
+      "target": "class:query_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:where",
+      "target": "class:spatial_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:when",
+      "target": "class:query_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:when",
+      "target": "class:temporal_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:like_as",
+      "target": "class:comparison_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:like_as",
+      "target": "class:analogy_operator",
+      "relation": "has_class"
+    },
+    {
+      "source": "op:core:like_as",
+      "target": "class:role_mapping",
+      "relation": "has_class"
+    }
+  ],
+  "note": "Operator graph seed; importable into graph tooling."
+}

@@ -1,0 +1,17 @@
+family_id: family:affective
+description: Affective relation operators.
+operators:
+- op:future:love
+- op:future:fear
+- op:future:trust
+- op:future:hate
+canonical_axes:
+- care
+- fear
+- trust
+- harm
+core_equations:
+- Love(agent,target)
+- Fear(agent,target)
+- Trust(agent,target)
+- Hate(agent,target)

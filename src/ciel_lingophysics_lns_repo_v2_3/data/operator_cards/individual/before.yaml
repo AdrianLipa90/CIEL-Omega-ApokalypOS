@@ -1,0 +1,53 @@
+ciel_lns: 0.8-operator-card-draft
+id: op:core:before
+family: temporal_precedence
+class:
+- temporal_relation
+- ordering_operator
+symbol: Before(x,y)
+arity: '2'
+dual: op:core:after
+inverse: op:core:after
+description: x precedes y in time, sequence or priority
+equations:
+- Before(x,y)
+- t(x)<t(y)
+surfaces:
+  pl:
+    lemma: przed
+    forms:
+    - przed
+    - wcześniej niż
+    examples:
+    - Świt jest przed południem.
+    notes: temporal/spatial depending on arguments
+  en:
+    lemma: before
+    forms:
+    - before
+    - prior to
+    examples:
+    - Dawn is before noon.
+    notes: temporal precedence
+  de:
+    lemma: vor
+    forms:
+    - vor
+    examples:
+    - Die Morgendämmerung ist vor dem Mittag.
+    notes: temporal/spatial
+  fr:
+    lemma: avant
+    forms:
+    - avant
+    - avant que
+    examples:
+    - L’aube est avant midi.
+    notes: temporal precedence
+  es:
+    lemma: antes de
+    forms:
+    - antes de
+    examples:
+    - El amanecer es antes del mediodía.
+    notes: temporal precedence

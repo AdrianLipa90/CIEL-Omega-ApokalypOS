@@ -3,46 +3,46 @@
 Read-only diagnostic pass over the canonical repository structure.
 
 ## Initial
-- R_H: 0.038719
-- T_glob: 1.245470
+- R_H: 60.810390
+- T_glob: 6.110661
 - Lambda_glob: 0.000000
-- closure_penalty: 5.959041
-- V_rel_total: 6.184581
-- radial_spread: 0.181309
+- closure_penalty: 1.094501
+- V_rel_total: 62.821491
+- radial_spread: 0.178734
 - mean_spin: 0.000000
-- spectral_radius_A: 1.119721
-- spectral_gap_A: 0.101845
-- fiedler_L: 0.079943
+- spectral_radius_A: 4.100613
+- spectral_gap_A: 2.969807
+- fiedler_L: 0.000000
 - zeta_enabled: True
 - zeta_tetra_defect: 0.000000
 - zeta_effective_tau: 0.364500
 - zeta_effective_phase: 0.000000
-- zeta_coupling_norm: 0.006178
-- zeta_coupling_norm_raw: 0.776913
+- zeta_coupling_norm: 0.035211
+- zeta_coupling_norm_raw: 4.422513
 - zeta_spin: 0.000000
 - zeta_rho: 0.450000
 - D_f: 2.570000
 - euler_leak_angle: 0.895354
 
 ## Final
-- R_H: 0.043652
-- T_glob: 1.610090
-- Lambda_glob: 0.000611
-- closure_penalty: 6.236807
-- V_rel_total: 6.521972
-- radial_spread: 0.198171
-- mean_spin: 0.078753
-- spectral_radius_A: 0.856928
-- spectral_gap_A: 0.025046
-- fiedler_L: 0.255392
+- R_H: 28.527289
+- T_glob: 4.190221
+- Lambda_glob: -0.707719
+- closure_penalty: 0.787297
+- V_rel_total: 29.943120
+- radial_spread: 0.169325
+- mean_spin: -0.122618
+- spectral_radius_A: 3.685080
+- spectral_gap_A: 2.558263
+- fiedler_L: -0.000000
 - zeta_enabled: True
 - zeta_tetra_defect: 0.000000
 - zeta_effective_tau: 0.364500
-- zeta_effective_phase: 0.002012
-- zeta_coupling_norm: 0.005173
-- zeta_coupling_norm_raw: 0.650363
-- zeta_spin: 0.078753
-- zeta_rho: 0.451280
+- zeta_effective_phase: -0.000257
+- zeta_coupling_norm: 0.011830
+- zeta_coupling_norm_raw: 1.480901
+- zeta_spin: -0.122618
+- zeta_rho: 0.449852
 - D_f: 2.570000
 - euler_leak_angle: 0.895354
 
