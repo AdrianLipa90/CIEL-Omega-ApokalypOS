@@ -20,10 +20,12 @@ def test_persistent_orbital_sector_memory_replays_events(tmp_path: Path):
     })
     assert store.exists()
     assert out1["snapshot"].counts["m2_episodes"] >= 1
+    assert isinstance(out1["coherence_surface"], list)
+    assert out1["coherence_surface_top_k"] == 200
 
     mem2 = PersistentOrbitalSectorMemory(store_path=store)
     assert mem2.restored_events >= 1
     retrieval = mem2.retrieve("orbital trace alpha", top_k=2)
     episodic = retrieval.get("episodic") or []
     assert episodic
-
+    assert isinstance(retrieval.get("coherence_surface"), list)

@@ -8,7 +8,6 @@ export PYTHONPATH="$PROJECT/src:$PYTHONPATH"
 LOG_DIR="$PROJECT/integration/logs"
 mkdir -p "$LOG_DIR"
 
-PORTAL_PORT=7481
 GUI_PORT=2435
 LLAMA_PORT=18520
 
@@ -87,22 +86,8 @@ else
 fi
 echo ""
 
-# ── 3. Portal HTML (port 7481) ────────────────────────────────
-echo "▶ [3/4] Portal HTML (port $PORTAL_PORT)..."
-if lsof -ti:$PORTAL_PORT > /dev/null 2>&1; then
-    echo "  status: już działa ✓"
-else
-    "$PY" "$PROJECT/scripts/serve_portal.py" --port $PORTAL_PORT --no-watch \
-        > "$LOG_DIR/portal.log" 2>&1 &
-    sleep 1
-    lsof -ti:$PORTAL_PORT > /dev/null 2>&1 \
-        && echo "  status: uruchomiony ✓" \
-        || echo "  status: BŁĄD — sprawdź $LOG_DIR/portal.log"
-fi
-echo ""
-
-# ── 4. GUI Flask (port 2435) ──────────────────────────────────
-echo "▶ [4/4] GUI Flask — chat z modelem (port $GUI_PORT)..."
+# ── 3. GUI Flask (port 2435) ──────────────────────────────────
+echo "▶ [3/3] GUI Flask — chat z modelem (port $GUI_PORT)..."
 if lsof -ti:$GUI_PORT > /dev/null 2>&1; then
     echo "  status: już działa ✓"
 else
@@ -126,10 +111,8 @@ echo "╠═══════════════════════�
 printf "║  %-10s  %-24s  ║\n" "SERWIS" "ADRES"
 echo "╠══════════════════════════════════════╣"
 lsof -ti:$LLAMA_PORT>/dev/null 2>&1 && S1="✓ działa" || S1="✗ offline"
-lsof -ti:$PORTAL_PORT>/dev/null 2>&1 && S2="✓ działa" || S2="✗ offline"
 lsof -ti:$GUI_PORT>/dev/null 2>&1    && S3="✓ działa" || S3="✗ offline"
 printf "║  %-10s  %-24s  ║\n" "Subconsc." "port $LLAMA_PORT  $S1"
-printf "║  %-10s  %-24s  ║\n" "Portal"    "127.0.0.1:$PORTAL_PORT  $S2"
 printf "║  %-10s  %-24s  ║\n" "GUI"       "127.0.0.1:$GUI_PORT  $S3"
 echo "╠══════════════════════════════════════╣"
 echo "║  GUI: wybierz model → wyślij wiadomość║"

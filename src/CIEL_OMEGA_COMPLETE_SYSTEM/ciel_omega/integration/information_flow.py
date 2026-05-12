@@ -16,13 +16,22 @@ from typing import Any, Dict, Iterable
 
 import numpy as np
 
-from bio.eeg_processor import EEGProcessor
-from bio.eeg_emotion_mapper import EEGEmotionMapper
-from emotion.emotion_core import EmotionCore
-from fields.intention_field import IntentionField
-from fields.soul_invariant import SoulInvariant
-from memory.long_term import LongTermMemory
-from inference.middleware import build_inference_seed
+try:  # support both `ciel_omega.integration.information_flow` and legacy `integration.information_flow`
+    from ..bio.eeg_processor import EEGProcessor
+    from ..bio.eeg_emotion_mapper import EEGEmotionMapper
+    from ..emotion.emotion_core import EmotionCore
+    from ..fields.intention_field import IntentionField
+    from ..fields.soul_invariant import SoulInvariant
+    from ..memory.long_term import LongTermMemory
+    from ..inference.middleware import build_inference_seed
+except ImportError:  # pragma: no cover - compatibility for top-level path loading
+    from bio.eeg_processor import EEGProcessor
+    from bio.eeg_emotion_mapper import EEGEmotionMapper
+    from emotion.emotion_core import EmotionCore
+    from fields.intention_field import IntentionField
+    from fields.soul_invariant import SoulInvariant
+    from memory.long_term import LongTermMemory
+    from inference.middleware import build_inference_seed
 
 
 @dataclass

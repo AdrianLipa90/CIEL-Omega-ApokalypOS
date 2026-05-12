@@ -25,6 +25,15 @@ import socket as _socket
 from . import subconsciousness as _sub
 from .cielingo_bridge import build_lingo_frame
 from .htri_scheduler import get_state as _htri_get_state
+from .phase_snapshots import build_phase_snapshot, build_qualisensing_snapshot, snapshot_to_dict
+from .thought_fragments import (
+    assess_durable_memory_health,
+    build_cognitive_fragment,
+    build_noema_memory_link,
+    build_memory_candidate,
+    promote_memory_candidate,
+    snapshot_to_dict as fragment_snapshot_to_dict,
+)
 
 _SUBCONSCIOUS_SOCK = Path.home() / "Pulpit/CIEL_memories/state/ciel_subconscious.sock"
 
@@ -317,19 +326,11 @@ def run_ciel_pipeline(
     mood = runtime_gating.get("mood", 0.0)
     wpm_context = _load_wpm_context(root)
 
-    # Fall back to subconscious log if orbital runtime_gating has no dominant_emotion
+    # Keep dominant_emotion and sub_affect separate:
+    # the subconscious feed may be informative, but it must not overwrite
+    # the top-level emotion channel used by runtime status and GUI overlays.
     if not dominant_emotion:
-        try:
-            _sub_log = Path.home() / "Pulpit/CIEL_memories/logs/ciel_sub_log.jsonl"
-            if _sub_log.exists():
-                _lines = [l for l in _sub_log.read_text(encoding="utf-8").splitlines() if l.strip()]
-                if _lines:
-                    _last = json.loads(_lines[-1])
-                    _sub_affect = _last.get("affect", "")
-                    if _sub_affect:
-                        dominant_emotion = _sub_affect
-        except Exception:
-            pass
+        dominant_emotion = ""
 
     cqcl_input_parts = [orbital_context]
     if dominant_emotion:
@@ -580,6 +581,95 @@ def run_ciel_pipeline(
     result["jokeheal_mnemonic_pressure"] = float((result.get("jokeheal_mnemonic_atlas") or {}).get("mnemonic_pressure", 0.0))
     result["jokeheal_symbolic_pull"] = float((result.get("jokeheal_mnemonic_atlas") or {}).get("symbolic_pull", 0.0))
     result["jokeheal_recurrence_pressure"] = float((result.get("jokeheal_mnemonic_atlas") or {}).get("recurrence_pressure", 0.0))
+
+    try:
+        phase_snapshot = build_phase_snapshot(result)
+        qualisensing_snapshot = build_qualisensing_snapshot(result, phase_snapshot_id=phase_snapshot.phase_snapshot_id)
+        cognitive_fragment = build_cognitive_fragment(
+            {
+                **result,
+                "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+            }
+        )
+        memory_candidate = build_memory_candidate(
+            {
+                **result,
+                "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+            },
+            fragment=cognitive_fragment,
+        )
+        durable_memory_object = None
+        noema_memory_link = None
+        durable_memory_health = None
+        if memory_candidate.status == "ready":
+            durable_memory_object = promote_memory_candidate(
+                {
+                    **result,
+                    "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                    "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                    "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                    "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+                },
+                candidate=memory_candidate,
+                fragment=cognitive_fragment,
+            )
+            noema_memory_link = build_noema_memory_link(
+                {
+                    **result,
+                    "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                    "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                    "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                    "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+                    "lingo_frame": result.get("lingo_frame", {}),
+                },
+                durable=durable_memory_object,
+            )
+            durable_memory_object, durable_memory_health = assess_durable_memory_health(
+                {
+                    **result,
+                    "phase_snapshot_id": phase_snapshot.phase_snapshot_id,
+                    "qualisensing_id": qualisensing_snapshot.qualisensing_id,
+                    "phase_snapshot": snapshot_to_dict(phase_snapshot),
+                    "qualisensing_snapshot": snapshot_to_dict(qualisensing_snapshot),
+                    "lingo_frame": result.get("lingo_frame", {}),
+                },
+                durable=durable_memory_object,
+                noema_link=noema_memory_link,
+            )
+        result["phase_snapshot"] = snapshot_to_dict(phase_snapshot)
+        result["qualisensing_snapshot"] = snapshot_to_dict(qualisensing_snapshot)
+        result["cognitive_fragment"] = fragment_snapshot_to_dict(cognitive_fragment)
+        result["memory_candidate"] = fragment_snapshot_to_dict(memory_candidate)
+        if durable_memory_object is not None:
+            result["durable_memory_object"] = fragment_snapshot_to_dict(durable_memory_object)
+        if noema_memory_link is not None:
+            result["noema_memory_link"] = fragment_snapshot_to_dict(noema_memory_link)
+        if durable_memory_health is not None:
+            result["durable_memory_health"] = fragment_snapshot_to_dict(durable_memory_health)
+        result["phase_snapshot_id"] = phase_snapshot.phase_snapshot_id
+        result["qualisensing_id"] = qualisensing_snapshot.qualisensing_id
+    except Exception:
+        result.setdefault("phase_snapshot", {})
+        result.setdefault("qualisensing_snapshot", {})
+        result.setdefault("cognitive_fragment", {})
+        result.setdefault("memory_candidate", {})
+        result.setdefault("durable_memory_object", {})
+        result.setdefault("noema_memory_link", {})
+        result.setdefault("durable_memory_health", {})
+
+    result.setdefault("phase_snapshot", {})
+    result.setdefault("qualisensing_snapshot", {})
+    result.setdefault("cognitive_fragment", {})
+    result.setdefault("memory_candidate", {})
+    result.setdefault("durable_memory_object", {})
+    result.setdefault("noema_memory_link", {})
+    result.setdefault("durable_memory_health", {})
 
     _write_to_spreadsheet(
         result,

@@ -48,27 +48,25 @@ def extract_last_assistant_response(data: dict) -> str:
 
 
 def query_sub_direct(text: str) -> dict:
-    """Query subconscious socket directly, without full M0-M8 cycle."""
-    import socket as _sock, json as _json
-    sock_path = Path.home() / "Pulpit/CIEL_memories/state/ciel_subconscious.sock"
-    if not sock_path.exists():
-        return {}
+    """Query the same subconscious backend path used by UserPromptSubmit.
+
+    We intentionally prefer the inline backend from `scripts/ciel_subconscious.py`
+    because it is the only path currently proven live in-session. The older UNIX
+    socket path may still exist on disk while refusing connections.
+    """
     try:
-        payload = _json.dumps({"message": text[:500]}) + "\n"
-        s = _sock.socket(_sock.AF_UNIX, _sock.SOCK_STREAM)
-        s.settimeout(3.0)
-        s.connect(str(sock_path))
-        s.sendall(payload.encode("utf-8"))
-        data = b""
-        while True:
-            chunk = s.recv(4096)
-            if not chunk:
-                break
-            data += chunk
-            if data.endswith(b"\n"):
-                break
-        s.close()
-        result = _json.loads(data.decode("utf-8").strip())
+        import importlib.util
+
+        spec = importlib.util.spec_from_file_location(
+            "ciel_subconscious",
+            Path(__file__).parent / "ciel_subconscious.py",
+        )
+        mod = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        spec.loader.exec_module(mod)
+        result = mod.query_daemon(text, timeout=2.0)
+        if result is None:
+            return {}
         for k in ("affect", "concept", "impulse"):
             result[k] = result.get(k, "").strip("[]").strip()
         return result
@@ -129,6 +127,9 @@ def process_response_text(response_text: str, session_id: str = "") -> dict:
                         "impulse": sub.get("impulse", ""),
                         "concept": sub.get("concept", ""),
                         "latency": sub.get("latency", 0.0),
+                        "confidence": sub.get("confidence", 0.0),
+                        "mode": sub.get("mode", ""),
+                        "flags": sub.get("flags", []),
                         "ts": time.strftime("%H:%M:%S"),
                     }, ensure_ascii=False),
                     encoding="utf-8",
@@ -164,6 +165,8 @@ def process_response_text(response_text: str, session_id: str = "") -> dict:
                 "sub_affect": sub.get("affect", ""),
                 "sub_impulse": sub.get("impulse", ""),
                 "sub_concept": sub.get("concept", ""),
+                "sub_confidence": sub.get("confidence", 0.0),
+                "sub_mode": sub.get("mode", ""),
                 "response_chars": len(response_text),
             }
             with open(_ciel_logs / "ciel_consciousness_log.jsonl", "a", encoding="utf-8") as _f:

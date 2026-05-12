@@ -170,8 +170,10 @@ def compute_entity_mass(
     M_sem = (alpha * M_EC + beta * M_ZS + chi * C_dep + delta * C_prov
              + eps * C_exec + zeta * C_nov + xi * C_conf)
 
-    # Kepler: a = coupling_ciel (rho on disk)
-    a = max(1e-6, min(0.999, entity.coupling_ciel))
+    # Kepler: a = radial distance from identity center.
+    # Strong coupling should sit closer to the attractor, so we invert
+    # the coupling strength into a disk radius.
+    a = max(1e-6, min(0.999, 1.0 - entity.coupling_ciel))
     T_sq = (a**3) / max(1e-9, M_sem)
     T = math.sqrt(T_sq)
 

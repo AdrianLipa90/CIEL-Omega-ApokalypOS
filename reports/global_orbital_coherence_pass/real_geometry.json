@@ -180,30 +180,30 @@
   },
   "couplings": {
     "couplings": {
-      "memory": {
-        "vocabulary": 0.1,
-        "runtime": 0.7214
-      },
-      "bridge": {
-        "vocabulary": 0.1,
-        "memory": 0.9071,
-        "constraints": 1.0,
-        "fields": 0.1,
-        "runtime": 0.1
-      },
-      "constraints": {
-        "memory": 0.1,
-        "fields": 0.7214,
+      "fields": {
+        "vocabulary": 0.8143,
         "runtime": 0.1,
-        "vocabulary": 0.1
+        "memory": 0.1
       },
       "runtime": {
         "vocabulary": 0.1
       },
-      "fields": {
+      "bridge": {
         "runtime": 0.1,
-        "vocabulary": 0.8143,
-        "memory": 0.1
+        "fields": 0.1,
+        "constraints": 1.0,
+        "memory": 0.9071,
+        "vocabulary": 0.1
+      },
+      "constraints": {
+        "memory": 0.1,
+        "vocabulary": 0.1,
+        "runtime": 0.1,
+        "fields": 0.7214
+      },
+      "memory": {
+        "runtime": 0.7214,
+        "vocabulary": 0.1
       }
     }
   }

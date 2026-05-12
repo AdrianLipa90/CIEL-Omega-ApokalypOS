@@ -82,6 +82,8 @@ class PersistentOrbitalSectorMemory:
             "cycle": cycle,
             "snapshot": snapshot,
             "retrieval": retrieval,
+            "coherence_surface": retrieval.get("coherence_surface", []),
+            "coherence_surface_top_k": int(retrieval.get("coherence_surface_top_k", 0) or 0),
             "store_path": str(self.store_path),
             "restored_events": self.restored_events,
         }

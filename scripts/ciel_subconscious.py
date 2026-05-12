@@ -277,6 +277,7 @@ def _parse(text: str) -> Dict[str, str]:
     if not text_clean:
         text_clean = text
     result: Dict[str, str] = {"affect": "", "concept": "", "impulse": "", "raw": text}
+    structured = False
     for line in text_clean.strip().splitlines():
         line = line.strip().lstrip("*- ").rstrip("*")
         if line.lower().startswith(("input:", "message:")):
@@ -290,6 +291,7 @@ def _parse(text: str) -> Dict[str, str]:
                     result[dest] = first
                 else:
                     result[dest] = val
+                structured = True
                 break
         if all(result[k] for k in ("affect", "concept", "impulse")):
             break
@@ -322,11 +324,49 @@ def _parse(text: str) -> Dict[str, str]:
                 if 3 <= len(s.split()) <= 12:
                     result["impulse"] = s
                     break
+
+    # Calibration metadata: how trustworthy is this parse?
+    confidence = 0.0
+    flags: list[str] = []
+    if result["affect"]:
+        confidence += 0.40
+    else:
+        flags.append("missing_affect")
+    if result["concept"]:
+        confidence += 0.35
+    else:
+        flags.append("missing_concept")
+    if result["impulse"]:
+        confidence += 0.25
+    else:
+        flags.append("missing_impulse")
+    if structured:
+        confidence += 0.05
+    else:
+        flags.append("freeform_fallback")
+    if "<think>" in text or "</think>" in text:
+        flags.append("think_block")
+    if result["affect"] and result["affect"].lower() not in _EMOTION_WORDS:
+        flags.append("affect_sanitized")
+
+    result["mode"] = "structured" if structured else "freeform"
+    result["confidence"] = round(min(confidence, 1.0), 3)
+    result["flags"] = flags
     return result
 
 
 def _empty(ok: bool = False, note: str = "") -> Dict[str, Any]:
-    return {"affect": "", "concept": "", "impulse": note, "latency": 0.0, "ok": ok, "raw": ""}
+    return {
+        "affect": "",
+        "concept": "",
+        "impulse": note,
+        "latency": 0.0,
+        "ok": ok,
+        "raw": "",
+        "confidence": 0.0,
+        "mode": "empty",
+        "flags": ["backend_unavailable"] if note else ["empty"],
+    }
 
 
 # ── CLI ──────────────────────────────────────────────────────────────────────

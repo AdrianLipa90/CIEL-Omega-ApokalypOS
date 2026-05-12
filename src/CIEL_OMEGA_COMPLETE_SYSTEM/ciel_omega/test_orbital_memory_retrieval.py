@@ -43,6 +43,69 @@ class _DummySectorMemory:
         }
 
 
+class _MultiChannelSectorMemory:
+    def __init__(self):
+        self.orchestrator = SimpleNamespace(state=SimpleNamespace(phases=[0.0] * 8))
+
+    def retrieve(self, query: str, top_k: int = 5):
+        return {
+            'working': [
+                {
+                    'item': {
+                        'canonical_text': 'working coherent anchor',
+                        'phase': 0.05,
+                        'confidence': 0.95,
+                        'identity_alignment': 0.92,
+                        'context': {'control_mode': 'standard', 'rh_severity': 'low'},
+                        'result': {'durable_write_allowed': True},
+                    },
+                    'score': 0.8,
+                },
+                {
+                    'item': {
+                        'canonical_text': 'working secondary trace',
+                        'phase': 0.30,
+                        'confidence': 0.70,
+                        'identity_alignment': 0.60,
+                        'context': {'control_mode': 'standard', 'rh_severity': 'low'},
+                        'result': {'durable_write_allowed': True},
+                    },
+                    'score': 0.3,
+                },
+            ],
+            'episodic': [
+                {
+                    'item': {
+                        'canonical_text': 'episodic coherent anchor',
+                        'phase': 0.02,
+                        'confidence': 0.90,
+                        'identity_alignment': 0.94,
+                        'context': {'control_mode': 'standard', 'rh_severity': 'low'},
+                        'result': {'durable_write_allowed': True},
+                    },
+                    'score': 0.75,
+                },
+                {
+                    'item': {
+                        'canonical_text': 'episodic secondary trace',
+                        'phase': 0.40,
+                        'confidence': 0.65,
+                        'identity_alignment': 0.55,
+                        'context': {'control_mode': 'standard', 'rh_severity': 'low'},
+                        'result': {'durable_write_allowed': True},
+                    },
+                    'score': 0.25,
+                },
+            ],
+        }
+
+    def snapshot(self):
+        return {
+            'identity_phase': 0.0,
+            'latest_loop_status': {'short': True, 'deep': True},
+        }
+
+
 def test_governed_retrieval_exposes_ranked_scope():
     engine = CielEngine()
     engine.step('orbital memory trace alpha', context='retrieval/test')
@@ -99,3 +162,23 @@ def test_prompt_summary_prefers_governed_channels():
     assert 'by_channel' in summary
     assert isinstance(summary['by_channel'], dict)
     assert 'holonomic_context' in summary
+
+
+def test_governed_retrieval_builds_coherence_surface():
+    sector_memory = _MultiChannelSectorMemory()
+    governed = govern_sector_retrieval(
+        sector_memory=sector_memory,
+        query='memory',
+        governor={'retrieval_top_k': 2, 'coherence_surface_top_k': 4, 'retrieval_scope': 'focused', 'write_mode': 'durable'},
+        orbital={
+            'final': {'zeta_effective_phase': 0.0},
+            'control': {'mode': 'standard', 'target_phase_shift': 0.0},
+            'rh_policy': {'severity': 'low'},
+            'diagnostics': {'dominant_residual_sector': 'runtime', 'dominant_vorticity_sector': 'runtime'},
+        },
+    )
+    surface = governed['coherence_surface']
+    assert len(surface) == 4
+    assert all('coherence_surface_score' in row for row in surface)
+    assert {row['channel'] for row in surface} == {'working', 'episodic'}
+    assert surface[0]['channel'] != surface[1]['channel']

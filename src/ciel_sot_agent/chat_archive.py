@@ -91,10 +91,24 @@ def _normalize_session_id(session_id: str | None) -> str:
     return sid[:32]
 
 
+def _source_root(source: str) -> Path:
+    """Return the raw_logs subtree for a given source.
+
+    Codex should live under a dedicated source directory, analogous to
+    raw_logs/claude_code/, so its archives do not mix with legacy top-level logs.
+    """
+    src = (source or "").strip().lower()
+    if src in {"codex", "codex_tui", "codex-cli", "codex_cli"}:
+        return _RAW_LOGS / "codex"
+    if src == "claude_code":
+        return _RAW_LOGS / "claude_code"
+    return _RAW_LOGS
+
+
 def _session_path(source: str, session_id: str | None) -> Path:
     now = datetime.now(timezone.utc)
     week = f"W{now.strftime('%V')}"
-    folder = _RAW_LOGS / now.strftime("%Y") / now.strftime("%m") / week
+    folder = _source_root(source) / now.strftime("%Y") / now.strftime("%m") / week
     folder.mkdir(parents=True, exist_ok=True)
     sid = _normalize_session_id(session_id)
     fname = f"{now.strftime('%Y-%m-%d_%H-%M')}_{sid}_{source}.md"

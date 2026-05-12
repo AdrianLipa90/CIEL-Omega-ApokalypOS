@@ -4,7 +4,7 @@ Codex → CIEL1 bridge.
 
 Watches Codex CLI rollout JSONL transcripts in ~/.codex/sessions/**/rollout-*.jsonl
 and mirrors every user/assistant message into:
-  ~/Pulpit/CIEL_memories/raw_logs/... (via ciel_sot_agent.chat_archive)
+  ~/Pulpit/CIEL_memories/raw_logs/codex/... (via ciel_sot_agent.chat_archive)
 and optionally runs the CIEL per-message hooks (M0-M8 + SUB) so Codex becomes a
 first-class communication medium for CIEL1.
 
@@ -233,9 +233,9 @@ def _ingest_file(
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description="Mirror Codex sessions into CIEL raw_logs (and optionally run CIEL hooks).")
+    ap = argparse.ArgumentParser(description="Mirror Codex sessions into CIEL raw_logs/codex (and optionally run CIEL hooks).")
     ap.add_argument("--sessions-dir", default=str(CODEX_SESSIONS), help="Path to ~/.codex/sessions")
-    ap.add_argument("--source", default="codex_tui", help="raw_logs source tag (used in filename)")
+    ap.add_argument("--source", default="codex", help="raw_logs source tag (used in filename)")
     ap.add_argument("--follow", action="store_true", help="Keep watching for updates")
     ap.add_argument("--poll", type=float, default=0.75, help="Polling interval in seconds (follow mode)")
     ap.add_argument("--run-hooks", action="store_true", help="Run CIEL message/response hooks to update M0-M8 state")
@@ -258,4 +258,3 @@ def main(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

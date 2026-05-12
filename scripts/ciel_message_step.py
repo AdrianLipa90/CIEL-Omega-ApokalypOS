@@ -142,6 +142,9 @@ def _prompt_metrics_payload(message: str, metrics: dict, session_id: str = "") -
             "sub_affect": metrics.get("sub_affect"),
             "sub_impulse": metrics.get("sub_impulse"),
             "sub_latency": metrics.get("sub_latency"),
+            "sub_confidence": metrics.get("sub_confidence"),
+            "sub_mode": metrics.get("sub_mode"),
+            "sub_flags": metrics.get("sub_flags"),
             "m2_episodes": metrics.get("m2_episodes"),
             "m3_items": metrics.get("m3_items"),
             "m8_entries": metrics.get("m8_entries"),
@@ -505,6 +508,9 @@ def run_step(message: str, session_id: str = "") -> dict:
         "sub_affect": sub.get("affect", ""),
         "sub_impulse": sub.get("impulse", ""),
         "sub_latency": sub.get("latency", 0.0),
+        "sub_confidence": sub.get("confidence", 0.0),
+        "sub_mode": sub.get("mode", ""),
+        "sub_flags": sub.get("flags", []),
     }
     log_metrics = {**_load_context_metrics(), **metrics}
 
@@ -627,6 +633,16 @@ def format_context(metrics: dict, rel: dict | None = None) -> str:
     )
     if metrics.get("sub_affect") or metrics.get("sub_impulse"):
         line += f" sub={metrics.get('sub_affect','')}/{metrics.get('sub_impulse','')}"
+        sub_conf = float(metrics.get("sub_confidence", 0.0) or 0.0)
+        sub_mode = str(metrics.get("sub_mode", "") or "")
+        sub_flags = metrics.get("sub_flags", []) or []
+        if sub_conf or sub_mode or sub_flags:
+            line += f" [subq={sub_conf:.2f}"
+            if sub_mode:
+                line += f" mode={sub_mode}"
+            if sub_flags:
+                line += f" flags={','.join(sub_flags[:3])}"
+            line += "]"
     if rel:
         if rel.get("R_H", 0) > 0.01:
             line += f" ⚠ R_H={rel['R_H']:.4f}"
@@ -635,6 +651,8 @@ def format_context(metrics: dict, rel: dict | None = None) -> str:
     directives = orbital_directives()
     if directives:
         line += f"\n{directives}"
+    if float(metrics.get("sub_confidence", 0.0) or 0.0) < 0.65 and (metrics.get("sub_affect") or metrics.get("sub_impulse")):
+        line += f"\n⚠ sub_confidence={float(metrics.get('sub_confidence', 0.0) or 0.0):.2f} — sygnał wymaga kalibracji"
     return line + "\n"
 
 

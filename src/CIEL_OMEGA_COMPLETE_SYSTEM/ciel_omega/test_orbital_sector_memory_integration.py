@@ -50,5 +50,7 @@ def test_engine_step_records_orbital_sector_memory():
     assert out1["sector_memory"]["cycle"]["content"] == "connect orbital memory with runtime traces"
     assert out1["sector_memory"]["event"]["context"]["control_mode"] == out1["runtime_policy"]["control_mode"]
     assert out1["sector_memory"]["snapshot"]["counts"]["m2_episodes"] >= 1
+    assert isinstance(out1["sector_memory"]["coherence_surface"], list)
+    assert out1["sector_memory"]["coherence_surface_top_k"] == 200
     assert out2["sector_memory"]["snapshot"]["cycle_index"] == out1["sector_memory"]["snapshot"]["cycle_index"] + 1
     assert out2["sector_memory"]["snapshot"]["counts"]["m7_units"] >= out1["sector_memory"]["snapshot"]["counts"]["m7_units"]

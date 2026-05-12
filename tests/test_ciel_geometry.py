@@ -48,6 +48,12 @@ def test_entity_to_disk_inside_unit():
             assert r < 1.0 + 1e-9, f"({x}, {y}) outside unit disk, r={r}"
 
 
+def test_entity_to_disk_high_coupling_is_central():
+    x_hi, y_hi = entity_to_disk(1.0, 0.0)
+    x_lo, y_lo = entity_to_disk(0.0, 0.0)
+    assert math.hypot(x_hi, y_hi) < math.hypot(x_lo, y_lo)
+
+
 def test_poincare_distance_same_point():
     d = poincare_distance(0.5, 1.0, 0.5, 1.0)
     assert d == pytest.approx(0.0, abs=1e-6)
@@ -143,6 +149,19 @@ def test_build_layout_metadata():
     assert layout.metadata["edge_count"] == len(layout.edges)
 
 
+def test_build_layout_sector_centrality_is_not_inverted():
+    layout = build_layout(include_entities=False)
+    nodes = {n.id: n for n in layout.nodes}
+    bridge_r = math.hypot(nodes["sector:bridge"].x, nodes["sector:bridge"].y)
+    runtime_r = math.hypot(nodes["sector:runtime"].x, nodes["sector:runtime"].y)
+    constraints_r = math.hypot(nodes["sector:constraints"].x, nodes["sector:constraints"].y)
+    vocabulary_r = math.hypot(nodes["sector:vocabulary"].x, nodes["sector:vocabulary"].y)
+
+    # Highest-centrality sectors should sit closer to the center than the lower-centrality ones.
+    assert bridge_r < vocabulary_r
+    assert runtime_r < constraints_r
+
+
 def test_build_layout_to_json():
     layout = build_layout(include_entities=False)
     j = layout.to_json()
@@ -212,6 +231,29 @@ def test_semantic_mass_kepler_rule():
         assert 0.5 < ratio < 2.0, f"{r.id}: Kepler ratio {ratio:.3f} out of expected range"
 
 
+def test_semantic_mass_entity_radius_inverts_coupling():
+    from ciel_geometry.loader import EntityGeom
+    from ciel_geometry.semantic_mass import compute_entity_mass
+
+    hi = compute_entity_mass(EntityGeom(
+        id="entity:hi",
+        noun="hi",
+        coupling_ciel=0.95,
+        phase=0.0,
+        horizon_class="SEALED",
+        adjectives=[],
+    ))
+    lo = compute_entity_mass(EntityGeom(
+        id="entity:lo",
+        noun="lo",
+        coupling_ciel=0.10,
+        phase=0.0,
+        horizon_class="SEALED",
+        adjectives=[],
+    ))
+    assert hi.orbit_radius < lo.orbit_radius
+
+
 # --- subjective_time.py (P3) ---
 
 def test_subjective_time_nonempty():
@@ -228,8 +270,16 @@ def test_subjective_time_positive():
 def test_subjective_time_boundary_slower():
     from ciel_geometry.subjective_time import compute_subjective_times
     recs = {r.id: r for r in compute_subjective_times(include_entities=False)}
-    # constraints (r~0.27) should have higher tau than runtime (r~0.75)
-    assert recs['sector:constraints'].tau_scale > recs['sector:runtime'].tau_scale
+    # After the centrality sign correction, runtime sits more centrally than constraints.
+    assert recs['sector:runtime'].tau_scale > recs['sector:constraints'].tau_scale
+
+
+def test_subjective_time_entity_radius_inverts_coupling():
+    from ciel_geometry.subjective_time import compute_subjective_times
+    recs = {r.id: r for r in compute_subjective_times(include_entities=True, entity_limit=40)}
+    hi = next(v for k, v in recs.items() if k.endswith("relational_contract"))
+    lo = next(v for k, v in recs.items() if k.endswith("GTX_1050Ti"))
+    assert hi.r < lo.r
 
 def test_subjective_time_from_bridge():
     from ciel_geometry.subjective_time import compute_from_bridge

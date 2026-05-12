@@ -41,6 +41,8 @@ import httpx
 from fastapi import FastAPI, Request, Response
 from fastapi.responses import StreamingResponse
 
+from ciel_secret_loader import load_anthropic_api_key
+
 # ── Logging ──────────────────────────────────────────────────────────────────
 
 logging.basicConfig(
@@ -55,7 +57,7 @@ log = logging.getLogger("ciel_proxy")
 
 PROXY_PORT        = int(os.environ.get("CIEL_PROXY_PORT", "8765"))
 ANTHROPIC_API_URL = "https://api.anthropic.com"
-ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
+ANTHROPIC_API_KEY = load_anthropic_api_key()
 HEALTH_CHECK_INTERVAL = 300  # sekund między próbami powrotu do Anthropic
 
 # Auto-wykrywanie GGUF
