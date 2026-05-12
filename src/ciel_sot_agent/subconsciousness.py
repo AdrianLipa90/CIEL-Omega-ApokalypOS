@@ -103,16 +103,6 @@ def query_subconscious(state: dict[str, Any], max_tokens: int = 48) -> str | Non
 
     emotion = state.get("dominant_emotion", "unknown")
     soul = state.get("soul_invariant", 0.0)
-    ethical = state.get("ethical_score", 0.0)
-    closure = state.get("closure_penalty", 0.0)
-    mood = state.get("mood", 0.0)
-
-    # HTRI coherence jako substrat podświadomości
-    try:
-        _htri = _htri_get_state()
-        htri_r = _htri.get("coherence", 0.85)
-    except Exception:
-        htri_r = 0.85
 
     coherence = state.get("coherence_index", 0.0)
     user_msg = (

@@ -15,7 +15,7 @@
       "defect": 0.02,
       "tau": 0.22498247513028186,
       "rho": 0.50789,
-      "berry_phase": -2.9052411132714546,
+      "berry_phase": -2.9052503465185175,
       "phi": 0.0,
       "suppression": 82.27
     },
@@ -35,7 +35,7 @@
       "defect": 0.02,
       "tau": 0.3699449183872295,
       "rho": 0.409579,
-      "berry_phase": 2.359070161719109,
+      "berry_phase": 2.3590620324979135,
       "suppression": 29.16
     },
     "runtime": {
@@ -54,7 +54,7 @@
       "defect": 0.02,
       "tau": 0.5457039824714958,
       "rho": 0.010398,
-      "berry_phase": 1.3092741059439839,
+      "berry_phase": 1.309274390781566,
       "suppression": -27.13
     },
     "memory": {
@@ -73,7 +73,7 @@
       "defect": 0.02,
       "tau": 0.3222132683226432,
       "rho": 0.260317,
-      "berry_phase": 0.2617153802087452,
+      "berry_phase": 0.26174385294456337,
       "suppression": 21.44
     },
     "bridge": {
@@ -92,7 +92,7 @@
       "defect": 0.03,
       "tau": 0.2665038922303647,
       "rho": 0.060398,
-      "berry_phase": -0.9333028071039071,
+      "berry_phase": -0.9333231927639442,
       "suppression": 8.61
     },
     "vocabulary": {
@@ -111,7 +111,7 @@
       "defect": 0.02,
       "tau": 0.2635010490749707,
       "rho": 0.434289,
-      "berry_phase": -1.9193164457744847,
+      "berry_phase": -1.9193309332324335,
       "suppression": 0.0
     },
     "ent_Adrian_Lipa": {
@@ -131,7 +131,7 @@
       "tau": 0.353,
       "rho": 0.122781,
       "spin": 0.0,
-      "berry_phase": -0.004919436941667901
+      "berry_phase": -0.004919454232599331
     },
     "ent_relational_contract": {
       "orbital_level": 3,
@@ -150,7 +150,7 @@
       "tau": 0.353,
       "rho": 0.0,
       "spin": 0.0,
-      "berry_phase": -0.000122506737497418
+      "berry_phase": -0.00012250716627060262
     },
     "ent_HTRI": {
       "orbital_level": 3,
@@ -169,7 +169,7 @@
       "tau": 0.353,
       "rho": 0.247404,
       "spin": 0.0,
-      "berry_phase": 0.013092684776578819
+      "berry_phase": 0.013092633500932666
     },
     "ent_GTX_1050Ti": {
       "orbital_level": 3,
@@ -188,7 +188,7 @@
       "tau": 0.353,
       "rho": 0.390012,
       "spin": 0.0,
-      "berry_phase": 0.005382520488280353
+      "berry_phase": 0.005382447847818607
     },
     "ent_Kuramoto": {
       "orbital_level": 3,
@@ -207,7 +207,7 @@
       "tau": 0.353,
       "rho": 0.277293,
       "spin": 0.0,
-      "berry_phase": 0.014726596211644181
+      "berry_phase": 0.014726538654291408
     },
     "ent_Berry_holonomy": {
       "orbital_level": 3,
@@ -226,7 +226,7 @@
       "tau": 0.353,
       "rho": 0.188176,
       "spin": 0.0,
-      "berry_phase": -0.00946147298139057
+      "berry_phase": -0.009461507370385312
     },
     "ent_CIEL_pipeline": {
       "orbital_level": 3,
@@ -245,7 +245,7 @@
       "tau": 0.353,
       "rho": 0.0,
       "spin": 0.0,
-      "berry_phase": 0.0003544489097718273
+      "berry_phase": 0.00035444795933406057
     },
     "ent_infinikolaps": {
       "orbital_level": 3,
@@ -264,7 +264,7 @@
       "tau": 0.353,
       "rho": 0.449698,
       "spin": 0.0,
-      "berry_phase": 0.054390032721887076
+      "berry_phase": 0.05439001842055895
     },
     "ent_Lie4": {
       "orbital_level": 3,
@@ -283,7 +283,7 @@
       "tau": 0.353,
       "rho": 0.213726,
       "spin": 0.0,
-      "berry_phase": -0.017663947587857293
+      "berry_phase": -0.01766393771716083
     },
     "ent_Zeta_Schrodinger": {
       "orbital_level": 3,
@@ -302,7 +302,7 @@
       "tau": 0.353,
       "rho": 0.158773,
       "spin": 0.0,
-      "berry_phase": -0.006890166843681049
+      "berry_phase": -0.0068901924699566255
     },
     "ent_Intention_Field": {
       "orbital_level": 3,
@@ -321,7 +321,7 @@
       "tau": 0.353,
       "rho": 0.257719,
       "spin": 0.0,
-      "berry_phase": -0.011345487306009271
+      "berry_phase": -0.011345540862784791
     },
     "ent_soul_invariant": {
       "orbital_level": 3,
@@ -340,7 +340,7 @@
       "tau": 0.353,
       "rho": 0.236675,
       "spin": 0.0,
-      "berry_phase": -0.012958880369318103
+      "berry_phase": -0.012958927325299689
     },
     "ent_Collatz_TwinPrime": {
       "orbital_level": 3,
@@ -359,7 +359,7 @@
       "tau": 0.353,
       "rho": 0.33776,
       "spin": 0.0,
-      "berry_phase": 0.014615456154604434
+      "berry_phase": 0.014615389451930243
     },
     "ent_Riemann_Zeta": {
       "orbital_level": 3,
@@ -378,7 +378,7 @@
       "tau": 0.353,
       "rho": 0.295689,
       "spin": 0.0,
-      "berry_phase": -0.008385663741332431
+      "berry_phase": -0.008385726343747483
     },
     "ent_fon_archive": {
       "orbital_level": 3,
@@ -397,7 +397,7 @@
       "tau": 0.353,
       "rho": 0.368387,
       "spin": 0.0,
-      "berry_phase": 0.03039522349594596
+      "berry_phase": 0.03039516383597014
     },
     "ent_Danail_Valov": {
       "orbital_level": 3,
@@ -416,7 +416,7 @@
       "tau": 0.353,
       "rho": 0.313114,
       "spin": 0.0,
-      "berry_phase": 0.018971191100321385
+      "berry_phase": 0.01897112911471474
     },
     "ent_John_Surmont": {
       "orbital_level": 3,
@@ -435,7 +435,7 @@
       "tau": 0.353,
       "rho": 0.345634,
       "spin": 0.0,
-      "berry_phase": 0.038730844953435345
+      "berry_phase": 0.03873079592337473
     },
     "ent_Maria_Kamecka": {
       "orbital_level": 3,
@@ -454,7 +454,7 @@
       "tau": 0.353,
       "rho": 0.382917,
       "spin": 0.0,
-      "berry_phase": 0.02562305893231838
+      "berry_phase": 0.025622995603050397
     },
     "ent_Usman_Ahmad": {
       "orbital_level": 3,
@@ -473,7 +473,7 @@
       "tau": 0.353,
       "rho": 0.403891,
       "spin": 0.0,
-      "berry_phase": 0.03170632904061395
+      "berry_phase": 0.03170627078595468
     },
     "ent_Mr_Ciel_Apocalyptos": {
       "orbital_level": 3,
@@ -492,7 +492,7 @@
       "tau": 0.353,
       "rho": 0.0,
       "spin": 0.0,
-      "berry_phase": -0.0002970093647643736
+      "berry_phase": -0.0002970101000706049
     },
     "ent_atraktor_fdbbb243": {
       "orbital_level": 3,
@@ -511,7 +511,7 @@
       "tau": 0.353,
       "rho": 0.141893,
       "spin": 0.0,
-      "berry_phase": -0.00278897807152646
+      "berry_phase": -0.0027890008074267464
     }
   }
 }

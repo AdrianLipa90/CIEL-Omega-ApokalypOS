@@ -3,11 +3,11 @@
 Read-only diagnostic pass over the canonical repository structure.
 
 ## Initial
-- R_H: 53.565320
+- R_H: 53.565325
 - T_glob: 4.855823
 - Lambda_glob: 0.000000
-- closure_penalty: 1.159862
-- V_rel_total: 55.453555
+- closure_penalty: 1.159863
+- V_rel_total: 55.453561
 - radial_spread: 0.147426
 - n_sectors: 27.000000
 - mean_spin: 0.000000
@@ -26,40 +26,40 @@ Read-only diagnostic pass over the canonical repository structure.
 - D_f: 2.570000
 - euler_leak_angle: 0.895354
 - nonlocal_observables_present: True
-- nonlocal_phi_ab_mean: 0.007913
-- nonlocal_phi_berry_mean: -0.105091
-- nonlocal_eba_defect_mean: 0.050479
+- nonlocal_phi_ab_mean: 0.007470
+- nonlocal_phi_berry_mean: -0.104827
+- nonlocal_eba_defect_mean: 0.050180
 - nonlocal_coherent_fraction: 1.000000
 - euler_bridge_closure_score: 0.535812
 - euler_bridge_target_phase: 0.052739
 
 ## Final
-- R_H: 25.657295
+- R_H: 25.657287
 - T_glob: 3.804491
-- Lambda_glob: -0.701861
-- closure_penalty: 0.775830
-- V_rel_total: 27.003799
+- Lambda_glob: -0.701866
+- closure_penalty: 0.775829
+- V_rel_total: 27.003791
 - radial_spread: 0.133361
 - n_sectors: 27.000000
-- mean_spin: -0.121974
+- mean_spin: -0.121969
 - spectral_radius_A: 3.590383
 - spectral_gap_A: 1.777901
-- fiedler_L: -0.000000
+- fiedler_L: 0.000000
 - zeta_enabled: True
 - orbital_law_v0_enabled: False
 - zeta_tetra_defect: 0.000000
 - zeta_effective_tau: 0.364500
-- zeta_effective_phase: 0.000832
+- zeta_effective_phase: 0.000833
 - zeta_coupling_norm: 0.014140
-- zeta_coupling_norm_raw: 1.773525
-- zeta_spin: -0.121974
-- zeta_rho: 0.450549
+- zeta_coupling_norm_raw: 1.773526
+- zeta_spin: -0.121969
+- zeta_rho: 0.450550
 - D_f: 2.570000
 - euler_leak_angle: 0.895354
 - nonlocal_observables_present: True
-- nonlocal_phi_ab_mean: 0.007913
-- nonlocal_phi_berry_mean: -0.105091
-- nonlocal_eba_defect_mean: 0.050479
+- nonlocal_phi_ab_mean: 0.007470
+- nonlocal_phi_berry_mean: -0.104827
+- nonlocal_eba_defect_mean: 0.050180
 - nonlocal_coherent_fraction: 1.000000
 - euler_bridge_closure_score: 0.535812
 - euler_bridge_target_phase: 0.052739
@@ -74,9 +74,9 @@ Read-only diagnostic pass over the canonical repository structure.
 
 ## Nonlocal / Euler Observables
 - nonlocal_observables_present: True
-- nonlocal_phi_ab_mean: 0.007913
-- nonlocal_phi_berry_mean: -0.105091
-- nonlocal_eba_defect_mean: 0.050479
+- nonlocal_phi_ab_mean: 0.007470
+- nonlocal_phi_berry_mean: -0.104827
+- nonlocal_eba_defect_mean: 0.050180
 - nonlocal_coherent_fraction: 1.000000
 - euler_bridge_closure_score: 0.535812
 - euler_bridge_target_phase: 0.052739

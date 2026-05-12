@@ -21,7 +21,7 @@ import subprocess
 import sys
 import time
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -50,9 +50,8 @@ def _broadcast_sse(data: dict) -> None:
             _sse_clients.remove(q)
 
 from ..satellite_authority import require_interaction_surface, project_authority_summary
-from ..local_ciel_surface import LocalCielSurface
 from .. import chat_archive as _archive
-from ..htri_resource_gate import check_model, LoadMode, htri_profile_summary
+from ..htri_resource_gate import check_model, htri_profile_summary
 from ..htri_scheduler import get_optimal_threads as _htri_threads
 
 _LOG = logging.getLogger(__name__)
@@ -1481,7 +1480,6 @@ def register_routes(app: Flask) -> None:
     @app.route("/hub")
     def hub_react() -> Any:
         """React app CIEL/0 theory viewer — osobny od portalu."""
-        from flask import send_from_directory as _sfd
         dist_index = _APP_DIST / "index.html"
         if not dist_index.exists():
             return "React app not built", 404
@@ -1492,8 +1490,7 @@ def register_routes(app: Flask) -> None:
 
     @app.route("/hub/assets/<path:filename>")
     def hub_assets(filename: str) -> Any:
-        from flask import send_from_directory as _sfd
-        return _sfd(str(_APP_DIST / "assets"), filename)
+        return current_app.send_static_file(f"assets/{filename}")
 
     @app.route("/portal/archive")
     def portal_archive() -> str:

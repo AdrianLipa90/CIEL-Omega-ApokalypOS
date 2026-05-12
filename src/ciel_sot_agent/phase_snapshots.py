@@ -81,7 +81,6 @@ def build_phase_snapshot(state: Mapping[str, Any]) -> PhaseSnapshot:
 
 
 def build_qualisensing_snapshot(state: Mapping[str, Any], *, phase_snapshot_id: str) -> QualisensingSnapshot:
-    sub = _get(state, "subconscious_note", "") or ""
     return QualisensingSnapshot(
         qualisensing_id=f"quali:{int(_get(state, 'cycle_index', 0) or 0)}:{int(float(_get(state, 'coherence_index', 0.0) or 0.0) * 1_000_000)}",
         event_id=str(_get(state, "event_id", "") or "") or None,

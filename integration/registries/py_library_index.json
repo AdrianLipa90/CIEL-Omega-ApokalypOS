@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-12T06:11:36.013133+00:00",
+  "generated": "2026-05-12T06:53:32.130581+00:00",
   "total_files": 790,
   "by_level": {
     "1": 81,
@@ -152,7 +152,7 @@
       "path": "src/ciel_sot_agent/synchronize.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.91,
-      "lines_of_code": 59,
+      "lines_of_code": 58,
       "tag_what": [
         "bridge"
       ],
@@ -192,7 +192,7 @@
       "path": "src/ciel_sot_agent/spreadsheet_db.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 242,
+      "lines_of_code": 241,
       "tag_what": [
         "db"
       ],
@@ -292,7 +292,7 @@
       "path": "src/ciel_sot_agent/subconsciousness.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 518,
+      "lines_of_code": 508,
       "tag_what": [
         "support"
       ],
@@ -463,7 +463,7 @@
       "path": "src/ciel_sot_agent/memory_rag.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 164,
+      "lines_of_code": 162,
       "tag_what": [
         "memory"
       ],
@@ -523,7 +523,7 @@
       "path": "src/ciel_sot_agent/gui/routes.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 2743,
+      "lines_of_code": 2740,
       "tag_what": [
         "support"
       ],
@@ -884,7 +884,7 @@
       "path": "src/ciel_sot_agent/phase_snapshots.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.9,
-      "lines_of_code": 106,
+      "lines_of_code": 105,
       "tag_what": [
         "algorithm"
       ],
@@ -914,7 +914,7 @@
       "path": "src/ciel_sot_agent/orbital_db_orchestrator.py",
       "orbital_level": 1,
       "M_sem_proxy": 0.86,
-      "lines_of_code": 496,
+      "lines_of_code": 495,
       "tag_what": [
         "db"
       ],
@@ -5917,7 +5917,7 @@
       "path": "tests/test_packaging.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 390,
+      "lines_of_code": 389,
       "tag_what": [
         "test"
       ],
@@ -5949,7 +5949,7 @@
       "path": "tests/test_sapiens_client_packet.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 194,
+      "lines_of_code": 193,
       "tag_what": [
         "test",
         "interface",
@@ -5961,7 +5961,7 @@
       "path": "tests/test_braid_nonlocal_coupling.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 129,
+      "lines_of_code": 128,
       "tag_what": [
         "algorithm",
         "test"
@@ -5982,7 +5982,7 @@
       "path": "tests/test_gguf_comparison.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 355,
+      "lines_of_code": 354,
       "tag_what": [
         "test"
       ],
@@ -6002,7 +6002,7 @@
       "path": "tests/test_gguf_manager.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 294,
+      "lines_of_code": 291,
       "tag_what": [
         "test"
       ],
@@ -6022,7 +6022,7 @@
       "path": "tests/test_gui.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 274,
+      "lines_of_code": 273,
       "tag_what": [
         "test",
         "interface"
@@ -6033,7 +6033,7 @@
       "path": "tests/test_repo_phase.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 285,
+      "lines_of_code": 284,
       "tag_what": [
         "algorithm",
         "test"
@@ -6044,7 +6044,7 @@
       "path": "tests/test_sapiens_panel_components.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 227,
+      "lines_of_code": 226,
       "tag_what": [
         "test",
         "satellite"
@@ -6075,7 +6075,7 @@
       "path": "tests/test_deb_e2e.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 158,
+      "lines_of_code": 157,
       "tag_what": [
         "test"
       ],
@@ -6097,7 +6097,7 @@
       "path": "tests/test_htri_matrix.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 79,
+      "lines_of_code": 78,
       "tag_what": [
         "test"
       ],
@@ -6191,7 +6191,7 @@
       "path": "tests/test_holonomic_normalizer.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 207,
+      "lines_of_code": 200,
       "tag_what": [
         "memory",
         "test"
@@ -6243,7 +6243,7 @@
       "path": "tests/test_orbital_regression.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 302,
+      "lines_of_code": 301,
       "tag_what": [
         "test"
       ],
@@ -6264,7 +6264,7 @@
       "path": "tests/test_ciel_pipeline.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 322,
+      "lines_of_code": 321,
       "tag_what": [
         "executor",
         "test"
@@ -6285,7 +6285,7 @@
       "path": "tests/test_pipeline_audit.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 378,
+      "lines_of_code": 376,
       "tag_what": [
         "executor",
         "test"
@@ -6456,7 +6456,7 @@
       "path": "tests/test_py_catalog.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 218,
+      "lines_of_code": 216,
       "tag_what": [
         "registry",
         "test"
@@ -8051,7 +8051,7 @@
       "path": "tests/test_ciel_session_hook.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 55,
+      "lines_of_code": 53,
       "tag_what": [
         "test"
       ],
@@ -8061,7 +8061,7 @@
       "path": "tests/test_gui_status_cache.py",
       "orbital_level": 4,
       "M_sem_proxy": 0.35,
-      "lines_of_code": 40,
+      "lines_of_code": 38,
       "tag_what": [
         "test",
         "interface"
