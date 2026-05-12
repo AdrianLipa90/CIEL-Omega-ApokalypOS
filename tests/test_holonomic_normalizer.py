@@ -84,13 +84,11 @@ def test_holonomic_normalizer_returns_state_and_sets_objective() -> None:
 # ---------------------------------------------------------------------------
 
 def test_wrap_negative_large_angle() -> None:
-    import math
     value = wrap(-5.0)
     assert -math.pi < value <= math.pi
 
 
 def test_wrap_pi_returns_pi() -> None:
-    import math
     assert wrap(math.pi) == math.pi
 
 
@@ -99,7 +97,6 @@ def test_wrap_zero_returns_zero() -> None:
 
 
 def test_wrap_two_pi_returns_zero() -> None:
-    import math
     # 2*pi wraps to 0 (or within principal interval)
     value = wrap(2 * math.pi)
     assert -math.pi < value <= math.pi
@@ -110,13 +107,11 @@ def test_wrap_two_pi_returns_zero() -> None:
 # ---------------------------------------------------------------------------
 
 def test_circular_barycenter_uniform_single_angle() -> None:
-    import math
     phi = circular_barycenter([math.pi / 4], [1.0])
     assert phi == pytest.approx(math.pi / 4)
 
 
 def test_circular_barycenter_identical_angles_returns_that_angle() -> None:
-    import math
     # Two identical angles: result should equal that angle
     result = circular_barycenter([1.0, 1.0], [0.5, 0.5])
     assert result == pytest.approx(1.0)
@@ -127,7 +122,6 @@ def test_circular_barycenter_identical_angles_returns_that_angle() -> None:
 # ---------------------------------------------------------------------------
 
 def test_circular_distance_antipodal() -> None:
-    import math
     d = circular_distance(0.0, math.pi)
     assert d == pytest.approx(math.pi)
 
@@ -143,7 +137,6 @@ def test_circular_distance_symmetric() -> None:
 # ---------------------------------------------------------------------------
 
 def test_renormalize_couplings_l2_norm() -> None:
-    import math
     couplings = {("a", "b"): 3.0, ("b", "a"): 4.0}
     renorm = renormalize_couplings(couplings, target_norm="l2")
     # l2 norm of [3,4] = 5; each value divided by 5

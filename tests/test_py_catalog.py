@@ -13,9 +13,7 @@ from __future__ import annotations
 
 import json
 import time
-from pathlib import Path
 
-import pytest
 
 from src.ciel_sot_agent.py_catalog import build, query, status, _ROOT, _DB_PATH, _JSON_PATH
 from src.ciel_sot_agent.noema_sot import _load_py_catalog_summary, export_to_context, run as noema_run

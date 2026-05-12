@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-from pathlib import Path
 
-import pytest
 from flask import Flask
 
 import src.ciel_sot_agent.gui.routes as routes

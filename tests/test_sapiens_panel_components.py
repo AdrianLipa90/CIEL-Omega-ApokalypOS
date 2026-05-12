@@ -12,7 +12,6 @@ from src.ciel_sot_agent.sapiens_client import SapiensIdentity, SapiensSession
 from src.ciel_sot_agent.sapiens_panel.communication import build_communication_view
 from src.ciel_sot_agent.sapiens_panel.models import (
     PanelSessionSummary,
-    PanelSettings,
     PanelState,
     PanelTabState,
 )
