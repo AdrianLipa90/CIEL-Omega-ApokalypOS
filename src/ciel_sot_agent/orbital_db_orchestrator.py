@@ -28,7 +28,7 @@ from __future__ import annotations
 import json
 import logging
 import sqlite3
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -159,7 +159,6 @@ class OrbitalDBOrchestrator:
     def write_tsm(self, entry: dict[str, Any]) -> str:
         """Zapisz wpis do TSM. Zwraca memorise_id."""
         import hashlib
-        path = _PATHS["TSM"]
         conn = self._tsm_conn()
         try:
             mem_id = entry.get("memorise_id") or (

@@ -252,5 +252,5 @@ def stats() -> dict:
         "total_files": len(files),
         "total_kb": round(total_kb, 1),
         "base": str(_MEMORIES_BASE),
-        "session_id": _session_id,
+        "session_id": _default_session_id,
     }

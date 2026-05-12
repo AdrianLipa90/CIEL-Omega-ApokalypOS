@@ -11,11 +11,11 @@
     "db_orchestrator"
   ],
   "tag_matrix": {
-    "coherence_index": 0.6779656140853014,
-    "system_health": 0.5449190980746492,
-    "closure_penalty": 0.7758297090103532,
+    "coherence_index": 0.678066416485069,
+    "system_health": 0.5450316574041232,
+    "closure_penalty": 0.7758294930530046,
     "ethical_score": 0.7977991858439318,
-    "soul_invariant": 0.6866547459414484,
+    "soul_invariant": 0.5701147147469938,
     "lie4_trace": 4.183135222640001,
     "nonlocal_coherent_fraction": 1.0,
     "dominant_emotion": "love",
@@ -79,24 +79,24 @@
     ]
   },
   "memory_projection": {
-    "projection_confidence": 0.90092,
-    "projection_residual": 0.09908,
-    "projection_error": 0.09908,
-    "j_noema": 0.2988,
+    "projection_confidence": 0.90085,
+    "projection_residual": 0.09915,
+    "projection_error": 0.09915,
+    "j_noema": 0.29884,
     "projected_centroid": {
       "coherence_index": 0.91458,
       "system_health": 0.86188,
       "closure_penalty": 0.77621,
       "ethical_score": 0.76714,
-      "soul_invariant": 0.67682,
-      "identity_phase": 0.03099
+      "soul_invariant": 0.58061,
+      "identity_phase": 0.03122
     },
     "source": "weighted-subsystems"
   },
   "jokeheal_summary": {},
   "jokeheal_atlas": {
     "schema": "ciel/jokeheal-mnemonic-atlas/v0.1",
-    "generated_at": "2026-05-12T06:11:33.381172+00:00",
+    "generated_at": "2026-05-12T06:53:25.228576+00:00",
     "scar_count": 0,
     "recent_count": 0,
     "top_symbolic_objects": [],
@@ -107,16 +107,16 @@
     "literal_alarm_rate": 0.0
   },
   "subsystem_count": 6,
-  "generated": "2026-05-12T06:11:33.381184+00:00",
+  "generated": "2026-05-12T06:53:25.228602+00:00",
   "subsystems": {
     "noema_registry": {
       "M_sem": 0.99,
       "orbital_level": 1,
       "noema_id": "NL-NOEMA-CORE-0001",
       "metrics": {
-        "H_total": -71.58787,
-        "dH_dt": 0.06401,
-        "r_sync": 0.99911
+        "H_total": -71.32544,
+        "dH_dt": 0.19784,
+        "r_sync": 0.99905
       }
     },
     "ciel_omega_core": {
@@ -165,12 +165,12 @@
   },
   "dynamics": {
     "updated": 200,
-    "r_sync": 0.9991,
-    "H_total": -71.523284,
-    "H_kinetic": 1.819906,
-    "H_potential": -76.773918,
-    "H_attractor": 3.430728,
-    "dH_dt": 0.064583,
+    "r_sync": 0.99904,
+    "H_total": -71.257998,
+    "H_kinetic": 1.82121,
+    "H_potential": -76.773866,
+    "H_attractor": 3.694658,
+    "dH_dt": 0.067443,
     "error": null
   }
 }

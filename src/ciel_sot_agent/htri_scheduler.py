@@ -119,7 +119,7 @@ def run(n: int = CPU_THREADS, power_mode: str = "auto") -> dict:
             potential = float(mc.get("potential", 0.0))
             n_osc = CPU_THREADS + (768 if gpu_coherence > 0 else 0)
             if not substrate or substrate == "half":
-                substrate = f"half_CPU+GPU(numpy)"
+                substrate = "half_CPU+GPU(numpy)"
 
         else:  # cpu
             cpu = CPUHtri()

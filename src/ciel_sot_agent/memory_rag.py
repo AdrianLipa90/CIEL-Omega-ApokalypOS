@@ -8,7 +8,6 @@ Actual weight updates (LoRA) are separate — see scripts/train_lora.py.
 """
 from __future__ import annotations
 
-import json
 import sqlite3
 from pathlib import Path
 from typing import Any
@@ -41,7 +40,6 @@ def search_wave_archive(query: str, root: Path, top_k: int = 4) -> list[dict[str
     results: list[dict] = []
     try:
         import h5py
-        import numpy as np
 
         h5_path = (
             root / "src" / "CIEL_OMEGA_COMPLETE_SYSTEM"

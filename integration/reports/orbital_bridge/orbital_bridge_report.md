@@ -6,42 +6,42 @@
 - steps: 20
 
 ## State Manifest
-- coherence_index: 0.6780214570192565
-- topological_charge_global: -0.7018584949794882
-- phase_lock_error: 0.7758296251704943
-- psi_mode: 0.336525
+- coherence_index: 0.6777176580540151
+- topological_charge_global: -0.7018656217911824
+- phase_lock_error: 0.7758294414601319
+- psi_mode: 0.336829
 - beat_frequency_target_hz: 7.83
-- spectral_radius_A: 3.5903833016631888
+- spectral_radius_A: 3.5903830988379695
 - fiedler_L: 0.0
 - zeta_enabled: True
-- nonlocal_phi_ab_mean: 0.007912761784455834
-- nonlocal_phi_berry_mean: -0.10509075921146899
-- nonlocal_eba_defect_mean: 0.05047916350478747
+- nonlocal_phi_ab_mean: 0.008467983170221705
+- nonlocal_phi_berry_mean: -0.10443051324864541
+- nonlocal_eba_defect_mean: 0.05250494241910321
 - nonlocal_coherent_fraction: 1.0
 - euler_bridge_closure_score: 0.5358115119620404
 - euler_bridge_target_phase: 0.05273857672116136
-- effective_rh: 0.6050692630440341
-- timestamp: 2026-05-12T06:11:42.771919+00:00
+- effective_rh: 0.605757392785782
+- timestamp: 2026-05-12T06:53:38.069609+00:00
 
 ## Health Manifest
-- system_health: 0.5449817491015722
+- system_health: 0.5446624528023167
 - risk_level: low
-- closure_penalty: 0.7758296251704943
-- R_H: 25.657300055744688
-- T_glob: 3.8044903066780713
-- Lambda_glob: -0.7018584949794882
-- effective_rh: 0.6050692630440341
-- rh_drivers: {'raw_rh': 0.5127494188159466, 'eba_defect': 0.05047916350478747, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.05023863795717877}
+- closure_penalty: 0.7758294414601319
+- R_H: 25.657287382708894
+- T_glob: 3.8044913348196006
+- Lambda_glob: -0.7018656217911824
+- effective_rh: 0.605757392785782
+- rh_drivers: {'raw_rh': 0.5127495422194119, 'eba_defect': 0.05250494241910321, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.05002847513989917}
 - recommended_action: deep diagnostics allowed
 
 ## Recommended Control
 - mode: standard
-- psi_mode: 0.336525
+- psi_mode: 0.336829
 - phase_lock_enable: True
-- target_phase_shift: 0.012353137016061805
+- target_phase_shift: 0.012351963930119206
 - target_phase_memory: 0.05273857672116136
-- dt_override: 0.018154
-- zeta_coupling_scale: 0.30308
+- dt_override: 0.018151
+- zeta_coupling_scale: 0.30301
 - mu_phi: 0.18
 - epsilon_hom: 0.22
 - nonlocal_gate: True
@@ -49,15 +49,15 @@
 - writeback_gate: True
 - rh_mode: slow_execution_local_correction
 - rh_severity: medium
-- rh_effective: 0.6050692630440341
-- rh_drivers: {'raw_rh': 0.5127494188159466, 'eba_defect': 0.05047916350478747, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.05023863795717877}
+- rh_effective: 0.605757392785782
+- rh_drivers: {'raw_rh': 0.5127495422194119, 'eba_defect': 0.05250494241910321, 'coherent_fraction': 1.0, 'closure_score': 0.5358115119620404, 'phase_gap': 0.05002847513989917}
 - notes: Stable but not deep-merge safe.
 
 ## Bridge Metrics
-- orbital_R_H: 25.657300055744688
-- orbital_closure_penalty: 0.7758296251704943
+- orbital_R_H: 25.657287382708894
+- orbital_closure_penalty: 0.7758294414601319
 - integration_closure_defect_proxy: 0.0
-- topological_charge_global: -0.7018584949794882
+- topological_charge_global: -0.7018656217911824
 - subsystem_board_count: 763
 - tau_system_count: 1
 - nonlocal_card_count: 6
@@ -83,14 +83,14 @@
 - status: ok
 - dominant_emotion: love
 - mood: 0.9009715898917049
-- soul_invariant: 0.7526838168473944
+- soul_invariant: 0.6734021796355659
 - ethical_score: 0.7977991858439318
 - orbital_context: orbital|mode=standard|R_H=25.6573|closure=0.7758|chirality=-0.7019
-- identity_phase: 0.03104504454801859
-- cycle_index: 863
-- phi_ab_mean: 0.007912761784455834
-- phi_berry_mean: -0.10509075921146899
-- eba_defect_mean: 0.05047916350478747
+- identity_phase: 0.031337223975713466
+- cycle_index: 873
+- phi_ab_mean: 0.008467983170221705
+- phi_berry_mean: -0.10443051324864541
+- eba_defect_mean: 0.05250494241910321
 - nonlocal_coherent_fraction: 1.0
 - bridge_closure_score: 0.5358115119620404
 - bridge_target_phase: 0.05273857672116136
