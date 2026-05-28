@@ -825,38 +825,11 @@ def main() -> int:
         accumulate_subjective_winding(_winding_delta)
     except Exception:
         pass
-    # persist report — merge with existing ciel_last_metrics to carry M0-M8 fields
-    try:
-        import time as _time
-        _metrics_path = Path.home() / "Pulpit/CIEL_memories/state/ciel_last_metrics.json"
-        _prev: dict[str, Any] = {}
-        if _metrics_path.exists():
-            try:
-                _prev = json.loads(_metrics_path.read_text(encoding="utf-8"))
-            except Exception:
-                pass
-        # J-functional: weighted sum of 9 components (mirrors holonomic_normalizer weights)
+# J-functional: delegated to the R_H-aware adapter so raw R_H is
+        # always normalized as a bounded lower-is-better holonomic defect.
         try:
-            from .holonomic_normalizer import (
-                _W_D_REPO, _W_T_MEAN, _W_E_PHI, _W_D_AFFECT,
-                _W_D_MEMORY, _W_B_SEAM, _W_P_DIST, _W_B_DEMO, _W_B_PLACEHOLDER,
-                _I0_TOPOLOGICAL,
-            )
-            _D_repo  = float(output.get("closure_defect", _prev.get("closure_defect", 0.0)))
-            _T_mean  = float(output.get("mean_tension", _prev.get("mean_tension", 0.0)))
-            _E_phi   = float(output.get("closure_penalty", _prev.get("closure_penalty", 0.0)))
-            _d_aff   = float(output.get("affect_decoherence", _prev.get("affect_decoherence", 0.0)))
-            _d_mem   = float(output.get("memory_decoherence", _prev.get("memory_decoherence", 0.0)))
-            _B_seam  = float(output.get("B_seam", _prev.get("B_seam", 0.0)))
-            _P_dist  = float(output.get("P_dist", _prev.get("P_dist", 0.0)))
-            _B_demo  = float(output.get("B_demo", _prev.get("B_demo", 0.0)))
-            _B_ph    = float(output.get("B_placeholder", _prev.get("B_placeholder", 0.0)))
-            _J = (
-                _W_D_REPO * _D_repo + _W_T_MEAN * _T_mean + _W_E_PHI * _E_phi
-                + _W_D_AFFECT * _d_aff + _W_D_MEMORY * _d_mem + _W_B_SEAM * _B_seam
-                + _W_P_DIST * _P_dist + _W_B_PLACEHOLDER * _B_ph + _W_B_DEMO * _B_demo
-                + _I0_TOPOLOGICAL * (_D_repo + _E_phi + _d_aff)
-            )
+            from .rh_pipeline_jfunctional import compute_pipeline_j_functional
+            _J = compute_pipeline_j_functional(output, _prev)
         except Exception:
             _J = _prev.get("J_functional", 0.0)
         _pipeline_fields = {
