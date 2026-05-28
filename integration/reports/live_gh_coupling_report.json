@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-12T05:52:55.697055+00:00",
+  "generated_at": "2026-05-28T14:05:13.371736+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "b795053dc2badfea4b75652a4017ac33efb69189",
-      "timestamp": "2026-05-12T04:32:29Z",
-      "message": "Update live GH coupling state",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/b795053dc2badfea4b75652a4017ac33efb69189"
+      "new_sha": "13d8d0e8d967f36a4aabab573125c6e7c52b94f4",
+      "timestamp": "2026-05-14T14:26:29Z",
+      "message": "build(deps-dev): bump brace-expansion from 2.0.2 to 2.1.0 in /app\n\nBumps [brace-expansion](https://github.com/juliangruber/brace-expansion) from 2.0.2 to 2.1.0.\n- [Release notes](https://github.com/juliangruber/brace-expansion/releases)\n- [Commits](https://github.com/juliangruber/brace-expansion/compare/v2.0.2...v2.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: brace-expansion\n  dependency-version: 2.1.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/13d8d0e8d967f36a4aabab573125c6e7c52b94f4"
     },
     {
       "key": "demo",
