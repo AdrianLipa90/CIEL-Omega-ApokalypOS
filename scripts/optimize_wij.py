@@ -39,6 +39,7 @@ from integration.Orbital.main.phase_control import (
     coherence_index_from_snapshot,
     recommend_control,
 )
+from integration.Orbital.main.rh_control import rh_coherence_score
 
 ci_fn = coherence_index_from_snapshot
 
@@ -100,8 +101,14 @@ def make_objective(pairs, base_couplings, params, warm_steps, eba_data: dict):
     x0 = np.array([base_couplings[src][dst] for src, dst in pairs])
 
     def _ci_full(snap: dict) -> float:
-        """Coherence index with EBA data injected from last bridge report."""
-        raw = max(0.0, min(1.0, 1.0 - snap.get("R_H", 1.0)))
+        """Coherence index with EBA data injected from last bridge report.
+
+        R_H is a lower-is-better holonomic defect, not a [0,1] coherence
+        amplitude.  Use the canonical bounded transform from rh_control:
+        coherence = 1 - R_H/(N + R_H).  Direct ``1 - R_H`` inverts and
+        mis-scales the metric when R_H is not already normalized.
+        """
+        raw = rh_coherence_score(snap)
         coherent_fraction = eba_data.get("nonlocal_coherent_fraction", 0.0)
         eba_defect = eba_data.get("eba_defect_mean", 0.0)
         closure_score = eba_data.get("bridge_closure_score", 0.0)
