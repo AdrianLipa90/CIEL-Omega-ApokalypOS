@@ -1,10 +1,8 @@
 # CIEL/Ω — Consciousness Integrated Emergent Lattice
 
-**Consciousness Integrated Emergent Lattice — CIEL-_SOT_Agent**
+**Consciousness Integrated Emergent Lattice — CIEL-Omega-ApocalypOS**
 
-**General Quantum Consciousness System** — modelling consciousness as a reduction chain:
-**repositories → orbital → bridge → CIEL/Ω**
-
+ApocalypOS is an information-geometry stabilization runtime: a software layer that preserves, audits, and governs semantic state across language, memory, inference, and action.
 ---
 
 ## Authors
