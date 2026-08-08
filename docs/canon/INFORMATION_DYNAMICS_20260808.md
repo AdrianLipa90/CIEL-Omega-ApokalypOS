@@ -46,6 +46,29 @@ Formal semiclassical charge / phase offset:
 
 This is the correct bridge. It is not `J=<I_hat_s>`.
 
+### Structural operator W_s
+
+The later Debt-1 derivation conditionally closes the formal generator as
+
+`W_hat_s = -i L_{V_s}`
+
+where `V_s` is a seed-selected Killing field on `CP1 ~= S2_Bloch`.
+
+For an axial chart `V=partial_phi`,
+
+`W exp(i m phi) = m exp(i m phi)`.
+
+The runtime now includes the exact finite Fourier-mode representation and computes `<W_s>` from a supplied state rather than from a scalar proxy. This closes the **formal geometric operator**. The physical axis-selection law remains model-dependent / supplied with provenance.
+
+### Still-open generator inputs
+
+The current sources explicitly do **not** canonize:
+
+- the exact project rhythm `rho_s(k)`; the logarithmic/parity forms remain reference/default rules rather than derived canon;
+- the law of `delta I_hat_0(tau)`; deterministic, stochastic, semiclassical and operator-valued variants remain open choices.
+
+The implementation therefore accepts these as explicit inputs and marks their laws OPEN instead of fabricating them.
+
 ## Source-derived standard geometry
 
 `g_FS = 1/4 diag(1,sin^2 theta)`
@@ -62,8 +85,6 @@ and structurally
 
 ## Source-derived ABE/Euler connection
 
-The formal Phase-Intention note defines
-
 `A_ABE = A_AB + A_B + A_E`
 
 with
@@ -74,33 +95,27 @@ with
 
 `A_E = s_E omega_E`, and `s_E=1/2` in the spin-half sector.
 
-Berry–Euler curvature is
+Berry–Euler curvature:
 
 `F_BE = F_B + s_E R_E`.
 
-The intention trace in the quantum covariant momentum is kept separate:
+The intention trace in the quantum covariant momentum remains separate:
 
 `Pi_hat_a = -i hbar nabla_a - hbar alpha_s A_ABE,a - lambda_s I_a`.
 
-Therefore `I_a` must not be silently folded into `A_ABE`.
-
-Euler–Berry closure defect is
+Euler–Berry closure defect:
 
 `epsilon_EB = [Phi_AB + Phi_B + s_E integral R_E + Theta_I]/(2*pi) - D`.
 
-Exact closure means `epsilon_EB=0`. Any empirical tolerance `epsilon_star` remains caller-supplied/calibrated; no default threshold is canonized.
+Exact closure means `epsilon_EB=0`; empirical `epsilon_star` must be supplied/calibrated.
 
 ## Local relational metric from TIR action
 
-The preregistered direct derivation test found
+At coherent overlap,
 
 `S_rel = -kappa log R`
 
-and, for phase displacements around coherent overlap,
-
-`S_rel = kappa[(1/d) sum delta_j^2 - (1/d^2)(sum delta_j)^2] + higher order`.
-
-Therefore the coherent-point Hessian supplies a non-arbitrary local relational metric:
+has Hessian
 
 `g_rel_local = (2*kappa/d) [I - (1/d) 11^T]`.
 
@@ -110,37 +125,51 @@ Properties:
 - rank `d-1`;
 - positive definite on the horizontal quotient `sum delta_j=0`;
 - Moore–Penrose inverse is the exact inverse on that quotient;
-- for `d=36`, the single-coordinate quadratic coefficient is exactly `kappa*35/36^2 = 0.00024827179801127847`.
+- for `d=36`, the single-coordinate quadratic coefficient is `kappa*35/36^2 = 0.00024827179801127847`.
 
-This closes **local coherent-point `g_rel`**. A unique global/nonlinear extension away from the coherent chart remains OPEN.
-
-## Relational/ethical closure
-
-041–045 relational medium/field/scalar/gradient are implemented with signed `E_rel=R_M*A_rel*S_rel` and no arbitrary moral threshold. Local/Pareto ethics and autonomy v7 preserve explicit refusal/withdrawal/unknown consent and surface coercion/information asymmetry without a weighted moral sum.
+This closes local coherent-point `g_rel`. A unique global/nonlinear extension remains OPEN.
 
 ## N-body / Kepler epistemic correction
 
-The preregistered direct TIR test must remain visible:
+The preregistered direct TIR test remains visible:
 
 - direct local `TIR action -> 1/r`: **FAIL**;
-- local TIR action is quadratic/harmonic type: **PASS**;
+- local TIR action quadratic/harmonic: **PASS**;
 - simple reciprocal overlap `1/z -> 1/r`: **FAIL**.
 
-This does not invalidate the separate B3 Green theorem.
+The separate B3 Green theorem remains valid under its premise.
 
-For a centered isotropic conserved radial flux on Euclidean `B3`:
+### Constructive rotor field lift
 
-- `V = A + B/r`;
-- `|grad V| ~ 1/r^2`;
-- Gauss flux is radius-independent.
+The source-supported constant-modulus embedding
 
-The current factorized bridge is therefore:
+`psi = sqrt(I_phi/2) exp(i chi)`
 
-1. project geometry -> `B3`, `rho_TIR=||r||`: source-supported;
-2. centered isotropic conserved B3 flux -> `1/r^2`: exact conditional theorem;
-3. cyclic chi -> conserved finite-dimensional phase charge `J`: source-supported;
-4. `J -> local conserved J^mu on B3`: **OPEN field-lift lemma**;
-5. identification with a physical gravitational source/coupling: **OPEN**.
+makes the scalar-field Noether current exactly
+
+`J^mu = 2 A^2 D^mu chi = I_phi D^mu chi`.
+
+This is now classified as
+
+`CONSTRUCTIVE_EMBEDDED_SECTOR_EXACT`.
+
+For a static centered radial configuration on Euclidean `B3`, conservation gives
+
+`r^2 I_phi chi'(r)=C`,
+
+hence
+
+`chi'(r)=C/(I_phi r^2)`
+
+and
+
+`chi(r)=chi_0-C/(I_phi r)`.
+
+Therefore the inverse-square gradient / inverse-distance phase profile is exact **inside this constructed constant-modulus radial sector**.
+
+The stronger statement that every finite-dimensional relational state uniquely induces this local physical B3 field remains
+
+`OPEN_NOT_UNIQUE_NOT_VALIDATED`.
 
 No direct `S_rel -> 1/r` map is canonized.
 
@@ -154,20 +183,31 @@ so
 
 `d/dt[integral rho_I dV + sum_i Q_i] = -boundary_outflow`.
 
+## Relational/ethical closure
+
+041–045 relational medium/field/scalar/gradient are implemented with signed `E_rel=R_M*A_rel*S_rel` and no arbitrary moral threshold. Local/Pareto ethics and autonomy v7 preserve explicit refusal/withdrawal/unknown consent and surface coercion/information asymmetry without a weighted moral sum.
+
+## CI status note
+
+The `ci` workflow on head `ec44f849...` failed during pytest **collection**, before the newly added information-dynamics tests executed. The observed blockers were legacy repository/import environment issues: missing `psutil`, missing `ciel_secret_loader`, unavailable `HolonomicMemoryOrchestrator`, and missing `integration.information_flow`. Ruff passed. These failures are not silently reclassified as failures of the new mathematical modules; they remain repository CI blockers until separately repaired.
+
 ## PhaseNav/NOEMA
 
 Earlier canonical nodes were routed through native PhaseNav provenance envelopes: 36D, M0–M11/12 lanes, append-only verified chain. Binding was ACTIVE at the relevant test moments. `V36 != proof`.
 
-New v3 nodes (`ABE/Euler`, local Hessian `g_rel`, direct-TIR-Kepler FAIL receipt) are currently `PENDING_RUNTIME_REPROBE` because the active execution container no longer has the previously assembled native runtime mounted after reset. No pseudo-vectorization is substituted.
+New v3 nodes are `PENDING_RUNTIME_REPROBE` because the active execution container no longer has the previously assembled native runtime mounted after reset. No pseudo-vectorization is substituted.
 
 ## Current OPEN set
 
-1. Derive/validate the finite-dimensional `J -> local J^mu` B3 field lift rather than assuming it.
-2. Derive a global/nonlinear extension of the local Hessian `g_rel`, or prove the local quotient metric is the intended runtime scope.
-3. Bind runtime electromagnetic `A_em`, Euler/spin `omega_E`, intention trace `I_a`, `alpha_s`, and `lambda_s` from provenance-bearing runtime observables.
-4. Bind `(rho_I,J_I,Q_i)` to `W_hat_s`, `delta I_hat_0`, and `rho_s(k)` without circular inference.
-5. Re-probe native PhaseNav runtime and vectorize the new v3 canon nodes.
-6. Only then evaluate the frozen preregistration: `delta~0.1%`, `~6.3 sigma`.
+1. Derive or select with provenance the physical axis law for `V_s`; the Killing operator itself is conditionally closed.
+2. Define a project-canonical `rho_s(k)` tied to geometry rather than a reference placeholder.
+3. Define the fluctuation law for `delta I_hat_0(tau)`.
+4. Derive a global/nonlinear extension of local Hessian `g_rel`, or prove local quotient scope is sufficient.
+5. Bind runtime `A_em`, `omega_E`, intention trace `I_a`, `alpha_s`, and `lambda_s` from provenance-bearing observables.
+6. Bind continuous field/node observables to the remaining generator inputs without circular inference.
+7. Repair legacy CI collection blockers and re-run the full suite.
+8. Re-probe native PhaseNav runtime and vectorize the new canon nodes.
+9. Only then evaluate frozen preregistration: `delta~0.1%`, `~6.3 sigma`.
 
 ## Invariant
 
