@@ -133,3 +133,11 @@ from .information_phase_generator import (
     PhaseGeneratorBinding, bind_classical_J_to_information_generator,
     block_diagonal_metric, FullPhaseFirstStructure, structure_receipt,
 )
+from .phase_first_geometry import (
+    fubini_study_metric, fubini_study_inverse_metric, fubini_study_inverse_metric_derivatives,
+    berry_connection, berry_connection_derivatives, berry_curvature_matrix,
+    poincare_disk_metric, poincare_disk_inverse_metric, poincare_disk_inverse_metric_derivatives,
+    direct_sum_metric, direct_sum_inverse_metric, direct_sum_inverse_metric_derivatives,
+    source_connection_and_derivatives, build_source_hamiltonian_geometry,
+    ExplicitGeometryReceipt, geometry_receipt,
+)
