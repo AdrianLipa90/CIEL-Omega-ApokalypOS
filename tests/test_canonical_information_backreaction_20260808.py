@@ -26,7 +26,7 @@ def _geom(A=None,dA=None,gradV=None,dG=None):
 
 
 def test_zero_phase_momentum_reduces_to_standard_potential_force():
-    s=CanonicalRelationalState(q=np.array([0.2,-0.1]),p=np.array([1.0,2.0]),J=0.0,J0=0.0,I_phi=2.0)
+    s=CanonicalRelationalState(q=np.array([0.2,-0.1]),p=np.array([1.0,2.0]),J=0.0,J0_phase_offset=0.0,I_phi=2.0)
     g=_geom(A=[5.0,-7.0],dA=[[3.0,4.0],[2.0,1.0]],gradV=[0.3,-0.4])
     qdot,pdot=hamilton_equations(s,g)
     assert np.allclose(qdot,s.p)
@@ -34,7 +34,7 @@ def test_zero_phase_momentum_reduces_to_standard_potential_force():
 
 
 def test_minimal_coupling_is_exactly_p_minus_JA():
-    s=CanonicalRelationalState(q=np.zeros(2),p=np.array([3.0,-2.0]),J=2.5,J0=0.5,I_phi=4.0)
+    s=CanonicalRelationalState(q=np.zeros(2),p=np.array([3.0,-2.0]),J=2.5,J0_phase_offset=0.5,I_phi=4.0)
     g=_geom(A=[0.4,-0.2])
     Pi=covariant_momentum(s,g)
     assert np.allclose(Pi,np.array([2.0,-1.5]))
@@ -46,9 +46,8 @@ def test_minimal_coupling_is_exactly_p_minus_JA():
 
 
 def test_flat_metric_covariant_momentum_rate_is_J_curvature_v_minus_gradV():
-    # d_A[k,a] = partial_k A_a. Choose F_01 = 2.
     dA=np.array([[0.0,2.0],[0.0,0.0]])
-    s=CanonicalRelationalState(q=np.zeros(2),p=np.array([1.0,0.5]),J=3.0,J0=0.0,I_phi=1.0)
+    s=CanonicalRelationalState(q=np.zeros(2),p=np.array([1.0,0.5]),J=3.0,J0_phase_offset=0.0,I_phi=1.0)
     g=_geom(A=[0.0,0.0],dA=dA,gradV=[0.2,-0.1])
     qdot,_=hamilton_equations(s,g)
     F=curvature_tensor(dA)
@@ -58,11 +57,16 @@ def test_flat_metric_covariant_momentum_rate_is_J_curvature_v_minus_gradV():
 
 
 def test_connection_with_zero_curvature_is_pure_gauge_for_covariant_force():
-    # Symmetric derivative => F=0. Canonical p may change, but Pi force is only -gradV.
     dA=np.array([[1.0,0.4],[0.4,-0.3]])
-    s=CanonicalRelationalState(q=np.zeros(2),p=np.array([0.7,-1.1]),J=1.2,J0=0.0,I_phi=2.0)
+    s=CanonicalRelationalState(q=np.zeros(2),p=np.array([0.7,-1.1]),J=1.2,J0_phase_offset=0.0,I_phi=2.0)
     g=_geom(A=[0.0,0.0],dA=dA,gradV=[-0.2,0.6])
     F=curvature_tensor(dA)
     assert np.allclose(F,0.0)
     got=covariant_momentum_rate_flat_metric(s,g)
     assert np.allclose(got,-g.grad_V)
+
+
+def test_scalar_phase_offset_is_not_vector_residual_current():
+    s=CanonicalRelationalState(q=np.zeros(2),p=np.zeros(2),J=1.0,J0_phase_offset=0.25,I_phi=2.0)
+    assert np.isscalar(s.J0_phase_offset)
+    assert np.isclose(phase_velocity(s),0.375)
