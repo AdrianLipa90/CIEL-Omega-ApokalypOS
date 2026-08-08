@@ -48,11 +48,7 @@ __all__ = [
 __version__ = '2.0.0'
 __entries__ = 115
 
-# Canonical signed ERI supersedes the legacy unsigned package-level symbol.
-# The historical implementation remains in core_concepts.py for provenance.
 from .ethical_resonance import EthicalResonanceIndex
-
-# Entries 041-045 — NEW_DERIVED_CLOSURE (2026-08-08)
 from .relational_medium import (
     RelationalMedium, Relation, RelationalField,
     EthicalScalarState, EthicalGradient,
@@ -119,4 +115,8 @@ from .information_dynamics import (
     radial_green_current_cells, rotational_holonomy_cells,
     J0Classification, classify_declared_J0,
     InformationDynamicsSnapshot, snapshot,
+)
+from .relational_information_exchange import (
+    RelationalInformationNode, ExchangeReceipt,
+    partition_source_density, conservative_exchange_step,
 )
