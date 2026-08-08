@@ -85,7 +85,7 @@ The implementation includes a conservative finite-volume update with local/globa
 
 ## Conservative field-node exchange
 
-The continuous field is now coupled to discrete relational information nodes without inventing a mechanical force coefficient.
+The continuous field is coupled to discrete relational information nodes without inventing a mechanical force coefficient.
 
 For an explicit source partition `sigma_I = sum_i sigma_i`, each node carries information content `Q_i` with
 
@@ -95,7 +95,54 @@ Therefore
 
 `d/dt [ integral rho_I dV + sum_i Q_i ] = - boundary_outflow`.
 
-The implementation rejects unattributed source partitions: every node source must map to exactly one declared node. This closes information bookkeeping across field and relational nodes. It does **not** identify `Q_i` with mass/energy/momentum and does not yet generate acceleration.
+The implementation rejects unattributed source partitions: every node source must map to exactly one declared node. This closes information bookkeeping across field and relational nodes. It does **not** identify `Q_i` with mass/energy/momentum.
+
+## Canonical information backreaction
+
+The mechanical/canonical backreaction is now derived from the current Hilbert–Kähler phase/intention Hamiltonian rather than from an inserted force coefficient.
+
+Source equations:
+
+`L = 1/2 g_ab qdot^a qdot^b + I_phi/2 (D_t chi)^2 + J0 D_t chi - V(q)`
+
+`J = I_phi D_t chi + J0`
+
+`p_a = g_ab qdot^b + J A_a`
+
+`Pi_a = p_a - J A_a`
+
+`H = (J-J0)^2/(2 I_phi) + 1/2 g^ab Pi_a Pi_b + V(q)`.
+
+For fixed `J`, `J0`, and `I_phi`, Hamilton's equations give
+
+`qdot^a = g^ab Pi_b`
+
+and
+
+`pdot_k = J (partial_k A_a) qdot^a - 1/2 Pi_a (partial_k g^ab) Pi_b - partial_k V`.
+
+For a coordinate-constant metric, the covariant momentum obeys
+
+`Pi_dot_k = J F_ka qdot^a - partial_k V`,
+
+where
+
+`F_ka = partial_k A_a - partial_a A_k`.
+
+Therefore the information/phase backreaction is a canonical geometric coupling. Its coefficient is the already-derived phase momentum `J`; no additional fitted force coefficient is introduced. A pure-gauge connection with `F=0` contributes no geometric force to `Pi`.
+
+Implemented module:
+
+`vocabulary/canonical_information_backreaction.py`
+
+Regression coverage verifies:
+
+- `J=0` reduces to the ordinary potential-gradient force;
+- minimal coupling is exactly `Pi=p-JA`;
+- the flat-metric covariant force is `J F qdot - grad V`;
+- zero curvature removes the geometric covariant force.
+
+A native PhaseNav provenance event was also routed through the current runtime as `TRANSFORM`, with 36D envelope, 12 M0–M11 lanes, ACTIVE binding, and verified commit chain. The V36 manifest remains provenance only and does not constitute proof.
 
 ## Epistemic firewall
 
@@ -116,7 +163,7 @@ They must not be used as fit targets.
 
 ## Remaining open work
 
-1. Bind each runtime J0 contribution to a derived/measured TIR source.
-2. Derive the mechanical/canonical backreaction of information current on relational-body state from the action/Noether structure, rather than inserting a force coefficient.
-3. Derive source/coupling normalization from TIR rather than fitting it.
-4. Only after that evaluate the preregistered delta and statistical significance.
+1. Bind each runtime `J0` contribution to a derived/measured TIR source.
+2. Bind the conserved/runtime information observable used in field/node exchange to the canonical phase momentum `J` with explicit provenance and units.
+3. Determine the runtime metric/connection block (`g`, `A`) from the current Hilbert–Kähler/Bloch/Poincaré geometry rather than supplying them as generic local data.
+4. Only after those bindings evaluate the preregistered delta and statistical significance.
