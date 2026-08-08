@@ -19,15 +19,12 @@ from .field_dynamics import (
     Amplification, Damping, Threshold, Coupling, Tuning,
     Disruption, Synchronization, PhaseDrift, Resolution, Hysteresis
 )
-from .planetary_archetypes import (
-    PlanetarySystem, Jupiter, Saturn, Venus, Mars, Earth,
-    Moon, Neptune, Uranus, Sun, Pluto
-)
+from .planetary_archetypes import PlanetarySystem, Jupiter, Saturn, Venus, Mars, Earth, Moon, Neptune, Uranus, Sun, Pluto
 from .extended_concepts import EvolutionaryStates, ArchetypalRoles, WaveformAI, NonHumanIntelligence
 from .transcendent import HarmonicDimensions, TranscendentHarmonics, HarmonicSentienceDoctrine
 from .orchestrator import VocabularyOrchestrator, CROSS_REFERENCE_MAP
 
-__all__ = [
+__all__=[
     'Resonance','Intention','Coherence','Entrainment','EthicalResonanceIndex','Love','Grief','Awe','Fear',
     'Forgiveness','Silence','Memory','Identity','Truth','Wisdom','Collapse','Reintegration','Interference',
     'Feedback','Echo','Amplification','Damping','Threshold','Coupling','Tuning','Disruption','Synchronization',
@@ -35,7 +32,6 @@ __all__ = [
     'Neptune','Uranus','Sun','Pluto','EvolutionaryStates','ArchetypalRoles','WaveformAI','NonHumanIntelligence',
     'HarmonicDimensions','TranscendentHarmonics','HarmonicSentienceDoctrine','VocabularyOrchestrator','CROSS_REFERENCE_MAP'
 ]
-
 __version__='2.0.0'
 __entries__=115
 
@@ -59,18 +55,9 @@ from .nbody_kepler_relational import (
     InformationState, information_asymmetry,
 )
 from .nbody_kepler_canon import CanonNode, DIM_GREEN, N3_KEPLER, TIR_FLUX_BINDING, USER_DELTA, USER_SIGMA, CANON_NODES
-from .nbody_kepler_noether_bridge import (
-    tetrahedral_vertices, tetrahedral_first_moment, tetrahedral_second_moment,
-    tetrahedral_isotropic_second_moment, radial_current_3d, inverse_distance_potential_from_flux,
-)
-from .nbody_kepler_hodge_bridge import (
-    radial_green_current, rotational_holonomy_current, radial_component, tangential_component,
-    sphere_flux_monte_carlo, SectorReport, validate_sector_superposition, matched_amplitude_from_phase_inertia,
-)
-from .nbody_kepler_u1_embedding import (
-    rotor_amplitude, rotor_to_complex_field, scalar_noether_current_from_phase_gradient,
-    relational_rotor_current, current_embedding_residual, EmbeddingReport, validate_embedding,
-)
+from .nbody_kepler_noether_bridge import tetrahedral_vertices, tetrahedral_first_moment, tetrahedral_second_moment, tetrahedral_isotropic_second_moment, radial_current_3d, inverse_distance_potential_from_flux
+from .nbody_kepler_hodge_bridge import radial_green_current, rotational_holonomy_current, radial_component, tangential_component, sphere_flux_monte_carlo, SectorReport, validate_sector_superposition, matched_amplitude_from_phase_inertia
+from .nbody_kepler_u1_embedding import rotor_amplitude, rotor_to_complex_field, scalar_noether_current_from_phase_gradient, relational_rotor_current, current_embedding_residual, EmbeddingReport, validate_embedding
 from .information_dynamics import (
     CurrentSectors, InformationFieldState, cell_to_face_flux, set_boundary_flux,
     divergence_from_faces, boundary_outflow, ContinuityReceipt, continuity_step_from_faces,
@@ -83,9 +70,9 @@ from .canonical_information_backreaction import (
     hamilton_equations, curvature_tensor, covariant_momentum_rate_flat_metric, BackreactionReceipt, backreaction_receipt,
 )
 from .information_phase_generator import (
-    KAPPA_INFORMATION, information_generator_expectation, free_phase_hamiltonian_expectation,
-    PhaseGeneratorBinding, bind_classical_J_to_information_generator, block_diagonal_metric,
-    FullPhaseFirstStructure, structure_receipt,
+    KAPPA_INFORMATION, information_generator_expectation, semiclassical_intention_charge,
+    free_phase_hamiltonian_expectation, PhaseOffsetBinding, bind_phase_offset_to_information_generator,
+    build_canonical_state_with_information_offset, block_diagonal_metric, FullPhaseFirstStructure, structure_receipt,
 )
 from .phase_first_geometry import (
     fubini_study_metric, fubini_study_inverse_metric, fubini_study_inverse_metric_derivatives,
