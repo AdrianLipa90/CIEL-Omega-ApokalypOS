@@ -5,9 +5,11 @@ import numpy as np
 from src.CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.information_phase_generator import (
     KAPPA_INFORMATION,
     information_generator_expectation,
+    generator_expectation_from_killing_state,
     semiclassical_intention_charge,
     free_phase_hamiltonian_expectation,
     bind_phase_offset_to_information_generator,
+    bind_phase_offset_from_killing_state,
     build_canonical_state_with_information_offset,
     block_diagonal_metric,
     structure_receipt,
@@ -37,12 +39,30 @@ def test_free_phase_energy_is_charge_over_delta_tau():
 
 
 def test_phase_offset_binding_uses_hbar_rho_information_generator():
-    b=bind_phase_offset_to_information_generator(
-        1.0,0.2,hbar=2.0,rho_s=0.5,provenance="formal-source"
-    )
+    b=bind_phase_offset_to_information_generator(1.0,0.2,hbar=2.0,rho_s=0.5,provenance="formal-source")
     assert b.status=="SOURCE_DERIVED_SEMICLASSICAL_PHASE_OFFSET"
     assert abs(b.source_identity_residual)<1e-15
     assert np.isclose(b.J0_phase_offset,2.0*0.5*b.I_expectation)
+
+
+def test_killing_state_supplies_W_expectation_without_proxy():
+    # Pure m=2 Fourier mode => <W>=2 exactly.
+    coeff=np.array([0.0,0.0,1.0],dtype=complex)
+    modes=(-1,0,2)
+    I=generator_expectation_from_killing_state(coeff,modes,0.1)
+    assert np.isclose(I,2*KAPPA_INFORMATION+0.1)
+
+
+def test_killing_binding_keeps_rhythm_and_fluctuation_laws_open():
+    coeff=np.array([1.0,0.0],dtype=complex)
+    b=bind_phase_offset_from_killing_state(
+        coeff,(-2,3),0.0,hbar=1.0,rho_s=0.8,axis_provenance="supplied-axis"
+    )
+    assert b.W_expectation==-2.0
+    assert b.W_status=="CONDITIONALLY_CLOSED_KILLING_GENERATOR_EXPECTATION"
+    assert b.rho_status=="SUPPLIED_RHYTHM__CANONICAL_LAW_OPEN"
+    assert b.fluctuation_status=="SUPPLIED_FLUCTUATION__LAW_OPEN"
+    assert abs(b.source_identity_residual)<1e-15
 
 
 def test_canonical_state_receives_phase_offset_not_total_J():
