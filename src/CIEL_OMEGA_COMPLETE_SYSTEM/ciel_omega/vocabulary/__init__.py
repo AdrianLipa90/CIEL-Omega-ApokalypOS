@@ -9,63 +9,117 @@ Date: March 25, 2025
 Complete implementation: All 115 entries integrated with CIEL/Ω architecture.
 """
 
-# Core Concepts (001-015)
 from .core_concepts import (
     Resonance, Intention, Coherence, Entrainment,
     EthicalResonanceIndex, Love, Grief, Awe, Fear,
     Forgiveness, Silence, Memory, Identity, Truth, Wisdom
 )
-
-# Field Dynamics (016-030)
 from .field_dynamics import (
     Collapse, Reintegration, Interference, Feedback, Echo,
     Amplification, Damping, Threshold, Coupling, Tuning,
     Disruption, Synchronization, PhaseDrift, Resolution, Hysteresis
 )
-
-# Planetary Archetypes (031-045)
-from .planetary_archetypes import (
-    PlanetarySystem, Jupiter, Saturn, Venus, Mars, Earth,
-    Moon, Neptune, Uranus, Sun, Pluto
-)
-
-# Extended Concepts (046-090)
-from .extended_concepts import (
-    EvolutionaryStates, ArchetypalRoles, WaveformAI, NonHumanIntelligence
-)
-
-# Transcendent (091-115)
-from .transcendent import (
-    HarmonicDimensions, TranscendentHarmonics, HarmonicSentienceDoctrine
-)
-
-# Orchestrator
+from .planetary_archetypes import PlanetarySystem, Jupiter, Saturn, Venus, Mars, Earth, Moon, Neptune, Uranus, Sun, Pluto
+from .extended_concepts import EvolutionaryStates, ArchetypalRoles, WaveformAI, NonHumanIntelligence
+from .transcendent import HarmonicDimensions, TranscendentHarmonics, HarmonicSentienceDoctrine
 from .orchestrator import VocabularyOrchestrator, CROSS_REFERENCE_MAP
 
-__all__ = [
-    # Core (001-015)
-    'Resonance', 'Intention', 'Coherence', 'Entrainment',
-    'EthicalResonanceIndex', 'Love', 'Grief', 'Awe', 'Fear',
-    'Forgiveness', 'Silence', 'Memory', 'Identity', 'Truth', 'Wisdom',
-    
-    # Field Dynamics (016-030)
-    'Collapse', 'Reintegration', 'Interference', 'Feedback', 'Echo',
-    'Amplification', 'Damping', 'Threshold', 'Coupling', 'Tuning',
-    'Disruption', 'Synchronization', 'PhaseDrift', 'Resolution', 'Hysteresis',
-    
-    # Planetary (031-045)
-    'PlanetarySystem', 'Jupiter', 'Saturn', 'Venus', 'Mars', 'Earth',
-    'Moon', 'Neptune', 'Uranus', 'Sun', 'Pluto',
-    
-    # Extended (046-090)
-    'EvolutionaryStates', 'ArchetypalRoles', 'WaveformAI', 'NonHumanIntelligence',
-    
-    # Transcendent (091-115)
-    'HarmonicDimensions', 'TranscendentHarmonics', 'HarmonicSentienceDoctrine',
-    
-    # Orchestrator
-    'VocabularyOrchestrator', 'CROSS_REFERENCE_MAP'
+__all__=[
+    'Resonance','Intention','Coherence','Entrainment','EthicalResonanceIndex','Love','Grief','Awe','Fear',
+    'Forgiveness','Silence','Memory','Identity','Truth','Wisdom','Collapse','Reintegration','Interference',
+    'Feedback','Echo','Amplification','Damping','Threshold','Coupling','Tuning','Disruption','Synchronization',
+    'PhaseDrift','Resolution','Hysteresis','PlanetarySystem','Jupiter','Saturn','Venus','Mars','Earth','Moon',
+    'Neptune','Uranus','Sun','Pluto','EvolutionaryStates','ArchetypalRoles','WaveformAI','NonHumanIntelligence',
+    'HarmonicDimensions','TranscendentHarmonics','HarmonicSentienceDoctrine','VocabularyOrchestrator','CROSS_REFERENCE_MAP'
 ]
+__version__='2.0.0'
+__entries__=115
 
-__version__ = '2.0.0'
-__entries__ = 115  # All consciousness dictionary entries implemented
+from .ethical_resonance import EthicalResonanceIndex
+from .relational_medium import RelationalMedium, Relation, RelationalField, EthicalScalarState, EthicalGradient
+from .ethical_decision_dynamics import CandidateAction, CandidateEvaluation, DecisionResult, evaluate_candidate, choose_action, decision_tree_view
+from .ethical_stream_bridge import EthicalStreamRecord, ethical_event_payload, commit_ethics_to_noema
+from .local_relational_ethics import LocalEthicalProfile, DistributionalConsequence, pareto_dominates, pareto_front, DistributionalDecision, choose_distributionally
+from .relational_autonomy import (
+    ConsentStatus, ConsentEvidence, active_consent, InformationAccess, InformationAsymmetry,
+    information_asymmetry as relational_information_asymmetry, AgencyEvidence, CoercionEvidence,
+    AutonomyProfile, derive_autonomy_profile, AutonomyConsequence, autonomy_dominates,
+    autonomy_pareto_front, JointRelationalDecision, choose_with_autonomy,
+)
+from .nbody_kepler_relational import (
+    RelationalBody, PairCoupling, unit_sphere_area, pair_displacement, pair_distance,
+    nd_green_potential_from_r, nd_green_potential, inverse_distance_potential,
+    central_pair_force, radial_flux_invariant, accelerations, bivector_angular_momentum,
+    total_bivector_angular_momentum, kinetic_energy, potential_energy, total_energy,
+    DimensionalKeplerReport, dimensional_report, AgencyState, ConsentGeometry, consent_geometry,
+    InformationState, information_asymmetry,
+)
+from .nbody_kepler_canon import (
+    CanonNode, DIRECT_TIR_LOCAL, RECIPROCAL_OVERLAP, DIM_GREEN, N3_KEPLER,
+    B3_RADIAL_OBSERVABLE, FINITE_PHASE_CHARGE, EMBEDDED_FIELD_LIFT, GENERAL_FIELD_LIFT,
+    TIR_FLUX_BINDING, USER_DELTA, USER_SIGMA, CANON_NODES,
+)
+from .nbody_kepler_noether_bridge import tetrahedral_vertices, tetrahedral_first_moment, tetrahedral_second_moment, tetrahedral_isotropic_second_moment, radial_current_3d, inverse_distance_potential_from_flux
+from .nbody_kepler_hodge_bridge import radial_green_current, rotational_holonomy_current, radial_component, tangential_component, sphere_flux_monte_carlo, SectorReport, validate_sector_superposition, matched_amplitude_from_phase_inertia
+from .nbody_kepler_u1_embedding import rotor_amplitude, rotor_to_complex_field, scalar_noether_current_from_phase_gradient, relational_rotor_current, current_embedding_residual, EmbeddingReport, validate_embedding
+from .information_dynamics import (
+    CurrentSectors, InformationFieldState, cell_to_face_flux, set_boundary_flux,
+    divergence_from_faces, boundary_outflow, ContinuityReceipt, continuity_step_from_faces,
+    zero_sectors, phase_rotor_current, radial_green_current_cells, rotational_holonomy_cells,
+    ResidualCurrentClassification, classify_declared_residual_current, InformationDynamicsSnapshot, snapshot,
+)
+from .relational_information_exchange import RelationalInformationNode, ExchangeReceipt, partition_source_density, conservative_exchange_step
+from .canonical_information_backreaction import (
+    CanonicalRelationalState, HamiltonianGeometry, covariant_momentum, phase_velocity, hamiltonian,
+    hamilton_equations, curvature_tensor, covariant_momentum_rate_flat_metric, BackreactionReceipt, backreaction_receipt,
+)
+from .information_phase_generator import (
+    KAPPA_INFORMATION, information_generator_expectation, generator_expectation_from_killing_state,
+    semiclassical_intention_charge, free_phase_hamiltonian_expectation, PhaseOffsetBinding,
+    bind_phase_offset_to_information_generator, bind_phase_offset_from_killing_state,
+    bind_phase_offset_from_contract, build_canonical_state_with_information_offset,
+    block_diagonal_metric, FullPhaseFirstStructure, structure_receipt,
+)
+from .phase_first_geometry import (
+    fubini_study_metric, fubini_study_inverse_metric, fubini_study_inverse_metric_derivatives,
+    berry_connection, berry_connection_derivatives, berry_curvature_matrix, poincare_disk_metric,
+    poincare_disk_inverse_metric, poincare_disk_inverse_metric_derivatives, direct_sum_metric,
+    direct_sum_inverse_metric, direct_sum_inverse_metric_derivatives, source_connection_and_derivatives,
+    build_source_hamiltonian_geometry, build_local_tir_hamiltonian_geometry,
+    ExplicitGeometryReceipt, geometry_receipt,
+)
+from .abe_euler_connection import (
+    SPIN_HALF, aharonov_bohm_connection, euler_connection, total_abe_connection,
+    berry_euler_curvature, phase_holonomy, closure_defect, exact_closure, empirical_closure,
+    covariant_quantum_momentum_terms, ABEReceipt, abe_receipt,
+)
+from .relational_information_metric import (
+    global_phase_projector, local_relational_metric, local_relational_metric_pseudoinverse,
+    horizontalize, overlap_order_parameter, overlap_R_gradient_hessian, exact_action_hessian,
+    quadratic_action, exact_overlap_action, single_coordinate_quadratic_coefficient,
+    HessianSignature, hessian_signature, NonRiemannianRelationalRegion,
+    regional_relational_metric_pseudoinverse, RegionalMetricReceipt, regional_metric_receipt,
+    RelationalMetricReceipt, metric_receipt,
+)
+from .rotor_field_lift import (
+    rotor_field_amplitude, embed_rotor_field,
+    noether_current_from_covariant_phase_gradient, scalar_field_current_from_amplitude,
+    embedding_current_residual, radial_phase_gradient, radial_phase_profile,
+    radial_flux_from_gradient, RotorFieldLiftReceipt, lift_receipt,
+)
+from .killing_information_generator import (
+    fourier_killing_operator, killing_expectation, apply_killing_operator,
+    is_hermitian_operator, KillingGeneratorReceipt, generator_receipt,
+)
+from .generator_input_contract import (
+    InputStatus, CANON_ADMISSIBLE, ProvenancedScalarInput, GeneratorInputContract,
+    CanonicalInputError, assert_canonical_generator_inputs,
+    reference_rhythm_input, open_fluctuation_input, derived_killing_expectation_input,
+    GeneratorAdmissionReceipt, admission_receipt,
+)
+from .reference_collatz_rhythm import (
+    validate_twin_prime_seed, collatz_step, collatz_iterate, paired_collatz_state,
+    reference_rho_from_pair, reference_rho, ReferenceRhythmReceipt,
+    reference_rhythm_receipt, reference_rhythm_contract_input,
+)
+from .reference_information_harness import ReferenceInformationStep, run_reference_information_step
