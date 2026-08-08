@@ -1,13 +1,10 @@
 """Canonical epistemic registry for N-body relational Green/Kepler dynamics.
 
-Current correction incorporates the preregistered direct-derivation receipt:
-- the local canonical TIR action is quadratic near coherent overlap;
-- simple reciprocal overlap 1/z is also locally quadratic;
-- neither directly yields a Kepler 1/r singularity.
-
-The valid Kepler result is instead a conditional Green/Gauss theorem on the
-source-supported Euclidean B3 radial sector. The missing edge is the field lift
-from finite-dimensional conserved phase charge to a local conserved B3 current.
+The registry preserves both positive derivations and falsification receipts.
+Direct local TIR does not yield 1/r; the Kepler sector is a separate conditional
+B3 Green/Gauss path. A constructive constant-modulus rotor embedding closes one
+explicit local Noether-current lift, while a unique/general physical field lift
+remains open.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -62,18 +59,25 @@ FINITE_PHASE_CHARGE = CanonNode(
     ("Phase-Intention Hamiltonian rotor embedding","U(1) phase symmetry"),
 )
 
-TIR_FIELD_LIFT = CanonNode(
-    "NBK-TIR-FIELD-LIFT",
-    "OPEN_FIRST_PRINCIPLES",
-    "Derive/validate the lift of finite-dimensional conserved J to a local conserved current J^mu on the B3 sector.",
-    ("NBK-FINITE-PHASE-CHARGE","NBK-B3-RADIAL-OBSERVABLE"),
+EMBEDDED_FIELD_LIFT = CanonNode(
+    "NBK-EMBEDDED-FIELD-LIFT",
+    "CONSTRUCTIVE_EMBEDDED_SECTOR_EXACT",
+    "The explicit embedding psi=sqrt(I_phi/2) exp(i chi) yields local Noether current J^mu=I_phi D^mu chi in the constant-modulus sector.",
+    ("NBK-FINITE-PHASE-CHARGE","TIR_KEPLER_NOETHER_PHASE_BINDING_V0_4","N-Body Kepler Canon v4"),
+)
+
+GENERAL_FIELD_LIFT = CanonNode(
+    "NBK-GENERAL-FIELD-LIFT",
+    "OPEN_NOT_UNIQUE_NOT_VALIDATED",
+    "No theorem yet establishes that every finite-dimensional relational state uniquely induces the constructed local B3 field/current.",
+    ("NBK-FINITE-PHASE-CHARGE","NBK-B3-RADIAL-OBSERVABLE","NBK-EMBEDDED-FIELD-LIFT"),
 )
 
 TIR_FLUX_BINDING = CanonNode(
     "NBK-TIR-TO-RADIAL-FLUX",
-    "OPEN_FACTORIZED",
-    "TIR->Kepler is not a direct local-action map; it requires the open J->J^mu field lift plus a static centered isotropic-current condition.",
-    ("NBK-TIR-FIELD-LIFT","NBK-N3-KEPLER-SECTOR"),
+    "PARTIAL_CONSTRUCTIVE__GENERAL_OPEN",
+    "Inside the constructed constant-modulus field sector, a static centered radial conserved current gives the exact B3 1/r profile; general physical field selection/radiality remains open.",
+    ("NBK-EMBEDDED-FIELD-LIFT","NBK-N3-KEPLER-SECTOR","NBK-GENERAL-FIELD-LIFT"),
 )
 
 USER_DELTA = CanonNode(
@@ -92,6 +96,6 @@ USER_SIGMA = CanonNode(
 
 CANON_NODES=(
     DIRECT_TIR_LOCAL,RECIPROCAL_OVERLAP,DIM_GREEN,N3_KEPLER,
-    B3_RADIAL_OBSERVABLE,FINITE_PHASE_CHARGE,TIR_FIELD_LIFT,TIR_FLUX_BINDING,
-    USER_DELTA,USER_SIGMA,
+    B3_RADIAL_OBSERVABLE,FINITE_PHASE_CHARGE,EMBEDDED_FIELD_LIFT,GENERAL_FIELD_LIFT,
+    TIR_FLUX_BINDING,USER_DELTA,USER_SIGMA,
 )
