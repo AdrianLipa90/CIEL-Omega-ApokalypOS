@@ -1,10 +1,13 @@
 """Regression tests for TIR relational Hessian geometry."""
 import numpy as np
+import pytest
 
 from src.CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.relational_information_metric import (
     KAPPA_INFORMATION, global_phase_projector, local_relational_metric,
     local_relational_metric_pseudoinverse, quadratic_action, exact_overlap_action,
     exact_action_hessian, overlap_R_gradient_hessian, hessian_signature,
+    regional_relational_metric_pseudoinverse, regional_metric_receipt,
+    NonRiemannianRelationalRegion,
     single_coordinate_quadratic_coefficient, metric_receipt,
 )
 
@@ -42,14 +45,15 @@ def test_exact_R_gradient_and_hessian_are_global_phase_invariant():
 
 
 def test_global_action_hessian_can_be_indefinite_away_from_coherence():
-    # Deterministic phase point demonstrating why the exact global Hessian must
-    # not be silently called a global Riemannian metric.
     x=np.array([0.86055566,-1.44647274,-2.88414841,-3.03774646,1.96833496,2.59341978])
     s=hessian_signature(x)
     assert s.overlap_R > 0
     assert s.negative_count >= 1
     assert s.interpretation=="ACTION_HESSIAN_INDEFINITE__NOT_GLOBAL_RIEMANNIAN_METRIC"
     assert s.global_phase_residual < 1e-11
+    assert not regional_metric_receipt(x).usable_as_hamiltonian_metric
+    with pytest.raises(NonRiemannianRelationalRegion):
+        regional_relational_metric_pseudoinverse(x)
 
 
 def test_near_coherence_hessian_is_riemannian_on_horizontal_quotient():
@@ -58,6 +62,11 @@ def test_near_coherence_hessian_is_riemannian_on_horizontal_quotient():
     assert s.negative_count==0
     assert s.positive_count==x.size-1
     assert s.interpretation=="RIEMANNIAN_ON_HORIZONTAL_QUOTIENT"
+    gi=regional_relational_metric_pseudoinverse(x)
+    H=exact_action_hessian(x)
+    P=global_phase_projector(x.size)
+    assert np.allclose(H@gi,P,atol=1e-9)
+    assert regional_metric_receipt(x).status=="REGIONAL_METRIC_ADMITTED"
 
 
 def test_single_coordinate_coefficient_matches_preregistered_receipt():
