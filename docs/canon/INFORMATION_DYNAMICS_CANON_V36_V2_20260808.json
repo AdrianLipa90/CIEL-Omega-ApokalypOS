@@ -1,0 +1,33 @@
+{
+  "binding_status": "ACTIVE",
+  "chain": {
+    "events": 2,
+    "head_commit_sha256": "775db7f8d976e816e0f0c19de9fe307e9b6506860ff1d5cbf59b16634b5c8c8f",
+    "ok": true
+  },
+  "entities": [
+    {
+      "detected_operator": "TRANSFORM",
+      "detection_score": 0.9998618372160993,
+      "entity_id": "INF-CANONICAL-BACKREACTION",
+      "event_id": "00000000000000000001-260861f65ec50982",
+      "lane_count": 12,
+      "operator": "TRANSFORM",
+      "raw_sha256": "260861f65ec50982e027334ef36e62218fdc4dd175181f706fe26f31953dea23",
+      "vector_sha256": "c84f49ee5fc6061dd05a10c48139487bee9198a8eb2bfb2d7447a63984eb7f63"
+    },
+    {
+      "detected_operator": "TRANSFORM",
+      "detection_score": 0.9564707565673982,
+      "entity_id": "INF-PHASE-GENERATOR",
+      "event_id": "00000000000000000002-b43962c2593827d5",
+      "lane_count": 12,
+      "operator": "TRANSFORM",
+      "raw_sha256": "b43962c2593827d560c9ef93c6e5883bed5fdabcc014a8bfd56236c228013139",
+      "vector_sha256": "4e9047e902c263cf7be1a26460b02463753947ab4706c533533412efd895d882"
+    }
+  ],
+  "firewall": "V36 != proof",
+  "manifest_sha256": "e363d9ed40f3ea33b1639b8e1282f5aaefc73aeecd84451fb546f18a3ab5930e",
+  "schema": "CIEL_INFORMATION_DYNAMICS_CANON_V36_V2"
+}
