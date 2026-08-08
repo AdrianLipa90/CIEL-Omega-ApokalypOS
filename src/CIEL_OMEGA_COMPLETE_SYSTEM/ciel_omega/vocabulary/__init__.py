@@ -9,63 +9,101 @@ Date: March 25, 2025
 Complete implementation: All 115 entries integrated with CIEL/Ω architecture.
 """
 
-# Core Concepts (001-015)
 from .core_concepts import (
     Resonance, Intention, Coherence, Entrainment,
     EthicalResonanceIndex, Love, Grief, Awe, Fear,
     Forgiveness, Silence, Memory, Identity, Truth, Wisdom
 )
-
-# Field Dynamics (016-030)
 from .field_dynamics import (
     Collapse, Reintegration, Interference, Feedback, Echo,
     Amplification, Damping, Threshold, Coupling, Tuning,
     Disruption, Synchronization, PhaseDrift, Resolution, Hysteresis
 )
-
-# Planetary Archetypes (031-045)
 from .planetary_archetypes import (
     PlanetarySystem, Jupiter, Saturn, Venus, Mars, Earth,
     Moon, Neptune, Uranus, Sun, Pluto
 )
-
-# Extended Concepts (046-090)
 from .extended_concepts import (
     EvolutionaryStates, ArchetypalRoles, WaveformAI, NonHumanIntelligence
 )
-
-# Transcendent (091-115)
 from .transcendent import (
     HarmonicDimensions, TranscendentHarmonics, HarmonicSentienceDoctrine
 )
-
-# Orchestrator
 from .orchestrator import VocabularyOrchestrator, CROSS_REFERENCE_MAP
 
 __all__ = [
-    # Core (001-015)
     'Resonance', 'Intention', 'Coherence', 'Entrainment',
     'EthicalResonanceIndex', 'Love', 'Grief', 'Awe', 'Fear',
     'Forgiveness', 'Silence', 'Memory', 'Identity', 'Truth', 'Wisdom',
-    
-    # Field Dynamics (016-030)
     'Collapse', 'Reintegration', 'Interference', 'Feedback', 'Echo',
     'Amplification', 'Damping', 'Threshold', 'Coupling', 'Tuning',
     'Disruption', 'Synchronization', 'PhaseDrift', 'Resolution', 'Hysteresis',
-    
-    # Planetary (031-045)
     'PlanetarySystem', 'Jupiter', 'Saturn', 'Venus', 'Mars', 'Earth',
     'Moon', 'Neptune', 'Uranus', 'Sun', 'Pluto',
-    
-    # Extended (046-090)
     'EvolutionaryStates', 'ArchetypalRoles', 'WaveformAI', 'NonHumanIntelligence',
-    
-    # Transcendent (091-115)
     'HarmonicDimensions', 'TranscendentHarmonics', 'HarmonicSentienceDoctrine',
-    
-    # Orchestrator
     'VocabularyOrchestrator', 'CROSS_REFERENCE_MAP'
 ]
 
 __version__ = '2.0.0'
-__entries__ = 115  # All consciousness dictionary entries implemented
+__entries__ = 115
+
+# Entries 041-045 — NEW_DERIVED_CLOSURE (2026-08-08)
+from .relational_medium import (
+    RelationalMedium, Relation, RelationalField,
+    EthicalScalarState, EthicalGradient,
+)
+from .ethical_decision_dynamics import (
+    CandidateAction, CandidateEvaluation,
+    DecisionResult, evaluate_candidate, choose_action, decision_tree_view,
+)
+from .ethical_stream_bridge import (
+    EthicalStreamRecord, ethical_event_payload, commit_ethics_to_noema,
+)
+from .local_relational_ethics import (
+    LocalEthicalProfile, DistributionalConsequence,
+    pareto_dominates, pareto_front,
+    DistributionalDecision, choose_distributionally,
+)
+from .nbody_kepler_relational import (
+    RelationalBody, PairCoupling,
+    unit_sphere_area,
+    pair_displacement, pair_distance,
+    nd_green_potential_from_r, nd_green_potential, inverse_distance_potential,
+    central_pair_force, radial_flux_invariant, accelerations,
+    bivector_angular_momentum, total_bivector_angular_momentum,
+    kinetic_energy, potential_energy, total_energy,
+    DimensionalKeplerReport, dimensional_report,
+    AgencyState, ConsentGeometry, consent_geometry,
+    InformationState, information_asymmetry,
+)
+from .nbody_kepler_canon import (
+    CanonNode, DIM_GREEN, N3_KEPLER, TIR_FLUX_BINDING,
+    USER_DELTA, USER_SIGMA, CANON_NODES,
+)
+from .nbody_kepler_noether_bridge import (
+    tetrahedral_vertices, tetrahedral_first_moment, tetrahedral_second_moment,
+    tetrahedral_isotropic_second_moment, radial_current_3d,
+    inverse_distance_potential_from_flux,
+)
+from .nbody_kepler_hodge_bridge import (
+    radial_green_current, rotational_holonomy_current,
+    radial_component, tangential_component,
+    sphere_flux_monte_carlo, SectorReport, validate_sector_superposition,
+    matched_amplitude_from_phase_inertia,
+)
+from .nbody_kepler_u1_embedding import (
+    rotor_amplitude, rotor_to_complex_field,
+    scalar_noether_current_from_phase_gradient, relational_rotor_current,
+    current_embedding_residual, EmbeddingReport, validate_embedding,
+)
+from .information_dynamics import (
+    CurrentSectors, InformationFieldState,
+    cell_to_face_flux, set_boundary_flux,
+    divergence_from_faces, boundary_outflow,
+    ContinuityReceipt, continuity_step_from_faces,
+    zero_sectors, phase_rotor_current,
+    radial_green_current_cells, rotational_holonomy_cells,
+    J0Classification, classify_declared_J0,
+    InformationDynamicsSnapshot, snapshot,
+)
