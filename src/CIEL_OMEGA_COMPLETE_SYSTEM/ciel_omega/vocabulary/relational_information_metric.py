@@ -1,7 +1,5 @@
 """Relational information Hessian geometry from the TIR overlap action.
 
-Parent receipt: TIR_KEPLER_DIRECT_DERIVATION_TEST_V0_1.
-
 For d phase coordinates
     z(phi)=(1/d) sum_j exp(i phi_j),
     R(phi)=|z|^2,
@@ -10,14 +8,10 @@ For d phase coordinates
 the coherent point has local Hessian metric
     g_rel_local=(2 kappa/d)[I-(1/d)11^T].
 
-This module also derives the exact Hessian of S_rel at every point with R>0.
-That Hessian always has the global-U(1) zero mode, but it is not guaranteed to
-be positive semidefinite away from the coherent region. Therefore:
-
-- exact Hessian tensor: DERIVED globally on R>0;
-- Riemannian metric interpretation: LOCAL/REGIONAL, only where the horizontal
-  Hessian is positive definite;
-- no arbitrary global metric extension is introduced.
+The exact Hessian exists wherever R>0 and always carries the global-U(1) zero
+mode. Away from coherence it may become indefinite. Hence the exact Hessian is
+a global action tensor on R>0, while a Riemannian metric interpretation is only
+regional, where the horizontal Hessian is positive definite.
 """
 from __future__ import annotations
 from dataclasses import dataclass
@@ -65,7 +59,6 @@ def exact_overlap_action(phi: np.ndarray,*,kappa: float=KAPPA_INFORMATION) -> fl
 
 
 def overlap_R_gradient_hessian(phi: np.ndarray) -> tuple[float,np.ndarray,np.ndarray]:
-    """Exact R=|mean exp(i phi)|^2, gradient and Hessian."""
     x=np.asarray(phi,dtype=float).ravel(); d=x.size
     if d<2: raise ValueError("phase state must have at least two components")
     u=np.exp(1j*x); z=np.mean(u); R=float(abs(z)**2)
@@ -80,7 +73,6 @@ def overlap_R_gradient_hessian(phi: np.ndarray) -> tuple[float,np.ndarray,np.nda
 
 
 def exact_action_hessian(phi: np.ndarray,*,kappa: float=KAPPA_INFORMATION) -> np.ndarray:
-    """Exact Hessian of S_rel=-kappa log R for R>0."""
     if kappa<=0: raise ValueError("kappa must be positive")
     R,grad_R,H_R=overlap_R_gradient_hessian(phi)
     if R<=0.0: raise ValueError("S_rel Hessian undefined at R=0")
@@ -111,13 +103,10 @@ class HessianSignature:
 
 
 def hessian_signature(phi: np.ndarray,*,kappa: float=KAPPA_INFORMATION,numerical_zero_tol: float=1e-12) -> HessianSignature:
-    """Report tensor signature. Tolerance is numerical zero detection only."""
     x=np.asarray(phi,dtype=float).ravel(); R,_,_=overlap_R_gradient_hessian(x)
-    H=exact_action_hessian(x,kappa=kappa)
-    vals=np.linalg.eigvalsh(H)
-    neg=int(np.sum(vals < -abs(float(numerical_zero_tol))))
-    pos=int(np.sum(vals > abs(float(numerical_zero_tol))))
-    zero=int(vals.size-neg-pos)
+    H=exact_action_hessian(x,kappa=kappa); vals=np.linalg.eigvalsh(H)
+    tol=abs(float(numerical_zero_tol))
+    neg=int(np.sum(vals < -tol)); pos=int(np.sum(vals > tol)); zero=int(vals.size-neg-pos)
     phase_res=float(np.linalg.norm(H@np.ones(x.size)))
     if neg==0 and pos==x.size-1:
         interp="RIEMANNIAN_ON_HORIZONTAL_QUOTIENT"
@@ -126,6 +115,44 @@ def hessian_signature(phi: np.ndarray,*,kappa: float=KAPPA_INFORMATION,numerical
     else:
         interp="DEGENERATE_ACTION_HESSIAN__METRIC_STATUS_UNRESOLVED"
     return HessianSignature(x.size,R,tuple(float(v) for v in vals),neg,zero,pos,phase_res,interp)
+
+
+class NonRiemannianRelationalRegion(RuntimeError):
+    pass
+
+
+def regional_relational_metric_pseudoinverse(
+    phi: np.ndarray,
+    *,
+    kappa: float=KAPPA_INFORMATION,
+    numerical_zero_tol: float=1e-12,
+) -> np.ndarray:
+    """Inverse on the horizontal quotient only in a Riemannian region.
+
+    Hard-fails for indefinite or additionally degenerate Hessian regions instead
+    of feeding a non-metric tensor into the Hamiltonian kinetic block.
+    """
+    sig=hessian_signature(phi,kappa=kappa,numerical_zero_tol=numerical_zero_tol)
+    if sig.interpretation != "RIEMANNIAN_ON_HORIZONTAL_QUOTIENT":
+        raise NonRiemannianRelationalRegion(sig.interpretation)
+    H=exact_action_hessian(phi,kappa=kappa)
+    vals,vecs=np.linalg.eigh(H)
+    tol=abs(float(numerical_zero_tol))
+    invvals=np.array([0.0 if abs(v)<=tol else 1.0/v for v in vals],dtype=float)
+    return (vecs*invvals)@vecs.T
+
+
+@dataclass(frozen=True)
+class RegionalMetricReceipt:
+    signature: HessianSignature
+    usable_as_hamiltonian_metric: bool
+    status: str
+
+
+def regional_metric_receipt(phi: np.ndarray,*,kappa: float=KAPPA_INFORMATION) -> RegionalMetricReceipt:
+    sig=hessian_signature(phi,kappa=kappa)
+    usable=sig.interpretation=="RIEMANNIAN_ON_HORIZONTAL_QUOTIENT"
+    return RegionalMetricReceipt(sig,usable,"REGIONAL_METRIC_ADMITTED" if usable else "ACTION_TENSOR_ONLY__HAMILTONIAN_METRIC_BLOCKED")
 
 
 @dataclass(frozen=True)
@@ -156,5 +183,6 @@ __all__=[
     "local_relational_metric_pseudoinverse","horizontalize","overlap_order_parameter",
     "overlap_R_gradient_hessian","exact_action_hessian","quadratic_action","exact_overlap_action",
     "single_coordinate_quadratic_coefficient","HessianSignature","hessian_signature",
-    "RelationalMetricReceipt","metric_receipt",
+    "NonRiemannianRelationalRegion","regional_relational_metric_pseudoinverse",
+    "RegionalMetricReceipt","regional_metric_receipt","RelationalMetricReceipt","metric_receipt",
 ]
