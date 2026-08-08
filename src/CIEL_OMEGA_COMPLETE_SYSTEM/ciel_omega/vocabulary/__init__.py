@@ -74,8 +74,9 @@ from .canonical_information_backreaction import (
     hamilton_equations, curvature_tensor, covariant_momentum_rate_flat_metric, BackreactionReceipt, backreaction_receipt,
 )
 from .information_phase_generator import (
-    KAPPA_INFORMATION, information_generator_expectation, semiclassical_intention_charge,
-    free_phase_hamiltonian_expectation, PhaseOffsetBinding, bind_phase_offset_to_information_generator,
+    KAPPA_INFORMATION, information_generator_expectation, generator_expectation_from_killing_state,
+    semiclassical_intention_charge, free_phase_hamiltonian_expectation, PhaseOffsetBinding,
+    bind_phase_offset_to_information_generator, bind_phase_offset_from_killing_state,
     build_canonical_state_with_information_offset, block_diagonal_metric, FullPhaseFirstStructure, structure_receipt,
 )
 from .phase_first_geometry import (
@@ -101,4 +102,8 @@ from .rotor_field_lift import (
     noether_current_from_covariant_phase_gradient, scalar_field_current_from_amplitude,
     embedding_current_residual, radial_phase_gradient, radial_phase_profile,
     radial_flux_from_gradient, RotorFieldLiftReceipt, lift_receipt,
+)
+from .killing_information_generator import (
+    fourier_killing_operator, killing_expectation, apply_killing_operator,
+    is_hermitian_operator, KillingGeneratorReceipt, generator_receipt,
 )
