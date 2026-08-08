@@ -1,0 +1,34 @@
+{
+  "schema": "noema.ciel-terminal-runtime/v1",
+  "status": "PERSISTENT_PROJECT_RUNTIME",
+  "role": "interfaces.terminal",
+  "source": {
+    "library_file_id": "file_00000000941072439cb015507717f9a3",
+    "archive_filename": "CIEL-Omega-ApokalypOS-codex-ciel-sync-2026-05-12.zip",
+    "archive_sha256": "fef25a4cb20380483fec5b3e84ad8a2d1465e6a53ecf6dfd9ec42ec67d82e9ef",
+    "member_path": "CIEL-Omega-ApokalypOS-codex-ciel-sync-2026-05-12/src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/cli.py",
+    "member_sha256": "64679c7d2ddf9304f17c5833d7400bb3a1c24b7eb265e95213aaff8bd4da7b8e"
+  },
+  "runtime": {
+    "repo_path": "src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega/ciel/cli.py",
+    "launcher": "scripts/ciel_terminal_runtime.py",
+    "communication_surface": "CIELClient",
+    "engine_bypass": false,
+    "require_live_noema_aux_tether": true,
+    "default_noema_root": "/dev/shm/ciel_noema"
+  },
+  "activation": {
+    "require_member_sha256_match": true,
+    "require_ciel_binding_status_active": true,
+    "require_phi_36_float64": true,
+    "require_aux_phi_36_float64": true,
+    "require_aux_feedback_phi_36_float64": true,
+    "fail_closed": true
+  },
+  "epistemic": {
+    "library_archive_verified": true,
+    "repo_member_matches_library_member": true,
+    "account_platform_runtime_modified": false,
+    "project_runtime_persistence": "git_branch_plus_noema_writeback"
+  }
+}
