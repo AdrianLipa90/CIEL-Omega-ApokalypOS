@@ -58,16 +58,41 @@ For an axial chart `V=partial_phi`,
 
 `W exp(i m phi) = m exp(i m phi)`.
 
-The runtime now includes the exact finite Fourier-mode representation and computes `<W_s>` from a supplied state rather than from a scalar proxy. This closes the **formal geometric operator**. The physical axis-selection law remains model-dependent / supplied with provenance.
+The runtime includes an exact finite Fourier-mode representation and computes `<W_s>` from a supplied state instead of a scalar proxy. The physical axis-selection law remains model-dependent and must carry provenance.
 
-### Still-open generator inputs
+### Generator-input admission contract
+
+The remaining generator debts are executable epistemic state, not silent defaults.
+
+Each scalar input carries:
+
+- value;
+- status;
+- provenance;
+- optional law identifier.
+
+Canon-admissible statuses are currently:
+
+`DERIVED | SOURCE_DEFINED | CALIBRATED | MEASURED`.
+
+The following do **not** silently pass the canonical gate:
+
+`CONVENTIONAL | HYPOTHESIS | REFERENCE_RULE | TEST_FIXTURE | UNKNOWN`.
+
+Accordingly, the source reference rhythm and an open `delta I_0` law may be evaluated only as
+
+`EXPERIMENTAL_ONLY__CANON_BLOCKED`.
+
+Calling the phase generator with `require_canonical=True` hard-fails before computing `J0_phase_offset` unless all dynamic inputs are canon-admissible. This separates mathematical executability from epistemic promotion.
+
+### Still-open generator laws
 
 The current sources explicitly do **not** canonize:
 
-- the exact project rhythm `rho_s(k)`; the logarithmic/parity forms remain reference/default rules rather than derived canon;
-- the law of `delta I_hat_0(tau)`; deterministic, stochastic, semiclassical and operator-valued variants remain open choices.
+- exact project rhythm `rho_s(k)`; logarithmic/parity forms remain reference rules;
+- law of `delta I_hat_0(tau)`; deterministic, stochastic, semiclassical and operator-valued variants remain open.
 
-The implementation therefore accepts these as explicit inputs and marks their laws OPEN instead of fabricating them.
+No such law is fitted to the preregistered prediction.
 
 ## Source-derived standard geometry
 
@@ -149,7 +174,7 @@ makes the scalar-field Noether current exactly
 
 `J^mu = 2 A^2 D^mu chi = I_phi D^mu chi`.
 
-This is now classified as
+This is classified as
 
 `CONSTRUCTIVE_EMBEDDED_SECTOR_EXACT`.
 
@@ -164,8 +189,6 @@ hence
 and
 
 `chi(r)=chi_0-C/(I_phi r)`.
-
-Therefore the inverse-square gradient / inverse-distance phase profile is exact **inside this constructed constant-modulus radial sector**.
 
 The stronger statement that every finite-dimensional relational state uniquely induces this local physical B3 field remains
 
@@ -189,13 +212,13 @@ so
 
 ## CI status note
 
-The `ci` workflow on head `ec44f849...` failed during pytest **collection**, before the newly added information-dynamics tests executed. The observed blockers were legacy repository/import environment issues: missing `psutil`, missing `ciel_secret_loader`, unavailable `HolonomicMemoryOrchestrator`, and missing `integration.information_flow`. Ruff passed. These failures are not silently reclassified as failures of the new mathematical modules; they remain repository CI blockers until separately repaired.
+On the current tracked line, the generic `ci` workflow still fails during pytest collection on legacy repository/import environment blockers before the new information-dynamics tests execute. The previously observed blockers are missing `psutil`, missing `ciel_secret_loader`, unavailable `HolonomicMemoryOrchestrator`, and missing `integration.information_flow`; Ruff passed. These are not silently reclassified as failures of the new mathematical modules.
 
 ## PhaseNav/NOEMA
 
 Earlier canonical nodes were routed through native PhaseNav provenance envelopes: 36D, M0–M11/12 lanes, append-only verified chain. Binding was ACTIVE at the relevant test moments. `V36 != proof`.
 
-New v3 nodes are `PENDING_RUNTIME_REPROBE` because the active execution container no longer has the previously assembled native runtime mounted after reset. No pseudo-vectorization is substituted.
+New v3 nodes remain `PENDING_RUNTIME_REPROBE` because the current execution container no longer has the previously assembled native runtime mounted after reset. No pseudo-vectorization is substituted.
 
 ## Current OPEN set
 
