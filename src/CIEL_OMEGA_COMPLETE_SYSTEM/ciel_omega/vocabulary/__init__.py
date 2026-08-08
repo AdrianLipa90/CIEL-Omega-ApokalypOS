@@ -95,7 +95,10 @@ from .abe_euler_connection import (
 )
 from .relational_information_metric import (
     global_phase_projector, local_relational_metric, local_relational_metric_pseudoinverse,
-    horizontalize, quadratic_action, exact_overlap_action, single_coordinate_quadratic_coefficient,
+    horizontalize, overlap_order_parameter, overlap_R_gradient_hessian, exact_action_hessian,
+    quadratic_action, exact_overlap_action, single_coordinate_quadratic_coefficient,
+    HessianSignature, hessian_signature, NonRiemannianRelationalRegion,
+    regional_relational_metric_pseudoinverse, RegionalMetricReceipt, regional_metric_receipt,
     RelationalMetricReceipt, metric_receipt,
 )
 from .rotor_field_lift import (
