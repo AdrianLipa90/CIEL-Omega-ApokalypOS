@@ -126,3 +126,10 @@ from .canonical_information_backreaction import (
     curvature_tensor, covariant_momentum_rate_flat_metric,
     BackreactionReceipt, backreaction_receipt,
 )
+from .information_phase_generator import (
+    KAPPA_INFORMATION,
+    information_generator_expectation,
+    free_phase_hamiltonian_expectation,
+    PhaseGeneratorBinding, bind_classical_J_to_information_generator,
+    block_diagonal_metric, FullPhaseFirstStructure, structure_receipt,
+)
