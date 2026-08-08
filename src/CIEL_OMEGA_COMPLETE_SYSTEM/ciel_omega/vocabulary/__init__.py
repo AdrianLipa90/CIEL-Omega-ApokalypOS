@@ -69,6 +69,15 @@ from .local_relational_ethics import (
     pareto_dominates, pareto_front,
     DistributionalDecision, choose_distributionally,
 )
+from .relational_autonomy import (
+    ConsentStatus, ConsentEvidence, active_consent,
+    InformationAccess, InformationAsymmetry,
+    information_asymmetry as relational_information_asymmetry,
+    AgencyEvidence, CoercionEvidence,
+    AutonomyProfile, derive_autonomy_profile,
+    AutonomyConsequence, autonomy_dominates, autonomy_pareto_front,
+    JointRelationalDecision, choose_with_autonomy,
+)
 from .nbody_kepler_relational import (
     RelationalBody, PairCoupling,
     unit_sphere_area,
