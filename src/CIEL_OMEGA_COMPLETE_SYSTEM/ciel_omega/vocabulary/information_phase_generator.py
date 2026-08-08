@@ -1,5 +1,5 @@
 """
-CIEL / TIR — Intention/Information Phase Generator v3
+CIEL / TIR — Intention/Information Phase Generator v4
 
 Quantized generator:
     I_hat_s = kappa W_hat_s + delta I_hat_0
@@ -8,9 +8,10 @@ Quantized generator:
 Formal semiclassical phase offset:
     J0_phase_offset = hbar rho_s [kappa <W_s> + <delta I_0>].
 
-v3 binds <W_s> to the source-derived Bloch Killing generator when a Fourier
-state and explicit axis provenance are supplied. rho_s and delta I_0 remain
-separate supplied layers because their canonical laws are still OPEN.
+v4 adds an executable epistemic admission gate. The source-derived Killing W_s
+may be used directly, while rho_s and delta I_0 keep their actual provenance
+status. Canonical execution is refused unless every input is canon-admissible.
+Experimental execution remains possible and returns its explicit receipt.
 """
 from __future__ import annotations
 
@@ -26,17 +27,9 @@ def information_generator_expectation(W_expectation: float,delta_I0_expectation:
     return float(kappa)*float(W_expectation)+float(delta_I0_expectation)
 
 
-def generator_expectation_from_killing_state(
-    coefficients: Sequence[complex],
-    mode_indices: Sequence[int],
-    delta_I0_expectation: float,
-    *,
-    kappa: float=KAPPA_INFORMATION,
-) -> float:
-    """Use W_s=-i L_V in the finite Fourier representation; fluctuation stays supplied."""
+def generator_expectation_from_killing_state(coefficients: Sequence[complex],mode_indices: Sequence[int],delta_I0_expectation: float,*,kappa: float=KAPPA_INFORMATION) -> float:
     from .killing_information_generator import killing_expectation
-    Wexp=killing_expectation(coefficients,mode_indices)
-    return information_generator_expectation(Wexp,delta_I0_expectation,kappa=kappa)
+    return information_generator_expectation(killing_expectation(coefficients,mode_indices),delta_I0_expectation,kappa=kappa)
 
 
 def semiclassical_intention_charge(W_expectation: float,delta_I0_expectation: float,*,hbar: float,rho_s: float,kappa: float=KAPPA_INFORMATION) -> float:
@@ -45,8 +38,7 @@ def semiclassical_intention_charge(W_expectation: float,delta_I0_expectation: fl
 
 
 def free_phase_hamiltonian_expectation(W_expectation: float,delta_I0_expectation: float,*,hbar: float,delta_tau: float,rho_s: float,kappa: float=KAPPA_INFORMATION) -> float:
-    if delta_tau<=0:
-        raise ValueError("delta_tau must be positive")
+    if delta_tau<=0: raise ValueError("delta_tau must be positive")
     return semiclassical_intention_charge(W_expectation,delta_I0_expectation,hbar=hbar,rho_s=rho_s,kappa=kappa)/float(delta_tau)
 
 
@@ -69,30 +61,16 @@ class PhaseOffsetBinding:
 
 
 def bind_phase_offset_to_information_generator(
-    W_expectation: float,
-    delta_I0_expectation: float,
-    *,hbar: float,rho_s: float,provenance: str,
-    W_status: str="SUPPLIED_EXPECTATION",
-    rho_status: str="SUPPLIED_RHYTHM__CANONICAL_LAW_OPEN",
+    W_expectation: float,delta_I0_expectation: float,*,hbar: float,rho_s: float,provenance: str,
+    W_status: str="SUPPLIED_EXPECTATION",rho_status: str="SUPPLIED_RHYTHM__CANONICAL_LAW_OPEN",
     fluctuation_status: str="SUPPLIED_FLUCTUATION__LAW_OPEN",
 ) -> PhaseOffsetBinding:
     I=information_generator_expectation(W_expectation,delta_I0_expectation)
     JI=semiclassical_intention_charge(W_expectation,delta_I0_expectation,hbar=hbar,rho_s=rho_s)
-    return PhaseOffsetBinding(
-        J0_phase_offset=JI,I_expectation=I,hbar=float(hbar),rho_s=float(rho_s),
-        W_expectation=float(W_expectation),W_status=str(W_status),rho_status=str(rho_status),
-        fluctuation_status=str(fluctuation_status),status="SOURCE_DERIVED_SEMICLASSICAL_PHASE_OFFSET",
-        provenance=str(provenance),
-    )
+    return PhaseOffsetBinding(JI,I,float(hbar),float(rho_s),float(W_expectation),str(W_status),str(rho_status),str(fluctuation_status),"SOURCE_DERIVED_SEMICLASSICAL_PHASE_OFFSET",str(provenance))
 
 
-def bind_phase_offset_from_killing_state(
-    coefficients: Sequence[complex],
-    mode_indices: Sequence[int],
-    delta_I0_expectation: float,
-    *,hbar: float,rho_s: float,axis_provenance: str,
-) -> PhaseOffsetBinding:
-    """Non-circular W path: state -> exact Killing expectation -> information offset."""
+def bind_phase_offset_from_killing_state(coefficients: Sequence[complex],mode_indices: Sequence[int],delta_I0_expectation: float,*,hbar: float,rho_s: float,axis_provenance: str) -> PhaseOffsetBinding:
     from .killing_information_generator import killing_expectation
     Wexp=killing_expectation(coefficients,mode_indices)
     return bind_phase_offset_to_information_generator(
@@ -104,14 +82,40 @@ def bind_phase_offset_from_killing_state(
     )
 
 
-def build_canonical_state_with_information_offset(
-    q: np.ndarray,p: np.ndarray,*,J: float,I_phi: float,W_expectation: float,
-    delta_I0_expectation: float,hbar: float,rho_s: float,provenance: str,
-):
-    from .canonical_information_backreaction import CanonicalRelationalState
-    binding=bind_phase_offset_to_information_generator(
-        W_expectation,delta_I0_expectation,hbar=hbar,rho_s=rho_s,provenance=provenance
+def bind_phase_offset_from_contract(contract,*,hbar: float,require_canonical: bool=False) -> tuple[PhaseOffsetBinding,object]:
+    """Execute the generator through GeneratorInputContract.
+
+    If require_canonical=True, unresolved/reference/hypothesis inputs raise a
+    CanonicalInputError before the phase offset is evaluated.
+    """
+    from .generator_input_contract import (
+        GeneratorInputContract,assert_canonical_generator_inputs,admission_receipt
     )
+    if not isinstance(contract,GeneratorInputContract):
+        raise TypeError("contract must be GeneratorInputContract")
+    receipt=admission_receipt(contract)
+    if require_canonical:
+        assert_canonical_generator_inputs(contract)
+    b=bind_phase_offset_to_information_generator(
+        contract.W_expectation.value,
+        contract.delta_I0_expectation.value,
+        hbar=float(hbar),rho_s=contract.rho_s.value,
+        provenance="; ".join([
+            f"W:{contract.W_expectation.provenance}",
+            f"rho:{contract.rho_s.provenance}",
+            f"deltaI0:{contract.delta_I0_expectation.provenance}",
+            f"axis:{contract.axis_provenance}",
+        ]),
+        W_status=contract.W_expectation.status.value,
+        rho_status=contract.rho_s.status.value,
+        fluctuation_status=contract.delta_I0_expectation.status.value,
+    )
+    return b,receipt
+
+
+def build_canonical_state_with_information_offset(q: np.ndarray,p: np.ndarray,*,J: float,I_phi: float,W_expectation: float,delta_I0_expectation: float,hbar: float,rho_s: float,provenance: str):
+    from .canonical_information_backreaction import CanonicalRelationalState
+    binding=bind_phase_offset_to_information_generator(W_expectation,delta_I0_expectation,hbar=hbar,rho_s=rho_s,provenance=provenance)
     state=CanonicalRelationalState(np.asarray(q,dtype=float),np.asarray(p,dtype=float),float(J),binding.J0_phase_offset,float(I_phi))
     return state,binding
 
@@ -156,5 +160,6 @@ __all__=[
     "KAPPA_INFORMATION","information_generator_expectation","generator_expectation_from_killing_state",
     "semiclassical_intention_charge","free_phase_hamiltonian_expectation",
     "PhaseOffsetBinding","bind_phase_offset_to_information_generator","bind_phase_offset_from_killing_state",
-    "build_canonical_state_with_information_offset","block_diagonal_metric","FullPhaseFirstStructure","structure_receipt",
+    "bind_phase_offset_from_contract","build_canonical_state_with_information_offset",
+    "block_diagonal_metric","FullPhaseFirstStructure","structure_receipt",
 ]
