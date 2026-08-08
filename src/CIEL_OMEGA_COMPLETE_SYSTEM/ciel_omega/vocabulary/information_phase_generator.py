@@ -1,132 +1,139 @@
 """
-CIEL / TIR — Intention/Information Phase Generator v1
+CIEL / TIR — Intention/Information Phase Generator v2
 
-Source parent: Hilbert_Kahler_Phase_Intention_Hamiltonian, eqs. (71)-(76).
+Current-source reconciliation:
 
-The classical bare phase rotor momentum J is replaced in the quantized
-phase-first sector by the intention/information generator
-
+Quantized information/intention generator:
     I_hat_s(tau,k) = kappa W_hat_s + delta I_hat_0(tau,k)
+    kappa = ln(2)/(24*pi)
 
-with
+Formal semiclassical intention charge / phase offset:
+    J_I,s(tau,k) = hbar rho_s(k) I_s(tau,k)
 
-    kappa = ln(2)/(24*pi).
+or, at expectation/scalar level,
+    J0_phase_offset = hbar rho_s(k)
+                      [kappa <W_s> + <delta I_0>].
 
-The free phase Hamiltonian is
+This is the correct bridge into the classical phase-first Hamiltonian
+    J = I_phi D_t chi + J0_phase_offset.
 
-    H_phase/free = (hbar / Delta tau_k) rho_s(k)
-                   [kappa W_hat_s + delta I_hat_0(tau,k)].
-
-The full kinetic block uses
-
-    G = g_FS direct_sum g_D direct_sum g_rel
-
-and the covariant momentum
-
-    Pi_A = -i hbar nabla_A - hbar A_ABE_A - lambda_s(k) I_A.
-
-This module implements the coefficient/expectation bookkeeping only. It does
-not invent W, delta I0, rho_s, lambda_s, metric tensors, or connections.
+It is NOT the statement J == <I_hat_s>.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
 import math
-from typing import Optional, Sequence, Tuple
+from typing import Optional, Sequence
 import numpy as np
 
-KAPPA_INFORMATION = math.log(2.0)/(24.0*math.pi)
+KAPPA_INFORMATION=math.log(2.0)/(24.0*math.pi)
 
 
 def information_generator_expectation(
     W_expectation: float,
     delta_I0_expectation: float,
-    *,
-    kappa: float = KAPPA_INFORMATION,
+    *,kappa: float=KAPPA_INFORMATION,
 ) -> float:
-    """<I_s> = kappa <W_s> + <delta I_0>."""
     return float(kappa)*float(W_expectation)+float(delta_I0_expectation)
+
+
+def semiclassical_intention_charge(
+    W_expectation: float,
+    delta_I0_expectation: float,
+    *,hbar: float,rho_s: float,kappa: float=KAPPA_INFORMATION,
+) -> float:
+    """
+    J_I,s = hbar rho_s <I_s>
+          = hbar rho_s [kappa <W_s> + <delta I_0>].
+
+    All state-dependent inputs are supplied; no rhythm or fluctuation model is
+    invented here.
+    """
+    I=information_generator_expectation(W_expectation,delta_I0_expectation,kappa=kappa)
+    return float(hbar)*float(rho_s)*I
 
 
 def free_phase_hamiltonian_expectation(
     W_expectation: float,
     delta_I0_expectation: float,
-    *,
-    hbar: float,
-    delta_tau: float,
-    rho_s: float,
-    kappa: float = KAPPA_INFORMATION,
+    *,hbar: float,delta_tau: float,rho_s: float,kappa: float=KAPPA_INFORMATION,
 ) -> float:
-    """Expectation of eq. (73), with all non-kappa quantities supplied."""
-    if delta_tau <= 0:
+    if delta_tau<=0:
         raise ValueError("delta_tau must be positive")
-    I=information_generator_expectation(W_expectation,delta_I0_expectation,kappa=kappa)
-    return float(hbar/delta_tau * rho_s * I)
+    charge=semiclassical_intention_charge(
+        W_expectation,delta_I0_expectation,hbar=hbar,rho_s=rho_s,kappa=kappa
+    )
+    return float(charge/delta_tau)
 
 
 @dataclass(frozen=True)
-class PhaseGeneratorBinding:
-    """
-    Explicit classical/quantum bridge receipt.
-
-    J_classical:
-        canonical phase momentum used by the classical Hamiltonian sector.
-    I_expectation:
-        expectation value of the quantized intention/information generator.
-    status:
-        states whether equality is asserted by the caller or remains a candidate
-        semiclassical identification.
-    """
-    J_classical: float
+class PhaseOffsetBinding:
+    J0_phase_offset: float
     I_expectation: float
+    hbar: float
+    rho_s: float
     status: str
     provenance: str
 
     @property
-    def residual(self) -> float:
-        return float(self.J_classical-self.I_expectation)
+    def source_identity_residual(self) -> float:
+        return float(self.J0_phase_offset-self.hbar*self.rho_s*self.I_expectation)
 
 
-def bind_classical_J_to_information_generator(
-    J_classical: float,
+def bind_phase_offset_to_information_generator(
     W_expectation: float,
     delta_I0_expectation: float,
-    *,
-    provenance: str,
-    assert_semiclassical_identification: bool=False,
-) -> PhaseGeneratorBinding:
+    *,hbar: float,rho_s: float,provenance: str,
+) -> PhaseOffsetBinding:
     I=information_generator_expectation(W_expectation,delta_I0_expectation)
-    status=(
-        "SEMICLASSICAL_IDENTIFICATION_ASSERTED"
-        if assert_semiclassical_identification
-        else "CANDIDATE_CLASSICAL_QUANTUM_BINDING"
+    JI=semiclassical_intention_charge(
+        W_expectation,delta_I0_expectation,hbar=hbar,rho_s=rho_s
     )
-    return PhaseGeneratorBinding(float(J_classical),I,status,str(provenance))
+    return PhaseOffsetBinding(
+        J0_phase_offset=JI,
+        I_expectation=I,
+        hbar=float(hbar),rho_s=float(rho_s),
+        status="SOURCE_DERIVED_SEMICLASSICAL_PHASE_OFFSET",
+        provenance=str(provenance),
+    )
+
+
+def build_canonical_state_with_information_offset(
+    q: np.ndarray,
+    p: np.ndarray,
+    *,
+    J: float,
+    I_phi: float,
+    W_expectation: float,
+    delta_I0_expectation: float,
+    hbar: float,
+    rho_s: float,
+    provenance: str,
+):
+    """Create CanonicalRelationalState using source-derived J_I,s as phase offset."""
+    from .canonical_information_backreaction import CanonicalRelationalState
+    binding=bind_phase_offset_to_information_generator(
+        W_expectation,delta_I0_expectation,hbar=hbar,rho_s=rho_s,provenance=provenance
+    )
+    state=CanonicalRelationalState(
+        q=np.asarray(q,dtype=float),p=np.asarray(p,dtype=float),J=float(J),
+        J0_phase_offset=binding.J0_phase_offset,I_phi=float(I_phi),
+    )
+    return state,binding
 
 
 def block_diagonal_metric(*blocks: np.ndarray) -> np.ndarray:
-    """
-    Construct G = g_FS direct_sum g_D direct_sum g_rel from supplied blocks.
-
-    This is structural composition only; the metric components are not invented.
-    """
-    if not blocks:
-        return np.zeros((0,0),dtype=float)
+    if not blocks: return np.zeros((0,0),dtype=float)
     mats=[]
     for b in blocks:
         a=np.asarray(b,dtype=float)
-        if a.ndim!=2 or a.shape[0]!=a.shape[1]:
-            raise ValueError("metric blocks must be square")
-        if not np.allclose(a,a.T,atol=1e-14,rtol=0.0):
-            raise ValueError("metric blocks must be symmetric")
+        if a.ndim!=2 or a.shape[0]!=a.shape[1]: raise ValueError("metric blocks must be square")
+        if not np.allclose(a,a.T,atol=1e-14,rtol=0.0): raise ValueError("metric blocks must be symmetric")
         mats.append(a)
-    sizes=[m.shape[0] for m in mats]
-    out=np.zeros((sum(sizes),sum(sizes)),dtype=float)
+    out=np.zeros((sum(m.shape[0] for m in mats),)*2,dtype=float)
     cursor=0
     for m in mats:
-        n=m.shape[0]
-        out[cursor:cursor+n,cursor:cursor+n]=m
-        cursor+=n
+        n=m.shape[0]; out[cursor:cursor+n,cursor:cursor+n]=m; cursor+=n
     return out
 
 
@@ -135,6 +142,7 @@ class FullPhaseFirstStructure:
     kappa: float
     metric_dimension: int
     information_generator_expectation: float
+    semiclassical_phase_offset: Optional[float]
     free_phase_energy_expectation: Optional[float]
     status: str
 
@@ -143,34 +151,30 @@ def structure_receipt(
     W_expectation: float,
     delta_I0_expectation: float,
     metric_blocks: Sequence[np.ndarray],
-    *,
-    hbar: Optional[float]=None,
-    delta_tau: Optional[float]=None,
-    rho_s: Optional[float]=None,
+    *,hbar: Optional[float]=None,delta_tau: Optional[float]=None,rho_s: Optional[float]=None,
 ) -> FullPhaseFirstStructure:
     G=block_diagonal_metric(*metric_blocks)
     I=information_generator_expectation(W_expectation,delta_I0_expectation)
-    energy=None
-    if hbar is not None or delta_tau is not None or rho_s is not None:
-        if hbar is None or delta_tau is None or rho_s is None:
+    offset=None; energy=None
+    supplied=[hbar is not None,delta_tau is not None,rho_s is not None]
+    if any(supplied):
+        if not all(supplied):
             raise ValueError("hbar, delta_tau and rho_s must be supplied together")
+        offset=semiclassical_intention_charge(
+            W_expectation,delta_I0_expectation,hbar=float(hbar),rho_s=float(rho_s)
+        )
         energy=free_phase_hamiltonian_expectation(
             W_expectation,delta_I0_expectation,
-            hbar=hbar,delta_tau=delta_tau,rho_s=rho_s,
+            hbar=float(hbar),delta_tau=float(delta_tau),rho_s=float(rho_s),
         )
     return FullPhaseFirstStructure(
-        kappa=KAPPA_INFORMATION,
-        metric_dimension=int(G.shape[0]),
-        information_generator_expectation=I,
-        free_phase_energy_expectation=energy,
-        status="SOURCE_DERIVED_STRUCTURE",
+        KAPPA_INFORMATION,int(G.shape[0]),I,offset,energy,"SOURCE_DERIVED_STRUCTURE"
     )
 
 
 __all__=[
-    "KAPPA_INFORMATION",
-    "information_generator_expectation",
-    "free_phase_hamiltonian_expectation",
-    "PhaseGeneratorBinding","bind_classical_J_to_information_generator",
-    "block_diagonal_metric","FullPhaseFirstStructure","structure_receipt",
+    "KAPPA_INFORMATION","information_generator_expectation","semiclassical_intention_charge",
+    "free_phase_hamiltonian_expectation","PhaseOffsetBinding","bind_phase_offset_to_information_generator",
+    "build_canonical_state_with_information_offset","block_diagonal_metric",
+    "FullPhaseFirstStructure","structure_receipt",
 ]
