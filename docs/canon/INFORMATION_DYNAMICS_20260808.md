@@ -4,7 +4,7 @@
 
 `PARTIAL_CANON / IMPLEMENTED_TESTED`
 
-This writeback records only the scope implemented and locally tested on 2026-08-08. It does not promote unresolved physical bindings.
+This writeback records only the scope implemented and tested in the 2026-08-08 closure line. It does not promote unresolved physical bindings.
 
 ## Relational ethics
 
@@ -23,6 +23,19 @@ Decision semantics use only the derived relational scalar. V36/M0–M11 are runt
 ## Distributional ethics
 
 Per-node and per-edge consequences are exposed. Pareto dominance removes only genuinely dominated alternatives; incomparable tradeoffs remain `UNRESOLVED` rather than receiving arbitrary welfare weights.
+
+## Relational autonomy v7
+
+Agency, consent, information asymmetry and coercion are now explicit operational observables:
+
+- consent statuses: `AFFIRMED | REFUSED | WITHDRAWN | UNKNOWN | NOT_APPLICABLE`;
+- active consent is the latest explicit evidence while the full chronology remains preserved;
+- `UNKNOWN` is never promoted to `AFFIRMED`;
+- information asymmetry is derived from explicit relevant/accessibility sets;
+- agency is represented by feasible and causally controlled action sets, not a metaphysical free-will score;
+- coercion is represented by supplied counterfactual evidence: threat contingent on refusal, removal of alternatives, or forced transition.
+
+Autonomy uses a partial order rather than a weighted moral sum. A higher `E_rel` cannot numerically compensate an explicit refusal/withdrawal/coercive constraint. Genuine tradeoffs remain `UNRESOLVED` unless a separate priority is canonized with provenance.
 
 ## N-body relational Green / Kepler sector
 
@@ -70,6 +83,20 @@ Current split:
 
 The implementation includes a conservative finite-volume update with local/global balance receipts. J0 sector semantics are provenance-declared; no threshold classifier infers them from vector magnitude.
 
+## Conservative field-node exchange
+
+The continuous field is now coupled to discrete relational information nodes without inventing a mechanical force coefficient.
+
+For an explicit source partition `sigma_I = sum_i sigma_i`, each node carries information content `Q_i` with
+
+`dQ_i/dt = - integral sigma_i dV`.
+
+Therefore
+
+`d/dt [ integral rho_I dV + sum_i Q_i ] = - boundary_outflow`.
+
+The implementation rejects unattributed source partitions: every node source must map to exactly one declared node. This closes information bookkeeping across field and relational nodes. It does **not** identify `Q_i` with mass/energy/momentum and does not yet generate acceleration.
+
 ## Epistemic firewall
 
 The following are not equivalent:
@@ -90,6 +117,6 @@ They must not be used as fit targets.
 ## Remaining open work
 
 1. Bind each runtime J0 contribution to a derived/measured TIR source.
-2. Couple information-current dynamics back to relational-body state without inserting an arbitrary force coefficient.
+2. Derive the mechanical/canonical backreaction of information current on relational-body state from the action/Noether structure, rather than inserting a force coefficient.
 3. Derive source/coupling normalization from TIR rather than fitting it.
 4. Only after that evaluate the preregistered delta and statistical significance.
