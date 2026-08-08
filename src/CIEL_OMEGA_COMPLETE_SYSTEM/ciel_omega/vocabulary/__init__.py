@@ -120,3 +120,9 @@ from .relational_information_exchange import (
     RelationalInformationNode, ExchangeReceipt,
     partition_source_density, conservative_exchange_step,
 )
+from .canonical_information_backreaction import (
+    CanonicalRelationalState, HamiltonianGeometry,
+    covariant_momentum, phase_velocity, hamiltonian, hamilton_equations,
+    curvature_tensor, covariant_momentum_rate_flat_metric,
+    BackreactionReceipt, backreaction_receipt,
+)
