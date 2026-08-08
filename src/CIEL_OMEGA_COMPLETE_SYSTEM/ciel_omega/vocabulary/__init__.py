@@ -56,8 +56,8 @@ from .nbody_kepler_relational import (
 )
 from .nbody_kepler_canon import (
     CanonNode, DIRECT_TIR_LOCAL, RECIPROCAL_OVERLAP, DIM_GREEN, N3_KEPLER,
-    B3_RADIAL_OBSERVABLE, FINITE_PHASE_CHARGE, TIR_FIELD_LIFT, TIR_FLUX_BINDING,
-    USER_DELTA, USER_SIGMA, CANON_NODES,
+    B3_RADIAL_OBSERVABLE, FINITE_PHASE_CHARGE, EMBEDDED_FIELD_LIFT, GENERAL_FIELD_LIFT,
+    TIR_FLUX_BINDING, USER_DELTA, USER_SIGMA, CANON_NODES,
 )
 from .nbody_kepler_noether_bridge import tetrahedral_vertices, tetrahedral_first_moment, tetrahedral_second_moment, tetrahedral_isotropic_second_moment, radial_current_3d, inverse_distance_potential_from_flux
 from .nbody_kepler_hodge_bridge import radial_green_current, rotational_holonomy_current, radial_component, tangential_component, sphere_flux_monte_carlo, SectorReport, validate_sector_superposition, matched_amplitude_from_phase_inertia
@@ -83,7 +83,8 @@ from .phase_first_geometry import (
     berry_connection, berry_connection_derivatives, berry_curvature_matrix, poincare_disk_metric,
     poincare_disk_inverse_metric, poincare_disk_inverse_metric_derivatives, direct_sum_metric,
     direct_sum_inverse_metric, direct_sum_inverse_metric_derivatives, source_connection_and_derivatives,
-    build_source_hamiltonian_geometry, ExplicitGeometryReceipt, geometry_receipt,
+    build_source_hamiltonian_geometry, build_local_tir_hamiltonian_geometry,
+    ExplicitGeometryReceipt, geometry_receipt,
 )
 from .abe_euler_connection import (
     SPIN_HALF, aharonov_bohm_connection, euler_connection, total_abe_connection,
@@ -94,4 +95,10 @@ from .relational_information_metric import (
     global_phase_projector, local_relational_metric, local_relational_metric_pseudoinverse,
     horizontalize, quadratic_action, exact_overlap_action, single_coordinate_quadratic_coefficient,
     RelationalMetricReceipt, metric_receipt,
+)
+from .rotor_field_lift import (
+    rotor_field_amplitude, embed_rotor_field,
+    noether_current_from_covariant_phase_gradient, scalar_field_current_from_amplitude,
+    embedding_current_residual, radial_phase_gradient, radial_phase_profile,
+    radial_flux_from_gradient, RotorFieldLiftReceipt, lift_receipt,
 )
