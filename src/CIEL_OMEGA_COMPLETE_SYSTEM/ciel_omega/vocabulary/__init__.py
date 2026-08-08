@@ -77,7 +77,8 @@ from .information_phase_generator import (
     KAPPA_INFORMATION, information_generator_expectation, generator_expectation_from_killing_state,
     semiclassical_intention_charge, free_phase_hamiltonian_expectation, PhaseOffsetBinding,
     bind_phase_offset_to_information_generator, bind_phase_offset_from_killing_state,
-    build_canonical_state_with_information_offset, block_diagonal_metric, FullPhaseFirstStructure, structure_receipt,
+    bind_phase_offset_from_contract, build_canonical_state_with_information_offset,
+    block_diagonal_metric, FullPhaseFirstStructure, structure_receipt,
 )
 from .phase_first_geometry import (
     fubini_study_metric, fubini_study_inverse_metric, fubini_study_inverse_metric_derivatives,
@@ -106,4 +107,10 @@ from .rotor_field_lift import (
 from .killing_information_generator import (
     fourier_killing_operator, killing_expectation, apply_killing_operator,
     is_hermitian_operator, KillingGeneratorReceipt, generator_receipt,
+)
+from .generator_input_contract import (
+    InputStatus, CANON_ADMISSIBLE, ProvenancedScalarInput, GeneratorInputContract,
+    CanonicalInputError, assert_canonical_generator_inputs,
+    reference_rhythm_input, open_fluctuation_input, derived_killing_expectation_input,
+    GeneratorAdmissionReceipt, admission_receipt,
 )
