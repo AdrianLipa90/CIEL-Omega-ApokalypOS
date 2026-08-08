@@ -1,4 +1,5 @@
 """Regression tests for information-generator epistemic admission contract."""
+import numpy as np
 import pytest
 
 from src.CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.generator_input_contract import (
@@ -6,6 +7,9 @@ from src.CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.generator_input_contra
     CanonicalInputError, assert_canonical_generator_inputs,
     reference_rhythm_input, open_fluctuation_input, derived_killing_expectation_input,
     admission_receipt,
+)
+from src.CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.vocabulary.information_phase_generator import (
+    bind_phase_offset_from_contract, KAPPA_INFORMATION,
 )
 
 
@@ -20,8 +24,26 @@ def test_reference_rhythm_and_open_fluctuation_block_canon_execution():
     assert not c.canon_ready
     with pytest.raises(CanonicalInputError):
         assert_canonical_generator_inputs(c)
+    with pytest.raises(CanonicalInputError):
+        bind_phase_offset_from_contract(c,hbar=1.0,require_canonical=True)
     r=admission_receipt(c)
     assert r.decision=="EXPERIMENTAL_ONLY__CANON_BLOCKED"
+
+
+def test_same_open_inputs_can_execute_only_as_explicit_experiment():
+    c=GeneratorInputContract(
+        derived_killing_expectation_input(2.0,"W=-iL_V"),
+        reference_rhythm_input(1.25,"reference rhythm"),
+        open_fluctuation_input(0.1,"hypothesis fluctuation"),
+        axis_provenance="supplied candidate axis",
+    )
+    b,r=bind_phase_offset_from_contract(c,hbar=2.0,require_canonical=False)
+    expected_I=2.0*KAPPA_INFORMATION+0.1
+    assert np.isclose(b.I_expectation,expected_I)
+    assert np.isclose(b.J0_phase_offset,2.0*1.25*expected_I)
+    assert r.decision=="EXPERIMENTAL_ONLY__CANON_BLOCKED"
+    assert b.rho_status=="REFERENCE_RULE"
+    assert b.fluctuation_status=="HYPOTHESIS"
 
 
 def test_formal_rhythm_condition_requires_positive_value():
@@ -43,7 +65,10 @@ def test_only_provenance_bearing_admissible_inputs_pass_canon_gate():
     )
     assert c.canon_ready
     assert_canonical_generator_inputs(c)
-    assert admission_receipt(c).decision=="CANON_EXECUTION_ALLOWED"
+    b,r=bind_phase_offset_from_contract(c,hbar=1.0,require_canonical=True)
+    assert r.decision=="CANON_EXECUTION_ALLOWED"
+    assert b.rho_status=="DERIVED"
+    assert b.fluctuation_status=="MEASURED"
 
 
 def test_conventional_or_fixture_inputs_do_not_become_canonical():
