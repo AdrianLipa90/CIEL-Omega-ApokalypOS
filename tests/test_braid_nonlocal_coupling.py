@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import subprocess
 import sys
 import pytest
@@ -107,20 +108,28 @@ def test_orbital_diagnostics_consumes_cards() -> None:
 def test_unified_cycle_exposes_braid_nonlocal_coupling() -> None:
     if not (OMEGA_ROOT / "bootstrap_runtime.py").exists():
         pytest.skip("snapshot missing bootstrap_runtime.py; skipping executable surface smoke test")
-    proc = subprocess.run(
-        [
-            sys.executable,
-            str(OMEGA_ROOT / "unified_system.py"),
-            "--mode",
-            "cycle",
-            "--text",
-            "braid nonlocal coupling runtime visibility",
-        ],
-        cwd=str(ROOT),
-        check=True,
-        capture_output=True,
-        text=True,
-    )
+    env = os.environ.copy()
+    env["CIEL_UNIFIED_TRACE"] = "1"
+    try:
+        proc = subprocess.run(
+            [
+                sys.executable,
+                str(OMEGA_ROOT / "unified_system.py"),
+                "--mode",
+                "cycle",
+                "--text",
+                "braid nonlocal coupling runtime visibility",
+            ],
+            cwd=str(ROOT),
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=20,
+            env=env,
+        )
+    except subprocess.TimeoutExpired as exc:
+        stderr = exc.stderr.decode() if isinstance(exc.stderr, bytes) else (exc.stderr or "")
+        pytest.fail(f"unified cycle timed out; stage trace:\n{stderr}")
     payload = json.loads(proc.stdout)
     assert "braid_nonlocal_coupling" in payload
     assert "cards" in payload["braid_nonlocal_coupling"]
