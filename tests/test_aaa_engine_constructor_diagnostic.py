@@ -16,7 +16,9 @@ def test_engine_default_factories_construct_without_hang() -> None:
 import sys
 from pathlib import Path
 root = Path.cwd() / "src" / "CIEL_OMEGA_COMPLETE_SYSTEM"
+omega = root / "ciel_omega"
 sys.path.insert(0, str(root))
+sys.path.insert(0, str(omega))
 
 def mark(name):
     print(name, file=sys.stderr, flush=True)
