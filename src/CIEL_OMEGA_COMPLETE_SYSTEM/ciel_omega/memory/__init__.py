@@ -7,12 +7,6 @@ Copyright (c) 2025 Adrian Lipa / Intention Lab
 Licensed under the CIEL Research Non-Commercial License v1.1.
 """
 
-# Load the canonical orchestrator first.  It imports its dependencies directly
-# from sibling modules, so package-level compatibility imports below cannot
-# observe a partially initialized ``ciel_omega.memory`` without the primary
-# runtime symbol being established.
-from .orchestrator import HolonomicMemoryOrchestrator
-
 from .base import (
     PhaseState,
     MemoryChannelParams,
@@ -81,6 +75,8 @@ from .orchestrator_types import (
     OrchestratorCycleResult,
     OrchestratorSnapshot,
 )
+from .orchestrator import HolonomicMemoryOrchestrator
+
 
 from .affective_memory import AffectiveEthicalMemory
 from .affective_types import (
