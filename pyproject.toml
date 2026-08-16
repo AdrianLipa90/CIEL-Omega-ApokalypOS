@@ -17,6 +17,7 @@ dependencies = [
   "numpy>=1.26",
   "scipy>=1.14",
   "h5py>=3.10",
+  "psutil>=7.2.2",
 ]
 
 [project.optional-dependencies]
@@ -84,6 +85,10 @@ select = ["F"]
 
 [tool.pytest.ini_options]
 addopts = "-q"
+pythonpath = [
+  "src/CIEL_OMEGA_COMPLETE_SYSTEM",
+  ".",
+]
 testpaths = [
   "tests",
   "src/ciel_rh_control_mini_repo/tests",
