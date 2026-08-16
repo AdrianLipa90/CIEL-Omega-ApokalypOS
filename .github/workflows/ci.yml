@@ -11,6 +11,7 @@ env:
 jobs:
   test-and-quality:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
 
@@ -30,4 +31,4 @@ jobs:
         run: ruff check src/ciel_sot_agent
 
       - name: Pytest
-        run: pytest
+        run: pytest -vv --timeout=180 --timeout-method=signal
