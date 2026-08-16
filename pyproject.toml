@@ -84,7 +84,7 @@ exclude = [
 select = ["F"]
 
 [tool.pytest.ini_options]
-addopts = "-q"
+addopts = "-q --import-mode=importlib"
 pythonpath = [
   "src/CIEL_OMEGA_COMPLETE_SYSTEM",
   ".",
