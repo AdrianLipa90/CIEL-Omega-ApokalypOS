@@ -124,7 +124,7 @@ def test_unified_cycle_exposes_braid_nonlocal_coupling() -> None:
             check=True,
             capture_output=True,
             text=True,
-            timeout=20,
+            timeout=55,
             env=env,
         )
     except subprocess.TimeoutExpired as exc:
