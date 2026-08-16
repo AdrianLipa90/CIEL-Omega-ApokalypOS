@@ -3,11 +3,11 @@
   "upstreams": [
     {
       "key": "agent",
-      "repo_full_name": "AdrianLipa90/CIEL-_SOT_Agent",
-      "branch": "main",
+      "repo_full_name": "AdrianLipa90/CIEL-Omega-ApokalypOS",
+      "branch": "codex/ciel-sync-2026-05-12",
       "enabled": true,
       "source_weight": 1.0,
-      "notes": "Integration attractor repo itself"
+      "notes": "Integration attractor repo itself; canonical repository name and current default branch"
     },
     {
       "key": "demo",
