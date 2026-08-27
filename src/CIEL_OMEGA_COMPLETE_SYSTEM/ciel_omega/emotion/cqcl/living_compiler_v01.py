@@ -8,7 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 import math
-from typing import Any, Mapping, Optional
+from typing import Any, Mapping, Optional, Sequence
 
 from .living_program_v01 import CQCL_Living_Program
 
@@ -45,6 +45,40 @@ def _finite(value: Any, name: str) -> float:
     return x
 
 
+def _validate_active_terms(rows: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    if len(rows) > MAX_ACTIVE_TERMS:
+        raise CQCLLivingError("NEXUS activation active set exceeds v0.1 bound")
+    seen: set[str] = set()
+    out: list[dict[str, Any]] = []
+    for raw in rows:
+        term_id = str(raw["term_id"])
+        if not term_id or term_id in seen:
+            raise CQCLLivingError("active term IDs must be non-empty and unique")
+        seen.add(term_id)
+        coherence = _finite(raw["coherence"], f"{term_id}.coherence")
+        distance = _finite(raw["angular_distance"], f"{term_id}.angular_distance")
+        if not 0.0 <= coherence <= 1.0:
+            raise CQCLLivingError("active coherence outside [0,1]")
+        if distance < 0.0:
+            raise CQCLLivingError("active angular distance must be non-negative")
+        if bool(raw.get("authority_grant", False)):
+            raise CQCLLivingError("active term attempted authority grant")
+        if bool(raw.get("semantic_equivalence", False)):
+            raise CQCLLivingError("active term attempted semantic equivalence")
+        out.append({
+            "term_id": term_id,
+            "name": str(raw.get("name", term_id)),
+            "phase_index": int(raw.get("phase_index", 0)),
+            "coherence": coherence,
+            "phase": _finite(raw["phase"], f"{term_id}.phase"),
+            "informational_action": _finite(raw["informational_action"], f"{term_id}.informational_action"),
+            "angular_distance": distance,
+            "semantic_equivalence": False,
+            "authority_grant": False,
+        })
+    return out
+
+
 def _verify_activation_binding(raw: Mapping[str, Any]) -> dict[str, Any]:
     if raw.get("schema") != ACTIVATION_SCHEMA:
         raise CQCLLivingError("unsupported NEXUS activation schema")
@@ -57,6 +91,13 @@ def _verify_activation_binding(raw: Mapping[str, Any]) -> dict[str, Any]:
     expected = hashlib.sha256(b"PNV-NEXUS-ACTIVATION/v0.1\x00" + _canonical(core)).hexdigest()
     if supplied != expected:
         raise CQCLLivingError("NEXUS activation binding hash mismatch")
+    dictionary = raw["dictionary"]
+    _hex(dictionary["commit"], 20, "dictionary.commit")
+    _hex(dictionary["state_sha256"], 32, "dictionary.state_sha256")
+    _hex(dictionary["relation_sha256"], 32, "dictionary.relation_sha256")
+    if int(dictionary["states"]) <= 0 or int(dictionary["relations"]) < 0:
+        raise CQCLLivingError("invalid Dictionary counts")
+    _validate_active_terms(raw.get("active_terms", ()))
     return dict(raw)
 
 
@@ -71,14 +112,19 @@ def _activation_checkpoint(checkpoint: Mapping[str, Any]) -> tuple[dict[str, Any
         raise CQCLLivingError("State Memory checkpoint is missing living-memory bindings") from exc
     if crystal.get("schema") != "PNV-T36-CRYSTAL-CONTEXT/0.1":
         raise CQCLLivingError("unsupported T36 crystal context")
+    phase_index = int(crystal["phase_index"])
+    if int(crystal.get("spinor_sheet", phase_index & 1)) != (phase_index & 1):
+        raise CQCLLivingError("T36 spinor sheet mismatch")
     if activation["crystal"]["crystal_id"] != crystal["crystal_id"]:
         raise CQCLLivingError("activation/crystal CRYSTAL_ID mismatch")
     if activation["crystal"]["configuration_sha256"] != crystal["configuration_sha256"]:
         raise CQCLLivingError("activation/crystal configuration mismatch")
     if int(activation["crystal"]["boot_epoch"]) != int(crystal["boot_epoch"]):
         raise CQCLLivingError("activation/crystal boot epoch mismatch")
-    if int(activation["crystal"]["phase_index"]) != int(crystal["phase_index"]):
+    if int(activation["crystal"]["phase_index"]) != phase_index:
         raise CQCLLivingError("activation/crystal phase index mismatch")
+    if int(activation["crystal"].get("spinor_sheet", phase_index & 1)) != (phase_index & 1):
+        raise CQCLLivingError("activation/crystal spinor sheet mismatch")
     return {"object_id": object_id, **dict(checkpoint)}, activation
 
 
@@ -135,23 +181,15 @@ def compile_living_program(
     htri = _htri(htri_binding)
     candidate = _candidate(intention_candidate)
 
-    active_terms = list(activation.get("active_terms", ()))
-    if len(active_terms) > MAX_ACTIVE_TERMS:
-        raise CQCLLivingError("NEXUS activation active set exceeds v0.1 bound")
-    if not active_terms:
-        active_mean = 0.0
-        active_max = 0.0
-    else:
-        values = [_finite(row["coherence"], "active coherence") for row in active_terms]
-        if any(x < 0.0 or x > 1.0 for x in values):
-            raise CQCLLivingError("active coherence outside [0,1]")
-        active_mean = math.fsum(values) / len(values)
-        active_max = max(values)
+    active_terms = _validate_active_terms(activation.get("active_terms", ()))
+    values = [row["coherence"] for row in active_terms]
+    active_mean = math.fsum(values) / len(values) if values else 0.0
+    active_max = max(values) if values else 0.0
 
     nexus_coherence = _finite(activation["nexus_coherence"], "nexus_coherence")
     if not 0.0 <= nexus_coherence <= 1.0:
         raise CQCLLivingError("nexus_coherence outside [0,1]")
-    # Parameter-free bounded coupling statistic. It is evidence only.
+    # Parameter-free bounded coupling statistic. It remains evidence only.
     coupled_coherence = math.sqrt(nexus_coherence * htri["coherence"])
 
     crystal = dict(activation["crystal"])
@@ -160,7 +198,7 @@ def compile_living_program(
         "root": "CURRENT_RELATIONAL_INTENTION_STATE",
         "source_activation_object_id": checkpoint["object_id"],
         "nexus_generation_id": activation["nexus_generation_id"],
-        "active_term_ids": [str(row["term_id"]) for row in active_terms],
+        "active_term_ids": [row["term_id"] for row in active_terms],
         "candidate_id": None if candidate is None else candidate["candidate_id"],
         "dictionary_compile": {
             "commit": dictionary["commit"],
@@ -208,8 +246,4 @@ def compile_living_program(
     return CQCL_Living_Program(program_id=program_id, **core)
 
 
-__all__ = [
-    "CQCLLivingError",
-    "CQCL_Living_Program",
-    "compile_living_program",
-]
+__all__ = ["CQCLLivingError", "CQCL_Living_Program", "compile_living_program"]
