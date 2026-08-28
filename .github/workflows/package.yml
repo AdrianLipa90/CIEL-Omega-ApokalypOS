@@ -2,7 +2,6 @@ name: package
 
 on:
   push:
-    branches: [main]
     tags: ["v*"]
   workflow_dispatch:
 
@@ -29,6 +28,7 @@ jobs:
         with:
           name: ciel-sot-agent-deb
           path: dist/*.deb
+          retention-days: 7
           if-no-files-found: error
 
   # ────────────────────────────────────────────────────────────────[...]
@@ -136,4 +136,5 @@ jobs:
         with:
           name: ciel-orbital-control-apk
           path: dist/*.apk
+          retention-days: 7
           if-no-files-found: error
