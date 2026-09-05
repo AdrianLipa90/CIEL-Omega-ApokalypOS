@@ -25,5 +25,5 @@ jobs:
       - name: Run verbose pytest under hard diagnostic timeout
         run: |
           set -o pipefail
-          # Bounded second pass after tmp_path isolation repair.
+          # Bounded third pass after nested Omega dependency repair.
           timeout --signal=TERM --kill-after=15s 300s pytest -vv -x -s
