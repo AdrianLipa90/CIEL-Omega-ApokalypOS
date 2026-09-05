@@ -1,24 +1,55 @@
-"""CIEL/Ω Memory — Unified orchestrator: capture → TMP → bifurcation → durable.
+"""CIEL/Ω Memory — unified orchestrator compatibility surface.
 
-Split from: unified_memory.py (lines 478–601)
+The canonical implementation lives in ``unified_memory.py``.  Importing the
+legacy braid runtime during constructor startup can perform heavyweight runtime
+initialisation before the first memory capture.  This compatibility surface
+keeps memory construction deterministic and defers braid activation to the
+explicit braid/nonlocal layers used by the engine.
 """
 from __future__ import annotations
-import datetime as dt
-import json
-import uuid
-from pathlib import Path
-from typing import Any, Dict, List, Optional
-from memory.monolith.data_types import DataVector, MemoriseD
-from memory.monolith.defaults import (
-    DEFAULT_HEURISTICS_SELF,
-    DEFAULT_HEURISTICS_USER,
-    DEFAULT_RULES_IMMUTABLE,
-)
-from memory.monolith.tmp_processor import TMPKernel
-from memory.monolith.tsm_storage import TSMWriterSQL
-from memory.monolith.wpm_storage import WPMWriterHDF5
 
-# Canonical imports replacing duplicate local definitions
-from memory.monolith.unified_memory import UnifiedMemoryOrchestrator
+import sys
+from typing import Any
 
-_SYSTEM_ROOT = Path(__file__).resolve().parents[3]
+from memory.monolith import unified_memory as _canonical
+
+
+class UnifiedMemoryOrchestrator(_canonical.UnifiedMemoryOrchestrator):
+    """Construct canonical memory without eager legacy braid-runtime boot.
+
+    CIEL already owns explicit braid and nonlocal runtime surfaces.  The
+    monolith's optional legacy adapter is therefore not required during object
+    construction and, on CI hosts, can block constructor completion.  We make
+    those optional imports unavailable only for the duration of ``super``
+    construction, then restore the process import state exactly.
+    """
+
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
+        sentinel = object()
+        adapter_key = "core.braid.adapter"
+        defaults_key = "core.braid.defaults"
+        old_adapter_module = sys.modules.get(adapter_key, sentinel)
+        old_defaults_module = sys.modules.get(defaults_key, sentinel)
+        old_adapter = _canonical.KernelAdapter
+        old_make_default_runtime = _canonical.make_default_runtime
+
+        try:
+            _canonical.KernelAdapter = None
+            _canonical.make_default_runtime = None
+            sys.modules[adapter_key] = None
+            sys.modules[defaults_key] = None
+            super().__init__(*args, **kwargs)
+        finally:
+            _canonical.KernelAdapter = old_adapter
+            _canonical.make_default_runtime = old_make_default_runtime
+            if old_adapter_module is sentinel:
+                sys.modules.pop(adapter_key, None)
+            else:
+                sys.modules[adapter_key] = old_adapter_module
+            if old_defaults_module is sentinel:
+                sys.modules.pop(defaults_key, None)
+            else:
+                sys.modules[defaults_key] = old_defaults_module
+
+
+__all__ = ["UnifiedMemoryOrchestrator"]

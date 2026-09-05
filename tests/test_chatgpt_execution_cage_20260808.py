@@ -9,8 +9,8 @@ from src.CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.chatgpt_execution_cage im
 
 
 def _seed_surface(root: Path):
-    root.mkdir(parents=True)
-    (root/"session").mkdir()
+    root.mkdir(parents=True, exist_ok=True)
+    (root/"session").mkdir(exist_ok=True)
     (root/"ciel_binding_status").write_text("ACTIVE")
     payload=struct.pack("<36d", *[float(i) for i in range(36)])
     for name in ("phi","aux_phi","aux_feedback_phi"):
