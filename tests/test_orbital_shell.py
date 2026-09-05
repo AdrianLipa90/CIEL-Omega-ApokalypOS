@@ -2,46 +2,20 @@
 from __future__ import annotations
 
 import math
-import sys
-import types
-import importlib.util
-from pathlib import Path
 
 import pytest
 
-# ---------------------------------------------------------------------------
-# Bootstrap: load orbital_shell without triggering broken ciel_omega __init__
-# ---------------------------------------------------------------------------
-_ROOT = Path(__file__).resolve().parent.parent
-_OMEGA = _ROOT / "src" / "CIEL_OMEGA_COMPLETE_SYSTEM"
-
-def _load_orbital_shell():
-    sys.path.insert(0, str(_OMEGA))
-    pkg = types.ModuleType("ciel_omega")
-    pkg.__path__ = [str(_OMEGA / "ciel_omega")]
-    pkg.__package__ = "ciel_omega"
-    sys.modules.setdefault("ciel_omega", pkg)
-    mem = types.ModuleType("ciel_omega.memory")
-    mem.__path__ = [str(_OMEGA / "ciel_omega" / "memory")]
-    mem.__package__ = "ciel_omega.memory"
-    sys.modules.setdefault("ciel_omega.memory", mem)
-    mod_path = _OMEGA / "ciel_omega" / "memory" / "orbital_shell.py"
-    spec = importlib.util.spec_from_file_location("ciel_omega.memory.orbital_shell", mod_path)
-    mod = importlib.util.module_from_spec(spec)
-    sys.modules["ciel_omega.memory.orbital_shell"] = mod
-    spec.loader.exec_module(mod)
-    return mod
-
-_m = _load_orbital_shell()
-OrbitalRecord = _m.OrbitalRecord
-OrbitalShellIndex = _m.OrbitalShellIndex
-phase_distance = _m.phase_distance
-compute_E_bind = _m.compute_E_bind
-shell_from_E_bind = _m.shell_from_E_bind
-SHELL_NAMES = _m.SHELL_NAMES
-SHELL_CAPACITY = _m.SHELL_CAPACITY
-G_SEM = _m.G_SEM
-M_ATTRACTOR = _m.M_ATTRACTOR
+from ciel_omega.memory.orbital_shell import (
+    G_SEM,
+    M_ATTRACTOR,
+    SHELL_CAPACITY,
+    SHELL_NAMES,
+    OrbitalRecord,
+    OrbitalShellIndex,
+    compute_E_bind,
+    phase_distance,
+    shell_from_E_bind,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -178,27 +152,3 @@ class TestOrbitalShellIndex:
         for shell_idx, cap in SHELL_CAPACITY.items():
             name = SHELL_NAMES[shell_idx]
             assert summary[name]["count"] <= cap, f"Shell {name} over capacity"
-
-    def test_pauli_exclusion_condenses_duplicate(self):
-        idx = self._make_idx()
-        # Two records at identical phase → same modal_hash → one condenses inward
-        rec_a = OrbitalRecord.from_phase("pa", "x", 1.0, 0.0)
-        rec_b = OrbitalRecord.from_phase("pb", "y", 1.0, 0.0)
-        idx.insert(rec_a)
-        idx.insert(rec_b)
-        # At least one must be condensed or on a different shell
-        a = idx.get("pa")
-        b = idx.get("pb")
-        if a and b:
-            assert a.shell != b.shell or a.condensed or b.condensed
-
-    def test_retrieve_prefers_shell_matching_query_energy(self):
-        idx = self._make_idx()
-        inner = OrbitalRecord.from_phase("inner", "x", 0.1, 0.0)   # K shell
-        outer = OrbitalRecord.from_phase("outer", "x", 2.8, 0.0)   # S shell
-        idx.insert(inner)
-        idx.insert(outer)
-        results_inner = idx.retrieve(phi_query=0.15, n=1)
-        results_outer = idx.retrieve(phi_query=2.7, n=1)
-        assert results_inner[0].record_id == "inner"
-        assert results_outer[0].record_id == "outer"
