@@ -9,7 +9,10 @@ from src.CIEL_OMEGA_COMPLETE_SYSTEM.ciel_omega.runtime.chatgpt_execution_cage im
 
 
 def _seed_surface(root: Path):
-    root.mkdir(parents=True)
+    # pytest's tmp_path fixture already creates the root directory.  The helper
+    # must be idempotent at that boundary so it can seed the supplied surface
+    # without failing on the fixture itself.
+    root.mkdir(parents=True, exist_ok=True)
     (root/"session").mkdir()
     (root/"ciel_binding_status").write_text("ACTIVE")
     payload=struct.pack("<36d", *[float(i) for i in range(36)])
