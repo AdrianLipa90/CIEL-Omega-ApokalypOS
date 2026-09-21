@@ -26,8 +26,9 @@ jobs:
           pip install -e .
 
       - name: Run live GH coupling
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        # All configured upstreams are public. Do not inject the repository-scoped
+        # Actions token into cross-repository reads: an installation token scoped
+        # to this repository can turn otherwise-public upstream reads into 404s.
         run: |
           python scripts/run_gh_repo_coupling.py
 
@@ -36,7 +37,7 @@ jobs:
           if ! git diff --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add integration/gh_coupling_state.json integration/gh_live_registry.json integration/reports/live_gh_coupling_report.json
+            git add integration/couplings/gh_coupling_state.json integration/upstreams/gh_live_registry.json integration/reports/live_gh_coupling_report.json
             git commit -m "Update live GH coupling state"
             git push
           fi
