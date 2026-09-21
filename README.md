@@ -19,14 +19,16 @@ ApocalypOS is an information-geometry stabilization runtime: a software layer th
 ## Quick start
 
 ```bash
+# Install the repository package and its declared dependencies
+python3 -m pip install -e .
+
 # System status
 python3 CIEL_CANON.py
 
 # Full pipeline
-PY=/home/adrian/Pulpit/CIEL_TESTY/venv/bin/python3
-$PY -m ciel_sot_agent.synchronize
-$PY -m ciel_sot_agent.orbital_bridge
-$PY -m ciel_sot_agent.ciel_pipeline
+ciel-sot-sync
+ciel-sot-orbital-bridge
+ciel-sot-ciel-pipeline
 
 # Subconsciousness (TinyLlama)
 python3 CIEL_CANON.py --sub start
@@ -55,7 +57,7 @@ Portal at `localhost:5050`. Subsystems: orbital state viewer, memory portal, con
 ## Role in the ecosystem
 
 CIEL-_SOT_Agent is the integration layer between theory (CIEL/0) and live orbital state.
-It connects: [ciel-omega-demo](https://github.com/AdrianLipa/ciel-omega-demo) (demo), canon, desktop, metatime repos.
+It connects: [ciel-omega-demo](https://github.com/AdrianLipa90/ciel-omega-demo) (demo), canon, desktop, metatime repos.
 
 ## Operational flow
 
