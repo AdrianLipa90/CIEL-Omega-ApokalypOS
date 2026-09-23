@@ -84,6 +84,7 @@ select = ["F"]
 
 [tool.pytest.ini_options]
 addopts = "-q"
+pythonpath = [".", "src/CIEL_OMEGA_COMPLETE_SYSTEM"]
 testpaths = [
   "tests",
   "src/ciel_rh_control_mini_repo/tests",
