@@ -39,23 +39,32 @@ except ImportError:
     from fields.soul_invariant import SoulInvariant  # type: ignore[no-redef]
 
 
-class CIELOrchestrator:
-    """Canonical top-level orchestrator for local CIEL/Ω operation.
+def _trace_stage(stage: str) -> None:
+    if os.environ.get("CIEL_UNIFIED_TRACE") == "1":
+        print(f"CIEL_ORCHESTRATOR_STAGE:{stage}", file=sys.stderr, flush=True)
 
-    This object does not replace subsystem orchestrators. It binds them into a
-    single human-facing control surface for one-shot processing and REPL tests.
-    """
+
+class CIELOrchestrator:
+    """Canonical top-level orchestrator for local CIEL/Ω operation."""
 
     def __init__(self, config: Optional[Dict[str, Any]] = None, *, boot: bool = True):
         self.config = config or {}
+        _trace_stage("engine:start")
         self.engine = CielEngine()
+        _trace_stage("engine:done")
         self.cqcl = EmotionalCollatzEngine()
+        _trace_stage("cqcl:done")
         self.soul = SoulInvariant()
+        _trace_stage("soul:done")
         self.intention = IntentionField()
+        _trace_stage("intention:done")
         self.schumann = SchumannClock()
+        _trace_stage("schumann:done")
         self.initialized = False
         if boot:
+            _trace_stage("boot:start")
             self.boot()
+            _trace_stage("boot:done")
 
     def boot(self) -> None:
         if self.initialized:
@@ -70,7 +79,6 @@ class CIELOrchestrator:
         self.initialized = False
 
     def ping(self) -> Dict[str, Any]:
-        """Minimal liveness probe for local tests."""
         return {
             'status': 'ok' if self.initialized else 'cold',
             'component': 'CIELOrchestrator',
@@ -103,7 +111,6 @@ class CIELOrchestrator:
         limit: int = 25,
         write: bool = False,
     ) -> Dict[str, Any]:
-        """Inspect repository files through the NOEMA semantic file-sense layer."""
         from ciel_sot_agent.noema_file_sense import inspect_registry
 
         report = inspect_registry(
@@ -258,7 +265,7 @@ def main(argv: Optional[list[str]] = None) -> int:
             print(json.dumps(orchestrator.ping(), ensure_ascii=False, indent=2))
             return 0
         if args.mode == 'file-sense':
-            report = orchestrator.inspect_file_sense(
+            print(json.dumps(orchestrator.inspect_file_sense(
                 file_type=args.file_type,
                 location=args.location,
                 subsystem=args.subsystem,
@@ -268,15 +275,17 @@ def main(argv: Optional[list[str]] = None) -> int:
                 path_prefix=args.path_prefix,
                 limit=args.limit,
                 write=args.write_registry,
-            )
-            print(json.dumps(report, ensure_ascii=False, indent=2))
+            ), ensure_ascii=False, indent=2))
             return 0
-        if not args.text:
-            parser.error('--text is required in process mode')
-        result = orchestrator.process(args.text, verbose=True)
-        if args.output:
-            with open(args.output, 'w', encoding='utf-8') as f:
-                json.dump(result, f, ensure_ascii=False, indent=2)
+        if args.mode == 'process':
+            if not args.text:
+                parser.error('--text is required for process mode')
+            result = orchestrator.process(args.text, verbose=False)
+            payload = json.dumps(result, ensure_ascii=False, indent=2)
+            if args.output:
+                Path(args.output).write_text(payload + '\n', encoding='utf-8')
+            print(payload)
+            return 0
         return 0
     finally:
         orchestrator.shutdown()

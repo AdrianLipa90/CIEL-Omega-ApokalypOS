@@ -51,7 +51,11 @@ def create_app(root: str | Path | None = None, debug: bool = False) -> Flask:
     except (RuntimeError, FileNotFoundError):
         app.config["SATELLITE_AUTHORITY"] = {"subsystem_id": "SAT-SAPIENS-0001", "authorized": False}
 
-    register_routes(app)
+    # Route registration computes a small amount of app-root-derived state.
+    # Keep that construction inside an application context while request-time
+    # helpers continue to use Flask's current_app normally.
+    with app.app_context():
+        register_routes(app)
     return app
 
 

@@ -21,7 +21,7 @@ def test_score_consolidation_penalizes_empty_fields() -> None:
 def test_reconsolidation_prompt_mentions_previous_issues() -> None:
     prompt = consolidator._reconsolidation_prompt("content here", "previous raw", ["essence_empty"])
     assert "essence_empty" in prompt
-    assert "Popraw poprzednią konsolidację pamięci" in prompt
+    assert "Fix the previous memory consolidation" in prompt
 
 
 def test_derive_failure_reason_prioritizes_primary_cause() -> None:
