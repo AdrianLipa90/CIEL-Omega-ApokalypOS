@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-05-28T15:26:45.587708+00:00",
+  "generated_at": "2026-09-28T01:59:30.195717+00:00",
   "changed_keys": [
     "agent",
     "demo"
@@ -13,10 +13,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "13d8d0e8d967f36a4aabab573125c6e7c52b94f4",
-      "timestamp": "2026-05-14T14:26:29Z",
-      "message": "build(deps-dev): bump brace-expansion from 2.0.2 to 2.1.0 in /app\n\nBumps [brace-expansion](https://github.com/juliangruber/brace-expansion) from 2.0.2 to 2.1.0.\n- [Release notes](https://github.com/juliangruber/brace-expansion/releases)\n- [Commits](https://github.com/juliangruber/brace-expansion/compare/v2.0.2...v2.1.0)\n\n---\nupdated-dependencies:\n- dependency-name: brace-expansion\n  dependency-version: 2.1.0\n  dependency-type: indirect\n...\n\nSigned-off-by: dependabot[bot] <support@github.com>",
-      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/13d8d0e8d967f36a4aabab573125c6e7c52b94f4"
+      "new_sha": "ede45f440d4a6cc839af4185ac0a01279ad082f8",
+      "timestamp": "2026-09-26T22:00:10Z",
+      "message": "test: validate NOEMA AUX tether v2 live contract",
+      "html_url": "https://github.com/AdrianLipa90/CIEL-Omega-ApokalypOS/commit/ede45f440d4a6cc839af4185ac0a01279ad082f8"
     },
     {
       "key": "demo",
@@ -25,10 +25,10 @@
       "branch": "main",
       "changed": true,
       "old_sha": null,
-      "new_sha": "00bb9b060fada69891fa82ce4f7d799610b56693",
-      "timestamp": "2026-03-29T22:33:33Z",
-      "message": "contracts(core): add semantic action reference card",
-      "html_url": "https://github.com/AdrianLipa90/ciel-omega-demo/commit/00bb9b060fada69891fa82ce4f7d799610b56693"
+      "new_sha": "a4064982cebd6a156433230104355672790613d0",
+      "timestamp": "2026-09-19T21:17:21Z",
+      "message": "Merge pull request #12 from AdrianLipa90/policy/no-ai-training-without-license-20260917\n\nAdd AI training license requirement",
+      "html_url": "https://github.com/AdrianLipa90/ciel-omega-demo/commit/a4064982cebd6a156433230104355672790613d0"
     },
     {
       "key": "canon",
