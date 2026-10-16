@@ -10,6 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Optional
 import json
+import os
 import sys
 
 from bootstrap_runtime import ensure_runtime_paths
@@ -26,6 +27,11 @@ except Exception:
     from ciel_orchestrator import CIELOrchestrator
 
 
+def _trace_stage(stage: str) -> None:
+    if os.environ.get("CIEL_UNIFIED_TRACE") == "1":
+        print(f"CIEL_UNIFIED_STAGE:{stage}", file=sys.stderr, flush=True)
+
+
 def _build_braid_nonlocal_coupling(ciel_state: Dict[str, Any]) -> Dict[str, Any]:
     """Build braid_nonlocal_coupling payload from ciel_state nonlocal_runtime."""
     nr = ciel_state.get('nonlocal_runtime', {})
@@ -38,7 +44,6 @@ def _build_braid_nonlocal_coupling(ciel_state: Dict[str, Any]) -> Dict[str, Any]
     ]
     defects = [v.get('defect_magnitude', 0.0) for v in loops.values()]
     braid_weighted_closure = 1.0 - (sum(defects) / len(defects)) if defects else 0.0
-    # Inject braid_weighted_closure into euler_bridge euler_metrics if present
     eb = ciel_state.get('euler_bridge', {})
     if eb and 'euler_metrics' in eb:
         eb['euler_metrics']['braid_weighted_closure'] = braid_weighted_closure
@@ -67,10 +72,14 @@ class UnifiedSystem:
         model_path: Optional[str] = None,
         boot: bool = True,
     ) -> "UnifiedSystem":
+        _trace_stage("create:orchestrator:start")
         orchestrator = CIELOrchestrator(config=config or {}, boot=boot)
+        _trace_stage("create:orchestrator:done")
         client = CIELClient(model_path=model_path, boot=False)
+        _trace_stage("create:client:done")
         client.orchestrator = orchestrator
         bridge = MemoryCorePhaseBridge(identity_phase=identity_phase, grid_size=grid_size)
+        _trace_stage("create:bridge:done")
         return cls(orchestrator=orchestrator, client=client, bridge=bridge)
 
     def shutdown(self) -> None:
@@ -93,10 +102,14 @@ class UnifiedSystem:
         return result
 
     def run_text_cycle(self, text: str, metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        _trace_stage("cycle:bridge:start")
         cycle = self.bridge.step(text, metadata=metadata or {})
+        _trace_stage("cycle:bridge:done")
+        _trace_stage("cycle:orchestrator:start")
         process_result = self.orchestrator.process(text, verbose=False)
+        _trace_stage("cycle:orchestrator:done")
         ciel_state = process_result.get('ciel_state', {})
-        return {
+        result = {
             'surface': 'UnifiedSystem',
             'input_text': cycle.input_text,
             'memory_semantic_key': cycle.memory_semantic_key,
@@ -113,6 +126,8 @@ class UnifiedSystem:
             'engine_euler_bridge': ciel_state.get('euler_bridge', {}),
             'braid_nonlocal_coupling': _build_braid_nonlocal_coupling(ciel_state),
         }
+        _trace_stage("cycle:return")
+        return result
 
     def communicate(self, payload: Dict[str, Any]) -> Dict[str, Any]:
         action = str(payload.get('action', 'status')).strip().lower()
@@ -136,7 +151,9 @@ def main(argv: Optional[list[str]] = None) -> int:
     p.add_argument('--json-payload', type=str, help='JSON payload for json mode')
     args = p.parse_args(argv)
 
+    _trace_stage("main:create:start")
     system = UnifiedSystem.create()
+    _trace_stage("main:create:done")
     try:
         if args.mode == 'handshake':
             print(json.dumps(system.handshake(), ensure_ascii=False, indent=2))
@@ -159,7 +176,9 @@ def main(argv: Optional[list[str]] = None) -> int:
         print(json.dumps(system.communicate(json.loads(args.json_payload)), ensure_ascii=False, indent=2))
         return 0
     finally:
+        _trace_stage("main:shutdown:start")
         system.shutdown()
+        _trace_stage("main:shutdown:done")
 
 
 if __name__ == '__main__':
