@@ -1,6 +1,6 @@
 {
   "schema": "ciel-sot-agent/live-gh-coupling-report/v0.1",
-  "generated_at": "2026-11-21T03:52:03.398304+00:00",
+  "generated_at": "2026-11-21T12:04:40.538856+00:00",
   "changed_keys": [
     "agent",
     "demo"
