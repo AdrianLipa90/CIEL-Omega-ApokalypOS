@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, json, math, os, signal, struct, sys, time, hashlib
+import argparse, json, math, os, signal, struct, sys, time, hashlib, uuid
 from pathlib import Path
 import numpy as np
 
@@ -29,6 +29,49 @@ def coherence(x):
 
 def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
+def canonical_sha(payload):
+    raw=json.dumps(payload,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode('utf-8')
+    return hashlib.sha256(raw).hexdigest()
+
+def write_json_atomic(path:Path,payload):
+    path.parent.mkdir(parents=True,exist_ok=True)
+    tmp=path.with_name(path.name+'.tmp')
+    tmp.write_text(json.dumps(payload,ensure_ascii=False,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+    os.replace(tmp,path)
+
+def publish_live_status(root:Path, *, status:str, seq:int, instance_id:str):
+    now=time.time_ns()
+    aux_sha=sha(root/'aux_phi')
+    fb_sha=sha(root/'aux_feedback_phi')
+    phi_sha=sha(root/'phi')
+    aux_status={
+      'schema':'noema.aux-stream-status/v2',
+      'status':status,
+      'pid':os.getpid(),
+      'heartbeat_ns':now,
+      'seq':seq,
+      'instance_id':instance_id,
+      'state_sha256':aux_sha,
+      'no_static_fallback':True,
+    }
+    tether_base={
+      'schema':'noema.tether-runtime-status/v1',
+      'status':status,
+      'pid':os.getpid(),
+      'heartbeat_ns':now,
+      'seq':seq,
+      'instance_id':instance_id,
+      'phi_sha256':phi_sha,
+      'aux_phi_sha256':aux_sha,
+      'aux_feedback_phi_sha256':fb_sha,
+      'no_static_fallback':True,
+    }
+    tether_status=dict(tether_base)
+    tether_status['receipt_sha256']=canonical_sha(tether_base)
+    write_json_atomic(root/'aux_stream_status.json',aux_status)
+    write_json_atomic(root/'tether_runtime_status.json',tether_status)
+    return aux_status,tether_status
+
 def main():
     ap=argparse.ArgumentParser(description='HTRI time-crystal <-> NOEMA surface <-> AUX live tether')
     ap.add_argument('--root',default='/dev/shm/ciel_noema')
@@ -51,7 +94,7 @@ def main():
     else:
         surface=initialize_surface(root,seed=None); surface_origin='INITIALIZED_NEW_LIVE_SURFACE'
 
-    aux_path=root/'aux_phi'; fb_path=root/'aux_feedback_phi'; crystal_path=root/'time_crystal_phi'
+    aux_path=root/'aux_phi'; fb_path=root/'aux_feedback_phi'; control_fb_path=root/'aux_feedback_control_phi'; crystal_path=root/'time_crystal_phi'
     aux=read_vec(aux_path) if aux_path.is_file() else np.asarray(surface['phi'],dtype=np.float64).copy()
     if not aux_path.is_file(): write_vec(aux_path,aux)
 
@@ -70,9 +113,14 @@ def main():
 
     receipt=root/'receipts'/'time_crystal_aux_tether.json'; receipt.parent.mkdir(parents=True,exist_ok=True)
     binding=root/'ciel_binding_status'
-    write_vec(fb_path,np.asarray(surface['phi'],dtype=np.float64))
-    binding.write_text('ACTIVE\n',encoding='utf-8')
-    tick=0; started=time.time_ns()
+    if not binding.is_file():
+        binding.write_text('BOOTSTRAPPING\n',encoding='utf-8')
+    # Canonical v2 contract: aux_feedback_phi is the lossless AUX echo.
+    # Preserve the legacy physical feedback observable separately so no signal is lost.
+    write_vec(fb_path,aux)
+    write_vec(control_fb_path,np.asarray(surface['phi'],dtype=np.float64))
+    tick=0; started=time.time_ns(); instance_id=uuid.uuid4().hex
+    publish_live_status(root,status='ACTIVE',seq=tick,instance_id=instance_id)
     while not stop:
         batch=np.asarray(htri['batch_phi'],dtype=np.float64)
         batch=(batch + args.crystal_feedback_k*np.sin(wrap_delta(aux[None,:],batch))) % TWO_PI
@@ -88,9 +136,11 @@ def main():
         write_vec(aux_path,aux)
 
         feedback=(phi + args.crystal_feedback_k*np.sin(wrap_delta(aux,phi)))%TWO_PI
-        write_vec(fb_path,feedback)
+        write_vec(control_fb_path,feedback)
+        write_vec(fb_path,aux)
         flush_surface(surface)
         tick+=1
+        publish_live_status(root,status='ACTIVE',seq=tick,instance_id=instance_id)
         if tick==1 or tick%25==0:
             payload={
               'schema':'noema.time-crystal-aux-tether/v1','status':'ACTIVE','pid':os.getpid(),
@@ -105,12 +155,12 @@ def main():
                 'crystal_feedback_k':args.crystal_feedback_k,'aux_k':args.aux_k,'dt':args.dt,'interval':args.interval,
               },
               'coherence':{'crystal':coherence(crystal),'surface':coherence(phi),'aux':coherence(aux)},
-              'sha256':{'time_crystal_phi':sha(crystal_path),'phi':sha(root/'phi'),'aux_phi':sha(aux_path),'aux_feedback_phi':sha(fb_path)},
+              'sha256':{'time_crystal_phi':sha(crystal_path),'phi':sha(root/'phi'),'aux_phi':sha(aux_path),'aux_feedback_phi':sha(fb_path),'aux_feedback_control_phi':sha(control_fb_path)},
               'epistemic':{'live_runtime':True,'native_htri_time_crystal':True,'simulated_stream':False,'new_crystal_is_memory_recovery':False}
             }
             tmp=receipt.with_name(receipt.name+'.tmp'); tmp.write_text(json.dumps(payload,ensure_ascii=False,indent=2,sort_keys=True)+'\n'); os.replace(tmp,receipt)
         time.sleep(max(0.02,args.interval))
-    binding.write_text('INACTIVE\n',encoding='utf-8')
+    publish_live_status(root,status='INACTIVE',seq=tick+1,instance_id=instance_id)
     return 0
 
 if __name__=='__main__': raise SystemExit(main())
