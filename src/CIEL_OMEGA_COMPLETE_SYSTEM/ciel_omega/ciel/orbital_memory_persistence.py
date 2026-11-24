@@ -49,11 +49,16 @@ def iter_sector_events(path: Path) -> Iterable[Dict[str, Any]]:
     return events
 
 
-def restore_sector_memory(orchestrator: HolonomicMemoryOrchestrator, path: Optional[Path] = None, *, max_events: Optional[int] = None) -> int:
+def restore_sector_memory(
+    orchestrator: HolonomicMemoryOrchestrator,
+    path: Optional[Path] = None,
+    *,
+    max_events: Optional[int] = None,
+) -> int:
     store = path or default_orbital_memory_store()
     events = list(iter_sector_events(store))
     if max_events is not None:
-        events = events[-int(max_events):]
+        events = events[-int(max_events):] if int(max_events) > 0 else []
     restored = 0
     for event in events:
         content = event.get("content", "")
@@ -64,11 +69,27 @@ def restore_sector_memory(orchestrator: HolonomicMemoryOrchestrator, path: Optio
 
 
 class PersistentOrbitalSectorMemory:
-    def __init__(self, orchestrator: Optional[HolonomicMemoryOrchestrator] = None, store_path: Optional[Path] = None, *, replay_limit: Optional[int] = 256) -> None:
+    def __init__(
+        self,
+        orchestrator: Optional[HolonomicMemoryOrchestrator] = None,
+        store_path: Optional[Path] = None,
+        *,
+        replay_limit: Optional[int] = None,
+    ) -> None:
+        supplied_orchestrator = orchestrator is not None
         self.orchestrator = orchestrator or HolonomicMemoryOrchestrator()
         self.store_path = store_path or default_orbital_memory_store()
-        self.replay_limit = replay_limit
-        self.restored_events = restore_sector_memory(self.orchestrator, self.store_path, max_events=replay_limit)
+        # A caller that injects an already-live orchestrator (the CielEngine
+        # startup path) must not synchronously replay the persistent ledger in
+        # its constructor.  Standalone persistence objects retain the previous
+        # bounded replay behaviour, so explicit persistence/recovery tests and
+        # user-facing restores remain unchanged.
+        self.replay_limit = (0 if supplied_orchestrator else 256) if replay_limit is None else replay_limit
+        self.restored_events = restore_sector_memory(
+            self.orchestrator,
+            self.store_path,
+            max_events=self.replay_limit,
+        )
 
     def record(self, event: Dict[str, Any]) -> Dict[str, Any]:
         content = event.get("content", "")
