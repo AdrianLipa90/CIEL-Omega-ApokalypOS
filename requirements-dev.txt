@@ -1,6 +1,10 @@
 # Development dependencies for ciel-sot-agent — pinned lockfile
 # Install with: pip install -r requirements-dev.txt
 -r requirements.txt
+# The pytest contract also collects the nested CIEL/Omega package suite.
+# Install that local package so its own declared runtime dependencies
+# (matplotlib/networkx/sympy in addition to numpy/scipy) are present.
+-e ./src/CIEL_OMEGA_COMPLETE_SYSTEM/ciel_omega
 flask==3.1.3
 mypy==1.20.0
 pytest==9.0.2
